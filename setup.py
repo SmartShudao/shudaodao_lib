@@ -25,7 +25,11 @@ def _get_cython_extensions() -> list[Extension]:
         for c_file in package_path.rglob("*.c"):
             # 构建模块路径
             rel_path = c_file.relative_to(relative_path)
-            module_name = str(rel_path.with_suffix('')).replace('/', '.')
+            module_name = str(rel_path.with_suffix(''))
+            if "/" in module_name:
+                module_name = module_name.replace('/', '.')
+            if "\\" in module_name:
+                module_name = module_name.replace('\\', '.')
 
             compile_args = [] if os.name == 'nt' else ["-Wno-unreachable-code-fallthrough",
                                                        "-Wno-unused-function",
