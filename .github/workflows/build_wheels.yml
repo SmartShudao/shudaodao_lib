@@ -1,0 +1,73 @@
+name: Build wheels
+
+on:
+  push:
+    tags:
+      - "*" # 当推送标签时触发，例如 v1.0.0
+
+# 这是一个可选的环境变量配置，用于后续发布到 PyPI
+#env:
+#  CIBW_BEFORE_ALL: "..." # 可选：在所有构建之前运行的命令，例如安装系统依赖
+#  CIBW_BUILD_VERBOSITY: "1" # 控制构建输出的详细程度
+
+jobs:
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        # 选择需要构建的操作系统
+        os: [ubuntu-22.04, windows-2022, macos-12]
+        # 你也可以在这里定义 Python 版本矩阵，但通常更推荐在 cibuildwheel 内部配置
+        python-version: ["3.10"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: true # 如果你的项目包含子模块，请设置为 true
+
+      - name: Set up Python
+        # 这里只需要一个基础版本的 Python 来运行 cibuildwheel
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install cibuildwheel
+        run: pip install cibuildwheel==3.1.4 # 建议固定版本以保证稳定性
+
+      - name: Build wheels
+        # 使用 cibuildwheel 来构建所有指定平台的 wheels
+        run: python -m cibuildwheel --output-dir wheelhouse
+        # 你可以通过环境变量配置 cibuildwheel
+        env:
+          # 选择要构建的 Python 版本
+          CIBW_BUILD: "cp310-*"
+          # macOS 架构设置 (例如同时构建 x86_64 和 arm64)
+          CIBW_ARCHS_MACOS: "x86_64 arm64"
+          # 对于 Linux，cibuildwheel 默认使用 manylinux2014 镜像
+          # CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014" # 可选：指定镜像
+
+      - name: Upload wheels
+        uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.os }}
+          path: ./wheelhouse/*.whl
+
+  # (可选) 创建一个包含所有工件的 job，用于后续发布
+  build_sdist:
+    name: Build source distribution
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install build
+        run: pip install build
+      - name: Build sdist
+        run: python -m build --sdist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sdist
+          path: dist/*.tar.gz

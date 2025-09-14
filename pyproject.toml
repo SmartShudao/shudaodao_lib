@@ -47,21 +47,3 @@ dependencies = [
 requires = ["setuptools>=61", "wheel", "Cython>=3.0"]
 build-backend = "setuptools.build_meta"
 
-#[tool.setuptools]
-## 包含所有包，自动发现
-#packages = { find = { where = ["src"] } }
-### 包含数据文件
-#include-package-data = true
-##
-#[tool.setuptools.package-data]
-## 指定每个包中包含的文件类型
-#"*" = [
-#    "*.pyd",
-#    "*.so",
-#    "*.pyi",
-#    "*.py",
-#]
-
-#[[tool.uv.index]]
-#url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple/"
-#default = true
