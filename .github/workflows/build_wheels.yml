@@ -1,14 +1,17 @@
-name: Build wheels
+name: Build wheels with Cython
 
 on:
   push:
     tags:
-      - "*" # 当推送标签时触发，例如 v1.0.0
+      - "*"
+  # 可选：也允许手动触发进行测试
+  workflow_dispatch:
 
-# 这是一个可选的环境变量配置，用于后续发布到 PyPI
-#env:
-#  CIBW_BEFORE_ALL: "..." # 可选：在所有构建之前运行的命令，例如安装系统依赖
-#  CIBW_BUILD_VERBOSITY: "1" # 控制构建输出的详细程度
+env:
+  # 设置构建输出详细程度
+  CIBW_BUILD_VERBOSITY: 1
+  # 可选：如果你想在构建前看到更多信息
+  CIBW_BEFORE_BUILD: "python -c \"import cython; print(f'Using Cython {cython.__version__}')\""
 
 jobs:
   build_wheels:
@@ -16,10 +19,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # 选择需要构建的操作系统
-        os: [ubuntu-22.04, windows-2022, macos-12]
-        # 你也可以在这里定义 Python 版本矩阵，但通常更推荐在 cibuildwheel 内部配置
-        python-version: ["3.10"]
+        os: [ubuntu-22.04, windows-2022, macos-13]  # 更新了 macOS 版本
 
     steps:
       - name: Checkout code
@@ -33,20 +33,51 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install cibuildwheel
-        run: pip install cibuildwheel==3.1.4 # 建议固定版本以保证稳定性
+      - name: Install system dependencies (Linux)
+        if: matrix.os == 'ubuntu-22.04'
+        run: |
+          # 安装编译所需的系统依赖
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Install system dependencies (macOS)
+        if: matrix.os == 'macos-13'
+        run: |
+          # 确保命令行工具已安装
+          xcode-select --install || true
+
+      - name: Install cibuildwheel and Cython
+        run: |
+          # 安装 cibuildwheel 和 Cython
+          pip install cibuildwheel==3.1.4 cython>=3.1.2
+          # 验证 Cython 安装
+          python -c "import cython; print(f'Cython version: {cython.__version__}')"
 
       - name: Build wheels
         # 使用 cibuildwheel 来构建所有指定平台的 wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         # 你可以通过环境变量配置 cibuildwheel
         env:
-          # 选择要构建的 Python 版本
+          # 指定要构建的 Python 版本
           CIBW_BUILD: "cp310-*"
           # macOS 架构设置 (例如同时构建 x86_64 和 arm64)
           CIBW_ARCHS_MACOS: "x86_64 arm64"
-          # 对于 Linux，cibuildwheel 默认使用 manylinux2014 镜像
-          # CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014" # 可选：指定镜像
+
+          # 对于 Linux，确保使用足够新的 manylinux 镜像以支持较新的编译器
+          CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
+          CIBW_MANYLINUX_I686_IMAGE: "manylinux2014"
+          CIBW_MANYLINUX_PPC64LE_IMAGE: "manylinux2014"
+          CIBW_MANYLINUX_S390X_IMAGE: "manylinux2014"
+          CIBW_MANYLINUX_AARCH64_IMAGE: "manylinux2014"
+
+          # 可选：在构建每个 wheel 之前安装特定依赖
+          # CIBW_BEFORE_ALL_LINUX: "yum install -y some-package || apt-get install -y some-package || true"
+
+          # 确保 Cython 在每个构建环境中都可用
+          CIBW_BEFORE_BUILD: "pip install cython>=3.1.2"
+
+      - name: Show built wheels
+        run: ls -la wheelhouse/
 
       - name: Upload wheels
         uses: actions/upload-artifact@v4
@@ -54,7 +85,6 @@ jobs:
           name: wheels-${{ matrix.os }}
           path: ./wheelhouse/*.whl
 
-  # (可选) 创建一个包含所有工件的 job，用于后续发布
   build_sdist:
     name: Build source distribution
     runs-on: ubuntu-22.04
@@ -63,11 +93,43 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-      - name: Install build
-        run: pip install build
+      - name: Install build dependencies
+        run: pip install build cython>=3.0.0
       - name: Build sdist
         run: python -m build --sdist
       - uses: actions/upload-artifact@v4
         with:
           name: sdist
           path: dist/*.tar.gz
+
+#  # 可选：发布到 PyPI
+#  release:
+#    name: Release on PyPI
+#    runs-on: ubuntu-22.04
+#    if: startsWith(github.ref, 'refs/tags/')
+#    needs: [build_wheels, build_sdist]
+#    environment: release  # 可选：使用 GitHub Environment 进行更精细的权限控制
+#
+#    steps:
+#      - name: Download all artifacts
+#        uses: actions/download-artifact@v4
+#        with:
+#          path: dist
+#          pattern: '*'
+#          merge-multiple: true
+#
+#      - name: List downloaded files
+#        run: find dist -type f
+#
+#      - name: Combine wheel artifacts
+#        run: |
+#          mkdir -p combined_wheels
+#          find dist -name "*.whl" -exec cp {} combined_wheels/ \;
+#          ls -la combined_wheels/
+#
+#      - name: Publish to PyPI
+#        uses: pypa/gh-action-pypi-publish@release/v1
+#        with:
+#          packages-dir: combined_wheels/
+#          user: __token__
+#          password: ${{ secrets.PYPI_API_TOKEN }}
