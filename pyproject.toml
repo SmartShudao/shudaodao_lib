@@ -1,6 +1,6 @@
 [project]
 name = "shudaodao"
-version = "0.1.1"
+version = "0.1.2"
 description = "SmartShudao"
 readme = "README.md"
 authors = [
