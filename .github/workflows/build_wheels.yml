@@ -3,7 +3,7 @@ name: Build wheels with Cython
 on:
   push:
     tags:
-      - "v*"        # 匹配 v0.1.0, v1.0.0 等
+      - "*"        # 匹配 v0.1.0, v1.0.0 等
       - "release-*" # 可选：匹配 release- 开头的 tag
   workflow_dispatch:  # 允许手动触发
     inputs:
