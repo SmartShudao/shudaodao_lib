@@ -3,9 +3,13 @@ name: Build wheels with Cython
 on:
   push:
     tags:
-      - "*"
-  # 可选：也允许手动触发进行测试
-  workflow_dispatch:
+      - "v*"        # 匹配 v0.1.0, v1.0.0 等
+      - "release-*" # 可选：匹配 release- 开头的 tag
+  workflow_dispatch:  # 允许手动触发
+    inputs:
+      tag_name:
+        description: 'Tag to release (e.g. v0.1.0)'
+        required: false
 
 env:
   # 设置构建输出详细程度
