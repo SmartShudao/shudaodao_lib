@@ -5,6 +5,7 @@
 # @Software ：PyCharm
 # @Date     ：2025/8/21 下午9:48
 # @Desc     ：
+import os
 from pathlib import Path
 
 from Cython.Build import cythonize
@@ -25,15 +26,16 @@ def _get_cython_extensions() -> list[Extension]:
             # 构建模块路径
             rel_path = c_file.relative_to(relative_path)
             module_name = str(rel_path.with_suffix('')).replace('/', '.')
+
+            compile_args = [] if os.name == 'nt' else ["-Wno-unreachable-code-fallthrough",
+                                                       "-Wno-unused-function",
+                                                       "-Wno-unreachable-code", ]
+
             ext_modules.append(
                 Extension(
                     name=module_name,
                     sources=[str(c_file)],
-                    extra_compile_args=[
-                        "-Wno-unreachable-code-fallthrough",
-                        "-Wno-unused-function",
-                        "-Wno-unreachable-code",
-                    ],
+                    extra_compile_args=compile_args,
                 )
             )
     return ext_modules
