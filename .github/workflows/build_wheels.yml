@@ -15,6 +15,7 @@ env:
   # 设置构建输出详细程度
   CIBW_BUILD_VERBOSITY: 1
 
+
 jobs:
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
@@ -51,6 +52,10 @@ jobs:
           CIBW_ARCHS_MACOS: "x86_64 arm64"
           CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
           CIBW_BEFORE_BUILD: "pip install cython>=3.1.2"
+          CIBW_SKIP: >
+            *-i686
+            *-win32
+            *-musllinux_i686
 
       - name: Show built wheels
         run: ls -la wheelhouse/
