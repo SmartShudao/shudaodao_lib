@@ -47,8 +47,13 @@ jobs:
 
       - name: Clean build directories
         run: |
-          rm -rf wheelhouse/ dist/ build/
-          mkdir -p wheelhouse
+          python -c "
+          import shutil, os
+          for d in ['wheelhouse', 'dist', 'build']:
+              if os.path.exists(d):
+                  shutil.rmtree(d)
+              os.makedirs(d, exist_ok=True)
+          "
 
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
