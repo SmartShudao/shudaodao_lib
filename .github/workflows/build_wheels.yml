@@ -10,8 +10,6 @@ on:
 env:
   # 设置构建输出详细程度
   CIBW_BUILD_VERBOSITY: 1
-  # 可选：如果你想在构建前看到更多信息
-  CIBW_BEFORE_BUILD: "python -c \"import cython; print(f'Using Cython {cython.__version__}')\""
 
 jobs:
   build_wheels:
@@ -19,7 +17,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-22.04, windows-2022, macos-13]  # 更新了 macOS 版本
+        os: [ ubuntu-22.04, windows-2022, macos-13 ]  # 更新了 macOS 版本
 
     steps:
       - name: Checkout code
@@ -46,12 +44,10 @@ jobs:
           # 确保命令行工具已安装
           xcode-select --install || true
 
-      - name: Install cibuildwheel and Cython
+      - name: Install cibuildwheel
         run: |
-          # 安装 cibuildwheel 和 Cython
-          pip install cibuildwheel==3.1.4 cython>=3.1.2
-          # 验证 Cython 安装
-          python -c "import cython; print(f'Cython version: {cython.__version__}')"
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install cibuildwheel==3.1.4
 
       - name: Build wheels
         # 使用 cibuildwheel 来构建所有指定平台的 wheels
