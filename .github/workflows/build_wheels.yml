@@ -46,7 +46,7 @@ jobs:
           CIBW_BUILD: "cp310-*"
           CIBW_ARCHS_MACOS: "x86_64 arm64"
           CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
-          CIBW_BEFORE_BUILD: "pip install 'cython>=0.29,<4.0'"
+          CIBW_BEFORE_BUILD: "pip install cython>=3.1.2"
 
       - name: Show built wheels
         run: ls -la wheelhouse/
