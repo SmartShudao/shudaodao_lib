@@ -99,34 +99,32 @@ jobs:
           name: sdist
           path: dist/*.tar.gz
 
-#  # 可选：发布到 PyPI
-#  release:
-#    name: Release on PyPI
-#    runs-on: ubuntu-22.04
-#    if: startsWith(github.ref, 'refs/tags/')
-#    needs: [build_wheels, build_sdist]
-#    environment: release  # 可选：使用 GitHub Environment 进行更精细的权限控制
-#
-#    steps:
-#      - name: Download all artifacts
-#        uses: actions/download-artifact@v4
-#        with:
-#          path: dist
-#          pattern: '*'
-#          merge-multiple: true
-#
-#      - name: List downloaded files
-#        run: find dist -type f
-#
-#      - name: Combine wheel artifacts
-#        run: |
-#          mkdir -p combined_wheels
-#          find dist -name "*.whl" -exec cp {} combined_wheels/ \;
-#          ls -la combined_wheels/
-#
-#      - name: Publish to PyPI
-#        uses: pypa/gh-action-pypi-publish@release/v1
-#        with:
-#          packages-dir: combined_wheels/
-#          user: __token__
-#          password: ${{ secrets.PYPI_API_TOKEN }}
+  # 可选：发布到 PyPI
+  release:
+    name: Release on PyPI
+    runs-on: ubuntu-22.04
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: [ build_wheels, build_sdist ]
+    environment: release
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: List downloaded packages
+        run: find dist -type f -name "*.whl" -o -name "*.tar.gz" | sort
+
+      - name: Verify package integrity
+        run: |
+          pip install twine
+          twine check dist/*
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
