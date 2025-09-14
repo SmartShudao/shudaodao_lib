@@ -45,17 +45,26 @@ jobs:
         run: |
           pip install cibuildwheel==2.23.3
 
+      - name: Clean build directories
+        run: |
+          rm -rf wheelhouse/ dist/ build/
+          mkdir -p wheelhouse
+
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           CIBW_BUILD: "cp310-*"
-          CIBW_ARCHS_MACOS: "x86_64 arm64"
-          CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
-          CIBW_BEFORE_BUILD: "pip install cython>=3.1.2"
           CIBW_SKIP: >
             *-i686
             *-win32
             *-musllinux_i686
+            *-manylinux_i686
+            *-manylinux_2_5_i686
+            *-manylinux_2_17_i686
+            *-manylinux2014_i686
+          CIBW_ARCHS_MACOS: "x86_64 arm64"
+          CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
+          CIBW_BEFORE_BUILD: "pip install cython>=3.1.2"
 
       - name: Show built wheels
         run: ls -la wheelhouse/
