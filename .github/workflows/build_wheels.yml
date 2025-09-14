@@ -17,16 +17,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ ubuntu-22.04, windows-2022, macos-13 ]  # 更新了 macOS 版本
+        os: [ ubuntu-22.04, windows-2022, macos-13 ]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          submodules: true # 如果你的项目包含子模块，请设置为 true
+          submodules: true
 
       - name: Set up Python
-        # 这里只需要一个基础版本的 Python 来运行 cibuildwheel
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
@@ -34,43 +33,20 @@ jobs:
       - name: Install system dependencies (Linux)
         if: matrix.os == 'ubuntu-22.04'
         run: |
-          # 安装编译所需的系统依赖
-          sudo apt-get update
+          sudo apt-get update -y
           sudo apt-get install -y build-essential
-
-      - name: Install system dependencies (macOS)
-        if: matrix.os == 'macos-13'
-        run: |
-          # 确保命令行工具已安装
-          xcode-select --install || true
 
       - name: Install cibuildwheel
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install cibuildwheel==2.23.3
+          pip install cibuildwheel==2.23.3
 
       - name: Build wheels
-        # 使用 cibuildwheel 来构建所有指定平台的 wheels
         run: python -m cibuildwheel --output-dir wheelhouse
-        # 你可以通过环境变量配置 cibuildwheel
         env:
-          # 指定要构建的 Python 版本
           CIBW_BUILD: "cp310-*"
-          # macOS 架构设置 (例如同时构建 x86_64 和 arm64)
           CIBW_ARCHS_MACOS: "x86_64 arm64"
-
-          # 对于 Linux，确保使用足够新的 manylinux 镜像以支持较新的编译器
           CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
-          CIBW_MANYLINUX_I686_IMAGE: "manylinux2014"
-          CIBW_MANYLINUX_PPC64LE_IMAGE: "manylinux2014"
-          CIBW_MANYLINUX_S390X_IMAGE: "manylinux2014"
-          CIBW_MANYLINUX_AARCH64_IMAGE: "manylinux2014"
-
-          # 可选：在构建每个 wheel 之前安装特定依赖
-          # CIBW_BEFORE_ALL_LINUX: "yum install -y some-package || apt-get install -y some-package || true"
-
-          # 确保 Cython 在每个构建环境中都可用
-          CIBW_BEFORE_BUILD: "pip install cython>=3.1.2"
+          CIBW_BEFORE_BUILD: "pip install 'cython>=0.29,<4.0'"
 
       - name: Show built wheels
         run: ls -la wheelhouse/
@@ -79,7 +55,7 @@ jobs:
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
-          name: wheels-${{ matrix.os }}
+          name: wheels          # 统一名称
           path: ./wheelhouse/*.whl
 
   build_sdist:
