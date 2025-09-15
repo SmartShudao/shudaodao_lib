@@ -60,7 +60,7 @@ jobs:
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           # 动态构建当前版本的 wheel
-          CIBW_BUILD: "cp${{ matrix.python-version }}-*"
+          CIBW_BUILD: "cp${{ replace(matrix.python-version, '.', '') }}-*"
           # 跳过 32 位架构
           CIBW_SKIP: >
             *-i686
