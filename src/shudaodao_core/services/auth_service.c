@@ -2627,13 +2627,13 @@ static const char __pyx_k_response_model[] = "response_model";
 static const char __pyx_k_DBEngineService[] = "DBEngineService";
 static const char __pyx_k_TOKEN_ALGORITHM[] = "TOKEN_ALGORITHM";
 static const char __pyx_k_auth_service_py[] = "auth_service.py";
+static const char __pyx_k_entity_passport[] = "entity.passport";
 static const char __pyx_k_hashed_password[] = "hashed_password";
 static const char __pyx_k_modify_password[] = "modify_password";
 static const char __pyx_k_passlib_context[] = "passlib.context";
 static const char __pyx_k_verify_password[] = "verify_password";
 static const char __pyx_k_AuthUserResponse[] = "AuthUserResponse";
 static const char __pyx_k_TOKEN_SECRET_KEY[] = "TOKEN_SECRET_KEY";
-static const char __pyx_k_entity_auth_user[] = "entity.auth_user";
 static const char __pyx_k_fastapi_security[] = "fastapi.security";
 static const char __pyx_k_get_core_session[] = "get_core_session";
 static const char __pyx_k_get_current_user[] = "get_current_user";
@@ -2854,7 +2854,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_doc __pyx_string_tab[67]
 #define __pyx_kp_u_enable __pyx_string_tab[68]
 #define __pyx_n_u_encode __pyx_string_tab[69]
-#define __pyx_n_u_entity_auth_user __pyx_string_tab[70]
+#define __pyx_n_u_entity_passport __pyx_string_tab[70]
 #define __pyx_n_u_errors __pyx_string_tab[71]
 #define __pyx_n_u_exc __pyx_string_tab[72]
 #define __pyx_n_u_exception_service_exception __pyx_string_tab[73]
@@ -7701,7 +7701,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  * from passlib.context import CryptContext
  * from sqlmodel.ext.asyncio.session import AsyncSession             # <<<<<<<<<<<<<<
  * 
- * from ..entity.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
+ * from ..entity.passport import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AsyncSession); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7717,13 +7717,13 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   /* "auth_service.py":19
  * from sqlmodel.ext.asyncio.session import AsyncSession
  * 
- * from ..entity.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword             # <<<<<<<<<<<<<<
+ * from ..entity.passport import AuthUser, AuthLogin, AuthUserResponse, AuthPassword             # <<<<<<<<<<<<<<
  * from ..exception.service_exception import LoginException, AuthException
  * from ..schemas.query_request import QueryRequest
 */
   __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_AuthUser, __pyx_mstate_global->__pyx_n_u_AuthLogin, __pyx_mstate_global->__pyx_n_u_AuthUserResponse, __pyx_mstate_global->__pyx_n_u_AuthPassword); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_auth_user, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_passport, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
@@ -7746,7 +7746,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
 
   /* "auth_service.py":20
  * 
- * from ..entity.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
+ * from ..entity.passport import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
  * from ..exception.service_exception import LoginException, AuthException             # <<<<<<<<<<<<<<
  * from ..schemas.query_request import QueryRequest
  * from ..services.data_service import DataService
@@ -7767,7 +7767,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "auth_service.py":21
- * from ..entity.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
+ * from ..entity.passport import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
  * from ..exception.service_exception import LoginException, AuthException
  * from ..schemas.query_request import QueryRequest             # <<<<<<<<<<<<<<
  * from ..services.data_service import DataService
@@ -8293,7 +8293,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enable */
   {__pyx_k_encode, sizeof(__pyx_k_encode), 0, 1, 1}, /* PyObject cname: __pyx_n_u_encode */
-  {__pyx_k_entity_auth_user, sizeof(__pyx_k_entity_auth_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_auth_user */
+  {__pyx_k_entity_passport, sizeof(__pyx_k_entity_passport), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_passport */
   {__pyx_k_errors, sizeof(__pyx_k_errors), 0, 1, 1}, /* PyObject cname: __pyx_n_u_errors */
   {__pyx_k_exc, sizeof(__pyx_k_exc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exc */
   {__pyx_k_exception_service_exception, sizeof(__pyx_k_exception_service_exception), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exception_service_exception */

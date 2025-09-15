@@ -1,4 +1,4 @@
-from ..entity.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthRegister as AuthRegister, AuthUser as AuthUser
+from ..entity.passport import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthRegister as AuthRegister, AuthUser as AuthUser
 from ..services.auth_service import AuthService as AuthService
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService

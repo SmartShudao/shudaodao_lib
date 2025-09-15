@@ -9,7 +9,7 @@ on:
     inputs:
       tag_name:
         description: 'Tag to release (e.g. v0.1.0)'
-        required: false
+        required: true
 
 env:
   # 设置构建输出详细程度
@@ -18,11 +18,12 @@ env:
 
 jobs:
   build_wheels:
-    name: Build wheels on ${{ matrix.os }}
+    name: Build wheels on ${{ matrix.os }} py${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ ubuntu-22.04, windows-2022, macos-13 ]
+        python-version: ['3.10', '3.11', '3.12']  # 支持 3.10+
 
     steps:
       - name: Checkout code
@@ -30,10 +31,10 @@ jobs:
         with:
           submodules: true
 
-      - name: Set up Python
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: ${{ matrix.python-version }}
 
       - name: Install system dependencies (Linux)
         if: matrix.os == 'ubuntu-22.04'
@@ -58,7 +59,9 @@ jobs:
       - name: Build wheels
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
-          CIBW_BUILD: "cp310-*"
+          # 动态构建当前版本的 wheel
+          CIBW_BUILD: "cp${{ matrix.python-version }}-*"
+          # 跳过 32 位架构
           CIBW_SKIP: >
             *-i686
             *-win32
@@ -67,8 +70,11 @@ jobs:
             *-manylinux_2_5_i686
             *-manylinux_2_17_i686
             *-manylinux2014_i686
+          # macOS 支持 x86_64 和 arm64
           CIBW_ARCHS_MACOS: "x86_64 arm64"
+          # Linux 使用较新的 manylinux
           CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
+          # 安装 Cython 构建依赖
           CIBW_BEFORE_BUILD: "pip install cython>=3.1.2"
 
       - name: Show built wheels
@@ -78,7 +84,7 @@ jobs:
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
-          name: wheels-${{ matrix.os }}
+          name: wheels-${{ matrix.os }}-py${{ matrix.python-version }}
           path: ./wheelhouse/*.whl
           if-no-files-found: error
 
@@ -91,7 +97,7 @@ jobs:
         with:
           python-version: '3.10'
       - name: Install build dependencies
-        run: pip install build cython>=3.0.0
+        run: pip install build cython>=3.1.2
       - name: Build sdist
         run: python -m build --sdist
       - uses: actions/upload-artifact@v4
