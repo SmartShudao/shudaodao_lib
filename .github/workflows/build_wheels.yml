@@ -24,6 +24,13 @@ jobs:
       matrix:
         os: [ ubuntu-22.04, windows-2022, macos-13 ]
         python-version: ['3.10', '3.11', '3.12']  # 支持 3.10+
+        include:
+          - python-version: '3.10'
+            cibw-build: "cp310-*"
+          - python-version: '3.11'
+            cibw-build: "cp311-*"
+          - python-version: '3.12'
+            cibw-build: "cp312-*"
 
     steps:
       - name: Checkout code
@@ -60,7 +67,7 @@ jobs:
         run: python -m cibuildwheel --output-dir wheelhouse
         env:
           # 动态构建当前版本的 wheel
-          CIBW_BUILD: "cp${{ replace(matrix.python-version, '.', '') }}-*"
+          CIBW_BUILD: ${{ matrix.cibw-build }}
           # 跳过 32 位架构
           CIBW_SKIP: >
             *-i686
