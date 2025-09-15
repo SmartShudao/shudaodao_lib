@@ -2624,9 +2624,9 @@ static const char __pyx_k_password_model[] = "password_model";
 static const char __pyx_k_register_model[] = "register_model";
 static const char __pyx_k_Auth_Controller[] = "Auth_Controller";
 static const char __pyx_k_DBEngineService[] = "DBEngineService";
+static const char __pyx_k_entity_passport[] = "entity.passport";
 static const char __pyx_k_modify_password[] = "modify_password";
 static const char __pyx_k_auth_me_password[] = "auth_me_password";
-static const char __pyx_k_entity_auth_user[] = "entity.auth_user";
 static const char __pyx_k_fastapi_security[] = "fastapi.security";
 static const char __pyx_k_get_core_session[] = "get_core_session";
 static const char __pyx_k_get_current_user[] = "get_current_user";
@@ -2861,7 +2861,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_docs __pyx_string_tab[52]
 #define __pyx_kp_u_enable __pyx_string_tab[53]
 #define __pyx_n_u_endswith __pyx_string_tab[54]
-#define __pyx_n_u_entity_auth_user __pyx_string_tab[55]
+#define __pyx_n_u_entity_passport __pyx_string_tab[55]
 #define __pyx_n_u_fastapi __pyx_string_tab[56]
 #define __pyx_n_u_fastapi_security __pyx_string_tab[57]
 #define __pyx_n_u_form_data __pyx_string_tab[58]
@@ -7558,7 +7558,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
  * from fastapi.security import OAuth2PasswordRequestForm
  * from sqlmodel.ext.asyncio.session import AsyncSession             # <<<<<<<<<<<<<<
  * 
- * from ..entity.auth_user import AuthUser, AuthRegister, AuthLogin, AuthPassword
+ * from ..entity.passport import AuthUser, AuthRegister, AuthLogin, AuthPassword
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AsyncSession); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -7574,13 +7574,13 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   /* "auth.py":13
  * from sqlmodel.ext.asyncio.session import AsyncSession
  * 
- * from ..entity.auth_user import AuthUser, AuthRegister, AuthLogin, AuthPassword             # <<<<<<<<<<<<<<
+ * from ..entity.passport import AuthUser, AuthRegister, AuthLogin, AuthPassword             # <<<<<<<<<<<<<<
  * from ..services.auth_service import AuthService
  * from ..services.data_service import DataService
 */
   __pyx_t_3 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_AuthUser, __pyx_mstate_global->__pyx_n_u_AuthRegister, __pyx_mstate_global->__pyx_n_u_AuthLogin, __pyx_mstate_global->__pyx_n_u_AuthPassword); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_auth_user, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_passport, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
@@ -7603,7 +7603,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
 
   /* "auth.py":14
  * 
- * from ..entity.auth_user import AuthUser, AuthRegister, AuthLogin, AuthPassword
+ * from ..entity.passport import AuthUser, AuthRegister, AuthLogin, AuthPassword
  * from ..services.auth_service import AuthService             # <<<<<<<<<<<<<<
  * from ..services.data_service import DataService
  * from ..services.db_engine_service import DBEngineService
@@ -7620,7 +7620,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "auth.py":15
- * from ..entity.auth_user import AuthUser, AuthRegister, AuthLogin, AuthPassword
+ * from ..entity.passport import AuthUser, AuthRegister, AuthLogin, AuthPassword
  * from ..services.auth_service import AuthService
  * from ..services.data_service import DataService             # <<<<<<<<<<<<<<
  * from ..services.db_engine_service import DBEngineService
@@ -8496,7 +8496,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_docs, sizeof(__pyx_k_docs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_docs */
   {__pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enable */
   {__pyx_k_endswith, sizeof(__pyx_k_endswith), 0, 1, 1}, /* PyObject cname: __pyx_n_u_endswith */
-  {__pyx_k_entity_auth_user, sizeof(__pyx_k_entity_auth_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_auth_user */
+  {__pyx_k_entity_passport, sizeof(__pyx_k_entity_passport), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_passport */
   {__pyx_k_fastapi, sizeof(__pyx_k_fastapi), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fastapi */
   {__pyx_k_fastapi_security, sizeof(__pyx_k_fastapi_security), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fastapi_security */
   {__pyx_k_form_data, sizeof(__pyx_k_form_data), 0, 1, 1}, /* PyObject cname: __pyx_n_u_form_data */

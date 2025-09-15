@@ -1,4 +1,4 @@
-from ..entity.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
+from ..entity.passport import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
 from ..exception.service_exception import AuthException as AuthException, LoginException as LoginException
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..services.data_service import DataService as DataService

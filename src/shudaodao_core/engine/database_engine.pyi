@@ -1,6 +1,6 @@
 from ..config.app_config import AppConfig as AppConfig
 from ..logger.logging_ import logging as logging
-from sqlalchemy import Engine as Engine
+from sqlalchemy.engine import Engine as Engine
 from sqlalchemy.ext.asyncio import AsyncEngine as AsyncEngine
 
 class DatabaseEngine:
