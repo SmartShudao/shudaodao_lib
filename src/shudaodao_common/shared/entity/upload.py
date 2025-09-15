@@ -7,10 +7,10 @@
 # @Desc     ：
 
 
-from sqlmodel import SQLModel, Field
+from pydantic import BaseModel, Field
 
 
-class UploadFileModel(SQLModel):
+class UploadFileModel(BaseModel):
     name: str = Field(..., description="文件名")
     size: int = Field(None, description="文件大小")
     upload_time: str = Field(None, description="上传时间")
