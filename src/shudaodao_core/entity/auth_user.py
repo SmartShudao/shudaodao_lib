@@ -27,6 +27,7 @@ class AuthUser(AuthUserResponse, table=True):
     """ 数据模型 - 数据库表 T_Auth_User 结构模型 """
     __tablename__ = "t_auth_user"
     __table_args__ = {"comment": "鉴权用户表"}
+
     last_login: Optional[datetime] = Field(default_factory=datetime.utcnow, description="aa")
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)

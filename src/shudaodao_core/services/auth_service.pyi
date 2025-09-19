@@ -1,11 +1,10 @@
-from ..entity.passport import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
+from ..entity.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
 from ..exception.service_exception import AuthException as AuthException, LoginException as LoginException
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
 from _typeshed import Incomplete
 from datetime import timedelta
-from fastapi import Request
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
 
 class AuthService:
@@ -23,8 +22,12 @@ class AuthService:
     @classmethod
     def token_decode(cls, token) -> dict: ...
     @classmethod
-    async def get_current_user(cls, request: Request = ..., token=..., db: AsyncSession = ...) -> AuthUser: ...
+    async def get_current_user(cls, token=..., db: AsyncSession = ...) -> AuthUser: ...
     @classmethod
-    async def login(cls, *, request: Request, db: AsyncSession, auth_login: AuthLogin): ...
+    async def logout(cls) -> None: ...
+    @classmethod
+    async def refresh(cls): ...
+    @classmethod
+    async def login(cls, *, db: AsyncSession, auth_login: AuthLogin): ...
     @classmethod
     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser): ...

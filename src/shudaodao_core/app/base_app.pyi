@@ -1,11 +1,11 @@
 import abc
+from ..auth.auth_router import AuthRouter as AuthRouter
 from ..config.app_config import AppConfig as AppConfig
 from ..controller.auth import Auth_Controller as Auth_Controller
 from ..controller.default import Default_Controller as Default_Controller
 from ..exception.register_handlers import register_exception_handlers as register_exception_handlers
 from ..logger.logging_ import logging as logging
 from ..utils.core_utils import CoreUtil as CoreUtil
-from .auth_router import AuthRouter as AuthRouter
 from _typeshed import Incomplete
 from abc import ABC, abstractmethod
 

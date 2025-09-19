@@ -55,9 +55,10 @@ class QuerySortCondition(BaseModel):
 
 class QueryRequest(QueryLogicOperation):
     """ 顶层查询模型 """
-    type: str = Field(None, description="逻辑操作类型，'AND' 或 'OR'")
+    type: Optional[str] = Field("AND", description="逻辑操作类型，'AND' 或 'OR'")
     conditions: List[Condition] = Field(None, description="子条件列表")
     orderby: List[QuerySortCondition] = Field(None, description="排序条件列表")
-    offset: int = Field(None, ge=0, description="从第几个开始")
-    limit: int = Field(None, ge=1, le=100, description="获取几个")
+    page: Optional[int] = Field(None, ge=1, description="第几页")
+    size: Optional[int] = Field(None, ge=1, le=1000, description="每页多少个")
+    paging: Optional[bool] = Field(True, description="返回分页")
     fields: Optional[List[str]] = Field(None, description="指定要返回的字段")

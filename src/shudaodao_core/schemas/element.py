@@ -5,21 +5,22 @@
 # @Software ：PyCharm
 # @Date     ：2025/8/28 下午2:02
 # @Desc     ：
+from typing import Optional
 
 from pydantic import BaseModel
 
 
-class PagingElement(BaseModel):
-    items: list
-    total: int
+class Paging(BaseModel):
+    total: Optional[int] = None
     page: int
     size: int
-    pages: int
+    pages: Optional[int] = None
+    rows: Optional[list] = None
+
+    def set_total(self, total):
+        self.total = total
+        self.pages = (total + self.size - 1) // self.size
 
 
 class ListElement(BaseModel):
-    items: list
-
-
-class SelectElement(BaseModel):
-    items: list
+    rows: Optional[list]

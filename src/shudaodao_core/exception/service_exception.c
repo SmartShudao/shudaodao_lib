@@ -2248,6 +2248,7 @@ static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_int[] = "int";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_str[] = "str";
+static const char __pyx_k_List[] = "List";
 static const char __pyx_k_code[] = "code";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_init[] = "__init__";
@@ -2255,6 +2256,7 @@ static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "name";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_Union[] = "Union";
 static const char __pyx_k_super[] = "super";
 static const char __pyx_k_5_Ry_1[] = "\320\004#\2405\250\010\260\001\330\010\r\210R\210y\230\001\230\025\320\0361\260\031\270!";
 static const char __pyx_k_errors[] = "errors";
@@ -2297,6 +2299,7 @@ static const char __pyx_k_service_exception_py[] = "service_exception.py";
 static const char __pyx_k_DataNotFoundException[] = "DataNotFoundException";
 static const char __pyx_k_LoginException___init[] = "LoginException.__init__";
 static const char __pyx_k_ServiceErrorException[] = "ServiceErrorException";
+static const char __pyx_k_Union_str_List_str_None[] = "Union[str, List[str], None]";
 static const char __pyx_k_ShudaodaoException___init[] = "ShudaodaoException.__init__";
 static const char __pyx_k_PermissionException___init[] = "PermissionException.__init__";
 static const char __pyx_k_DataNotFoundException___init[] = "DataNotFoundException.__init__";
@@ -2350,7 +2353,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[6];
-  PyObject *__pyx_string_tab[61];
+  PyObject *__pyx_string_tab[64];
   PyObject *__pyx_int_401;
   PyObject *__pyx_int_403;
   PyObject *__pyx_int_404;
@@ -2400,59 +2403,62 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_DataNotFoundError __pyx_string_tab[5]
 #define __pyx_n_u_DataNotFoundException __pyx_string_tab[6]
 #define __pyx_n_u_DataNotFoundException___init __pyx_string_tab[7]
-#define __pyx_n_u_LoginError __pyx_string_tab[8]
-#define __pyx_n_u_LoginException __pyx_string_tab[9]
-#define __pyx_n_u_LoginException___init __pyx_string_tab[10]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[11]
-#define __pyx_n_u_Optional __pyx_string_tab[12]
-#define __pyx_kp_u_Optional_int __pyx_string_tab[13]
-#define __pyx_kp_u_Optional_str __pyx_string_tab[14]
-#define __pyx_n_u_PermissionError __pyx_string_tab[15]
-#define __pyx_n_u_PermissionException __pyx_string_tab[16]
-#define __pyx_n_u_PermissionException___init __pyx_string_tab[17]
-#define __pyx_n_u_ServiceError __pyx_string_tab[18]
-#define __pyx_n_u_ServiceErrorException __pyx_string_tab[19]
-#define __pyx_n_u_ServiceErrorException___init __pyx_string_tab[20]
-#define __pyx_n_u_ShudaodaoException __pyx_string_tab[21]
-#define __pyx_n_u_ShudaodaoException___init __pyx_string_tab[22]
-#define __pyx_kp_u__2 __pyx_string_tab[23]
-#define __pyx_kp_u__3 __pyx_string_tab[24]
-#define __pyx_kp_u__4 __pyx_string_tab[25]
-#define __pyx_kp_u__5 __pyx_string_tab[26]
-#define __pyx_kp_u__6 __pyx_string_tab[27]
-#define __pyx_n_u__7 __pyx_string_tab[28]
-#define __pyx_kp_u__8 __pyx_string_tab[29]
-#define __pyx_kp_u_add_note __pyx_string_tab[30]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[31]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[32]
-#define __pyx_n_u_code __pyx_string_tab[33]
-#define __pyx_n_u_doc __pyx_string_tab[34]
-#define __pyx_n_u_errors __pyx_string_tab[35]
-#define __pyx_n_u_func __pyx_string_tab[36]
-#define __pyx_n_u_init __pyx_string_tab[37]
-#define __pyx_n_u_int __pyx_string_tab[38]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[39]
-#define __pyx_n_u_main __pyx_string_tab[40]
-#define __pyx_n_u_message __pyx_string_tab[41]
-#define __pyx_n_u_metaclass __pyx_string_tab[42]
-#define __pyx_n_u_model_class __pyx_string_tab[43]
-#define __pyx_n_u_module __pyx_string_tab[44]
-#define __pyx_n_u_mro_entries __pyx_string_tab[45]
-#define __pyx_n_u_name __pyx_string_tab[46]
-#define __pyx_n_u_name_2 __pyx_string_tab[47]
-#define __pyx_n_u_pop __pyx_string_tab[48]
-#define __pyx_n_u_prepare __pyx_string_tab[49]
-#define __pyx_n_u_primary_field __pyx_string_tab[50]
-#define __pyx_n_u_primary_id __pyx_string_tab[51]
-#define __pyx_n_u_qualname __pyx_string_tab[52]
-#define __pyx_n_u_self __pyx_string_tab[53]
-#define __pyx_n_u_service_exception __pyx_string_tab[54]
-#define __pyx_kp_u_service_exception_py __pyx_string_tab[55]
-#define __pyx_n_u_set_name __pyx_string_tab[56]
-#define __pyx_n_u_str __pyx_string_tab[57]
-#define __pyx_n_u_super __pyx_string_tab[58]
-#define __pyx_n_u_test __pyx_string_tab[59]
-#define __pyx_n_u_typing __pyx_string_tab[60]
+#define __pyx_n_u_List __pyx_string_tab[8]
+#define __pyx_n_u_LoginError __pyx_string_tab[9]
+#define __pyx_n_u_LoginException __pyx_string_tab[10]
+#define __pyx_n_u_LoginException___init __pyx_string_tab[11]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[12]
+#define __pyx_n_u_Optional __pyx_string_tab[13]
+#define __pyx_kp_u_Optional_int __pyx_string_tab[14]
+#define __pyx_kp_u_Optional_str __pyx_string_tab[15]
+#define __pyx_n_u_PermissionError __pyx_string_tab[16]
+#define __pyx_n_u_PermissionException __pyx_string_tab[17]
+#define __pyx_n_u_PermissionException___init __pyx_string_tab[18]
+#define __pyx_n_u_ServiceError __pyx_string_tab[19]
+#define __pyx_n_u_ServiceErrorException __pyx_string_tab[20]
+#define __pyx_n_u_ServiceErrorException___init __pyx_string_tab[21]
+#define __pyx_n_u_ShudaodaoException __pyx_string_tab[22]
+#define __pyx_n_u_ShudaodaoException___init __pyx_string_tab[23]
+#define __pyx_n_u_Union __pyx_string_tab[24]
+#define __pyx_kp_u_Union_str_List_str_None __pyx_string_tab[25]
+#define __pyx_kp_u__2 __pyx_string_tab[26]
+#define __pyx_kp_u__3 __pyx_string_tab[27]
+#define __pyx_kp_u__4 __pyx_string_tab[28]
+#define __pyx_kp_u__5 __pyx_string_tab[29]
+#define __pyx_kp_u__6 __pyx_string_tab[30]
+#define __pyx_n_u__7 __pyx_string_tab[31]
+#define __pyx_kp_u__8 __pyx_string_tab[32]
+#define __pyx_kp_u_add_note __pyx_string_tab[33]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[34]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[35]
+#define __pyx_n_u_code __pyx_string_tab[36]
+#define __pyx_n_u_doc __pyx_string_tab[37]
+#define __pyx_n_u_errors __pyx_string_tab[38]
+#define __pyx_n_u_func __pyx_string_tab[39]
+#define __pyx_n_u_init __pyx_string_tab[40]
+#define __pyx_n_u_int __pyx_string_tab[41]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[42]
+#define __pyx_n_u_main __pyx_string_tab[43]
+#define __pyx_n_u_message __pyx_string_tab[44]
+#define __pyx_n_u_metaclass __pyx_string_tab[45]
+#define __pyx_n_u_model_class __pyx_string_tab[46]
+#define __pyx_n_u_module __pyx_string_tab[47]
+#define __pyx_n_u_mro_entries __pyx_string_tab[48]
+#define __pyx_n_u_name __pyx_string_tab[49]
+#define __pyx_n_u_name_2 __pyx_string_tab[50]
+#define __pyx_n_u_pop __pyx_string_tab[51]
+#define __pyx_n_u_prepare __pyx_string_tab[52]
+#define __pyx_n_u_primary_field __pyx_string_tab[53]
+#define __pyx_n_u_primary_id __pyx_string_tab[54]
+#define __pyx_n_u_qualname __pyx_string_tab[55]
+#define __pyx_n_u_self __pyx_string_tab[56]
+#define __pyx_n_u_service_exception __pyx_string_tab[57]
+#define __pyx_kp_u_service_exception_py __pyx_string_tab[58]
+#define __pyx_n_u_set_name __pyx_string_tab[59]
+#define __pyx_n_u_str __pyx_string_tab[60]
+#define __pyx_n_u_super __pyx_string_tab[61]
+#define __pyx_n_u_test __pyx_string_tab[62]
+#define __pyx_n_u_typing __pyx_string_tab[63]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2475,7 +2481,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #endif
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<6; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<61; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<64; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_401);
   Py_CLEAR(clear_module_state->__pyx_int_403);
   Py_CLEAR(clear_module_state->__pyx_int_404);
@@ -2502,7 +2508,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #endif
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<6; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<61; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<64; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_401);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_403);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_404);
@@ -3529,7 +3535,7 @@ static PyObject *__pyx_pf_17service_exception_21ServiceErrorException___init__(C
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
 */
 
 /* Python wrapper */
@@ -3594,7 +3600,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,             # <<<<<<<<<<<<<<
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
  *         errors = {
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
@@ -3602,11 +3608,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       /* "service_exception.py":54
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):             # <<<<<<<<<<<<<<
+ *                  primary_field: Union[str, List[str], None]= None):             # <<<<<<<<<<<<<<
  *         errors = {
  *             "model_class": model_class,
 */
-      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject*)Py_None));
+      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
         if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, i); __PYX_ERR(0, 52, __pyx_L3_error) }
       }
@@ -3622,7 +3628,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
 
@@ -3630,7 +3636,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,             # <<<<<<<<<<<<<<
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
  *         errors = {
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
@@ -3638,17 +3644,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       /* "service_exception.py":54
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):             # <<<<<<<<<<<<<<
+ *                  primary_field: Union[str, List[str], None]= None):             # <<<<<<<<<<<<<<
  *         errors = {
  *             "model_class": model_class,
 */
-      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject*)Py_None));
+      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)Py_None));
     }
     __pyx_v_self = values[0];
     __pyx_v_message = ((PyObject*)values[1]);
     __pyx_v_model_class = ((PyObject*)values[2]);
     __pyx_v_primary_id = ((PyObject*)values[3]);
-    __pyx_v_primary_field = ((PyObject*)values[4]);
+    __pyx_v_primary_field = values[4];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
@@ -3666,7 +3672,6 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), (&PyUnicode_Type), 0, "message", 2))) __PYX_ERR(0, 52, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_model_class), (&PyUnicode_Type), 1, "model_class", 2))) __PYX_ERR(0, 52, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 1, "primary_id", 2))) __PYX_ERR(0, 53, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_field), (&PyUnicode_Type), 1, "primary_field", 2))) __PYX_ERR(0, 54, __pyx_L1_error)
   __pyx_r = __pyx_pf_17service_exception_21DataNotFoundException___init__(__pyx_self, __pyx_v_self, __pyx_v_message, __pyx_v_model_class, __pyx_v_primary_id, __pyx_v_primary_field);
 
   /* "service_exception.py":52
@@ -3674,7 +3679,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
 */
 
   /* function exit code */
@@ -3711,7 +3716,7 @@ static PyObject *__pyx_pf_17service_exception_21DataNotFoundException___init__(C
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "service_exception.py":56
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
  *         errors = {
  *             "model_class": model_class,             # <<<<<<<<<<<<<<
  *             "primary_field": primary_field,
@@ -3780,7 +3785,7 @@ static PyObject *__pyx_pf_17service_exception_21DataNotFoundException___init__(C
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
 */
 
   /* function exit code */
@@ -4175,11 +4180,11 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
   /* "service_exception.py":9
  * # @Desc
  * 
- * from typing import Optional, Any             # <<<<<<<<<<<<<<
+ * from typing import Optional, Any, Union, List             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_Optional, __pyx_mstate_global->__pyx_n_u_Any); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_Optional, __pyx_mstate_global->__pyx_n_u_Any, __pyx_mstate_global->__pyx_n_u_Union, __pyx_mstate_global->__pyx_n_u_List); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_typing, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -4191,6 +4196,14 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Any); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Any, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Union); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Union, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_List); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_List, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -4549,7 +4562,7 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
 */
   __pyx_t_8 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
@@ -4560,7 +4573,7 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,             # <<<<<<<<<<<<<<
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
  *         errors = {
 */
   if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_primary_id, Py_None) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
@@ -4568,7 +4581,7 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
   /* "service_exception.py":54
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):             # <<<<<<<<<<<<<<
+ *                  primary_field: Union[str, List[str], None]= None):             # <<<<<<<<<<<<<<
  *         errors = {
  *             "model_class": model_class,
 */
@@ -4579,14 +4592,14 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Optional[str] = None):
+ *                  primary_field: Union[str, List[str], None]= None):
 */
   __pyx_t_6 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_kp_u_Optional_int) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_primary_field, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_primary_field, __pyx_mstate_global->__pyx_kp_u_Union_str_List_str_None) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
   __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_17service_exception_21DataNotFoundException_1__init__, 0, __pyx_mstate_global->__pyx_n_u_DataNotFoundException___init, NULL, __pyx_mstate_global->__pyx_n_u_service_exception, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   PyList_Append(__pyx_t_3, __pyx_t_7);
@@ -4696,6 +4709,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_DataNotFoundError, sizeof(__pyx_k_DataNotFoundError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataNotFoundError */
   {__pyx_k_DataNotFoundException, sizeof(__pyx_k_DataNotFoundException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataNotFoundException */
   {__pyx_k_DataNotFoundException___init, sizeof(__pyx_k_DataNotFoundException___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataNotFoundException___init */
+  {__pyx_k_List, sizeof(__pyx_k_List), 0, 1, 1}, /* PyObject cname: __pyx_n_u_List */
   {__pyx_k_LoginError, sizeof(__pyx_k_LoginError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_LoginError */
   {__pyx_k_LoginException, sizeof(__pyx_k_LoginException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_LoginException */
   {__pyx_k_LoginException___init, sizeof(__pyx_k_LoginException___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_LoginException___init */
@@ -4711,6 +4725,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_ServiceErrorException___init, sizeof(__pyx_k_ServiceErrorException___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ServiceErrorException___init */
   {__pyx_k_ShudaodaoException, sizeof(__pyx_k_ShudaodaoException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ShudaodaoException */
   {__pyx_k_ShudaodaoException___init, sizeof(__pyx_k_ShudaodaoException___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ShudaodaoException___init */
+  {__pyx_k_Union, sizeof(__pyx_k_Union), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Union */
+  {__pyx_k_Union_str_List_str_None, sizeof(__pyx_k_Union_str_List_str_None), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Union_str_List_str_None */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
