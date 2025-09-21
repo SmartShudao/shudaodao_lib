@@ -16,6 +16,7 @@ from ..service.upload import UploadService
 
 Upload_Router = AuthRouter(
     prefix="/v1/files",
+    tags=["通用功能"]
 )
 
 

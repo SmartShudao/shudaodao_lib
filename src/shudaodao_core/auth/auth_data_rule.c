@@ -1889,16 +1889,6 @@ static int __Pyx_RaiseUnexpectedTypeError(const char *expected, PyObject *obj);
 #define __Pyx_PyUnicode_ConcatInPlaceSafe(left, right) ((unlikely((left) == Py_None) || unlikely((right) == Py_None)) ?\
     PyNumber_InPlaceAdd(left, right) : __Pyx_PyUnicode_ConcatInPlace(left, right))
 
-/* RaiseKeywordRequired.proto */
-static void __Pyx_RaiseKeywordRequired(const char* func_name, PyObject* kw_name);
-
-/* PyObjectFastCallMethod.proto */
-#if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
-#define __Pyx_PyObject_FastCallMethod(name, args, nargsf) PyObject_VectorcallMethod(name, args, nargsf, NULL)
-#else
-static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *args, size_t nargsf);
-#endif
-
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
@@ -2263,7 +2253,6 @@ static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_str[] = "str";
 static const char __pyx_k_sub[] = "sub";
-static const char __pyx_k_url[] = "url";
 static const char __pyx_k_w_2[] = "\\{(\\w+)}";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_main[] = "__main__";
@@ -2274,49 +2263,35 @@ static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_method[] = "method";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_return[] = "return";
-static const char __pyx_k_search[] = "search";
 static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_Pattern[] = "Pattern";
-static const char __pyx_k_Request[] = "Request";
 static const char __pyx_k_compile[] = "compile";
 static const char __pyx_k_pattern[] = "pattern";
 static const char __pyx_k_prepare[] = "__prepare__";
-static const char __pyx_k_request[] = "request";
-static const char __pyx_k_Optional[] = "Optional";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_data_act[] = "data_act";
 static const char __pyx_k_data_obj[] = "data_obj";
 static const char __pyx_k_qualname[] = "__qualname__";
-static const char __pyx_k_requests[] = "requests";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_data_role[] = "data_role";
-static const char __pyx_k_data_rule[] = "data_rule";
 static const char __pyx_k_dataclass[] = "dataclass";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_data_rules[] = "data_rules";
 static const char __pyx_k_annotations[] = "__annotations__";
 static const char __pyx_k_dataclasses[] = "dataclasses";
 static const char __pyx_k_AuthDataRule[] = "AuthDataRule";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_request_path[] = "request_path";
 static const char __pyx_k_staticmethod[] = "staticmethod";
 static const char __pyx_k_auth_data_rule[] = "auth_data_rule";
-static const char __pyx_k_request_method[] = "request_method";
 static const char __pyx_k_A_A_r_Q_D_8_r_D[] = "\200A\330$,\250A\360\006\000\t\020\210r\220\024\220Q\320\026)\250\031\260!\340\010\022\220\"\220D\230\001\230\035\320&8\270\001\340\010\017\210r\220\030\230\021\230\"\230D\240\001";
 static const char __pyx_k_auth_data_rule_py[] = "auth_data_rule.py";
-static const char __pyx_k_list_AuthDataRule[] = "list[AuthDataRule]";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_Optional_AuthDataRule[] = "Optional[AuthDataRule]";
 static const char __pyx_k_convert_path_to_regex[] = "convert_path_to_regex";
-static const char __pyx_k_get_data_rule_from_request[] = "get_data_rule_from_request";
-static const char __pyx_k_WWX_7_a_WA_Q_O3iy_IXWAQ_1_1[] = "\320\000+\320+@\320@W\320WX\340\004\023\2207\230$\230a\330\004\025\220W\230A\340\004\010\210\r\220Q\330\010\014\210O\2303\230i\240y\260\004\260I\270X\300W\310A\310Q\330\014\023\2201\330\004\013\2101";
 static const char __pyx_k_AuthDataRule_convert_path_to_reg[] = "AuthDataRule.convert_path_to_regex";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_path); /* proto */
-static PyObject *__pyx_pf_14auth_data_rule_get_data_rule_from_request(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_request, PyObject *__pyx_v_data_rules); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2356,8 +2331,8 @@ typedef struct {
   PyTypeObject *__pyx_CoroutineType;
   #endif
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
-  PyObject *__pyx_codeobj_tab[2];
-  PyObject *__pyx_string_tab[60];
+  PyObject *__pyx_codeobj_tab[1];
+  PyObject *__pyx_string_tab[47];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2400,61 +2375,48 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_AuthDataRule __pyx_string_tab[2]
 #define __pyx_n_u_AuthDataRule_convert_path_to_reg __pyx_string_tab[3]
 #define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[4]
-#define __pyx_n_u_Optional __pyx_string_tab[5]
-#define __pyx_kp_u_Optional_AuthDataRule __pyx_string_tab[6]
-#define __pyx_kp_u_P_1 __pyx_string_tab[7]
-#define __pyx_n_u_Pattern __pyx_string_tab[8]
-#define __pyx_n_u_Request __pyx_string_tab[9]
-#define __pyx_kp_u__2 __pyx_string_tab[10]
-#define __pyx_kp_u__3 __pyx_string_tab[11]
-#define __pyx_kp_u_add_note __pyx_string_tab[12]
-#define __pyx_n_u_annotations __pyx_string_tab[13]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[14]
-#define __pyx_n_u_auth_data_rule __pyx_string_tab[15]
-#define __pyx_kp_u_auth_data_rule_py __pyx_string_tab[16]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[17]
-#define __pyx_n_u_compile __pyx_string_tab[18]
-#define __pyx_n_u_convert_path_to_regex __pyx_string_tab[19]
-#define __pyx_n_u_data_act __pyx_string_tab[20]
-#define __pyx_n_u_data_obj __pyx_string_tab[21]
-#define __pyx_n_u_data_role __pyx_string_tab[22]
-#define __pyx_n_u_data_rule __pyx_string_tab[23]
-#define __pyx_n_u_data_rules __pyx_string_tab[24]
-#define __pyx_n_u_dataclass __pyx_string_tab[25]
-#define __pyx_n_u_dataclasses __pyx_string_tab[26]
-#define __pyx_n_u_doc __pyx_string_tab[27]
-#define __pyx_n_u_func __pyx_string_tab[28]
-#define __pyx_n_u_get_data_rule_from_request __pyx_string_tab[29]
-#define __pyx_n_u_initializing __pyx_string_tab[30]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[31]
-#define __pyx_kp_u_list_AuthDataRule __pyx_string_tab[32]
-#define __pyx_n_u_main __pyx_string_tab[33]
-#define __pyx_n_u_metaclass __pyx_string_tab[34]
-#define __pyx_n_u_method __pyx_string_tab[35]
-#define __pyx_n_u_module __pyx_string_tab[36]
-#define __pyx_n_u_name __pyx_string_tab[37]
-#define __pyx_n_u_path __pyx_string_tab[38]
-#define __pyx_n_u_pattern __pyx_string_tab[39]
-#define __pyx_n_u_pop __pyx_string_tab[40]
-#define __pyx_n_u_prepare __pyx_string_tab[41]
-#define __pyx_n_u_qualname __pyx_string_tab[42]
-#define __pyx_n_u_re __pyx_string_tab[43]
-#define __pyx_n_u_request __pyx_string_tab[44]
-#define __pyx_n_u_request_method __pyx_string_tab[45]
-#define __pyx_n_u_request_path __pyx_string_tab[46]
-#define __pyx_n_u_requests __pyx_string_tab[47]
-#define __pyx_n_u_return __pyx_string_tab[48]
-#define __pyx_n_u_search __pyx_string_tab[49]
-#define __pyx_n_u_set_name __pyx_string_tab[50]
-#define __pyx_n_u_spec __pyx_string_tab[51]
-#define __pyx_n_u_staticmethod __pyx_string_tab[52]
-#define __pyx_n_u_str __pyx_string_tab[53]
-#define __pyx_n_u_sub __pyx_string_tab[54]
-#define __pyx_n_u_test __pyx_string_tab[55]
-#define __pyx_n_u_typing __pyx_string_tab[56]
-#define __pyx_n_u_url __pyx_string_tab[57]
-#define __pyx_kp_u_w __pyx_string_tab[58]
-#define __pyx_kp_u_w_2 __pyx_string_tab[59]
+#define __pyx_kp_u_P_1 __pyx_string_tab[5]
+#define __pyx_n_u_Pattern __pyx_string_tab[6]
+#define __pyx_kp_u__2 __pyx_string_tab[7]
+#define __pyx_kp_u__3 __pyx_string_tab[8]
+#define __pyx_kp_u_add_note __pyx_string_tab[9]
+#define __pyx_n_u_annotations __pyx_string_tab[10]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[11]
+#define __pyx_n_u_auth_data_rule __pyx_string_tab[12]
+#define __pyx_kp_u_auth_data_rule_py __pyx_string_tab[13]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[14]
+#define __pyx_n_u_compile __pyx_string_tab[15]
+#define __pyx_n_u_convert_path_to_regex __pyx_string_tab[16]
+#define __pyx_n_u_data_act __pyx_string_tab[17]
+#define __pyx_n_u_data_obj __pyx_string_tab[18]
+#define __pyx_n_u_data_role __pyx_string_tab[19]
+#define __pyx_n_u_dataclass __pyx_string_tab[20]
+#define __pyx_n_u_dataclasses __pyx_string_tab[21]
+#define __pyx_n_u_doc __pyx_string_tab[22]
+#define __pyx_n_u_func __pyx_string_tab[23]
+#define __pyx_n_u_initializing __pyx_string_tab[24]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[25]
+#define __pyx_n_u_main __pyx_string_tab[26]
+#define __pyx_n_u_metaclass __pyx_string_tab[27]
+#define __pyx_n_u_method __pyx_string_tab[28]
+#define __pyx_n_u_module __pyx_string_tab[29]
+#define __pyx_n_u_name __pyx_string_tab[30]
+#define __pyx_n_u_path __pyx_string_tab[31]
+#define __pyx_n_u_pattern __pyx_string_tab[32]
+#define __pyx_n_u_pop __pyx_string_tab[33]
+#define __pyx_n_u_prepare __pyx_string_tab[34]
+#define __pyx_n_u_qualname __pyx_string_tab[35]
+#define __pyx_n_u_re __pyx_string_tab[36]
+#define __pyx_n_u_return __pyx_string_tab[37]
+#define __pyx_n_u_set_name __pyx_string_tab[38]
+#define __pyx_n_u_spec __pyx_string_tab[39]
+#define __pyx_n_u_staticmethod __pyx_string_tab[40]
+#define __pyx_n_u_str __pyx_string_tab[41]
+#define __pyx_n_u_sub __pyx_string_tab[42]
+#define __pyx_n_u_test __pyx_string_tab[43]
+#define __pyx_n_u_typing __pyx_string_tab[44]
+#define __pyx_kp_u_w __pyx_string_tab[45]
+#define __pyx_kp_u_w_2 __pyx_string_tab[46]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2475,8 +2437,8 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<60; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<47; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2497,14 +2459,14 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<60; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<47; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "auth_data_rule.py":25
+/* "auth_data_rule.py":23
  *     data_obj: str
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -2552,32 +2514,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_path,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "convert_path_to_regex", 0) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "convert_path_to_regex", 0) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("convert_path_to_regex", 1, 1, 1, i); __PYX_ERR(0, 25, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("convert_path_to_regex", 1, 1, 1, i); __PYX_ERR(0, 23, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
     }
     __pyx_v_path = ((PyObject*)values[0]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("convert_path_to_regex", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 25, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("convert_path_to_regex", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2588,7 +2550,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 2))) __PYX_ERR(0, 24, __pyx_L1_error)
   __pyx_r = __pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(__pyx_self, __pyx_v_path);
 
   /* function exit code */
@@ -2624,7 +2586,7 @@ static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(
   __Pyx_RefNannySetupContext("convert_path_to_regex", 0);
   __Pyx_INCREF(__pyx_v_path);
 
-  /* "auth_data_rule.py":29
+  /* "auth_data_rule.py":27
  *         """ FastAPI """
  *         #
  *         path = re.sub(r'\{(\w+):[^}]+}', r'{\1}', path)             # <<<<<<<<<<<<<<
@@ -2632,9 +2594,9 @@ static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(
  *         pattern = re.sub(r'\{(\w+)}', r'(?P<\1>[^/]+)', path)
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_sub); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_sub); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -2654,14 +2616,14 @@ static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (4-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_1))) __PYX_ERR(0, 29, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_1))) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF_SET(__pyx_v_path, ((PyObject*)__pyx_t_1));
   __pyx_t_1 = 0;
 
-  /* "auth_data_rule.py":31
+  /* "auth_data_rule.py":29
  *         path = re.sub(r'\{(\w+):[^}]+}', r'{\1}', path)
  *         #  {param}
  *         pattern = re.sub(r'\{(\w+)}', r'(?P<\1>[^/]+)', path)             # <<<<<<<<<<<<<<
@@ -2669,9 +2631,9 @@ static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(
  *         return re.compile(f'{pattern}$')
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_sub); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_sub); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -2691,29 +2653,27 @@ static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (4-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_pattern = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "auth_data_rule.py":33
+  /* "auth_data_rule.py":31
  *         pattern = re.sub(r'\{(\w+)}', r'(?P<\1>[^/]+)', path)
  *         # $
  *         return re.compile(f'{pattern}$')             # <<<<<<<<<<<<<<
- * 
- * 
 */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_compile); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_compile); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_pattern, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_pattern, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -2734,14 +2694,14 @@ static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "auth_data_rule.py":25
+  /* "auth_data_rule.py":23
  *     data_obj: str
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -2761,278 +2721,6 @@ static PyObject *__pyx_pf_14auth_data_rule_12AuthDataRule_convert_path_to_regex(
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_pattern);
   __Pyx_XDECREF(__pyx_v_path);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "auth_data_rule.py":36
- * 
- * 
- * def get_data_rule_from_request(*, request: Request, data_rules: list[AuthDataRule]) -> Optional[AuthDataRule]:             # <<<<<<<<<<<<<<
- *     """"""
- *     request_path = request.url.path
-*/
-
-/* Python wrapper */
-static PyObject *__pyx_pw_14auth_data_rule_1get_data_rule_from_request(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14auth_data_rule_get_data_rule_from_request, "\351\252\214\350\257\201\350\257\267\346\261\202\346\230\257\345\220\246\345\214\271\351\205\215\344\273\273\344\275\225\346\263\250\345\206\214\350\267\257\347\224\261");
-static PyMethodDef __pyx_mdef_14auth_data_rule_1get_data_rule_from_request = {"get_data_rule_from_request", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14auth_data_rule_1get_data_rule_from_request, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14auth_data_rule_get_data_rule_from_request};
-static PyObject *__pyx_pw_14auth_data_rule_1get_data_rule_from_request(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  PyObject *__pyx_v_request = 0;
-  PyObject *__pyx_v_data_rules = 0;
-  #if !CYTHON_METH_FASTCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_data_rule_from_request (wrapper)", 0);
-  #if !CYTHON_METH_FASTCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_request,&__pyx_mstate_global->__pyx_n_u_data_rules,0};
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 36, __pyx_L3_error)
-    if (likely(__pyx_kwds_len > 0)) {
-      switch (__pyx_nargs) {
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "get_data_rule_from_request", 0) < 0) __PYX_ERR(0, 36, __pyx_L3_error)
-      for (Py_ssize_t i = 0; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("get_data_rule_from_request", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 36, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 0)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      __Pyx_RaiseKeywordRequired("get_data_rule_from_request", __pyx_mstate_global->__pyx_n_u_request); __PYX_ERR(0, 36, __pyx_L3_error)
-    }
-    __pyx_v_request = values[0];
-    __pyx_v_data_rules = ((PyObject*)values[1]);
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_data_rule_from_request", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 36, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("auth_data_rule.get_data_rule_from_request", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data_rules), (&PyList_Type), 0, "data_rules", 2))) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_r = __pyx_pf_14auth_data_rule_get_data_rule_from_request(__pyx_self, __pyx_v_request, __pyx_v_data_rules);
-
-  /* function exit code */
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __pyx_r = NULL;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  goto __pyx_L7_cleaned_up;
-  __pyx_L0:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __pyx_L7_cleaned_up:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_14auth_data_rule_get_data_rule_from_request(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_request, PyObject *__pyx_v_data_rules) {
-  PyObject *__pyx_v_request_path = NULL;
-  PyObject *__pyx_v_request_method = NULL;
-  PyObject *__pyx_v_data_rule = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  int __pyx_t_4;
-  PyObject *__pyx_t_5 = NULL;
-  int __pyx_t_6;
-  PyObject *__pyx_t_7 = NULL;
-  size_t __pyx_t_8;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_data_rule_from_request", 0);
-
-  /* "auth_data_rule.py":38
- * def get_data_rule_from_request(*, request: Request, data_rules: list[AuthDataRule]) -> Optional[AuthDataRule]:
- *     """"""
- *     request_path = request.url.path             # <<<<<<<<<<<<<<
- *     request_method = request.method
- * 
-*/
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_request, __pyx_mstate_global->__pyx_n_u_url); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_request_path = __pyx_t_2;
-  __pyx_t_2 = 0;
-
-  /* "auth_data_rule.py":39
- *     """"""
- *     request_path = request.url.path
- *     request_method = request.method             # <<<<<<<<<<<<<<
- * 
- *     for data_rule in data_rules:
-*/
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_request, __pyx_mstate_global->__pyx_n_u_method); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_v_request_method = __pyx_t_2;
-  __pyx_t_2 = 0;
-
-  /* "auth_data_rule.py":41
- *     request_method = request.method
- * 
- *     for data_rule in data_rules:             # <<<<<<<<<<<<<<
- *         if (request_method == data_rule.method) and data_rule.pattern.search(request_path):
- *             return data_rule
-*/
-  __pyx_t_2 = __pyx_v_data_rules; __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_3 = 0;
-  for (;;) {
-    {
-      Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-      #if !CYTHON_ASSUME_SAFE_SIZE
-      if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 41, __pyx_L1_error)
-      #endif
-      if (__pyx_t_3 >= __pyx_temp) break;
-    }
-    __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-    ++__pyx_t_3;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XDECREF_SET(__pyx_v_data_rule, __pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "auth_data_rule.py":42
- * 
- *     for data_rule in data_rules:
- *         if (request_method == data_rule.method) and data_rule.pattern.search(request_path):             # <<<<<<<<<<<<<<
- *             return data_rule
- *     return None
-*/
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_data_rule, __pyx_mstate_global->__pyx_n_u_method); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = PyObject_RichCompare(__pyx_v_request_method, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (__pyx_t_6) {
-    } else {
-      __pyx_t_4 = __pyx_t_6;
-      goto __pyx_L6_bool_binop_done;
-    }
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_data_rule, __pyx_mstate_global->__pyx_n_u_pattern); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_1 = __pyx_t_7;
-    __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_8 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_v_request_path};
-      __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_search, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-    }
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_4 = __pyx_t_6;
-    __pyx_L6_bool_binop_done:;
-    if (__pyx_t_4) {
-
-      /* "auth_data_rule.py":43
- *     for data_rule in data_rules:
- *         if (request_method == data_rule.method) and data_rule.pattern.search(request_path):
- *             return data_rule             # <<<<<<<<<<<<<<
- *     return None
-*/
-      __Pyx_XDECREF(__pyx_r);
-      __Pyx_INCREF(__pyx_v_data_rule);
-      __pyx_r = __pyx_v_data_rule;
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      goto __pyx_L0;
-
-      /* "auth_data_rule.py":42
- * 
- *     for data_rule in data_rules:
- *         if (request_method == data_rule.method) and data_rule.pattern.search(request_path):             # <<<<<<<<<<<<<<
- *             return data_rule
- *     return None
-*/
-    }
-
-    /* "auth_data_rule.py":41
- *     request_method = request.method
- * 
- *     for data_rule in data_rules:             # <<<<<<<<<<<<<<
- *         if (request_method == data_rule.method) and data_rule.pattern.search(request_path):
- *             return data_rule
-*/
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "auth_data_rule.py":44
- *         if (request_method == data_rule.method) and data_rule.pattern.search(request_path):
- *             return data_rule
- *     return None             # <<<<<<<<<<<<<<
-*/
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-
-  /* "auth_data_rule.py":36
- * 
- * 
- * def get_data_rule_from_request(*, request: Request, data_rules: list[AuthDataRule]) -> Optional[AuthDataRule]:             # <<<<<<<<<<<<<<
- *     """"""
- *     request_path = request.url.path
-*/
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("auth_data_rule.get_data_rule_from_request", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_request_path);
-  __Pyx_XDECREF(__pyx_v_request_method);
-  __Pyx_XDECREF(__pyx_v_data_rule);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -3413,7 +3101,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_data_rule", 0);
  * 
  * import re             # <<<<<<<<<<<<<<
  * from dataclasses import dataclass
- * from typing import Optional, Pattern
+ * from typing import Pattern
 */
   __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_re, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -3424,7 +3112,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_data_rule", 0);
  * 
  * import re
  * from dataclasses import dataclass             # <<<<<<<<<<<<<<
- * from typing import Optional, Pattern
+ * from typing import Pattern
  * 
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
@@ -3441,18 +3129,14 @@ __Pyx_RefNannySetupContext("PyInit_auth_data_rule", 0);
   /* "auth_data_rule.py":11
  * import re
  * from dataclasses import dataclass
- * from typing import Optional, Pattern             # <<<<<<<<<<<<<<
+ * from typing import Pattern             # <<<<<<<<<<<<<<
  * 
- * from requests import Request
+ * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_Optional, __pyx_mstate_global->__pyx_n_u_Pattern); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Pattern); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_typing, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Optional); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Optional, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Pattern); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -3460,44 +3144,26 @@ __Pyx_RefNannySetupContext("PyInit_auth_data_rule", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "auth_data_rule.py":13
- * from typing import Optional, Pattern
- * 
- * from requests import Request             # <<<<<<<<<<<<<<
- * 
- * 
-*/
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Request); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_requests, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Request); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Request, __pyx_t_2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "auth_data_rule.py":17
+  /* "auth_data_rule.py":15
  * 
  * @dataclass
  * class AuthDataRule:             # <<<<<<<<<<<<<<
  *     method: str
  *     # path: str
 */
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_AuthDataRule, __pyx_mstate_global->__pyx_n_u_AuthDataRule, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_auth_data_rule, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_AuthDataRule, __pyx_mstate_global->__pyx_n_u_AuthDataRule, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_auth_data_rule, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_method, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_pattern, __pyx_mstate_global->__pyx_n_u_Pattern) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data_role, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data_act, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data_obj, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_method, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_pattern, __pyx_mstate_global->__pyx_n_u_Pattern) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_data_role, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_data_act, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_data_obj, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "auth_data_rule.py":25
+  /* "auth_data_rule.py":23
  *     data_obj: str
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -3507,28 +3173,28 @@ __Pyx_RefNannySetupContext("PyInit_auth_data_rule", 0);
   __pyx_t_4 = NULL;
   __Pyx_INCREF(__pyx_builtin_staticmethod);
   __pyx_t_5 = __pyx_builtin_staticmethod; 
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_Pattern) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_14auth_data_rule_12AuthDataRule_1convert_path_to_regex, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_AuthDataRule_convert_path_to_reg, NULL, __pyx_mstate_global->__pyx_n_u_auth_data_rule, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_Pattern) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_14auth_data_rule_12AuthDataRule_1convert_path_to_regex, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_AuthDataRule_convert_path_to_reg, NULL, __pyx_mstate_global->__pyx_n_u_auth_data_rule, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_8 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_7};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
   }
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_convert_path_to_regex, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_convert_path_to_regex, __pyx_t_3) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "auth_data_rule.py":16
+  /* "auth_data_rule.py":14
  * 
  * 
  * @dataclass             # <<<<<<<<<<<<<<
@@ -3536,49 +3202,30 @@ __Pyx_RefNannySetupContext("PyInit_auth_data_rule", 0);
  *     method: str
 */
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
 
-  /* "auth_data_rule.py":17
+  /* "auth_data_rule.py":15
  * 
  * @dataclass
  * class AuthDataRule:             # <<<<<<<<<<<<<<
  *     method: str
  *     # path: str
 */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_AuthDataRule, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_AuthDataRule, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_8 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_4};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthDataRule, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthDataRule, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "auth_data_rule.py":36
- * 
- * 
- * def get_data_rule_from_request(*, request: Request, data_rules: list[AuthDataRule]) -> Optional[AuthDataRule]:             # <<<<<<<<<<<<<<
- *     """"""
- *     request_path = request.url.path
-*/
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_request, __pyx_mstate_global->__pyx_n_u_Request) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_data_rules, __pyx_mstate_global->__pyx_kp_u_list_AuthDataRule) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Optional_AuthDataRule) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_14auth_data_rule_1get_data_rule_from_request, 0, __pyx_mstate_global->__pyx_n_u_get_data_rule_from_request, NULL, __pyx_mstate_global->__pyx_n_u_auth_data_rule, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_data_rule_from_request, __pyx_t_2) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "auth_data_rule.py":1
@@ -3659,11 +3306,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_AuthDataRule, sizeof(__pyx_k_AuthDataRule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthDataRule */
   {__pyx_k_AuthDataRule_convert_path_to_reg, sizeof(__pyx_k_AuthDataRule_convert_path_to_reg), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthDataRule_convert_path_to_reg */
   {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
-  {__pyx_k_Optional, sizeof(__pyx_k_Optional), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Optional */
-  {__pyx_k_Optional_AuthDataRule, sizeof(__pyx_k_Optional_AuthDataRule), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_AuthDataRule */
   {__pyx_k_P_1, sizeof(__pyx_k_P_1), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_P_1 */
   {__pyx_k_Pattern, sizeof(__pyx_k_Pattern), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Pattern */
-  {__pyx_k_Request, sizeof(__pyx_k_Request), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Request */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
@@ -3677,16 +3321,12 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_data_act, sizeof(__pyx_k_data_act), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_act */
   {__pyx_k_data_obj, sizeof(__pyx_k_data_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_obj */
   {__pyx_k_data_role, sizeof(__pyx_k_data_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_role */
-  {__pyx_k_data_rule, sizeof(__pyx_k_data_rule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_rule */
-  {__pyx_k_data_rules, sizeof(__pyx_k_data_rules), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_rules */
   {__pyx_k_dataclass, sizeof(__pyx_k_dataclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclass */
   {__pyx_k_dataclasses, sizeof(__pyx_k_dataclasses), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclasses */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
-  {__pyx_k_get_data_rule_from_request, sizeof(__pyx_k_get_data_rule_from_request), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_data_rule_from_request */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
-  {__pyx_k_list_AuthDataRule, sizeof(__pyx_k_list_AuthDataRule), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_list_AuthDataRule */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
   {__pyx_k_method, sizeof(__pyx_k_method), 0, 1, 1}, /* PyObject cname: __pyx_n_u_method */
@@ -3698,12 +3338,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_re, sizeof(__pyx_k_re), 0, 1, 1}, /* PyObject cname: __pyx_n_u_re */
-  {__pyx_k_request, sizeof(__pyx_k_request), 0, 1, 1}, /* PyObject cname: __pyx_n_u_request */
-  {__pyx_k_request_method, sizeof(__pyx_k_request_method), 0, 1, 1}, /* PyObject cname: __pyx_n_u_request_method */
-  {__pyx_k_request_path, sizeof(__pyx_k_request_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_request_path */
-  {__pyx_k_requests, sizeof(__pyx_k_requests), 0, 1, 1}, /* PyObject cname: __pyx_n_u_requests */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
-  {__pyx_k_search, sizeof(__pyx_k_search), 0, 1, 1}, /* PyObject cname: __pyx_n_u_search */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
   {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_staticmethod, sizeof(__pyx_k_staticmethod), 0, 1, 1}, /* PyObject cname: __pyx_n_u_staticmethod */
@@ -3711,7 +3346,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_sub, sizeof(__pyx_k_sub), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sub */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
-  {__pyx_k_url, sizeof(__pyx_k_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_url */
   {__pyx_k_w, sizeof(__pyx_k_w), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_w */
   {__pyx_k_w_2, sizeof(__pyx_k_w_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_w_2 */
   {0, 0, 0, 0, 0}
@@ -3723,7 +3357,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 23, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3753,10 +3387,10 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
         typedef struct {
             unsigned int argcount : 1;
             unsigned int num_posonly_args : 1;
-            unsigned int num_kwonly_args : 2;
-            unsigned int nlocals : 3;
+            unsigned int num_kwonly_args : 1;
+            unsigned int nlocals : 2;
             unsigned int flags : 10;
-            unsigned int first_line : 6;
+            unsigned int first_line : 5;
             unsigned int line_table_length : 11;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
@@ -3774,14 +3408,9 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 25, 56};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 23, 56};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_pattern};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_data_rule_py, __pyx_mstate->__pyx_n_u_convert_path_to_regex, __pyx_k_A_A_r_Q_D_8_r_D, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
-  }
-  {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 36, 68};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_request, __pyx_mstate->__pyx_n_u_data_rules, __pyx_mstate->__pyx_n_u_request_path, __pyx_mstate->__pyx_n_u_request_method, __pyx_mstate->__pyx_n_u_data_rule};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_data_rule_py, __pyx_mstate->__pyx_n_u_get_data_rule_from_request, __pyx_k_WWX_7_a_WA_Q_O3iy_IXWAQ_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -5213,25 +4842,6 @@ static CYTHON_INLINE PyObject *__Pyx_PyUnicode_ConcatInPlaceImpl(PyObject **p_le
         return __Pyx_PyUnicode_Concat(left, right);
     }
   }
-#endif
-
-/* RaiseKeywordRequired */
-static void __Pyx_RaiseKeywordRequired(const char* func_name, PyObject* kw_name) {
-    PyErr_Format(PyExc_TypeError,
-        "%s() needs keyword-only argument %U", func_name, kw_name);
-}
-
-/* PyObjectFastCallMethod */
-#if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000
-static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *args, size_t nargsf) {
-    PyObject *result;
-    PyObject *attr = PyObject_GetAttr(args[0], name);
-    if (unlikely(!attr))
-        return NULL;
-    result = __Pyx_PyObject_FastCall(attr, args+1, nargsf - 1);
-    Py_DECREF(attr);
-    return result;
-}
 #endif
 
 /* Import */

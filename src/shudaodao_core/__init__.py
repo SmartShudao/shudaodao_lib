@@ -14,11 +14,10 @@ from sqlmodel import SQLModel as _SQLModel
 from sqlmodel import create_engine as _create_engine
 from sqlmodel.ext.asyncio.session import AsyncSession as _AsyncSession
 
-from shudaodao_core.auth.auth_router import AuthRouter
+from .auth.auth_router import AuthRouter
 from .app.base_app import BaseApplication
 from .config.app_config import AppConfig
-from .config.schemas.app_config import AppConfigSetting
-from .controller.auth import Auth_Controller
+# from .config.schemas.app_config import AppConfigSetting
 from .engine.database_engine import DatabaseEngine
 from .engine.disk_engine import DiskEngine
 from .engine.redis_engine import RedisEngine

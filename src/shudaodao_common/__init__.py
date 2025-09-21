@@ -6,7 +6,7 @@
 # @Date     ：2025/8/27 上午1:29
 # @Desc     ：
 
-from .controller.dept import Dept_Router
-from .controller.user import User_Router
+from .controller_table.dept import Dept_Router
+from .controller_table.user import User_Router
 from .shared.controller.upload import Upload_Router
 from .shared.service.upload import UploadService

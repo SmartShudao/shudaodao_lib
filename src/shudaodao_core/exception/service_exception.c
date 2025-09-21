@@ -3535,7 +3535,7 @@ static PyObject *__pyx_pf_17service_exception_21ServiceErrorException___init__(C
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
 */
 
 /* Python wrapper */
@@ -3600,7 +3600,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,             # <<<<<<<<<<<<<<
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
  *         errors = {
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
@@ -3608,7 +3608,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       /* "service_exception.py":54
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):             # <<<<<<<<<<<<<<
+ *                  primary_field: Union[str, List[str], None] = None):             # <<<<<<<<<<<<<<
  *         errors = {
  *             "model_class": model_class,
 */
@@ -3628,7 +3628,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
 
@@ -3636,7 +3636,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,             # <<<<<<<<<<<<<<
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
  *         errors = {
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
@@ -3644,7 +3644,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       /* "service_exception.py":54
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):             # <<<<<<<<<<<<<<
+ *                  primary_field: Union[str, List[str], None] = None):             # <<<<<<<<<<<<<<
  *         errors = {
  *             "model_class": model_class,
 */
@@ -3679,7 +3679,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
 */
 
   /* function exit code */
@@ -3716,7 +3716,7 @@ static PyObject *__pyx_pf_17service_exception_21DataNotFoundException___init__(C
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "service_exception.py":56
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
  *         errors = {
  *             "model_class": model_class,             # <<<<<<<<<<<<<<
  *             "primary_field": primary_field,
@@ -3785,7 +3785,7 @@ static PyObject *__pyx_pf_17service_exception_21DataNotFoundException___init__(C
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
 */
 
   /* function exit code */
@@ -4562,7 +4562,7 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
 */
   __pyx_t_8 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
@@ -4573,7 +4573,7 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,             # <<<<<<<<<<<<<<
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
  *         errors = {
 */
   if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_primary_id, Py_None) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
@@ -4581,7 +4581,7 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
   /* "service_exception.py":54
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):             # <<<<<<<<<<<<<<
+ *                  primary_field: Union[str, List[str], None] = None):             # <<<<<<<<<<<<<<
  *         errors = {
  *             "model_class": model_class,
 */
@@ -4592,7 +4592,7 @@ __Pyx_RefNannySetupContext("PyInit_service_exception", 0);
  * 
  *     def __init__(self, *, message: str = "", model_class: Optional[str] = None,             # <<<<<<<<<<<<<<
  *                  primary_id: Optional[int] = None,
- *                  primary_field: Union[str, List[str], None]= None):
+ *                  primary_field: Union[str, List[str], None] = None):
 */
   __pyx_t_6 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);

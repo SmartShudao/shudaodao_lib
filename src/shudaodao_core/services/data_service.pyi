@@ -1,8 +1,8 @@
 from ..exception.service_exception import DataNotFoundException as DataNotFoundException
 from ..schemas.element import Paging as Paging
 from ..schemas.query_request import QueryRequest as QueryRequest
+from ..tools.query_builder import QueryBuilder as QueryBuilder
 from ..type.var import SQLModelCreate as SQLModelCreate, SQLModelDB as SQLModelDB, SQLModelResponse as SQLModelResponse, SQLModelUpdate as SQLModelUpdate
-from .query_builder import QueryBuilder as QueryBuilder
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
 from typing import Any
 

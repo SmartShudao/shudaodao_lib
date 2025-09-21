@@ -1115,8 +1115,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__user
-#define __PYX_HAVE_API__user
+#define __PYX_HAVE__shudaodao_common__controller_table__dept
+#define __PYX_HAVE_API__shudaodao_common__controller_table__dept
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1325,7 +1325,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char* const __pyx_f[] = {
-  "user.py",
+  "shudaodao_common/controller_table/dept.py",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* Atomics.proto */
@@ -1493,89 +1493,89 @@ static const char* const __pyx_f[] = {
 
 /*--- Type declarations ---*/
 struct __pyx_defaults;
-struct __pyx_obj_4user___pyx_scope_struct__user_create;
-struct __pyx_obj_4user___pyx_scope_struct_1_user_read;
-struct __pyx_obj_4user___pyx_scope_struct_2_user_update;
-struct __pyx_obj_4user___pyx_scope_struct_3_user_delete;
-struct __pyx_obj_4user___pyx_scope_struct_4_user_query;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete;
 
-/* "user.py":19
+/* "shudaodao_common/controller_table/dept.py":21
  * 
  * 
- * @User_Router.post(path="", summary="")             # <<<<<<<<<<<<<<
- * async def user_create(
- *         *, create_model: UserCreate,
+ * @Dept_Router.post("/dept/query", auth_act="query")             # <<<<<<<<<<<<<<
+ * async def dept_query(
+ *         *, query: QueryRequest, db: AsyncSession = Depends(Dept_Router.get_async_session)
 */
 struct __pyx_defaults {
   PyObject_HEAD
   PyObject *arg0;
 };
 
-struct __pyx_obj_4user___pyx_scope_struct__user_create {
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query {
   PyObject_HEAD
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_db;
-  PyObject *__pyx_v_response_model;
-};
-
-
-/* "user.py":32
- * 
- * 
- * @User_Router.get(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_read(*, primary_id: int,
- *                     db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-struct __pyx_obj_4user___pyx_scope_struct_1_user_read {
-  PyObject_HEAD
-  PyObject *__pyx_v_db;
-  PyObject *__pyx_v_primary_id;
-  PyObject *__pyx_v_response_model;
-};
-
-
-/* "user.py":42
- * 
- * 
- * @User_Router.patch(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_update(*, primary_id: int, update_model: UserUpdate,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-struct __pyx_obj_4user___pyx_scope_struct_2_user_update {
-  PyObject_HEAD
-  PyObject *__pyx_v_db;
-  PyObject *__pyx_v_primary_id;
-  PyObject *__pyx_v_response_model;
-  PyObject *__pyx_v_update_model;
-};
-
-
-/* "user.py":53
- * 
- * 
- * @User_Router.delete(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_delete(*, primary_id: int,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-struct __pyx_obj_4user___pyx_scope_struct_3_user_delete {
-  PyObject_HEAD
-  PyObject *__pyx_v_db;
-  PyObject *__pyx_v_primary_id;
-};
-
-
-/* "user.py":60
- * 
- * 
- * @User_Router.post(path="/query", summary="")             # <<<<<<<<<<<<<<
- * async def user_query(*, query: QueryRequest,
- *                      db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-struct __pyx_obj_4user___pyx_scope_struct_4_user_query {
-  PyObject_HEAD
+  PyObject *__pyx_v_data_query;
   PyObject *__pyx_v_db;
   PyObject *__pyx_v_query;
-  PyObject *__pyx_v_query_model;
+};
+
+
+/* "shudaodao_common/controller_table/dept.py":29
+ * 
+ * 
+ * @Dept_Router.post("/dept", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_create(
+ *         *, create_model: DeptCreate,
+*/
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create {
+  PyObject_HEAD
+  PyObject *__pyx_v_create_model;
+  PyObject *__pyx_v_data_create;
+  PyObject *__pyx_v_db;
+};
+
+
+/* "shudaodao_common/controller_table/dept.py":40
+ * 
+ * 
+ * @Dept_Router.get("/dept/{primary_id}", auth_act="read")             # <<<<<<<<<<<<<<
+ * async def dept_read(
+ *         *, primary_id: int,
+*/
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read {
+  PyObject_HEAD
+  PyObject *__pyx_v_data_read;
+  PyObject *__pyx_v_db;
+  PyObject *__pyx_v_primary_id;
+};
+
+
+/* "shudaodao_common/controller_table/dept.py":51
+ * 
+ * 
+ * @Dept_Router.patch("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_update(
+ *         *, primary_id: int, model_update: DeptUpdate,
+*/
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update {
+  PyObject_HEAD
+  PyObject *__pyx_v_data_update;
+  PyObject *__pyx_v_db;
+  PyObject *__pyx_v_model_update;
+  PyObject *__pyx_v_primary_id;
+};
+
+
+/* "shudaodao_common/controller_table/dept.py":62
+ * 
+ * 
+ * @Dept_Router.delete("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_delete(
+ *         *, primary_id: int,
+*/
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete {
+  PyObject_HEAD
+  PyObject *__pyx_v_db;
+  PyObject *__pyx_v_primary_id;
 };
 
 /* #### Code section: utility_code_proto ### */
@@ -1932,22 +1932,6 @@ static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_ve
 #define __Pyx_GetModuleGlobalName(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
 #define __Pyx_GetModuleGlobalNameUncached(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
 static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
-#endif
-
-/* PyObjectDelAttr.proto */
-#if CYTHON_COMPILING_IN_LIMITED_API && __PYX_LIMITED_VERSION_HEX < 0x030d0000
-#define __Pyx_PyObject_DelAttr(o, n) PyObject_SetAttr(o, n, NULL)
-#else
-#define __Pyx_PyObject_DelAttr(o, n) PyObject_DelAttr(o, n)
-#endif
-
-/* PyObjectSetAttrStr.proto */
-#if CYTHON_USE_TYPE_SLOTS
-#define __Pyx_PyObject_DelAttrStr(o,n) __Pyx_PyObject_SetAttrStr(o, n, NULL)
-static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value);
-#else
-#define __Pyx_PyObject_DelAttrStr(o,n)   __Pyx_PyObject_DelAttr(o,n)
-#define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
 #endif
 
 /* PyObjectVectorCallKwBuilder.proto */
@@ -2439,51 +2423,46 @@ static int __Pyx_State_RemoveModule(void*);
 #define __PYX_TYPE_MODULE_PREFIX __PYX_ABI_MODULE_NAME "."
 
 
-/* Module declarations from "user" */
+/* Module declarations from "shudaodao_common.controller_table.dept" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "user"
-extern int __pyx_module_is_main_user;
-int __pyx_module_is_main_user = 0;
+#define __Pyx_MODULE_NAME "shudaodao_common.controller_table.dept"
+extern int __pyx_module_is_main_shudaodao_common__controller_table__dept;
+int __pyx_module_is_main_shudaodao_common__controller_table__dept = 0;
 
-/* Implementation of "user" */
+/* Implementation of "shudaodao_common.controller_table.dept" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = "\345\210\233\345\273\272\346\210\220\345\212\237";
-static const char __pyx_k_A[] = "\200\001\330%&\330\032)\250\027\260\001\260\033\270A";
-static const char __pyx_k__2[] = "\350\216\267\345\217\226\346\210\220\345\212\237";
-static const char __pyx_k__3[] = "\346\233\264\346\226\260\346\210\220\345\212\237";
-static const char __pyx_k__4[] = "\345\210\240\351\231\244\346\210\220\345\212\237";
-static const char __pyx_k__5[] = "\346\237\245\350\257\242\346\210\220\345\212\237";
+static const char __pyx_k_[] = "\346\237\245\350\257\242\346\210\220\345\212\237";
+static const char __pyx_k__2[] = "\345\210\233\345\273\272\346\210\220\345\212\237";
+static const char __pyx_k__3[] = "\350\216\267\345\217\226\346\210\220\345\212\237";
+static const char __pyx_k__4[] = "\346\233\264\346\226\260\346\210\220\345\212\237";
+static const char __pyx_k__5[] = "\345\210\240\351\231\244\346\210\220\345\212\237";
 static const char __pyx_k__6[] = ".";
-static const char __pyx_k__7[] = "";
-static const char __pyx_k__8[] = "\345\210\233\345\273\272\347\224\250\346\210\267";
-static const char __pyx_k__9[] = "\350\216\267\345\217\226\347\224\250\346\210\267";
+static const char __pyx_k__7[] = "\347\263\273\347\273\237\351\205\215\347\275\256";
+static const char __pyx_k__8[] = "?";
 static const char __pyx_k_db[] = "db";
 static const char __pyx_k_gc[] = "gc";
-static const char __pyx_k_wa[] = "\200\001\330#$\330\030'\240w\250a\250{\270!";
 static const char __pyx_k_7_a[] = "\200\001\340\031\032\330\014\033\2307\240!\240;\250a";
-static const char __pyx_k_8_A[] = "\200\001\330%8\270\001\330\032)\250\027\260\001\260\033\270A";
-static const char __pyx_k__10[] = "\346\233\264\346\226\260\347\224\250\346\210\267";
-static const char __pyx_k__11[] = "\345\210\240\351\231\244\347\224\250\346\210\267";
-static const char __pyx_k__12[] = "\346\243\200\347\264\242\347\224\250\346\210\267";
-static const char __pyx_k__13[] = "?";
 static const char __pyx_k_get[] = "get";
 static const char __pyx_k_int[] = "int";
 static const char __pyx_k_pop[] = "pop";
-static const char __pyx_k_q_1[] = "\200\001\330\037 \330\031(\250\007\250q\260\013\2701";
-static const char __pyx_k_User[] = "User";
+static const char __pyx_k_Dept[] = "Dept";
+static const char __pyx_k_O7_a[] = "\200\001\340\022$\240O\2607\270!\270;\300a";
 static const char __pyx_k_data[] = "data";
+static const char __pyx_k_dept[] = "/dept";
+static const char __pyx_k_edit[] = "edit";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_next[] = "next";
-static const char __pyx_k_path[] = "path";
 static const char __pyx_k_post[] = "post";
 static const char __pyx_k_read[] = "read";
 static const char __pyx_k_send[] = "send";
+static const char __pyx_k_tags[] = "tags";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_user[] = "user";
+static const char __pyx_k_7_a_2[] = "\200\001\340\027\030\330\014\033\2307\240!\240;\250a";
+static const char __pyx_k_7_a_3[] = "\200\001\340\027*\250!\330\014\033\2307\240!\240;\250a";
 static const char __pyx_k_await[] = "__await__";
 static const char __pyx_k_close[] = "close";
 static const char __pyx_k_patch[] = "patch";
@@ -2500,66 +2479,72 @@ static const char __pyx_k_update[] = "update";
 static const char __pyx_k_Depends[] = "Depends";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_message[] = "message";
-static const char __pyx_k_query_2[] = "/query";
 static const char __pyx_k_success[] = "success";
-static const char __pyx_k_summary[] = "summary";
-static const char __pyx_k_user_py[] = "user.py";
-static const char __pyx_k_v1_user[] = "/v1/user";
 static const char __pyx_k_add_note[] = "add_note";
-static const char __pyx_k_password[] = "password";
+static const char __pyx_k_auth_act[] = "auth_act";
+static const char __pyx_k_auth_obj[] = "auth_obj";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
+static const char __pyx_k_data_read[] = "data_read";
+static const char __pyx_k_dept_read[] = "dept_read";
 static const char __pyx_k_isenabled[] = "isenabled";
-static const char __pyx_k_user_read[] = "user_read";
+static const char __pyx_k_v1_common[] = "/v1/common";
 static const char __pyx_k_AuthRouter[] = "AuthRouter";
-static const char __pyx_k_UserCreate[] = "UserCreate";
-static const char __pyx_k_UserUpdate[] = "UserUpdate";
+static const char __pyx_k_DeptCreate[] = "DeptCreate";
+static const char __pyx_k_DeptUpdate[] = "DeptUpdate";
+static const char __pyx_k_data_query[] = "data_query";
+static const char __pyx_k_dept_query[] = "dept_query";
 static const char __pyx_k_primary_id[] = "primary_id";
-static const char __pyx_k_user_query[] = "user_query";
-static const char __pyx_k_AuthService[] = "AuthService";
 static const char __pyx_k_DataService[] = "DataService";
-static const char __pyx_k_User_Router[] = "User_Router";
+static const char __pyx_k_Dept_Router[] = "Dept_Router";
+static const char __pyx_k_data_create[] = "data_create";
+static const char __pyx_k_data_update[] = "data_update";
+static const char __pyx_k_dept_create[] = "dept_create";
+static const char __pyx_k_dept_delete[] = "dept_delete";
+static const char __pyx_k_dept_update[] = "dept_update";
 static const char __pyx_k_model_class[] = "model_class";
-static const char __pyx_k_query_model[] = "query_model";
-static const char __pyx_k_user_create[] = "user_create";
-static const char __pyx_k_user_delete[] = "user_delete";
-static const char __pyx_k_user_update[] = "user_update";
 static const char __pyx_k_AsyncSession[] = "AsyncSession";
+static const char __pyx_k_DeptResponse[] = "DeptResponse";
 static const char __pyx_k_QueryRequest[] = "QueryRequest";
 static const char __pyx_k_ResponseUtil[] = "ResponseUtil";
-static const char __pyx_k_UserResponse[] = "UserResponse";
 static const char __pyx_k_create_model[] = "create_model";
+static const char __pyx_k_default_role[] = "default_role";
+static const char __pyx_k_dept_query_2[] = "/dept/query";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_primary_id_2[] = "/{primary_id}";
+static const char __pyx_k_model_update[] = "model_update";
 static const char __pyx_k_update_model[] = "update_model";
-static const char __pyx_k_hash_password[] = "hash_password";
 static const char __pyx_k_db_config_name[] = "db_config_name";
 static const char __pyx_k_db_model_class[] = "db_model_class";
 static const char __pyx_k_response_class[] = "response_class";
 static const char __pyx_k_response_model[] = "response_model";
 static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
-static const char __pyx_k_entity_table_user[] = "entity_table.user";
+static const char __pyx_k_dept_primary_id[] = "/dept/{primary_id}";
+static const char __pyx_k_shudaodao_common[] = "shudaodao_common";
+static const char __pyx_k_entity_table_dept[] = "entity_table.dept";
 static const char __pyx_k_get_async_session[] = "get_async_session";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_shudaodao_common_dept[] = "shudaodao_common.dept";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
+static const char __pyx_k_shudaodao_common_controller_tabl[] = "shudaodao_common.controller_table.dept";
+static const char __pyx_k_shudaodao_common_controller_tabl_2[] = "shudaodao_common/controller_table/dept.py";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_4user_15__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_4user_user_create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_create_model, PyObject *__pyx_v_db); /* proto */
-static PyObject *__pyx_pf_4user_17__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_4user_3user_read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db); /* proto */
-static PyObject *__pyx_pf_4user_19__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_4user_6user_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_update_model, PyObject *__pyx_v_db); /* proto */
-static PyObject *__pyx_pf_4user_21__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_4user_9user_delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db); /* proto */
-static PyObject *__pyx_pf_4user_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_4user_12user_query(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_query, PyObject *__pyx_v_db); /* proto */
-static PyObject *__pyx_tp_new_4user___pyx_defaults(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct__user_create(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_1_user_read(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_2_user_update(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_3_user_delete(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_4_user_query(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_15__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_dept_query(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_query, PyObject *__pyx_v_db); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_17__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_3dept_create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_create_model, PyObject *__pyx_v_db); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_19__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_6dept_read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_21__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_9dept_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_update, PyObject *__pyx_v_db); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_12dept_delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db); /* proto */
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_defaults(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2598,21 +2583,21 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_type_4user___pyx_defaults;
-  PyObject *__pyx_type_4user___pyx_scope_struct__user_create;
-  PyObject *__pyx_type_4user___pyx_scope_struct_1_user_read;
-  PyObject *__pyx_type_4user___pyx_scope_struct_2_user_update;
-  PyObject *__pyx_type_4user___pyx_scope_struct_3_user_delete;
-  PyObject *__pyx_type_4user___pyx_scope_struct_4_user_query;
-  PyTypeObject *__pyx_ptype_4user___pyx_defaults;
-  PyTypeObject *__pyx_ptype_4user___pyx_scope_struct__user_create;
-  PyTypeObject *__pyx_ptype_4user___pyx_scope_struct_1_user_read;
-  PyTypeObject *__pyx_ptype_4user___pyx_scope_struct_2_user_update;
-  PyTypeObject *__pyx_ptype_4user___pyx_scope_struct_3_user_delete;
-  PyTypeObject *__pyx_ptype_4user___pyx_scope_struct_4_user_query;
+  PyObject *__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults;
+  PyObject *__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query;
+  PyObject *__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create;
+  PyObject *__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read;
+  PyObject *__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update;
+  PyObject *__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete;
+  PyTypeObject *__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults;
+  PyTypeObject *__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query;
+  PyTypeObject *__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create;
+  PyTypeObject *__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read;
+  PyTypeObject *__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update;
+  PyTypeObject *__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[5];
-  PyObject *__pyx_string_tab[89];
+  PyObject *__pyx_string_tab[91];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2629,28 +2614,28 @@ PyObject *__Pyx_CachedCoroType;
 
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_4user___pyx_scope_struct__user_create *__pyx_freelist_4user___pyx_scope_struct__user_create[8];
-int __pyx_freecount_4user___pyx_scope_struct__user_create;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query[8];
+int __pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_4user___pyx_scope_struct_1_user_read *__pyx_freelist_4user___pyx_scope_struct_1_user_read[8];
-int __pyx_freecount_4user___pyx_scope_struct_1_user_read;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create[8];
+int __pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_4user___pyx_scope_struct_2_user_update *__pyx_freelist_4user___pyx_scope_struct_2_user_update[8];
-int __pyx_freecount_4user___pyx_scope_struct_2_user_update;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read[8];
+int __pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *__pyx_freelist_4user___pyx_scope_struct_3_user_delete[8];
-int __pyx_freecount_4user___pyx_scope_struct_3_user_delete;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update[8];
+int __pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_4user___pyx_scope_struct_4_user_query *__pyx_freelist_4user___pyx_scope_struct_4_user_query[8];
-int __pyx_freecount_4user___pyx_scope_struct_4_user_query;
+struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete[8];
+int __pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete;
 #endif
 /* CachedMethodType.module_state_decls */
 #if CYTHON_COMPILING_IN_LIMITED_API
@@ -2688,92 +2673,94 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_ __pyx_string_tab[0]
 #define __pyx_n_u_AsyncSession __pyx_string_tab[1]
 #define __pyx_n_u_AuthRouter __pyx_string_tab[2]
-#define __pyx_n_u_AuthService __pyx_string_tab[3]
-#define __pyx_n_u_Common __pyx_string_tab[4]
-#define __pyx_n_u_DataService __pyx_string_tab[5]
-#define __pyx_n_u_Depends __pyx_string_tab[6]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[7]
-#define __pyx_n_u_QueryRequest __pyx_string_tab[8]
-#define __pyx_n_u_ResponseUtil __pyx_string_tab[9]
-#define __pyx_n_u_User __pyx_string_tab[10]
-#define __pyx_n_u_UserCreate __pyx_string_tab[11]
-#define __pyx_n_u_UserResponse __pyx_string_tab[12]
-#define __pyx_n_u_UserUpdate __pyx_string_tab[13]
-#define __pyx_n_u_User_Router __pyx_string_tab[14]
-#define __pyx_n_u__10 __pyx_string_tab[15]
-#define __pyx_n_u__11 __pyx_string_tab[16]
-#define __pyx_n_u__12 __pyx_string_tab[17]
-#define __pyx_kp_u__13 __pyx_string_tab[18]
-#define __pyx_n_u__2 __pyx_string_tab[19]
-#define __pyx_n_u__3 __pyx_string_tab[20]
-#define __pyx_n_u__4 __pyx_string_tab[21]
-#define __pyx_n_u__5 __pyx_string_tab[22]
-#define __pyx_kp_u__6 __pyx_string_tab[23]
-#define __pyx_kp_u__7 __pyx_string_tab[24]
-#define __pyx_n_u__8 __pyx_string_tab[25]
-#define __pyx_n_u__9 __pyx_string_tab[26]
-#define __pyx_kp_u_add_note __pyx_string_tab[27]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[28]
-#define __pyx_n_u_await __pyx_string_tab[29]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[30]
-#define __pyx_n_u_close __pyx_string_tab[31]
-#define __pyx_n_u_create __pyx_string_tab[32]
-#define __pyx_n_u_create_model __pyx_string_tab[33]
-#define __pyx_n_u_data __pyx_string_tab[34]
+#define __pyx_n_u_Common __pyx_string_tab[3]
+#define __pyx_n_u_DataService __pyx_string_tab[4]
+#define __pyx_n_u_Depends __pyx_string_tab[5]
+#define __pyx_n_u_Dept __pyx_string_tab[6]
+#define __pyx_n_u_DeptCreate __pyx_string_tab[7]
+#define __pyx_n_u_DeptResponse __pyx_string_tab[8]
+#define __pyx_n_u_DeptUpdate __pyx_string_tab[9]
+#define __pyx_n_u_Dept_Router __pyx_string_tab[10]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[11]
+#define __pyx_n_u_QueryRequest __pyx_string_tab[12]
+#define __pyx_n_u_ResponseUtil __pyx_string_tab[13]
+#define __pyx_n_u__2 __pyx_string_tab[14]
+#define __pyx_n_u__3 __pyx_string_tab[15]
+#define __pyx_n_u__4 __pyx_string_tab[16]
+#define __pyx_n_u__5 __pyx_string_tab[17]
+#define __pyx_kp_u__6 __pyx_string_tab[18]
+#define __pyx_n_u__7 __pyx_string_tab[19]
+#define __pyx_kp_u__8 __pyx_string_tab[20]
+#define __pyx_kp_u_add_note __pyx_string_tab[21]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[22]
+#define __pyx_n_u_auth_act __pyx_string_tab[23]
+#define __pyx_n_u_auth_obj __pyx_string_tab[24]
+#define __pyx_n_u_await __pyx_string_tab[25]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[26]
+#define __pyx_n_u_close __pyx_string_tab[27]
+#define __pyx_n_u_create __pyx_string_tab[28]
+#define __pyx_n_u_create_model __pyx_string_tab[29]
+#define __pyx_n_u_data __pyx_string_tab[30]
+#define __pyx_n_u_data_create __pyx_string_tab[31]
+#define __pyx_n_u_data_query __pyx_string_tab[32]
+#define __pyx_n_u_data_read __pyx_string_tab[33]
+#define __pyx_n_u_data_update __pyx_string_tab[34]
 #define __pyx_n_u_db __pyx_string_tab[35]
 #define __pyx_n_u_db_config_name __pyx_string_tab[36]
 #define __pyx_n_u_db_model_class __pyx_string_tab[37]
-#define __pyx_n_u_delete __pyx_string_tab[38]
-#define __pyx_kp_u_disable __pyx_string_tab[39]
-#define __pyx_kp_u_enable __pyx_string_tab[40]
-#define __pyx_n_u_entity_table_user __pyx_string_tab[41]
-#define __pyx_n_u_func __pyx_string_tab[42]
-#define __pyx_kp_u_gc __pyx_string_tab[43]
-#define __pyx_n_u_get __pyx_string_tab[44]
-#define __pyx_n_u_get_async_session __pyx_string_tab[45]
-#define __pyx_n_u_hash_password __pyx_string_tab[46]
-#define __pyx_n_u_int __pyx_string_tab[47]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[48]
-#define __pyx_kp_u_isenabled __pyx_string_tab[49]
-#define __pyx_n_u_main __pyx_string_tab[50]
-#define __pyx_n_u_message __pyx_string_tab[51]
-#define __pyx_n_u_model_class __pyx_string_tab[52]
-#define __pyx_n_u_module __pyx_string_tab[53]
-#define __pyx_n_u_name __pyx_string_tab[54]
-#define __pyx_n_u_next __pyx_string_tab[55]
-#define __pyx_n_u_password __pyx_string_tab[56]
-#define __pyx_n_u_patch __pyx_string_tab[57]
-#define __pyx_n_u_path __pyx_string_tab[58]
-#define __pyx_n_u_pop __pyx_string_tab[59]
-#define __pyx_n_u_post __pyx_string_tab[60]
-#define __pyx_n_u_prefix __pyx_string_tab[61]
-#define __pyx_n_u_primary_id __pyx_string_tab[62]
-#define __pyx_kp_u_primary_id_2 __pyx_string_tab[63]
-#define __pyx_n_u_qualname __pyx_string_tab[64]
-#define __pyx_n_u_query __pyx_string_tab[65]
-#define __pyx_kp_u_query_2 __pyx_string_tab[66]
-#define __pyx_n_u_query_model __pyx_string_tab[67]
-#define __pyx_n_u_read __pyx_string_tab[68]
-#define __pyx_n_u_response_class __pyx_string_tab[69]
-#define __pyx_n_u_response_model __pyx_string_tab[70]
-#define __pyx_n_u_send __pyx_string_tab[71]
-#define __pyx_n_u_set_name __pyx_string_tab[72]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[73]
-#define __pyx_n_u_success __pyx_string_tab[74]
-#define __pyx_n_u_summary __pyx_string_tab[75]
-#define __pyx_n_u_test __pyx_string_tab[76]
-#define __pyx_n_u_throw __pyx_string_tab[77]
-#define __pyx_n_u_update __pyx_string_tab[78]
-#define __pyx_n_u_update_model __pyx_string_tab[79]
-#define __pyx_n_u_user __pyx_string_tab[80]
-#define __pyx_n_u_user_create __pyx_string_tab[81]
-#define __pyx_n_u_user_delete __pyx_string_tab[82]
-#define __pyx_kp_u_user_py __pyx_string_tab[83]
-#define __pyx_n_u_user_query __pyx_string_tab[84]
-#define __pyx_n_u_user_read __pyx_string_tab[85]
-#define __pyx_n_u_user_update __pyx_string_tab[86]
-#define __pyx_kp_u_v1_user __pyx_string_tab[87]
-#define __pyx_n_u_value __pyx_string_tab[88]
+#define __pyx_n_u_default_role __pyx_string_tab[38]
+#define __pyx_n_u_delete __pyx_string_tab[39]
+#define __pyx_kp_u_dept __pyx_string_tab[40]
+#define __pyx_n_u_dept_create __pyx_string_tab[41]
+#define __pyx_n_u_dept_delete __pyx_string_tab[42]
+#define __pyx_kp_u_dept_primary_id __pyx_string_tab[43]
+#define __pyx_n_u_dept_query __pyx_string_tab[44]
+#define __pyx_kp_u_dept_query_2 __pyx_string_tab[45]
+#define __pyx_n_u_dept_read __pyx_string_tab[46]
+#define __pyx_n_u_dept_update __pyx_string_tab[47]
+#define __pyx_kp_u_disable __pyx_string_tab[48]
+#define __pyx_n_u_edit __pyx_string_tab[49]
+#define __pyx_kp_u_enable __pyx_string_tab[50]
+#define __pyx_n_u_entity_table_dept __pyx_string_tab[51]
+#define __pyx_n_u_func __pyx_string_tab[52]
+#define __pyx_kp_u_gc __pyx_string_tab[53]
+#define __pyx_n_u_get __pyx_string_tab[54]
+#define __pyx_n_u_get_async_session __pyx_string_tab[55]
+#define __pyx_n_u_int __pyx_string_tab[56]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[57]
+#define __pyx_kp_u_isenabled __pyx_string_tab[58]
+#define __pyx_n_u_main __pyx_string_tab[59]
+#define __pyx_n_u_message __pyx_string_tab[60]
+#define __pyx_n_u_model_class __pyx_string_tab[61]
+#define __pyx_n_u_model_update __pyx_string_tab[62]
+#define __pyx_n_u_module __pyx_string_tab[63]
+#define __pyx_n_u_name __pyx_string_tab[64]
+#define __pyx_n_u_next __pyx_string_tab[65]
+#define __pyx_n_u_patch __pyx_string_tab[66]
+#define __pyx_n_u_pop __pyx_string_tab[67]
+#define __pyx_n_u_post __pyx_string_tab[68]
+#define __pyx_n_u_prefix __pyx_string_tab[69]
+#define __pyx_n_u_primary_id __pyx_string_tab[70]
+#define __pyx_n_u_qualname __pyx_string_tab[71]
+#define __pyx_n_u_query __pyx_string_tab[72]
+#define __pyx_n_u_read __pyx_string_tab[73]
+#define __pyx_n_u_response_class __pyx_string_tab[74]
+#define __pyx_n_u_response_model __pyx_string_tab[75]
+#define __pyx_n_u_send __pyx_string_tab[76]
+#define __pyx_n_u_set_name __pyx_string_tab[77]
+#define __pyx_n_u_shudaodao_common __pyx_string_tab[78]
+#define __pyx_n_u_shudaodao_common_controller_tabl __pyx_string_tab[79]
+#define __pyx_kp_u_shudaodao_common_controller_tabl_2 __pyx_string_tab[80]
+#define __pyx_kp_u_shudaodao_common_dept __pyx_string_tab[81]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[82]
+#define __pyx_n_u_success __pyx_string_tab[83]
+#define __pyx_n_u_tags __pyx_string_tab[84]
+#define __pyx_n_u_test __pyx_string_tab[85]
+#define __pyx_n_u_throw __pyx_string_tab[86]
+#define __pyx_n_u_update __pyx_string_tab[87]
+#define __pyx_n_u_update_model __pyx_string_tab[88]
+#define __pyx_kp_u_v1_common __pyx_string_tab[89]
+#define __pyx_n_u_value __pyx_string_tab[90]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2794,20 +2781,20 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_ptype_4user___pyx_defaults);
-  Py_CLEAR(clear_module_state->__pyx_type_4user___pyx_defaults);
-  Py_CLEAR(clear_module_state->__pyx_ptype_4user___pyx_scope_struct__user_create);
-  Py_CLEAR(clear_module_state->__pyx_type_4user___pyx_scope_struct__user_create);
-  Py_CLEAR(clear_module_state->__pyx_ptype_4user___pyx_scope_struct_1_user_read);
-  Py_CLEAR(clear_module_state->__pyx_type_4user___pyx_scope_struct_1_user_read);
-  Py_CLEAR(clear_module_state->__pyx_ptype_4user___pyx_scope_struct_2_user_update);
-  Py_CLEAR(clear_module_state->__pyx_type_4user___pyx_scope_struct_2_user_update);
-  Py_CLEAR(clear_module_state->__pyx_ptype_4user___pyx_scope_struct_3_user_delete);
-  Py_CLEAR(clear_module_state->__pyx_type_4user___pyx_scope_struct_3_user_delete);
-  Py_CLEAR(clear_module_state->__pyx_ptype_4user___pyx_scope_struct_4_user_query);
-  Py_CLEAR(clear_module_state->__pyx_type_4user___pyx_scope_struct_4_user_query);
+  Py_CLEAR(clear_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults);
+  Py_CLEAR(clear_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults);
+  Py_CLEAR(clear_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query);
+  Py_CLEAR(clear_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query);
+  Py_CLEAR(clear_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create);
+  Py_CLEAR(clear_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create);
+  Py_CLEAR(clear_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read);
+  Py_CLEAR(clear_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read);
+  Py_CLEAR(clear_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update);
+  Py_CLEAR(clear_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update);
+  Py_CLEAR(clear_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete);
+  Py_CLEAR(clear_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete);
   for (int i=0; i<5; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<89; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<91; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2828,35 +2815,35 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_VISIT(traverse_module_state->__pyx_ptype_4user___pyx_defaults);
-  Py_VISIT(traverse_module_state->__pyx_type_4user___pyx_defaults);
-  Py_VISIT(traverse_module_state->__pyx_ptype_4user___pyx_scope_struct__user_create);
-  Py_VISIT(traverse_module_state->__pyx_type_4user___pyx_scope_struct__user_create);
-  Py_VISIT(traverse_module_state->__pyx_ptype_4user___pyx_scope_struct_1_user_read);
-  Py_VISIT(traverse_module_state->__pyx_type_4user___pyx_scope_struct_1_user_read);
-  Py_VISIT(traverse_module_state->__pyx_ptype_4user___pyx_scope_struct_2_user_update);
-  Py_VISIT(traverse_module_state->__pyx_type_4user___pyx_scope_struct_2_user_update);
-  Py_VISIT(traverse_module_state->__pyx_ptype_4user___pyx_scope_struct_3_user_delete);
-  Py_VISIT(traverse_module_state->__pyx_type_4user___pyx_scope_struct_3_user_delete);
-  Py_VISIT(traverse_module_state->__pyx_ptype_4user___pyx_scope_struct_4_user_query);
-  Py_VISIT(traverse_module_state->__pyx_type_4user___pyx_scope_struct_4_user_query);
+  Py_VISIT(traverse_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults);
+  Py_VISIT(traverse_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults);
+  Py_VISIT(traverse_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query);
+  Py_VISIT(traverse_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query);
+  Py_VISIT(traverse_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create);
+  Py_VISIT(traverse_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create);
+  Py_VISIT(traverse_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read);
+  Py_VISIT(traverse_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read);
+  Py_VISIT(traverse_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update);
+  Py_VISIT(traverse_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update);
+  Py_VISIT(traverse_module_state->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete);
+  Py_VISIT(traverse_module_state->__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete);
   for (int i=0; i<5; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<89; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<91; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
-static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "user.py":19
+/* "shudaodao_common/controller_table/dept.py":21
  * 
  * 
- * @User_Router.post(path="", summary="")             # <<<<<<<<<<<<<<
- * async def user_create(
- *         *, create_model: UserCreate,
+ * @Dept_Router.post("/dept/query", auth_act="query")             # <<<<<<<<<<<<<<
+ * async def dept_query(
+ *         *, query: QueryRequest, db: AsyncSession = Depends(Dept_Router.get_async_session)
 */
 
-static PyObject *__pyx_pf_4user_15__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_15__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2866,16 +2853,16 @@ static PyObject *__pyx_pf_4user_15__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__defaults__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(Py_None);
   __Pyx_GIVEREF(Py_None);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 19, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 21, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 19, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 21, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -2885,7 +2872,7 @@ static PyObject *__pyx_pf_4user_15__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("user.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2894,15 +2881,350 @@ static PyObject *__pyx_pf_4user_15__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4user_1user_create(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_1dept_query(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_4user_1user_create = {"user_create", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4user_1user_create, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_4user_1user_create(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_16shudaodao_common_16controller_table_4dept_1dept_query = {"dept_query", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_16shudaodao_common_16controller_table_4dept_1dept_query, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_1dept_query(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_query = 0;
+  PyObject *__pyx_v_db = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("dept_query (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_query,&__pyx_mstate_global->__pyx_n_u_db,0};
+    struct __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self);
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 21, __pyx_L3_error)
+    if (likely(__pyx_kwds_len > 0)) {
+      switch (__pyx_nargs) {
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "dept_query", 0) < 0) __PYX_ERR(0, 21, __pyx_L3_error)
+      if (!values[1]) values[1] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
+      for (Py_ssize_t i = 0; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("dept_query", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 21, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 0)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      __Pyx_RaiseKeywordRequired("dept_query", __pyx_mstate_global->__pyx_n_u_query); __PYX_ERR(0, 21, __pyx_L3_error)
+    }
+    __pyx_v_query = values[0];
+    __pyx_v_db = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("dept_query", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 21, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_query", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_16shudaodao_common_16controller_table_4dept_dept_query(__pyx_self, __pyx_v_query, __pyx_v_db);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_dept_query(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_query, PyObject *__pyx_v_db) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("dept_query", 0);
+  __pyx_cur_scope = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query(__pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 21, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_query = __pyx_v_query;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_query);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_query);
+  __pyx_cur_scope->__pyx_v_db = __pyx_v_db;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_16shudaodao_common_16controller_table_4dept_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_dept_query, __pyx_mstate_global->__pyx_n_u_dept_query, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl); if (unlikely(!gen)) __PYX_ERR(0, 21, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_query", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *__pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  size_t __pyx_t_5;
+  PyObject *__pyx_t_6 = NULL;
+  __Pyx_PySendResult __pyx_t_7;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("dept_query", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 21, __pyx_L1_error)
+  }
+
+  /* "shudaodao_common/controller_table/dept.py":25
+ *         *, query: QueryRequest, db: AsyncSession = Depends(Dept_Router.get_async_session)
+ * ):
+ *     data_query = await DataService.query(db, query, model_class=Dept)             # <<<<<<<<<<<<<<
+ *     return ResponseUtil.success(message="", data=data_query)
+ * 
+*/
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_query); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Dept); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_2);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_query};
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_6, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_7 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 25, __pyx_L1_error)
+  }
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_data_query = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_common/controller_table/dept.py":26
+ * ):
+ *     data_query = await DataService.query(db, query, model_class=Dept)
+ *     return ResponseUtil.success(message="", data=data_query)             # <<<<<<<<<<<<<<
+ * 
+ * 
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_4);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, NULL};
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_data_query, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "shudaodao_common/controller_table/dept.py":21
+ * 
+ * 
+ * @Dept_Router.post("/dept/query", auth_act="query")             # <<<<<<<<<<<<<<
+ * async def dept_query(
+ *         *, query: QueryRequest, db: AsyncSession = Depends(Dept_Router.get_async_session)
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_6);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("dept_query", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "shudaodao_common/controller_table/dept.py":29
+ * 
+ * 
+ * @Dept_Router.post("/dept", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_create(
+ *         *, create_model: DeptCreate,
+*/
+
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_17__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__defaults__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_INCREF(Py_None);
+  __Pyx_GIVEREF(Py_None);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 29, __pyx_L1_error);
+  __Pyx_GIVEREF(__pyx_t_1);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 29, __pyx_L1_error);
+  __pyx_t_1 = 0;
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_4dept_create(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_16shudaodao_common_16controller_table_4dept_4dept_create = {"dept_create", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_16shudaodao_common_16controller_table_4dept_4dept_create, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_4dept_create(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2921,7 +3243,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_create (wrapper)", 0);
+  __Pyx_RefNannySetupContext("dept_create (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -2934,39 +3256,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_create_model,&__pyx_mstate_global->__pyx_n_u_db,0};
     struct __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self);
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 19, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 29, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "user_create", 0) < 0) __PYX_ERR(0, 19, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "dept_create", 0) < 0) __PYX_ERR(0, 29, __pyx_L3_error)
       if (!values[1]) values[1] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
       for (Py_ssize_t i = 0; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("user_create", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 19, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("dept_create", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 29, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 0)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("user_create", __pyx_mstate_global->__pyx_n_u_create_model); __PYX_ERR(0, 19, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("dept_create", __pyx_mstate_global->__pyx_n_u_create_model); __PYX_ERR(0, 29, __pyx_L3_error)
     }
     __pyx_v_create_model = values[0];
     __pyx_v_db = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("user_create", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 19, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("dept_create", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 29, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("user.user_create", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_create", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_4user_user_create(__pyx_self, __pyx_v_create_model, __pyx_v_db);
+  __pyx_r = __pyx_pf_16shudaodao_common_16controller_table_4dept_3dept_create(__pyx_self, __pyx_v_create_model, __pyx_v_db);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -2976,19 +3298,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4user_user_create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_create_model, PyObject *__pyx_v_db) {
-  struct __pyx_obj_4user___pyx_scope_struct__user_create *__pyx_cur_scope;
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_3dept_create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_create_model, PyObject *__pyx_v_db) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("user_create", 0);
-  __pyx_cur_scope = (struct __pyx_obj_4user___pyx_scope_struct__user_create *)__pyx_tp_new_4user___pyx_scope_struct__user_create(__pyx_mstate_global->__pyx_ptype_4user___pyx_scope_struct__user_create, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("dept_create", 0);
+  __pyx_cur_scope = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create(__pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct__user_create *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 19, __pyx_L1_error)
+    __PYX_ERR(0, 29, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -2999,7 +3321,7 @@ static PyObject *__pyx_pf_4user_user_create(CYTHON_UNUSED PyObject *__pyx_self, 
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4user_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_user_create, __pyx_mstate_global->__pyx_n_u_user_create, __pyx_mstate_global->__pyx_n_u_user); if (unlikely(!gen)) __PYX_ERR(0, 19, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_16shudaodao_common_16controller_table_4dept_5generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_dept_create, __pyx_mstate_global->__pyx_n_u_dept_create, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl); if (unlikely(!gen)) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3007,7 +3329,7 @@ static PyObject *__pyx_pf_4user_user_create(CYTHON_UNUSED PyObject *__pyx_self, 
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("user.user_create", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_create", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -3015,23 +3337,23 @@ static PyObject *__pyx_pf_4user_user_create(CYTHON_UNUSED PyObject *__pyx_self, 
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_4user___pyx_scope_struct__user_create *__pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct__user_create *)__pyx_generator->closure);
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *__pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  size_t __pyx_t_5;
-  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
   PyObject *__pyx_t_7 = NULL;
   __Pyx_PySendResult __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_create", 0);
+  __Pyx_RefNannySetupContext("dept_create", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L4_resume_from_await;
@@ -3042,25 +3364,35 @@ static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generato
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 19, __pyx_L1_error)
+    __PYX_ERR(0, 29, __pyx_L1_error)
   }
 
-  /* "user.py":23
- *         *, create_model: UserCreate,
- *         db: AsyncSession = Depends(User_Router.get_async_session)):
- *     create_model.password = AuthService.hash_password(create_model.password)             # <<<<<<<<<<<<<<
- *     response_model = await DataService.create(
- *         db, db_model_class=User,
+  /* "shudaodao_common/controller_table/dept.py":34
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)
+ * ):
+ *     data_create = await DataService.create(             # <<<<<<<<<<<<<<
+ *         db, db_model_class=Dept, create_model=create_model, response_class=DeptResponse
+ *     )
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_hash_password); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_create); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_password); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+
+  /* "shudaodao_common/controller_table/dept.py":35
+ * ):
+ *     data_create = await DataService.create(
+ *         db, db_model_class=Dept, create_model=create_model, response_class=DeptResponse             # <<<<<<<<<<<<<<
+ *     )
+ *     return ResponseUtil.success(message="", data=data_create)
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Dept); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = 1;
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DeptResponse); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_4))) {
     __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
@@ -3069,80 +3401,23 @@ static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generato
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx__function);
     __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_5 = 0;
+    __pyx_t_6 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_model_class, __pyx_t_3, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_class, __pyx_t_5, __pyx_t_7, __pyx_callargs+2, 2) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_password, __pyx_t_1) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "user.py":24
- *         db: AsyncSession = Depends(User_Router.get_async_session)):
- *     create_model.password = AuthService.hash_password(create_model.password)
- *     response_model = await DataService.create(             # <<<<<<<<<<<<<<
- *         db, db_model_class=User,
- *         create_model=create_model,
-*/
-  __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_create); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "user.py":25
- *     create_model.password = AuthService.hash_password(create_model.password)
- *     response_model = await DataService.create(
- *         db, db_model_class=User,             # <<<<<<<<<<<<<<
- *         create_model=create_model,
- *         response_class=UserResponse
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_User); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-
-  /* "user.py":27
- *         db, db_model_class=User,
- *         create_model=create_model,
- *         response_class=UserResponse             # <<<<<<<<<<<<<<
- *     )
- *     return ResponseUtil.success(data=response_model, message="")
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_UserResponse); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
-    assert(__pyx_t_4);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_2);
-    __Pyx_INCREF(__pyx_t_4);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_2, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_db};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 24, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_model_class, __pyx_t_3, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_class, __pyx_t_6, __pyx_t_7, __pyx_callargs+2, 2) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -3156,56 +3431,56 @@ static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generato
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 24, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 34, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 24, __pyx_L1_error)
+    __PYX_ERR(0, 34, __pyx_L1_error)
   }
   __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_response_model = __pyx_t_1;
+  __pyx_cur_scope->__pyx_v_data_create = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "user.py":29
- *         response_class=UserResponse
+  /* "shudaodao_common/controller_table/dept.py":37
+ *         db, db_model_class=Dept, create_model=create_model, response_class=DeptResponse
  *     )
- *     return ResponseUtil.success(data=response_model, message="")             # <<<<<<<<<<<<<<
+ *     return ResponseUtil.success(message="", data=data_create)             # <<<<<<<<<<<<<<
  * 
  * 
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 29, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_6))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
-    assert(__pyx_t_2);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
-    __Pyx_INCREF(__pyx_t_2);
+  if (unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
+    __Pyx_INCREF(__pyx_t_4);
     __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
-    __pyx_t_5 = 0;
+    __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
+    __pyx_t_6 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 29, __pyx_L1_error)
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, NULL};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_response_model, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__2, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_data_create, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -3213,12 +3488,12 @@ static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generato
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "user.py":19
+  /* "shudaodao_common/controller_table/dept.py":29
  * 
  * 
- * @User_Router.post(path="", summary="")             # <<<<<<<<<<<<<<
- * async def user_create(
- *         *, create_model: UserCreate,
+ * @Dept_Router.post("/dept", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_create(
+ *         *, create_model: DeptCreate,
 */
 
   /* function exit code */
@@ -3227,11 +3502,11 @@ static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generato
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("user_create", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("dept_create", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3243,17 +3518,17 @@ static PyObject *__pyx_gb_4user_2generator(__pyx_CoroutineObject *__pyx_generato
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_4user_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_8generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "user.py":32
+/* "shudaodao_common/controller_table/dept.py":40
  * 
  * 
- * @User_Router.get(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_read(*, primary_id: int,
- *                     db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.get("/dept/{primary_id}", auth_act="read")             # <<<<<<<<<<<<<<
+ * async def dept_read(
+ *         *, primary_id: int,
 */
 
-static PyObject *__pyx_pf_4user_17__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_19__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3263,16 +3538,16 @@ static PyObject *__pyx_pf_4user_17__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__defaults__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(Py_None);
   __Pyx_GIVEREF(Py_None);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 32, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 40, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 32, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 40, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -3282,7 +3557,7 @@ static PyObject *__pyx_pf_4user_17__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("user.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3291,15 +3566,15 @@ static PyObject *__pyx_pf_4user_17__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4user_4user_read(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_7dept_read(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_4user_4user_read = {"user_read", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4user_4user_read, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_4user_4user_read(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_16shudaodao_common_16controller_table_4dept_7dept_read = {"dept_read", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_16shudaodao_common_16controller_table_4dept_7dept_read, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_7dept_read(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3318,7 +3593,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_read (wrapper)", 0);
+  __Pyx_RefNannySetupContext("dept_read (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -3331,40 +3606,40 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_db,0};
     struct __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self);
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 32, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 40, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "user_read", 0) < 0) __PYX_ERR(0, 32, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "dept_read", 0) < 0) __PYX_ERR(0, 40, __pyx_L3_error)
       if (!values[1]) values[1] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
       for (Py_ssize_t i = 0; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("user_read", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 32, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("dept_read", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 40, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 0)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("user_read", __pyx_mstate_global->__pyx_n_u_primary_id); __PYX_ERR(0, 32, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("dept_read", __pyx_mstate_global->__pyx_n_u_primary_id); __PYX_ERR(0, 40, __pyx_L3_error)
     }
     __pyx_v_primary_id = ((PyObject*)values[0]);
     __pyx_v_db = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("user_read", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 32, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("dept_read", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 40, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("user.user_read", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_read", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 33, __pyx_L1_error)
-  __pyx_r = __pyx_pf_4user_3user_read(__pyx_self, __pyx_v_primary_id, __pyx_v_db);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_r = __pyx_pf_16shudaodao_common_16controller_table_4dept_6dept_read(__pyx_self, __pyx_v_primary_id, __pyx_v_db);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3383,19 +3658,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4user_3user_read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db) {
-  struct __pyx_obj_4user___pyx_scope_struct_1_user_read *__pyx_cur_scope;
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_6dept_read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("user_read", 0);
-  __pyx_cur_scope = (struct __pyx_obj_4user___pyx_scope_struct_1_user_read *)__pyx_tp_new_4user___pyx_scope_struct_1_user_read(__pyx_mstate_global->__pyx_ptype_4user___pyx_scope_struct_1_user_read, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("dept_read", 0);
+  __pyx_cur_scope = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read(__pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_1_user_read *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 32, __pyx_L1_error)
+    __PYX_ERR(0, 40, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -3406,7 +3681,7 @@ static PyObject *__pyx_pf_4user_3user_read(CYTHON_UNUSED PyObject *__pyx_self, P
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4user_5generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_user_read, __pyx_mstate_global->__pyx_n_u_user_read, __pyx_mstate_global->__pyx_n_u_user); if (unlikely(!gen)) __PYX_ERR(0, 32, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_16shudaodao_common_16controller_table_4dept_8generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_dept_read, __pyx_mstate_global->__pyx_n_u_dept_read, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl); if (unlikely(!gen)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3414,7 +3689,7 @@ static PyObject *__pyx_pf_4user_3user_read(CYTHON_UNUSED PyObject *__pyx_self, P
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("user.user_read", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_read", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -3422,9 +3697,9 @@ static PyObject *__pyx_pf_4user_3user_read(CYTHON_UNUSED PyObject *__pyx_self, P
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_4user_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_8generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_4user___pyx_scope_struct_1_user_read *__pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_1_user_read *)__pyx_generator->closure);
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *__pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -3438,7 +3713,7 @@ static PyObject *__pyx_gb_4user_5generator1(__pyx_CoroutineObject *__pyx_generat
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_read", 0);
+  __Pyx_RefNannySetupContext("dept_read", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L4_resume_from_await;
@@ -3449,41 +3724,33 @@ static PyObject *__pyx_gb_4user_5generator1(__pyx_CoroutineObject *__pyx_generat
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 32, __pyx_L1_error)
+    __PYX_ERR(0, 40, __pyx_L1_error)
   }
 
-  /* "user.py":35
- * async def user_read(*, primary_id: int,
- *                     db: AsyncSession = Depends(User_Router.get_async_session)):
- *     response_model = await DataService.read(             # <<<<<<<<<<<<<<
- *         db, primary_id, model_class=User,
- *         response_model=UserResponse
+  /* "shudaodao_common/controller_table/dept.py":45
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)
+ * ):
+ *     data_read = await DataService.read(             # <<<<<<<<<<<<<<
+ *         db, primary_id, model_class=Dept, response_model=DeptResponse
+ *     )
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_read); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_read); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":36
- *                     db: AsyncSession = Depends(User_Router.get_async_session)):
- *     response_model = await DataService.read(
- *         db, primary_id, model_class=User,             # <<<<<<<<<<<<<<
- *         response_model=UserResponse
+  /* "shudaodao_common/controller_table/dept.py":46
+ * ):
+ *     data_read = await DataService.read(
+ *         db, primary_id, model_class=Dept, response_model=DeptResponse             # <<<<<<<<<<<<<<
  *     )
+ *     return ResponseUtil.success(message="", data=data_read)
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_User); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Dept); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-
-  /* "user.py":37
- *     response_model = await DataService.read(
- *         db, primary_id, model_class=User,
- *         response_model=UserResponse             # <<<<<<<<<<<<<<
- *     )
- *     return ResponseUtil.success(data=response_model, message="")
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_UserResponse); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DeptResponse); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3499,383 +3766,10 @@ static PyObject *__pyx_gb_4user_5generator1(__pyx_CoroutineObject *__pyx_generat
   #endif
   {
     PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_primary_id};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 35, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_7, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_model, __pyx_t_5, __pyx_t_7, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (likely(__pyx_t_8 == PYGEN_NEXT)) {
-    __Pyx_GOTREF(__pyx_r);
-    __Pyx_XGIVEREF(__pyx_r);
-    __Pyx_RefNannyFinishContext();
-    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-    /* return from generator, awaiting value */
-    __pyx_generator->resume_label = 1;
-    return __pyx_r;
-    __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 35, __pyx_L1_error)
-    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
-  } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
-    __Pyx_GOTREF(__pyx_r);
-    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
-  } else {
-    __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 35, __pyx_L1_error)
-  }
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_response_model = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "user.py":39
- *         response_model=UserResponse
- *     )
- *     return ResponseUtil.success(data=response_model, message="")             # <<<<<<<<<<<<<<
- * 
- * 
-*/
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 39, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 39, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_6 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_5))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-    assert(__pyx_t_4);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
-    __Pyx_INCREF(__pyx_t_4);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
-    __pyx_t_6 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, NULL};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 39, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_response_model, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__2, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
-
-  /* "user.py":32
- * 
- * 
- * @User_Router.get(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_read(*, primary_id: int,
- *                     db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_7);
-  if (__Pyx_PyErr_Occurred()) {
-    __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("user_read", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  }
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  #if !CYTHON_USE_EXC_INFO_STACK
-  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-  #endif
-  __pyx_generator->resume_label = -1;
-  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-static PyObject *__pyx_gb_4user_8generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
-
-/* "user.py":42
- * 
- * 
- * @User_Router.patch(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_update(*, primary_id: int, update_model: UserUpdate,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-
-static PyObject *__pyx_pf_4user_19__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__defaults__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(Py_None);
-  __Pyx_GIVEREF(Py_None);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 42, __pyx_L1_error);
-  __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 42, __pyx_L1_error);
-  __pyx_t_1 = 0;
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("user.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static PyObject *__pyx_pw_4user_7user_update(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static PyMethodDef __pyx_mdef_4user_7user_update = {"user_update", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4user_7user_update, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_4user_7user_update(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  PyObject *__pyx_v_primary_id = 0;
-  PyObject *__pyx_v_update_model = 0;
-  PyObject *__pyx_v_db = 0;
-  #if !CYTHON_METH_FASTCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[3] = {0,0,0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_update (wrapper)", 0);
-  #if !CYTHON_METH_FASTCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_update_model,&__pyx_mstate_global->__pyx_n_u_db,0};
-    struct __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self);
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 42, __pyx_L3_error)
-    if (likely(__pyx_kwds_len > 0)) {
-      switch (__pyx_nargs) {
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "user_update", 0) < 0) __PYX_ERR(0, 42, __pyx_L3_error)
-      if (!values[2]) values[2] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
-      for (Py_ssize_t i = 0; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("user_update", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 42, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 0)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      __Pyx_RaiseKeywordRequired("user_update", __pyx_mstate_global->__pyx_n_u_primary_id); __PYX_ERR(0, 42, __pyx_L3_error)
-    }
-    __pyx_v_primary_id = ((PyObject*)values[0]);
-    __pyx_v_update_model = values[1];
-    __pyx_v_db = values[2];
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("user_update", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 42, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("user.user_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 43, __pyx_L1_error)
-  __pyx_r = __pyx_pf_4user_6user_update(__pyx_self, __pyx_v_primary_id, __pyx_v_update_model, __pyx_v_db);
-
-  /* function exit code */
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __pyx_r = NULL;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  goto __pyx_L7_cleaned_up;
-  __pyx_L0:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __pyx_L7_cleaned_up:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_4user_6user_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_update_model, PyObject *__pyx_v_db) {
-  struct __pyx_obj_4user___pyx_scope_struct_2_user_update *__pyx_cur_scope;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("user_update", 0);
-  __pyx_cur_scope = (struct __pyx_obj_4user___pyx_scope_struct_2_user_update *)__pyx_tp_new_4user___pyx_scope_struct_2_user_update(__pyx_mstate_global->__pyx_ptype_4user___pyx_scope_struct_2_user_update, __pyx_mstate_global->__pyx_empty_tuple, NULL);
-  if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_2_user_update *)Py_None);
-    __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 42, __pyx_L1_error)
-  } else {
-    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
-  }
-  __pyx_cur_scope->__pyx_v_primary_id = __pyx_v_primary_id;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_primary_id);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_primary_id);
-  __pyx_cur_scope->__pyx_v_update_model = __pyx_v_update_model;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_update_model);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_update_model);
-  __pyx_cur_scope->__pyx_v_db = __pyx_v_db;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
-  {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4user_8generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_user_update, __pyx_mstate_global->__pyx_n_u_user_update, __pyx_mstate_global->__pyx_n_u_user); if (unlikely(!gen)) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_cur_scope);
-    __Pyx_RefNannyFinishContext();
-    return (PyObject *) gen;
-  }
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("user.user_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_gb_4user_8generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
-{
-  struct __pyx_obj_4user___pyx_scope_struct_2_user_update *__pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_2_user_update *)__pyx_generator->closure);
-  PyObject *__pyx_r = NULL;
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  size_t __pyx_t_6;
-  PyObject *__pyx_t_7 = NULL;
-  __Pyx_PySendResult __pyx_t_8;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_update", 0);
-  switch (__pyx_generator->resume_label) {
-    case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L4_resume_from_await;
-    default: /* CPython raises the right error here */
-    __Pyx_RefNannyFinishContext();
-    return NULL;
-  }
-  __pyx_L3_first_run:;
-  if (unlikely(__pyx_sent_value != Py_None)) {
-    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 42, __pyx_L1_error)
-  }
-
-  /* "user.py":45
- * async def user_update(*, primary_id: int, update_model: UserUpdate,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
- *     response_model = await DataService.update(             # <<<<<<<<<<<<<<
- *         db, primary_id, model_class=User,
- *         update_model=update_model,
-*/
-  __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_update); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "user.py":46
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
- *     response_model = await DataService.update(
- *         db, primary_id, model_class=User,             # <<<<<<<<<<<<<<
- *         update_model=update_model,
- *         response_model=UserResponse
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_User); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-
-  /* "user.py":48
- *         db, primary_id, model_class=User,
- *         update_model=update_model,
- *         response_model=UserResponse             # <<<<<<<<<<<<<<
- *     )
- *     return ResponseUtil.success(data=response_model, message="")
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_UserResponse); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_2);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_6 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_primary_id};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_7, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_update_model, __pyx_t_7, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_model, __pyx_t_5, __pyx_t_7, __pyx_callargs+3, 2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_model, __pyx_t_5, __pyx_t_7, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3906,21 +3800,21 @@ static PyObject *__pyx_gb_4user_8generator2(__pyx_CoroutineObject *__pyx_generat
     __PYX_ERR(0, 45, __pyx_L1_error)
   }
   __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_response_model = __pyx_t_1;
+  __pyx_cur_scope->__pyx_v_data_read = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "user.py":50
- *         response_model=UserResponse
+  /* "shudaodao_common/controller_table/dept.py":48
+ *         db, primary_id, model_class=Dept, response_model=DeptResponse
  *     )
- *     return ResponseUtil.success(data=response_model, message="")             # <<<<<<<<<<<<<<
+ *     return ResponseUtil.success(message="", data=data_read)             # <<<<<<<<<<<<<<
  * 
  * 
 */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_6 = 1;
@@ -3937,15 +3831,15 @@ static PyObject *__pyx_gb_4user_8generator2(__pyx_CoroutineObject *__pyx_generat
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, NULL};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_response_model, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__3, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__3, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_data_read, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -3953,12 +3847,12 @@ static PyObject *__pyx_gb_4user_8generator2(__pyx_CoroutineObject *__pyx_generat
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "user.py":42
+  /* "shudaodao_common/controller_table/dept.py":40
  * 
  * 
- * @User_Router.patch(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_update(*, primary_id: int, update_model: UserUpdate,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.get("/dept/{primary_id}", auth_act="read")             # <<<<<<<<<<<<<<
+ * async def dept_read(
+ *         *, primary_id: int,
 */
 
   /* function exit code */
@@ -3971,7 +3865,7 @@ static PyObject *__pyx_gb_4user_8generator2(__pyx_CoroutineObject *__pyx_generat
   __Pyx_XDECREF(__pyx_t_7);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("user_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("dept_read", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3983,17 +3877,17 @@ static PyObject *__pyx_gb_4user_8generator2(__pyx_CoroutineObject *__pyx_generat
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_11generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "user.py":53
+/* "shudaodao_common/controller_table/dept.py":51
  * 
  * 
- * @User_Router.delete(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_delete(*, primary_id: int,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.patch("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_update(
+ *         *, primary_id: int, model_update: DeptUpdate,
 */
 
-static PyObject *__pyx_pf_4user_21__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_21__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4003,16 +3897,16 @@ static PyObject *__pyx_pf_4user_21__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__defaults__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(Py_None);
   __Pyx_GIVEREF(Py_None);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 53, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 51, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 53, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 51, __pyx_L1_error);
   __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -4022,7 +3916,7 @@ static PyObject *__pyx_pf_4user_21__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("user.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4031,15 +3925,15 @@ static PyObject *__pyx_pf_4user_21__defaults__(CYTHON_UNUSED PyObject *__pyx_sel
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4user_10user_delete(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_10dept_update(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_4user_10user_delete = {"user_delete", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4user_10user_delete, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_4user_10user_delete(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_16shudaodao_common_16controller_table_4dept_10dept_update = {"dept_update", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_16shudaodao_common_16controller_table_4dept_10dept_update, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_10dept_update(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4047,18 +3941,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_primary_id = 0;
+  PyObject *__pyx_v_model_update = 0;
   PyObject *__pyx_v_db = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
+  PyObject* values[3] = {0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_delete (wrapper)", 0);
+  __Pyx_RefNannySetupContext("dept_update (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -4068,43 +3963,44 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_db,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_update,&__pyx_mstate_global->__pyx_n_u_db,0};
     struct __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self);
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 53, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 51, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "user_delete", 0) < 0) __PYX_ERR(0, 53, __pyx_L3_error)
-      if (!values[1]) values[1] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
-      for (Py_ssize_t i = 0; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("user_delete", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 53, __pyx_L3_error) }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "dept_update", 0) < 0) __PYX_ERR(0, 51, __pyx_L3_error)
+      if (!values[2]) values[2] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
+      for (Py_ssize_t i = 0; i < 2; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("dept_update", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 51, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 0)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("user_delete", __pyx_mstate_global->__pyx_n_u_primary_id); __PYX_ERR(0, 53, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("dept_update", __pyx_mstate_global->__pyx_n_u_primary_id); __PYX_ERR(0, 51, __pyx_L3_error)
     }
     __pyx_v_primary_id = ((PyObject*)values[0]);
-    __pyx_v_db = values[1];
+    __pyx_v_model_update = values[1];
+    __pyx_v_db = values[2];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("user_delete", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 53, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("dept_update", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 51, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("user.user_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 54, __pyx_L1_error)
-  __pyx_r = __pyx_pf_4user_9user_delete(__pyx_self, __pyx_v_primary_id, __pyx_v_db);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_r = __pyx_pf_16shudaodao_common_16controller_table_4dept_9dept_update(__pyx_self, __pyx_v_primary_id, __pyx_v_model_update, __pyx_v_db);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4123,19 +4019,382 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4user_9user_delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db) {
-  struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *__pyx_cur_scope;
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_9dept_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_update, PyObject *__pyx_v_db) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("user_delete", 0);
-  __pyx_cur_scope = (struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *)__pyx_tp_new_4user___pyx_scope_struct_3_user_delete(__pyx_mstate_global->__pyx_ptype_4user___pyx_scope_struct_3_user_delete, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("dept_update", 0);
+  __pyx_cur_scope = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update(__pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 53, __pyx_L1_error)
+    __PYX_ERR(0, 51, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_primary_id = __pyx_v_primary_id;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_primary_id);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_primary_id);
+  __pyx_cur_scope->__pyx_v_model_update = __pyx_v_model_update;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_model_update);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_model_update);
+  __pyx_cur_scope->__pyx_v_db = __pyx_v_db;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_16shudaodao_common_16controller_table_4dept_11generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_dept_update, __pyx_mstate_global->__pyx_n_u_dept_update, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl); if (unlikely(!gen)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_11generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *__pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
+  __Pyx_PySendResult __pyx_t_8;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("dept_update", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 51, __pyx_L1_error)
+  }
+
+  /* "shudaodao_common/controller_table/dept.py":56
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)
+ * ):
+ *     data_update = await DataService.update(             # <<<<<<<<<<<<<<
+ *         db, primary_id, model_class=Dept, update_model=model_update, response_model=DeptResponse
+ *     )
+*/
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_update); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "shudaodao_common/controller_table/dept.py":57
+ * ):
+ *     data_update = await DataService.update(
+ *         db, primary_id, model_class=Dept, update_model=model_update, response_model=DeptResponse             # <<<<<<<<<<<<<<
+ *     )
+ *     return ResponseUtil.success(message="", data=data_update)
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Dept); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DeptResponse); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_2);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_6 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_primary_id};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_7, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_model_update, __pyx_t_7, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_model, __pyx_t_5, __pyx_t_7, __pyx_callargs+3, 2) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_8 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 56, __pyx_L1_error)
+  }
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_data_update = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_common/controller_table/dept.py":59
+ *         db, primary_id, model_class=Dept, update_model=model_update, response_model=DeptResponse
+ *     )
+ *     return ResponseUtil.success(message="", data=data_update)             # <<<<<<<<<<<<<<
+ * 
+ * 
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_6 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
+    __Pyx_INCREF(__pyx_t_4);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
+    __pyx_t_6 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, NULL};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__4, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_data_update, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "shudaodao_common/controller_table/dept.py":51
+ * 
+ * 
+ * @Dept_Router.patch("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_update(
+ *         *, primary_id: int, model_update: DeptUpdate,
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_7);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("dept_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_14generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "shudaodao_common/controller_table/dept.py":62
+ * 
+ * 
+ * @Dept_Router.delete("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_delete(
+ *         *, primary_id: int,
+*/
+
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__defaults__", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_INCREF(Py_None);
+  __Pyx_GIVEREF(Py_None);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 62, __pyx_L1_error);
+  __Pyx_GIVEREF(__pyx_t_1);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 62, __pyx_L1_error);
+  __pyx_t_1 = 0;
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_13dept_delete(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_16shudaodao_common_16controller_table_4dept_13dept_delete = {"dept_delete", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_16shudaodao_common_16controller_table_4dept_13dept_delete, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_16shudaodao_common_16controller_table_4dept_13dept_delete(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_primary_id = 0;
+  PyObject *__pyx_v_db = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("dept_delete (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_db,0};
+    struct __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self);
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 62, __pyx_L3_error)
+    if (likely(__pyx_kwds_len > 0)) {
+      switch (__pyx_nargs) {
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "dept_delete", 0) < 0) __PYX_ERR(0, 62, __pyx_L3_error)
+      if (!values[1]) values[1] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
+      for (Py_ssize_t i = 0; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("dept_delete", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 62, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 0)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      __Pyx_RaiseKeywordRequired("dept_delete", __pyx_mstate_global->__pyx_n_u_primary_id); __PYX_ERR(0, 62, __pyx_L3_error)
+    }
+    __pyx_v_primary_id = ((PyObject*)values[0]);
+    __pyx_v_db = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("dept_delete", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 62, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_r = __pyx_pf_16shudaodao_common_16controller_table_4dept_12dept_delete(__pyx_self, __pyx_v_primary_id, __pyx_v_db);
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  goto __pyx_L7_cleaned_up;
+  __pyx_L0:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __pyx_L7_cleaned_up:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_16shudaodao_common_16controller_table_4dept_12dept_delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_db) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("dept_delete", 0);
+  __pyx_cur_scope = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete(__pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 62, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -4146,7 +4405,7 @@ static PyObject *__pyx_pf_4user_9user_delete(CYTHON_UNUSED PyObject *__pyx_self,
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4user_11generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_user_delete, __pyx_mstate_global->__pyx_n_u_user_delete, __pyx_mstate_global->__pyx_n_u_user); if (unlikely(!gen)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_16shudaodao_common_16controller_table_4dept_14generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_dept_delete, __pyx_mstate_global->__pyx_n_u_dept_delete, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl); if (unlikely(!gen)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4154,7 +4413,7 @@ static PyObject *__pyx_pf_4user_9user_delete(CYTHON_UNUSED PyObject *__pyx_self,
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("user.user_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_common.controller_table.dept.dept_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -4162,9 +4421,9 @@ static PyObject *__pyx_pf_4user_9user_delete(CYTHON_UNUSED PyObject *__pyx_self,
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_16shudaodao_common_16controller_table_4dept_14generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *__pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *)__pyx_generator->closure);
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *__pyx_cur_scope = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -4177,7 +4436,7 @@ static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_genera
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_delete", 0);
+  __Pyx_RefNannySetupContext("dept_delete", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L4_resume_from_await;
@@ -4188,23 +4447,22 @@ static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_genera
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 53, __pyx_L1_error)
+    __PYX_ERR(0, 62, __pyx_L1_error)
   }
 
-  /* "user.py":56
- * async def user_delete(*, primary_id: int,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
- *     await DataService.delete(db, primary_id, model_class=User)             # <<<<<<<<<<<<<<
+  /* "shudaodao_common/controller_table/dept.py":67
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)
+ * ):
+ *     await DataService.delete(db, primary_id, model_class=Dept)             # <<<<<<<<<<<<<<
  *     return ResponseUtil.success(message="")
- * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_delete); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_delete); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_User); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Dept); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4220,15 +4478,15 @@ static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_genera
   #endif
   {
     PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_primary_id};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_6, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_6, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4242,27 +4500,25 @@ static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_genera
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 67, __pyx_L1_error)
   } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_DECREF(__pyx_r); __pyx_r = 0;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 56, __pyx_L1_error)
+    __PYX_ERR(0, 67, __pyx_L1_error)
   }
 
-  /* "user.py":57
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
- *     await DataService.delete(db, primary_id, model_class=User)
+  /* "shudaodao_common/controller_table/dept.py":68
+ * ):
+ *     await DataService.delete(db, primary_id, model_class=Dept)
  *     return ResponseUtil.success(message="")             # <<<<<<<<<<<<<<
- * 
- * 
 */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_5 = 1;
@@ -4279,14 +4535,14 @@ static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_genera
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, NULL};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__4, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__5, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -4294,12 +4550,12 @@ static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_genera
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "user.py":53
+  /* "shudaodao_common/controller_table/dept.py":62
  * 
  * 
- * @User_Router.delete(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_delete(*, primary_id: int,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.delete("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_delete(
+ *         *, primary_id: int,
 */
 
   /* function exit code */
@@ -4311,344 +4567,7 @@ static PyObject *__pyx_gb_4user_11generator3(__pyx_CoroutineObject *__pyx_genera
   __Pyx_XDECREF(__pyx_t_6);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("user_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  }
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  #if !CYTHON_USE_EXC_INFO_STACK
-  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-  #endif
-  __pyx_generator->resume_label = -1;
-  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-static PyObject *__pyx_gb_4user_14generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
-
-/* "user.py":60
- * 
- * 
- * @User_Router.post(path="/query", summary="")             # <<<<<<<<<<<<<<
- * async def user_query(*, query: QueryRequest,
- *                      db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-
-static PyObject *__pyx_pf_4user_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__defaults__", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_db, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(Py_None);
-  __Pyx_GIVEREF(Py_None);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, Py_None) != (0)) __PYX_ERR(0, 60, __pyx_L1_error);
-  __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1) != (0)) __PYX_ERR(0, 60, __pyx_L1_error);
-  __pyx_t_1 = 0;
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("user.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static PyObject *__pyx_pw_4user_13user_query(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static PyMethodDef __pyx_mdef_4user_13user_query = {"user_query", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4user_13user_query, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_4user_13user_query(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  PyObject *__pyx_v_query = 0;
-  PyObject *__pyx_v_db = 0;
-  #if !CYTHON_METH_FASTCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_query (wrapper)", 0);
-  #if !CYTHON_METH_FASTCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_query,&__pyx_mstate_global->__pyx_n_u_db,0};
-    struct __pyx_defaults *__pyx_dynamic_args = __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self);
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 60, __pyx_L3_error)
-    if (likely(__pyx_kwds_len > 0)) {
-      switch (__pyx_nargs) {
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, 0, __pyx_kwds_len, "user_query", 0) < 0) __PYX_ERR(0, 60, __pyx_L3_error)
-      if (!values[1]) values[1] = __Pyx_NewRef(__pyx_dynamic_args->arg0);
-      for (Py_ssize_t i = 0; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("user_query", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 60, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 0)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      __Pyx_RaiseKeywordRequired("user_query", __pyx_mstate_global->__pyx_n_u_query); __PYX_ERR(0, 60, __pyx_L3_error)
-    }
-    __pyx_v_query = values[0];
-    __pyx_v_db = values[1];
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("user_query", 1, 0, 0, __pyx_nargs); __PYX_ERR(0, 60, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("user.user_query", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_4user_12user_query(__pyx_self, __pyx_v_query, __pyx_v_db);
-
-  /* function exit code */
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_4user_12user_query(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_query, PyObject *__pyx_v_db) {
-  struct __pyx_obj_4user___pyx_scope_struct_4_user_query *__pyx_cur_scope;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("user_query", 0);
-  __pyx_cur_scope = (struct __pyx_obj_4user___pyx_scope_struct_4_user_query *)__pyx_tp_new_4user___pyx_scope_struct_4_user_query(__pyx_mstate_global->__pyx_ptype_4user___pyx_scope_struct_4_user_query, __pyx_mstate_global->__pyx_empty_tuple, NULL);
-  if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_4_user_query *)Py_None);
-    __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 60, __pyx_L1_error)
-  } else {
-    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
-  }
-  __pyx_cur_scope->__pyx_v_query = __pyx_v_query;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_query);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_query);
-  __pyx_cur_scope->__pyx_v_db = __pyx_v_db;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
-  {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4user_14generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_user_query, __pyx_mstate_global->__pyx_n_u_user_query, __pyx_mstate_global->__pyx_n_u_user); if (unlikely(!gen)) __PYX_ERR(0, 60, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_cur_scope);
-    __Pyx_RefNannyFinishContext();
-    return (PyObject *) gen;
-  }
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("user.user_query", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_gb_4user_14generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
-{
-  struct __pyx_obj_4user___pyx_scope_struct_4_user_query *__pyx_cur_scope = ((struct __pyx_obj_4user___pyx_scope_struct_4_user_query *)__pyx_generator->closure);
-  PyObject *__pyx_r = NULL;
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  size_t __pyx_t_5;
-  PyObject *__pyx_t_6 = NULL;
-  __Pyx_PySendResult __pyx_t_7;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("user_query", 0);
-  switch (__pyx_generator->resume_label) {
-    case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L4_resume_from_await;
-    default: /* CPython raises the right error here */
-    __Pyx_RefNannyFinishContext();
-    return NULL;
-  }
-  __pyx_L3_first_run:;
-  if (unlikely(__pyx_sent_value != Py_None)) {
-    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 60, __pyx_L1_error)
-  }
-
-  /* "user.py":63
- * async def user_query(*, query: QueryRequest,
- *                      db: AsyncSession = Depends(User_Router.get_async_session)):
- *     query_model = await DataService.query(db, query, model_class=User),             # <<<<<<<<<<<<<<
- *     return ResponseUtil.success(data=query_model, message="")
-*/
-  __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_query); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_User); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_2);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_query};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_6, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (likely(__pyx_t_7 == PYGEN_NEXT)) {
-    __Pyx_GOTREF(__pyx_r);
-    __Pyx_XGIVEREF(__pyx_r);
-    __Pyx_RefNannyFinishContext();
-    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-    /* return from generator, awaiting value */
-    __pyx_generator->resume_label = 1;
-    return __pyx_r;
-    __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 63, __pyx_L1_error)
-    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
-  } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
-    __Pyx_GOTREF(__pyx_r);
-    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
-  } else {
-    __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 63, __pyx_L1_error)
-  }
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_1);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1) != (0)) __PYX_ERR(0, 63, __pyx_L1_error);
-  __pyx_t_1 = 0;
-  __Pyx_GIVEREF(__pyx_t_4);
-  __pyx_cur_scope->__pyx_v_query_model = ((PyObject*)__pyx_t_4);
-  __pyx_t_4 = 0;
-
-  /* "user.py":64
- *                      db: AsyncSession = Depends(User_Router.get_async_session)):
- *     query_model = await DataService.query(db, query, model_class=User),
- *     return ResponseUtil.success(data=query_model, message="")             # <<<<<<<<<<<<<<
-*/
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_success); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
-    assert(__pyx_t_1);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
-    __Pyx_INCREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_1, NULL};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_cur_scope->__pyx_v_query_model, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__5, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-  }
-  __pyx_r = __pyx_t_4;
-  __pyx_t_4 = 0;
-  goto __pyx_L0;
-  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
-
-  /* "user.py":60
- * 
- * 
- * @User_Router.post(path="/query", summary="")             # <<<<<<<<<<<<<<
- * async def user_query(*, query: QueryRequest,
- *                      db: AsyncSession = Depends(User_Router.get_async_session)):
-*/
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_6);
-  if (__Pyx_PyErr_Occurred()) {
-    __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("user_query", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("dept_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4662,7 +4581,7 @@ static PyObject *__pyx_gb_4user_14generator4(__pyx_CoroutineObject *__pyx_genera
 }
 /* #### Code section: module_exttypes ### */
 
-static PyObject *__pyx_tp_new_4user___pyx_defaults(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_defaults(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
@@ -4674,11 +4593,11 @@ static PyObject *__pyx_tp_new_4user___pyx_defaults(PyTypeObject *t, CYTHON_UNUSE
   return o;
 }
 
-static void __pyx_tp_dealloc_4user___pyx_defaults(PyObject *o) {
+static void __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_defaults(PyObject *o) {
   struct __pyx_defaults *p = (struct __pyx_defaults *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4user___pyx_defaults) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_defaults) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -4695,7 +4614,7 @@ static void __pyx_tp_dealloc_4user___pyx_defaults(PyObject *o) {
   #endif
 }
 
-static int __pyx_tp_traverse_4user___pyx_defaults(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_defaults(PyObject *o, visitproc v, void *a) {
   int e;
   struct __pyx_defaults *p = (struct __pyx_defaults *)o;
   {
@@ -4708,7 +4627,7 @@ static int __pyx_tp_traverse_4user___pyx_defaults(PyObject *o, visitproc v, void
   return 0;
 }
 
-static int __pyx_tp_clear_4user___pyx_defaults(PyObject *o) {
+static int __pyx_tp_clear_16shudaodao_common_16controller_table_4dept___pyx_defaults(PyObject *o) {
   PyObject* tmp;
   struct __pyx_defaults *p = (struct __pyx_defaults *)o;
   tmp = ((PyObject*)p->arg0);
@@ -4717,28 +4636,28 @@ static int __pyx_tp_clear_4user___pyx_defaults(PyObject *o) {
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_4user___pyx_defaults_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4user___pyx_defaults},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_4user___pyx_defaults},
-  {Py_tp_clear, (void *)__pyx_tp_clear_4user___pyx_defaults},
-  {Py_tp_new, (void *)__pyx_tp_new_4user___pyx_defaults},
+static PyType_Slot __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_defaults},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_defaults},
+  {Py_tp_clear, (void *)__pyx_tp_clear_16shudaodao_common_16controller_table_4dept___pyx_defaults},
+  {Py_tp_new, (void *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_defaults},
   {0, 0},
 };
-static PyType_Spec __pyx_type_4user___pyx_defaults_spec = {
-  "user.__pyx_defaults",
+static PyType_Spec __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults_spec = {
+  "shudaodao_common.controller_table.dept.__pyx_defaults",
   sizeof(struct __pyx_defaults),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_4user___pyx_defaults_slots,
+  __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_4user___pyx_defaults = {
+static PyTypeObject __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults = {
   PyVarObject_HEAD_INIT(0, 0)
-  "user.""__pyx_defaults", /*tp_name*/
+  "shudaodao_common.controller_table.dept.""__pyx_defaults", /*tp_name*/
   sizeof(struct __pyx_defaults), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_4user___pyx_defaults, /*tp_dealloc*/
+  __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_defaults, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -4760,8 +4679,8 @@ static PyTypeObject __pyx_type_4user___pyx_defaults = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_4user___pyx_defaults, /*tp_traverse*/
-  __pyx_tp_clear_4user___pyx_defaults, /*tp_clear*/
+  __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_defaults, /*tp_traverse*/
+  __pyx_tp_clear_16shudaodao_common_16controller_table_4dept___pyx_defaults, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
@@ -4778,7 +4697,7 @@ static PyTypeObject __pyx_type_4user___pyx_defaults = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_4user___pyx_defaults, /*tp_new*/
+  __pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_defaults, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -4811,16 +4730,16 @@ static PyTypeObject __pyx_type_4user___pyx_defaults = {
 };
 #endif
 
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct__user_create(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct__user_create > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct__user_create)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct__user_create[--__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct__user_create];
-    memset(o, 0, sizeof(struct __pyx_obj_4user___pyx_scope_struct__user_create));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query[--__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query];
+    memset(o, 0, sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -4833,669 +4752,22 @@ static PyObject *__pyx_tp_new_4user___pyx_scope_struct__user_create(PyTypeObject
   return o;
 }
 
-static void __pyx_tp_dealloc_4user___pyx_scope_struct__user_create(PyObject *o) {
-  struct __pyx_obj_4user___pyx_scope_struct__user_create *p = (struct __pyx_obj_4user___pyx_scope_struct__user_create *)o;
+static void __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query(PyObject *o) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4user___pyx_scope_struct__user_create) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_db);
-  Py_CLEAR(p->__pyx_v_response_model);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct__user_create < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct__user_create)))) {
-    __pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct__user_create[__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct__user_create++] = ((struct __pyx_obj_4user___pyx_scope_struct__user_create *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_4user___pyx_scope_struct__user_create(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_4user___pyx_scope_struct__user_create *p = (struct __pyx_obj_4user___pyx_scope_struct__user_create *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_db) {
-    e = (*v)(p->__pyx_v_db, a); if (e) return e;
-  }
-  if (p->__pyx_v_response_model) {
-    e = (*v)(p->__pyx_v_response_model, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_4user___pyx_scope_struct__user_create_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4user___pyx_scope_struct__user_create},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_4user___pyx_scope_struct__user_create},
-  {Py_tp_new, (void *)__pyx_tp_new_4user___pyx_scope_struct__user_create},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_4user___pyx_scope_struct__user_create_spec = {
-  "user.__pyx_scope_struct__user_create",
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct__user_create),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_4user___pyx_scope_struct__user_create_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_4user___pyx_scope_struct__user_create = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "user.""__pyx_scope_struct__user_create", /*tp_name*/
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct__user_create), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_4user___pyx_scope_struct__user_create, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_4user___pyx_scope_struct__user_create, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_4user___pyx_scope_struct__user_create, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_1_user_read(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_1_user_read > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_1_user_read)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_1_user_read[--__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_1_user_read];
-    memset(o, 0, sizeof(struct __pyx_obj_4user___pyx_scope_struct_1_user_read));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_4user___pyx_scope_struct_1_user_read(PyObject *o) {
-  struct __pyx_obj_4user___pyx_scope_struct_1_user_read *p = (struct __pyx_obj_4user___pyx_scope_struct_1_user_read *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4user___pyx_scope_struct_1_user_read) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_db);
-  Py_CLEAR(p->__pyx_v_primary_id);
-  Py_CLEAR(p->__pyx_v_response_model);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_1_user_read < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_1_user_read)))) {
-    __pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_1_user_read[__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_1_user_read++] = ((struct __pyx_obj_4user___pyx_scope_struct_1_user_read *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_4user___pyx_scope_struct_1_user_read(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_4user___pyx_scope_struct_1_user_read *p = (struct __pyx_obj_4user___pyx_scope_struct_1_user_read *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_db) {
-    e = (*v)(p->__pyx_v_db, a); if (e) return e;
-  }
-  if (p->__pyx_v_response_model) {
-    e = (*v)(p->__pyx_v_response_model, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_4user___pyx_scope_struct_1_user_read_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4user___pyx_scope_struct_1_user_read},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_4user___pyx_scope_struct_1_user_read},
-  {Py_tp_new, (void *)__pyx_tp_new_4user___pyx_scope_struct_1_user_read},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_4user___pyx_scope_struct_1_user_read_spec = {
-  "user.__pyx_scope_struct_1_user_read",
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_1_user_read),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_4user___pyx_scope_struct_1_user_read_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_4user___pyx_scope_struct_1_user_read = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "user.""__pyx_scope_struct_1_user_read", /*tp_name*/
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_1_user_read), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_4user___pyx_scope_struct_1_user_read, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_4user___pyx_scope_struct_1_user_read, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_4user___pyx_scope_struct_1_user_read, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_2_user_update(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_2_user_update > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_2_user_update)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_2_user_update[--__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_2_user_update];
-    memset(o, 0, sizeof(struct __pyx_obj_4user___pyx_scope_struct_2_user_update));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_4user___pyx_scope_struct_2_user_update(PyObject *o) {
-  struct __pyx_obj_4user___pyx_scope_struct_2_user_update *p = (struct __pyx_obj_4user___pyx_scope_struct_2_user_update *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4user___pyx_scope_struct_2_user_update) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_db);
-  Py_CLEAR(p->__pyx_v_primary_id);
-  Py_CLEAR(p->__pyx_v_response_model);
-  Py_CLEAR(p->__pyx_v_update_model);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_2_user_update < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_2_user_update)))) {
-    __pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_2_user_update[__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_2_user_update++] = ((struct __pyx_obj_4user___pyx_scope_struct_2_user_update *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_4user___pyx_scope_struct_2_user_update(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_4user___pyx_scope_struct_2_user_update *p = (struct __pyx_obj_4user___pyx_scope_struct_2_user_update *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_db) {
-    e = (*v)(p->__pyx_v_db, a); if (e) return e;
-  }
-  if (p->__pyx_v_response_model) {
-    e = (*v)(p->__pyx_v_response_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_update_model) {
-    e = (*v)(p->__pyx_v_update_model, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_4user___pyx_scope_struct_2_user_update_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4user___pyx_scope_struct_2_user_update},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_4user___pyx_scope_struct_2_user_update},
-  {Py_tp_new, (void *)__pyx_tp_new_4user___pyx_scope_struct_2_user_update},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_4user___pyx_scope_struct_2_user_update_spec = {
-  "user.__pyx_scope_struct_2_user_update",
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_2_user_update),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_4user___pyx_scope_struct_2_user_update_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_4user___pyx_scope_struct_2_user_update = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "user.""__pyx_scope_struct_2_user_update", /*tp_name*/
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_2_user_update), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_4user___pyx_scope_struct_2_user_update, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_4user___pyx_scope_struct_2_user_update, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_4user___pyx_scope_struct_2_user_update, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_3_user_delete(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_3_user_delete > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_3_user_delete)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_3_user_delete[--__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_3_user_delete];
-    memset(o, 0, sizeof(struct __pyx_obj_4user___pyx_scope_struct_3_user_delete));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_4user___pyx_scope_struct_3_user_delete(PyObject *o) {
-  struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *p = (struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4user___pyx_scope_struct_3_user_delete) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_db);
-  Py_CLEAR(p->__pyx_v_primary_id);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_3_user_delete < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_3_user_delete)))) {
-    __pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_3_user_delete[__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_3_user_delete++] = ((struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_4user___pyx_scope_struct_3_user_delete(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *p = (struct __pyx_obj_4user___pyx_scope_struct_3_user_delete *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_db) {
-    e = (*v)(p->__pyx_v_db, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_4user___pyx_scope_struct_3_user_delete_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4user___pyx_scope_struct_3_user_delete},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_4user___pyx_scope_struct_3_user_delete},
-  {Py_tp_new, (void *)__pyx_tp_new_4user___pyx_scope_struct_3_user_delete},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_4user___pyx_scope_struct_3_user_delete_spec = {
-  "user.__pyx_scope_struct_3_user_delete",
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_3_user_delete),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_4user___pyx_scope_struct_3_user_delete_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_4user___pyx_scope_struct_3_user_delete = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "user.""__pyx_scope_struct_3_user_delete", /*tp_name*/
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_3_user_delete), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_4user___pyx_scope_struct_3_user_delete, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_4user___pyx_scope_struct_3_user_delete, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_4user___pyx_scope_struct_3_user_delete, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_4user___pyx_scope_struct_4_user_query(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_4_user_query > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_4_user_query)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_4_user_query[--__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_4_user_query];
-    memset(o, 0, sizeof(struct __pyx_obj_4user___pyx_scope_struct_4_user_query));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_4user___pyx_scope_struct_4_user_query(PyObject *o) {
-  struct __pyx_obj_4user___pyx_scope_struct_4_user_query *p = (struct __pyx_obj_4user___pyx_scope_struct_4_user_query *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4user___pyx_scope_struct_4_user_query) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_data_query);
   Py_CLEAR(p->__pyx_v_db);
   Py_CLEAR(p->__pyx_v_query);
-  Py_CLEAR(p->__pyx_v_query_model);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_4_user_query < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_4user___pyx_scope_struct_4_user_query)))) {
-    __pyx_mstate_global->__pyx_freelist_4user___pyx_scope_struct_4_user_query[__pyx_mstate_global->__pyx_freecount_4user___pyx_scope_struct_4_user_query++] = ((struct __pyx_obj_4user___pyx_scope_struct_4_user_query *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query)))) {
+    __pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query[__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query++] = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *)o);
   } else
   #endif
   {
@@ -5510,12 +4782,15 @@ static void __pyx_tp_dealloc_4user___pyx_scope_struct_4_user_query(PyObject *o) 
   }
 }
 
-static int __pyx_tp_traverse_4user___pyx_scope_struct_4_user_query(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_4user___pyx_scope_struct_4_user_query *p = (struct __pyx_obj_4user___pyx_scope_struct_4_user_query *)o;
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
+  }
+  if (p->__pyx_v_data_query) {
+    e = (*v)(p->__pyx_v_data_query, a); if (e) return e;
   }
   if (p->__pyx_v_db) {
     e = (*v)(p->__pyx_v_db, a); if (e) return e;
@@ -5523,33 +4798,30 @@ static int __pyx_tp_traverse_4user___pyx_scope_struct_4_user_query(PyObject *o, 
   if (p->__pyx_v_query) {
     e = (*v)(p->__pyx_v_query, a); if (e) return e;
   }
-  if (p->__pyx_v_query_model) {
-    e = (*v)(p->__pyx_v_query_model, a); if (e) return e;
-  }
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_4user___pyx_scope_struct_4_user_query_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4user___pyx_scope_struct_4_user_query},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_4user___pyx_scope_struct_4_user_query},
-  {Py_tp_new, (void *)__pyx_tp_new_4user___pyx_scope_struct_4_user_query},
+static PyType_Slot __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query},
+  {Py_tp_new, (void *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query},
   {0, 0},
 };
-static PyType_Spec __pyx_type_4user___pyx_scope_struct_4_user_query_spec = {
-  "user.__pyx_scope_struct_4_user_query",
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_4_user_query),
+static PyType_Spec __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query_spec = {
+  "shudaodao_common.controller_table.dept.__pyx_scope_struct__dept_query",
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_4user___pyx_scope_struct_4_user_query_slots,
+  __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_4user___pyx_scope_struct_4_user_query = {
+static PyTypeObject __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query = {
   PyVarObject_HEAD_INIT(0, 0)
-  "user.""__pyx_scope_struct_4_user_query", /*tp_name*/
-  sizeof(struct __pyx_obj_4user___pyx_scope_struct_4_user_query), /*tp_basicsize*/
+  "shudaodao_common.controller_table.dept.""__pyx_scope_struct__dept_query", /*tp_name*/
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_4user___pyx_scope_struct_4_user_query, /*tp_dealloc*/
+  __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -5571,7 +4843,7 @@ static PyTypeObject __pyx_type_4user___pyx_scope_struct_4_user_query = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_4user___pyx_scope_struct_4_user_query, /*tp_traverse*/
+  __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -5589,7 +4861,654 @@ static PyTypeObject __pyx_type_4user___pyx_scope_struct_4_user_query = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_4user___pyx_scope_struct_4_user_query, /*tp_new*/
+  __pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create[--__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create];
+    memset(o, 0, sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create(PyObject *o) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_create_model);
+  Py_CLEAR(p->__pyx_v_data_create);
+  Py_CLEAR(p->__pyx_v_db);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create)))) {
+    __pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create[__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create++] = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_create_model) {
+    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
+  }
+  if (p->__pyx_v_data_create) {
+    e = (*v)(p->__pyx_v_data_create, a); if (e) return e;
+  }
+  if (p->__pyx_v_db) {
+    e = (*v)(p->__pyx_v_db, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create},
+  {Py_tp_new, (void *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create_spec = {
+  "shudaodao_common.controller_table.dept.__pyx_scope_struct_1_dept_create",
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_common.controller_table.dept.""__pyx_scope_struct_1_dept_create", /*tp_name*/
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read[--__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read];
+    memset(o, 0, sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read(PyObject *o) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_data_read);
+  Py_CLEAR(p->__pyx_v_db);
+  Py_CLEAR(p->__pyx_v_primary_id);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read)))) {
+    __pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read[__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read++] = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_data_read) {
+    e = (*v)(p->__pyx_v_data_read, a); if (e) return e;
+  }
+  if (p->__pyx_v_db) {
+    e = (*v)(p->__pyx_v_db, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read},
+  {Py_tp_new, (void *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read_spec = {
+  "shudaodao_common.controller_table.dept.__pyx_scope_struct_2_dept_read",
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_common.controller_table.dept.""__pyx_scope_struct_2_dept_read", /*tp_name*/
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update[--__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update];
+    memset(o, 0, sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update(PyObject *o) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_data_update);
+  Py_CLEAR(p->__pyx_v_db);
+  Py_CLEAR(p->__pyx_v_model_update);
+  Py_CLEAR(p->__pyx_v_primary_id);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update)))) {
+    __pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update[__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update++] = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_data_update) {
+    e = (*v)(p->__pyx_v_data_update, a); if (e) return e;
+  }
+  if (p->__pyx_v_db) {
+    e = (*v)(p->__pyx_v_db, a); if (e) return e;
+  }
+  if (p->__pyx_v_model_update) {
+    e = (*v)(p->__pyx_v_model_update, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update},
+  {Py_tp_new, (void *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update_spec = {
+  "shudaodao_common.controller_table.dept.__pyx_scope_struct_3_dept_update",
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_common.controller_table.dept.""__pyx_scope_struct_3_dept_update", /*tp_name*/
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete[--__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete];
+    memset(o, 0, sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete(PyObject *o) {
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_db);
+  Py_CLEAR(p->__pyx_v_primary_id);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete)))) {
+    __pyx_mstate_global->__pyx_freelist_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete[__pyx_mstate_global->__pyx_freecount_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete++] = ((struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *p = (struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_db) {
+    e = (*v)(p->__pyx_v_db, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete},
+  {Py_tp_new, (void *)__pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete_spec = {
+  "shudaodao_common.controller_table.dept.__pyx_scope_struct_4_dept_delete",
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_common.controller_table.dept.""__pyx_scope_struct_4_dept_delete", /*tp_name*/
+  sizeof(struct __pyx_obj_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -5676,99 +5595,99 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_4user___pyx_defaults = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4user___pyx_defaults_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4user___pyx_defaults)) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4user___pyx_defaults_spec, __pyx_mstate->__pyx_ptype_4user___pyx_defaults) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults)) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults_spec, __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_4user___pyx_defaults = &__pyx_type_4user___pyx_defaults;
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults = &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_defaults;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4user___pyx_defaults) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4user___pyx_defaults->tp_dictoffset && __pyx_mstate->__pyx_ptype_4user___pyx_defaults->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_4user___pyx_defaults->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults->tp_dictoffset && __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4user___pyx_scope_struct__user_create_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create)) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4user___pyx_scope_struct__user_create_spec, __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query)) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query_spec, __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create = &__pyx_type_4user___pyx_scope_struct__user_create;
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query = &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create->tp_dictoffset && __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct__user_create->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query->tp_dictoffset && __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct__dept_query->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4user___pyx_scope_struct_1_user_read_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read)) __PYX_ERR(0, 32, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4user___pyx_scope_struct_1_user_read_spec, __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create)) __PYX_ERR(0, 29, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create_spec, __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read = &__pyx_type_4user___pyx_scope_struct_1_user_read;
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create = &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read->tp_dictoffset && __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_1_user_read->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create->tp_dictoffset && __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_1_dept_create->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4user___pyx_scope_struct_2_user_update_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update)) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4user___pyx_scope_struct_2_user_update_spec, __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read)) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read_spec, __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update = &__pyx_type_4user___pyx_scope_struct_2_user_update;
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read = &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update->tp_dictoffset && __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_2_user_update->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read->tp_dictoffset && __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_2_dept_read->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4user___pyx_scope_struct_3_user_delete_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete)) __PYX_ERR(0, 53, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4user___pyx_scope_struct_3_user_delete_spec, __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update)) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update_spec, __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete = &__pyx_type_4user___pyx_scope_struct_3_user_delete;
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update = &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete->tp_dictoffset && __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_3_user_delete->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update->tp_dictoffset && __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_3_dept_update->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4user___pyx_scope_struct_4_user_query_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query)) __PYX_ERR(0, 60, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4user___pyx_scope_struct_4_user_query_spec, __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete)) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete_spec, __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query = &__pyx_type_4user___pyx_scope_struct_4_user_query;
+  __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete = &__pyx_type_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query->tp_dictoffset && __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_4user___pyx_scope_struct_4_user_query->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete->tp_dictoffset && __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_scope_struct_4_dept_delete->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   __Pyx_RefNannyFinishContext();
@@ -5807,10 +5726,10 @@ static int __Pyx_modinit_function_import_code(__pyx_mstatetype *__pyx_mstate) {
 
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_user(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_dept(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_user},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_dept},
   #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
   {Py_mod_gil, Py_MOD_GIL_USED},
   #endif
@@ -5829,7 +5748,7 @@ namespace {
   #endif
   {
       PyModuleDef_HEAD_INIT,
-      "user",
+      "dept",
       0, /* m_doc */
     #if CYTHON_USE_MODULE_STATE
       sizeof(__pyx_mstatetype), /* m_size */
@@ -5867,8 +5786,8 @@ namespace {
   #endif
 #endif
 
-__Pyx_PyMODINIT_FUNC PyInit_user(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_user(void)
+__Pyx_PyMODINIT_FUNC PyInit_dept(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_dept(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -5971,7 +5890,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_user(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_dept(PyObject *__pyx_pyinit_module)
 #endif
 {
   int stringtab_initialized = 0;
@@ -5983,8 +5902,8 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_user(PyObject *__pyx_pyinit_module
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  size_t __pyx_t_5;
-  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
@@ -5998,7 +5917,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_user(PyObject *__pyx_pyinit_module
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'user' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'dept' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #else
@@ -6014,7 +5933,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_user(PyObject *__pyx_pyinit_module
   #if CYTHON_USE_MODULE_STATE
   {
     int add_module_result = __Pyx_State_AddModule(__pyx_t_1, &__pyx_moduledef);
-    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "user" pseudovariable */
+    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "dept" pseudovariable */
     if (unlikely((add_module_result < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     pystate_addmodule_run = 1;
   }
@@ -6042,7 +5961,7 @@ if (!__Pyx_RefNanny) {
 }
 #endif
 
-__Pyx_RefNannySetupContext("PyInit_user", 0);
+__Pyx_RefNannySetupContext("PyInit_dept", 0);
   if (__Pyx_check_binary_version(__PYX_LIMITED_VERSION_HEX, __Pyx_get_runtime_version(), CYTHON_COMPILING_IN_LIMITED_API) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -6073,13 +5992,13 @@ __Pyx_RefNannySetupContext("PyInit_user", 0);
   if (__pyx_AsyncGen_init(__pyx_m) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   /*--- Library function declarations ---*/
-  if (__pyx_module_is_main_user) {
+  if (__pyx_module_is_main_shudaodao_common__controller_table__dept) {
     if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "user")) {
-      if (unlikely((PyDict_SetItemString(modules, "user", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "shudaodao_common.controller_table.dept")) {
+      if (unlikely((PyDict_SetItemString(modules, "shudaodao_common.controller_table.dept", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   /*--- Builtin init code ---*/
@@ -6097,12 +6016,12 @@ __Pyx_RefNannySetupContext("PyInit_user", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "user.py":9
+  /* "shudaodao_common/controller_table/dept.py":9
  * # @Desc
  * 
  * from shudaodao_core import AsyncSession, AuthRouter, Depends             # <<<<<<<<<<<<<<
- * from shudaodao_core import AuthService, DataService, QueryRequest, ResponseUtil
- * 
+ * from shudaodao_core import DataService, QueryRequest, ResponseUtil
+ * from ..entity_table.dept import Dept, DeptCreate, DeptResponse, DeptUpdate
 */
   __pyx_t_2 = __Pyx_PyList_Pack(3, __pyx_mstate_global->__pyx_n_u_AsyncSession, __pyx_mstate_global->__pyx_n_u_AuthRouter, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -6123,21 +6042,17 @@ __Pyx_RefNannySetupContext("PyInit_user", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":10
+  /* "shudaodao_common/controller_table/dept.py":10
  * 
  * from shudaodao_core import AsyncSession, AuthRouter, Depends
- * from shudaodao_core import AuthService, DataService, QueryRequest, ResponseUtil             # <<<<<<<<<<<<<<
+ * from shudaodao_core import DataService, QueryRequest, ResponseUtil             # <<<<<<<<<<<<<<
+ * from ..entity_table.dept import Dept, DeptCreate, DeptResponse, DeptUpdate
  * 
- * from ..entity_table.user import User, UserCreate, UserResponse, UserUpdate
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_AuthService, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_mstate_global->__pyx_n_u_QueryRequest, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(3, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_mstate_global->__pyx_n_u_QueryRequest, __pyx_mstate_global->__pyx_n_u_ResponseUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthService, __pyx_t_3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -6153,465 +6068,474 @@ __Pyx_RefNannySetupContext("PyInit_user", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "user.py":12
- * from shudaodao_core import AuthService, DataService, QueryRequest, ResponseUtil
+  /* "shudaodao_common/controller_table/dept.py":11
+ * from shudaodao_core import AsyncSession, AuthRouter, Depends
+ * from shudaodao_core import DataService, QueryRequest, ResponseUtil
+ * from ..entity_table.dept import Dept, DeptCreate, DeptResponse, DeptUpdate             # <<<<<<<<<<<<<<
  * 
- * from ..entity_table.user import User, UserCreate, UserResponse, UserUpdate             # <<<<<<<<<<<<<<
- * 
- * User_Router = AuthRouter(
+ * Dept_Router = AuthRouter(
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_User, __pyx_mstate_global->__pyx_n_u_UserCreate, __pyx_mstate_global->__pyx_n_u_UserResponse, __pyx_mstate_global->__pyx_n_u_UserUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_Dept, __pyx_mstate_global->__pyx_n_u_DeptCreate, __pyx_mstate_global->__pyx_n_u_DeptResponse, __pyx_mstate_global->__pyx_n_u_DeptUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_table_user, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_table_dept, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_User); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Dept); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_User, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Dept, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_UserCreate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DeptCreate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_UserCreate, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DeptCreate, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_UserResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DeptResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_UserResponse, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DeptResponse, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_UserUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DeptUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_UserUpdate, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DeptUpdate, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":14
- * from ..entity_table.user import User, UserCreate, UserResponse, UserUpdate
+  /* "shudaodao_common/controller_table/dept.py":13
+ * from ..entity_table.dept import Dept, DeptCreate, DeptResponse, DeptUpdate
  * 
- * User_Router = AuthRouter(             # <<<<<<<<<<<<<<
- *     prefix="/v1/user", db_config_name="Common"
- * )
+ * Dept_Router = AuthRouter(             # <<<<<<<<<<<<<<
+ *     prefix="/v1/common", tags=[""],
+ *     db_config_name="Common",
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthRouter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthRouter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = 1;
+
+  /* "shudaodao_common/controller_table/dept.py":14
+ * 
+ * Dept_Router = AuthRouter(
+ *     prefix="/v1/common", tags=[""],             # <<<<<<<<<<<<<<
+ *     db_config_name="Common",
+ *     default_role="shudaodao_common",
+*/
+  __pyx_t_5 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u__7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 14, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_mstate_global->__pyx_kp_u_v1_user, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_config_name, __pyx_mstate_global->__pyx_n_u_Common, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 5 : 0)] = {__pyx_t_2, NULL};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_mstate_global->__pyx_kp_u_v1_common, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tags, __pyx_t_5, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_config_name, __pyx_mstate_global->__pyx_n_u_Common, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_default_role, __pyx_mstate_global->__pyx_n_u_shudaodao_common, __pyx_t_7, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_obj, __pyx_mstate_global->__pyx_kp_u_shudaodao_common_dept, __pyx_t_7, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_User_Router, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Dept_Router, __pyx_t_3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":19
+  /* "shudaodao_common/controller_table/dept.py":21
  * 
  * 
- * @User_Router.post(path="", summary="")             # <<<<<<<<<<<<<<
- * async def user_create(
- *         *, create_model: UserCreate,
+ * @Dept_Router.post("/dept/query", auth_act="query")             # <<<<<<<<<<<<<<
+ * async def dept_query(
+ *         *, query: QueryRequest, db: AsyncSession = Depends(Dept_Router.get_async_session)
 */
   __pyx_t_4 = NULL;
-  __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_post); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_5 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_post); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_5 = 1;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_kp_u__7, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_n_u__8, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, __pyx_mstate_global->__pyx_kp_u_dept_query_2};
+    __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_query, __pyx_t_2, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 19, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 21, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
   }
-  __pyx_t_8 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_create_model, __pyx_mstate_global->__pyx_n_u_UserCreate) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_4user_1user_create, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_user_create, NULL, __pyx_mstate_global->__pyx_n_u_user, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_7, __pyx_mstate_global->__pyx_ptype_4user___pyx_defaults)) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_query, __pyx_mstate_global->__pyx_n_u_QueryRequest) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_16shudaodao_common_16controller_table_4dept_1dept_query, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_dept_query, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults)) __PYX_ERR(0, 21, __pyx_L1_error)
 
-  /* "user.py":22
- * async def user_create(
- *         *, create_model: UserCreate,
- *         db: AsyncSession = Depends(User_Router.get_async_session)):             # <<<<<<<<<<<<<<
- *     create_model.password = AuthService.hash_password(create_model.password)
- *     response_model = await DataService.create(
+  /* "shudaodao_common/controller_table/dept.py":23
+ * @Dept_Router.post("/dept/query", auth_act="query")
+ * async def dept_query(
+ *         *, query: QueryRequest, db: AsyncSession = Depends(Dept_Router.get_async_session)             # <<<<<<<<<<<<<<
+ * ):
+ *     data_query = await DataService.query(db, query, model_class=Dept)
 */
   __pyx_t_9 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_9, __pyx_t_12};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 23, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
   }
-  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_7)->arg0 = __pyx_t_2;
-  __Pyx_GIVEREF(__pyx_t_2);
-  __pyx_t_2 = 0;
-  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_7, __pyx_pf_4user_15__defaults__);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_8);
+  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_2)->arg0 = __pyx_t_5;
+  __Pyx_GIVEREF(__pyx_t_5);
+  __pyx_t_5 = 0;
+  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_2, __pyx_pf_16shudaodao_common_16controller_table_4dept_15__defaults__);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_8);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_7};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_2};
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_user_create, __pyx_t_3) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_dept_query, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":32
+  /* "shudaodao_common/controller_table/dept.py":29
  * 
  * 
- * @User_Router.get(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_read(*, primary_id: int,
- *                     db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.post("/dept", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_create(
+ *         *, create_model: DeptCreate,
 */
-  __pyx_t_6 = NULL;
+  __pyx_t_7 = NULL;
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_post); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, NULL};
-    __pyx_t_8 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 32, __pyx_L1_error)
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_dept};
+    __pyx_t_8 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_kp_u_primary_id_2, __pyx_t_8, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_n_u__9, __pyx_t_8, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-    __pyx_t_7 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_2, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_8);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_edit, __pyx_t_8, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_8);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-  __pyx_t_8 = __Pyx_CyFunction_New(&__pyx_mdef_4user_4user_read, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_user_read, NULL, __pyx_mstate_global->__pyx_n_u_user, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_create_model, __pyx_mstate_global->__pyx_n_u_DeptCreate) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_CyFunction_New(&__pyx_mdef_16shudaodao_common_16controller_table_4dept_4dept_create, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_dept_create, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_8, __pyx_mstate_global->__pyx_ptype_4user___pyx_defaults)) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_8, __pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults)) __PYX_ERR(0, 29, __pyx_L1_error)
 
-  /* "user.py":34
- * @User_Router.get(path="/{primary_id}", summary="")
- * async def user_read(*, primary_id: int,
- *                     db: AsyncSession = Depends(User_Router.get_async_session)):             # <<<<<<<<<<<<<<
- *     response_model = await DataService.read(
- *         db, primary_id, model_class=User,
+  /* "shudaodao_common/controller_table/dept.py":32
+ * async def dept_create(
+ *         *, create_model: DeptCreate,
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)             # <<<<<<<<<<<<<<
+ * ):
+ *     data_create = await DataService.create(
 */
   __pyx_t_10 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_10, __pyx_t_11};
-    __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_12, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_12, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_8)->arg0 = __pyx_t_4;
   __Pyx_GIVEREF(__pyx_t_4);
   __pyx_t_4 = 0;
-  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_8, __pyx_pf_4user_17__defaults__);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_8, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = 1;
+  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_8, __pyx_pf_16shudaodao_common_16controller_table_4dept_17__defaults__);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_8, __pyx_t_5);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_t_8};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_t_8};
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_user_read, __pyx_t_3) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_dept_create, __pyx_t_3) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":42
+  /* "shudaodao_common/controller_table/dept.py":40
  * 
  * 
- * @User_Router.patch(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_update(*, primary_id: int, update_model: UserUpdate,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.get("/dept/{primary_id}", auth_act="read")             # <<<<<<<<<<<<<<
+ * async def dept_read(
+ *         *, primary_id: int,
 */
+  __pyx_t_2 = NULL;
   __pyx_t_7 = NULL;
-  __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_patch); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = 1;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_6, NULL};
-    __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_kp_u_primary_id_2, __pyx_t_2, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_n_u__10, __pyx_t_2, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-    __pyx_t_8 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, __pyx_mstate_global->__pyx_kp_u_dept_primary_id};
+    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_read, __pyx_t_5, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
+    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
   }
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_update_model, __pyx_mstate_global->__pyx_n_u_UserUpdate) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_4user_7user_update, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_user_update, NULL, __pyx_mstate_global->__pyx_n_u_user, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_4user___pyx_defaults)) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_16shudaodao_common_16controller_table_4dept_7dept_read, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_dept_read, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_5, __pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults)) __PYX_ERR(0, 40, __pyx_L1_error)
 
-  /* "user.py":44
- * @User_Router.patch(path="/{primary_id}", summary="")
- * async def user_update(*, primary_id: int, update_model: UserUpdate,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):             # <<<<<<<<<<<<<<
- *     response_model = await DataService.update(
- *         db, primary_id, model_class=User,
+  /* "shudaodao_common/controller_table/dept.py":43
+ * async def dept_read(
+ *         *, primary_id: int,
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)             # <<<<<<<<<<<<<<
+ * ):
+ *     data_read = await DataService.read(
 */
   __pyx_t_12 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_12, __pyx_t_9};
-    __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_11, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_11, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 43, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
   }
-  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_2)->arg0 = __pyx_t_6;
-  __Pyx_GIVEREF(__pyx_t_6);
-  __pyx_t_6 = 0;
-  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_2, __pyx_pf_4user_19__defaults__);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_4);
+  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_5)->arg0 = __pyx_t_7;
+  __Pyx_GIVEREF(__pyx_t_7);
+  __pyx_t_7 = 0;
+  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_5, __pyx_pf_16shudaodao_common_16controller_table_4dept_19__defaults__);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_t_2};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_5};
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_user_update, __pyx_t_3) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_dept_read, __pyx_t_3) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":53
+  /* "shudaodao_common/controller_table/dept.py":51
  * 
  * 
- * @User_Router.delete(path="/{primary_id}", summary="")             # <<<<<<<<<<<<<<
- * async def user_delete(*, primary_id: int,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.patch("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_update(
+ *         *, primary_id: int, model_update: DeptUpdate,
 */
   __pyx_t_8 = NULL;
-  __pyx_t_7 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_delete); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_patch); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_7, NULL};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_dept_primary_id};
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_kp_u_primary_id_2, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_n_u__11, __pyx_t_4, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
-    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_edit, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_7, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
   }
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_4user_10user_delete, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_user_delete, NULL, __pyx_mstate_global->__pyx_n_u_user, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_model_update, __pyx_mstate_global->__pyx_n_u_DeptUpdate) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_16shudaodao_common_16controller_table_4dept_10dept_update, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_dept_update, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_4user___pyx_defaults)) __PYX_ERR(0, 53, __pyx_L1_error)
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_4, __pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults)) __PYX_ERR(0, 51, __pyx_L1_error)
 
-  /* "user.py":55
- * @User_Router.delete(path="/{primary_id}", summary="")
- * async def user_delete(*, primary_id: int,
- *                       db: AsyncSession = Depends(User_Router.get_async_session)):             # <<<<<<<<<<<<<<
- *     await DataService.delete(db, primary_id, model_class=User)
- *     return ResponseUtil.success(message="")
+  /* "shudaodao_common/controller_table/dept.py":54
+ * async def dept_update(
+ *         *, primary_id: int, model_update: DeptUpdate,
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)             # <<<<<<<<<<<<<<
+ * ):
+ *     data_update = await DataService.update(
 */
   __pyx_t_11 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_11, __pyx_t_10};
-    __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 55, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
   }
-  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_4)->arg0 = __pyx_t_7;
-  __Pyx_GIVEREF(__pyx_t_7);
-  __pyx_t_7 = 0;
-  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_4, __pyx_pf_4user_21__defaults__);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_6);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_5 = 1;
+  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_4)->arg0 = __pyx_t_2;
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_t_2 = 0;
+  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_4, __pyx_pf_16shudaodao_common_16controller_table_4dept_21__defaults__);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_7);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_6 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_8, __pyx_t_4};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_user_delete, __pyx_t_3) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_dept_update, __pyx_t_3) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":60
+  /* "shudaodao_common/controller_table/dept.py":62
  * 
  * 
- * @User_Router.post(path="/query", summary="")             # <<<<<<<<<<<<<<
- * async def user_query(*, query: QueryRequest,
- *                      db: AsyncSession = Depends(User_Router.get_async_session)):
+ * @Dept_Router.delete("/dept/{primary_id}", auth_act="edit")             # <<<<<<<<<<<<<<
+ * async def dept_delete(
+ *         *, primary_id: int,
 */
-  __pyx_t_2 = NULL;
+  __pyx_t_5 = NULL;
   __pyx_t_8 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_post); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_delete); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_8, NULL};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path, __pyx_mstate_global->__pyx_kp_u_query_2, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_n_u__12, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_7, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_8, __pyx_mstate_global->__pyx_kp_u_dept_primary_id};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_edit, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_2, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_16shudaodao_common_16controller_table_4dept_13dept_delete, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_dept_delete, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_common_controller_tabl, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_query, __pyx_mstate_global->__pyx_n_u_QueryRequest) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_4user_13user_query, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_user_query, NULL, __pyx_mstate_global->__pyx_n_u_user, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_6, __pyx_mstate_global->__pyx_ptype_4user___pyx_defaults)) __PYX_ERR(0, 60, __pyx_L1_error)
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_7, __pyx_mstate_global->__pyx_ptype_16shudaodao_common_16controller_table_4dept___pyx_defaults)) __PYX_ERR(0, 62, __pyx_L1_error)
 
-  /* "user.py":62
- * @User_Router.post(path="/query", summary="")
- * async def user_query(*, query: QueryRequest,
- *                      db: AsyncSession = Depends(User_Router.get_async_session)):             # <<<<<<<<<<<<<<
- *     query_model = await DataService.query(db, query, model_class=User),
- *     return ResponseUtil.success(data=query_model, message="")
+  /* "shudaodao_common/controller_table/dept.py":65
+ * async def dept_delete(
+ *         *, primary_id: int,
+ *         db: AsyncSession = Depends(Dept_Router.get_async_session)             # <<<<<<<<<<<<<<
+ * ):
+ *     await DataService.delete(db, primary_id, model_class=Dept)
 */
   __pyx_t_9 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Depends); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_User_Router); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_Dept_Router); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_get_async_session); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  __pyx_t_5 = 1;
+  __pyx_t_6 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_9, __pyx_t_12};
-    __pyx_t_8 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_8 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
   }
-  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_6)->arg0 = __pyx_t_8;
+  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_7)->arg0 = __pyx_t_8;
   __Pyx_GIVEREF(__pyx_t_8);
   __pyx_t_8 = 0;
-  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_6, __pyx_pf_4user_23__defaults__);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_6, __pyx_t_7);
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_5 = 1;
+  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_7, __pyx_pf_16shudaodao_common_16controller_table_4dept_23__defaults__);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_6 = 1;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_6};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_7};
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_user_query, __pyx_t_3) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_dept_delete, __pyx_t_3) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "user.py":1
+  /* "shudaodao_common/controller_table/dept.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
@@ -6628,7 +6552,7 @@ __Pyx_RefNannySetupContext("PyInit_user", 0);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
@@ -6637,7 +6561,7 @@ __Pyx_RefNannySetupContext("PyInit_user", 0);
   __Pyx_XDECREF(__pyx_t_12);
   if (__pyx_m) {
     if (__pyx_mstate->__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init user", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init shudaodao_common.controller_table.dept", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -6651,7 +6575,7 @@ __Pyx_RefNannySetupContext("PyInit_user", 0);
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init user");
+    PyErr_SetString(PyExc_ImportError, "init shudaodao_common.controller_table.dept");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -6691,91 +6615,93 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ */
   {__pyx_k_AsyncSession, sizeof(__pyx_k_AsyncSession), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncSession */
   {__pyx_k_AuthRouter, sizeof(__pyx_k_AuthRouter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthRouter */
-  {__pyx_k_AuthService, sizeof(__pyx_k_AuthService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthService */
   {__pyx_k_Common, sizeof(__pyx_k_Common), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Common */
   {__pyx_k_DataService, sizeof(__pyx_k_DataService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataService */
   {__pyx_k_Depends, sizeof(__pyx_k_Depends), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Depends */
+  {__pyx_k_Dept, sizeof(__pyx_k_Dept), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Dept */
+  {__pyx_k_DeptCreate, sizeof(__pyx_k_DeptCreate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DeptCreate */
+  {__pyx_k_DeptResponse, sizeof(__pyx_k_DeptResponse), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DeptResponse */
+  {__pyx_k_DeptUpdate, sizeof(__pyx_k_DeptUpdate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DeptUpdate */
+  {__pyx_k_Dept_Router, sizeof(__pyx_k_Dept_Router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Dept_Router */
   {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
   {__pyx_k_QueryRequest, sizeof(__pyx_k_QueryRequest), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryRequest */
   {__pyx_k_ResponseUtil, sizeof(__pyx_k_ResponseUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ResponseUtil */
-  {__pyx_k_User, sizeof(__pyx_k_User), 0, 1, 1}, /* PyObject cname: __pyx_n_u_User */
-  {__pyx_k_UserCreate, sizeof(__pyx_k_UserCreate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_UserCreate */
-  {__pyx_k_UserResponse, sizeof(__pyx_k_UserResponse), 0, 1, 1}, /* PyObject cname: __pyx_n_u_UserResponse */
-  {__pyx_k_UserUpdate, sizeof(__pyx_k_UserUpdate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_UserUpdate */
-  {__pyx_k_User_Router, sizeof(__pyx_k_User_Router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_User_Router */
-  {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 1}, /* PyObject cname: __pyx_n_u__10 */
-  {__pyx_k__11, sizeof(__pyx_k__11), 0, 1, 1}, /* PyObject cname: __pyx_n_u__11 */
-  {__pyx_k__12, sizeof(__pyx_k__12), 0, 1, 1}, /* PyObject cname: __pyx_n_u__12 */
-  {__pyx_k__13, sizeof(__pyx_k__13), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__13 */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 1}, /* PyObject cname: __pyx_n_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 1}, /* PyObject cname: __pyx_n_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 1}, /* PyObject cname: __pyx_n_u__5 */
   {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
-  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__7 */
-  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 1}, /* PyObject cname: __pyx_n_u__8 */
-  {__pyx_k__9, sizeof(__pyx_k__9), 0, 1, 1}, /* PyObject cname: __pyx_n_u__9 */
+  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 1}, /* PyObject cname: __pyx_n_u__7 */
+  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__8 */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
+  {__pyx_k_auth_act, sizeof(__pyx_k_auth_act), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_act */
+  {__pyx_k_auth_obj, sizeof(__pyx_k_auth_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_obj */
   {__pyx_k_await, sizeof(__pyx_k_await), 0, 1, 1}, /* PyObject cname: __pyx_n_u_await */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
   {__pyx_k_create, sizeof(__pyx_k_create), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create */
   {__pyx_k_create_model, sizeof(__pyx_k_create_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_model */
   {__pyx_k_data, sizeof(__pyx_k_data), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data */
+  {__pyx_k_data_create, sizeof(__pyx_k_data_create), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_create */
+  {__pyx_k_data_query, sizeof(__pyx_k_data_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_query */
+  {__pyx_k_data_read, sizeof(__pyx_k_data_read), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_read */
+  {__pyx_k_data_update, sizeof(__pyx_k_data_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_update */
   {__pyx_k_db, sizeof(__pyx_k_db), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db */
   {__pyx_k_db_config_name, sizeof(__pyx_k_db_config_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_config_name */
   {__pyx_k_db_model_class, sizeof(__pyx_k_db_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_model_class */
+  {__pyx_k_default_role, sizeof(__pyx_k_default_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_role */
   {__pyx_k_delete, sizeof(__pyx_k_delete), 0, 1, 1}, /* PyObject cname: __pyx_n_u_delete */
+  {__pyx_k_dept, sizeof(__pyx_k_dept), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_dept */
+  {__pyx_k_dept_create, sizeof(__pyx_k_dept_create), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dept_create */
+  {__pyx_k_dept_delete, sizeof(__pyx_k_dept_delete), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dept_delete */
+  {__pyx_k_dept_primary_id, sizeof(__pyx_k_dept_primary_id), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_dept_primary_id */
+  {__pyx_k_dept_query, sizeof(__pyx_k_dept_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dept_query */
+  {__pyx_k_dept_query_2, sizeof(__pyx_k_dept_query_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_dept_query_2 */
+  {__pyx_k_dept_read, sizeof(__pyx_k_dept_read), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dept_read */
+  {__pyx_k_dept_update, sizeof(__pyx_k_dept_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dept_update */
   {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disable */
+  {__pyx_k_edit, sizeof(__pyx_k_edit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_edit */
   {__pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enable */
-  {__pyx_k_entity_table_user, sizeof(__pyx_k_entity_table_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_table_user */
+  {__pyx_k_entity_table_dept, sizeof(__pyx_k_entity_table_dept), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_table_dept */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
   {__pyx_k_get, sizeof(__pyx_k_get), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get */
   {__pyx_k_get_async_session, sizeof(__pyx_k_get_async_session), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_async_session */
-  {__pyx_k_hash_password, sizeof(__pyx_k_hash_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_hash_password */
   {__pyx_k_int, sizeof(__pyx_k_int), 0, 1, 1}, /* PyObject cname: __pyx_n_u_int */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_isenabled */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_message, sizeof(__pyx_k_message), 0, 1, 1}, /* PyObject cname: __pyx_n_u_message */
   {__pyx_k_model_class, sizeof(__pyx_k_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_class */
+  {__pyx_k_model_update, sizeof(__pyx_k_model_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_update */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
-  {__pyx_k_password, sizeof(__pyx_k_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_password */
   {__pyx_k_patch, sizeof(__pyx_k_patch), 0, 1, 1}, /* PyObject cname: __pyx_n_u_patch */
-  {__pyx_k_path, sizeof(__pyx_k_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_path */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_post, sizeof(__pyx_k_post), 0, 1, 1}, /* PyObject cname: __pyx_n_u_post */
   {__pyx_k_prefix, sizeof(__pyx_k_prefix), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix */
   {__pyx_k_primary_id, sizeof(__pyx_k_primary_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_primary_id */
-  {__pyx_k_primary_id_2, sizeof(__pyx_k_primary_id_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_primary_id_2 */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_query, sizeof(__pyx_k_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query */
-  {__pyx_k_query_2, sizeof(__pyx_k_query_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_query_2 */
-  {__pyx_k_query_model, sizeof(__pyx_k_query_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_model */
   {__pyx_k_read, sizeof(__pyx_k_read), 0, 1, 1}, /* PyObject cname: __pyx_n_u_read */
   {__pyx_k_response_class, sizeof(__pyx_k_response_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_class */
   {__pyx_k_response_model, sizeof(__pyx_k_response_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_model */
   {__pyx_k_send, sizeof(__pyx_k_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_send */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
+  {__pyx_k_shudaodao_common, sizeof(__pyx_k_shudaodao_common), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_common */
+  {__pyx_k_shudaodao_common_controller_tabl, sizeof(__pyx_k_shudaodao_common_controller_tabl), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_common_controller_tabl */
+  {__pyx_k_shudaodao_common_controller_tabl_2, sizeof(__pyx_k_shudaodao_common_controller_tabl_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_shudaodao_common_controller_tabl_2 */
+  {__pyx_k_shudaodao_common_dept, sizeof(__pyx_k_shudaodao_common_dept), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_shudaodao_common_dept */
   {__pyx_k_shudaodao_core, sizeof(__pyx_k_shudaodao_core), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_core */
   {__pyx_k_success, sizeof(__pyx_k_success), 0, 1, 1}, /* PyObject cname: __pyx_n_u_success */
-  {__pyx_k_summary, sizeof(__pyx_k_summary), 0, 1, 1}, /* PyObject cname: __pyx_n_u_summary */
+  {__pyx_k_tags, sizeof(__pyx_k_tags), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tags */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_throw, sizeof(__pyx_k_throw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_throw */
   {__pyx_k_update, sizeof(__pyx_k_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update */
   {__pyx_k_update_model, sizeof(__pyx_k_update_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_model */
-  {__pyx_k_user, sizeof(__pyx_k_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user */
-  {__pyx_k_user_create, sizeof(__pyx_k_user_create), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_create */
-  {__pyx_k_user_delete, sizeof(__pyx_k_user_delete), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_delete */
-  {__pyx_k_user_py, sizeof(__pyx_k_user_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_user_py */
-  {__pyx_k_user_query, sizeof(__pyx_k_user_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_query */
-  {__pyx_k_user_read, sizeof(__pyx_k_user_read), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_read */
-  {__pyx_k_user_update, sizeof(__pyx_k_user_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_update */
-  {__pyx_k_v1_user, sizeof(__pyx_k_v1_user), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_v1_user */
+  {__pyx_k_v1_common, sizeof(__pyx_k_v1_common), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_v1_common */
   {__pyx_k_value, sizeof(__pyx_k_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_value */
   {0, 0, 0, 0, 0}
 };
@@ -6834,29 +6760,29 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 19, 16};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_response_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_user_py, __pyx_mstate->__pyx_n_u_user_create, __pyx_k_7_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 21, 15};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_query, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_data_query};
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_common_controller_tabl_2, __pyx_mstate->__pyx_n_u_dept_query, __pyx_k_O7_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 32, 16};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_response_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_user_py, __pyx_mstate->__pyx_n_u_user_read, __pyx_k_wa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 29, 16};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_data_create};
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_common_controller_tabl_2, __pyx_mstate->__pyx_n_u_dept_create, __pyx_k_7_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 3, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 42, 18};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_update_model, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_response_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_user_py, __pyx_mstate->__pyx_n_u_user_update, __pyx_k_8_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 40, 16};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_data_read};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_common_controller_tabl_2, __pyx_mstate->__pyx_n_u_dept_read, __pyx_k_7_a_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 53, 16};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 3, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 51, 18};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_update, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_data_update};
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_common_controller_tabl_2, __pyx_mstate->__pyx_n_u_dept_update, __pyx_k_7_a_3, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 62, 16};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_db};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_user_py, __pyx_mstate->__pyx_n_u_user_delete, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
-  }
-  {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 60, 16};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_query, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_query_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_user_py, __pyx_mstate->__pyx_n_u_user_query, __pyx_k_q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_common_controller_tabl_2, __pyx_mstate->__pyx_n_u_dept_delete, __pyx_k_7_a_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -8186,16 +8112,6 @@ static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
 #endif
     return __Pyx_GetBuiltinName(name);
 }
-
-/* PyObjectSetAttrStr */
-#if CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value) {
-    PyTypeObject* tp = Py_TYPE(obj);
-    if (likely(tp->tp_setattro))
-        return tp->tp_setattro(obj, attr_name, value);
-    return PyObject_SetAttr(obj, attr_name, value);
-}
-#endif
 
 /* PyObjectVectorCallKwBuilder */
 #if CYTHON_VECTORCALL
@@ -12303,7 +12219,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__13);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__8);
     }
     goto done;
 }

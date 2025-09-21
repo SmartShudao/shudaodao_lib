@@ -1,3 +1,4 @@
+from ..auth.auth_router import AuthRouter as AuthRouter
 from ..config.app_config import AppConfig as AppConfig
 from ..utils.core_utils import CoreUtil as CoreUtil
 from ..utils.response_utils import ResponseUtil as ResponseUtil

@@ -10,20 +10,21 @@ from datetime import datetime
 from typing import Optional
 
 from pydantic import EmailStr
+from sqlalchemy import BigInteger
 from sqlmodel import SQLModel, Field
 
 from ..utils.generate_unique_id import get_primary_id
 
 
-class AuthUserResponse(SQLModel):
-    auth_user_id: Optional[int] = Field(default_factory=get_primary_id, primary_key=True)
+class AuthUserBase(SQLModel):
+    auth_user_id: Optional[int] = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger)
     username: str = Field(unique=True, index=True, max_length=50)
     password: str
     email: Optional[EmailStr] = Field(None, max_length=100)
     is_active: bool = True
 
 
-class AuthUser(AuthUserResponse, table=True):
+class AuthUser(AuthUserBase, table=True):
     """ 数据模型 - 数据库表 T_Auth_User 结构模型 """
     __tablename__ = "t_auth_user"
     __table_args__ = {"comment": "鉴权用户表"}
@@ -31,6 +32,10 @@ class AuthUser(AuthUserResponse, table=True):
     last_login: Optional[datetime] = Field(default_factory=datetime.utcnow, description="aa")
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+
+class AuthUserResponse(AuthUserBase):
+    ...
 
 
 class AuthLogin(SQLModel):

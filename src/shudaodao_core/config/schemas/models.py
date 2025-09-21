@@ -6,9 +6,11 @@
 # @Date     ：2025/6/22 下午6:32
 # @Desc     ：
 
-from typing import Literal, Optional, Dict, Any
+from typing import Literal, Optional, Dict, Any, List
 
 from pydantic import BaseModel, Field
+
+from .context import ContextConfigSetting
 
 
 class LocalConfigSetting(BaseModel):
@@ -35,6 +37,7 @@ class ModelConfigSetting(BaseModel):
 
 
 class ModelCollectionConfigSetting(BaseModel):
+    context: Optional[List[ContextConfigSetting]] = Field(None, description="上下文配置")
     language_models: list[ModelConfigSetting] = Field(None, description="语言模型")
     embedding_models: list[ModelConfigSetting] = Field(None, description="嵌入模型")
     reranker_models: list[ModelConfigSetting] = Field(None, description="重排序模型")

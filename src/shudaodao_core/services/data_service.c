@@ -2835,7 +2835,6 @@ static const char __pyx_k_update_model[] = "update_model";
 static const char __pyx_k_exclude_unset[] = "exclude_unset";
 static const char __pyx_k_orderby_field[] = "orderby_field";
 static const char __pyx_k_primary_field[] = "primary_field";
-static const char __pyx_k_query_builder[] = "query_builder";
 static const char __pyx_k_SQLModelCreate[] = "SQLModelCreate";
 static const char __pyx_k_SQLModelUpdate[] = "SQLModelUpdate";
 static const char __pyx_k_build_order_by[] = "build_order_by";
@@ -2860,6 +2859,7 @@ static const char __pyx_k_DataService_update[] = "DataService.update";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_A_A_DA_a_QnA_k_aq_q[] = "\200A\330\033<\270A\330 D\300A\330\010\013\210>\230\021\230$\230a\330\010\013\210:\220Q\220n\240A\330\014\032\230!\340\014\032\230,\240k\260\021\260.\300\001\330\010\023\220>\240\037\260\001\260\021\330\010\n\210$\210a\210q\330\010\017\210q";
+static const char __pyx_k_tools_query_builder[] = "tools.query_builder";
 static const char __pyx_k_get_primary_key_name[] = "get_primary_key_name";
 static const char __pyx_k_DataNotFoundException[] = "DataNotFoundException";
 static const char __pyx_k_DataService_db_delete[] = "DataService.db_delete";
@@ -3190,36 +3190,36 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_primary_key __pyx_string_tab[124]
 #define __pyx_n_u_qualname __pyx_string_tab[125]
 #define __pyx_n_u_query __pyx_string_tab[126]
-#define __pyx_n_u_query_builder __pyx_string_tab[127]
-#define __pyx_n_u_query_first __pyx_string_tab[128]
-#define __pyx_n_u_raise_data_not_found_exception __pyx_string_tab[129]
-#define __pyx_n_u_read __pyx_string_tab[130]
-#define __pyx_n_u_refresh __pyx_string_tab[131]
-#define __pyx_n_u_reset_schema __pyx_string_tab[132]
-#define __pyx_n_u_response_class __pyx_string_tab[133]
-#define __pyx_n_u_response_model __pyx_string_tab[134]
-#define __pyx_n_u_return __pyx_string_tab[135]
-#define __pyx_n_u_rows __pyx_string_tab[136]
-#define __pyx_n_u_schema __pyx_string_tab[137]
-#define __pyx_n_u_schemas_element __pyx_string_tab[138]
-#define __pyx_n_u_schemas_query_request __pyx_string_tab[139]
-#define __pyx_n_u_select __pyx_string_tab[140]
-#define __pyx_n_u_select_from __pyx_string_tab[141]
-#define __pyx_n_u_selected_fields __pyx_string_tab[142]
-#define __pyx_n_u_send __pyx_string_tab[143]
-#define __pyx_n_u_set_name __pyx_string_tab[144]
-#define __pyx_n_u_set_total __pyx_string_tab[145]
-#define __pyx_n_u_size __pyx_string_tab[146]
-#define __pyx_n_u_sqlite __pyx_string_tab[147]
-#define __pyx_n_u_sqlmodel __pyx_string_tab[148]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[149]
-#define __pyx_n_u_statement __pyx_string_tab[150]
-#define __pyx_n_u_staticmethod __pyx_string_tab[151]
-#define __pyx_n_u_str __pyx_string_tab[152]
-#define __pyx_n_u_table __pyx_string_tab[153]
-#define __pyx_n_u_table_2 __pyx_string_tab[154]
-#define __pyx_n_u_test __pyx_string_tab[155]
-#define __pyx_n_u_throw __pyx_string_tab[156]
+#define __pyx_n_u_query_first __pyx_string_tab[127]
+#define __pyx_n_u_raise_data_not_found_exception __pyx_string_tab[128]
+#define __pyx_n_u_read __pyx_string_tab[129]
+#define __pyx_n_u_refresh __pyx_string_tab[130]
+#define __pyx_n_u_reset_schema __pyx_string_tab[131]
+#define __pyx_n_u_response_class __pyx_string_tab[132]
+#define __pyx_n_u_response_model __pyx_string_tab[133]
+#define __pyx_n_u_return __pyx_string_tab[134]
+#define __pyx_n_u_rows __pyx_string_tab[135]
+#define __pyx_n_u_schema __pyx_string_tab[136]
+#define __pyx_n_u_schemas_element __pyx_string_tab[137]
+#define __pyx_n_u_schemas_query_request __pyx_string_tab[138]
+#define __pyx_n_u_select __pyx_string_tab[139]
+#define __pyx_n_u_select_from __pyx_string_tab[140]
+#define __pyx_n_u_selected_fields __pyx_string_tab[141]
+#define __pyx_n_u_send __pyx_string_tab[142]
+#define __pyx_n_u_set_name __pyx_string_tab[143]
+#define __pyx_n_u_set_total __pyx_string_tab[144]
+#define __pyx_n_u_size __pyx_string_tab[145]
+#define __pyx_n_u_sqlite __pyx_string_tab[146]
+#define __pyx_n_u_sqlmodel __pyx_string_tab[147]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[148]
+#define __pyx_n_u_statement __pyx_string_tab[149]
+#define __pyx_n_u_staticmethod __pyx_string_tab[150]
+#define __pyx_n_u_str __pyx_string_tab[151]
+#define __pyx_n_u_table __pyx_string_tab[152]
+#define __pyx_n_u_table_2 __pyx_string_tab[153]
+#define __pyx_n_u_test __pyx_string_tab[154]
+#define __pyx_n_u_throw __pyx_string_tab[155]
+#define __pyx_n_u_tools_query_builder __pyx_string_tab[156]
 #define __pyx_n_u_type __pyx_string_tab[157]
 #define __pyx_kp_u_type_SQLModelDB __pyx_string_tab[158]
 #define __pyx_n_u_type_var __pyx_string_tab[159]
@@ -11417,7 +11417,7 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
  * from sqlmodel import select, func
  * from sqlmodel.ext.asyncio.session import AsyncSession             # <<<<<<<<<<<<<<
  * 
- * from .query_builder import QueryBuilder
+ * from ..tools.query_builder import QueryBuilder
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AsyncSession); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -11433,13 +11433,13 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
   /* "data_service.py":14
  * from sqlmodel.ext.asyncio.session import AsyncSession
  * 
- * from .query_builder import QueryBuilder             # <<<<<<<<<<<<<<
+ * from ..tools.query_builder import QueryBuilder             # <<<<<<<<<<<<<<
  * from ..exception.service_exception import DataNotFoundException
  * from ..schemas.element import Paging
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_QueryBuilder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_query_builder, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_tools_query_builder, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_QueryBuilder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
@@ -11450,7 +11450,7 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
 
   /* "data_service.py":15
  * 
- * from .query_builder import QueryBuilder
+ * from ..tools.query_builder import QueryBuilder
  * from ..exception.service_exception import DataNotFoundException             # <<<<<<<<<<<<<<
  * from ..schemas.element import Paging
  * from ..schemas.query_request import QueryRequest
@@ -11467,7 +11467,7 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "data_service.py":16
- * from .query_builder import QueryBuilder
+ * from ..tools.query_builder import QueryBuilder
  * from ..exception.service_exception import DataNotFoundException
  * from ..schemas.element import Paging             # <<<<<<<<<<<<<<
  * from ..schemas.query_request import QueryRequest
@@ -12177,7 +12177,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_primary_key, sizeof(__pyx_k_primary_key), 0, 1, 1}, /* PyObject cname: __pyx_n_u_primary_key */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_query, sizeof(__pyx_k_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query */
-  {__pyx_k_query_builder, sizeof(__pyx_k_query_builder), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_builder */
   {__pyx_k_query_first, sizeof(__pyx_k_query_first), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_first */
   {__pyx_k_raise_data_not_found_exception, sizeof(__pyx_k_raise_data_not_found_exception), 0, 1, 1}, /* PyObject cname: __pyx_n_u_raise_data_not_found_exception */
   {__pyx_k_read, sizeof(__pyx_k_read), 0, 1, 1}, /* PyObject cname: __pyx_n_u_read */
@@ -12207,6 +12206,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_table_2, sizeof(__pyx_k_table_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_2 */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_throw, sizeof(__pyx_k_throw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_throw */
+  {__pyx_k_tools_query_builder, sizeof(__pyx_k_tools_query_builder), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tools_query_builder */
   {__pyx_k_type, sizeof(__pyx_k_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type */
   {__pyx_k_type_SQLModelDB, sizeof(__pyx_k_type_SQLModelDB), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_type_SQLModelDB */
   {__pyx_k_type_var, sizeof(__pyx_k_type_var), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type_var */

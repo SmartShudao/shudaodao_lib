@@ -3,6 +3,7 @@ from ..exception.service_exception import AuthException as AuthException, LoginE
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
+from .premission_service import PermissionService as PermissionService
 from _typeshed import Incomplete
 from datetime import timedelta
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
@@ -21,6 +22,8 @@ class AuthService:
     def token_encode(cls, data: dict, expires_delta: timedelta | None = None) -> str: ...
     @classmethod
     def token_decode(cls, token) -> dict: ...
+    @classmethod
+    def get_permission(cls): ...
     @classmethod
     async def get_current_user(cls, token=..., db: AsyncSession = ...) -> AuthUser: ...
     @classmethod

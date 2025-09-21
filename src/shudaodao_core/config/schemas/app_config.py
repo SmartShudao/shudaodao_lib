@@ -10,8 +10,9 @@ from typing import Literal, Optional, List
 
 from pydantic import Field, BaseModel
 
-from .context import ContextConfigSetting
+from .auth import AuthConfigSetting
 from .models import ModelCollectionConfigSetting
+from .routers import RouterConfigSetting
 from .snowflake import SnowflakeConfigSetting
 from .storage import StorageConfigSetting
 from .webapp import FastAPIConfigSetting
@@ -47,7 +48,8 @@ class EnvironmentConfigSetting(BaseModel):
 class AppConfigSetting(BaseModel):
     environment: EnvironmentConfigSetting = Field(default_factory=EnvironmentConfigSetting, description="环境配置")
     webapp: FastAPIConfigSetting = Field(default_factory=FastAPIConfigSetting, description="FastAPI启动")
-    generate_snowflake: SnowflakeConfigSetting = Field(None, description="雪花算法ID生成配置")
+    auth:AuthConfigSetting=Field(default_factory=AuthConfigSetting,description="认证、鉴权")
+    generate_snowflake: SnowflakeConfigSetting = Field(SnowflakeConfigSetting, description="雪花算法ID生成配置")
+    routers: Optional[List[RouterConfigSetting]] = Field(None, description="路由配置")
     storage: Optional[StorageConfigSetting] = Field(None, description="存储配置")
-    context: Optional[List[ContextConfigSetting]] = Field(None, description="上下文配置")
     models: Optional[ModelCollectionConfigSetting] = Field(None, description="模型配置")

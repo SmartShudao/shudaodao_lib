@@ -6,24 +6,28 @@
 # @Date     ：2025/9/17 上午11:06
 # @Desc     ：
 
+from typing import Optional
 
-# custom_model.py
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-
-from ..utils.generate_unique_id import get_primary_id
-
-Base = declarative_base()
+from sqlmodel import SQLModel, Field
 
 
-class AuthRule(Base):
+class AuthRule(SQLModel, table=True):
     __tablename__ = "t_auth_rule"
-    rule_id = Column(Integer, default=get_primary_id, primary_key=True, autoincrement=False)
-    policy_type = Column(String(32), nullable=False)  # 代替 ptype，如 "p" 或 "g"
-    subject = Column(String(255), nullable=False)  # 代替 v0
-    object = Column(String(255), nullable=False)  # 代替 v1
-    action = Column(String(255), nullable=False)  # 代替 v2
-    description = Column(String(255))  # 自定义字段
+    id: Optional[int] = Field(default=None, primary_key=True)
+    ptype: Optional[str] = Field(max_length=32, alias="ptype")  # 代替 ptype，如 "p" 或 "g"
+    v0: Optional[str] = Field(max_length=255)  # 代替 v0
+    v1: Optional[str] = Field(max_length=255)  # 代替 v1
+    v2: Optional[str] = Field(max_length=255)  # 代替 v2
+    v3: Optional[str] = Field(max_length=255)  # 自定义字段
+    v4: Optional[str] = Field(max_length=255)  # 自定义字段
+    v5: Optional[str] = Field(max_length=255)  # 自定义字段
+
+    # rule_id: Optional[int] = Field(default=None, primary_key=True, alias="id")
+    # policy_type: Optional[str] = Field(max_length=32, alias="ptype")  # 代替 ptype，如 "p" 或 "g"
+    # subject: Optional[str] = Field(max_length=255,alias="v0")  # 代替 v0
+    # object: Optional[str] = Field(max_length=255,alias="v1") # 代替 v1
+    # action: Optional[str] = Field(max_length=255,alias="v2")  # 代替 v2
+    # description: Optional[str] = Field(max_length=255,alias="v3")  # 自定义字段
 
     def __repr__(self):
-        return f"<CasbinRule {self.policy_type}, {self.subject}, {self.object}, {self.action}>"
+        return f"<CasbinRule {self.ptype}, {self.v0}, {self.v1}, {self.v2}>"
