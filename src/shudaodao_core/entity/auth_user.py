@@ -6,7 +6,7 @@
 # @Date     ：2025/9/2 下午4:24
 # @Desc     ：
 
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
 from pydantic import EmailStr
@@ -31,7 +31,7 @@ class AuthUser(AuthUserBase, table=True):
     __table_args__ = {"comment": "鉴权用户表"}
 
     last_login: Optional[datetime] = Field(default_factory=datetime.utcnow, description="aa")
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
 

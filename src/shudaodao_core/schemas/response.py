@@ -5,7 +5,7 @@
 # @Software ：PyCharm
 # @Date     ：2025/8/18 下午7:43
 # @Desc     ：
-
+from datetime import datetime, date, time
 from typing import Any, Dict
 from typing import Optional
 
@@ -29,16 +29,25 @@ class BaseResponse(SQLModel):
         for field_name, field_info in self.model_fields.items():
             # value = data.get(field_name)  # 从原始数据字典获取 无法进行实例判断
             value = getattr(self, field_name)  # 从模型实例获取 才能判断类型
-            # 情况1: 该字段是 sa_type=BigInteger → 转为字符串
+            # 1. BigInteger → str  雪花算法ID
             if hasattr(field_info, 'sa_type') and field_info.sa_type is BigInteger:
                 if value is not None:
                     data[field_name] = str(value)
-
-            # 情况2: 该字段值是 BaseReadModel 的实例 → 递归转换
+            if value is not None:
+                # 2. datetime → ISO 8601 UTC 字符串
+                if isinstance(value, datetime):
+                    data[field_name] = value.isoformat().replace('+00:00', 'Z')
+                # 3. date → YYYY-MM-DD
+                if isinstance(value, date):
+                    data[field_name] = value.isoformat()  # "2025-09-22"
+                # 4. time → HH:MM:SS
+                if value is not None and isinstance(value, time):
+                    data[field_name] = value.isoformat()  # "10:30:00"
+            # 5. BaseReadModel 实例 → 递归转换
             elif isinstance(value, BaseResponse):
                 data[field_name] = value.model_dump(*args, **kwargs)
 
-            # 情况3: 该字段是列表，且元素是 BaseReadModel → 递归转换每个元素
+            # 6. 字段是列表，且元素是 BaseReadModel → 递归转换每个元素
             # 查询接口已经处理过了
 
         return data
