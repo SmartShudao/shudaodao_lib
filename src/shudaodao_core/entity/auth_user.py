@@ -13,6 +13,7 @@ from pydantic import EmailStr
 from sqlalchemy import BigInteger
 from sqlmodel import SQLModel, Field
 
+from ..schemas.response import BaseResponse
 from ..utils.generate_unique_id import get_primary_id
 
 
@@ -34,8 +35,11 @@ class AuthUser(AuthUserBase, table=True):
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
 
-class AuthUserResponse(AuthUserBase):
-    ...
+class AuthUserResponse(BaseResponse):
+    auth_user_id: Optional[int] = Field(sa_type=BigInteger)
+    username: str = Field(max_length=50)
+    email: Optional[EmailStr] = Field(None, max_length=100)
+    is_active: bool = True
 
 
 class AuthLogin(SQLModel):

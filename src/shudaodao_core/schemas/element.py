@@ -5,6 +5,7 @@
 # @Software ：PyCharm
 # @Date     ：2025/8/28 下午2:02
 # @Desc     ：
+
 from typing import Optional
 
 from pydantic import BaseModel
@@ -22,5 +23,3 @@ class Paging(BaseModel):
         self.pages = (total + self.size - 1) // self.size
 
 
-class ListElement(BaseModel):
-    rows: Optional[list]

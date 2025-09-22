@@ -48,7 +48,7 @@ class EnvironmentConfigSetting(BaseModel):
 class AppConfigSetting(BaseModel):
     environment: EnvironmentConfigSetting = Field(default_factory=EnvironmentConfigSetting, description="环境配置")
     webapp: FastAPIConfigSetting = Field(default_factory=FastAPIConfigSetting, description="FastAPI启动")
-    auth:AuthConfigSetting=Field(default_factory=AuthConfigSetting,description="认证、鉴权")
+    auth: AuthConfigSetting = Field(default_factory=AuthConfigSetting, description="认证、鉴权")
     generate_snowflake: SnowflakeConfigSetting = Field(SnowflakeConfigSetting, description="雪花算法ID生成配置")
     routers: Optional[List[RouterConfigSetting]] = Field(None, description="路由配置")
     storage: Optional[StorageConfigSetting] = Field(None, description="存储配置")

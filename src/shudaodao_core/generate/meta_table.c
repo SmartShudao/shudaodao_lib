@@ -2724,8 +2724,8 @@ static const char __pyx_k_A_Q_G4q_t3a_z_Cq_WA_gQa_3is_Q_3a[] = "\200A\330\010\02
 static const char __pyx_k_MetaTable__get_class_name_locals[] = "MetaTable._get_class_name.<locals>.genexpr";
 static const char __pyx_k_MetaTable__get_import_sqlalchemy[] = "MetaTable._get_import_sqlalchemy";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
-static const char __pyx_k_from_shudaodao_core_import_get_p[] = "from shudaodao_core import get_primary_id, SQLModel, Field";
-static const char __pyx_k_from_shudaodao_core_import_get_p_2[] = "from shudaodao_core import get_primary_id, SQLModel";
+static const char __pyx_k_from_shudaodao_core_import_get_p[] = "from shudaodao_core import get_primary_id, SQLModel, Field, BaseResponse";
+static const char __pyx_k_from_shudaodao_core_import_get_p_2[] = "from shudaodao_core import get_primary_id, SQLModel, BaseResponse";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_10meta_table_9MetaTable___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_inspector, PyObject *__pyx_v_table_or_view_name, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_output_entity_schema, PyObject *__pyx_v_router_path); /* proto */
 static PyObject *__pyx_pf_10meta_table_9MetaTable_2get_columns(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
@@ -6122,7 +6122,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_18get_import_field(CYTHON_UNUS
  *     def get_import_field(self) -> str:
  *         for col in self.columns:             # <<<<<<<<<<<<<<
  *             if col.is_primary or col.comment is not None or col.max_length is not None:
- *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field'
+ *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field, BaseResponse'
 */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_columns); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -6183,7 +6183,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_18get_import_field(CYTHON_UNUS
  *     def get_import_field(self) -> str:
  *         for col in self.columns:
  *             if col.is_primary or col.comment is not None or col.max_length is not None:             # <<<<<<<<<<<<<<
- *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field'
+ *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field, BaseResponse'
  *             # if col.is_primary or col.default is not None or col.max_length is not None:
 */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_col, __pyx_mstate_global->__pyx_n_u_is_primary); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
@@ -6215,7 +6215,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_18get_import_field(CYTHON_UNUS
       /* "meta_table.py":149
  *         for col in self.columns:
  *             if col.is_primary or col.comment is not None or col.max_length is not None:
- *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field'             # <<<<<<<<<<<<<<
+ *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field, BaseResponse'             # <<<<<<<<<<<<<<
  *             # if col.is_primary or col.default is not None or col.max_length is not None:
  *             #     return 'from shudaodao_core import get_primary_id, SQLModel, Field'
 */
@@ -6229,7 +6229,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_18get_import_field(CYTHON_UNUS
  *     def get_import_field(self) -> str:
  *         for col in self.columns:
  *             if col.is_primary or col.comment is not None or col.max_length is not None:             # <<<<<<<<<<<<<<
- *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field'
+ *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field, BaseResponse'
  *             # if col.is_primary or col.default is not None or col.max_length is not None:
 */
     }
@@ -6239,7 +6239,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_18get_import_field(CYTHON_UNUS
  *     def get_import_field(self) -> str:
  *         for col in self.columns:             # <<<<<<<<<<<<<<
  *             if col.is_primary or col.comment is not None or col.max_length is not None:
- *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field'
+ *                 return 'from shudaodao_core import get_primary_id, SQLModel, Field, BaseResponse'
 */
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6247,7 +6247,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_18get_import_field(CYTHON_UNUS
   /* "meta_table.py":153
  *             #     return 'from shudaodao_core import get_primary_id, SQLModel, Field'
  * 
- *         return "from shudaodao_core import get_primary_id, SQLModel"             # <<<<<<<<<<<<<<
+ *         return "from shudaodao_core import get_primary_id, SQLModel, BaseResponse"             # <<<<<<<<<<<<<<
  * 
  *     def _get_entity_imports(self) -> list[str]:
 */
@@ -6278,7 +6278,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_18get_import_field(CYTHON_UNUS
 }
 
 /* "meta_table.py":155
- *         return "from shudaodao_core import get_primary_id, SQLModel"
+ *         return "from shudaodao_core import get_primary_id, SQLModel, BaseResponse"
  * 
  *     def _get_entity_imports(self) -> list[str]:             # <<<<<<<<<<<<<<
  *         imports = []
@@ -6661,7 +6661,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_20_get_entity_imports(CYTHON_U
   goto __pyx_L0;
 
   /* "meta_table.py":155
- *         return "from shudaodao_core import get_primary_id, SQLModel"
+ *         return "from shudaodao_core import get_primary_id, SQLModel, BaseResponse"
  * 
  *     def _get_entity_imports(self) -> list[str]:             # <<<<<<<<<<<<<<
  *         imports = []
@@ -8267,7 +8267,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_table", 0);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "meta_table.py":155
- *         return "from shudaodao_core import get_primary_id, SQLModel"
+ *         return "from shudaodao_core import get_primary_id, SQLModel, BaseResponse"
  * 
  *     def _get_entity_imports(self) -> list[str]:             # <<<<<<<<<<<<<<
  *         imports = []

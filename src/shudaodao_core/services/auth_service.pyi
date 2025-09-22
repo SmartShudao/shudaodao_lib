@@ -1,3 +1,4 @@
+from ..config.app_config import AppConfig as AppConfig
 from ..entity.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
 from ..exception.service_exception import AuthException as AuthException, LoginException as LoginException
 from ..schemas.query_request import QueryRequest as QueryRequest
@@ -9,9 +10,9 @@ from datetime import timedelta
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
 
 class AuthService:
-    TOKEN_SECRET_KEY: str
+    TOKEN_SECRET_KEY: Incomplete
     TOKEN_ALGORITHM: str
-    TOKEN_EXPIRE_MINUTES: int
+    TOKEN_EXPIRE_MINUTES: Incomplete
     Password: Incomplete
     oauth2_scheme: Incomplete
     @classmethod
