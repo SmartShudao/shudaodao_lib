@@ -6,28 +6,34 @@
 # @Date     ：2025/9/17 上午11:06
 # @Desc     ：
 
-from typing import Optional
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import declarative_base
 
-from sqlmodel import SQLModel, Field
+from ..entity import get_schema_name
+
+Base = declarative_base()
 
 
-class AuthRule(SQLModel, table=True):
+class AuthRule(Base):
     __tablename__ = "t_auth_rule"
-    id: Optional[int] = Field(default=None, primary_key=True)
-    ptype: Optional[str] = Field(max_length=32, alias="ptype")  # 代替 ptype，如 "p" 或 "g"
-    v0: Optional[str] = Field(max_length=255)  # 代替 v0
-    v1: Optional[str] = Field(max_length=255)  # 代替 v1
-    v2: Optional[str] = Field(max_length=255)  # 代替 v2
-    v3: Optional[str] = Field(max_length=255)  # 自定义字段
-    v4: Optional[str] = Field(max_length=255)  # 自定义字段
-    v5: Optional[str] = Field(max_length=255)  # 自定义字段
+    __table_args__ = {"schema": f"{get_schema_name()}"}
 
-    # rule_id: Optional[int] = Field(default=None, primary_key=True, alias="id")
-    # policy_type: Optional[str] = Field(max_length=32, alias="ptype")  # 代替 ptype，如 "p" 或 "g"
-    # subject: Optional[str] = Field(max_length=255,alias="v0")  # 代替 v0
-    # object: Optional[str] = Field(max_length=255,alias="v1") # 代替 v1
-    # action: Optional[str] = Field(max_length=255,alias="v2")  # 代替 v2
-    # description: Optional[str] = Field(max_length=255,alias="v3")  # 自定义字段
+    id = Column(Integer, primary_key=True)
+    ptype = Column(String(255))
+    v0 = Column(String(255))
+    v1 = Column(String(255))
+    v2 = Column(String(255))
+    v3 = Column(String(255))
+    v4 = Column(String(255))
+    v5 = Column(String(255))
+
+    def __str__(self):
+        arr = [self.ptype]
+        for v in (self.v0, self.v1, self.v2, self.v3, self.v4, self.v5):
+            if v is None:
+                break
+            arr.append(v)
+        return ", ".join(arr)
 
     def __repr__(self):
-        return f"<CasbinRule {self.ptype}, {self.v0}, {self.v1}, {self.v2}>"
+        return '<CasbinRule {}: "{}">'.format(self.id, str(self))

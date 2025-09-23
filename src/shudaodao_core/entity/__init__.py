@@ -5,3 +5,6 @@
 # @Software ：PyCharm
 # @Date     ：2025/9/21 上午11:39
 # @Desc     ：
+
+def get_schema_name():
+    return "shudaodao_acm"

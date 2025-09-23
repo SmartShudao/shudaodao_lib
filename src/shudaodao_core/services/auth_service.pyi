@@ -4,7 +4,7 @@ from ..exception.service_exception import AuthException as AuthException, LoginE
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
-from .premission_service import PermissionService as PermissionService
+from .casbin_service import PermissionService as PermissionService
 from _typeshed import Incomplete
 from datetime import timedelta
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession

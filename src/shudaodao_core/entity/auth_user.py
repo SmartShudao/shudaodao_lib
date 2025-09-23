@@ -13,6 +13,7 @@ from pydantic import EmailStr
 from sqlalchemy import BigInteger
 from sqlmodel import SQLModel, Field
 
+from ..entity import get_schema_name
 from ..schemas.response import BaseResponse
 from ..utils.generate_unique_id import get_primary_id
 
@@ -28,7 +29,7 @@ class AuthUserBase(SQLModel):
 class AuthUser(AuthUserBase, table=True):
     """ 数据模型 - 数据库表 T_Auth_User 结构模型 """
     __tablename__ = "t_auth_user"
-    __table_args__ = {"comment": "鉴权用户表"}
+    __table_args__ = {"schema": f"{get_schema_name()}", "comment": "鉴权用户表"}
 
     last_login: Optional[datetime] = Field(default_factory=datetime.utcnow, description="aa")
     created_at: datetime = Field(lambda: datetime.now(timezone.utc))

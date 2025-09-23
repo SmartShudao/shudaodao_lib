@@ -1,9 +1,13 @@
 from ..config.app_config import AppConfig as AppConfig
-from ..engine.permission_engine import PermissionEngine as PermissionEngine
+from ..engine.casbin_engine import PermissionEngine as PermissionEngine
+from ..entity.auth_rule import AuthRule as AuthRule
 from ..exception.service_exception import PermissionException as PermissionException
 from ..logger.logging_ import logging as logging
+from .db_engine_service import DBEngineService as DBEngineService
+from _typeshed import Incomplete
 
 class PermissionService:
+    engine: Incomplete
     def __init__(self) -> None: ...
     async def initialize(self, permission_rules) -> None: ...
     async def has_role(self, user, role): ...

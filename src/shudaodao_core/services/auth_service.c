@@ -2655,6 +2655,7 @@ static const char __pyx_k_expires_delta[] = "expires_delta";
 static const char __pyx_k_hash_password[] = "hash_password";
 static const char __pyx_k_oauth2_scheme[] = "oauth2_scheme";
 static const char __pyx_k_LoginException[] = "LoginException";
+static const char __pyx_k_casbin_service[] = "casbin_service";
 static const char __pyx_k_get_permission[] = "get_permission";
 static const char __pyx_k_password_model[] = "password_model";
 static const char __pyx_k_plain_password[] = "plain_password";
@@ -2679,7 +2680,6 @@ static const char __pyx_k_Optional_timedelta[] = "Optional[timedelta]";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_auth_user_username[] = "auth_user.username";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_premission_service[] = "premission_service";
 static const char __pyx_k_AuthService_refresh[] = "AuthService.refresh";
 static const char __pyx_k_OAuth2PasswordBearer[] = "OAuth2PasswordBearer";
 static const char __pyx_k_TOKEN_EXPIRE_MINUTES[] = "TOKEN_EXPIRE_MINUTES";
@@ -2907,72 +2907,72 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_auto __pyx_string_tab[59]
 #define __pyx_n_u_await __pyx_string_tab[60]
 #define __pyx_n_u_bcrypt __pyx_string_tab[61]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[62]
-#define __pyx_n_u_close __pyx_string_tab[63]
-#define __pyx_n_u_cls __pyx_string_tab[64]
-#define __pyx_n_u_commit __pyx_string_tab[65]
-#define __pyx_n_u_conditions __pyx_string_tab[66]
-#define __pyx_n_u_config_app_config __pyx_string_tab[67]
-#define __pyx_n_u_data __pyx_string_tab[68]
-#define __pyx_n_u_datetime __pyx_string_tab[69]
-#define __pyx_n_u_db __pyx_string_tab[70]
-#define __pyx_n_u_db_update __pyx_string_tab[71]
-#define __pyx_n_u_decode __pyx_string_tab[72]
-#define __pyx_n_u_deprecated __pyx_string_tab[73]
-#define __pyx_n_u_dict __pyx_string_tab[74]
-#define __pyx_kp_u_disable __pyx_string_tab[75]
-#define __pyx_n_u_doc __pyx_string_tab[76]
-#define __pyx_kp_u_enable __pyx_string_tab[77]
-#define __pyx_n_u_encode __pyx_string_tab[78]
-#define __pyx_n_u_entity_auth_user __pyx_string_tab[79]
-#define __pyx_n_u_errors __pyx_string_tab[80]
-#define __pyx_n_u_exc __pyx_string_tab[81]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[82]
-#define __pyx_n_u_exp __pyx_string_tab[83]
-#define __pyx_n_u_expire __pyx_string_tab[84]
-#define __pyx_n_u_expires_delta __pyx_string_tab[85]
-#define __pyx_n_u_fastapi __pyx_string_tab[86]
-#define __pyx_n_u_fastapi_security __pyx_string_tab[87]
-#define __pyx_n_u_field __pyx_string_tab[88]
-#define __pyx_n_u_func __pyx_string_tab[89]
-#define __pyx_kp_u_gc __pyx_string_tab[90]
-#define __pyx_n_u_get __pyx_string_tab[91]
-#define __pyx_n_u_get_core_async_session __pyx_string_tab[92]
-#define __pyx_n_u_get_current_user __pyx_string_tab[93]
-#define __pyx_n_u_get_permission __pyx_string_tab[94]
-#define __pyx_n_u_hash __pyx_string_tab[95]
-#define __pyx_n_u_hash_password __pyx_string_tab[96]
-#define __pyx_n_u_hashed_password __pyx_string_tab[97]
-#define __pyx_n_u_id __pyx_string_tab[98]
-#define __pyx_n_u_is_active __pyx_string_tab[99]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[100]
-#define __pyx_kp_u_isenabled __pyx_string_tab[101]
-#define __pyx_n_u_jose __pyx_string_tab[102]
-#define __pyx_n_u_jwt __pyx_string_tab[103]
-#define __pyx_n_u_last_login __pyx_string_tab[104]
-#define __pyx_n_u_login __pyx_string_tab[105]
-#define __pyx_n_u_logout __pyx_string_tab[106]
-#define __pyx_n_u_main __pyx_string_tab[107]
-#define __pyx_n_u_message __pyx_string_tab[108]
-#define __pyx_n_u_metaclass __pyx_string_tab[109]
-#define __pyx_n_u_minutes __pyx_string_tab[110]
-#define __pyx_n_u_model_class __pyx_string_tab[111]
-#define __pyx_n_u_modify_password __pyx_string_tab[112]
-#define __pyx_n_u_module __pyx_string_tab[113]
-#define __pyx_n_u_name __pyx_string_tab[114]
-#define __pyx_n_u_new_password __pyx_string_tab[115]
-#define __pyx_n_u_next __pyx_string_tab[116]
-#define __pyx_n_u_oauth2_scheme __pyx_string_tab[117]
-#define __pyx_n_u_old_password __pyx_string_tab[118]
-#define __pyx_n_u_op __pyx_string_tab[119]
-#define __pyx_n_u_paging __pyx_string_tab[120]
-#define __pyx_n_u_passlib_context __pyx_string_tab[121]
-#define __pyx_n_u_password __pyx_string_tab[122]
-#define __pyx_n_u_password_model __pyx_string_tab[123]
-#define __pyx_n_u_payload __pyx_string_tab[124]
-#define __pyx_n_u_plain_password __pyx_string_tab[125]
-#define __pyx_n_u_pop __pyx_string_tab[126]
-#define __pyx_n_u_premission_service __pyx_string_tab[127]
+#define __pyx_n_u_casbin_service __pyx_string_tab[62]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[63]
+#define __pyx_n_u_close __pyx_string_tab[64]
+#define __pyx_n_u_cls __pyx_string_tab[65]
+#define __pyx_n_u_commit __pyx_string_tab[66]
+#define __pyx_n_u_conditions __pyx_string_tab[67]
+#define __pyx_n_u_config_app_config __pyx_string_tab[68]
+#define __pyx_n_u_data __pyx_string_tab[69]
+#define __pyx_n_u_datetime __pyx_string_tab[70]
+#define __pyx_n_u_db __pyx_string_tab[71]
+#define __pyx_n_u_db_update __pyx_string_tab[72]
+#define __pyx_n_u_decode __pyx_string_tab[73]
+#define __pyx_n_u_deprecated __pyx_string_tab[74]
+#define __pyx_n_u_dict __pyx_string_tab[75]
+#define __pyx_kp_u_disable __pyx_string_tab[76]
+#define __pyx_n_u_doc __pyx_string_tab[77]
+#define __pyx_kp_u_enable __pyx_string_tab[78]
+#define __pyx_n_u_encode __pyx_string_tab[79]
+#define __pyx_n_u_entity_auth_user __pyx_string_tab[80]
+#define __pyx_n_u_errors __pyx_string_tab[81]
+#define __pyx_n_u_exc __pyx_string_tab[82]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[83]
+#define __pyx_n_u_exp __pyx_string_tab[84]
+#define __pyx_n_u_expire __pyx_string_tab[85]
+#define __pyx_n_u_expires_delta __pyx_string_tab[86]
+#define __pyx_n_u_fastapi __pyx_string_tab[87]
+#define __pyx_n_u_fastapi_security __pyx_string_tab[88]
+#define __pyx_n_u_field __pyx_string_tab[89]
+#define __pyx_n_u_func __pyx_string_tab[90]
+#define __pyx_kp_u_gc __pyx_string_tab[91]
+#define __pyx_n_u_get __pyx_string_tab[92]
+#define __pyx_n_u_get_core_async_session __pyx_string_tab[93]
+#define __pyx_n_u_get_current_user __pyx_string_tab[94]
+#define __pyx_n_u_get_permission __pyx_string_tab[95]
+#define __pyx_n_u_hash __pyx_string_tab[96]
+#define __pyx_n_u_hash_password __pyx_string_tab[97]
+#define __pyx_n_u_hashed_password __pyx_string_tab[98]
+#define __pyx_n_u_id __pyx_string_tab[99]
+#define __pyx_n_u_is_active __pyx_string_tab[100]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[101]
+#define __pyx_kp_u_isenabled __pyx_string_tab[102]
+#define __pyx_n_u_jose __pyx_string_tab[103]
+#define __pyx_n_u_jwt __pyx_string_tab[104]
+#define __pyx_n_u_last_login __pyx_string_tab[105]
+#define __pyx_n_u_login __pyx_string_tab[106]
+#define __pyx_n_u_logout __pyx_string_tab[107]
+#define __pyx_n_u_main __pyx_string_tab[108]
+#define __pyx_n_u_message __pyx_string_tab[109]
+#define __pyx_n_u_metaclass __pyx_string_tab[110]
+#define __pyx_n_u_minutes __pyx_string_tab[111]
+#define __pyx_n_u_model_class __pyx_string_tab[112]
+#define __pyx_n_u_modify_password __pyx_string_tab[113]
+#define __pyx_n_u_module __pyx_string_tab[114]
+#define __pyx_n_u_name __pyx_string_tab[115]
+#define __pyx_n_u_new_password __pyx_string_tab[116]
+#define __pyx_n_u_next __pyx_string_tab[117]
+#define __pyx_n_u_oauth2_scheme __pyx_string_tab[118]
+#define __pyx_n_u_old_password __pyx_string_tab[119]
+#define __pyx_n_u_op __pyx_string_tab[120]
+#define __pyx_n_u_paging __pyx_string_tab[121]
+#define __pyx_n_u_passlib_context __pyx_string_tab[122]
+#define __pyx_n_u_password __pyx_string_tab[123]
+#define __pyx_n_u_password_model __pyx_string_tab[124]
+#define __pyx_n_u_payload __pyx_string_tab[125]
+#define __pyx_n_u_plain_password __pyx_string_tab[126]
+#define __pyx_n_u_pop __pyx_string_tab[127]
 #define __pyx_n_u_prepare __pyx_string_tab[128]
 #define __pyx_n_u_primary_id __pyx_string_tab[129]
 #define __pyx_n_u_qualname __pyx_string_tab[130]
@@ -8677,7 +8677,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  * from passlib.context import CryptContext
  * from sqlmodel.ext.asyncio.session import AsyncSession             # <<<<<<<<<<<<<<
  * 
- * from .premission_service import PermissionService
+ * from .casbin_service import PermissionService
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AsyncSession); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -8693,13 +8693,13 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   /* "auth_service.py":18
  * from sqlmodel.ext.asyncio.session import AsyncSession
  * 
- * from .premission_service import PermissionService             # <<<<<<<<<<<<<<
+ * from .casbin_service import PermissionService             # <<<<<<<<<<<<<<
  * from ..config.app_config import AppConfig
  * from ..entity.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_PermissionService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_premission_service, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_casbin_service, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_PermissionService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
@@ -8710,7 +8710,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
 
   /* "auth_service.py":19
  * 
- * from .premission_service import PermissionService
+ * from .casbin_service import PermissionService
  * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
  * from ..entity.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
  * from ..exception.service_exception import LoginException, AuthException
@@ -8727,7 +8727,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "auth_service.py":20
- * from .premission_service import PermissionService
+ * from .casbin_service import PermissionService
  * from ..config.app_config import AppConfig
  * from ..entity.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword             # <<<<<<<<<<<<<<
  * from ..exception.service_exception import LoginException, AuthException
@@ -9350,6 +9350,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_auto, sizeof(__pyx_k_auto), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auto */
   {__pyx_k_await, sizeof(__pyx_k_await), 0, 1, 1}, /* PyObject cname: __pyx_n_u_await */
   {__pyx_k_bcrypt, sizeof(__pyx_k_bcrypt), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bcrypt */
+  {__pyx_k_casbin_service, sizeof(__pyx_k_casbin_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin_service */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
   {__pyx_k_cls, sizeof(__pyx_k_cls), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cls */
@@ -9415,7 +9416,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_payload, sizeof(__pyx_k_payload), 0, 1, 1}, /* PyObject cname: __pyx_n_u_payload */
   {__pyx_k_plain_password, sizeof(__pyx_k_plain_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_plain_password */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
-  {__pyx_k_premission_service, sizeof(__pyx_k_premission_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_premission_service */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_primary_id, sizeof(__pyx_k_primary_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_primary_id */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
