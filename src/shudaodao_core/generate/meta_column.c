@@ -2274,13 +2274,15 @@ static const char __pyx_k_dataclasses[] = "dataclasses";
 static const char __pyx_k_meta_column[] = "meta_column";
 static const char __pyx_k_Optional_int[] = "Optional[int]";
 static const char __pyx_k_Optional_str[] = "Optional[str]";
+static const char __pyx_k_default_None[] = "default=None";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_max_length_2[] = "max_length=";
+static const char __pyx_k_nullable_True[] = "nullable=True";
 static const char __pyx_k_meta_column_py[] = "meta_column.py";
-static const char __pyx_k_A_a_4_7_war_A_q[] = "\200A\330#$\340\010\026\220a\330\010\013\2104\210|\2307\240!\330\014\027\220w\230a\230r\240\037\260\004\260A\330\010\017\210q";
 static const char __pyx_k_field_constraints[] = "field_constraints";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_A_a_4q_waq_waq_4_7_war_A_q[] = "\200A\330#$\340\010\026\220a\330\010\013\2104\210q\330\014\027\220w\230a\230q\330\014\027\220w\230a\230q\330\010\013\2104\210|\2307\240!\330\014\027\220w\230a\230r\240\037\260\004\260A\330\010\017\210q";
 static const char __pyx_k_MetaColumn_field_constraints[] = "MetaColumn.field_constraints";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_11meta_column_10MetaColumn_field_constraints(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
@@ -2324,7 +2326,7 @@ typedef struct {
   #endif
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[1];
-  PyObject *__pyx_string_tab[49];
+  PyObject *__pyx_string_tab[51];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2382,35 +2384,37 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_constraints __pyx_string_tab[17]
 #define __pyx_n_u_dataclass __pyx_string_tab[18]
 #define __pyx_n_u_dataclasses __pyx_string_tab[19]
-#define __pyx_n_u_doc __pyx_string_tab[20]
-#define __pyx_n_u_field_constraints __pyx_string_tab[21]
-#define __pyx_n_u_func __pyx_string_tab[22]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[23]
-#define __pyx_n_u_is_primary __pyx_string_tab[24]
-#define __pyx_n_u_main __pyx_string_tab[25]
-#define __pyx_n_u_max_length __pyx_string_tab[26]
-#define __pyx_kp_u_max_length_2 __pyx_string_tab[27]
-#define __pyx_n_u_meta_column __pyx_string_tab[28]
-#define __pyx_kp_u_meta_column_py __pyx_string_tab[29]
-#define __pyx_n_u_metaclass __pyx_string_tab[30]
-#define __pyx_n_u_module __pyx_string_tab[31]
-#define __pyx_n_u_name __pyx_string_tab[32]
-#define __pyx_n_u_name_2 __pyx_string_tab[33]
-#define __pyx_n_u_nullable __pyx_string_tab[34]
-#define __pyx_n_u_pop __pyx_string_tab[35]
-#define __pyx_n_u_precision __pyx_string_tab[36]
-#define __pyx_n_u_prepare __pyx_string_tab[37]
-#define __pyx_n_u_property __pyx_string_tab[38]
-#define __pyx_n_u_qualname __pyx_string_tab[39]
-#define __pyx_n_u_return __pyx_string_tab[40]
-#define __pyx_n_u_sa_type __pyx_string_tab[41]
-#define __pyx_n_u_scale __pyx_string_tab[42]
-#define __pyx_n_u_self __pyx_string_tab[43]
-#define __pyx_n_u_set_name __pyx_string_tab[44]
-#define __pyx_n_u_str __pyx_string_tab[45]
-#define __pyx_n_u_test __pyx_string_tab[46]
-#define __pyx_n_u_type __pyx_string_tab[47]
-#define __pyx_n_u_typing __pyx_string_tab[48]
+#define __pyx_kp_u_default_None __pyx_string_tab[20]
+#define __pyx_n_u_doc __pyx_string_tab[21]
+#define __pyx_n_u_field_constraints __pyx_string_tab[22]
+#define __pyx_n_u_func __pyx_string_tab[23]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[24]
+#define __pyx_n_u_is_primary __pyx_string_tab[25]
+#define __pyx_n_u_main __pyx_string_tab[26]
+#define __pyx_n_u_max_length __pyx_string_tab[27]
+#define __pyx_kp_u_max_length_2 __pyx_string_tab[28]
+#define __pyx_n_u_meta_column __pyx_string_tab[29]
+#define __pyx_kp_u_meta_column_py __pyx_string_tab[30]
+#define __pyx_n_u_metaclass __pyx_string_tab[31]
+#define __pyx_n_u_module __pyx_string_tab[32]
+#define __pyx_n_u_name __pyx_string_tab[33]
+#define __pyx_n_u_name_2 __pyx_string_tab[34]
+#define __pyx_n_u_nullable __pyx_string_tab[35]
+#define __pyx_kp_u_nullable_True __pyx_string_tab[36]
+#define __pyx_n_u_pop __pyx_string_tab[37]
+#define __pyx_n_u_precision __pyx_string_tab[38]
+#define __pyx_n_u_prepare __pyx_string_tab[39]
+#define __pyx_n_u_property __pyx_string_tab[40]
+#define __pyx_n_u_qualname __pyx_string_tab[41]
+#define __pyx_n_u_return __pyx_string_tab[42]
+#define __pyx_n_u_sa_type __pyx_string_tab[43]
+#define __pyx_n_u_scale __pyx_string_tab[44]
+#define __pyx_n_u_self __pyx_string_tab[45]
+#define __pyx_n_u_set_name __pyx_string_tab[46]
+#define __pyx_n_u_str __pyx_string_tab[47]
+#define __pyx_n_u_test __pyx_string_tab[48]
+#define __pyx_n_u_type __pyx_string_tab[49]
+#define __pyx_n_u_typing __pyx_string_tab[50]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2432,7 +2436,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   __Pyx_State_RemoveModule(NULL);
   #endif
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<49; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<51; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2454,7 +2458,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<49; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<51; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2560,8 +2564,8 @@ static PyObject *__pyx_pf_11meta_column_10MetaColumn_field_constraints(CYTHON_UN
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   int __pyx_t_2;
-  PyObject *__pyx_t_3 = NULL;
-  int __pyx_t_4;
+  int __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2571,8 +2575,8 @@ static PyObject *__pyx_pf_11meta_column_10MetaColumn_field_constraints(CYTHON_UN
  *     def field_constraints(self) -> List[str]:
  *         """"""
  *         constraints = []             # <<<<<<<<<<<<<<
- *         if self.max_length is not None:
- *             constraints.append(f"max_length={self.max_length}")
+ *         if self.nullable:
+ *             constraints.append("nullable=True")
 */
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -2582,43 +2586,83 @@ static PyObject *__pyx_pf_11meta_column_10MetaColumn_field_constraints(CYTHON_UN
   /* "meta_column.py":31
  *         """"""
  *         constraints = []
- *         if self.max_length is not None:             # <<<<<<<<<<<<<<
- *             constraints.append(f"max_length={self.max_length}")
- *         return constraints
+ *         if self.nullable:             # <<<<<<<<<<<<<<
+ *             constraints.append("nullable=True")
+ *             constraints.append("default=None")
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_max_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_nullable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__pyx_t_1 != Py_None);
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
     /* "meta_column.py":32
  *         constraints = []
+ *         if self.nullable:
+ *             constraints.append("nullable=True")             # <<<<<<<<<<<<<<
+ *             constraints.append("default=None")
  *         if self.max_length is not None:
- *             constraints.append(f"max_length={self.max_length}")             # <<<<<<<<<<<<<<
- *         return constraints
 */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_max_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_max_length_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_4 = __Pyx_PyList_Append(__pyx_v_constraints, __pyx_t_1); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 32, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_constraints, __pyx_mstate_global->__pyx_kp_u_nullable_True); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 32, __pyx_L1_error)
+
+    /* "meta_column.py":33
+ *         if self.nullable:
+ *             constraints.append("nullable=True")
+ *             constraints.append("default=None")             # <<<<<<<<<<<<<<
+ *         if self.max_length is not None:
+ *             constraints.append(f"max_length={self.max_length}")
+*/
+    __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_constraints, __pyx_mstate_global->__pyx_kp_u_default_None); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 33, __pyx_L1_error)
 
     /* "meta_column.py":31
  *         """"""
  *         constraints = []
+ *         if self.nullable:             # <<<<<<<<<<<<<<
+ *             constraints.append("nullable=True")
+ *             constraints.append("default=None")
+*/
+  }
+
+  /* "meta_column.py":34
+ *             constraints.append("nullable=True")
+ *             constraints.append("default=None")
+ *         if self.max_length is not None:             # <<<<<<<<<<<<<<
+ *             constraints.append(f"max_length={self.max_length}")
+ *         return constraints
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_max_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__pyx_t_1 != Py_None);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_2) {
+
+    /* "meta_column.py":35
+ *             constraints.append("default=None")
+ *         if self.max_length is not None:
+ *             constraints.append(f"max_length={self.max_length}")             # <<<<<<<<<<<<<<
+ *         return constraints
+*/
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_max_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_max_length_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_constraints, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 35, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "meta_column.py":34
+ *             constraints.append("nullable=True")
+ *             constraints.append("default=None")
  *         if self.max_length is not None:             # <<<<<<<<<<<<<<
  *             constraints.append(f"max_length={self.max_length}")
  *         return constraints
 */
   }
 
-  /* "meta_column.py":33
+  /* "meta_column.py":36
  *         if self.max_length is not None:
  *             constraints.append(f"max_length={self.max_length}")
  *         return constraints             # <<<<<<<<<<<<<<
@@ -2639,7 +2683,7 @@ static PyObject *__pyx_pf_11meta_column_10MetaColumn_field_constraints(CYTHON_UN
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("meta_column.MetaColumn.field_constraints", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3279,6 +3323,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_constraints, sizeof(__pyx_k_constraints), 0, 1, 1}, /* PyObject cname: __pyx_n_u_constraints */
   {__pyx_k_dataclass, sizeof(__pyx_k_dataclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclass */
   {__pyx_k_dataclasses, sizeof(__pyx_k_dataclasses), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclasses */
+  {__pyx_k_default_None, sizeof(__pyx_k_default_None), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_default_None */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_field_constraints, sizeof(__pyx_k_field_constraints), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field_constraints */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
@@ -3294,6 +3339,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name_2 */
   {__pyx_k_nullable, sizeof(__pyx_k_nullable), 0, 1, 1}, /* PyObject cname: __pyx_n_u_nullable */
+  {__pyx_k_nullable_True, sizeof(__pyx_k_nullable_True), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_nullable_True */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_precision, sizeof(__pyx_k_precision), 0, 1, 1}, /* PyObject cname: __pyx_n_u_precision */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
@@ -3351,7 +3397,7 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
             unsigned int nlocals : 2;
             unsigned int flags : 10;
             unsigned int first_line : 5;
-            unsigned int line_table_length : 10;
+            unsigned int line_table_length : 11;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
 static PyObject* __Pyx_PyCode_New(
@@ -3368,9 +3414,9 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 27, 41};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 27, 66};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_constraints};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_column_py, __pyx_mstate->__pyx_n_u_field_constraints, __pyx_k_A_a_4_7_war_A_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_column_py, __pyx_mstate->__pyx_n_u_field_constraints, __pyx_k_A_a_4q_waq_waq_4_7_war_A_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;

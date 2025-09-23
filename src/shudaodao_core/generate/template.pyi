@@ -7,9 +7,10 @@ from _typeshed import Incomplete
 
 class TemplateBuilder:
     default_factory: bool
-    is_format_column_table: bool
     output: Incomplete
     def __init__(self, *, config: GeneratorConfig) -> None: ...
+    @classmethod
+    def format_column_base(cls, column: MetaColumn) -> str: ...
     @classmethod
     def format_column_table(cls, column: MetaColumn) -> str: ...
     @classmethod
