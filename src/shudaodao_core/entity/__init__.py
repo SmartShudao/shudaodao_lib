@@ -7,4 +7,4 @@
 # @Desc     ：
 
 def get_schema_name():
-    return "shudaodao_acm"
+    return "shudaodao_auth"

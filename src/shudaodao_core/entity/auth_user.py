@@ -6,7 +6,7 @@
 # @Date     ：2025/9/2 下午4:24
 # @Desc     ：
 
-from datetime import datetime, timezone
+from datetime import datetime
 from typing import Optional
 
 from pydantic import EmailStr
@@ -31,9 +31,9 @@ class AuthUser(AuthUserBase, table=True):
     __tablename__ = "t_auth_user"
     __table_args__ = {"schema": f"{get_schema_name()}", "comment": "鉴权用户表"}
 
-    last_login: Optional[datetime] = Field(default_factory=datetime.utcnow, description="aa")
-    created_at: datetime = Field(lambda: datetime.now(timezone.utc))
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    last_login: Optional[datetime] = Field(default_factory=lambda: datetime.now(), description="最后登录时间")
+    created_at: datetime = Field(default_factory=lambda: datetime.now())
+    updated_at: datetime = Field(default_factory=lambda: datetime.now())
 
 
 class AuthUserResponse(BaseResponse):
@@ -51,7 +51,7 @@ class AuthLogin(SQLModel):
 
 class AuthRegister(AuthLogin):
     """ 登录模型 """
-    email: Optional[EmailStr] = Field(None, max_length=100)
+    email: Optional[EmailStr] = Field(None, max_length=50)
 
 
 class AuthPassword(SQLModel):
