@@ -600,7 +600,7 @@ wheels = [
 
 [[package]]
 name = "shudaodao"
-version = "0.1.17"
+version = "0.1.22"
 source = { editable = "." }
 dependencies = [
     { name = "casbin" },

@@ -9,8 +9,6 @@
 from fastapi import Depends as _Depends
 from sqlalchemy.engine import Engine as _Engine
 from sqlalchemy.ext.asyncio import create_async_engine as _create_async_engine
-from sqlmodel import Field as _Field
-from sqlmodel import SQLModel as _SQLModel
 from sqlmodel import create_engine as _create_engine
 from sqlmodel.ext.asyncio.session import AsyncSession as _AsyncSession
 
@@ -46,5 +44,3 @@ Engine = _Engine
 create_engine = _create_engine
 create_async_engine = _create_async_engine
 Depends = _Depends
-SQLModel = _SQLModel
-Field = _Field
