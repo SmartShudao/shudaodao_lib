@@ -1940,7 +1940,6 @@ static const char __pyx_k_[] = ".";
 static const char __pyx_k__2[] = "?";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_str[] = "str";
-static const char __pyx_k_bool[] = "bool";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
@@ -1949,6 +1948,7 @@ static const char __pyx_k_db_url[] = "db_url";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_prepare[] = "__prepare__";
+static const char __pyx_k_Generate[] = "Generate";
 static const char __pyx_k_Optional[] = "Optional";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_dataclass[] = "dataclass";
@@ -1958,11 +1958,10 @@ static const char __pyx_k_dataclasses[] = "dataclasses";
 static const char __pyx_k_output_path[] = "output_path";
 static const char __pyx_k_Optional_str[] = "Optional[str]";
 static const char __pyx_k_GeneratorConfig[] = "GeneratorConfig";
+static const char __pyx_k_shudaodao_schema[] = "shudaodao_schema";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_output_router_path[] = "output_router_path";
-static const char __pyx_k_output_auth_role_name[] = "output_auth_role_name";
-static const char __pyx_k_output_db_engine_name[] = "output_db_engine_name";
-static const char __pyx_k_output_schema_to_entity[] = "output_schema_to_entity";
+static const char __pyx_k_default_schema_name[] = "default_schema_name";
+static const char __pyx_k_database_engine_name[] = "database_engine_name";
 /* #### Code section: decls ### */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
@@ -2002,7 +2001,7 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_string_tab[27];
+  PyObject *__pyx_string_tab[26];
 /* #### Code section: module_state_contents ### */
 /* CodeObjectCache.module_state_decls */
 struct __Pyx_CodeObjectCache __pyx_code_cache;
@@ -2033,32 +2032,31 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #endif
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
-#define __pyx_n_u_GeneratorConfig __pyx_string_tab[1]
-#define __pyx_n_u_Optional __pyx_string_tab[2]
-#define __pyx_kp_u_Optional_str __pyx_string_tab[3]
-#define __pyx_kp_u__2 __pyx_string_tab[4]
-#define __pyx_n_u_annotations __pyx_string_tab[5]
-#define __pyx_n_u_bool __pyx_string_tab[6]
+#define __pyx_n_u_Generate __pyx_string_tab[1]
+#define __pyx_n_u_GeneratorConfig __pyx_string_tab[2]
+#define __pyx_n_u_Optional __pyx_string_tab[3]
+#define __pyx_kp_u_Optional_str __pyx_string_tab[4]
+#define __pyx_kp_u__2 __pyx_string_tab[5]
+#define __pyx_n_u_annotations __pyx_string_tab[6]
 #define __pyx_n_u_cline_in_traceback __pyx_string_tab[7]
 #define __pyx_n_u_config __pyx_string_tab[8]
-#define __pyx_n_u_dataclass __pyx_string_tab[9]
-#define __pyx_n_u_dataclasses __pyx_string_tab[10]
-#define __pyx_n_u_db_url __pyx_string_tab[11]
-#define __pyx_n_u_doc __pyx_string_tab[12]
-#define __pyx_n_u_main __pyx_string_tab[13]
-#define __pyx_n_u_metaclass __pyx_string_tab[14]
-#define __pyx_n_u_module __pyx_string_tab[15]
-#define __pyx_n_u_name __pyx_string_tab[16]
-#define __pyx_n_u_output_auth_role_name __pyx_string_tab[17]
-#define __pyx_n_u_output_db_engine_name __pyx_string_tab[18]
+#define __pyx_n_u_database_engine_name __pyx_string_tab[9]
+#define __pyx_n_u_dataclass __pyx_string_tab[10]
+#define __pyx_n_u_dataclasses __pyx_string_tab[11]
+#define __pyx_n_u_db_url __pyx_string_tab[12]
+#define __pyx_n_u_default_schema_name __pyx_string_tab[13]
+#define __pyx_n_u_doc __pyx_string_tab[14]
+#define __pyx_n_u_main __pyx_string_tab[15]
+#define __pyx_n_u_metaclass __pyx_string_tab[16]
+#define __pyx_n_u_module __pyx_string_tab[17]
+#define __pyx_n_u_name __pyx_string_tab[18]
 #define __pyx_n_u_output_path __pyx_string_tab[19]
-#define __pyx_n_u_output_router_path __pyx_string_tab[20]
-#define __pyx_n_u_output_schema_to_entity __pyx_string_tab[21]
-#define __pyx_n_u_prepare __pyx_string_tab[22]
-#define __pyx_n_u_qualname __pyx_string_tab[23]
-#define __pyx_n_u_str __pyx_string_tab[24]
-#define __pyx_n_u_test __pyx_string_tab[25]
-#define __pyx_n_u_typing __pyx_string_tab[26]
+#define __pyx_n_u_prepare __pyx_string_tab[20]
+#define __pyx_n_u_qualname __pyx_string_tab[21]
+#define __pyx_n_u_shudaodao_schema __pyx_string_tab[22]
+#define __pyx_n_u_str __pyx_string_tab[23]
+#define __pyx_n_u_test __pyx_string_tab[24]
+#define __pyx_n_u_typing __pyx_string_tab[25]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2079,7 +2077,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<27; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<26; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2100,7 +2098,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<27; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<26; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2516,47 +2514,42 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
  * @dataclass
  * class GeneratorConfig:             # <<<<<<<<<<<<<<
  *     db_url: str
- *     output_schema_to_entity: bool
+ *     database_engine_name: str = "Generate"
 */
   __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_GeneratorConfig, __pyx_mstate_global->__pyx_n_u_GeneratorConfig, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_config, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_url, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_output_schema_to_entity, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_output_db_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_output_auth_role_name, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_output_router_path, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_database_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_output_path, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
+  /* "config.py":16
+ * class GeneratorConfig:
+ *     db_url: str
+ *     database_engine_name: str = "Generate"             # <<<<<<<<<<<<<<
+ *     #  schema  schema = None ,
+ *     default_schema_name: str = "shudaodao_schema"
+*/
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_database_engine_name, __pyx_mstate_global->__pyx_n_u_Generate) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+
   /* "config.py":18
- *     output_schema_to_entity: bool
- *     output_db_engine_name: str
- *     output_auth_role_name: Optional[str] = None             # <<<<<<<<<<<<<<
+ *     database_engine_name: str = "Generate"
  *     #  schema  schema = None ,
- *     output_router_path: Optional[str] = None
-*/
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_output_auth_role_name, Py_None) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
-
-  /* "config.py":20
- *     output_auth_role_name: Optional[str] = None
- *     #  schema  schema = None ,
- *     output_router_path: Optional[str] = None             # <<<<<<<<<<<<<<
+ *     default_schema_name: str = "shudaodao_schema"             # <<<<<<<<<<<<<<
  *     output_path: Optional[str] = None
- * 
 */
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_output_router_path, Py_None) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_shudaodao_schema) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
 
-  /* "config.py":21
+  /* "config.py":19
  *     #  schema  schema = None ,
- *     output_router_path: Optional[str] = None
+ *     default_schema_name: str = "shudaodao_schema"
  *     output_path: Optional[str] = None             # <<<<<<<<<<<<<<
- * 
- * 
 */
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_output_path, Py_None) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_output_path, Py_None) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
 
   /* "config.py":13
  * 
@@ -2574,7 +2567,7 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
  * @dataclass
  * class GeneratorConfig:             # <<<<<<<<<<<<<<
  *     db_url: str
- *     output_schema_to_entity: bool
+ *     database_engine_name: str = "Generate"
 */
   __pyx_t_6 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_GeneratorConfig, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
@@ -2641,11 +2634,11 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
 
 typedef struct {
     const char *s;
-#if 23 <= 65535
+#if 20 <= 65535
     const unsigned short n;
-#elif 23 / 2 < INT_MAX
+#elif 20 / 2 < INT_MAX
     const unsigned int n;
-#elif 23 / 2 < LONG_MAX
+#elif 20 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -2665,29 +2658,28 @@ typedef struct {
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
+  {__pyx_k_Generate, sizeof(__pyx_k_Generate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Generate */
   {__pyx_k_GeneratorConfig, sizeof(__pyx_k_GeneratorConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_GeneratorConfig */
   {__pyx_k_Optional, sizeof(__pyx_k_Optional), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Optional */
   {__pyx_k_Optional_str, sizeof(__pyx_k_Optional_str), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_str */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k_annotations, sizeof(__pyx_k_annotations), 0, 1, 1}, /* PyObject cname: __pyx_n_u_annotations */
-  {__pyx_k_bool, sizeof(__pyx_k_bool), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bool */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
   {__pyx_k_config, sizeof(__pyx_k_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_config */
+  {__pyx_k_database_engine_name, sizeof(__pyx_k_database_engine_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_database_engine_name */
   {__pyx_k_dataclass, sizeof(__pyx_k_dataclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclass */
   {__pyx_k_dataclasses, sizeof(__pyx_k_dataclasses), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclasses */
   {__pyx_k_db_url, sizeof(__pyx_k_db_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_url */
+  {__pyx_k_default_schema_name, sizeof(__pyx_k_default_schema_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_schema_name */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
-  {__pyx_k_output_auth_role_name, sizeof(__pyx_k_output_auth_role_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_auth_role_name */
-  {__pyx_k_output_db_engine_name, sizeof(__pyx_k_output_db_engine_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_db_engine_name */
   {__pyx_k_output_path, sizeof(__pyx_k_output_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_path */
-  {__pyx_k_output_router_path, sizeof(__pyx_k_output_router_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_router_path */
-  {__pyx_k_output_schema_to_entity, sizeof(__pyx_k_output_schema_to_entity), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_schema_to_entity */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_shudaodao_schema, sizeof(__pyx_k_shudaodao_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_schema */
   {__pyx_k_str, sizeof(__pyx_k_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_str */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */

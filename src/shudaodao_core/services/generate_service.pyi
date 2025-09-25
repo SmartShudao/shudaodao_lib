@@ -1,5 +1,5 @@
 from ..generate.config import GeneratorConfig as GeneratorConfig
-from ..generate.template import TemplateBuilder as TemplateBuilder
+from ..generate.template_builder import TemplateBuilder as TemplateBuilder
 from ..logger.logging_ import logging as logging
 from _typeshed import Incomplete
 
