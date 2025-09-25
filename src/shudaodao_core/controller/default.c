@@ -2308,8 +2308,8 @@ static const char __pyx_k_AuthRouter[] = "AuthRouter";
 static const char __pyx_k_media_type[] = "media_type";
 static const char __pyx_k_FileResponse[] = "FileResponse";
 static const char __pyx_k_ResponseUtil[] = "ResponseUtil";
-static const char __pyx_k_get_web_path[] = "get_web_path";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
+static const char __pyx_k_get_admin_path[] = "get_admin_path";
 static const char __pyx_k_auth_auth_router[] = "auth.auth_router";
 static const char __pyx_k_utils_core_utils[] = "utils.core_utils";
 static const char __pyx_k_config_app_config[] = "config.app_config";
@@ -2436,7 +2436,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_func __pyx_string_tab[20]
 #define __pyx_kp_u_gc __pyx_string_tab[21]
 #define __pyx_n_u_get __pyx_string_tab[22]
-#define __pyx_n_u_get_web_path __pyx_string_tab[23]
+#define __pyx_n_u_get_admin_path __pyx_string_tab[23]
 #define __pyx_n_u_is_coroutine __pyx_string_tab[24]
 #define __pyx_kp_u_isenabled __pyx_string_tab[25]
 #define __pyx_n_u_main __pyx_string_tab[26]
@@ -2609,7 +2609,7 @@ static PyObject *__pyx_gb_14shudaodao_core_10controller_7default_2generator(__py
  * async def root():
  *     """  """
  *     if AppConfig.webapp.page:             # <<<<<<<<<<<<<<
- *         return FileResponse(CoreUtil.get_web_path() / AppConfig.webapp.page, media_type="text/html")
+ *         return FileResponse(CoreUtil.get_admin_path() / AppConfig.webapp.page, media_type="text/html")
  *     else:
 */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L1_error)
@@ -2627,7 +2627,7 @@ static PyObject *__pyx_gb_14shudaodao_core_10controller_7default_2generator(__py
     /* "shudaodao_core/controller/default.py":26
  *     """  """
  *     if AppConfig.webapp.page:
- *         return FileResponse(CoreUtil.get_web_path() / AppConfig.webapp.page, media_type="text/html")             # <<<<<<<<<<<<<<
+ *         return FileResponse(CoreUtil.get_admin_path() / AppConfig.webapp.page, media_type="text/html")             # <<<<<<<<<<<<<<
  *     else:
  *         return ResponseUtil.success(message=" AppConfig.webapp.page ")
 */
@@ -2638,7 +2638,7 @@ static PyObject *__pyx_gb_14shudaodao_core_10controller_7default_2generator(__py
     __pyx_t_6 = NULL;
     __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_get_web_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_get_admin_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_9 = 1;
@@ -2706,13 +2706,13 @@ static PyObject *__pyx_gb_14shudaodao_core_10controller_7default_2generator(__py
  * async def root():
  *     """  """
  *     if AppConfig.webapp.page:             # <<<<<<<<<<<<<<
- *         return FileResponse(CoreUtil.get_web_path() / AppConfig.webapp.page, media_type="text/html")
+ *         return FileResponse(CoreUtil.get_admin_path() / AppConfig.webapp.page, media_type="text/html")
  *     else:
 */
   }
 
   /* "shudaodao_core/controller/default.py":28
- *         return FileResponse(CoreUtil.get_web_path() / AppConfig.webapp.page, media_type="text/html")
+ *         return FileResponse(CoreUtil.get_admin_path() / AppConfig.webapp.page, media_type="text/html")
  *     else:
  *         return ResponseUtil.success(message=" AppConfig.webapp.page ")             # <<<<<<<<<<<<<<
 */
@@ -3593,7 +3593,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
   {__pyx_k_get, sizeof(__pyx_k_get), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get */
-  {__pyx_k_get_web_path, sizeof(__pyx_k_get_web_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_web_path */
+  {__pyx_k_get_admin_path, sizeof(__pyx_k_get_admin_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_admin_path */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_isenabled */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
