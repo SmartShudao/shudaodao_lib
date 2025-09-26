@@ -7,13 +7,15 @@
 # @Desc     ：
 
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Any
 
-from pydantic import EmailStr
-from sqlalchemy import BigInteger
+from pydantic import EmailStr, model_validator, computed_field
+from sqlalchemy import BigInteger, Integer
 from sqlmodel import SQLModel, Field
 
 from ..entity import get_schema_name
+from ..enum.core_enum import UserStatus
+from ..enum.resolve_enum import resolve_enum_field
 from ..schemas.response import BaseResponse
 from ..utils.generate_unique_id import get_primary_id
 
@@ -22,8 +24,9 @@ class AuthUserBase(SQLModel):
     auth_user_id: Optional[int] = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger)
     username: str = Field(unique=True, index=True, max_length=50)
     password: str
-    email: Optional[EmailStr] = Field(None, max_length=100)
+    email: Optional[EmailStr] = Field(default=None, nullable=True, max_length=100)
     is_active: bool = True
+    status: UserStatus = Field(default=None, nullable=True, sa_type=Integer)
 
 
 class AuthUser(AuthUserBase, table=True):
@@ -41,6 +44,17 @@ class AuthUserResponse(BaseResponse):
     username: str = Field(max_length=50)
     email: Optional[EmailStr] = Field(None, max_length=100)
     is_active: bool = True
+    status: UserStatus  # ← 枚举字段
+
+    @computed_field
+    @property
+    def status_label(self) -> str:
+        return self.status.label
+
+    # @computed_field
+    # @property
+    # def status_description(self) -> str:
+    #     return self.status.description
 
 
 class AuthLogin(SQLModel):
@@ -49,9 +63,21 @@ class AuthLogin(SQLModel):
     password: str = Field(min_length=6, max_length=50)
 
 
-class AuthRegister(AuthLogin):
-    """ 登录模型 """
-    email: Optional[EmailStr] = Field(None, max_length=50)
+class AuthRegister(SQLModel):
+    username: str = Field(min_length=3, max_length=50)
+    password: str = Field(min_length=6, max_length=50)
+    email: Optional[EmailStr] = Field(default=None, max_length=50)
+
+    # 输入字段：均为可选，且不设默认值
+    status: Optional[int] = None
+    status_label: Optional[str] = None
+
+    # noinspection PyMethodParameters
+    @model_validator(mode="before")
+    def resolve_enums(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            resolve_enum_field(data, "status", UserStatus)
+        return data
 
 
 class AuthPassword(SQLModel):

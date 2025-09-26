@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 # @License  ：(C)Copyright 2025, 数道智融科技
-# @Author   ：李锋
-# @Software ：PyCharm
-# @Date     ：2025/9/21 上午11:39
-# @Desc     ：
+
+# 不要删除这个空文件， yaml配置文件中 routers 节点 自动加载路由 需要类型为包

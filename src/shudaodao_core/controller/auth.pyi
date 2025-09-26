@@ -1,5 +1,5 @@
 from ..auth.auth_router import AuthRouter as AuthRouter
-from ..entity.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthRegister as AuthRegister, AuthUser as AuthUser
+from ..entity.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthRegister as AuthRegister, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
 from ..services.auth_service import AuthService as AuthService
 from ..services.data_service import DataService as DataService
 from ..utils.response_utils import ResponseUtil as ResponseUtil
