@@ -2318,6 +2318,7 @@ static const char __pyx_k_base[] = "base";
 static const char __pyx_k_exit[] = "__exit__";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_init[] = "__init__";
+static const char __pyx_k_jose[] = "jose";
 static const char __pyx_k_load[] = "_load";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
@@ -2423,7 +2424,7 @@ typedef struct {
   PyObject *__pyx_slice[1];
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[3];
-  PyObject *__pyx_string_tab[83];
+  PyObject *__pyx_string_tab[84];
   PyObject *__pyx_int_8;
   PyObject *__pyx_int_86400;
   PyObject *__pyx_int_2592000;
@@ -2508,45 +2509,46 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_initializing __pyx_string_tab[41]
 #define __pyx_n_u_is_coroutine __pyx_string_tab[42]
 #define __pyx_n_u_iss __pyx_string_tab[43]
-#define __pyx_n_u_jti __pyx_string_tab[44]
-#define __pyx_n_u_jwt __pyx_string_tab[45]
-#define __pyx_n_u_license __pyx_string_tab[46]
-#define __pyx_n_u_license_type __pyx_string_tab[47]
-#define __pyx_n_u_load __pyx_string_tab[48]
-#define __pyx_n_u_machine_id __pyx_string_tab[49]
-#define __pyx_n_u_main __pyx_string_tab[50]
-#define __pyx_n_u_metaclass __pyx_string_tab[51]
-#define __pyx_n_u_model __pyx_string_tab[52]
-#define __pyx_n_u_module __pyx_string_tab[53]
-#define __pyx_n_u_name __pyx_string_tab[54]
-#define __pyx_n_u_nbf __pyx_string_tab[55]
-#define __pyx_n_u_open __pyx_string_tab[56]
-#define __pyx_n_u_payload __pyx_string_tab[57]
-#define __pyx_n_u_pop __pyx_string_tab[58]
-#define __pyx_n_u_prepare __pyx_string_tab[59]
-#define __pyx_n_u_private_key __pyx_string_tab[60]
-#define __pyx_n_u_private_path __pyx_string_tab[61]
-#define __pyx_kp_u_private_pem __pyx_string_tab[62]
-#define __pyx_n_u_product_name __pyx_string_tab[63]
-#define __pyx_n_u_qualname __pyx_string_tab[64]
-#define __pyx_n_u_r __pyx_string_tab[65]
-#define __pyx_n_u_read __pyx_string_tab[66]
-#define __pyx_n_u_self __pyx_string_tab[67]
-#define __pyx_n_u_set_name __pyx_string_tab[68]
-#define __pyx_kp_u_shudaodao_com __pyx_string_tab[69]
-#define __pyx_n_u_shudaodao_webapp __pyx_string_tab[70]
-#define __pyx_n_u_spec __pyx_string_tab[71]
-#define __pyx_n_u_sub __pyx_string_tab[72]
-#define __pyx_n_u_test __pyx_string_tab[73]
-#define __pyx_n_u_timestamp __pyx_string_tab[74]
-#define __pyx_n_u_token __pyx_string_tab[75]
-#define __pyx_n_u_utcnow __pyx_string_tab[76]
-#define __pyx_n_u_utils_core_utils __pyx_string_tab[77]
-#define __pyx_n_u_uuid __pyx_string_tab[78]
-#define __pyx_n_u_uuid4 __pyx_string_tab[79]
-#define __pyx_kp_u_v0_1_2 __pyx_string_tab[80]
-#define __pyx_n_u_valid_days __pyx_string_tab[81]
-#define __pyx_n_u_version __pyx_string_tab[82]
+#define __pyx_n_u_jose __pyx_string_tab[44]
+#define __pyx_n_u_jti __pyx_string_tab[45]
+#define __pyx_n_u_jwt __pyx_string_tab[46]
+#define __pyx_n_u_license __pyx_string_tab[47]
+#define __pyx_n_u_license_type __pyx_string_tab[48]
+#define __pyx_n_u_load __pyx_string_tab[49]
+#define __pyx_n_u_machine_id __pyx_string_tab[50]
+#define __pyx_n_u_main __pyx_string_tab[51]
+#define __pyx_n_u_metaclass __pyx_string_tab[52]
+#define __pyx_n_u_model __pyx_string_tab[53]
+#define __pyx_n_u_module __pyx_string_tab[54]
+#define __pyx_n_u_name __pyx_string_tab[55]
+#define __pyx_n_u_nbf __pyx_string_tab[56]
+#define __pyx_n_u_open __pyx_string_tab[57]
+#define __pyx_n_u_payload __pyx_string_tab[58]
+#define __pyx_n_u_pop __pyx_string_tab[59]
+#define __pyx_n_u_prepare __pyx_string_tab[60]
+#define __pyx_n_u_private_key __pyx_string_tab[61]
+#define __pyx_n_u_private_path __pyx_string_tab[62]
+#define __pyx_kp_u_private_pem __pyx_string_tab[63]
+#define __pyx_n_u_product_name __pyx_string_tab[64]
+#define __pyx_n_u_qualname __pyx_string_tab[65]
+#define __pyx_n_u_r __pyx_string_tab[66]
+#define __pyx_n_u_read __pyx_string_tab[67]
+#define __pyx_n_u_self __pyx_string_tab[68]
+#define __pyx_n_u_set_name __pyx_string_tab[69]
+#define __pyx_kp_u_shudaodao_com __pyx_string_tab[70]
+#define __pyx_n_u_shudaodao_webapp __pyx_string_tab[71]
+#define __pyx_n_u_spec __pyx_string_tab[72]
+#define __pyx_n_u_sub __pyx_string_tab[73]
+#define __pyx_n_u_test __pyx_string_tab[74]
+#define __pyx_n_u_timestamp __pyx_string_tab[75]
+#define __pyx_n_u_token __pyx_string_tab[76]
+#define __pyx_n_u_utcnow __pyx_string_tab[77]
+#define __pyx_n_u_utils_core_utils __pyx_string_tab[78]
+#define __pyx_n_u_uuid __pyx_string_tab[79]
+#define __pyx_n_u_uuid4 __pyx_string_tab[80]
+#define __pyx_kp_u_v0_1_2 __pyx_string_tab[81]
+#define __pyx_n_u_valid_days __pyx_string_tab[82]
+#define __pyx_n_u_version __pyx_string_tab[83]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2570,7 +2572,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<3; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<83; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<84; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_8);
   Py_CLEAR(clear_module_state->__pyx_int_86400);
   Py_CLEAR(clear_module_state->__pyx_int_2592000);
@@ -2597,7 +2599,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<3; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<83; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<84; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_8);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_86400);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_2592000);
@@ -4437,7 +4439,7 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  * from dataclasses import asdict
  * from datetime import datetime             # <<<<<<<<<<<<<<
  * 
- * import jwt
+ * from jose import jwt
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_datetime); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -4453,32 +4455,38 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
   /* "builder.py":12
  * from datetime import datetime
  * 
- * import jwt             # <<<<<<<<<<<<<<
+ * from jose import jwt             # <<<<<<<<<<<<<<
  * 
  * from .model import LicenseModel
 */
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_jwt, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_jwt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_jose, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_jwt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_jwt, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "builder.py":14
- * import jwt
+ * from jose import jwt
  * 
  * from .model import LicenseModel             # <<<<<<<<<<<<<<
  * from ..utils.core_utils import CoreUtil
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_LicenseModel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_model, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_LicenseModel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_LicenseModel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_model, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_LicenseModel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "builder.py":15
  * 
@@ -4487,16 +4495,16 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  * 
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_utils_core_utils, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_utils_core_utils, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "builder.py":18
  * 
@@ -4505,8 +4513,8 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  *     ...
  * 
 */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_LicenseBuilder, __pyx_mstate_global->__pyx_n_u_LicenseBuilder, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_builder, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_LicenseBuilder, __pyx_mstate_global->__pyx_n_u_LicenseBuilder, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_builder, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
 
   /* "builder.py":21
  *     ...
@@ -4515,10 +4523,10 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  *         self.license = LicenseModel(
  *             # JWT
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7builder_14LicenseBuilder_1__init__, 0, __pyx_mstate_global->__pyx_n_u_LicenseBuilder___init, NULL, __pyx_mstate_global->__pyx_n_u_builder, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_init, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7builder_14LicenseBuilder_1__init__, 0, __pyx_mstate_global->__pyx_n_u_LicenseBuilder___init, NULL, __pyx_mstate_global->__pyx_n_u_builder, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_init, __pyx_t_2) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "builder.py":40
  *         self._load()
@@ -4527,10 +4535,10 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  *         #
  *         private_path = CoreUtil.get_root_path() / "private.pem"
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_7builder_14LicenseBuilder_3_load, 0, __pyx_mstate_global->__pyx_n_u_LicenseBuilder__load, NULL, __pyx_mstate_global->__pyx_n_u_builder, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_3) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_7builder_14LicenseBuilder_3_load, 0, __pyx_mstate_global->__pyx_n_u_LicenseBuilder__load, NULL, __pyx_mstate_global->__pyx_n_u_builder, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_2) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "builder.py":46
  *             self._private_key = f.read()
@@ -4539,8 +4547,8 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  *             self, *, customer_id=None, machine_id=None, features=None, valid_days=None, license_type=None,
  *             product_name=None,
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
 
   /* "builder.py":47
  * 
@@ -4549,11 +4557,11 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  *             product_name=None,
  *     ):
 */
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_customer_id, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_machine_id, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_features, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_valid_days, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_license_type, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_customer_id, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_machine_id, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_features, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_valid_days, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_license_type, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
 
   /* "builder.py":48
  *     def generate_token(
@@ -4562,7 +4570,7 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  *     ):
  *         #
 */
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_product_name, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_product_name, Py_None) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
 
   /* "builder.py":46
  *             self._private_key = f.read()
@@ -4573,9 +4581,9 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
 */
   __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_7builder_14LicenseBuilder_5generate_token, 0, __pyx_mstate_global->__pyx_n_u_LicenseBuilder_generate_token, NULL, __pyx_mstate_global->__pyx_n_u_builder, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_4, __pyx_t_3);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_generate_token, __pyx_t_4) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_4, __pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_generate_token, __pyx_t_4) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "builder.py":18
@@ -4585,21 +4593,21 @@ __Pyx_RefNannySetupContext("PyInit_builder", 0);
  *     ...
  * 
 */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_LicenseBuilder, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_LicenseBuilder, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_LicenseBuilder, __pyx_t_4) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "builder.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -4705,6 +4713,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_iss, sizeof(__pyx_k_iss), 0, 1, 1}, /* PyObject cname: __pyx_n_u_iss */
+  {__pyx_k_jose, sizeof(__pyx_k_jose), 0, 1, 1}, /* PyObject cname: __pyx_n_u_jose */
   {__pyx_k_jti, sizeof(__pyx_k_jti), 0, 1, 1}, /* PyObject cname: __pyx_n_u_jti */
   {__pyx_k_jwt, sizeof(__pyx_k_jwt), 0, 1, 1}, /* PyObject cname: __pyx_n_u_jwt */
   {__pyx_k_license, sizeof(__pyx_k_license), 0, 1, 1}, /* PyObject cname: __pyx_n_u_license */

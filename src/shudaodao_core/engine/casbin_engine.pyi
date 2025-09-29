@@ -1,6 +1,6 @@
 from ..config.app_config import AppConfig as AppConfig
-from ..entity.auth_rule import AuthRule as AuthRule
 from ..logger.logging_ import logging as logging
+from ..portal.auth.entity_table.auth_rule import AuthRule as AuthRule
 from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..utils.core_utils import CoreUtil as CoreUtil
 

@@ -2710,9 +2710,8 @@ static const char __pyx_k__2[] = "\350\246\201\346\233\264\346\226\260\347\232\2
 static const char __pyx_k__3[] = "\346\225\260\346\215\256\344\270\215\345\255\230\345\234\250";
 static const char __pyx_k__4[] = "\343\200\214";
 static const char __pyx_k__5[] = "\350\246\201\345\210\240\351\231\244\347\232\204\346\225\260\346\215\256\344\270\215\345\255\230\345\234\250";
-static const char __pyx_k__6[] = "";
-static const char __pyx_k__7[] = ".";
-static const char __pyx_k__8[] = "?";
+static const char __pyx_k__6[] = ".";
+static const char __pyx_k__7[] = "?";
 static const char __pyx_k_db[] = "db";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_Any[] = "Any";
@@ -2968,7 +2967,7 @@ typedef struct {
   PyTypeObject *__pyx_ptype_12data_service___pyx_scope_struct_8_query_first;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[15];
-  PyObject *__pyx_string_tab[165];
+  PyObject *__pyx_string_tab[164];
   PyObject *__pyx_int_1;
   PyObject *__pyx_int_100;
 /* #### Code section: module_state_contents ### */
@@ -3107,127 +3106,126 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u__5 __pyx_string_tab[41]
 #define __pyx_kp_u__6 __pyx_string_tab[42]
 #define __pyx_kp_u__7 __pyx_string_tab[43]
-#define __pyx_kp_u__8 __pyx_string_tab[44]
-#define __pyx_n_u_add __pyx_string_tab[45]
-#define __pyx_kp_u_add_note __pyx_string_tab[46]
-#define __pyx_n_u_all __pyx_string_tab[47]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[48]
-#define __pyx_n_u_auto_commit __pyx_string_tab[49]
-#define __pyx_n_u_await __pyx_string_tab[50]
-#define __pyx_n_u_bind __pyx_string_tab[51]
-#define __pyx_n_u_bool __pyx_string_tab[52]
-#define __pyx_n_u_build_fields __pyx_string_tab[53]
-#define __pyx_n_u_build_order_by __pyx_string_tab[54]
-#define __pyx_n_u_build_result __pyx_string_tab[55]
-#define __pyx_n_u_build_where __pyx_string_tab[56]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[57]
-#define __pyx_n_u_close __pyx_string_tab[58]
-#define __pyx_n_u_cls __pyx_string_tab[59]
-#define __pyx_n_u_col __pyx_string_tab[60]
-#define __pyx_n_u_columns __pyx_string_tab[61]
-#define __pyx_n_u_commit __pyx_string_tab[62]
-#define __pyx_n_u_conditions __pyx_string_tab[63]
-#define __pyx_n_u_count __pyx_string_tab[64]
-#define __pyx_n_u_create __pyx_string_tab[65]
-#define __pyx_n_u_create_data __pyx_string_tab[66]
-#define __pyx_n_u_create_model __pyx_string_tab[67]
-#define __pyx_n_u_data_service __pyx_string_tab[68]
-#define __pyx_kp_u_data_service_py __pyx_string_tab[69]
-#define __pyx_n_u_db __pyx_string_tab[70]
-#define __pyx_n_u_db_delete __pyx_string_tab[71]
-#define __pyx_n_u_db_get __pyx_string_tab[72]
-#define __pyx_n_u_db_insert __pyx_string_tab[73]
-#define __pyx_n_u_db_model __pyx_string_tab[74]
-#define __pyx_n_u_db_model_class __pyx_string_tab[75]
-#define __pyx_n_u_db_update __pyx_string_tab[76]
-#define __pyx_n_u_delete __pyx_string_tab[77]
-#define __pyx_n_u_dialect __pyx_string_tab[78]
-#define __pyx_kp_u_disable __pyx_string_tab[79]
-#define __pyx_n_u_doc __pyx_string_tab[80]
-#define __pyx_kp_u_enable __pyx_string_tab[81]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[82]
-#define __pyx_n_u_exclude_unset __pyx_string_tab[83]
-#define __pyx_n_u_exec __pyx_string_tab[84]
-#define __pyx_n_u_field __pyx_string_tab[85]
-#define __pyx_n_u_field_name __pyx_string_tab[86]
-#define __pyx_n_u_fields __pyx_string_tab[87]
-#define __pyx_n_u_first __pyx_string_tab[88]
-#define __pyx_n_u_func __pyx_string_tab[89]
-#define __pyx_n_u_func_2 __pyx_string_tab[90]
-#define __pyx_kp_u_gc __pyx_string_tab[91]
-#define __pyx_n_u_get __pyx_string_tab[92]
-#define __pyx_n_u_get_primary_key_name __pyx_string_tab[93]
-#define __pyx_n_u_get_select __pyx_string_tab[94]
-#define __pyx_n_u_get_select_count __pyx_string_tab[95]
-#define __pyx_n_u_int __pyx_string_tab[96]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[97]
-#define __pyx_kp_u_isenabled __pyx_string_tab[98]
-#define __pyx_n_u_items __pyx_string_tab[99]
-#define __pyx_n_u_limit __pyx_string_tab[100]
-#define __pyx_n_u_main __pyx_string_tab[101]
-#define __pyx_n_u_message __pyx_string_tab[102]
-#define __pyx_n_u_metaclass __pyx_string_tab[103]
-#define __pyx_n_u_model_class __pyx_string_tab[104]
-#define __pyx_n_u_model_dump __pyx_string_tab[105]
-#define __pyx_n_u_model_validate __pyx_string_tab[106]
-#define __pyx_n_u_module __pyx_string_tab[107]
-#define __pyx_n_u_name __pyx_string_tab[108]
-#define __pyx_n_u_name_2 __pyx_string_tab[109]
-#define __pyx_n_u_next __pyx_string_tab[110]
-#define __pyx_n_u_offset __pyx_string_tab[111]
-#define __pyx_n_u_one __pyx_string_tab[112]
-#define __pyx_n_u_order_by __pyx_string_tab[113]
-#define __pyx_n_u_orderby __pyx_string_tab[114]
-#define __pyx_n_u_orderby_field __pyx_string_tab[115]
-#define __pyx_n_u_page __pyx_string_tab[116]
-#define __pyx_n_u_paging __pyx_string_tab[117]
-#define __pyx_n_u_pk_columns __pyx_string_tab[118]
-#define __pyx_n_u_pop __pyx_string_tab[119]
-#define __pyx_n_u_prepare __pyx_string_tab[120]
-#define __pyx_n_u_primary_field __pyx_string_tab[121]
-#define __pyx_n_u_primary_id __pyx_string_tab[122]
-#define __pyx_kp_u_primary_id_2 __pyx_string_tab[123]
-#define __pyx_n_u_primary_key __pyx_string_tab[124]
-#define __pyx_n_u_qualname __pyx_string_tab[125]
-#define __pyx_n_u_query __pyx_string_tab[126]
-#define __pyx_n_u_query_first __pyx_string_tab[127]
-#define __pyx_n_u_raise_data_not_found_exception __pyx_string_tab[128]
-#define __pyx_n_u_read __pyx_string_tab[129]
-#define __pyx_n_u_refresh __pyx_string_tab[130]
-#define __pyx_n_u_reset_schema __pyx_string_tab[131]
-#define __pyx_n_u_response_class __pyx_string_tab[132]
-#define __pyx_n_u_return __pyx_string_tab[133]
-#define __pyx_n_u_rows __pyx_string_tab[134]
-#define __pyx_n_u_schema __pyx_string_tab[135]
-#define __pyx_n_u_schemas_element __pyx_string_tab[136]
-#define __pyx_n_u_schemas_query_request __pyx_string_tab[137]
-#define __pyx_n_u_select __pyx_string_tab[138]
-#define __pyx_n_u_select_from __pyx_string_tab[139]
-#define __pyx_n_u_selected_fields __pyx_string_tab[140]
-#define __pyx_n_u_send __pyx_string_tab[141]
-#define __pyx_n_u_set_name __pyx_string_tab[142]
-#define __pyx_n_u_set_total __pyx_string_tab[143]
-#define __pyx_n_u_size __pyx_string_tab[144]
-#define __pyx_n_u_sqlite __pyx_string_tab[145]
-#define __pyx_n_u_sqlmodel __pyx_string_tab[146]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[147]
-#define __pyx_n_u_statement __pyx_string_tab[148]
-#define __pyx_n_u_staticmethod __pyx_string_tab[149]
-#define __pyx_n_u_str __pyx_string_tab[150]
-#define __pyx_n_u_table __pyx_string_tab[151]
-#define __pyx_n_u_table_2 __pyx_string_tab[152]
-#define __pyx_n_u_test __pyx_string_tab[153]
-#define __pyx_n_u_throw __pyx_string_tab[154]
-#define __pyx_n_u_tools_query_builder __pyx_string_tab[155]
-#define __pyx_n_u_type __pyx_string_tab[156]
-#define __pyx_kp_u_type_SQLModelDB __pyx_string_tab[157]
-#define __pyx_n_u_type_var __pyx_string_tab[158]
-#define __pyx_n_u_typing __pyx_string_tab[159]
-#define __pyx_n_u_update __pyx_string_tab[160]
-#define __pyx_n_u_update_data __pyx_string_tab[161]
-#define __pyx_n_u_update_model __pyx_string_tab[162]
-#define __pyx_n_u_value __pyx_string_tab[163]
-#define __pyx_n_u_where __pyx_string_tab[164]
+#define __pyx_n_u_add __pyx_string_tab[44]
+#define __pyx_kp_u_add_note __pyx_string_tab[45]
+#define __pyx_n_u_all __pyx_string_tab[46]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[47]
+#define __pyx_n_u_auto_commit __pyx_string_tab[48]
+#define __pyx_n_u_await __pyx_string_tab[49]
+#define __pyx_n_u_bind __pyx_string_tab[50]
+#define __pyx_n_u_bool __pyx_string_tab[51]
+#define __pyx_n_u_build_fields __pyx_string_tab[52]
+#define __pyx_n_u_build_order_by __pyx_string_tab[53]
+#define __pyx_n_u_build_result __pyx_string_tab[54]
+#define __pyx_n_u_build_where __pyx_string_tab[55]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[56]
+#define __pyx_n_u_close __pyx_string_tab[57]
+#define __pyx_n_u_cls __pyx_string_tab[58]
+#define __pyx_n_u_col __pyx_string_tab[59]
+#define __pyx_n_u_columns __pyx_string_tab[60]
+#define __pyx_n_u_commit __pyx_string_tab[61]
+#define __pyx_n_u_conditions __pyx_string_tab[62]
+#define __pyx_n_u_count __pyx_string_tab[63]
+#define __pyx_n_u_create __pyx_string_tab[64]
+#define __pyx_n_u_create_data __pyx_string_tab[65]
+#define __pyx_n_u_create_model __pyx_string_tab[66]
+#define __pyx_n_u_data_service __pyx_string_tab[67]
+#define __pyx_kp_u_data_service_py __pyx_string_tab[68]
+#define __pyx_n_u_db __pyx_string_tab[69]
+#define __pyx_n_u_db_delete __pyx_string_tab[70]
+#define __pyx_n_u_db_get __pyx_string_tab[71]
+#define __pyx_n_u_db_insert __pyx_string_tab[72]
+#define __pyx_n_u_db_model __pyx_string_tab[73]
+#define __pyx_n_u_db_model_class __pyx_string_tab[74]
+#define __pyx_n_u_db_update __pyx_string_tab[75]
+#define __pyx_n_u_delete __pyx_string_tab[76]
+#define __pyx_n_u_dialect __pyx_string_tab[77]
+#define __pyx_kp_u_disable __pyx_string_tab[78]
+#define __pyx_n_u_doc __pyx_string_tab[79]
+#define __pyx_kp_u_enable __pyx_string_tab[80]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[81]
+#define __pyx_n_u_exclude_unset __pyx_string_tab[82]
+#define __pyx_n_u_exec __pyx_string_tab[83]
+#define __pyx_n_u_field __pyx_string_tab[84]
+#define __pyx_n_u_field_name __pyx_string_tab[85]
+#define __pyx_n_u_fields __pyx_string_tab[86]
+#define __pyx_n_u_first __pyx_string_tab[87]
+#define __pyx_n_u_func __pyx_string_tab[88]
+#define __pyx_n_u_func_2 __pyx_string_tab[89]
+#define __pyx_kp_u_gc __pyx_string_tab[90]
+#define __pyx_n_u_get __pyx_string_tab[91]
+#define __pyx_n_u_get_primary_key_name __pyx_string_tab[92]
+#define __pyx_n_u_get_select __pyx_string_tab[93]
+#define __pyx_n_u_get_select_count __pyx_string_tab[94]
+#define __pyx_n_u_int __pyx_string_tab[95]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[96]
+#define __pyx_kp_u_isenabled __pyx_string_tab[97]
+#define __pyx_n_u_items __pyx_string_tab[98]
+#define __pyx_n_u_limit __pyx_string_tab[99]
+#define __pyx_n_u_main __pyx_string_tab[100]
+#define __pyx_n_u_message __pyx_string_tab[101]
+#define __pyx_n_u_metaclass __pyx_string_tab[102]
+#define __pyx_n_u_model_class __pyx_string_tab[103]
+#define __pyx_n_u_model_dump __pyx_string_tab[104]
+#define __pyx_n_u_model_validate __pyx_string_tab[105]
+#define __pyx_n_u_module __pyx_string_tab[106]
+#define __pyx_n_u_name __pyx_string_tab[107]
+#define __pyx_n_u_name_2 __pyx_string_tab[108]
+#define __pyx_n_u_next __pyx_string_tab[109]
+#define __pyx_n_u_offset __pyx_string_tab[110]
+#define __pyx_n_u_one __pyx_string_tab[111]
+#define __pyx_n_u_order_by __pyx_string_tab[112]
+#define __pyx_n_u_orderby __pyx_string_tab[113]
+#define __pyx_n_u_orderby_field __pyx_string_tab[114]
+#define __pyx_n_u_page __pyx_string_tab[115]
+#define __pyx_n_u_paging __pyx_string_tab[116]
+#define __pyx_n_u_pk_columns __pyx_string_tab[117]
+#define __pyx_n_u_pop __pyx_string_tab[118]
+#define __pyx_n_u_prepare __pyx_string_tab[119]
+#define __pyx_n_u_primary_field __pyx_string_tab[120]
+#define __pyx_n_u_primary_id __pyx_string_tab[121]
+#define __pyx_kp_u_primary_id_2 __pyx_string_tab[122]
+#define __pyx_n_u_primary_key __pyx_string_tab[123]
+#define __pyx_n_u_qualname __pyx_string_tab[124]
+#define __pyx_n_u_query __pyx_string_tab[125]
+#define __pyx_n_u_query_first __pyx_string_tab[126]
+#define __pyx_n_u_raise_data_not_found_exception __pyx_string_tab[127]
+#define __pyx_n_u_read __pyx_string_tab[128]
+#define __pyx_n_u_refresh __pyx_string_tab[129]
+#define __pyx_n_u_reset_schema __pyx_string_tab[130]
+#define __pyx_n_u_response_class __pyx_string_tab[131]
+#define __pyx_n_u_return __pyx_string_tab[132]
+#define __pyx_n_u_rows __pyx_string_tab[133]
+#define __pyx_n_u_schema __pyx_string_tab[134]
+#define __pyx_n_u_schemas_element __pyx_string_tab[135]
+#define __pyx_n_u_schemas_query_request __pyx_string_tab[136]
+#define __pyx_n_u_select __pyx_string_tab[137]
+#define __pyx_n_u_select_from __pyx_string_tab[138]
+#define __pyx_n_u_selected_fields __pyx_string_tab[139]
+#define __pyx_n_u_send __pyx_string_tab[140]
+#define __pyx_n_u_set_name __pyx_string_tab[141]
+#define __pyx_n_u_set_total __pyx_string_tab[142]
+#define __pyx_n_u_size __pyx_string_tab[143]
+#define __pyx_n_u_sqlite __pyx_string_tab[144]
+#define __pyx_n_u_sqlmodel __pyx_string_tab[145]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[146]
+#define __pyx_n_u_statement __pyx_string_tab[147]
+#define __pyx_n_u_staticmethod __pyx_string_tab[148]
+#define __pyx_n_u_str __pyx_string_tab[149]
+#define __pyx_n_u_table __pyx_string_tab[150]
+#define __pyx_n_u_table_2 __pyx_string_tab[151]
+#define __pyx_n_u_test __pyx_string_tab[152]
+#define __pyx_n_u_throw __pyx_string_tab[153]
+#define __pyx_n_u_tools_query_builder __pyx_string_tab[154]
+#define __pyx_n_u_type __pyx_string_tab[155]
+#define __pyx_kp_u_type_SQLModelDB __pyx_string_tab[156]
+#define __pyx_n_u_type_var __pyx_string_tab[157]
+#define __pyx_n_u_typing __pyx_string_tab[158]
+#define __pyx_n_u_update __pyx_string_tab[159]
+#define __pyx_n_u_update_data __pyx_string_tab[160]
+#define __pyx_n_u_update_model __pyx_string_tab[161]
+#define __pyx_n_u_value __pyx_string_tab[162]
+#define __pyx_n_u_where __pyx_string_tab[163]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3267,7 +3265,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_12data_service___pyx_scope_struct_8_query_first);
   Py_CLEAR(clear_module_state->__pyx_type_12data_service___pyx_scope_struct_8_query_first);
   for (int i=0; i<15; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<165; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<164; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_1);
   Py_CLEAR(clear_module_state->__pyx_int_100);
   return 0;
@@ -3309,7 +3307,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_ptype_12data_service___pyx_scope_struct_8_query_first);
   Py_VISIT(traverse_module_state->__pyx_type_12data_service___pyx_scope_struct_8_query_first);
   for (int i=0; i<15; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<165; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<164; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_1);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_100);
   return 0;
@@ -9212,7 +9210,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_37_reset_schema(CYTHON_UN
  *     def _reset_schema(db: AsyncSession, db_model_class: Type[SQLModelDB]):
  *         # schema
  *         if db.bind.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
- *             db_model_class.__table__.schema = ""
+ *             db_model_class.__table__.schema = None
 */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_db, __pyx_mstate_global->__pyx_n_u_bind); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -9230,18 +9228,18 @@ static PyObject *__pyx_pf_12data_service_11DataService_37_reset_schema(CYTHON_UN
     /* "data_service.py":231
  *         # schema
  *         if db.bind.dialect.name in ['sqlite']:
- *             db_model_class.__table__.schema = ""             # <<<<<<<<<<<<<<
+ *             db_model_class.__table__.schema = None             # <<<<<<<<<<<<<<
 */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_db_model_class, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_schema, __pyx_mstate_global->__pyx_kp_u__6) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_schema, Py_None) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "data_service.py":230
  *     def _reset_schema(db: AsyncSession, db_model_class: Type[SQLModelDB]):
  *         # schema
  *         if db.bind.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
- *             db_model_class.__table__.schema = ""
+ *             db_model_class.__table__.schema = None
 */
   }
 
@@ -12157,7 +12155,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 1}, /* PyObject cname: __pyx_n_u__5 */
   {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
   {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__7 */
-  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__8 */
   {__pyx_k_add, sizeof(__pyx_k_add), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
   {__pyx_k_all, sizeof(__pyx_k_all), 0, 1, 1}, /* PyObject cname: __pyx_n_u_all */
@@ -16988,7 +16985,7 @@ bad:
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__7);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__6);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -18742,7 +18739,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__8);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__7);
     }
     goto done;
 }

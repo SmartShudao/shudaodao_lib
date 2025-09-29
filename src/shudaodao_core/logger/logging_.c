@@ -1935,6 +1935,10 @@ static CYTHON_INLINE PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *k
         PyObject_Format(s, f))
 #endif
 
+/* JoinPyUnicode.proto */
+static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char);
+
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
@@ -2275,10 +2279,12 @@ static PyObject *__pyx_builtin_staticmethod;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = "-";
 static const char __pyx_k__2[] = "\342\235\227";
-static const char __pyx_k__3[] = "\342\235\214";
-static const char __pyx_k__4[] = ".";
-static const char __pyx_k__5[] = "\350\277\220\350\241\214\346\241\206\346\236\266";
-static const char __pyx_k__6[] = "?";
+static const char __pyx_k__3[] = " \342\235\227";
+static const char __pyx_k__4[] = "\342\235\214 ";
+static const char __pyx_k__5[] = " \342\235\214";
+static const char __pyx_k__6[] = ".";
+static const char __pyx_k__7[] = "\350\277\220\350\241\214\346\241\206\346\236\266";
+static const char __pyx_k__8[] = "?";
 static const char __pyx_k_dev[] = "dev";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_int[] = "int";
@@ -2304,7 +2310,6 @@ static const char __pyx_k_httpx[] = "httpx";
 static const char __pyx_k_level[] = "level";
 static const char __pyx_k_upper[] = "upper";
 static const char __pyx_k_value[] = "value";
-static const char __pyx_k_9_G6_E[] = "\320\004\035\320\0359\270\021\340\010\014\210G\2206\230\021\230\"\230E\240\031\250(\260!";
 static const char __pyx_k_Logger[] = "_Logger";
 static const char __pyx_k_casbin[] = "casbin";
 static const char __pyx_k_format[] = "format";
@@ -2327,6 +2332,7 @@ static const char __pyx_k_chromadb[] = "chromadb";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_setLevel[] = "setLevel";
 static const char __pyx_k_set_name[] = "__set_name__";
+static const char __pyx_k_9_G6_F_XQ[] = "\320\004\035\320\0359\270\021\340\010\014\210G\2206\230\021\230\"\230F\240+\250X\260Q";
 static const char __pyx_k_A_F_T_Rt1[] = "\200A\330\010\014\210F\220#\220T\230\024\230R\230t\2401";
 static const char __pyx_k_AppConfig[] = "AppConfig";
 static const char __pyx_k_getLogger[] = "getLogger";
@@ -2335,7 +2341,7 @@ static const char __pyx_k_logging_2[] = "logging";
 static const char __pyx_k_logging_3[] = "logging_";
 static const char __pyx_k_logging_4[] = "\350\207\252\345\256\232\344\271\211\346\227\245\345\277\227\347\263\273\347\273\237\357\274\214\344\270\215\345\275\261\345\223\215\346\240\207\345\207\206logging\346\250\241\345\235\227\347\232\204\345\205\266\344\273\226\346\227\245\345\277\227";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_1_G81Be9HA[] = "\320\004\037\320\037;\2701\340\010\014\210G\2208\2301\230B\230e\2409\250H\260A";
+static const char __pyx_k_1_G81Be_ha[] = "\320\004\037\320\037;\2701\340\010\014\210G\2208\2301\230B\230e\240;\250h\260a";
 static const char __pyx_k_debug_line[] = "debug_line";
 static const char __pyx_k_Logger_info[] = "_Logger.info";
 static const char __pyx_k_SmartShudao[] = "SmartShudao";
@@ -2418,7 +2424,7 @@ typedef struct {
   #endif
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[9];
-  PyObject *__pyx_string_tab[86];
+  PyObject *__pyx_string_tab[88];
   PyObject *__pyx_int_10;
   PyObject *__pyx_int_20;
   PyObject *__pyx_int_30;
@@ -2484,69 +2490,71 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u__2 __pyx_string_tab[20]
 #define __pyx_kp_u__3 __pyx_string_tab[21]
 #define __pyx_kp_u__4 __pyx_string_tab[22]
-#define __pyx_n_u__5 __pyx_string_tab[23]
+#define __pyx_kp_u__5 __pyx_string_tab[23]
 #define __pyx_kp_u__6 __pyx_string_tab[24]
-#define __pyx_n_u_annotations __pyx_string_tab[25]
-#define __pyx_n_u_args __pyx_string_tab[26]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[27]
-#define __pyx_n_u_basicConfig __pyx_string_tab[28]
-#define __pyx_n_u_casbin __pyx_string_tab[29]
-#define __pyx_n_u_chromadb __pyx_string_tab[30]
-#define __pyx_n_u_class_getitem __pyx_string_tab[31]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[32]
-#define __pyx_n_u_config_app_config __pyx_string_tab[33]
-#define __pyx_n_u_debug __pyx_string_tab[34]
-#define __pyx_n_u_debug_line __pyx_string_tab[35]
-#define __pyx_n_u_dev __pyx_string_tab[36]
-#define __pyx_n_u_doc __pyx_string_tab[37]
-#define __pyx_n_u_enum __pyx_string_tab[38]
-#define __pyx_n_u_environment __pyx_string_tab[39]
-#define __pyx_n_u_error __pyx_string_tab[40]
-#define __pyx_n_u_format __pyx_string_tab[41]
-#define __pyx_n_u_func __pyx_string_tab[42]
-#define __pyx_n_u_getLogger __pyx_string_tab[43]
-#define __pyx_n_u_httpx __pyx_string_tab[44]
-#define __pyx_n_u_info __pyx_string_tab[45]
-#define __pyx_n_u_info_line __pyx_string_tab[46]
-#define __pyx_n_u_init __pyx_string_tab[47]
-#define __pyx_n_u_initializing __pyx_string_tab[48]
-#define __pyx_n_u_int __pyx_string_tab[49]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[50]
-#define __pyx_n_u_kwargs __pyx_string_tab[51]
-#define __pyx_n_u_level __pyx_string_tab[52]
-#define __pyx_n_u_level_value __pyx_string_tab[53]
-#define __pyx_n_u_line_length __pyx_string_tab[54]
-#define __pyx_n_u_logger __pyx_string_tab[55]
-#define __pyx_n_u_logging __pyx_string_tab[56]
-#define __pyx_n_u_logging_2 __pyx_string_tab[57]
-#define __pyx_n_u_logging_3 __pyx_string_tab[58]
-#define __pyx_kp_u_logging_4 __pyx_string_tab[59]
-#define __pyx_kp_u_logging__py __pyx_string_tab[60]
-#define __pyx_n_u_logging_level __pyx_string_tab[61]
-#define __pyx_n_u_main __pyx_string_tab[62]
-#define __pyx_n_u_message __pyx_string_tab[63]
-#define __pyx_n_u_metaclass __pyx_string_tab[64]
-#define __pyx_n_u_module __pyx_string_tab[65]
-#define __pyx_n_u_mro_entries __pyx_string_tab[66]
-#define __pyx_n_u_name __pyx_string_tab[67]
-#define __pyx_kp_u_name_s_levelname_7s_message_s __pyx_string_tab[68]
-#define __pyx_n_u_object __pyx_string_tab[69]
-#define __pyx_n_u_pop __pyx_string_tab[70]
-#define __pyx_n_u_prepare __pyx_string_tab[71]
-#define __pyx_n_u_qualname __pyx_string_tab[72]
-#define __pyx_n_u_return __pyx_string_tab[73]
-#define __pyx_n_u_self __pyx_string_tab[74]
-#define __pyx_n_u_setLevel __pyx_string_tab[75]
-#define __pyx_n_u_set_name __pyx_string_tab[76]
-#define __pyx_n_u_setup_logging __pyx_string_tab[77]
-#define __pyx_n_u_spec __pyx_string_tab[78]
-#define __pyx_n_u_staticmethod __pyx_string_tab[79]
-#define __pyx_n_u_suppress_third_party_logs __pyx_string_tab[80]
-#define __pyx_n_u_test __pyx_string_tab[81]
-#define __pyx_n_u_upper __pyx_string_tab[82]
-#define __pyx_n_u_urllib3 __pyx_string_tab[83]
-#define __pyx_n_u_value __pyx_string_tab[84]
-#define __pyx_n_u_warning __pyx_string_tab[85]
+#define __pyx_n_u__7 __pyx_string_tab[25]
+#define __pyx_kp_u__8 __pyx_string_tab[26]
+#define __pyx_n_u_annotations __pyx_string_tab[27]
+#define __pyx_n_u_args __pyx_string_tab[28]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[29]
+#define __pyx_n_u_basicConfig __pyx_string_tab[30]
+#define __pyx_n_u_casbin __pyx_string_tab[31]
+#define __pyx_n_u_chromadb __pyx_string_tab[32]
+#define __pyx_n_u_class_getitem __pyx_string_tab[33]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[34]
+#define __pyx_n_u_config_app_config __pyx_string_tab[35]
+#define __pyx_n_u_debug __pyx_string_tab[36]
+#define __pyx_n_u_debug_line __pyx_string_tab[37]
+#define __pyx_n_u_dev __pyx_string_tab[38]
+#define __pyx_n_u_doc __pyx_string_tab[39]
+#define __pyx_n_u_enum __pyx_string_tab[40]
+#define __pyx_n_u_environment __pyx_string_tab[41]
+#define __pyx_n_u_error __pyx_string_tab[42]
+#define __pyx_n_u_format __pyx_string_tab[43]
+#define __pyx_n_u_func __pyx_string_tab[44]
+#define __pyx_n_u_getLogger __pyx_string_tab[45]
+#define __pyx_n_u_httpx __pyx_string_tab[46]
+#define __pyx_n_u_info __pyx_string_tab[47]
+#define __pyx_n_u_info_line __pyx_string_tab[48]
+#define __pyx_n_u_init __pyx_string_tab[49]
+#define __pyx_n_u_initializing __pyx_string_tab[50]
+#define __pyx_n_u_int __pyx_string_tab[51]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[52]
+#define __pyx_n_u_kwargs __pyx_string_tab[53]
+#define __pyx_n_u_level __pyx_string_tab[54]
+#define __pyx_n_u_level_value __pyx_string_tab[55]
+#define __pyx_n_u_line_length __pyx_string_tab[56]
+#define __pyx_n_u_logger __pyx_string_tab[57]
+#define __pyx_n_u_logging __pyx_string_tab[58]
+#define __pyx_n_u_logging_2 __pyx_string_tab[59]
+#define __pyx_n_u_logging_3 __pyx_string_tab[60]
+#define __pyx_kp_u_logging_4 __pyx_string_tab[61]
+#define __pyx_kp_u_logging__py __pyx_string_tab[62]
+#define __pyx_n_u_logging_level __pyx_string_tab[63]
+#define __pyx_n_u_main __pyx_string_tab[64]
+#define __pyx_n_u_message __pyx_string_tab[65]
+#define __pyx_n_u_metaclass __pyx_string_tab[66]
+#define __pyx_n_u_module __pyx_string_tab[67]
+#define __pyx_n_u_mro_entries __pyx_string_tab[68]
+#define __pyx_n_u_name __pyx_string_tab[69]
+#define __pyx_kp_u_name_s_levelname_7s_message_s __pyx_string_tab[70]
+#define __pyx_n_u_object __pyx_string_tab[71]
+#define __pyx_n_u_pop __pyx_string_tab[72]
+#define __pyx_n_u_prepare __pyx_string_tab[73]
+#define __pyx_n_u_qualname __pyx_string_tab[74]
+#define __pyx_n_u_return __pyx_string_tab[75]
+#define __pyx_n_u_self __pyx_string_tab[76]
+#define __pyx_n_u_setLevel __pyx_string_tab[77]
+#define __pyx_n_u_set_name __pyx_string_tab[78]
+#define __pyx_n_u_setup_logging __pyx_string_tab[79]
+#define __pyx_n_u_spec __pyx_string_tab[80]
+#define __pyx_n_u_staticmethod __pyx_string_tab[81]
+#define __pyx_n_u_suppress_third_party_logs __pyx_string_tab[82]
+#define __pyx_n_u_test __pyx_string_tab[83]
+#define __pyx_n_u_upper __pyx_string_tab[84]
+#define __pyx_n_u_urllib3 __pyx_string_tab[85]
+#define __pyx_n_u_value __pyx_string_tab[86]
+#define __pyx_n_u_warning __pyx_string_tab[87]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2568,7 +2576,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   __Pyx_State_RemoveModule(NULL);
   #endif
   for (int i=0; i<9; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<86; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<88; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_10);
   Py_CLEAR(clear_module_state->__pyx_int_20);
   Py_CLEAR(clear_module_state->__pyx_int_30);
@@ -2595,7 +2603,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
   for (int i=0; i<9; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<86; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<88; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_10);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_20);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_30);
@@ -4126,7 +4134,7 @@ static PyObject *__pyx_pf_8logging__7_Logger_12debug_line(CYTHON_UNUSED PyObject
  * 
  *     def warning(self, message: object, *args, **kwargs) -> None:             # <<<<<<<<<<<<<<
  *         """"""
- *         self.logger.warning(f"{message}", *args, **kwargs)
+ *         self.logger.warning(f"{message} ", *args, **kwargs)
 */
 
 /* Python wrapper */
@@ -4244,8 +4252,9 @@ static PyObject *__pyx_pf_8logging__7_Logger_14warning(CYTHON_UNUSED PyObject *_
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_3[3];
   PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4254,7 +4263,7 @@ static PyObject *__pyx_pf_8logging__7_Logger_14warning(CYTHON_UNUSED PyObject *_
   /* "logging_.py":91
  *     def warning(self, message: object, *args, **kwargs) -> None:
  *         """"""
- *         self.logger.warning(f"{message}", *args, **kwargs)             # <<<<<<<<<<<<<<
+ *         self.logger.warning(f"{message} ", *args, **kwargs)             # <<<<<<<<<<<<<<
  * 
  *     def error(self, message: object, *args, **kwargs) -> None:
 */
@@ -4265,32 +4274,36 @@ static PyObject *__pyx_pf_8logging__7_Logger_14warning(CYTHON_UNUSED PyObject *_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_3[0] = __pyx_mstate_global->__pyx_kp_u__2;
+  __pyx_t_3[1] = __pyx_t_1;
+  __pyx_t_3[2] = __pyx_mstate_global->__pyx_kp_u__3;
+  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_3, 3, 1 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1));
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 91, __pyx_L1_error);
-  __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 91, __pyx_L1_error);
+  __pyx_t_4 = 0;
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_v_args); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "logging_.py":89
  *         self.debug(f"{'-' * self.line_length}")
  * 
  *     def warning(self, message: object, *args, **kwargs) -> None:             # <<<<<<<<<<<<<<
  *         """"""
- *         self.logger.warning(f"{message}", *args, **kwargs)
+ *         self.logger.warning(f"{message} ", *args, **kwargs)
 */
 
   /* function exit code */
@@ -4299,8 +4312,8 @@ static PyObject *__pyx_pf_8logging__7_Logger_14warning(CYTHON_UNUSED PyObject *_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_AddTraceback("logging_._Logger.warning", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4310,11 +4323,11 @@ static PyObject *__pyx_pf_8logging__7_Logger_14warning(CYTHON_UNUSED PyObject *_
 }
 
 /* "logging_.py":93
- *         self.logger.warning(f"{message}", *args, **kwargs)
+ *         self.logger.warning(f"{message} ", *args, **kwargs)
  * 
  *     def error(self, message: object, *args, **kwargs) -> None:             # <<<<<<<<<<<<<<
  *         """"""
- *         self.logger.error(f"{message}", *args, **kwargs)
+ *         self.logger.error(f" {message} ", *args, **kwargs)
 */
 
 /* Python wrapper */
@@ -4432,8 +4445,9 @@ static PyObject *__pyx_pf_8logging__7_Logger_16error(CYTHON_UNUSED PyObject *__p
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_3[3];
   PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4442,7 +4456,7 @@ static PyObject *__pyx_pf_8logging__7_Logger_16error(CYTHON_UNUSED PyObject *__p
   /* "logging_.py":95
  *     def error(self, message: object, *args, **kwargs) -> None:
  *         """"""
- *         self.logger.error(f"{message}", *args, **kwargs)             # <<<<<<<<<<<<<<
+ *         self.logger.error(f" {message} ", *args, **kwargs)             # <<<<<<<<<<<<<<
  * 
  * 
 */
@@ -4453,32 +4467,36 @@ static PyObject *__pyx_pf_8logging__7_Logger_16error(CYTHON_UNUSED PyObject *__p
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__3, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_3[0] = __pyx_mstate_global->__pyx_kp_u__4;
+  __pyx_t_3[1] = __pyx_t_1;
+  __pyx_t_3[2] = __pyx_mstate_global->__pyx_kp_u__5;
+  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_3, 3, 2 * 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1));
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_3);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3) != (0)) __PYX_ERR(0, 95, __pyx_L1_error);
-  __pyx_t_3 = 0;
-  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_v_args); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 95, __pyx_L1_error);
+  __pyx_t_4 = 0;
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_v_args); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "logging_.py":93
- *         self.logger.warning(f"{message}", *args, **kwargs)
+ *         self.logger.warning(f"{message} ", *args, **kwargs)
  * 
  *     def error(self, message: object, *args, **kwargs) -> None:             # <<<<<<<<<<<<<<
  *         """"""
- *         self.logger.error(f"{message}", *args, **kwargs)
+ *         self.logger.error(f" {message} ", *args, **kwargs)
 */
 
   /* function exit code */
@@ -4487,8 +4505,8 @@ static PyObject *__pyx_pf_8logging__7_Logger_16error(CYTHON_UNUSED PyObject *__p
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_AddTraceback("logging_._Logger.error", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -4930,7 +4948,7 @@ __Pyx_RefNannySetupContext("PyInit_logging_", 0);
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_Py3MetaclassPrepare(__pyx_t_4, __pyx_t_2, __pyx_mstate_global->__pyx_n_u_LoggingLevel, __pyx_mstate_global->__pyx_n_u_LoggingLevel, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_logging_3, __pyx_mstate_global->__pyx_n_u__5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_Py3MetaclassPrepare(__pyx_t_4, __pyx_t_2, __pyx_mstate_global->__pyx_n_u_LoggingLevel, __pyx_mstate_global->__pyx_n_u_LoggingLevel, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_logging_3, __pyx_mstate_global->__pyx_n_u__7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (__pyx_t_2 != __pyx_t_3) {
     if (unlikely((PyDict_SetItemString(__pyx_t_5, "__orig_bases__", __pyx_t_3) < 0))) __PYX_ERR(0, 23, __pyx_L1_error)
@@ -5134,7 +5152,7 @@ __Pyx_RefNannySetupContext("PyInit_logging_", 0);
  * 
  *     def warning(self, message: object, *args, **kwargs) -> None:             # <<<<<<<<<<<<<<
  *         """"""
- *         self.logger.warning(f"{message}", *args, **kwargs)
+ *         self.logger.warning(f"{message} ", *args, **kwargs)
 */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -5148,11 +5166,11 @@ __Pyx_RefNannySetupContext("PyInit_logging_", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "logging_.py":93
- *         self.logger.warning(f"{message}", *args, **kwargs)
+ *         self.logger.warning(f"{message} ", *args, **kwargs)
  * 
  *     def error(self, message: object, *args, **kwargs) -> None:             # <<<<<<<<<<<<<<
  *         """"""
- *         self.logger.error(f"{message}", *args, **kwargs)
+ *         self.logger.error(f" {message} ", *args, **kwargs)
 */
   __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -5293,8 +5311,10 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
-  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 1}, /* PyObject cname: __pyx_n_u__5 */
+  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
+  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 1}, /* PyObject cname: __pyx_n_u__7 */
+  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__8 */
   {__pyx_k_annotations, sizeof(__pyx_k_annotations), 0, 1, 1}, /* PyObject cname: __pyx_n_u_annotations */
   {__pyx_k_args, sizeof(__pyx_k_args), 0, 1, 1}, /* PyObject cname: __pyx_n_u_args */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
@@ -5458,12 +5478,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS), 89, 27};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_args, __pyx_mstate->__pyx_n_u_kwargs};
-    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_logging__py, __pyx_mstate->__pyx_n_u_warning, __pyx_k_1_G81Be9HA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_logging__py, __pyx_mstate->__pyx_n_u_warning, __pyx_k_1_G81Be_ha, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS), 93, 27};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_args, __pyx_mstate->__pyx_n_u_kwargs};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_logging__py, __pyx_mstate->__pyx_n_u_error, __pyx_k_9_G6_E, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_logging__py, __pyx_mstate->__pyx_n_u_error, __pyx_k_9_G6_F_XQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -6978,6 +6998,84 @@ static PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *key) {
 }
 #endif
 
+/* JoinPyUnicode */
+static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char) {
+#if CYTHON_USE_UNICODE_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    PyObject *result_uval;
+    int result_ukind, kind_shift;
+    Py_ssize_t i, char_pos;
+    void *result_udata;
+    if (max_char > 1114111) max_char = 1114111;
+    result_uval = PyUnicode_New(result_ulength, max_char);
+    if (unlikely(!result_uval)) return NULL;
+    result_ukind = (max_char <= 255) ? PyUnicode_1BYTE_KIND : (max_char <= 65535) ? PyUnicode_2BYTE_KIND : PyUnicode_4BYTE_KIND;
+    kind_shift = (result_ukind == PyUnicode_4BYTE_KIND) ? 2 : result_ukind - 1;
+    result_udata = PyUnicode_DATA(result_uval);
+    assert(kind_shift == 2 || kind_shift == 1 || kind_shift == 0);
+    if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - result_ulength < 0))
+        goto overflow;
+    char_pos = 0;
+    for (i=0; i < value_count; i++) {
+        int ukind;
+        Py_ssize_t ulength;
+        void *udata;
+        PyObject *uval = values[i];
+        #if !CYTHON_COMPILING_IN_LIMITED_API
+        if (__Pyx_PyUnicode_READY(uval) == (-1))
+            goto bad;
+        #endif
+        ulength = __Pyx_PyUnicode_GET_LENGTH(uval);
+        #if !CYTHON_ASSUME_SAFE_SIZE
+        if (unlikely(ulength < 0)) goto bad;
+        #endif
+        if (unlikely(!ulength))
+            continue;
+        if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - ulength < char_pos))
+            goto overflow;
+        ukind = __Pyx_PyUnicode_KIND(uval);
+        udata = __Pyx_PyUnicode_DATA(uval);
+        if (ukind == result_ukind) {
+            memcpy((char *)result_udata + (char_pos << kind_shift), udata, (size_t) (ulength << kind_shift));
+        } else {
+            #if PY_VERSION_HEX >= 0x030d0000
+            if (unlikely(PyUnicode_CopyCharacters(result_uval, char_pos, uval, 0, ulength) < 0)) goto bad;
+            #elif CYTHON_COMPILING_IN_CPYTHON || defined(_PyUnicode_FastCopyCharacters)
+            _PyUnicode_FastCopyCharacters(result_uval, char_pos, uval, 0, ulength);
+            #else
+            Py_ssize_t j;
+            for (j=0; j < ulength; j++) {
+                Py_UCS4 uchar = __Pyx_PyUnicode_READ(ukind, udata, j);
+                __Pyx_PyUnicode_WRITE(result_ukind, result_udata, char_pos+j, uchar);
+            }
+            #endif
+        }
+        char_pos += ulength;
+    }
+    return result_uval;
+overflow:
+    PyErr_SetString(PyExc_OverflowError, "join() result is too long for a Python string");
+bad:
+    Py_DECREF(result_uval);
+    return NULL;
+#else
+    Py_ssize_t i;
+    PyObject *result = NULL;
+    PyObject *value_tuple = PyTuple_New(value_count);
+    if (unlikely(!value_tuple)) return NULL;
+    CYTHON_UNUSED_VAR(max_char);
+    CYTHON_UNUSED_VAR(result_ulength);
+    for (i=0; i<value_count; i++) {
+        if (__Pyx_PyTuple_SET_ITEM(value_tuple, i, values[i]) != (0)) goto bad;
+        Py_INCREF(values[i]);
+    }
+    result = PyUnicode_Join(__pyx_mstate_global->__pyx_empty_unicode, value_tuple);
+bad:
+    Py_DECREF(value_tuple);
+    return result;
+#endif
+}
+
 /* Import */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
     PyObject *module = 0;
@@ -7155,7 +7253,7 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__4);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__6);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -9225,7 +9323,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__6);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__8);
     }
     goto done;
 }

@@ -1499,7 +1499,7 @@ struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists;
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
- *         if AppConfig.auth.rebuild_permission_rule:
+ *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():
 */
 struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table {
@@ -2465,7 +2465,7 @@ static const char __pyx_k_[] = "";
 static const char __pyx_k_1[] = "\320\n+\2501";
 static const char __pyx_k__2[] = "\346\250\241\345\236\213\346\226\207\344\273\266: ";
 static const char __pyx_k__3[] = "\346\255\243\345\234\250\345\210\233\345\273\272\346\225\260\346\215\256\350\241\250...";
-static const char __pyx_k__4[] = "\346\255\243\345\234\250\346\270\205\351\231\244\347\274\223\345\255\230...";
+static const char __pyx_k__4[] = "\346\255\243\345\234\250\346\270\205\351\231\244\346\225\260\346\215\256...";
 static const char __pyx_k__5[] = ".";
 static const char __pyx_k__6[] = "?";
 static const char __pyx_k__7[] = "\210!";
@@ -2534,7 +2534,7 @@ static const char __pyx_k_gQj_xWaab[] = "\320\024&\240g\250Q\250j\270\n\300!\300
 static const char __pyx_k_has_table[] = "has_table";
 static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_name_Core[] = "\346\225\260\346\215\256\345\255\230\345\202\250: name: Core - ";
+static const char __pyx_k_name_Auth[] = "\346\225\260\346\215\256\345\255\230\345\202\250: name: Auth - ";
 static const char __pyx_k_sync_conn[] = "sync_conn";
 static const char __pyx_k_tablename[] = "__tablename__";
 static const char __pyx_k_threading[] = "threading";
@@ -2556,20 +2556,19 @@ static const char __pyx_k_get_config_path[] = "get_config_path";
 static const char __pyx_k_PermissionEngine[] = "PermissionEngine";
 static const char __pyx_k_casbin_engine_py[] = "casbin_engine.py";
 static const char __pyx_k_enable_auto_save[] = "enable_auto_save";
-static const char __pyx_k_entity_auth_rule[] = "entity.auth_rule";
 static const char __pyx_k_utils_core_utils[] = "utils.core_utils";
 static const char __pyx_k_SQLAlchemyAdapter[] = "SQLAlchemyAdapter";
 static const char __pyx_k_casbin_model_conf[] = "casbin/model.conf";
 static const char __pyx_k_config_app_config[] = "config.app_config";
+static const char __pyx_k_rebuild_auth_rule[] = "rebuild_auth_rule";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_check_table_exists[] = "_check_table_exists";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_get_async_enforcer[] = "get_async_enforcer";
-static const char __pyx_k_get_core_async_engine[] = "get_core_async_engine";
+static const char __pyx_k_get_auth_async_engine[] = "get_auth_async_engine";
 static const char __pyx_k_PermissionEngine___new[] = "PermissionEngine.__new__";
 static const char __pyx_k_PermissionEngine__load[] = "PermissionEngine._load";
 static const char __pyx_k_A_3k_A_A_3k_A_E_D_z_q_s[] = "\200A\330\010\013\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\320*<\270D\300\010\310\001\310\021\330\024\027\220z\240\026\240q\340\010\017\210s\220!";
-static const char __pyx_k_rebuild_permission_rule[] = "rebuild_permission_rule";
 static const char __pyx_k_services_db_engine_service[] = "services.db_engine_service";
 static const char __pyx_k_PermissionEngine_check_table[] = "PermissionEngine.check_table";
 static const char __pyx_k_enable_auto_build_role_links[] = "enable_auto_build_role_links";
@@ -2577,6 +2576,7 @@ static const char __pyx_k_casbin_async_sqlalchemy_adapter[] = "casbin_async_sqla
 static const char __pyx_k_A_M_vQa_vQa_Jo_1_4whfD_Jj_vQb_t7[] = "\200A\330\010\014\210M\230\021\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\340\010\014\210J\220o\320%;\2701\330\010\013\2104\210w\220h\230f\240D\250\001\330\014\024\220J\230j\250\001\330\010\017\210v\220Q\220b\320\030/\250t\2607\270!\340\010\014\210K\320\027(\250\001\330\014\023\2204\220q\330\014\025\220Q\360\006\000\t\020\210v\220Q\220b\230\n\240#\240Q\240h\320.>\270c\300\022\3001\340\010\014\210M\230\035\240a\330\014\022\220#\220Q\220h\320\036.\250c\260\022\2601\330\014\024\220D\230\001\360\010\000\t\r\210J\320\026'\240q\250\001\340\010\014\210J\320\0263\2601\260A";
 static const char __pyx_k_PermissionEngine__check_table_ex[] = "PermissionEngine._check_table_exists";
 static const char __pyx_k_PermissionEngine_get_async_enfor[] = "PermissionEngine.get_async_enforcer";
+static const char __pyx_k_portal_auth_entity_table_auth_ru[] = "portal.auth.entity_table.auth_rule";
 static const char __pyx_k_PermissionEngine__check_table_ex_2[] = "PermissionEngine._check_table_exists.<locals>.<lambda>";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
@@ -2747,37 +2747,37 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_enforcer __pyx_string_tab[53]
 #define __pyx_n_u_engine __pyx_string_tab[54]
 #define __pyx_n_u_enter __pyx_string_tab[55]
-#define __pyx_n_u_entity_auth_rule __pyx_string_tab[56]
-#define __pyx_n_u_exit __pyx_string_tab[57]
-#define __pyx_n_u_func __pyx_string_tab[58]
-#define __pyx_kp_u_gc __pyx_string_tab[59]
-#define __pyx_n_u_get_async_enforcer __pyx_string_tab[60]
+#define __pyx_n_u_exit __pyx_string_tab[56]
+#define __pyx_n_u_func __pyx_string_tab[57]
+#define __pyx_kp_u_gc __pyx_string_tab[58]
+#define __pyx_n_u_get_async_enforcer __pyx_string_tab[59]
+#define __pyx_n_u_get_auth_async_engine __pyx_string_tab[60]
 #define __pyx_n_u_get_config_path __pyx_string_tab[61]
-#define __pyx_n_u_get_core_async_engine __pyx_string_tab[62]
-#define __pyx_n_u_has_table __pyx_string_tab[63]
-#define __pyx_n_u_initializing __pyx_string_tab[64]
-#define __pyx_n_u_inspect __pyx_string_tab[65]
-#define __pyx_n_u_instance __pyx_string_tab[66]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[67]
-#define __pyx_kp_u_isenabled __pyx_string_tab[68]
-#define __pyx_n_u_lambda __pyx_string_tab[69]
-#define __pyx_n_u_load __pyx_string_tab[70]
-#define __pyx_n_u_lock __pyx_string_tab[71]
-#define __pyx_n_u_logger_logging __pyx_string_tab[72]
-#define __pyx_n_u_logging __pyx_string_tab[73]
-#define __pyx_n_u_main __pyx_string_tab[74]
-#define __pyx_n_u_metaclass __pyx_string_tab[75]
-#define __pyx_n_u_model __pyx_string_tab[76]
-#define __pyx_n_u_module __pyx_string_tab[77]
-#define __pyx_n_u_name __pyx_string_tab[78]
-#define __pyx_n_u_name_2 __pyx_string_tab[79]
-#define __pyx_kp_u_name_Core __pyx_string_tab[80]
-#define __pyx_n_u_new __pyx_string_tab[81]
-#define __pyx_n_u_next __pyx_string_tab[82]
-#define __pyx_n_u_pop __pyx_string_tab[83]
+#define __pyx_n_u_has_table __pyx_string_tab[62]
+#define __pyx_n_u_initializing __pyx_string_tab[63]
+#define __pyx_n_u_inspect __pyx_string_tab[64]
+#define __pyx_n_u_instance __pyx_string_tab[65]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[66]
+#define __pyx_kp_u_isenabled __pyx_string_tab[67]
+#define __pyx_n_u_lambda __pyx_string_tab[68]
+#define __pyx_n_u_load __pyx_string_tab[69]
+#define __pyx_n_u_lock __pyx_string_tab[70]
+#define __pyx_n_u_logger_logging __pyx_string_tab[71]
+#define __pyx_n_u_logging __pyx_string_tab[72]
+#define __pyx_n_u_main __pyx_string_tab[73]
+#define __pyx_n_u_metaclass __pyx_string_tab[74]
+#define __pyx_n_u_model __pyx_string_tab[75]
+#define __pyx_n_u_module __pyx_string_tab[76]
+#define __pyx_n_u_name __pyx_string_tab[77]
+#define __pyx_n_u_name_2 __pyx_string_tab[78]
+#define __pyx_kp_u_name_Auth __pyx_string_tab[79]
+#define __pyx_n_u_new __pyx_string_tab[80]
+#define __pyx_n_u_next __pyx_string_tab[81]
+#define __pyx_n_u_pop __pyx_string_tab[82]
+#define __pyx_n_u_portal_auth_entity_table_auth_ru __pyx_string_tab[83]
 #define __pyx_n_u_prepare __pyx_string_tab[84]
 #define __pyx_n_u_qualname __pyx_string_tab[85]
-#define __pyx_n_u_rebuild_permission_rule __pyx_string_tab[86]
+#define __pyx_n_u_rebuild_auth_rule __pyx_string_tab[86]
 #define __pyx_n_u_return __pyx_string_tab[87]
 #define __pyx_n_u_run_sync __pyx_string_tab[88]
 #define __pyx_n_u_save_policy __pyx_string_tab[89]
@@ -3475,7 +3475,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
  *         logging.debug_line()
  *         logging.debug(": casbin ")             # <<<<<<<<<<<<<<
  * 
- *         self.engine = DBEngineService.get_core_async_engine()
+ *         self.engine = DBEngineService.get_auth_async_engine()
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
@@ -3508,14 +3508,14 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   /* "casbin_engine.py":44
  *         logging.debug(": casbin ")
  * 
- *         self.engine = DBEngineService.get_core_async_engine()             # <<<<<<<<<<<<<<
+ *         self.engine = DBEngineService.get_auth_async_engine()             # <<<<<<<<<<<<<<
  *         if self.engine.dialect.name in ['sqlite']:
  *             AuthRule.__table__.schema = ""
 */
   __pyx_t_4 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_core_async_engine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_auth_async_engine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -3543,10 +3543,10 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
 
   /* "casbin_engine.py":45
  * 
- *         self.engine = DBEngineService.get_core_async_engine()
+ *         self.engine = DBEngineService.get_auth_async_engine()
  *         if self.engine.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
  *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Core - {self.engine.url}")
+ *         logging.debug(f": name: Auth - {self.engine.url}")
 */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -3562,10 +3562,10 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   if (__pyx_t_7) {
 
     /* "casbin_engine.py":46
- *         self.engine = DBEngineService.get_core_async_engine()
+ *         self.engine = DBEngineService.get_auth_async_engine()
  *         if self.engine.dialect.name in ['sqlite']:
  *             AuthRule.__table__.schema = ""             # <<<<<<<<<<<<<<
- *         logging.debug(f": name: Core - {self.engine.url}")
+ *         logging.debug(f": name: Auth - {self.engine.url}")
  *         #
 */
     __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
@@ -3578,17 +3578,17 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
 
     /* "casbin_engine.py":45
  * 
- *         self.engine = DBEngineService.get_core_async_engine()
+ *         self.engine = DBEngineService.get_auth_async_engine()
  *         if self.engine.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
  *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Core - {self.engine.url}")
+ *         logging.debug(f": name: Auth - {self.engine.url}")
 */
   }
 
   /* "casbin_engine.py":47
  *         if self.engine.dialect.name in ['sqlite']:
  *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Core - {self.engine.url}")             # <<<<<<<<<<<<<<
+ *         logging.debug(f": name: Auth - {self.engine.url}")             # <<<<<<<<<<<<<<
  *         #
  *         self.adapter = SQLAlchemyAdapter(
 */
@@ -3606,7 +3606,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_8, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_name_Core, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_name_Auth, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -3633,7 +3633,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "casbin_engine.py":49
- *         logging.debug(f": name: Core - {self.engine.url}")
+ *         logging.debug(f": name: Auth - {self.engine.url}")
  *         #
  *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
  *             engine=self.engine,
@@ -3691,7 +3691,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   }
 
   /* "casbin_engine.py":49
- *         logging.debug(f": name: Core - {self.engine.url}")
+ *         logging.debug(f": name: Auth - {self.engine.url}")
  *         #
  *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
  *             engine=self.engine,
@@ -4080,7 +4080,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
- *         if AppConfig.auth.rebuild_permission_rule:
+ *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():
 */
 
@@ -4240,7 +4240,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
   /* "casbin_engine.py":70
  * 
  *     async def check_table(self):
- *         if AppConfig.auth.rebuild_permission_rule:             # <<<<<<<<<<<<<<
+ *         if AppConfig.auth.rebuild_auth_rule:             # <<<<<<<<<<<<<<
  *             if not await self._check_table_exists():
  *                 logging.debug(f"...")
 */
@@ -4249,7 +4249,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_rebuild_permission_rule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_rebuild_auth_rule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 70, __pyx_L1_error)
@@ -4258,7 +4258,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
 
     /* "casbin_engine.py":71
  *     async def check_table(self):
- *         if AppConfig.auth.rebuild_permission_rule:
+ *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():             # <<<<<<<<<<<<<<
  *                 logging.debug(f"...")
  *                 await self.adapter.create_table()
@@ -4299,7 +4299,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
     if (__pyx_t_6) {
 
       /* "casbin_engine.py":72
- *         if AppConfig.auth.rebuild_permission_rule:
+ *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():
  *                 logging.debug(f"...")             # <<<<<<<<<<<<<<
  *                 await self.adapter.create_table()
@@ -4375,7 +4375,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
 
       /* "casbin_engine.py":71
  *     async def check_table(self):
- *         if AppConfig.auth.rebuild_permission_rule:
+ *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():             # <<<<<<<<<<<<<<
  *                 logging.debug(f"...")
  *                 await self.adapter.create_table()
@@ -4486,7 +4486,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
     /* "casbin_engine.py":70
  * 
  *     async def check_table(self):
- *         if AppConfig.auth.rebuild_permission_rule:             # <<<<<<<<<<<<<<
+ *         if AppConfig.auth.rebuild_auth_rule:             # <<<<<<<<<<<<<<
  *             if not await self._check_table_exists():
  *                 logging.debug(f"...")
 */
@@ -4497,7 +4497,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
- *         if AppConfig.auth.rebuild_permission_rule:
+ *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():
 */
 
@@ -6399,7 +6399,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
  * from sqlalchemy import inspect
  * 
  * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
- * from ..entity.auth_rule import AuthRule
+ * from ..portal.auth.entity_table.auth_rule import AuthRule
  * from ..logger.logging_ import logging
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
@@ -6416,13 +6416,13 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   /* "casbin_engine.py":16
  * 
  * from ..config.app_config import AppConfig
- * from ..entity.auth_rule import AuthRule             # <<<<<<<<<<<<<<
+ * from ..portal.auth.entity_table.auth_rule import AuthRule             # <<<<<<<<<<<<<<
  * from ..logger.logging_ import logging
  * from ..services.db_engine_service import DBEngineService
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_auth_rule, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_portal_auth_entity_table_auth_ru, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
@@ -6433,7 +6433,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
 
   /* "casbin_engine.py":17
  * from ..config.app_config import AppConfig
- * from ..entity.auth_rule import AuthRule
+ * from ..portal.auth.entity_table.auth_rule import AuthRule
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
  * from ..services.db_engine_service import DBEngineService
  * from ..utils.core_utils import CoreUtil
@@ -6450,7 +6450,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "casbin_engine.py":18
- * from ..entity.auth_rule import AuthRule
+ * from ..portal.auth.entity_table.auth_rule import AuthRule
  * from ..logger.logging_ import logging
  * from ..services.db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
  * from ..utils.core_utils import CoreUtil
@@ -6569,7 +6569,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
- *         if AppConfig.auth.rebuild_permission_rule:
+ *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():
 */
   __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_7check_table, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
@@ -6735,13 +6735,12 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_enforcer, sizeof(__pyx_k_enforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enforcer */
   {__pyx_k_engine, sizeof(__pyx_k_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_engine */
   {__pyx_k_enter, sizeof(__pyx_k_enter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enter */
-  {__pyx_k_entity_auth_rule, sizeof(__pyx_k_entity_auth_rule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_auth_rule */
   {__pyx_k_exit, sizeof(__pyx_k_exit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exit */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
   {__pyx_k_get_async_enforcer, sizeof(__pyx_k_get_async_enforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_async_enforcer */
+  {__pyx_k_get_auth_async_engine, sizeof(__pyx_k_get_auth_async_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_auth_async_engine */
   {__pyx_k_get_config_path, sizeof(__pyx_k_get_config_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_config_path */
-  {__pyx_k_get_core_async_engine, sizeof(__pyx_k_get_core_async_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_core_async_engine */
   {__pyx_k_has_table, sizeof(__pyx_k_has_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_has_table */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_inspect, sizeof(__pyx_k_inspect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_inspect */
@@ -6759,13 +6758,14 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name_2 */
-  {__pyx_k_name_Core, sizeof(__pyx_k_name_Core), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_name_Core */
+  {__pyx_k_name_Auth, sizeof(__pyx_k_name_Auth), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_name_Auth */
   {__pyx_k_new, sizeof(__pyx_k_new), 0, 1, 1}, /* PyObject cname: __pyx_n_u_new */
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
+  {__pyx_k_portal_auth_entity_table_auth_ru, sizeof(__pyx_k_portal_auth_entity_table_auth_ru), 0, 1, 1}, /* PyObject cname: __pyx_n_u_portal_auth_entity_table_auth_ru */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
-  {__pyx_k_rebuild_permission_rule, sizeof(__pyx_k_rebuild_permission_rule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_rebuild_permission_rule */
+  {__pyx_k_rebuild_auth_rule, sizeof(__pyx_k_rebuild_auth_rule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_rebuild_auth_rule */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_run_sync, sizeof(__pyx_k_run_sync), 0, 1, 1}, /* PyObject cname: __pyx_n_u_run_sync */
   {__pyx_k_save_policy, sizeof(__pyx_k_save_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_policy */

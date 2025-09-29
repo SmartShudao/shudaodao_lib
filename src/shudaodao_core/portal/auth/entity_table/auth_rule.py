@@ -7,16 +7,15 @@
 # @Desc     ：
 
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import declarative_base
 
-from ..entity import get_schema_name
+from ..entity_table import get_schema_name, auth_registry
 
-Base = declarative_base()
+Base = auth_registry.generate_base()
 
 
 class AuthRule(Base):
     __tablename__ = "t_auth_rule"
-    __table_args__ = {"schema": f"{get_schema_name()}"}
+    __table_args__ = {"schema": f"{get_schema_name()}", "comment": "访问控制规则表"}
 
     id = Column(Integer, primary_key=True)
     ptype = Column(String(255))

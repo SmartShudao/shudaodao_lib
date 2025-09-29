@@ -13,20 +13,20 @@ from pydantic import EmailStr, model_validator, computed_field
 from sqlalchemy import BigInteger, Integer
 from sqlmodel import SQLModel, Field
 
-from ..entity import get_schema_name
-from ..enum.core_enum import UserStatus
-from ..enum.resolve_enum import resolve_enum_field
-from ..schemas.response import BaseResponse
-from ..utils.generate_unique_id import get_primary_id
+from ..entity_table import get_schema_name, auth_registry
+from shudaodao_core.schemas.core_enum import UserStatus
+from ....schemas.response import BaseResponse
+from ....services.enum_service import EnumService
+from ....utils.generate_unique_id import get_primary_id
 
 
-class AuthUserBase(SQLModel):
+class AuthUserBase(SQLModel, registry=auth_registry):
     auth_user_id: Optional[int] = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger)
     username: str = Field(unique=True, index=True, max_length=50)
     password: str
     email: Optional[EmailStr] = Field(default=None, nullable=True, max_length=100)
     is_active: bool = True
-    status: UserStatus = Field(default=None, nullable=True, sa_type=Integer)
+    status: Optional[UserStatus] = Field(default=None, nullable=True, sa_type=Integer)
 
 
 class AuthUser(AuthUserBase, table=True):
@@ -40,16 +40,16 @@ class AuthUser(AuthUserBase, table=True):
 
 
 class AuthUserResponse(BaseResponse):
-    auth_user_id: Optional[int] = Field(sa_type=BigInteger)
+    # auth_user_id: Optional[int] = Field(sa_type=BigInteger)
     username: str = Field(max_length=50)
     email: Optional[EmailStr] = Field(None, max_length=100)
     is_active: bool = True
-    status: UserStatus  # ← 枚举字段
+    status: Optional[UserStatus]  # ← 枚举字段
 
     @computed_field
     @property
     def status_label(self) -> str:
-        return self.status.label
+        return self.status.label if self.status else None
 
     # @computed_field
     # @property
@@ -76,7 +76,7 @@ class AuthRegister(SQLModel):
     @model_validator(mode="before")
     def resolve_enums(cls, data: Any) -> Any:
         if isinstance(data, dict):
-            resolve_enum_field(data, "status", UserStatus)
+            EnumService.resolve_field(data, "status", UserStatus)
         return data
 
 

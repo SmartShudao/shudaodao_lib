@@ -2725,7 +2725,6 @@ static const char __pyx_k_request_method[] = "request_method";
 static const char __pyx_k_AuthRouter_post[] = "AuthRouter.post";
 static const char __pyx_k_DBEngineService[] = "DBEngineService";
 static const char __pyx_k_AuthRouter_patch[] = "AuthRouter.patch";
-static const char __pyx_k_entity_auth_user[] = "entity.auth_user";
 static const char __pyx_k_get_async_engine[] = "get_async_engine";
 static const char __pyx_k_get_current_user[] = "get_current_user";
 static const char __pyx_k_permission_rules[] = "permission_rules";
@@ -2761,6 +2760,7 @@ static const char __pyx_k_A_m_a_Ja_1_Q_1_A_L_t1F_a_7q_1_q[] = "\200A\330\030 \24
 static const char __pyx_k_AuthRouter_get_async_session_db[] = "\344\275\277\347\224\250AuthRouter.get_async_session,\346\236\204\351\200\240\345\207\275\346\225\260\345\277\205\351\241\273\350\256\276\347\275\256 db_config_name";
 static const char __pyx_k_q_Kwa_1_6_Qj_L_6at82Q_d_T_T_4_T[] = "\320\004'\240q\330\010\014\210K\220w\230a\230|\2501\330\014\023\2206\230\024\230Q\230j\250\001\250\021\330\014\024\220L\320 6\260a\260t\2708\3002\300Q\330\014\026\220d\230!\330\014\025\220T\230\021\330\014\025\220T\230\021\360\006\000\t\014\2104\210~\230T\240\024\240Z\250t\2604\260q\340\014\017\210t\220>\240\027\250\n\260!\330\020\032\320\032+\2501\250D\3200A\300\021\330\014\022\220*\320\034-\250T\260\021\260$\260a\340\014\017\210t\220:\230W\240A\330\020\023\2201\220D\230\r\240Q\330\014\022\220#\220Q\220d\230!\340\014\017\210t\220:\230W\240A\330\020\023\2207\230!\2304\230q";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
+static const char __pyx_k_portal_auth_entity_table_auth_us[] = "portal.auth.entity_table.auth_user";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_11auth_router_10AuthRouter___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_default_role, PyObject *__pyx_v_auth_role, PyObject *__pyx_v_auth_obj, PyObject *__pyx_v_auth_act, PyObject *__pyx_v_db_config_name, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
 static PyObject *__pyx_pf_11auth_router_10AuthRouter_2get_async_session(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
@@ -2973,43 +2973,43 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_disable __pyx_string_tab[65]
 #define __pyx_n_u_doc __pyx_string_tab[66]
 #define __pyx_kp_u_enable __pyx_string_tab[67]
-#define __pyx_n_u_entity_auth_user __pyx_string_tab[68]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[69]
-#define __pyx_n_u_fastapi __pyx_string_tab[70]
-#define __pyx_n_u_func __pyx_string_tab[71]
-#define __pyx_kp_u_gc __pyx_string_tab[72]
-#define __pyx_n_u_get __pyx_string_tab[73]
-#define __pyx_n_u_get_async_engine __pyx_string_tab[74]
-#define __pyx_n_u_get_async_session __pyx_string_tab[75]
-#define __pyx_n_u_get_current_user __pyx_string_tab[76]
-#define __pyx_n_u_get_data_rule_from_request __pyx_string_tab[77]
-#define __pyx_n_u_get_permission __pyx_string_tab[78]
-#define __pyx_n_u_has_permission __pyx_string_tab[79]
-#define __pyx_n_u_has_role __pyx_string_tab[80]
-#define __pyx_n_u_init __pyx_string_tab[81]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[82]
-#define __pyx_kp_u_isenabled __pyx_string_tab[83]
-#define __pyx_n_u_items __pyx_string_tab[84]
-#define __pyx_n_u_kwargs __pyx_string_tab[85]
-#define __pyx_kp_u_list_AuthDataRule __pyx_string_tab[86]
-#define __pyx_n_u_main __pyx_string_tab[87]
-#define __pyx_n_u_message __pyx_string_tab[88]
-#define __pyx_n_u_metaclass __pyx_string_tab[89]
-#define __pyx_n_u_method __pyx_string_tab[90]
-#define __pyx_n_u_methods __pyx_string_tab[91]
-#define __pyx_n_u_module __pyx_string_tab[92]
-#define __pyx_n_u_mro_entries __pyx_string_tab[93]
-#define __pyx_n_u_name __pyx_string_tab[94]
-#define __pyx_n_u_name_2 __pyx_string_tab[95]
-#define __pyx_n_u_next __pyx_string_tab[96]
-#define __pyx_n_u_obj __pyx_string_tab[97]
-#define __pyx_n_u_patch __pyx_string_tab[98]
-#define __pyx_n_u_path __pyx_string_tab[99]
-#define __pyx_n_u_pattern __pyx_string_tab[100]
-#define __pyx_n_u_permission_checker __pyx_string_tab[101]
-#define __pyx_n_u_permission_rules __pyx_string_tab[102]
-#define __pyx_n_u_permission_service __pyx_string_tab[103]
-#define __pyx_n_u_pop __pyx_string_tab[104]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[68]
+#define __pyx_n_u_fastapi __pyx_string_tab[69]
+#define __pyx_n_u_func __pyx_string_tab[70]
+#define __pyx_kp_u_gc __pyx_string_tab[71]
+#define __pyx_n_u_get __pyx_string_tab[72]
+#define __pyx_n_u_get_async_engine __pyx_string_tab[73]
+#define __pyx_n_u_get_async_session __pyx_string_tab[74]
+#define __pyx_n_u_get_current_user __pyx_string_tab[75]
+#define __pyx_n_u_get_data_rule_from_request __pyx_string_tab[76]
+#define __pyx_n_u_get_permission __pyx_string_tab[77]
+#define __pyx_n_u_has_permission __pyx_string_tab[78]
+#define __pyx_n_u_has_role __pyx_string_tab[79]
+#define __pyx_n_u_init __pyx_string_tab[80]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[81]
+#define __pyx_kp_u_isenabled __pyx_string_tab[82]
+#define __pyx_n_u_items __pyx_string_tab[83]
+#define __pyx_n_u_kwargs __pyx_string_tab[84]
+#define __pyx_kp_u_list_AuthDataRule __pyx_string_tab[85]
+#define __pyx_n_u_main __pyx_string_tab[86]
+#define __pyx_n_u_message __pyx_string_tab[87]
+#define __pyx_n_u_metaclass __pyx_string_tab[88]
+#define __pyx_n_u_method __pyx_string_tab[89]
+#define __pyx_n_u_methods __pyx_string_tab[90]
+#define __pyx_n_u_module __pyx_string_tab[91]
+#define __pyx_n_u_mro_entries __pyx_string_tab[92]
+#define __pyx_n_u_name __pyx_string_tab[93]
+#define __pyx_n_u_name_2 __pyx_string_tab[94]
+#define __pyx_n_u_next __pyx_string_tab[95]
+#define __pyx_n_u_obj __pyx_string_tab[96]
+#define __pyx_n_u_patch __pyx_string_tab[97]
+#define __pyx_n_u_path __pyx_string_tab[98]
+#define __pyx_n_u_pattern __pyx_string_tab[99]
+#define __pyx_n_u_permission_checker __pyx_string_tab[100]
+#define __pyx_n_u_permission_rules __pyx_string_tab[101]
+#define __pyx_n_u_permission_service __pyx_string_tab[102]
+#define __pyx_n_u_pop __pyx_string_tab[103]
+#define __pyx_n_u_portal_auth_entity_table_auth_us __pyx_string_tab[104]
 #define __pyx_n_u_post __pyx_string_tab[105]
 #define __pyx_n_u_prefix __pyx_string_tab[106]
 #define __pyx_n_u_prepare __pyx_string_tab[107]
@@ -8782,7 +8782,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
  * from sqlmodel.ext.asyncio.session import AsyncSession
  * 
  * from .auth_data_rule import AuthDataRule             # <<<<<<<<<<<<<<
- * from ..entity.auth_user import AuthUser
+ * from ..portal.auth.entity_table.auth_user import AuthUser
  * from ..exception.service_exception import ServiceErrorException
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthDataRule); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
@@ -8799,13 +8799,13 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   /* "auth_router.py":15
  * 
  * from .auth_data_rule import AuthDataRule
- * from ..entity.auth_user import AuthUser             # <<<<<<<<<<<<<<
+ * from ..portal.auth.entity_table.auth_user import AuthUser             # <<<<<<<<<<<<<<
  * from ..exception.service_exception import ServiceErrorException
  * from ..services.auth_service import AuthService
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_auth_user, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_portal_auth_entity_table_auth_us, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
@@ -8816,7 +8816,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
 
   /* "auth_router.py":16
  * from .auth_data_rule import AuthDataRule
- * from ..entity.auth_user import AuthUser
+ * from ..portal.auth.entity_table.auth_user import AuthUser
  * from ..exception.service_exception import ServiceErrorException             # <<<<<<<<<<<<<<
  * from ..services.auth_service import AuthService
  * from ..services.db_engine_service import DBEngineService
@@ -8833,7 +8833,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "auth_router.py":17
- * from ..entity.auth_user import AuthUser
+ * from ..portal.auth.entity_table.auth_user import AuthUser
  * from ..exception.service_exception import ServiceErrorException
  * from ..services.auth_service import AuthService             # <<<<<<<<<<<<<<
  * from ..services.db_engine_service import DBEngineService
@@ -9579,7 +9579,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disable */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enable */
-  {__pyx_k_entity_auth_user, sizeof(__pyx_k_entity_auth_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_auth_user */
   {__pyx_k_exception_service_exception, sizeof(__pyx_k_exception_service_exception), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exception_service_exception */
   {__pyx_k_fastapi, sizeof(__pyx_k_fastapi), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fastapi */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
@@ -9616,6 +9615,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_permission_rules, sizeof(__pyx_k_permission_rules), 0, 1, 1}, /* PyObject cname: __pyx_n_u_permission_rules */
   {__pyx_k_permission_service, sizeof(__pyx_k_permission_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_permission_service */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
+  {__pyx_k_portal_auth_entity_table_auth_us, sizeof(__pyx_k_portal_auth_entity_table_auth_us), 0, 1, 1}, /* PyObject cname: __pyx_n_u_portal_auth_entity_table_auth_us */
   {__pyx_k_post, sizeof(__pyx_k_post), 0, 1, 1}, /* PyObject cname: __pyx_n_u_post */
   {__pyx_k_prefix, sizeof(__pyx_k_prefix), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */

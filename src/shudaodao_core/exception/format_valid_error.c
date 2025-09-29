@@ -1494,7 +1494,7 @@ static const char* const __pyx_f[] = {
 /*--- Type declarations ---*/
 struct __pyx_obj_18format_valid_error___pyx_scope_struct__genexpr;
 
-/* "format_valid_error.py":85
+/* "format_valid_error.py":87
  *         #
  *         loc = error["loc"]
  *         field = " -> ".join(str(part) for part in loc) if loc else "unknown"             # <<<<<<<<<<<<<<
@@ -2425,7 +2425,7 @@ static PyObject *__pyx_builtin_KeyError;
 static PyObject *__pyx_builtin_IndexError;
 static PyObject *__pyx_builtin_ValueError;
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = "\350\276\223\345\205\245\346\227\240\346\225\210";
+static const char __pyx_k_[] = "\345\200\274\346\227\240\346\225\210";
 static const char __pyx_k_q[] = "\230q";
 static const char __pyx_k__2[] = "\350\276\223\345\205\245\346\240\274\345\274\217\344\270\215\346\255\243\347\241\256";
 static const char __pyx_k__3[] = " -> ";
@@ -2444,15 +2444,15 @@ static const char __pyx_k_Any[] = "Any";
 static const char __pyx_k_URL[] = "URL \346\240\274\345\274\217\344\270\215\346\255\243\347\241\256";
 static const char __pyx_k__10[] = "\347\274\272\345\260\221\345\277\205\351\234\200\345\217\202\346\225\260";
 static const char __pyx_k__11[] = "\345\277\205\351\241\273\346\230\257\345\270\203\345\260\224\345\200\274";
-static const char __pyx_k__12[] = "\345\200\274\346\227\240\346\225\210";
-static const char __pyx_k__13[] = "\351\202\256\347\256\261\346\240\274\345\274\217\344\270\215\346\255\243\347\241\256";
-static const char __pyx_k__14[] = "\347\261\273\345\236\213\346\240\207\347\255\276\346\227\240\346\225\210";
-static const char __pyx_k__15[] = "\346\234\252\346\211\276\345\210\260\347\261\273\345\236\213\346\240\207\347\255\276";
-static const char __pyx_k__16[] = "?";
+static const char __pyx_k__12[] = "\351\202\256\347\256\261\346\240\274\345\274\217\344\270\215\346\255\243\347\241\256";
+static const char __pyx_k__13[] = "\347\261\273\345\236\213\346\240\207\347\255\276\346\227\240\346\225\210";
+static const char __pyx_k__14[] = "\346\234\252\346\211\276\345\210\260\347\261\273\345\236\213\346\240\207\347\255\276";
+static const char __pyx_k__15[] = "?";
 static const char __pyx_k_ctx[] = "ctx";
 static const char __pyx_k_exc[] = "exc";
 static const char __pyx_k_get[] = "get";
 static const char __pyx_k_loc[] = "loc";
+static const char __pyx_k_msg[] = "msg";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_Dict[] = "Dict";
 static const char __pyx_k_List[] = "List";
@@ -2522,8 +2522,8 @@ static const char __pyx_k_union_tag_not_found[] = "union_tag_not_found";
 static const char __pyx_k_format_valid_error_py[] = "format_valid_error.py";
 static const char __pyx_k_RequestValidationError[] = "RequestValidationError";
 static const char __pyx_k_string_pattern_mismatch[] = "string_pattern_mismatch";
-static const char __pyx_k_DA_Q_G1_e1A_2V3auBgS_AWIQ_U_1_e[] = "\320\000)\320)D\300A\360\010\000\005\016\210Q\330\004\010\210\t\220\023\220G\2301\340\010\016\210e\2201\220A\340\010\020\220\003\2202\220V\2303\230a\230u\240B\240g\250S\260\001\260\023\260A\260W\270I\300Q\360\006\000\t\026\220U\230!\2301\330\010\016\210e\2204\220q\230\007\230q\360\006\000\t\024\220>\240\024\240Q\240l\260!\330\010\t\330\014\026\220h\230g\240S\250\001\330\020\032\230!\330\014\026\220a\340\010\016\210g\220Q\330\014\025\220Q\330\014\027\220q\340\004\013\2101";
-static const char __pyx_k_a_Q_G1_e1A_e4_1_U_1_e4q_q_Ql_hg[] = "\320\000*\320*>\270a\360\010\000\005\016\210Q\330\004\010\210\t\220\023\220G\2301\340\010\016\210e\2201\220A\330\010\020\220\006\220e\2304\320\037:\270)\3001\360\006\000\t\026\220U\230!\2301\330\010\016\210e\2204\220q\230\007\230q\360\006\000\t\024\220>\240\024\240Q\240l\260!\330\010\t\330\014\026\220h\230g\240S\250\001\330\020\032\230,\240a\330\014\026\220a\340\010\016\210g\220Q\330\014\025\220Q\330\014\027\220q\340\004\013\2101";
+static const char __pyx_k_DA_Q_G1_e1A_2V3auBgS_AWIQ_U_1_e[] = "\320\000)\320)D\300A\360\010\000\005\016\210Q\330\004\010\210\t\220\023\220G\2301\340\010\016\210e\2201\220A\340\010\020\220\003\2202\220V\2303\230a\230u\240B\240g\250S\260\001\260\023\260A\260W\270I\300Q\360\006\000\t\026\220U\230!\2301\330\010\016\210e\2204\220q\230\007\230q\360\006\000\t\024\220>\240\024\240Q\240l\260!\330\010\t\330\014\026\220h\230g\240S\250\001\330\014\017\210x\220s\230!\330\020\032\230%\230q\240\001\330\020\032\230!\330\014\026\220a\340\010\016\210g\220Q\330\014\025\220Q\330\014\027\220q\340\004\013\2101";
+static const char __pyx_k_a_Q_G1_e1A_e4_1_U_1_e4q_q_Ql_hg[] = "\320\000*\320*>\270a\360\010\000\005\016\210Q\330\004\010\210\t\220\023\220G\2301\340\010\016\210e\2201\220A\330\010\020\220\006\220e\2304\320\037:\270)\3001\360\006\000\t\026\220U\230!\2301\330\010\016\210e\2204\220q\230\007\230q\360\006\000\t\024\220>\240\024\240Q\240l\260!\330\010\t\330\014\026\220h\230g\240S\250\001\330\014\017\210x\220s\230!\330\020\032\230%\230q\240\001\330\020\032\230,\240a\330\014\026\220a\340\010\016\210g\220Q\330\014\025\220Q\330\014\027\220q\340\004\013\2101";
 static const char __pyx_k_format_request_validation_error[] = "format_request_validation_error";
 static const char __pyx_k_format_pydantic_validation_error[] = "format_pydantic_validation_error.<locals>.genexpr";
 static const char __pyx_k_format_pydantic_validation_error_2[] = "format_pydantic_validation_error";
@@ -2639,63 +2639,63 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u__12 __pyx_string_tab[14]
 #define __pyx_n_u__13 __pyx_string_tab[15]
 #define __pyx_n_u__14 __pyx_string_tab[16]
-#define __pyx_n_u__15 __pyx_string_tab[17]
-#define __pyx_kp_u__16 __pyx_string_tab[18]
-#define __pyx_n_u__2 __pyx_string_tab[19]
-#define __pyx_kp_u__3 __pyx_string_tab[20]
-#define __pyx_kp_u__4 __pyx_string_tab[21]
-#define __pyx_n_u__5 __pyx_string_tab[22]
-#define __pyx_n_u__6 __pyx_string_tab[23]
-#define __pyx_n_u__7 __pyx_string_tab[24]
-#define __pyx_n_u__8 __pyx_string_tab[25]
-#define __pyx_n_u__9 __pyx_string_tab[26]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[27]
-#define __pyx_n_u_bool_type __pyx_string_tab[28]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[29]
-#define __pyx_n_u_close __pyx_string_tab[30]
-#define __pyx_n_u_ctx __pyx_string_tab[31]
-#define __pyx_kp_u_disable __pyx_string_tab[32]
-#define __pyx_kp_u_enable __pyx_string_tab[33]
-#define __pyx_n_u_enum __pyx_string_tab[34]
-#define __pyx_n_u_error __pyx_string_tab[35]
-#define __pyx_n_u_error_type __pyx_string_tab[36]
-#define __pyx_n_u_errors __pyx_string_tab[37]
-#define __pyx_n_u_exc __pyx_string_tab[38]
-#define __pyx_kp_u_expected __pyx_string_tab[39]
-#define __pyx_kp_u_expected_2 __pyx_string_tab[40]
-#define __pyx_n_u_fastapi_exceptions __pyx_string_tab[41]
-#define __pyx_n_u_field __pyx_string_tab[42]
-#define __pyx_n_u_float_type __pyx_string_tab[43]
-#define __pyx_n_u_format __pyx_string_tab[44]
-#define __pyx_n_u_format_pydantic_validation_error __pyx_string_tab[45]
-#define __pyx_n_u_format_pydantic_validation_error_2 __pyx_string_tab[46]
-#define __pyx_n_u_format_request_validation_error __pyx_string_tab[47]
-#define __pyx_n_u_format_valid_error __pyx_string_tab[48]
-#define __pyx_kp_u_format_valid_error_py __pyx_string_tab[49]
-#define __pyx_n_u_func __pyx_string_tab[50]
-#define __pyx_kp_u_gc __pyx_string_tab[51]
-#define __pyx_kp_u_ge __pyx_string_tab[52]
-#define __pyx_n_u_genexpr __pyx_string_tab[53]
-#define __pyx_n_u_get __pyx_string_tab[54]
-#define __pyx_n_u_greater_than __pyx_string_tab[55]
-#define __pyx_n_u_greater_than_equal __pyx_string_tab[56]
-#define __pyx_kp_u_gt __pyx_string_tab[57]
-#define __pyx_n_u_int_type __pyx_string_tab[58]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[59]
-#define __pyx_kp_u_isenabled __pyx_string_tab[60]
-#define __pyx_kp_u_le __pyx_string_tab[61]
-#define __pyx_n_u_less_than __pyx_string_tab[62]
-#define __pyx_n_u_less_than_equal __pyx_string_tab[63]
-#define __pyx_n_u_literal_error __pyx_string_tab[64]
-#define __pyx_n_u_loc __pyx_string_tab[65]
-#define __pyx_kp_u_lt __pyx_string_tab[66]
-#define __pyx_n_u_main __pyx_string_tab[67]
-#define __pyx_kp_u_max_length __pyx_string_tab[68]
-#define __pyx_n_u_message __pyx_string_tab[69]
-#define __pyx_kp_u_min_length __pyx_string_tab[70]
-#define __pyx_n_u_missing __pyx_string_tab[71]
-#define __pyx_n_u_missing_argument __pyx_string_tab[72]
-#define __pyx_n_u_module __pyx_string_tab[73]
+#define __pyx_kp_u__15 __pyx_string_tab[17]
+#define __pyx_n_u__2 __pyx_string_tab[18]
+#define __pyx_kp_u__3 __pyx_string_tab[19]
+#define __pyx_kp_u__4 __pyx_string_tab[20]
+#define __pyx_n_u__5 __pyx_string_tab[21]
+#define __pyx_n_u__6 __pyx_string_tab[22]
+#define __pyx_n_u__7 __pyx_string_tab[23]
+#define __pyx_n_u__8 __pyx_string_tab[24]
+#define __pyx_n_u__9 __pyx_string_tab[25]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[26]
+#define __pyx_n_u_bool_type __pyx_string_tab[27]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[28]
+#define __pyx_n_u_close __pyx_string_tab[29]
+#define __pyx_n_u_ctx __pyx_string_tab[30]
+#define __pyx_kp_u_disable __pyx_string_tab[31]
+#define __pyx_kp_u_enable __pyx_string_tab[32]
+#define __pyx_n_u_enum __pyx_string_tab[33]
+#define __pyx_n_u_error __pyx_string_tab[34]
+#define __pyx_n_u_error_type __pyx_string_tab[35]
+#define __pyx_n_u_errors __pyx_string_tab[36]
+#define __pyx_n_u_exc __pyx_string_tab[37]
+#define __pyx_kp_u_expected __pyx_string_tab[38]
+#define __pyx_kp_u_expected_2 __pyx_string_tab[39]
+#define __pyx_n_u_fastapi_exceptions __pyx_string_tab[40]
+#define __pyx_n_u_field __pyx_string_tab[41]
+#define __pyx_n_u_float_type __pyx_string_tab[42]
+#define __pyx_n_u_format __pyx_string_tab[43]
+#define __pyx_n_u_format_pydantic_validation_error __pyx_string_tab[44]
+#define __pyx_n_u_format_pydantic_validation_error_2 __pyx_string_tab[45]
+#define __pyx_n_u_format_request_validation_error __pyx_string_tab[46]
+#define __pyx_n_u_format_valid_error __pyx_string_tab[47]
+#define __pyx_kp_u_format_valid_error_py __pyx_string_tab[48]
+#define __pyx_n_u_func __pyx_string_tab[49]
+#define __pyx_kp_u_gc __pyx_string_tab[50]
+#define __pyx_kp_u_ge __pyx_string_tab[51]
+#define __pyx_n_u_genexpr __pyx_string_tab[52]
+#define __pyx_n_u_get __pyx_string_tab[53]
+#define __pyx_n_u_greater_than __pyx_string_tab[54]
+#define __pyx_n_u_greater_than_equal __pyx_string_tab[55]
+#define __pyx_kp_u_gt __pyx_string_tab[56]
+#define __pyx_n_u_int_type __pyx_string_tab[57]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[58]
+#define __pyx_kp_u_isenabled __pyx_string_tab[59]
+#define __pyx_kp_u_le __pyx_string_tab[60]
+#define __pyx_n_u_less_than __pyx_string_tab[61]
+#define __pyx_n_u_less_than_equal __pyx_string_tab[62]
+#define __pyx_n_u_literal_error __pyx_string_tab[63]
+#define __pyx_n_u_loc __pyx_string_tab[64]
+#define __pyx_kp_u_lt __pyx_string_tab[65]
+#define __pyx_n_u_main __pyx_string_tab[66]
+#define __pyx_kp_u_max_length __pyx_string_tab[67]
+#define __pyx_n_u_message __pyx_string_tab[68]
+#define __pyx_kp_u_min_length __pyx_string_tab[69]
+#define __pyx_n_u_missing __pyx_string_tab[70]
+#define __pyx_n_u_missing_argument __pyx_string_tab[71]
+#define __pyx_n_u_module __pyx_string_tab[72]
+#define __pyx_n_u_msg __pyx_string_tab[73]
 #define __pyx_n_u_name __pyx_string_tab[74]
 #define __pyx_n_u_next __pyx_string_tab[75]
 #define __pyx_n_u_part __pyx_string_tab[76]
@@ -3104,7 +3104,7 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:             # <<<<<<<<<<<<<<
  *             message = template.format(**ctx)
- *         except (KeyError, IndexError):
+ *             if message == "":
 */
     {
       __Pyx_PyThreadState_declare
@@ -3119,8 +3119,8 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:
  *             message = template.format(**ctx)             # <<<<<<<<<<<<<<
- *         except (KeyError, IndexError):
- *             message = ""
+ *             if message == "":
+ *                 message = error["msg"]
 */
         __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_template, __pyx_mstate_global->__pyx_n_u_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L5_error)
         __Pyx_GOTREF(__pyx_t_1);
@@ -3142,12 +3142,43 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
         __Pyx_XDECREF_SET(__pyx_v_message, __pyx_t_11);
         __pyx_t_11 = 0;
 
+        /* "format_valid_error.py":67
+ *         try:
+ *             message = template.format(**ctx)
+ *             if message == "":             # <<<<<<<<<<<<<<
+ *                 message = error["msg"]
+ *         except (KeyError, IndexError):
+*/
+        __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_v_message, __pyx_mstate_global->__pyx_n_u_, Py_EQ)); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 67, __pyx_L5_error)
+        if (__pyx_t_7) {
+
+          /* "format_valid_error.py":68
+ *             message = template.format(**ctx)
+ *             if message == "":
+ *                 message = error["msg"]             # <<<<<<<<<<<<<<
+ *         except (KeyError, IndexError):
+ *             message = ""
+*/
+          __pyx_t_11 = __Pyx_PyObject_Dict_GetItem(__pyx_v_error, __pyx_mstate_global->__pyx_n_u_msg); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 68, __pyx_L5_error)
+          __Pyx_GOTREF(__pyx_t_11);
+          __Pyx_DECREF_SET(__pyx_v_message, __pyx_t_11);
+          __pyx_t_11 = 0;
+
+          /* "format_valid_error.py":67
+ *         try:
+ *             message = template.format(**ctx)
+ *             if message == "":             # <<<<<<<<<<<<<<
+ *                 message = error["msg"]
+ *         except (KeyError, IndexError):
+*/
+        }
+
         /* "format_valid_error.py":65
  *         #
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:             # <<<<<<<<<<<<<<
  *             message = template.format(**ctx)
- *         except (KeyError, IndexError):
+ *             if message == "":
 */
       }
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
@@ -3160,9 +3191,9 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "format_valid_error.py":67
- *         try:
- *             message = template.format(**ctx)
+      /* "format_valid_error.py":69
+ *             if message == "":
+ *                 message = error["msg"]
  *         except (KeyError, IndexError):             # <<<<<<<<<<<<<<
  *             message = ""
  * 
@@ -3170,13 +3201,13 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
       __pyx_t_15 = __Pyx_PyErr_ExceptionMatches2(__pyx_builtin_KeyError, __pyx_builtin_IndexError);
       if (__pyx_t_15) {
         __Pyx_AddTraceback("format_valid_error.format_request_validation_error", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_11, &__pyx_t_10, &__pyx_t_1) < 0) __PYX_ERR(0, 67, __pyx_L7_except_error)
+        if (__Pyx_GetException(&__pyx_t_11, &__pyx_t_10, &__pyx_t_1) < 0) __PYX_ERR(0, 69, __pyx_L7_except_error)
         __Pyx_XGOTREF(__pyx_t_11);
         __Pyx_XGOTREF(__pyx_t_10);
         __Pyx_XGOTREF(__pyx_t_1);
 
-        /* "format_valid_error.py":68
- *             message = template.format(**ctx)
+        /* "format_valid_error.py":70
+ *                 message = error["msg"]
  *         except (KeyError, IndexError):
  *             message = ""             # <<<<<<<<<<<<<<
  * 
@@ -3196,7 +3227,7 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:             # <<<<<<<<<<<<<<
  *             message = template.format(**ctx)
- *         except (KeyError, IndexError):
+ *             if message == "":
 */
       __pyx_L7_except_error:;
       __Pyx_XGIVEREF(__pyx_t_12);
@@ -3212,34 +3243,34 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
       __pyx_L12_try_end:;
     }
 
-    /* "format_valid_error.py":71
+    /* "format_valid_error.py":73
  * 
  *         errors.append({
  *             "field": field,             # <<<<<<<<<<<<<<
  *             "message": message
  *         })
 */
-    __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_field, __pyx_v_field) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_field, __pyx_v_field) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
 
-    /* "format_valid_error.py":72
+    /* "format_valid_error.py":74
  *         errors.append({
  *             "field": field,
  *             "message": message             # <<<<<<<<<<<<<<
  *         })
  *     return errors
 */
-    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_message, __pyx_v_message) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_message, __pyx_v_message) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
 
-    /* "format_valid_error.py":70
+    /* "format_valid_error.py":72
  *             message = ""
  * 
  *         errors.append({             # <<<<<<<<<<<<<<
  *             "field": field,
  *             "message": message
 */
-    __pyx_t_16 = __Pyx_PyList_Append(__pyx_v_errors, __pyx_t_1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_16 = __Pyx_PyList_Append(__pyx_v_errors, __pyx_t_1); if (unlikely(__pyx_t_16 == ((int)-1))) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "format_valid_error.py":53
@@ -3252,7 +3283,7 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "format_valid_error.py":74
+  /* "format_valid_error.py":76
  *             "message": message
  *         })
  *     return errors             # <<<<<<<<<<<<<<
@@ -3295,7 +3326,7 @@ static PyObject *__pyx_pf_18format_valid_error_format_request_validation_error(C
   return __pyx_r;
 }
 
-/* "format_valid_error.py":77
+/* "format_valid_error.py":79
  * 
  * 
  * def format_pydantic_validation_error(exc: ValidationError) -> List[Dict[str, Any]]:             # <<<<<<<<<<<<<<
@@ -3343,32 +3374,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_exc,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 77, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 79, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 77, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 79, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "format_pydantic_validation_error", 0) < 0) __PYX_ERR(0, 77, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "format_pydantic_validation_error", 0) < 0) __PYX_ERR(0, 79, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("format_pydantic_validation_error", 1, 1, 1, i); __PYX_ERR(0, 77, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("format_pydantic_validation_error", 1, 1, 1, i); __PYX_ERR(0, 79, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 77, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 79, __pyx_L3_error)
     }
     __pyx_v_exc = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("format_pydantic_validation_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 77, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("format_pydantic_validation_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 79, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3390,7 +3421,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 static PyObject *__pyx_gb_18format_valid_error_32format_pydantic_validation_error_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "format_valid_error.py":85
+/* "format_valid_error.py":87
  *         #
  *         loc = error["loc"]
  *         field = " -> ".join(str(part) for part in loc) if loc else "unknown"             # <<<<<<<<<<<<<<
@@ -3410,7 +3441,7 @@ static PyObject *__pyx_pf_18format_valid_error_32format_pydantic_validation_erro
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_18format_valid_error___pyx_scope_struct__genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 85, __pyx_L1_error)
+    __PYX_ERR(0, 87, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -3418,7 +3449,7 @@ static PyObject *__pyx_pf_18format_valid_error_32format_pydantic_validation_erro
   __Pyx_INCREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_18format_valid_error_32format_pydantic_validation_error_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_format_pydantic_validation_error, __pyx_mstate_global->__pyx_n_u_format_valid_error); if (unlikely(!gen)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_18format_valid_error_32format_pydantic_validation_error_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_format_pydantic_validation_error, __pyx_mstate_global->__pyx_n_u_format_valid_error); if (unlikely(!gen)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3454,18 +3485,18 @@ static PyObject *__pyx_gb_18format_valid_error_32format_pydantic_validation_erro
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 85, __pyx_L1_error)
-  __pyx_r = PyList_New(0); if (unlikely(!__pyx_r)) __PYX_ERR(0, 85, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_r = PyList_New(0); if (unlikely(!__pyx_r)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_r);
-  if (unlikely(!__pyx_cur_scope->__pyx_genexpr_arg_0)) { __Pyx_RaiseUnboundLocalError(".0"); __PYX_ERR(0, 85, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_genexpr_arg_0)) { __Pyx_RaiseUnboundLocalError(".0"); __PYX_ERR(0, 87, __pyx_L1_error) }
   if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_genexpr_arg_0)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_genexpr_arg_0)) {
     __pyx_t_1 = __pyx_cur_scope->__pyx_genexpr_arg_0; __Pyx_INCREF(__pyx_t_1);
     __pyx_t_2 = 0;
     __pyx_t_3 = NULL;
   } else {
-    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_genexpr_arg_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_genexpr_arg_0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_3 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_3)) {
@@ -3473,7 +3504,7 @@ static PyObject *__pyx_gb_18format_valid_error_32format_pydantic_validation_erro
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
           #endif
           if (__pyx_t_2 >= __pyx_temp) break;
         }
@@ -3483,7 +3514,7 @@ static PyObject *__pyx_gb_18format_valid_error_32format_pydantic_validation_erro
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
           #endif
           if (__pyx_t_2 >= __pyx_temp) break;
         }
@@ -3494,13 +3525,13 @@ static PyObject *__pyx_gb_18format_valid_error_32format_pydantic_validation_erro
         #endif
         ++__pyx_t_2;
       }
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
     } else {
       __pyx_t_4 = __pyx_t_3(__pyx_t_1);
       if (unlikely(!__pyx_t_4)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 85, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 87, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -3511,9 +3542,9 @@ static PyObject *__pyx_gb_18format_valid_error_32format_pydantic_validation_erro
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_part, __pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Unicode(__pyx_cur_scope->__pyx_v_part); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Unicode(__pyx_cur_scope->__pyx_v_part); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (unlikely(__Pyx_ListComp_Append(__pyx_r, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 85, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_r, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3540,7 +3571,7 @@ static PyObject *__pyx_gb_18format_valid_error_32format_pydantic_validation_erro
   return __pyx_r;
 }
 
-/* "format_valid_error.py":77
+/* "format_valid_error.py":79
  * 
  * 
  * def format_pydantic_validation_error(exc: ValidationError) -> List[Dict[str, Any]]:             # <<<<<<<<<<<<<<
@@ -3579,19 +3610,19 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("format_pydantic_validation_error", 0);
 
-  /* "format_valid_error.py":81
+  /* "format_valid_error.py":83
  *      Pydantic ValidationError
  *     """
  *     errors = []             # <<<<<<<<<<<<<<
  *     for error in exc.errors():
  *         #
 */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_errors = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "format_valid_error.py":82
+  /* "format_valid_error.py":84
  *     """
  *     errors = []
  *     for error in exc.errors():             # <<<<<<<<<<<<<<
@@ -3605,7 +3636,7 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_errors, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
@@ -3613,9 +3644,9 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
     __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -3624,7 +3655,7 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 82, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 84, __pyx_L1_error)
           #endif
           if (__pyx_t_4 >= __pyx_temp) break;
         }
@@ -3634,7 +3665,7 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 82, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 84, __pyx_L1_error)
           #endif
           if (__pyx_t_4 >= __pyx_temp) break;
         }
@@ -3645,13 +3676,13 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
         #endif
         ++__pyx_t_4;
       }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
     } else {
       __pyx_t_1 = __pyx_t_5(__pyx_t_2);
       if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 82, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 84, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -3661,33 +3692,33 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
     __Pyx_XDECREF_SET(__pyx_v_error, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "format_valid_error.py":84
+    /* "format_valid_error.py":86
  *     for error in exc.errors():
  *         #
  *         loc = error["loc"]             # <<<<<<<<<<<<<<
  *         field = " -> ".join(str(part) for part in loc) if loc else "unknown"
  * 
 */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_error, __pyx_mstate_global->__pyx_n_u_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_error, __pyx_mstate_global->__pyx_n_u_loc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_loc, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "format_valid_error.py":85
+    /* "format_valid_error.py":87
  *         #
  *         loc = error["loc"]
  *         field = " -> ".join(str(part) for part in loc) if loc else "unknown"             # <<<<<<<<<<<<<<
  * 
  *         #
 */
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_loc); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_loc); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
     if (__pyx_t_6) {
-      __pyx_t_7 = __pyx_pf_18format_valid_error_32format_pydantic_validation_error_genexpr(NULL, __pyx_v_loc); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_7 = __pyx_pf_18format_valid_error_32format_pydantic_validation_error_genexpr(NULL, __pyx_v_loc); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_Generator_GetInlinedResult(__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_Generator_GetInlinedResult(__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 87, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u__3, __pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_7 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u__3, __pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_1 = __pyx_t_7;
@@ -3699,19 +3730,19 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
     __Pyx_XDECREF_SET(__pyx_v_field, ((PyObject*)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "format_valid_error.py":88
+    /* "format_valid_error.py":90
  * 
  *         #
  *         error_type = error["type"]             # <<<<<<<<<<<<<<
  *         ctx = error.get("ctx", {})
  * 
 */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_error, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_error, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_error_type, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "format_valid_error.py":89
+    /* "format_valid_error.py":91
  *         #
  *         error_type = error["type"]
  *         ctx = error.get("ctx", {})             # <<<<<<<<<<<<<<
@@ -3720,7 +3751,7 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
 */
     __pyx_t_7 = __pyx_v_error;
     __Pyx_INCREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_3 = 0;
     {
@@ -3728,13 +3759,13 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_XDECREF_SET(__pyx_v_ctx, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "format_valid_error.py":92
+    /* "format_valid_error.py":94
  * 
  *         #
  *         template = ERROR_MESSAGES.get(error_type, "")             # <<<<<<<<<<<<<<
@@ -3742,9 +3773,9 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
  *             message = template.format(**ctx)
 */
     __pyx_t_8 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ERROR_MESSAGES); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ERROR_MESSAGES); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_3 = 1;
@@ -3764,18 +3795,18 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_XDECREF_SET(__pyx_v_template, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "format_valid_error.py":93
+    /* "format_valid_error.py":95
  *         #
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:             # <<<<<<<<<<<<<<
  *             message = template.format(**ctx)
- *         except (KeyError, IndexError, ValueError):
+ *             if message == "":
 */
     {
       __Pyx_PyThreadState_declare
@@ -3786,39 +3817,70 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
       __Pyx_XGOTREF(__pyx_t_12);
       /*try:*/ {
 
-        /* "format_valid_error.py":94
+        /* "format_valid_error.py":96
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:
  *             message = template.format(**ctx)             # <<<<<<<<<<<<<<
- *         except (KeyError, IndexError, ValueError):
- *             message = ""
+ *             if message == "":
+ *                 message = error["msg"]
 */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_template, __pyx_mstate_global->__pyx_n_u_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L5_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_template, __pyx_mstate_global->__pyx_n_u_format); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L5_error)
         __Pyx_GOTREF(__pyx_t_1);
         if (unlikely(__pyx_v_ctx == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-          __PYX_ERR(0, 94, __pyx_L5_error)
+          __PYX_ERR(0, 96, __pyx_L5_error)
         }
         if (likely(PyDict_CheckExact(__pyx_v_ctx))) {
-          __pyx_t_9 = PyDict_Copy(__pyx_v_ctx); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 94, __pyx_L5_error)
+          __pyx_t_9 = PyDict_Copy(__pyx_v_ctx); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 96, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_9);
         } else {
-          __pyx_t_9 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_ctx); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 94, __pyx_L5_error)
+          __pyx_t_9 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_v_ctx); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 96, __pyx_L5_error)
           __Pyx_GOTREF(__pyx_t_9);
         }
-        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 94, __pyx_L5_error)
+        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L5_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_XDECREF_SET(__pyx_v_message, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "format_valid_error.py":93
+        /* "format_valid_error.py":97
+ *         try:
+ *             message = template.format(**ctx)
+ *             if message == "":             # <<<<<<<<<<<<<<
+ *                 message = error["msg"]
+ *         except (KeyError, IndexError, ValueError):
+*/
+        __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_message, __pyx_mstate_global->__pyx_n_u_, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 97, __pyx_L5_error)
+        if (__pyx_t_6) {
+
+          /* "format_valid_error.py":98
+ *             message = template.format(**ctx)
+ *             if message == "":
+ *                 message = error["msg"]             # <<<<<<<<<<<<<<
+ *         except (KeyError, IndexError, ValueError):
+ *             message = ""
+*/
+          __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_error, __pyx_mstate_global->__pyx_n_u_msg); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 98, __pyx_L5_error)
+          __Pyx_GOTREF(__pyx_t_8);
+          __Pyx_DECREF_SET(__pyx_v_message, __pyx_t_8);
+          __pyx_t_8 = 0;
+
+          /* "format_valid_error.py":97
+ *         try:
+ *             message = template.format(**ctx)
+ *             if message == "":             # <<<<<<<<<<<<<<
+ *                 message = error["msg"]
+ *         except (KeyError, IndexError, ValueError):
+*/
+        }
+
+        /* "format_valid_error.py":95
  *         #
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:             # <<<<<<<<<<<<<<
  *             message = template.format(**ctx)
- *         except (KeyError, IndexError, ValueError):
+ *             if message == "":
 */
       }
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -3831,9 +3893,9 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-      /* "format_valid_error.py":95
- *         try:
- *             message = template.format(**ctx)
+      /* "format_valid_error.py":99
+ *             if message == "":
+ *                 message = error["msg"]
  *         except (KeyError, IndexError, ValueError):             # <<<<<<<<<<<<<<
  *             message = ""
  * 
@@ -3841,13 +3903,13 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
       __pyx_t_13 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_KeyError) || __Pyx_PyErr_ExceptionMatches(__pyx_builtin_IndexError) || __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ValueError);
       if (__pyx_t_13) {
         __Pyx_AddTraceback("format_valid_error.format_pydantic_validation_error", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_9, &__pyx_t_1) < 0) __PYX_ERR(0, 95, __pyx_L7_except_error)
+        if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_9, &__pyx_t_1) < 0) __PYX_ERR(0, 99, __pyx_L7_except_error)
         __Pyx_XGOTREF(__pyx_t_8);
         __Pyx_XGOTREF(__pyx_t_9);
         __Pyx_XGOTREF(__pyx_t_1);
 
-        /* "format_valid_error.py":96
- *             message = template.format(**ctx)
+        /* "format_valid_error.py":100
+ *                 message = error["msg"]
  *         except (KeyError, IndexError, ValueError):
  *             message = ""             # <<<<<<<<<<<<<<
  * 
@@ -3862,12 +3924,12 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
       }
       goto __pyx_L7_except_error;
 
-      /* "format_valid_error.py":93
+      /* "format_valid_error.py":95
  *         #
  *         template = ERROR_MESSAGES.get(error_type, "")
  *         try:             # <<<<<<<<<<<<<<
  *             message = template.format(**ctx)
- *         except (KeyError, IndexError, ValueError):
+ *             if message == "":
 */
       __pyx_L7_except_error:;
       __Pyx_XGIVEREF(__pyx_t_10);
@@ -3883,37 +3945,37 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
       __pyx_L12_try_end:;
     }
 
-    /* "format_valid_error.py":99
+    /* "format_valid_error.py":103
  * 
  *         errors.append({
  *             "field": field,             # <<<<<<<<<<<<<<
  *             "message": message
  *         })
 */
-    __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_field, __pyx_v_field) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_field, __pyx_v_field) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
 
-    /* "format_valid_error.py":100
+    /* "format_valid_error.py":104
  *         errors.append({
  *             "field": field,
  *             "message": message             # <<<<<<<<<<<<<<
  *         })
  *     return errors
 */
-    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_message, __pyx_v_message) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_message, __pyx_v_message) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
 
-    /* "format_valid_error.py":98
+    /* "format_valid_error.py":102
  *             message = ""
  * 
  *         errors.append({             # <<<<<<<<<<<<<<
  *             "field": field,
  *             "message": message
 */
-    __pyx_t_14 = __Pyx_PyList_Append(__pyx_v_errors, __pyx_t_1); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyList_Append(__pyx_v_errors, __pyx_t_1); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 102, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "format_valid_error.py":82
+    /* "format_valid_error.py":84
  *     """
  *     errors = []
  *     for error in exc.errors():             # <<<<<<<<<<<<<<
@@ -3923,7 +3985,7 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "format_valid_error.py":102
+  /* "format_valid_error.py":106
  *             "message": message
  *         })
  *     return errors             # <<<<<<<<<<<<<<
@@ -3933,7 +3995,7 @@ static PyObject *__pyx_pf_18format_valid_error_2format_pydantic_validation_error
   __pyx_r = __pyx_v_errors;
   goto __pyx_L0;
 
-  /* "format_valid_error.py":77
+  /* "format_valid_error.py":79
  * 
  * 
  * def format_pydantic_validation_error(exc: ValidationError) -> List[Dict[str, Any]]:             # <<<<<<<<<<<<<<
@@ -4180,15 +4242,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_18format_valid_error___pyx_scope_struct__genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr)) __PYX_ERR(0, 85, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_18format_valid_error___pyx_scope_struct__genexpr_spec, __pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_18format_valid_error___pyx_scope_struct__genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr)) __PYX_ERR(0, 87, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_18format_valid_error___pyx_scope_struct__genexpr_spec, __pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr = &__pyx_type_18format_valid_error___pyx_scope_struct__genexpr;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 87, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr->tp_dictoffset && __pyx_mstate->__pyx_ptype_18format_valid_error___pyx_scope_struct__genexpr->tp_getattro == PyObject_GenericGetAttr)) {
@@ -4597,12 +4659,12 @@ __Pyx_RefNannySetupContext("PyInit_format_valid_error", 0);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_missing_argument, __pyx_mstate_global->__pyx_n_u__10) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_bool_type, __pyx_mstate_global->__pyx_n_u__11) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_enum, __pyx_mstate_global->__pyx_kp_u_expected) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_value_error, __pyx_mstate_global->__pyx_n_u__12) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_value_error_email, __pyx_mstate_global->__pyx_n_u__13) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_value_error, __pyx_mstate_global->__pyx_n_u_) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_value_error_email, __pyx_mstate_global->__pyx_n_u__12) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_url_parsing, __pyx_mstate_global->__pyx_kp_u_URL) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_literal_error, __pyx_mstate_global->__pyx_kp_u_expected_2) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_union_tag_invalid, __pyx_mstate_global->__pyx_n_u__14) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_union_tag_not_found, __pyx_mstate_global->__pyx_n_u__15) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_union_tag_invalid, __pyx_mstate_global->__pyx_n_u__13) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_union_tag_not_found, __pyx_mstate_global->__pyx_n_u__14) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ERROR_MESSAGES, __pyx_t_3) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -4624,22 +4686,22 @@ __Pyx_RefNannySetupContext("PyInit_format_valid_error", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_request_validation_error, __pyx_t_2) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "format_valid_error.py":77
+  /* "format_valid_error.py":79
  * 
  * 
  * def format_pydantic_validation_error(exc: ValidationError) -> List[Dict[str, Any]]:             # <<<<<<<<<<<<<<
  *     """
  *      Pydantic ValidationError
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_exc, __pyx_mstate_global->__pyx_n_u_ValidationError) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_List_Dict_str_Any) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18format_valid_error_3format_pydantic_validation_error, 0, __pyx_mstate_global->__pyx_n_u_format_pydantic_validation_error_2, NULL, __pyx_mstate_global->__pyx_n_u_format_valid_error, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_exc, __pyx_mstate_global->__pyx_n_u_ValidationError) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_List_Dict_str_Any) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_18format_valid_error_3format_pydantic_validation_error, 0, __pyx_mstate_global->__pyx_n_u_format_pydantic_validation_error_2, NULL, __pyx_mstate_global->__pyx_n_u_format_valid_error, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_pydantic_validation_error_2, __pyx_t_3) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_pydantic_validation_error_2, __pyx_t_3) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "format_valid_error.py":1
@@ -4728,8 +4790,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__12, sizeof(__pyx_k__12), 0, 1, 1}, /* PyObject cname: __pyx_n_u__12 */
   {__pyx_k__13, sizeof(__pyx_k__13), 0, 1, 1}, /* PyObject cname: __pyx_n_u__13 */
   {__pyx_k__14, sizeof(__pyx_k__14), 0, 1, 1}, /* PyObject cname: __pyx_n_u__14 */
-  {__pyx_k__15, sizeof(__pyx_k__15), 0, 1, 1}, /* PyObject cname: __pyx_n_u__15 */
-  {__pyx_k__16, sizeof(__pyx_k__16), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__16 */
+  {__pyx_k__15, sizeof(__pyx_k__15), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__15 */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
@@ -4785,6 +4846,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_missing, sizeof(__pyx_k_missing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_missing */
   {__pyx_k_missing_argument, sizeof(__pyx_k_missing_argument), 0, 1, 1}, /* PyObject cname: __pyx_n_u_missing_argument */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
+  {__pyx_k_msg, sizeof(__pyx_k_msg), 0, 1, 1}, /* PyObject cname: __pyx_n_u_msg */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
   {__pyx_k_part, sizeof(__pyx_k_part), 0, 1, 1}, /* PyObject cname: __pyx_n_u_part */
@@ -4819,9 +4881,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 67, __pyx_L1_error)
-  __pyx_builtin_IndexError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_IndexError); if (!__pyx_builtin_IndexError) __PYX_ERR(0, 67, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_builtin_IndexError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_IndexError); if (!__pyx_builtin_IndexError) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 99, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -4872,17 +4934,17 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR), 85, 2};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR), 87, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_part};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_format_valid_error_py, __pyx_mstate->__pyx_n_u_genexpr, __pyx_k_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 48, 153};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 48, 171};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_exc, __pyx_mstate->__pyx_n_u_errors, __pyx_mstate->__pyx_n_u_error, __pyx_mstate->__pyx_n_u_loc, __pyx_mstate->__pyx_n_u_field, __pyx_mstate->__pyx_n_u_error_type, __pyx_mstate->__pyx_n_u_ctx, __pyx_mstate->__pyx_n_u_template, __pyx_mstate->__pyx_n_u_message};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_format_valid_error_py, __pyx_mstate->__pyx_n_u_format_request_validation_error, __pyx_k_DA_Q_G1_e1A_2V3auBgS_AWIQ_U_1_e, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 11, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 77, 138};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 11, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 79, 156};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_exc, __pyx_mstate->__pyx_n_u_errors, __pyx_mstate->__pyx_n_u_error, __pyx_mstate->__pyx_n_u_loc, __pyx_mstate->__pyx_n_u_field, __pyx_mstate->__pyx_n_u_error_type, __pyx_mstate->__pyx_n_u_ctx, __pyx_mstate->__pyx_n_u_template, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_genexpr, __pyx_mstate->__pyx_n_u_genexpr};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_format_valid_error_py, __pyx_mstate->__pyx_n_u_format_pydantic_validation_error_2, __pyx_k_a_Q_G1_e1A_e4_1_U_1_e4q_q_Ql_hg, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
@@ -8932,7 +8994,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__16);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__15);
     }
     goto done;
 }
