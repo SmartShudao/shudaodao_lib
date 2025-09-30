@@ -4,8 +4,8 @@
 
 # 不要删除这个空文件， yaml配置文件中 routers 节点 自动加载路由、模块 需要文件夹类型为包 
 
-from .t_enum_group import TEnumGroup
-from .t_enum_field import TEnumField
-from .t_enum_value import TEnumValue
-
-__all__ = ['TEnumGroup', 'TEnumField', 'TEnumValue']
+# from .t_enum_group import TEnumGroup
+# from .t_enum_field import TEnumField
+# from .t_enum_value import TEnumValue
+#
+# __all__ = ['TEnumGroup', 'TEnumField', 'TEnumValue']
