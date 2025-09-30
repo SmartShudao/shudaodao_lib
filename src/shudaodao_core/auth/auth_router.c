@@ -2760,7 +2760,7 @@ static const char __pyx_k_A_m_a_Ja_1_Q_1_A_L_t1F_a_7q_1_q[] = "\200A\330\030 \24
 static const char __pyx_k_AuthRouter_get_async_session_db[] = "\344\275\277\347\224\250AuthRouter.get_async_session,\346\236\204\351\200\240\345\207\275\346\225\260\345\277\205\351\241\273\350\256\276\347\275\256 db_config_name";
 static const char __pyx_k_q_Kwa_1_6_Qj_L_6at82Q_d_T_T_4_T[] = "\320\004'\240q\330\010\014\210K\220w\230a\230|\2501\330\014\023\2206\230\024\230Q\230j\250\001\250\021\330\014\024\220L\320 6\260a\260t\2708\3002\300Q\330\014\026\220d\230!\330\014\025\220T\230\021\330\014\025\220T\230\021\360\006\000\t\014\2104\210~\230T\240\024\240Z\250t\2604\260q\340\014\017\210t\220>\240\027\250\n\260!\330\020\032\320\032+\2501\250D\3200A\300\021\330\014\022\220*\320\034-\250T\260\021\260$\260a\340\014\017\210t\220:\230W\240A\330\020\023\2201\220D\230\r\240Q\330\014\022\220#\220Q\220d\230!\340\014\017\210t\220:\230W\240A\330\020\023\2207\230!\2304\230q";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
-static const char __pyx_k_portal_auth_entity_table_auth_us[] = "portal.auth.entity_table.auth_user";
+static const char __pyx_k_portal_auth_entity_table_auth_us[] = "portal_auth.entity_table.auth_user";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_11auth_router_10AuthRouter___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_default_role, PyObject *__pyx_v_auth_role, PyObject *__pyx_v_auth_obj, PyObject *__pyx_v_auth_act, PyObject *__pyx_v_db_config_name, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
 static PyObject *__pyx_pf_11auth_router_10AuthRouter_2get_async_session(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
@@ -8782,8 +8782,8 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
  * from sqlmodel.ext.asyncio.session import AsyncSession
  * 
  * from .auth_data_rule import AuthDataRule             # <<<<<<<<<<<<<<
- * from ..portal.auth.entity_table.auth_user import AuthUser
  * from ..exception.service_exception import ServiceErrorException
+ * from ..portal_auth.entity_table.auth_user import AuthUser
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthDataRule); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -8799,42 +8799,42 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   /* "auth_router.py":15
  * 
  * from .auth_data_rule import AuthDataRule
- * from ..portal.auth.entity_table.auth_user import AuthUser             # <<<<<<<<<<<<<<
- * from ..exception.service_exception import ServiceErrorException
+ * from ..exception.service_exception import ServiceErrorException             # <<<<<<<<<<<<<<
+ * from ..portal_auth.entity_table.auth_user import AuthUser
  * from ..services.auth_service import AuthService
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_portal_auth_entity_table_auth_us, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_exception_service_exception, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthUser, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ServiceErrorException, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "auth_router.py":16
  * from .auth_data_rule import AuthDataRule
- * from ..portal.auth.entity_table.auth_user import AuthUser
- * from ..exception.service_exception import ServiceErrorException             # <<<<<<<<<<<<<<
+ * from ..exception.service_exception import ServiceErrorException
+ * from ..portal_auth.entity_table.auth_user import AuthUser             # <<<<<<<<<<<<<<
  * from ..services.auth_service import AuthService
  * from ..services.db_engine_service import DBEngineService
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_exception_service_exception, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_portal_auth_entity_table_auth_us, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ServiceErrorException, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthUser, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "auth_router.py":17
- * from ..portal.auth.entity_table.auth_user import AuthUser
  * from ..exception.service_exception import ServiceErrorException
+ * from ..portal_auth.entity_table.auth_user import AuthUser
  * from ..services.auth_service import AuthService             # <<<<<<<<<<<<<<
  * from ..services.db_engine_service import DBEngineService
  * 
@@ -8851,7 +8851,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "auth_router.py":18
- * from ..exception.service_exception import ServiceErrorException
+ * from ..portal_auth.entity_table.auth_user import AuthUser
  * from ..services.auth_service import AuthService
  * from ..services.db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
  * 

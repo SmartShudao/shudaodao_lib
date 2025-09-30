@@ -20,5 +20,6 @@ from pydantic import BaseModel, Field
 
 class RouterConfigSetting(BaseModel):
     name: str = Field(..., description="包名")
-    prefix: str = Field(..., description="url前缀")
+    enabled: bool = Field(True, description="是否启用")
+    prefix: str = Field("", description="url前缀")
     tags: List[str] = Field(None, description="文档分类标签")

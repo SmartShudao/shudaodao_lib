@@ -2699,7 +2699,7 @@ static const char __pyx_k_exception_service_exception[] = "exception.service_exc
 static const char __pyx_k_AuthService_get_current_user[] = "AuthService.get_current_user";
 static const char __pyx_k_sqlmodel_ext_asyncio_session[] = "sqlmodel.ext.asyncio.session";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
-static const char __pyx_k_portal_auth_entity_table_auth_us[] = "portal.auth.entity_table.auth_user";
+static const char __pyx_k_portal_auth_entity_table_auth_us[] = "portal_auth.entity_table.auth_user";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_12auth_service_11AuthService_verify_password(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_plain_password, PyObject *__pyx_v_hashed_password); /* proto */
 static PyObject *__pyx_pf_12auth_service_11AuthService_2hash_password(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_password); /* proto */
@@ -8695,7 +8695,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  * 
  * from .casbin_service import PermissionService             # <<<<<<<<<<<<<<
  * from ..config.app_config import AppConfig
- * from ..portal.auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
+ * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_PermissionService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -8712,7 +8712,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  * 
  * from .casbin_service import PermissionService
  * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
- * from ..portal.auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
+ * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
  * from ..exception.service_exception import LoginException, AuthException
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
@@ -8729,7 +8729,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   /* "auth_service.py":20
  * from .casbin_service import PermissionService
  * from ..config.app_config import AppConfig
- * from ..portal.auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword             # <<<<<<<<<<<<<<
+ * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword             # <<<<<<<<<<<<<<
  * from ..exception.service_exception import LoginException, AuthException
  * from ..schemas.query_request import QueryRequest
 */
@@ -8758,7 +8758,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
 
   /* "auth_service.py":21
  * from ..config.app_config import AppConfig
- * from ..portal.auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
+ * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
  * from ..exception.service_exception import LoginException, AuthException             # <<<<<<<<<<<<<<
  * from ..schemas.query_request import QueryRequest
  * from ..services.data_service import DataService
@@ -8779,7 +8779,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "auth_service.py":22
- * from ..portal.auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
+ * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
  * from ..exception.service_exception import LoginException, AuthException
  * from ..schemas.query_request import QueryRequest             # <<<<<<<<<<<<<<
  * from ..services.data_service import DataService

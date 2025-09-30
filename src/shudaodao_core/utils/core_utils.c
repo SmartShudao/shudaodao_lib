@@ -5123,7 +5123,7 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_14get_web_path(CYTHON_UNUSED Py
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_admin_path(cls) -> Path:
- *         """web"""
+ *         """admin"""
 */
 
 /* Python wrapper */
@@ -5134,7 +5134,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10core_utils_8CoreUtil_16get_admin_path, "\350\216\267\345\217\226web\347\233\256\345\275\225\350\267\257\345\276\204");
+PyDoc_STRVAR(__pyx_doc_10core_utils_8CoreUtil_16get_admin_path, "\350\216\267\345\217\226admin\347\233\256\345\275\225\350\267\257\345\276\204");
 static PyMethodDef __pyx_mdef_10core_utils_8CoreUtil_17get_admin_path = {"get_admin_path", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10core_utils_8CoreUtil_17get_admin_path, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10core_utils_8CoreUtil_16get_admin_path};
 static PyObject *__pyx_pw_10core_utils_8CoreUtil_17get_admin_path(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -5227,7 +5227,7 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_16get_admin_path(CYTHON_UNUSED 
 
   /* "core_utils.py":97
  *     def get_admin_path(cls) -> Path:
- *         """web"""
+ *         """admin"""
  *         return (cls.get_root_path() / 'admin').resolve()             # <<<<<<<<<<<<<<
  * 
  *     @staticmethod
@@ -5266,7 +5266,7 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_16get_admin_path(CYTHON_UNUSED 
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_admin_path(cls) -> Path:
- *         """web"""
+ *         """admin"""
 */
 
   /* function exit code */
@@ -6702,7 +6702,7 @@ __Pyx_RefNannySetupContext("PyInit_core_utils", 0);
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_admin_path(cls) -> Path:
- *         """web"""
+ *         """admin"""
 */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);

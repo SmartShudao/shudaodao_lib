@@ -1,11 +1,11 @@
-from ....auth.auth_router import AuthRouter as AuthRouter
-from ....services.auth_service import AuthService as AuthService
-from ....services.data_service import DataService as DataService
-from ....utils.response_utils import ResponseUtil as ResponseUtil
 from ..entity_table.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthRegister as AuthRegister, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
 from _typeshed import Incomplete
 from fastapi import Request as Request
 from fastapi.security import OAuth2PasswordRequestForm as OAuth2PasswordRequestForm
+from shudaodao_core.auth.auth_router import AuthRouter as AuthRouter
+from shudaodao_core.services.auth_service import AuthService as AuthService
+from shudaodao_core.services.data_service import DataService as DataService
+from shudaodao_core.utils.response_utils import ResponseUtil as ResponseUtil
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
 
 Auth_Controller: Incomplete

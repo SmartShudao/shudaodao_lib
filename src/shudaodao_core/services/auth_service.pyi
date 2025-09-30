@@ -1,6 +1,6 @@
 from ..config.app_config import AppConfig as AppConfig
 from ..exception.service_exception import AuthException as AuthException, LoginException as LoginException
-from ..portal.auth.entity_table.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
+from ..portal_auth.entity_table.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService

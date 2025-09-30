@@ -1944,7 +1944,6 @@ static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_config[] = "config";
-static const char __pyx_k_db_url[] = "db_url";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_prepare[] = "__prepare__";
@@ -1958,8 +1957,8 @@ static const char __pyx_k_dataclasses[] = "dataclasses";
 static const char __pyx_k_output_path[] = "output_path";
 static const char __pyx_k_Optional_str[] = "Optional[str]";
 static const char __pyx_k_GeneratorConfig[] = "GeneratorConfig";
-static const char __pyx_k_shudaodao_schema[] = "shudaodao_schema";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_shudaodao_generate[] = "shudaodao_generate";
 static const char __pyx_k_default_schema_name[] = "default_schema_name";
 static const char __pyx_k_database_engine_name[] = "database_engine_name";
 /* #### Code section: decls ### */
@@ -2001,7 +2000,7 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_string_tab[26];
+  PyObject *__pyx_string_tab[25];
 /* #### Code section: module_state_contents ### */
 /* CodeObjectCache.module_state_decls */
 struct __Pyx_CodeObjectCache __pyx_code_cache;
@@ -2043,20 +2042,19 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_database_engine_name __pyx_string_tab[9]
 #define __pyx_n_u_dataclass __pyx_string_tab[10]
 #define __pyx_n_u_dataclasses __pyx_string_tab[11]
-#define __pyx_n_u_db_url __pyx_string_tab[12]
-#define __pyx_n_u_default_schema_name __pyx_string_tab[13]
-#define __pyx_n_u_doc __pyx_string_tab[14]
-#define __pyx_n_u_main __pyx_string_tab[15]
-#define __pyx_n_u_metaclass __pyx_string_tab[16]
-#define __pyx_n_u_module __pyx_string_tab[17]
-#define __pyx_n_u_name __pyx_string_tab[18]
-#define __pyx_n_u_output_path __pyx_string_tab[19]
-#define __pyx_n_u_prepare __pyx_string_tab[20]
-#define __pyx_n_u_qualname __pyx_string_tab[21]
-#define __pyx_n_u_shudaodao_schema __pyx_string_tab[22]
-#define __pyx_n_u_str __pyx_string_tab[23]
-#define __pyx_n_u_test __pyx_string_tab[24]
-#define __pyx_n_u_typing __pyx_string_tab[25]
+#define __pyx_n_u_default_schema_name __pyx_string_tab[12]
+#define __pyx_n_u_doc __pyx_string_tab[13]
+#define __pyx_n_u_main __pyx_string_tab[14]
+#define __pyx_n_u_metaclass __pyx_string_tab[15]
+#define __pyx_n_u_module __pyx_string_tab[16]
+#define __pyx_n_u_name __pyx_string_tab[17]
+#define __pyx_n_u_output_path __pyx_string_tab[18]
+#define __pyx_n_u_prepare __pyx_string_tab[19]
+#define __pyx_n_u_qualname __pyx_string_tab[20]
+#define __pyx_n_u_shudaodao_generate __pyx_string_tab[21]
+#define __pyx_n_u_str __pyx_string_tab[22]
+#define __pyx_n_u_test __pyx_string_tab[23]
+#define __pyx_n_u_typing __pyx_string_tab[24]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2077,7 +2075,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<26; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<25; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2098,7 +2096,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<26; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<25; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2513,14 +2511,13 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
  * 
  * @dataclass
  * class GeneratorConfig:             # <<<<<<<<<<<<<<
- *     db_url: str
+ *     # db_url: str = ""
  *     database_engine_name: str = "Generate"
 */
   __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_GeneratorConfig, __pyx_mstate_global->__pyx_n_u_GeneratorConfig, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_config, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_url, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_database_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_output_path, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
@@ -2529,24 +2526,24 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
 
   /* "config.py":16
  * class GeneratorConfig:
- *     db_url: str
+ *     # db_url: str = ""
  *     database_engine_name: str = "Generate"             # <<<<<<<<<<<<<<
  *     #  schema  schema = None ,
- *     default_schema_name: str = "shudaodao_schema"
+ *     default_schema_name: str = "shudaodao_generate"
 */
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_database_engine_name, __pyx_mstate_global->__pyx_n_u_Generate) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
 
   /* "config.py":18
  *     database_engine_name: str = "Generate"
  *     #  schema  schema = None ,
- *     default_schema_name: str = "shudaodao_schema"             # <<<<<<<<<<<<<<
+ *     default_schema_name: str = "shudaodao_generate"             # <<<<<<<<<<<<<<
  *     output_path: Optional[str] = None
 */
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_shudaodao_schema) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_shudaodao_generate) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
 
   /* "config.py":19
  *     #  schema  schema = None ,
- *     default_schema_name: str = "shudaodao_schema"
+ *     default_schema_name: str = "shudaodao_generate"
  *     output_path: Optional[str] = None             # <<<<<<<<<<<<<<
 */
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_output_path, Py_None) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
@@ -2556,7 +2553,7 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
  * 
  * @dataclass             # <<<<<<<<<<<<<<
  * class GeneratorConfig:
- *     db_url: str
+ *     # db_url: str = ""
 */
   __pyx_t_4 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 13, __pyx_L1_error)
@@ -2566,7 +2563,7 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
  * 
  * @dataclass
  * class GeneratorConfig:             # <<<<<<<<<<<<<<
- *     db_url: str
+ *     # db_url: str = ""
  *     database_engine_name: str = "Generate"
 */
   __pyx_t_6 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_GeneratorConfig, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 14, __pyx_L1_error)
@@ -2669,7 +2666,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_database_engine_name, sizeof(__pyx_k_database_engine_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_database_engine_name */
   {__pyx_k_dataclass, sizeof(__pyx_k_dataclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclass */
   {__pyx_k_dataclasses, sizeof(__pyx_k_dataclasses), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dataclasses */
-  {__pyx_k_db_url, sizeof(__pyx_k_db_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_url */
   {__pyx_k_default_schema_name, sizeof(__pyx_k_default_schema_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_schema_name */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
@@ -2679,7 +2675,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_output_path, sizeof(__pyx_k_output_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_path */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
-  {__pyx_k_shudaodao_schema, sizeof(__pyx_k_shudaodao_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_schema */
+  {__pyx_k_shudaodao_generate, sizeof(__pyx_k_shudaodao_generate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_generate */
   {__pyx_k_str, sizeof(__pyx_k_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_str */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */

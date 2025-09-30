@@ -2465,7 +2465,7 @@ static const char __pyx_k_[] = "";
 static const char __pyx_k_1[] = "\320\n+\2501";
 static const char __pyx_k__2[] = "\346\250\241\345\236\213\346\226\207\344\273\266: ";
 static const char __pyx_k__3[] = "\346\255\243\345\234\250\345\210\233\345\273\272\346\225\260\346\215\256\350\241\250...";
-static const char __pyx_k__4[] = "\346\255\243\345\234\250\346\270\205\351\231\244\346\225\260\346\215\256...";
+static const char __pyx_k__4[] = "\346\255\243\345\234\250\346\270\205\351\231\244\350\247\204\345\210\231\346\225\260\346\215\256...";
 static const char __pyx_k__5[] = ".";
 static const char __pyx_k__6[] = "?";
 static const char __pyx_k__7[] = "\210!";
@@ -2482,6 +2482,7 @@ static const char __pyx_k_bool[] = "bool";
 static const char __pyx_k_conn[] = "conn";
 static const char __pyx_k_exit[] = "__exit__";
 static const char __pyx_k_func[] = "__func__";
+static const char __pyx_k_info[] = "info";
 static const char __pyx_k_load[] = "_load";
 static const char __pyx_k_lock[] = "_lock";
 static const char __pyx_k_main[] = "__main__";
@@ -2538,7 +2539,7 @@ static const char __pyx_k_name_Auth[] = "\346\225\260\346\215\256\345\255\230\34
 static const char __pyx_k_sync_conn[] = "sync_conn";
 static const char __pyx_k_tablename[] = "__tablename__";
 static const char __pyx_k_threading[] = "threading";
-static const char __pyx_k_yaml_auth[] = "    \350\275\275\345\205\245\351\205\215\347\275\256: .yaml - auth ";
+static const char __pyx_k_yaml_auth[] = "\345\212\240\350\275\275: .yaml - auth ";
 static const char __pyx_k_debug_line[] = "debug_line";
 static const char __pyx_k_sqlalchemy[] = "sqlalchemy";
 static const char __pyx_k_table_name[] = "table_name";
@@ -2573,10 +2574,10 @@ static const char __pyx_k_services_db_engine_service[] = "services.db_engine_ser
 static const char __pyx_k_PermissionEngine_check_table[] = "PermissionEngine.check_table";
 static const char __pyx_k_enable_auto_build_role_links[] = "enable_auto_build_role_links";
 static const char __pyx_k_casbin_async_sqlalchemy_adapter[] = "casbin_async_sqlalchemy_adapter";
-static const char __pyx_k_A_M_vQa_vQa_Jo_1_4whfD_Jj_vQb_t7[] = "\200A\330\010\014\210M\230\021\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\340\010\014\210J\220o\320%;\2701\330\010\013\2104\210w\220h\230f\240D\250\001\330\014\024\220J\230j\250\001\330\010\017\210v\220Q\220b\320\030/\250t\2607\270!\340\010\014\210K\320\027(\250\001\330\014\023\2204\220q\330\014\025\220Q\360\006\000\t\020\210v\220Q\220b\230\n\240#\240Q\240h\320.>\270c\300\022\3001\340\010\014\210M\230\035\240a\330\014\022\220#\220Q\220h\320\036.\250c\260\022\2601\330\014\024\220D\230\001\360\010\000\t\r\210J\320\026'\240q\250\001\340\010\014\210J\320\0263\2601\260A";
+static const char __pyx_k_A_M_uAQ_vQa_Jo_1_4whfD_Jj_vQb_t7[] = "\200A\330\010\014\210M\230\021\330\010\017\210{\230!\330\010\017\210u\220A\220Q\330\010\017\210{\230!\330\010\017\210v\220Q\220a\340\010\014\210J\220o\320%;\2701\330\010\013\2104\210w\220h\230f\240D\250\001\330\014\024\220J\230j\250\001\330\010\017\210v\220Q\220b\320\030/\250t\2607\270!\340\010\014\210K\320\027(\250\001\330\014\023\2204\220q\330\014\025\220Q\360\006\000\t\020\210v\220Q\220b\230\n\240#\240Q\240h\320.>\270c\300\022\3001\340\010\014\210M\230\035\240a\330\014\022\220#\220Q\220h\320\036.\250c\260\022\2601\330\014\024\220D\230\001\360\010\000\t\r\210J\320\026'\240q\250\001\340\010\014\210J\320\0263\2601\260A";
 static const char __pyx_k_PermissionEngine__check_table_ex[] = "PermissionEngine._check_table_exists";
 static const char __pyx_k_PermissionEngine_get_async_enfor[] = "PermissionEngine.get_async_enforcer";
-static const char __pyx_k_portal_auth_entity_table_auth_ru[] = "portal.auth.entity_table.auth_rule";
+static const char __pyx_k_portal_auth_entity_table_auth_ru[] = "portal_auth.entity_table.auth_rule";
 static const char __pyx_k_PermissionEngine__check_table_ex_2[] = "PermissionEngine._check_table_exists.<locals>.<lambda>";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
@@ -2633,7 +2634,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[7];
-  PyObject *__pyx_string_tab[110];
+  PyObject *__pyx_string_tab[111];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2754,53 +2755,54 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_get_auth_async_engine __pyx_string_tab[60]
 #define __pyx_n_u_get_config_path __pyx_string_tab[61]
 #define __pyx_n_u_has_table __pyx_string_tab[62]
-#define __pyx_n_u_initializing __pyx_string_tab[63]
-#define __pyx_n_u_inspect __pyx_string_tab[64]
-#define __pyx_n_u_instance __pyx_string_tab[65]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[66]
-#define __pyx_kp_u_isenabled __pyx_string_tab[67]
-#define __pyx_n_u_lambda __pyx_string_tab[68]
-#define __pyx_n_u_load __pyx_string_tab[69]
-#define __pyx_n_u_lock __pyx_string_tab[70]
-#define __pyx_n_u_logger_logging __pyx_string_tab[71]
-#define __pyx_n_u_logging __pyx_string_tab[72]
-#define __pyx_n_u_main __pyx_string_tab[73]
-#define __pyx_n_u_metaclass __pyx_string_tab[74]
-#define __pyx_n_u_model __pyx_string_tab[75]
-#define __pyx_n_u_module __pyx_string_tab[76]
-#define __pyx_n_u_name __pyx_string_tab[77]
-#define __pyx_n_u_name_2 __pyx_string_tab[78]
-#define __pyx_kp_u_name_Auth __pyx_string_tab[79]
-#define __pyx_n_u_new __pyx_string_tab[80]
-#define __pyx_n_u_next __pyx_string_tab[81]
-#define __pyx_n_u_pop __pyx_string_tab[82]
-#define __pyx_n_u_portal_auth_entity_table_auth_ru __pyx_string_tab[83]
-#define __pyx_n_u_prepare __pyx_string_tab[84]
-#define __pyx_n_u_qualname __pyx_string_tab[85]
-#define __pyx_n_u_rebuild_auth_rule __pyx_string_tab[86]
-#define __pyx_n_u_return __pyx_string_tab[87]
-#define __pyx_n_u_run_sync __pyx_string_tab[88]
-#define __pyx_n_u_save_policy __pyx_string_tab[89]
-#define __pyx_n_u_schema __pyx_string_tab[90]
-#define __pyx_n_u_self __pyx_string_tab[91]
-#define __pyx_n_u_send __pyx_string_tab[92]
-#define __pyx_n_u_services_db_engine_service __pyx_string_tab[93]
-#define __pyx_n_u_set_name __pyx_string_tab[94]
-#define __pyx_n_u_spec __pyx_string_tab[95]
-#define __pyx_n_u_sqlalchemy __pyx_string_tab[96]
-#define __pyx_n_u_sqlite __pyx_string_tab[97]
-#define __pyx_n_u_super __pyx_string_tab[98]
-#define __pyx_n_u_sync_conn __pyx_string_tab[99]
-#define __pyx_n_u_table __pyx_string_tab[100]
-#define __pyx_n_u_table_name __pyx_string_tab[101]
-#define __pyx_n_u_tablename __pyx_string_tab[102]
-#define __pyx_n_u_test __pyx_string_tab[103]
-#define __pyx_n_u_threading __pyx_string_tab[104]
-#define __pyx_n_u_throw __pyx_string_tab[105]
-#define __pyx_n_u_url __pyx_string_tab[106]
-#define __pyx_n_u_utils_core_utils __pyx_string_tab[107]
-#define __pyx_n_u_value __pyx_string_tab[108]
-#define __pyx_kp_u_yaml_auth __pyx_string_tab[109]
+#define __pyx_n_u_info __pyx_string_tab[63]
+#define __pyx_n_u_initializing __pyx_string_tab[64]
+#define __pyx_n_u_inspect __pyx_string_tab[65]
+#define __pyx_n_u_instance __pyx_string_tab[66]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[67]
+#define __pyx_kp_u_isenabled __pyx_string_tab[68]
+#define __pyx_n_u_lambda __pyx_string_tab[69]
+#define __pyx_n_u_load __pyx_string_tab[70]
+#define __pyx_n_u_lock __pyx_string_tab[71]
+#define __pyx_n_u_logger_logging __pyx_string_tab[72]
+#define __pyx_n_u_logging __pyx_string_tab[73]
+#define __pyx_n_u_main __pyx_string_tab[74]
+#define __pyx_n_u_metaclass __pyx_string_tab[75]
+#define __pyx_n_u_model __pyx_string_tab[76]
+#define __pyx_n_u_module __pyx_string_tab[77]
+#define __pyx_n_u_name __pyx_string_tab[78]
+#define __pyx_n_u_name_2 __pyx_string_tab[79]
+#define __pyx_kp_u_name_Auth __pyx_string_tab[80]
+#define __pyx_n_u_new __pyx_string_tab[81]
+#define __pyx_n_u_next __pyx_string_tab[82]
+#define __pyx_n_u_pop __pyx_string_tab[83]
+#define __pyx_n_u_portal_auth_entity_table_auth_ru __pyx_string_tab[84]
+#define __pyx_n_u_prepare __pyx_string_tab[85]
+#define __pyx_n_u_qualname __pyx_string_tab[86]
+#define __pyx_n_u_rebuild_auth_rule __pyx_string_tab[87]
+#define __pyx_n_u_return __pyx_string_tab[88]
+#define __pyx_n_u_run_sync __pyx_string_tab[89]
+#define __pyx_n_u_save_policy __pyx_string_tab[90]
+#define __pyx_n_u_schema __pyx_string_tab[91]
+#define __pyx_n_u_self __pyx_string_tab[92]
+#define __pyx_n_u_send __pyx_string_tab[93]
+#define __pyx_n_u_services_db_engine_service __pyx_string_tab[94]
+#define __pyx_n_u_set_name __pyx_string_tab[95]
+#define __pyx_n_u_spec __pyx_string_tab[96]
+#define __pyx_n_u_sqlalchemy __pyx_string_tab[97]
+#define __pyx_n_u_sqlite __pyx_string_tab[98]
+#define __pyx_n_u_super __pyx_string_tab[99]
+#define __pyx_n_u_sync_conn __pyx_string_tab[100]
+#define __pyx_n_u_table __pyx_string_tab[101]
+#define __pyx_n_u_table_name __pyx_string_tab[102]
+#define __pyx_n_u_tablename __pyx_string_tab[103]
+#define __pyx_n_u_test __pyx_string_tab[104]
+#define __pyx_n_u_threading __pyx_string_tab[105]
+#define __pyx_n_u_throw __pyx_string_tab[106]
+#define __pyx_n_u_url __pyx_string_tab[107]
+#define __pyx_n_u_utils_core_utils __pyx_string_tab[108]
+#define __pyx_n_u_value __pyx_string_tab[109]
+#define __pyx_kp_u_yaml_auth __pyx_string_tab[110]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2827,7 +2829,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<7; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<110; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<111; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2854,7 +2856,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<7; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<110; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<111; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3361,7 +3363,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
  *     def _load(self):
  *         self._enforcer = None             # <<<<<<<<<<<<<<
  *         logging.debug_line()
- *         logging.debug("    : .yaml - auth ")
+ *         logging.info(": .yaml - auth ")
 */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, Py_None) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
 
@@ -3369,7 +3371,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
  *     def _load(self):
  *         self._enforcer = None
  *         logging.debug_line()             # <<<<<<<<<<<<<<
- *         logging.debug("    : .yaml - auth ")
+ *         logging.info(": .yaml - auth ")
  *         logging.debug_line()
 */
   __pyx_t_2 = NULL;
@@ -3403,14 +3405,14 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   /* "casbin_engine.py":40
  *         self._enforcer = None
  *         logging.debug_line()
- *         logging.debug("    : .yaml - auth ")             # <<<<<<<<<<<<<<
+ *         logging.info(": .yaml - auth ")             # <<<<<<<<<<<<<<
  *         logging.debug_line()
  *         logging.debug(": casbin ")
 */
   __pyx_t_4 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -3437,7 +3439,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
 
   /* "casbin_engine.py":41
  *         logging.debug_line()
- *         logging.debug("    : .yaml - auth ")
+ *         logging.info(": .yaml - auth ")
  *         logging.debug_line()             # <<<<<<<<<<<<<<
  *         logging.debug(": casbin ")
  * 
@@ -3471,7 +3473,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "casbin_engine.py":42
- *         logging.debug("    : .yaml - auth ")
+ *         logging.info(": .yaml - auth ")
  *         logging.debug_line()
  *         logging.debug(": casbin ")             # <<<<<<<<<<<<<<
  * 
@@ -6399,7 +6401,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
  * from sqlalchemy import inspect
  * 
  * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
- * from ..portal.auth.entity_table.auth_rule import AuthRule
+ * from ..portal_auth.entity_table.auth_rule import AuthRule
  * from ..logger.logging_ import logging
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
@@ -6416,7 +6418,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   /* "casbin_engine.py":16
  * 
  * from ..config.app_config import AppConfig
- * from ..portal.auth.entity_table.auth_rule import AuthRule             # <<<<<<<<<<<<<<
+ * from ..portal_auth.entity_table.auth_rule import AuthRule             # <<<<<<<<<<<<<<
  * from ..logger.logging_ import logging
  * from ..services.db_engine_service import DBEngineService
 */
@@ -6433,7 +6435,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
 
   /* "casbin_engine.py":17
  * from ..config.app_config import AppConfig
- * from ..portal.auth.entity_table.auth_rule import AuthRule
+ * from ..portal_auth.entity_table.auth_rule import AuthRule
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
  * from ..services.db_engine_service import DBEngineService
  * from ..utils.core_utils import CoreUtil
@@ -6450,7 +6452,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "casbin_engine.py":18
- * from ..portal.auth.entity_table.auth_rule import AuthRule
+ * from ..portal_auth.entity_table.auth_rule import AuthRule
  * from ..logger.logging_ import logging
  * from ..services.db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
  * from ..utils.core_utils import CoreUtil
@@ -6742,6 +6744,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_get_auth_async_engine, sizeof(__pyx_k_get_auth_async_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_auth_async_engine */
   {__pyx_k_get_config_path, sizeof(__pyx_k_get_config_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_config_path */
   {__pyx_k_has_table, sizeof(__pyx_k_has_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_has_table */
+  {__pyx_k_info, sizeof(__pyx_k_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_info */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_inspect, sizeof(__pyx_k_inspect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_inspect */
   {__pyx_k_instance, sizeof(__pyx_k_instance), 0, 1, 1}, /* PyObject cname: __pyx_n_u_instance */
@@ -6890,7 +6893,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 37, 205};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_M_vQa_vQa_Jo_1_4whfD_Jj_vQb_t7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_M_uAQ_vQa_Jo_1_4whfD_Jj_vQb_t7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 66, 9};
