@@ -14,7 +14,7 @@ from pydantic import Field, BaseModel
 from sqlalchemy import BigInteger
 from sqlmodel import SQLModel
 
-from ..tools.class_field import convert_datetime_iso_to_standard
+from ..tools.query_field import convert_datetime_iso_to_standard
 
 
 class BaseResponse(SQLModel):

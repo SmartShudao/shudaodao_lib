@@ -3,11 +3,16 @@
 # @License  ：(C)Copyright 2025, 数道智融科技
 
 from sqlalchemy.orm import registry
+from sqlmodel import SQLModel
 
-from shudaodao_core.config.running_config import RunningConfig
-from shudaodao_core.engine.database_engine import DatabaseEngine
+from ..config.running_config import RunningConfig
+from ..engine.database_engine import DatabaseEngine
 
 auth_registry = registry()
+
+
+class RegistryModel(SQLModel, registry=auth_registry):
+    ...
 
 
 # 用于 Controller
@@ -15,6 +20,7 @@ def get_engine_name():
     return RunningConfig.get_engine_name("Auth", "shudaodao_auth")
 
 
+# noinspection DuplicatedCode
 setattr(auth_registry, "engine_name", get_engine_name())
 
 

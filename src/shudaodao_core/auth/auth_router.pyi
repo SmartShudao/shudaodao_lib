@@ -1,4 +1,5 @@
 from ..exception.service_exception import ServiceErrorException as ServiceErrorException
+from ..logger.logging_ import logging as logging
 from ..portal_auth.entity_table.auth_user import AuthUser as AuthUser
 from ..services.auth_service import AuthService as AuthService
 from ..services.db_engine_service import DBEngineService as DBEngineService

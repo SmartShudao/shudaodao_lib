@@ -6,7 +6,7 @@
 # @Date     ：2025/9/26 上午11:57
 # @Desc     ：
 
-from shudaodao_core.enum.label_enum import LabelEnum
+from ..enum.label_enum import LabelEnum
 
 
 class UserStatus(LabelEnum):

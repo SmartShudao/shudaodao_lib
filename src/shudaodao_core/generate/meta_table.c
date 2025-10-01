@@ -2683,7 +2683,7 @@ static const char __pyx_k_column_type[] = "column_type";
 static const char __pyx_k_create_date[] = "create_date";
 static const char __pyx_k_dataclasses[] = "dataclasses";
 static const char __pyx_k_foreign_key[] = "foreign_key";
-static const char __pyx_k_from_import[] = "from .. import ";
+static const char __pyx_k_from_import[] = "from ... import ";
 static const char __pyx_k_get_columns[] = "get_columns";
 static const char __pyx_k_get_comment[] = "get_comment";
 static const char __pyx_k_get_sa_type[] = "get_sa_type";
@@ -2758,9 +2758,8 @@ static const char __pyx_k_get_import_datetime[] = "_get_import_datetime";
 static const char __pyx_k_get_import_sqlmodel[] = "get_import_sqlmodel";
 static const char __pyx_k_parent_foreign_keys[] = "parent_foreign_keys";
 static const char __pyx_k_A_4q_4z_31D8MTQ____1[] = "\200A\330\010\013\2104\210q\330\014\023\2204\220z\320!3\2601\260D\3208M\310T\320Q^\320^_\320_`\340\014\023\2201";
-static const char __pyx_k_A_Q_q_G4q_s_XS_Rt5_q[] = "\200A\330\010\025\220Q\320\026'\240q\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\032\230'\240\021\240!\330\020\021\330\010\013\210:\220X\230S\240\002\240!\330\014\023\320\023%\240R\240t\2505\260\001\260\021\330\010\017\210q";
+static const char __pyx_k_A_Q_q_G4q_s_XS_b_E_q[] = "\200A\330\010\025\220Q\320\026'\240q\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\032\230'\240\021\240!\330\020\021\330\010\013\210:\220X\230S\240\002\240!\330\014\023\320\023&\240b\250\004\250E\260\021\260!\330\010\017\210q";
 static const char __pyx_k_from_datetime_import[] = "from datetime import ";
-static const char __pyx_k_from_sqlmodel_import[] = "from sqlmodel import ";
 static const char __pyx_k_get_database_columns[] = "get_database_columns";
 static const char __pyx_k_get_response_columns[] = "get_response_columns";
 static const char __pyx_k_MetaTable_get_columns[] = "MetaTable.get_columns";
@@ -2781,6 +2780,7 @@ static const char __pyx_k_schema_f_get_table_schema[] = "\"schema\": f\"{get_tab
 static const char __pyx_k_MetaTable__get_foreign_key[] = "MetaTable._get_foreign_key";
 static const char __pyx_k_MetaTable__get_import_type[] = "MetaTable._get_import_type";
 static const char __pyx_k_MetaTable_get_base_columns[] = "MetaTable.get_base_columns";
+static const char __pyx_k_from_shudaodao_core_import[] = "from shudaodao_core import ";
 static const char __pyx_k_from_decimal_import_Decimal[] = "from decimal import Decimal";
 static const char __pyx_k_MetaTable__add_child_columns[] = "MetaTable._add_child_columns";
 static const char __pyx_k_Q_JoT_4q_gQb_0_A_1_t5_4r_A_q[] = "\320\004!\240\021\330\010\025\220Q\330\010\014\210J\220o\240T\250\021\330\010\022\220'\230\021\230!\340\010\013\2104\210q\330\014\026\220g\230Q\230b\320 0\260\004\260A\330\010\013\2101\330\014\027\220t\2305\240\001\240\021\330\014\023\2204\220r\230\031\240\"\240A\340\010\017\210q";
@@ -2796,12 +2796,12 @@ static const char __pyx_k_Jd_q_6_s_Q_9_Q_0_3aq_31_D_Qa_as[] = "\320\004:\270!\33
 static const char __pyx_k_Q_G4q_s_gQ_gQa_s_3l_2_T_7_gQa_4[] = "\320\004\"\240!\330\010\025\220Q\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\023\220;\230g\240Q\330\024\036\230g\240Q\240a\340\014\017\210s\220!\330\020\023\2203\220l\320\"2\260#\260T\270\021\330\024\025\330\020\023\320\023#\2407\250!\330\024\036\230g\240Q\240a\330\010\013\2104\210q\330\014\033\2301\330\014\020\220\017\230t\2401\330\020\023\220;\320\0361\260\023\260D\270\001\330\024\025\330\020\037\230q\330\020\021\330\014\017\210}\230D\320 0\260\007\260q\330\020\032\230'\240\021\240!\330\010\013\2101\330\014\023\320\023)\250\022\2504\250u\260A\260Q\340\014\023\2201";
 static const char __pyx_k_Q_G4z_Qd2Gt1_D_ATAVVZZ_AXS_T_QQ[] = "\320\004\035\230Q\340\010\022\220!\330\010\014\210G\2204\220z\240\034\250Q\250d\3202G\300t\3101\340\014\034\230D\240\n\320*<\270A\270T\320AV\320VZ\320Z[\330\014\031\230\023\230A\230X\240S\250\r\260T\270\021\320:Q\320QR\330\014\032\230!\330\014\017\210t\2201\330\020\024\220G\2304\230q\330\024\027\220s\230!\2308\2403\240c\250\021\320*@\300\001\300\021\330\030&\320&7\260q\330\034(\250\004\250A\330\034.\250d\260!\330\034.\250d\260!\330\034/\250s\260!\2601\330\034-\250T\260\037\300\001\300\024\300Q\330\034+\2503\250a\250q\330\034+\2504\320/?\270q\300\003\3001\300A\330\034,\250C\250q\3200C\3001\300A\330\034*\250$\250o\270Q\270c\300\021\300!\330\034(\250\003\2501\250A\340\030\034\320\034/\250q\260\001\340\014\023\2207\230!\230:\240Q\330\020\025\220S\230\001\230\021\330\020\030\230\004\230L\250\001\250\023\250A\250Y\260a\330\020\025\220S\230\001\230\027\240\014\250A\330\020\031\230\023\230A\230Q\330\020\033\2301\330\020\034\230A\330\020\030\230\003\2301\230C\230t\2401\240K\250t\2608\2701\270H\300C\300x\310q\320PU\320UV\330\020\033\2307\240!\2403\240a\240y\260\n\270!\330\020\032\230'\240\021\240#\240Q\240i\250}\270A\330\020\026\220g\230Q\230c\240\021\240)\2509\260A\340\010\025\220Q\330\010\014\210G\2201\330\014\017\210s\220!\330\020\035\230Q\330\020\021\340\010\013\2104\210q\330\014\017\210s\220!\2209\230B\230a\330\020\026\220g\230Q\230a\330\020\023\220>\240\021\330\020\023\2203\220a\330\024\027\220|\2401\340\024\027\220{\240!\340\010\017\210q";
 static const char __pyx_k_Q_M_O1_a_M__AQ_N_aq_4_q_6a_l_7t[] = "\320\004%\240Q\360\006\000\t\r\210M\230\021\330\010\014\210O\2301\330\010\014\320\014\036\230a\330\010\014\320\014\"\240!\330\010\014\210M\230\024\230_\250A\250Q\330\010\014\210N\230$\320\036.\250a\250q\330\010\014\320\014#\2404\320'?\270q\300\001\330\010\014\320\0146\260a\330\010\014\320\014*\250$\250l\270!\330\010\014\320\0147\260t\320;O\310q\320PQ\330\010\014\320\014.\250d\3202C\3001\330\010\014\320\0142\260$\3206K\3101\330\010\014\320\0142\260$\3206K\3101\330\010\014\320\014\034\230D\240\014\250A\330\010\014\320\014#\2408\2504\250r\260\031\270!\2701\330\010\014\320\014)\250\024\320-A\300\021\330\010\014\210M\230\034\240Q\330\010\014\320\014\037\230t\320#3\2601";
-static const char __pyx_k_Q_T_a_1_7_1_T_Q_1_7_1_T_1_7_1_3[] = "\320\004%\240Q\330\010\022\220!\340\010\025\220T\320\031.\250a\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031-\250Q\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031*\250!\330\010\013\2101\330\014\023\2207\230!\2301\330\010\013\2103\210a\210y\230\002\230!\330\014\023\2207\230!\2301\340\010\025\220T\320\0310\260\001\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031-\250Q\330\010\013\2101\330\014\023\2207\230!\2301\330\014\023\2207\230!\2301\340\010\017\210w\220a\220t\320\0335\260Q\340\010\025\220T\320\0311\260\021\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031*\250!\330\010\013\2101\330\014\023\2207\230!\2301\330\010\017\210q";
+static const char __pyx_k_Q_T_a_1_7_1_T_Q_1_7_1_T_1_7_1_3[] = "\320\004%\240Q\330\010\022\220!\340\010\025\220T\320\031.\250a\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031-\250Q\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031*\250!\330\010\013\2101\330\014\023\2207\230!\2301\330\010\013\2103\210a\210y\230\002\230!\330\014\023\2207\230!\2301\340\010\025\220T\320\0310\260\001\330\010\013\2101\330\014\023\2207\230!\2301\330\014\023\2207\230!\2301\340\010\025\220T\320\031-\250Q\330\010\013\2101\330\014\023\2207\230!\2301\340\010\017\210w\220a\220t\320\0335\260Q\340\010\025\220T\320\0311\260\021\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031*\250!\330\010\013\2101\330\014\023\2207\230!\2301\330\010\017\210q";
 static const char __pyx_k_a_Q_G4q_s_1_s_1_F_Q_F_Q_1_2T_aq[] = "\320\004&\240a\330\010\025\220Q\330\010\014\210G\2204\220q\330\014\017\210s\220&\230\003\2301\330\020\021\330\014\017\210s\220&\230\003\2301\330\020\032\230'\240\021\240!\330\021\024\220F\230#\230Q\330\020\032\230'\240\021\240!\330\021\024\220F\230#\230Q\330\020\032\230'\240\021\240!\330\010\013\2101\330\014\023\320\023+\2502\250T\260\025\260a\260q\340\014\023\2201";
 static const char __pyx_k_A_6a_3a_6_4q_z_A_q_a_A_a_q_q_d_Q[] = "\200A\330-6\260a\340\010\023\2203\220a\220|\2406\250\021\330\010\013\2104\210q\330\014\017\210z\230\023\230A\330\020\027\220q\360\020\000\t\n\330\014\026\220a\330\014\030\230\001\330\014\024\220A\330\014\030\230\001\330\014\026\220a\340\014\032\230!\330\014\027\220q\330\014\027\220q\340\010\017\320\017&\240d\250!\250:\260Q";
 static const char __pyx_k_A_Q_G4q_s_A_G4q_s_3l_2_T_q_S_A_q[] = "\200A\330\010\025\220Q\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\032\230'\240\023\240A\330\020\021\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\023\2203\220l\320\"2\260#\260T\270\021\330\024\025\330\020 \240\002\240.\260\003\260<\270q\330\"-\250S\260\014\270A\330\020\023\220=\240\007\240q\330\024\036\230g\240Q\240a\330\010\013\2104\210q\330\014\021\320\021&\240g\250Q\330\020\032\230'\240\023\240A\340\014\020\220\017\230t\2401\330\020\023\220;\320\0361\260\023\260D\270\001\330\024\025\330\020 \240\002\240.\260\013\2701\330\"-\250[\270\001\330\020\023\220=\240\007\240q\330\024\036\230g\240Q\240a\340\010\013\2103\210a\210|\2302\230Q\330\014\023\2204\220u\230A\230Q\330\010\017\210q";
 static const char __pyx_k_A_Q_G4q_t3a_z_Cq_WA_gQa_3is_Q_3a[] = "\200A\330\010\025\220Q\330\010\014\210G\2204\220q\330\014\017\210t\2203\220a\330\020\021\330\014\017\210z\230\023\230C\230q\330\020\023\220:\230W\240A\330\024\036\230g\240Q\240a\360\022\000\021\024\2203\220i\230s\240!\330\024\025\330\020\032\230'\240\021\240#\240Q\340\010\013\2103\210a\210|\2302\230Q\330\014\023\320\023-\250R\250t\2605\270\001\270\021\340\010\017\210q";
-static const char __pyx_k_A_Ql_G4q_s_gQa_4q_gQ_3a_2Q_2T_aq[] = "\200A\330\010\025\220Q\220l\240!\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\023\220?\240'\250\021\330\024\036\230g\240Q\240a\330\010\013\2104\210q\330\014\017\210\177\230g\240Q\330\020\032\230'\240\021\240!\330\010\013\2103\210a\210|\2302\230Q\330\014\023\320\023+\2502\250T\260\025\260a\260q\340\010\017\210q";
+static const char __pyx_k_A_Ql_G4q_s_gQa_4q_gQ_3a_2Q_1_4uA[] = "\200A\330\010\025\220Q\220l\240!\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\023\220?\240'\250\021\330\024\036\230g\240Q\240a\330\010\013\2104\210q\330\014\017\210\177\230g\240Q\330\020\032\230'\240\021\240!\330\010\013\2103\210a\210|\2302\230Q\330\014\023\320\0231\260\022\2604\260u\270A\270Q\340\010\017\210q";
 static const char __pyx_k_MetaTable__get_child_foreign_key[] = "MetaTable._get_child_foreign_keys";
 static const char __pyx_k_MetaTable__get_class_name_locals[] = "MetaTable._get_class_name.<locals>.genexpr";
 static const char __pyx_k_MetaTable__get_import_foreign_ke[] = "MetaTable._get_import_foreign_key";
@@ -3041,9 +3041,9 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_from_datetime_import __pyx_string_tab[110]
 #define __pyx_kp_u_from_decimal_import_Decimal __pyx_string_tab[111]
 #define __pyx_kp_u_from_import __pyx_string_tab[112]
-#define __pyx_kp_u_from_shudaodao_core_import_get_p __pyx_string_tab[113]
-#define __pyx_kp_u_from_sqlalchemy_import __pyx_string_tab[114]
-#define __pyx_kp_u_from_sqlmodel_import __pyx_string_tab[115]
+#define __pyx_kp_u_from_shudaodao_core_import __pyx_string_tab[113]
+#define __pyx_kp_u_from_shudaodao_core_import_get_p __pyx_string_tab[114]
+#define __pyx_kp_u_from_sqlalchemy_import __pyx_string_tab[115]
 #define __pyx_kp_u_from_typing_import __pyx_string_tab[116]
 #define __pyx_n_u_func __pyx_string_tab[117]
 #define __pyx_kp_u_gc __pyx_string_tab[118]
@@ -8675,7 +8675,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_26_get_entity_imports(CYTHON_U
  *         import_str = self._get_import_sqlalchemy()
  *         if import_str:             # <<<<<<<<<<<<<<
  *             imports.append(import_str)
- *         # sqlmodel
+ *             imports.append("")
 */
   __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_import_str); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 275, __pyx_L1_error)
   if (__pyx_t_4) {
@@ -8684,22 +8684,31 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_26_get_entity_imports(CYTHON_U
  *         import_str = self._get_import_sqlalchemy()
  *         if import_str:
  *             imports.append(import_str)             # <<<<<<<<<<<<<<
+ *             imports.append("")
+ *         # sqlmodel
+*/
+    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_imports, __pyx_v_import_str); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 276, __pyx_L1_error)
+
+    /* "meta_table.py":277
+ *         if import_str:
+ *             imports.append(import_str)
+ *             imports.append("")             # <<<<<<<<<<<<<<
  *         # sqlmodel
  *         import_str = self.get_import_sqlmodel()
 */
-    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_imports, __pyx_v_import_str); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 276, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_imports, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 277, __pyx_L1_error)
 
     /* "meta_table.py":275
  *         # sqlalchemy
  *         import_str = self._get_import_sqlalchemy()
  *         if import_str:             # <<<<<<<<<<<<<<
  *             imports.append(import_str)
- *         # sqlmodel
+ *             imports.append("")
 */
   }
 
-  /* "meta_table.py":278
- *             imports.append(import_str)
+  /* "meta_table.py":279
+ *             imports.append("")
  *         # sqlmodel
  *         import_str = self.get_import_sqlmodel()             # <<<<<<<<<<<<<<
  *         if import_str:
@@ -8712,51 +8721,42 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_26_get_entity_imports(CYTHON_U
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_import_sqlmodel, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF_SET(__pyx_v_import_str, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "meta_table.py":279
+  /* "meta_table.py":280
  *         # sqlmodel
  *         import_str = self.get_import_sqlmodel()
  *         if import_str:             # <<<<<<<<<<<<<<
  *             imports.append(import_str)
- *             imports.append("")
+ *         # field
 */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_import_str); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 279, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_import_str); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 280, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "meta_table.py":280
+    /* "meta_table.py":281
  *         import_str = self.get_import_sqlmodel()
  *         if import_str:
  *             imports.append(import_str)             # <<<<<<<<<<<<<<
- *             imports.append("")
- *         # field
-*/
-    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_imports, __pyx_v_import_str); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 280, __pyx_L1_error)
-
-    /* "meta_table.py":281
- *         if import_str:
- *             imports.append(import_str)
- *             imports.append("")             # <<<<<<<<<<<<<<
  *         # field
  *         imports.append(self.get_import_shudaodao_core())
 */
-    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_imports, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 281, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyList_Append(__pyx_v_imports, __pyx_v_import_str); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 281, __pyx_L1_error)
 
-    /* "meta_table.py":279
+    /* "meta_table.py":280
  *         # sqlmodel
  *         import_str = self.get_import_sqlmodel()
  *         if import_str:             # <<<<<<<<<<<<<<
  *             imports.append(import_str)
- *             imports.append("")
+ *         # field
 */
   }
 
   /* "meta_table.py":283
- *             imports.append("")
+ *             imports.append(import_str)
  *         # field
  *         imports.append(self.get_import_shudaodao_core())             # <<<<<<<<<<<<<<
  *         # import_foreign_key
@@ -9396,7 +9396,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_30_get_import_foreign_key(CYTH
  *                 import_str.append("get_foreign_schema")
  *                 break             # <<<<<<<<<<<<<<
  *         if import_str.__len__() > 1:
- *             return "from .. import " + ", ".join(import_str)
+ *             return "from ... import " + ", ".join(import_str)
 */
       goto __pyx_L4_break;
 
@@ -9428,7 +9428,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_30_get_import_foreign_key(CYTH
  *                 import_str.append("get_foreign_schema")
  *                 break
  *         if import_str.__len__() > 1:             # <<<<<<<<<<<<<<
- *             return "from .. import " + ", ".join(import_str)
+ *             return "from ... import " + ", ".join(import_str)
  *         return ""
 */
   __pyx_t_2 = __Pyx_CallUnboundCMethod0(&__pyx_mstate_global->__pyx_umethod_PyList_Type____len, __pyx_v_import_str); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 313, __pyx_L1_error)
@@ -9442,7 +9442,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_30_get_import_foreign_key(CYTH
     /* "meta_table.py":314
  *                 break
  *         if import_str.__len__() > 1:
- *             return "from .. import " + ", ".join(import_str)             # <<<<<<<<<<<<<<
+ *             return "from ... import " + ", ".join(import_str)             # <<<<<<<<<<<<<<
  *         return ""
  * 
 */
@@ -9460,14 +9460,14 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_30_get_import_foreign_key(CYTH
  *                 import_str.append("get_foreign_schema")
  *                 break
  *         if import_str.__len__() > 1:             # <<<<<<<<<<<<<<
- *             return "from .. import " + ", ".join(import_str)
+ *             return "from ... import " + ", ".join(import_str)
  *         return ""
 */
   }
 
   /* "meta_table.py":315
  *         if import_str.__len__() > 1:
- *             return "from .. import " + ", ".join(import_str)
+ *             return "from ... import " + ", ".join(import_str)
  *         return ""             # <<<<<<<<<<<<<<
  * 
  *     def _get_foreign_key(self):
@@ -10536,7 +10536,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_34get_import_sqlmodel(CYTHON_U
  *             if "Relationship" not in import_str:
  *                 import_str.append("Relationship")             # <<<<<<<<<<<<<<
  *         if len(import_str) > 0:
- *             return 'from sqlmodel import ' + ', '.join(import_str)
+ *             return 'from shudaodao_core import ' + ', '.join(import_str)
 */
       __pyx_t_6 = __Pyx_PyList_Append(__pyx_v_import_str, __pyx_mstate_global->__pyx_n_u_Relationship); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 355, __pyx_L1_error)
 
@@ -10562,7 +10562,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_34get_import_sqlmodel(CYTHON_U
  *             if "Relationship" not in import_str:
  *                 import_str.append("Relationship")
  *         if len(import_str) > 0:             # <<<<<<<<<<<<<<
- *             return 'from sqlmodel import ' + ', '.join(import_str)
+ *             return 'from shudaodao_core import ' + ', '.join(import_str)
  * 
 */
   __pyx_t_3 = __Pyx_PyList_GET_SIZE(__pyx_v_import_str); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(0, 356, __pyx_L1_error)
@@ -10572,14 +10572,14 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_34get_import_sqlmodel(CYTHON_U
     /* "meta_table.py":357
  *                 import_str.append("Relationship")
  *         if len(import_str) > 0:
- *             return 'from sqlmodel import ' + ', '.join(import_str)             # <<<<<<<<<<<<<<
+ *             return 'from shudaodao_core import ' + ', '.join(import_str)             # <<<<<<<<<<<<<<
  * 
  *         return ""
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_2 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u__7, __pyx_v_import_str); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_from_sqlmodel_import, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_from_shudaodao_core_import, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_1;
@@ -10590,13 +10590,13 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_34get_import_sqlmodel(CYTHON_U
  *             if "Relationship" not in import_str:
  *                 import_str.append("Relationship")
  *         if len(import_str) > 0:             # <<<<<<<<<<<<<<
- *             return 'from sqlmodel import ' + ', '.join(import_str)
+ *             return 'from shudaodao_core import ' + ', '.join(import_str)
  * 
 */
   }
 
   /* "meta_table.py":359
- *             return 'from sqlmodel import ' + ', '.join(import_str)
+ *             return 'from shudaodao_core import ' + ', '.join(import_str)
  * 
  *         return ""             # <<<<<<<<<<<<<<
  * 
@@ -13336,9 +13336,9 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_from_datetime_import, sizeof(__pyx_k_from_datetime_import), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_datetime_import */
   {__pyx_k_from_decimal_import_Decimal, sizeof(__pyx_k_from_decimal_import_Decimal), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_decimal_import_Decimal */
   {__pyx_k_from_import, sizeof(__pyx_k_from_import), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_import */
+  {__pyx_k_from_shudaodao_core_import, sizeof(__pyx_k_from_shudaodao_core_import), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_shudaodao_core_import */
   {__pyx_k_from_shudaodao_core_import_get_p, sizeof(__pyx_k_from_shudaodao_core_import_get_p), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_shudaodao_core_import_get_p */
   {__pyx_k_from_sqlalchemy_import, sizeof(__pyx_k_from_sqlalchemy_import), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_sqlalchemy_import */
-  {__pyx_k_from_sqlmodel_import, sizeof(__pyx_k_from_sqlmodel_import), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_sqlmodel_import */
   {__pyx_k_from_typing_import, sizeof(__pyx_k_from_typing_import), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_from_typing_import */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
@@ -13611,7 +13611,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 307, 74};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_import_str, __pyx_mstate->__pyx_n_u_col};
-    __pyx_mstate_global->__pyx_codeobj_tab[16] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_table_py, __pyx_mstate->__pyx_n_u_get_import_foreign_key, __pyx_k_A_Q_q_G4q_s_XS_Rt5_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[16])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[16] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_table_py, __pyx_mstate->__pyx_n_u_get_import_foreign_key, __pyx_k_A_Q_q_G4q_s_XS_b_E_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[16])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 317, 227};
@@ -13621,7 +13621,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 347, 104};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_import_str, __pyx_mstate->__pyx_n_u_col};
-    __pyx_mstate_global->__pyx_codeobj_tab[18] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_table_py, __pyx_mstate->__pyx_n_u_get_import_sqlmodel, __pyx_k_A_Ql_G4q_s_gQa_4q_gQ_3a_2Q_2T_aq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[18])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[18] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_table_py, __pyx_mstate->__pyx_n_u_get_import_sqlmodel, __pyx_k_A_Ql_G4q_s_gQa_4q_gQ_3a_2Q_1_4uA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[18])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 361, 118};

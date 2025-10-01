@@ -11,30 +11,34 @@ from typing import Optional, Any
 
 from pydantic import EmailStr, model_validator, computed_field
 from sqlalchemy import BigInteger, Integer
-from sqlmodel import SQLModel, Field
+from sqlmodel import SQLModel
 
-from .. import get_schema_name, auth_registry
-from shudaodao_core.schemas.core_enum import UserStatus
-from shudaodao_core.schemas.response import BaseResponse
-from shudaodao_core.services.enum_service import EnumService
-from shudaodao_core.utils.generate_unique_id import get_primary_id
-
-
-class AuthUserBase(SQLModel, registry=auth_registry):
-    auth_user_id: Optional[int] = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger)
-    username: str = Field(unique=True, index=True, max_length=50)
-    password: str
-    email: Optional[EmailStr] = Field(default=None, nullable=True, max_length=100)
-    is_active: bool = True
-    status: Optional[UserStatus] = Field(default=None, nullable=True, sa_type=Integer)
+from .. import get_schema_name, RegistryModel
+from ...model.field import Field
+from ...schemas.core_enum import UserStatus
+from ...schemas.response import BaseResponse
+from ...services.enum_service import EnumService
+from ...utils.generate_unique_id import get_primary_id
 
 
-class AuthUser(AuthUserBase, table=True):
+class AuthUser(RegistryModel, table=True):
     """ 数据模型 - 数据库表 T_Auth_User 结构模型 """
     __tablename__ = "t_auth_user"
     __table_args__ = {"schema": f"{get_schema_name()}", "comment": "鉴权用户表"}
 
+    auth_user_id: Optional[int] = Field(
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger,
+        sa_column_kwargs={"comment": "内码"}, description="内码")
+    username: str = Field(unique=True, index=True, max_length=50, sa_column_kwargs={"comment": "内码"},
+                          description="用户名")
+    password: str = Field(sa_column_kwargs={"comment": "密码"}, description="密码")
+    email: Optional[EmailStr] = Field(default=None, nullable=True, max_length=100,
+                                      sa_column_kwargs={"comment": "邮件"}, description="邮件")
+    is_active: bool = True
+    status: Optional[UserStatus] = Field(default=None, nullable=True, sa_type=Integer)
+
     last_login: Optional[datetime] = Field(default_factory=lambda: datetime.now(), description="最后登录时间")
+
     created_at: datetime = Field(default_factory=lambda: datetime.now())
     updated_at: datetime = Field(default_factory=lambda: datetime.now())
 
@@ -50,11 +54,6 @@ class AuthUserResponse(BaseResponse):
     @property
     def status_label(self) -> str:
         return self.status.label if self.status else None
-
-    # @computed_field
-    # @property
-    # def status_description(self) -> str:
-    #     return self.status.description
 
 
 class AuthLogin(SQLModel):
