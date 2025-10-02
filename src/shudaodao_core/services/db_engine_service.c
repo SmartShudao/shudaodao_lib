@@ -1499,7 +1499,7 @@ struct __pyx_obj_17db_engine_service___pyx_scope_struct_1_get_auth_async_session
  *         return DatabaseEngine(database_config_name, async_engine=False)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:
 */
 struct __pyx_obj_17db_engine_service___pyx_scope_struct__get_async_session {
@@ -1522,7 +1522,7 @@ struct __pyx_obj_17db_engine_service___pyx_scope_struct__get_async_session {
  *         return cls.get_engine("Auth")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_auth_async_session(cls):
+ *     async def get_auth_async_session(cls) :
  *         #  .yaml - storage - database - name: Core
 */
 struct __pyx_obj_17db_engine_service___pyx_scope_struct_1_get_auth_async_session {
@@ -2466,14 +2466,14 @@ int __pyx_module_is_main_db_engine_service = 0;
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = ".";
-static const char __pyx_k_A[] = "\200A";
+static const char __pyx_k_A[] = "\200A\330;<";
 static const char __pyx_k__2[] = "?";
 static const char __pyx_k_gc[] = "gc";
+static const char __pyx_k_A_2[] = "\200A";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_str[] = "str";
-static const char __pyx_k_A_C1[] = "\200A\330;C\3001";
 static const char __pyx_k_Auth[] = "Auth";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_main[] = "__main__";
@@ -2492,7 +2492,6 @@ static const char __pyx_k_A_s_Qa[] = "\200A\340\010\017\210s\220+\230Q\230a";
 static const char __pyx_k_aenter[] = "__aenter__";
 static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_module[] = "__module__";
-static const char __pyx_k_return[] = "return";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_session[] = "session";
@@ -2580,7 +2579,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[6];
-  PyObject *__pyx_string_tab[56];
+  PyObject *__pyx_string_tab[55];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2697,15 +2696,14 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_pop __pyx_string_tab[44]
 #define __pyx_n_u_prepare __pyx_string_tab[45]
 #define __pyx_n_u_qualname __pyx_string_tab[46]
-#define __pyx_n_u_return __pyx_string_tab[47]
-#define __pyx_n_u_send __pyx_string_tab[48]
-#define __pyx_n_u_session __pyx_string_tab[49]
-#define __pyx_n_u_set_name __pyx_string_tab[50]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[51]
-#define __pyx_n_u_str __pyx_string_tab[52]
-#define __pyx_n_u_test __pyx_string_tab[53]
-#define __pyx_n_u_throw __pyx_string_tab[54]
-#define __pyx_n_u_value __pyx_string_tab[55]
+#define __pyx_n_u_send __pyx_string_tab[47]
+#define __pyx_n_u_session __pyx_string_tab[48]
+#define __pyx_n_u_set_name __pyx_string_tab[49]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[50]
+#define __pyx_n_u_str __pyx_string_tab[51]
+#define __pyx_n_u_test __pyx_string_tab[52]
+#define __pyx_n_u_throw __pyx_string_tab[53]
+#define __pyx_n_u_value __pyx_string_tab[54]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2732,7 +2730,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_17db_engine_service___pyx_scope_struct_1_get_auth_async_session);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<6; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<56; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<55; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2759,7 +2757,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_17db_engine_service___pyx_scope_struct_1_get_auth_async_session);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<6; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<56; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<55; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3120,7 +3118,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_6generator(__pyx
  *         return DatabaseEngine(database_config_name, async_engine=False)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:
 */
 
@@ -3307,7 +3305,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_6generator(__pyx
 
   /* "db_engine_service.py":26
  *     @classmethod
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:             # <<<<<<<<<<<<<<
  *             yield session
  * 
@@ -3417,7 +3415,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_6generator(__pyx
           __pyx_t_2 = 0;
 
           /* "db_engine_service.py":27
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:
  *             yield session             # <<<<<<<<<<<<<<
  * 
@@ -3456,7 +3454,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_6generator(__pyx
 
           /* "db_engine_service.py":26
  *     @classmethod
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:             # <<<<<<<<<<<<<<
  *             yield session
  * 
@@ -3635,7 +3633,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_6generator(__pyx
  *         return DatabaseEngine(database_config_name, async_engine=False)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:
 */
 
@@ -3960,7 +3958,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
  *         return cls.get_engine("Auth")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_auth_async_session(cls):
+ *     async def get_auth_async_session(cls) :
  *         #  .yaml - storage - database - name: Core
 */
 
@@ -4125,7 +4123,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
   }
 
   /* "db_engine_service.py":40
- *     async def get_auth_async_session(cls):
+ *     async def get_auth_async_session(cls) :
  *         #  .yaml - storage - database - name: Core
  *         async with AsyncSession(cls.get_auth_async_engine()) as session:             # <<<<<<<<<<<<<<
  *             yield session
@@ -4274,7 +4272,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
           if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 41, __pyx_L9_error)
 
           /* "db_engine_service.py":40
- *     async def get_auth_async_session(cls):
+ *     async def get_auth_async_session(cls) :
  *         #  .yaml - storage - database - name: Core
  *         async with AsyncSession(cls.get_auth_async_engine()) as session:             # <<<<<<<<<<<<<<
  *             yield session
@@ -4454,7 +4452,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
  *         return cls.get_engine("Auth")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_auth_async_session(cls):
+ *     async def get_auth_async_session(cls) :
  *         #  .yaml - storage - database - name: Core
 */
 
@@ -5351,13 +5349,12 @@ __Pyx_RefNannySetupContext("PyInit_db_engine_service", 0);
  *         return DatabaseEngine(database_config_name, async_engine=False)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_database_config_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
   __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_17db_engine_service_15DBEngineService_5get_async_session, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DBEngineService_get_async_sessio, NULL, __pyx_mstate_global->__pyx_n_u_db_engine_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_3);
@@ -5402,7 +5399,7 @@ __Pyx_RefNannySetupContext("PyInit_db_engine_service", 0);
  *         return cls.get_engine("Auth")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def get_auth_async_session(cls):
+ *     async def get_auth_async_session(cls) :
  *         #  .yaml - storage - database - name: Core
 */
   __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_17db_engine_service_15DBEngineService_12get_auth_async_session, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DBEngineService_get_auth_async_s, NULL, __pyx_mstate_global->__pyx_n_u_db_engine_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
@@ -5543,7 +5540,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
-  {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_send, sizeof(__pyx_k_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_send */
   {__pyx_k_session, sizeof(__pyx_k_session), 0, 1, 1}, /* PyObject cname: __pyx_n_u_session */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
@@ -5572,7 +5568,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 
   /* "db_engine_service.py":26
  *     @classmethod
- *     async def get_async_session(cls, database_config_name: str) -> AsyncSession:
+ *     async def get_async_session(cls, database_config_name: str):
  *         async with AsyncSession(cls.get_async_engine(database_config_name)) as session:             # <<<<<<<<<<<<<<
  *             yield session
  * 
@@ -5623,14 +5619,14 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR), 24, 7};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR), 24, 5};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_database_config_name, __pyx_mstate->__pyx_n_u_session};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_db_engine_service_py, __pyx_mstate->__pyx_n_u_get_async_session, __pyx_k_A_C1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_db_engine_service_py, __pyx_mstate->__pyx_n_u_get_async_session, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR), 37, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_session};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_db_engine_service_py, __pyx_mstate->__pyx_n_u_get_auth_async_session, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_db_engine_service_py, __pyx_mstate->__pyx_n_u_get_auth_async_session, __pyx_k_A_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 16, 16};

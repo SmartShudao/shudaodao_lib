@@ -2558,7 +2558,7 @@ static const char __pyx_k_A2[] = "\200A\3302@\300\001";
 static const char __pyx_k__2[] = ")";
 static const char __pyx_k__3[] = "\351\252\214\350\257\201\345\244\261\350\264\245";
 static const char __pyx_k__4[] = "\350\257\267\346\261\202\345\274\202\345\270\270";
-static const char __pyx_k__5[] = "\346\225\260\346\215\256\345\272\223\345\206\205\351\203\250\345\256\214\346\225\264\346\200\247\351\224\231\350\257\257";
+static const char __pyx_k__5[] = "\346\225\260\346\215\256\345\272\223\345\206\205\351\203\250\351\224\231\350\257\257,\344\270\215\345\205\201\350\256\270\351\207\215\345\244\215\346\225\260\346\215\256";
 static const char __pyx_k__6[] = "\346\234\215\345\212\241\345\231\250\345\206\205\351\203\250\351\224\231\350\257\257";
 static const char __pyx_k__7[] = "\346\234\252\346\211\276\345\210\260";
 static const char __pyx_k__8[] = "\346\226\271\346\263\225\344\270\215\345\205\201\350\256\270";
@@ -2863,7 +2863,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u__2 __pyx_string_tab[19]
 #define __pyx_n_u__3 __pyx_string_tab[20]
 #define __pyx_n_u__4 __pyx_string_tab[21]
-#define __pyx_n_u__5 __pyx_string_tab[22]
+#define __pyx_kp_u__5 __pyx_string_tab[22]
 #define __pyx_n_u__6 __pyx_string_tab[23]
 #define __pyx_n_u__7 __pyx_string_tab[24]
 #define __pyx_n_u__8 __pyx_string_tab[25]
@@ -5278,7 +5278,7 @@ static PyObject *__pyx_gb_17register_handlers_27register_exception_handlers_20ge
  *         return ResponseUtil.error(
  *             code=500,
  *             name=f"IntegrityError ({str(request.url)})",             # <<<<<<<<<<<<<<
- *             message="",
+ *             message=",",
  *             error=str(exc.args[0]) if exc.args[0] else str(exc)
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_request, __pyx_mstate_global->__pyx_n_u_url); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
@@ -5296,7 +5296,7 @@ static PyObject *__pyx_gb_17register_handlers_27register_exception_handlers_20ge
 
   /* "register_handlers.py":86
  *             name=f"IntegrityError ({str(request.url)})",
- *             message="",
+ *             message=",",
  *             error=str(exc.args[0]) if exc.args[0] else str(exc)             # <<<<<<<<<<<<<<
  *         )
  * 
@@ -5343,7 +5343,7 @@ static PyObject *__pyx_gb_17register_handlers_27register_exception_handlers_20ge
     __Pyx_GOTREF(__pyx_t_8);
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_code, __pyx_mstate_global->__pyx_int_500, __pyx_t_8, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_name, __pyx_t_3, __pyx_t_8, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__5, __pyx_t_8, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_kp_u__5, __pyx_t_8, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_error, __pyx_t_5, __pyx_t_8, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_10, (1-__pyx_t_10) | (__pyx_t_10*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_8);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -9270,7 +9270,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 1}, /* PyObject cname: __pyx_n_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 1}, /* PyObject cname: __pyx_n_u__4 */
-  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 1}, /* PyObject cname: __pyx_n_u__5 */
+  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 1}, /* PyObject cname: __pyx_n_u__6 */
   {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 1}, /* PyObject cname: __pyx_n_u__7 */
   {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 1}, /* PyObject cname: __pyx_n_u__8 */

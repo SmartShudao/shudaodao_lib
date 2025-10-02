@@ -1,5 +1,6 @@
 from .. import get_engine_name as get_engine_name
 from ...auth.auth_router import AuthRouter as AuthRouter
+from ...exception.service_exception import ServiceErrorException as ServiceErrorException
 from ...services.auth_service import AuthService as AuthService
 from ...services.data_service import DataService as DataService
 from ...utils.response_utils import ResponseUtil as ResponseUtil

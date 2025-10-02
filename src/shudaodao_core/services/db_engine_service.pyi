@@ -1,7 +1,6 @@
 from ..engine.database_engine import DatabaseEngine as DatabaseEngine
 from _typeshed import Incomplete
 from collections.abc import Generator
-from sqlmodel.ext.asyncio.session import AsyncSession
 
 class DBEngineService:
     @classmethod
@@ -9,7 +8,7 @@ class DBEngineService:
     @classmethod
     def get_engine(cls, database_config_name): ...
     @classmethod
-    async def get_async_session(cls, database_config_name: str) -> AsyncSession: ...
+    async def get_async_session(cls, database_config_name: str): ...
     @classmethod
     def get_auth_async_engine(cls): ...
     @classmethod

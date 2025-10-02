@@ -4389,7 +4389,7 @@ static PyObject *__pyx_gb_14casbin_service_17PermissionService_4generator(__pyx_
  *                     await self.add_role_for_user(
  *                         user=admin_user, role=admin_role             # <<<<<<<<<<<<<<
  *                     )
- * 
+ *             #
 */
         __pyx_t_4 = 0;
         {
@@ -4462,12 +4462,12 @@ static PyObject *__pyx_gb_14casbin_service_17PermissionService_4generator(__pyx_
     }
     __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
 
-    /* "casbin_service.py":58
- * 
+    /* "casbin_service.py":57
+ *                     )
  *             #
  *             await self.save_policy()             # <<<<<<<<<<<<<<
+ * 
  *         #
- *         logging.debug(f"policy : {len(self._enforcer.get_policy())}")
 */
     __pyx_t_1 = __pyx_cur_scope->__pyx_v_self;
     __Pyx_INCREF(__pyx_t_1);
@@ -4476,7 +4476,7 @@ static PyObject *__pyx_gb_14casbin_service_17PermissionService_4generator(__pyx_
       PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
       __pyx_t_19 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 58, __pyx_L1_error)
+      if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_19);
     }
     __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_19, &__pyx_r);
@@ -4490,19 +4490,19 @@ static PyObject *__pyx_gb_14casbin_service_17PermissionService_4generator(__pyx_
       __pyx_generator->resume_label = 6;
       return __pyx_r;
       __pyx_L31_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 58, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 57, __pyx_L1_error)
     } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_DECREF(__pyx_r); __pyx_r = 0;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 58, __pyx_L1_error)
+      __PYX_ERR(0, 57, __pyx_L1_error)
     }
   }
   __pyx_L5:;
 
   /* "casbin_service.py":60
- *             await self.save_policy()
+ * 
  *         #
  *         logging.debug(f"policy : {len(self._enforcer.get_policy())}")             # <<<<<<<<<<<<<<
  *         logging.debug(f"grouping_policy : {len(self._enforcer.get_grouping_policy())}")
