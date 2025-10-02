@@ -59,12 +59,12 @@ class AuthUserResponse(BaseResponse):
 class AuthLogin(SQLModel):
     """ 登录模型 """
     username: str = Field(min_length=3, max_length=50)
-    password: str = Field(min_length=6, max_length=50)
+    password: str = Field(min_length=6)
 
 
 class AuthRegister(SQLModel):
-    username: str = Field(min_length=3, max_length=50)
-    password: str = Field(min_length=6, max_length=50)
+    username: str = Field(min_length=5, max_length=50)
+    password: str = Field(min_length=5)
     email: Optional[EmailStr] = Field(default=None, max_length=50)
 
     # 输入字段：均为可选，且不设默认值
