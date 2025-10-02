@@ -2206,7 +2206,6 @@ static const char __pyx_k_days[] = "days";
 static const char __pyx_k_exit[] = "exit";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_info[] = "info";
-static const char __pyx_k_jose[] = "jose";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_open[] = "open";
@@ -2228,7 +2227,6 @@ static const char __pyx_k_logging[] = "logging";
 static const char __pyx_k_payload[] = "payload";
 static const char __pyx_k_warning[] = "warning";
 static const char __pyx_k_CoreUtil[] = "CoreUtil";
-static const char __pyx_k_JWTError[] = "JWTError";
 static const char __pyx_k_audience[] = "audience";
 static const char __pyx_k_datetime[] = "datetime";
 static const char __pyx_k_exp_days[] = "exp_days";
@@ -2237,6 +2235,7 @@ static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_info_line[] = "info_line";
 static const char __pyx_k_verify_py[] = "verify.py";
+static const char __pyx_k_PyJWKError[] = "PyJWKError";
 static const char __pyx_k_algorithms[] = "algorithms";
 static const char __pyx_k_public_key[] = "public_key";
 static const char __pyx_k_public_pem[] = "public.pem";
@@ -2257,7 +2256,7 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_config_license_jwt[] = "\350\256\270\345\217\257\346\226\207\344\273\266: /config/license.jwt \344\270\215\345\255\230\345\234\250!";
 static const char __pyx_k_config_license_jwt_2[] = "\350\257\273\345\217\226\350\256\270\345\217\257: /config/license.jwt";
 static const char __pyx_k_ExpiredSignatureError[] = "ExpiredSignatureError";
-static const char __pyx_k_Q_8_3b_t_wa_vQa_5_5_QnHA_b_a_Ba[] = "\200\001\340\004\013\210:\220Q\330\004\023\2208\320\033+\2503\250b\260\001\330\004\007\200t\210<\220w\230a\330\010\017\210v\220Q\220a\330\010\013\2105\220\001\220\021\340\004\013\2105\220\001\220\021\330\t\r\210Q\210n\230H\240A\330\010\020\220\001\220\025\220b\230\006\230a\360\006\000\005\022\220\030\320\031)\250\023\250B\250a\330\004\007\200t\210<\220w\230a\330\010\017\210v\220Q\220a\330\010\013\2105\220\001\220\021\330\t\r\210Q\210l\230(\240!\330\010\025\220Q\220e\2301\330\004\005\330\010\022\220#\220W\230A\230W\240L\260\t\270\036\300{\320RS\320ST\330\010\017\210u\220A\220R\220z\240\027\250\001\250\021\330\010\017\210u\220A\220R\220z\240\027\250\001\250\021\330\010\017\210u\220A\220R\220z\240\030\250\036\260q\270\007\270q\300\001\330\010\017\210u\220A\220R\220z\240\030\250\036\260q\270\007\270q\300\001\330\010\023\2208\230>\250\021\250'\260\021\260!\330\010\017\210u\220A\220R\220z\240\021\330\010\024\220I\230R\230x\240w\250c\260\021\330\010\017\210x\220q\230\002\230*\240A\340\010\017\210r\220\032\2307\240!\240?\260-\270y\310\002\310(\320RS\360\024\000\005\014\2103\320\016(\250\001\330\010\017\210v\220Q\220b\230\n\240!\330\010\013\2105\220\001\220\021\330\004\013\2103\210m\2301\330\010\017\210v\220Q\220b\230\n\240!\330\010\013\2105\220\001\220\021";
+static const char __pyx_k_Q_8_3b_t_wa_vQa_5_5_QnHA_b_a_Ba[] = "\200\001\340\004\013\210:\220Q\330\004\023\2208\320\033+\2503\250b\260\001\330\004\007\200t\210<\220w\230a\330\010\017\210v\220Q\220a\330\010\013\2105\220\001\220\021\340\004\013\2105\220\001\220\021\330\t\r\210Q\210n\230H\240A\330\010\020\220\001\220\025\220b\230\006\230a\360\006\000\005\022\220\030\320\031)\250\023\250B\250a\330\004\007\200t\210<\220w\230a\330\010\017\210v\220Q\220a\330\010\013\2105\220\001\220\021\330\t\r\210Q\210l\230(\240!\330\010\025\220Q\220e\2301\330\004\005\330\010\022\220#\220W\230A\230W\240L\260\t\270\036\300{\320RS\320ST\330\010\017\210u\220A\220R\220z\240\027\250\001\250\021\330\010\017\210u\220A\220R\220z\240\027\250\001\250\021\330\010\017\210u\220A\220R\220z\240\030\250\036\260q\270\007\270q\300\001\330\010\017\210u\220A\220R\220z\240\030\250\036\260q\270\007\270q\300\001\330\010\023\2208\230>\250\021\250'\260\021\260!\330\010\017\210u\220A\220R\220z\240\021\330\010\024\220I\230R\230x\240w\250c\260\021\330\010\017\210x\220q\230\002\230*\240A\340\010\017\210r\220\032\2307\240!\240?\260-\270y\310\002\310(\320RS\360\024\000\005\014\2103\320\016(\250\001\330\010\017\210v\220Q\220b\230\n\240!\330\010\013\2105\220\001\220\021\330\004\013\2103\210o\230Q\330\010\017\210v\220Q\220b\230\n\240!\330\010\013\2105\220\001\220\021";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 /* #### Code section: late_includes ### */
@@ -2300,7 +2299,7 @@ typedef struct {
   #endif
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[1];
-  PyObject *__pyx_string_tab[76];
+  PyObject *__pyx_string_tab[75];
   PyObject *__pyx_int_1;
   PyObject *__pyx_int_30;
 /* #### Code section: module_state_contents ### */
@@ -2343,7 +2342,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_ __pyx_string_tab[0]
 #define __pyx_n_u_CoreUtil __pyx_string_tab[1]
 #define __pyx_n_u_ExpiredSignatureError __pyx_string_tab[2]
-#define __pyx_n_u_JWTError __pyx_string_tab[3]
+#define __pyx_n_u_PyJWKError __pyx_string_tab[3]
 #define __pyx_n_u_RS256 __pyx_string_tab[4]
 #define __pyx_kp_u__10 __pyx_string_tab[5]
 #define __pyx_kp_u__11 __pyx_string_tab[6]
@@ -2385,37 +2384,36 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_info_line __pyx_string_tab[42]
 #define __pyx_n_u_initializing __pyx_string_tab[43]
 #define __pyx_n_u_is_coroutine __pyx_string_tab[44]
-#define __pyx_n_u_jose __pyx_string_tab[45]
-#define __pyx_n_u_jwt __pyx_string_tab[46]
-#define __pyx_n_u_license_file __pyx_string_tab[47]
-#define __pyx_kp_u_license_jwt __pyx_string_tab[48]
-#define __pyx_n_u_license_type __pyx_string_tab[49]
-#define __pyx_n_u_logger_logging __pyx_string_tab[50]
-#define __pyx_n_u_logging __pyx_string_tab[51]
-#define __pyx_n_u_main __pyx_string_tab[52]
-#define __pyx_n_u_module __pyx_string_tab[53]
-#define __pyx_n_u_name __pyx_string_tab[54]
-#define __pyx_n_u_open __pyx_string_tab[55]
-#define __pyx_n_u_payload __pyx_string_tab[56]
-#define __pyx_n_u_public_key __pyx_string_tab[57]
-#define __pyx_kp_u_public_pem __pyx_string_tab[58]
-#define __pyx_n_u_public_pem_2 __pyx_string_tab[59]
-#define __pyx_n_u_qualname __pyx_string_tab[60]
-#define __pyx_n_u_r __pyx_string_tab[61]
-#define __pyx_n_u_read __pyx_string_tab[62]
-#define __pyx_n_u_set_name __pyx_string_tab[63]
-#define __pyx_n_u_spec __pyx_string_tab[64]
-#define __pyx_n_u_strip __pyx_string_tab[65]
-#define __pyx_n_u_sub __pyx_string_tab[66]
-#define __pyx_n_u_sys __pyx_string_tab[67]
-#define __pyx_n_u_test __pyx_string_tab[68]
-#define __pyx_n_u_token __pyx_string_tab[69]
-#define __pyx_n_u_utcnow __pyx_string_tab[70]
-#define __pyx_n_u_utils_core_utils __pyx_string_tab[71]
-#define __pyx_n_u_verify __pyx_string_tab[72]
-#define __pyx_n_u_verify_license __pyx_string_tab[73]
-#define __pyx_kp_u_verify_py __pyx_string_tab[74]
-#define __pyx_n_u_warning __pyx_string_tab[75]
+#define __pyx_n_u_jwt __pyx_string_tab[45]
+#define __pyx_n_u_license_file __pyx_string_tab[46]
+#define __pyx_kp_u_license_jwt __pyx_string_tab[47]
+#define __pyx_n_u_license_type __pyx_string_tab[48]
+#define __pyx_n_u_logger_logging __pyx_string_tab[49]
+#define __pyx_n_u_logging __pyx_string_tab[50]
+#define __pyx_n_u_main __pyx_string_tab[51]
+#define __pyx_n_u_module __pyx_string_tab[52]
+#define __pyx_n_u_name __pyx_string_tab[53]
+#define __pyx_n_u_open __pyx_string_tab[54]
+#define __pyx_n_u_payload __pyx_string_tab[55]
+#define __pyx_n_u_public_key __pyx_string_tab[56]
+#define __pyx_kp_u_public_pem __pyx_string_tab[57]
+#define __pyx_n_u_public_pem_2 __pyx_string_tab[58]
+#define __pyx_n_u_qualname __pyx_string_tab[59]
+#define __pyx_n_u_r __pyx_string_tab[60]
+#define __pyx_n_u_read __pyx_string_tab[61]
+#define __pyx_n_u_set_name __pyx_string_tab[62]
+#define __pyx_n_u_spec __pyx_string_tab[63]
+#define __pyx_n_u_strip __pyx_string_tab[64]
+#define __pyx_n_u_sub __pyx_string_tab[65]
+#define __pyx_n_u_sys __pyx_string_tab[66]
+#define __pyx_n_u_test __pyx_string_tab[67]
+#define __pyx_n_u_token __pyx_string_tab[68]
+#define __pyx_n_u_utcnow __pyx_string_tab[69]
+#define __pyx_n_u_utils_core_utils __pyx_string_tab[70]
+#define __pyx_n_u_verify __pyx_string_tab[71]
+#define __pyx_n_u_verify_license __pyx_string_tab[72]
+#define __pyx_kp_u_verify_py __pyx_string_tab[73]
+#define __pyx_n_u_warning __pyx_string_tab[74]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2438,7 +2436,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #endif
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<76; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<75; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_1);
   Py_CLEAR(clear_module_state->__pyx_int_30);
   return 0;
@@ -2463,7 +2461,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #endif
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<76; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<75; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_1);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_30);
   return 0;
@@ -3771,7 +3769,7 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
  *     except jwt.ExpiredSignatureError as e:
  *         logging.error(f": {e}")             # <<<<<<<<<<<<<<
  *         sys.exit(1)
- *     except jwt.JWTError as e:
+ *     except jwt.PyJWKError as e:
 */
         __pyx_t_13 = NULL;
         __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 59, __pyx_L44_error)
@@ -3811,7 +3809,7 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
  *     except jwt.ExpiredSignatureError as e:
  *         logging.error(f": {e}")
  *         sys.exit(1)             # <<<<<<<<<<<<<<
- *     except jwt.JWTError as e:
+ *     except jwt.PyJWKError as e:
  *         logging.error(f": {e}")
 */
         __pyx_t_15 = NULL;
@@ -3900,14 +3898,14 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
     /* "verify.py":61
  *         logging.error(f": {e}")
  *         sys.exit(1)
- *     except jwt.JWTError as e:             # <<<<<<<<<<<<<<
+ *     except jwt.PyJWKError as e:             # <<<<<<<<<<<<<<
  *         logging.error(f": {e}")
  *         sys.exit(1)
 */
     __Pyx_ErrFetch(&__pyx_t_2, &__pyx_t_3, &__pyx_t_1);
     __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_jwt); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 61, __pyx_L35_except_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_JWTError); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 61, __pyx_L35_except_error)
+    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_PyJWKError); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 61, __pyx_L35_except_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_20 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_2, __pyx_t_13);
@@ -3926,7 +3924,7 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
 
         /* "verify.py":62
  *         sys.exit(1)
- *     except jwt.JWTError as e:
+ *     except jwt.PyJWKError as e:
  *         logging.error(f": {e}")             # <<<<<<<<<<<<<<
  *         sys.exit(1)
 */
@@ -3965,7 +3963,7 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
 
         /* "verify.py":63
- *     except jwt.JWTError as e:
+ *     except jwt.PyJWKError as e:
  *         logging.error(f": {e}")
  *         sys.exit(1)             # <<<<<<<<<<<<<<
 */
@@ -4001,7 +3999,7 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
       /* "verify.py":61
  *         logging.error(f": {e}")
  *         sys.exit(1)
- *     except jwt.JWTError as e:             # <<<<<<<<<<<<<<
+ *     except jwt.PyJWKError as e:             # <<<<<<<<<<<<<<
  *         logging.error(f": {e}")
  *         sys.exit(1)
 */
@@ -4498,7 +4496,7 @@ __Pyx_RefNannySetupContext("PyInit_verify", 0);
  * import sys
  * from datetime import datetime             # <<<<<<<<<<<<<<
  * 
- * from jose import jwt
+ * import jwt
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_datetime); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -4514,38 +4512,32 @@ __Pyx_RefNannySetupContext("PyInit_verify", 0);
   /* "verify.py":12
  * from datetime import datetime
  * 
- * from jose import jwt             # <<<<<<<<<<<<<<
+ * import jwt             # <<<<<<<<<<<<<<
  * 
  * from ..logger.logging_ import logging
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_jwt); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_jose, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_jwt); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_jwt, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_jwt, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "verify.py":14
- * from jose import jwt
+ * import jwt
  * 
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
  * from ..utils.core_utils import CoreUtil
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_logger_logging, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_logger_logging, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "verify.py":15
  * 
@@ -4554,16 +4546,16 @@ __Pyx_RefNannySetupContext("PyInit_verify", 0);
  * 
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_utils_core_utils, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_utils_core_utils, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "verify.py":18
  * 
@@ -4572,20 +4564,20 @@ __Pyx_RefNannySetupContext("PyInit_verify", 0);
  *     #
  *     logging.info_line()
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_6verify_1verify_license, 0, __pyx_mstate_global->__pyx_n_u_verify_license, NULL, __pyx_mstate_global->__pyx_n_u_verify, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_verify_license, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_6verify_1verify_license, 0, __pyx_mstate_global->__pyx_n_u_verify_license, NULL, __pyx_mstate_global->__pyx_n_u_verify, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_verify_license, __pyx_t_3) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "verify.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -4649,7 +4641,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ */
   {__pyx_k_CoreUtil, sizeof(__pyx_k_CoreUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil */
   {__pyx_k_ExpiredSignatureError, sizeof(__pyx_k_ExpiredSignatureError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ExpiredSignatureError */
-  {__pyx_k_JWTError, sizeof(__pyx_k_JWTError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_JWTError */
+  {__pyx_k_PyJWKError, sizeof(__pyx_k_PyJWKError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PyJWKError */
   {__pyx_k_RS256, sizeof(__pyx_k_RS256), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RS256 */
   {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__10 */
   {__pyx_k__11, sizeof(__pyx_k__11), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__11 */
@@ -4691,7 +4683,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_info_line, sizeof(__pyx_k_info_line), 0, 1, 1}, /* PyObject cname: __pyx_n_u_info_line */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
-  {__pyx_k_jose, sizeof(__pyx_k_jose), 0, 1, 1}, /* PyObject cname: __pyx_n_u_jose */
   {__pyx_k_jwt, sizeof(__pyx_k_jwt), 0, 1, 1}, /* PyObject cname: __pyx_n_u_jwt */
   {__pyx_k_license_file, sizeof(__pyx_k_license_file), 0, 1, 1}, /* PyObject cname: __pyx_n_u_license_file */
   {__pyx_k_license_jwt, sizeof(__pyx_k_license_jwt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_license_jwt */

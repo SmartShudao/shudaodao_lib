@@ -1,5 +1,6 @@
 from ..config.app_config import AppConfig as AppConfig
 from ..exception.service_exception import AuthException as AuthException, LoginException as LoginException
+from ..logger.logging_ import logging as logging
 from ..portal_auth.entity_table.auth_user import AuthLogin as AuthLogin, AuthPassword as AuthPassword, AuthUser as AuthUser, AuthUserResponse as AuthUserResponse
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..services.data_service import DataService as DataService
@@ -13,7 +14,6 @@ class AuthService:
     TOKEN_SECRET_KEY: Incomplete
     TOKEN_ALGORITHM: str
     TOKEN_EXPIRE_MINUTES: Incomplete
-    Password: Incomplete
     oauth2_scheme: Incomplete
     @classmethod
     def verify_password(cls, plain_password: str, hashed_password: str) -> bool: ...
