@@ -3555,7 +3555,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
  *         """"""
  * 
  *         if source_metadata.tables.__len__() == 0:             # <<<<<<<<<<<<<<
- *             return  #
+ *             return  source_metadata
  * 
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_source_metadata, __pyx_mstate_global->__pyx_n_u_tables); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
@@ -3578,25 +3578,26 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
     /* "database_checker.py":23
  * 
  *         if source_metadata.tables.__len__() == 0:
- *             return  #             # <<<<<<<<<<<<<<
+ *             return  source_metadata             # <<<<<<<<<<<<<<
  * 
  *         database = DatabaseEngine()
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+    __Pyx_INCREF(__pyx_cur_scope->__pyx_v_source_metadata);
+    __pyx_r = __pyx_cur_scope->__pyx_v_source_metadata;
     goto __pyx_L0;
 
     /* "database_checker.py":22
  *         """"""
  * 
  *         if source_metadata.tables.__len__() == 0:             # <<<<<<<<<<<<<<
- *             return  #
+ *             return  source_metadata
  * 
 */
   }
 
   /* "database_checker.py":25
- *             return  #
+ *             return  source_metadata
  * 
  *         database = DatabaseEngine()             # <<<<<<<<<<<<<<
  *         #  schema
@@ -4253,7 +4254,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
  *             if metadata_tables.issubset(existing_set):
  *                 #
  *                 logging.debug(f"")             # <<<<<<<<<<<<<<
- *                 return
+ *                 return target_metadata
  *             #
 */
             __pyx_t_3 = NULL;
@@ -4287,12 +4288,13 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
             /* "database_checker.py":57
  *                 #
  *                 logging.debug(f"")
- *                 return             # <<<<<<<<<<<<<<
+ *                 return target_metadata             # <<<<<<<<<<<<<<
  *             #
  *             try:
 */
             __Pyx_XDECREF(__pyx_r);
-            __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+            __Pyx_INCREF(__pyx_cur_scope->__pyx_v_target_metadata);
+            __pyx_r = __pyx_cur_scope->__pyx_v_target_metadata;
             goto __pyx_L18_try_return;
 
             /* "database_checker.py":54
@@ -4305,7 +4307,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
           }
 
           /* "database_checker.py":59
- *                 return
+ *                 return target_metadata
  *             #
  *             try:             # <<<<<<<<<<<<<<
  *                 if auto_create:
@@ -4417,7 +4419,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
  *                     )
  *                     logging.debug(f"")             # <<<<<<<<<<<<<<
  *                     await conn.commit()
- *                     return
+ *                     return target_metadata
 */
                   __pyx_t_3 = NULL;
                   __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 64, __pyx_L30_error)
@@ -4451,7 +4453,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
  *                     )
  *                     logging.debug(f"")
  *                     await conn.commit()             # <<<<<<<<<<<<<<
- *                     return
+ *                     return target_metadata
  *                 else:
 */
                   __pyx_t_18 = __pyx_cur_scope->__pyx_v_conn;
@@ -4522,12 +4524,13 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
                   /* "database_checker.py":66
  *                     logging.debug(f"")
  *                     await conn.commit()
- *                     return             # <<<<<<<<<<<<<<
+ *                     return target_metadata             # <<<<<<<<<<<<<<
  *                 else:
  *                     return target_metadata
 */
                   __Pyx_XDECREF(__pyx_r);
-                  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+                  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_target_metadata);
+                  __pyx_r = __pyx_cur_scope->__pyx_v_target_metadata;
                   goto __pyx_L34_try_return;
 
                   /* "database_checker.py":60
@@ -4540,7 +4543,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
                 }
 
                 /* "database_checker.py":68
- *                     return
+ *                     return target_metadata
  *                 else:
  *                     return target_metadata             # <<<<<<<<<<<<<<
  *             except OperationalError as e:
@@ -4554,7 +4557,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
                 }
 
                 /* "database_checker.py":59
- *                 return
+ *                 return target_metadata
  *             #
  *             try:             # <<<<<<<<<<<<<<
  *                 if auto_create:
@@ -4963,7 +4966,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
               goto __pyx_L32_except_error;
 
               /* "database_checker.py":59
- *                 return
+ *                 return target_metadata
  *             #
  *             try:             # <<<<<<<<<<<<<<
  *                 if auto_create:

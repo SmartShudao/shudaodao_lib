@@ -2771,12 +2771,12 @@ static const char __pyx_k_get_child_foreign_keys[] = "_get_child_foreign_keys";
 static const char __pyx_k_get_import_foreign_key[] = "_get_import_foreign_key";
 static const char __pyx_k_list_MetaForeignColumn[] = "list[MetaForeignColumn]";
 static const char __pyx_k_1_G4q_s_c_IWE_C_7RS_q_q[] = "\320\004+\2501\330\010\014\210G\2204\220q\330\014\017\210s\220,\230c\240\023\240I\250W\260E\270\023\270C\270|\3107\320RS\330\020\027\220q\340\010\017\210q";
+static const char __pyx_k_schema_get_table_schema[] = "\"schema\": get_table_schema()";
 static const char __pyx_k_sqlalchemy_type_mapping[] = "sqlalchemy_type_mapping";
 static const char __pyx_k_MetaTable__get_file_name[] = "MetaTable._get_file_name";
 static const char __pyx_k_MetaTable__get_class_name[] = "MetaTable._get_class_name";
 static const char __pyx_k_MetaTable__get_table_args[] = "MetaTable._get_table_args";
 static const char __pyx_k_get_import_shudaodao_core[] = "get_import_shudaodao_core";
-static const char __pyx_k_schema_f_get_table_schema[] = "\"schema\": f\"{get_table_schema()}\"";
 static const char __pyx_k_MetaTable__get_foreign_key[] = "MetaTable._get_foreign_key";
 static const char __pyx_k_MetaTable__get_import_type[] = "MetaTable._get_import_type";
 static const char __pyx_k_MetaTable_get_base_columns[] = "MetaTable.get_base_columns";
@@ -3129,7 +3129,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_return __pyx_string_tab[198]
 #define __pyx_n_u_sa_type __pyx_string_tab[199]
 #define __pyx_n_u_scale __pyx_string_tab[200]
-#define __pyx_kp_u_schema_f_get_table_schema __pyx_string_tab[201]
+#define __pyx_kp_u_schema_get_table_schema __pyx_string_tab[201]
 #define __pyx_n_u_schema_name __pyx_string_tab[202]
 #define __pyx_n_u_self __pyx_string_tab[203]
 #define __pyx_n_u_send __pyx_string_tab[204]
@@ -9018,7 +9018,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_28_get_table_args(CYTHON_UNUSE
  *     def _get_table_args(self) -> str:
  *         table_args = []             # <<<<<<<<<<<<<<
  *         self.init_file.schema_name = self.schema_name
- *         table_args.append('"schema": f"{get_table_schema()}"')
+ *         table_args.append('"schema": get_table_schema()')
 */
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 295, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -9029,7 +9029,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_28_get_table_args(CYTHON_UNUSE
  *     def _get_table_args(self) -> str:
  *         table_args = []
  *         self.init_file.schema_name = self.schema_name             # <<<<<<<<<<<<<<
- *         table_args.append('"schema": f"{get_table_schema()}"')
+ *         table_args.append('"schema": get_table_schema()')
  *         # table_args.append(F'"schema": "{self.init_file.schema_name}"')
 */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 296, __pyx_L1_error)
@@ -9043,14 +9043,14 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_28_get_table_args(CYTHON_UNUSE
   /* "meta_table.py":297
  *         table_args = []
  *         self.init_file.schema_name = self.schema_name
- *         table_args.append('"schema": f"{get_table_schema()}"')             # <<<<<<<<<<<<<<
+ *         table_args.append('"schema": get_table_schema()')             # <<<<<<<<<<<<<<
  *         # table_args.append(F'"schema": "{self.init_file.schema_name}"')
  *         if self.comment:
 */
-  __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_table_args, __pyx_mstate_global->__pyx_kp_u_schema_f_get_table_schema); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Append(__pyx_v_table_args, __pyx_mstate_global->__pyx_kp_u_schema_get_table_schema); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 297, __pyx_L1_error)
 
   /* "meta_table.py":299
- *         table_args.append('"schema": f"{get_table_schema()}"')
+ *         table_args.append('"schema": get_table_schema()')
  *         # table_args.append(F'"schema": "{self.init_file.schema_name}"')
  *         if self.comment:             # <<<<<<<<<<<<<<
  *             table_args.append(f'"comment": "{self.comment}"')
@@ -9085,7 +9085,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_28_get_table_args(CYTHON_UNUSE
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
     /* "meta_table.py":299
- *         table_args.append('"schema": f"{get_table_schema()}"')
+ *         table_args.append('"schema": get_table_schema()')
  *         # table_args.append(F'"schema": "{self.init_file.schema_name}"')
  *         if self.comment:             # <<<<<<<<<<<<<<
  *             table_args.append(f'"comment": "{self.comment}"')
@@ -13424,7 +13424,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_sa_type, sizeof(__pyx_k_sa_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sa_type */
   {__pyx_k_scale, sizeof(__pyx_k_scale), 0, 1, 1}, /* PyObject cname: __pyx_n_u_scale */
-  {__pyx_k_schema_f_get_table_schema, sizeof(__pyx_k_schema_f_get_table_schema), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_schema_f_get_table_schema */
+  {__pyx_k_schema_get_table_schema, sizeof(__pyx_k_schema_get_table_schema), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_schema_get_table_schema */
   {__pyx_k_schema_name, sizeof(__pyx_k_schema_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_name */
   {__pyx_k_self, sizeof(__pyx_k_self), 0, 1, 1}, /* PyObject cname: __pyx_n_u_self */
   {__pyx_k_send, sizeof(__pyx_k_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_send */

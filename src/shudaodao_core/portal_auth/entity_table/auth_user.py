@@ -39,16 +39,25 @@ class AuthUser(RegistryModel, table=True):
 
     last_login: Optional[datetime] = Field(default_factory=lambda: datetime.now(), description="最后登录时间")
 
-    created_at: datetime = Field(default_factory=lambda: datetime.now())
-    updated_at: datetime = Field(default_factory=lambda: datetime.now())
+    create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
+    create_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="创建日期")
+    update_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="修改人")
+    update_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="修改日期")
+    tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="租户内码")
 
 
 class AuthUserResponse(BaseResponse):
     # auth_user_id: Optional[int] = Field(sa_type=BigInteger)
     username: str = Field(max_length=50)
-    email: Optional[EmailStr] = Field(None, max_length=100)
+    email: Optional[EmailStr] = Field(default=None, max_length=100)
     is_active: bool = True
     status: Optional[UserStatus]  # ← 枚举字段
+
+    create_by: Optional[str] = Field(default=None)
+    create_at: Optional[datetime] = Field(default=None)
+    update_by: Optional[str] = Field(default=None)
+    update_at: Optional[datetime] = Field(default=None)
+    tenant_id: Optional[int] = Field(default=None)
 
     @computed_field
     @property
