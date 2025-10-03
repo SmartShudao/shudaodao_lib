@@ -1523,7 +1523,7 @@ struct __pyx_obj_17db_engine_service___pyx_scope_struct__get_async_session {
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def get_auth_async_session(cls) :
- *         #  .yaml - storage - database - name: Core
+ *         #  .yaml - storage - database - name: Auth
 */
 struct __pyx_obj_17db_engine_service___pyx_scope_struct_1_get_auth_async_session {
   PyObject_HEAD
@@ -3959,7 +3959,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def get_auth_async_session(cls) :
- *         #  .yaml - storage - database - name: Core
+ *         #  .yaml - storage - database - name: Auth
 */
 
 /* Python wrapper */
@@ -4124,7 +4124,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
 
   /* "db_engine_service.py":40
  *     async def get_auth_async_session(cls) :
- *         #  .yaml - storage - database - name: Core
+ *         #  .yaml - storage - database - name: Auth
  *         async with AsyncSession(cls.get_auth_async_engine()) as session:             # <<<<<<<<<<<<<<
  *             yield session
  * 
@@ -4234,7 +4234,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
           __pyx_t_2 = 0;
 
           /* "db_engine_service.py":41
- *         #  .yaml - storage - database - name: Core
+ *         #  .yaml - storage - database - name: Auth
  *         async with AsyncSession(cls.get_auth_async_engine()) as session:
  *             yield session             # <<<<<<<<<<<<<<
  * 
@@ -4273,7 +4273,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
 
           /* "db_engine_service.py":40
  *     async def get_auth_async_session(cls) :
- *         #  .yaml - storage - database - name: Core
+ *         #  .yaml - storage - database - name: Auth
  *         async with AsyncSession(cls.get_auth_async_engine()) as session:             # <<<<<<<<<<<<<<
  *             yield session
  * 
@@ -4453,7 +4453,7 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def get_auth_async_session(cls) :
- *         #  .yaml - storage - database - name: Core
+ *         #  .yaml - storage - database - name: Auth
 */
 
   /* function exit code */
@@ -5400,7 +5400,7 @@ __Pyx_RefNannySetupContext("PyInit_db_engine_service", 0);
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def get_auth_async_session(cls) :
- *         #  .yaml - storage - database - name: Core
+ *         #  .yaml - storage - database - name: Auth
 */
   __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_17db_engine_service_15DBEngineService_12get_auth_async_session, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DBEngineService_get_auth_async_s, NULL, __pyx_mstate_global->__pyx_n_u_db_engine_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
