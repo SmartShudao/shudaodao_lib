@@ -2728,7 +2728,7 @@ static const char __pyx_k_A_QgQ_4AU_A_q_q_E_1_q_q_E_1_q[] = "\200A\360\006\000\t
 static const char __pyx_k_QueryBuilder__format_datetime[] = "QueryBuilder._format_datetime";
 static const char __pyx_k_get_class_fields_with_sa_type[] = "get_class_fields_with_sa_type";
 static const char __pyx_k_raise_request_validation_error[] = "raise_request_validation_error";
-static const char __pyx_k_A_1_wj_EQmST_A_c_A_1_c_HA_t1_t1[] = "\200A\340 !\330\023#\2401\340\010\026\320\026(\250\017\260w\270j\310\001\330\010\027\320\027(\320(E\300Q\300m\320ST\330\010\034\230A\340\010\027\220\177\240c\320)<\270A\270^\3101\340\010\036\230c\240\021\240!\340\010\014\210H\220A\330\014\017\210t\2201\330\020\027\220t\2301\330\020\024\220D\230\001\230\021\340\014\030\230\001\330\014\020\220\t\230\025\230a\230q\330\020\026\220m\2401\240A\330\020\030\230\004\230A\230Q\330\020\023\2204\220s\230!\330\024\034\230C\230q\240\001\330\020\030\230\003\320\033,\250A\250Q\340\020\031\230\027\240\004\240L\260\001\260\030\270\021\330\014\035\230W\240A\240Q\330\010\017\210q";
+static const char __pyx_k_A_1_wj_EQmST_A_c_A_1_c_HA_t1_t1[] = "\200A\340 !\330\023#\2401\340\010\026\320\026(\250\017\260w\270j\310\001\330\010\027\320\027(\320(E\300Q\300m\320ST\330\010\034\230A\340\010\027\220\177\240c\320)<\270A\270^\3101\340\010\036\230c\240\021\240!\340\010\014\210H\220A\330\014\017\210t\2201\330\020\027\220t\2301\330\020\024\220D\230\001\230\021\340\014\030\230\001\330\014\020\220\t\230\025\230a\230q\330\020\026\220m\2401\240A\330\020\030\230\004\230A\230X\240T\320);\2704\270q\300\001\330\020\023\2204\220s\230!\330\024\034\230C\230q\240\001\330\020\030\230\003\320\033,\250A\250Q\340\020\031\230\027\240\004\240L\260\001\260\030\270\021\330\014\035\230W\240A\240Q\330\010\017\210q";
 static const char __pyx_k_A_77J_HE_G1M_XQ_t6_s_Q_wauE_waq[] = "\200A\330\0347\3207J\310!\330\010\032\230!\330\010\014\210H\220E\230\021\330\014\024\220G\2301\230M\250\024\250X\260Q\330\014\017\210t\2206\230\026\230s\240#\240Q\330\020\037\230w\240a\240u\250E\260\021\340\020\037\230w\240a\240q\330\010\017\210q";
 static const char __pyx_k_A_q_5_3a_1_A_EQmST_c_HA_4q_AQ_q[] = "\200A\340+?\270q\360\006\000\t\014\2105\220\010\230\003\2303\230a\330\014\023\2201\330\010\034\230A\330\010\027\320\027(\320(E\300Q\300m\320ST\340\010\026\220c\230\021\230!\330\010\014\210H\220A\340\014\023\2204\220q\330\014\020\220\004\220A\220Q\340\014\030\230\001\330\014\017\210q\330\020\031\230\021\230)\2401\330\014\020\220\t\230\025\230a\230q\330\020\026\220m\2401\240A\340\020\036\230d\240!\2401\330\020\023\2204\220s\230!\330\024\"\240#\240Q\240a\330\020\036\230c\320!2\260!\2601\360\006\000\021\032\230\021\230'\240\021\360\010\000\r\020\210q\330\020\031\230\021\320\032,\250D\260\004\260A\260Q\360\006\000\r\036\230W\240A\240Q\340\010\017\210q";
 static const char __pyx_k_A_q_HA_E_Q_A_3_DA_e1_wc_4q_s_1F[] = "\200A\340\010\027\220q\330\010\014\210H\220A\330\014\032\230!\330\014\030\230\004\230E\240\021\340\014\017\210{\230#\230Q\330\020\024\220A\220^\2403\320&D\300A\330\024\030\230\001\230\035\240e\2501\340\014\017\210w\220c\230\021\330\020\023\2204\220q\230\007\230s\240!\330\024\"\240#\320%;\2701\270F\300+\310X\320UV\330\014\030\230\007\230q\240\001\330\010\017\210q";
@@ -3643,7 +3643,7 @@ static PyObject *__pyx_pf_13query_builder_12QueryBuilder_build_list(CYTHON_UNUSE
  *             if not query_fields:
  *                 item = item.__dict__             # <<<<<<<<<<<<<<
  *                 item.pop('_sa_instance_state')
- *             #  row  Row
+ * 
 */
       __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_item, __pyx_mstate_global->__pyx_n_u_dict); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
@@ -3654,7 +3654,7 @@ static PyObject *__pyx_pf_13query_builder_12QueryBuilder_build_list(CYTHON_UNUSE
  *             if not query_fields:
  *                 item = item.__dict__
  *                 item.pop('_sa_instance_state')             # <<<<<<<<<<<<<<
- *             #  row  Row
+ * 
  *             item_dict = {}
 */
       __pyx_t_5 = __pyx_v_item;
@@ -3680,7 +3680,7 @@ static PyObject *__pyx_pf_13query_builder_12QueryBuilder_build_list(CYTHON_UNUSE
 
     /* "query_builder.py":46
  *                 item.pop('_sa_instance_state')
- *             #  row  Row
+ * 
  *             item_dict = {}             # <<<<<<<<<<<<<<
  *             for index in range(result_fields_count):
  *                 key = result_fields[index]
@@ -3691,11 +3691,11 @@ static PyObject *__pyx_pf_13query_builder_12QueryBuilder_build_list(CYTHON_UNUSE
     __pyx_t_4 = 0;
 
     /* "query_builder.py":47
- *             #  row  Row
+ * 
  *             item_dict = {}
  *             for index in range(result_fields_count):             # <<<<<<<<<<<<<<
  *                 key = result_fields[index]
- *                 value = item[key]
+ *                 value = item[key] if not query_fields else item[index]
 */
     __pyx_t_11 = __pyx_v_result_fields_count;
     __pyx_t_12 = __pyx_t_11;
@@ -3706,7 +3706,7 @@ static PyObject *__pyx_pf_13query_builder_12QueryBuilder_build_list(CYTHON_UNUSE
  *             item_dict = {}
  *             for index in range(result_fields_count):
  *                 key = result_fields[index]             # <<<<<<<<<<<<<<
- *                 value = item[key]
+ *                 value = item[key] if not query_fields else item[index]
  *                 if key in sa_type_fields:
 */
       __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_result_fields, __pyx_v_index, Py_ssize_t, 1, PyLong_FromSsize_t, 0, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 48, __pyx_L1_error)
@@ -3717,27 +3717,38 @@ static PyObject *__pyx_pf_13query_builder_12QueryBuilder_build_list(CYTHON_UNUSE
       /* "query_builder.py":49
  *             for index in range(result_fields_count):
  *                 key = result_fields[index]
- *                 value = item[key]             # <<<<<<<<<<<<<<
+ *                 value = item[key] if not query_fields else item[index]             # <<<<<<<<<<<<<<
  *                 if key in sa_type_fields:
  *                     value = str(value)
 */
-      __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_item, __pyx_v_key); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_v_query_fields); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 49, __pyx_L1_error)
+      __pyx_t_2 = (!__pyx_t_10);
+      if (__pyx_t_2) {
+        __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_item, __pyx_v_key); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_4 = __pyx_t_5;
+        __pyx_t_5 = 0;
+      } else {
+        __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_item, __pyx_v_index, Py_ssize_t, 1, PyLong_FromSsize_t, 0, 1, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_4 = __pyx_t_5;
+        __pyx_t_5 = 0;
+      }
       __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_4);
       __pyx_t_4 = 0;
 
       /* "query_builder.py":50
  *                 key = result_fields[index]
- *                 value = item[key]
+ *                 value = item[key] if not query_fields else item[index]
  *                 if key in sa_type_fields:             # <<<<<<<<<<<<<<
  *                     value = str(value)
  *                 value = cls._format_datetime(value)
 */
-      __pyx_t_10 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_v_sa_type_fields, Py_EQ)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 50, __pyx_L1_error)
-      if (__pyx_t_10) {
+      __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_v_sa_type_fields, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 50, __pyx_L1_error)
+      if (__pyx_t_2) {
 
         /* "query_builder.py":51
- *                 value = item[key]
+ *                 value = item[key] if not query_fields else item[index]
  *                 if key in sa_type_fields:
  *                     value = str(value)             # <<<<<<<<<<<<<<
  *                 value = cls._format_datetime(value)
@@ -3750,7 +3761,7 @@ static PyObject *__pyx_pf_13query_builder_12QueryBuilder_build_list(CYTHON_UNUSE
 
         /* "query_builder.py":50
  *                 key = result_fields[index]
- *                 value = item[key]
+ *                 value = item[key] if not query_fields else item[index]
  *                 if key in sa_type_fields:             # <<<<<<<<<<<<<<
  *                     value = str(value)
  *                 value = cls._format_datetime(value)
@@ -14574,7 +14585,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 16, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 28, 193};
+    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 16, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 28, 204};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_query_fields, __pyx_mstate->__pyx_n_u_items, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_response_class, __pyx_mstate->__pyx_n_u_field_class, __pyx_mstate->__pyx_n_u_result_fields, __pyx_mstate->__pyx_n_u_sa_type_fields, __pyx_mstate->__pyx_n_u_serializable_data, __pyx_mstate->__pyx_n_u_alias_fields, __pyx_mstate->__pyx_n_u_result_fields_count, __pyx_mstate->__pyx_n_u_item, __pyx_mstate->__pyx_n_u_item_dict, __pyx_mstate->__pyx_n_u_index, __pyx_mstate->__pyx_n_u_key, __pyx_mstate->__pyx_n_u_value};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_builder_py, __pyx_mstate->__pyx_n_u_build_list, __pyx_k_A_1_wj_EQmST_A_c_A_1_c_HA_t1_t1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
