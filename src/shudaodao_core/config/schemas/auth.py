@@ -5,9 +5,15 @@
 # @Software ：PyCharm
 # @Date     ：2025/9/21 下午8:47
 # @Desc     ：
-
+from typing import Optional
 
 from pydantic import BaseModel, Field
+
+
+class TenantConfigSetting(BaseModel):
+    enabled: bool = Field(False, description="是否启用")
+    default_id: Optional[int] = Field(None, description="默认租户ID")
+    # admin_id: Optional[int] = Field(None, description="管理员租户ID")
 
 
 class AuthConfigSetting(BaseModel):
@@ -16,3 +22,4 @@ class AuthConfigSetting(BaseModel):
     rebuild_auth_rule: bool = Field(False, description="重置")
     default_admin_roles: list[str] = ["admin"]
     default_admin_users: list[str] = ["admin"]
+    tenant: TenantConfigSetting = Field(default_factory=TenantConfigSetting, description="租户")

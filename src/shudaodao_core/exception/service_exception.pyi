@@ -1,6 +1,9 @@
 from _typeshed import Incomplete
 from typing import Any
 
+def raise_request_validation_error(*, loc_type: str, msg: str): ...
+def raise_permission_exception(*, message: str, errors: str = None): ...
+
 class ShudaodaoException(Exception):
     code: Incomplete
     name: Incomplete

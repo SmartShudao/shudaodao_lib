@@ -8,6 +8,7 @@ class MetaColumn:
     type: Any
     sa_type: str | None
     nullable: bool
+    default: str | None
     is_primary: bool
     comment: str = ...
     max_length: int | None = ...

@@ -12,6 +12,7 @@ from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..tools.class_scaner import ClassScanner as ClassScanner
 from ..tools.database_checker import DatabaseChecker as DatabaseChecker
+from ..tools.tenant_checker import TenantManager as TenantManager
 from ..utils.core_utils import CoreUtil as CoreUtil
 from _typeshed import Incomplete
 from abc import ABC, abstractmethod

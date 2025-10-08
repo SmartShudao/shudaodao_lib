@@ -3555,7 +3555,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
  *         """"""
  * 
  *         if source_metadata.tables.__len__() == 0:             # <<<<<<<<<<<<<<
- *             return  source_metadata
+ *             return source_metadata
  * 
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_source_metadata, __pyx_mstate_global->__pyx_n_u_tables); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
@@ -3578,7 +3578,7 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
     /* "database_checker.py":23
  * 
  *         if source_metadata.tables.__len__() == 0:
- *             return  source_metadata             # <<<<<<<<<<<<<<
+ *             return source_metadata             # <<<<<<<<<<<<<<
  * 
  *         database = DatabaseEngine()
 */
@@ -3591,13 +3591,13 @@ static PyObject *__pyx_gb_16database_checker_15DatabaseChecker_2generator(__pyx_
  *         """"""
  * 
  *         if source_metadata.tables.__len__() == 0:             # <<<<<<<<<<<<<<
- *             return  source_metadata
+ *             return source_metadata
  * 
 */
   }
 
   /* "database_checker.py":25
- *             return  source_metadata
+ *             return source_metadata
  * 
  *         database = DatabaseEngine()             # <<<<<<<<<<<<<<
  *         #  schema

@@ -16,6 +16,7 @@ from .routers import RouterConfigSetting
 from .snowflake import SnowflakeConfigSetting
 from .storage import StorageConfigSetting
 from .webapp import FastAPIConfigSetting
+from ...exception.service_exception import ServiceErrorException
 
 
 class EnvironmentConfigSetting(BaseModel):
@@ -53,3 +54,13 @@ class AppConfigSetting(BaseModel):
     routers: Optional[List[RouterConfigSetting]] = Field(None, description="路由配置")
     storage: Optional[StorageConfigSetting] = Field(None, description="存储配置")
     models: Optional[ModelCollectionConfigSetting] = Field(None, description="模型配置")
+
+    def get_default_tenant_id(self):
+        if self.auth.tenant.enabled:
+            if not self.auth.tenant.default_id:
+                raise ServiceErrorException(
+                    message="启用租户时，必须设置 default_id",
+                )
+            return self.auth.tenant.default_id
+        else:
+            return None

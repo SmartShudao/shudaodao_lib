@@ -1514,20 +1514,20 @@ struct __pyx_defaults {
 
 struct __pyx_obj_12auth_service___pyx_scope_struct__get_current_user {
   PyObject_HEAD
-  PyObject *__pyx_v_auth_user_id;
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_db;
   PyObject *__pyx_v_exc;
   PyObject *__pyx_v_payload;
   PyObject *__pyx_v_token;
   PyObject *__pyx_v_user;
+  PyObject *__pyx_v_username;
   PyObject *__pyx_t_0;
   PyObject *__pyx_t_1;
   PyObject *__pyx_t_2;
 };
 
 
-/* "auth_service.py":105
+/* "auth_service.py":112
  *             raise AuthException(message="token", errors=str(exc))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -1540,7 +1540,7 @@ struct __pyx_obj_12auth_service___pyx_scope_struct_1_logout {
 };
 
 
-/* "auth_service.py":110
+/* "auth_service.py":117
  *         ...
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -1549,13 +1549,12 @@ struct __pyx_obj_12auth_service___pyx_scope_struct_1_logout {
 */
 struct __pyx_obj_12auth_service___pyx_scope_struct_2_refresh {
   PyObject_HEAD
-  PyObject *__pyx_v_access_token;
   PyObject *__pyx_v_cls;
 };
 
 
-/* "auth_service.py":119
- *         return access_token
+/* "auth_service.py":127
+ *         ...
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
@@ -1569,24 +1568,24 @@ struct __pyx_obj_12auth_service___pyx_scope_struct_3_login {
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_db;
   PyObject *__pyx_v_exc;
-  PyObject *__pyx_v_query;
   PyObject *__pyx_t_0;
   PyObject *__pyx_t_1;
   PyObject *__pyx_t_2;
 };
 
 
-/* "auth_service.py":149
+/* "auth_service.py":162
  *             raise LoginException(message="", errors=str(exc))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser):
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):
+ *     async def modify_password(
+ *             cls, db: AsyncSession, *,
 */
 struct __pyx_obj_12auth_service___pyx_scope_struct_4_modify_password {
   PyObject_HEAD
   PyObject *__pyx_v_auth_user;
   PyObject *__pyx_v_cls;
+  PyObject *__pyx_v_current_user;
   PyObject *__pyx_v_db;
   PyObject *__pyx_v_password_model;
 };
@@ -2548,22 +2547,19 @@ static const char __pyx_k_[] = "\345\257\206\347\240\201\351\252\214\350\257\201
 static const char __pyx_k_A[] = "\200A\330\035\036";
 static const char __pyx_k_e[] = "e";
 static const char __pyx_k__2[] = "\345\257\206\347\240\201\351\252\214\350\257\201\347\263\273\347\273\237\351\224\231\350\257\257: ";
-static const char __pyx_k__3[] = "=";
-static const char __pyx_k__4[] = "\347\231\273\345\275\225\345\244\261\350\264\245\357\274\214\351\224\231\350\257\257\347\232\204\347\224\250\346\210\267\345\220\215\346\210\226\345\257\206\347\240\201\343\200\202";
-static const char __pyx_k__5[] = "\347\231\273\345\275\225\345\244\261\350\264\245\357\274\214\350\264\246\346\210\267\346\234\252\346\277\200\346\264\273\346\210\226\350\242\253\351\224\201\345\256\232\343\200\202";
-static const char __pyx_k__6[] = "\347\231\273\345\275\225\345\244\261\350\264\245";
-static const char __pyx_k__7[] = "\345\216\237\345\247\213\345\257\206\347\240\201\344\270\215\346\255\243\347\241\256";
-static const char __pyx_k__8[] = "\344\277\256\346\224\271\345\257\206\347\240\201\345\244\261\350\264\245";
-static const char __pyx_k__9[] = ".";
+static const char __pyx_k__3[] = "\347\231\273\345\275\225\345\244\261\350\264\245\357\274\214\351\224\231\350\257\257\347\232\204\347\224\250\346\210\267\345\220\215\346\210\226\345\257\206\347\240\201\343\200\202";
+static const char __pyx_k__4[] = "\347\231\273\345\275\225\345\244\261\350\264\245\357\274\214\350\264\246\346\210\267\346\234\252\346\277\200\346\264\273\346\210\226\350\242\253\351\224\201\345\256\232\343\200\202";
+static const char __pyx_k__5[] = "\347\231\273\345\275\225\345\244\261\350\264\245";
+static const char __pyx_k__6[] = "\345\216\237\345\247\213\345\257\206\347\240\201\344\270\215\346\255\243\347\241\256";
+static const char __pyx_k__7[] = "\344\277\256\346\224\271\345\257\206\347\240\201\345\244\261\350\264\245";
+static const char __pyx_k__8[] = ".";
+static const char __pyx_k__9[] = "?";
 static const char __pyx_k_db[] = "db";
 static const char __pyx_k_gc[] = "gc";
-static const char __pyx_k_id[] = "id";
-static const char __pyx_k_op[] = "op";
-static const char __pyx_k_AND[] = "AND";
 static const char __pyx_k_A_2[] = "\200A";
 static const char __pyx_k_A_3[] = "\200A\330 :\270!";
 static const char __pyx_k_A_4[] = "\200A\340\010\017\320\017 \240\001";
-static const char __pyx_k__10[] = "?";
+static const char __pyx_k_A_8[] = "\200A\340\025\026\330\0348\270\001";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_exc[] = "exc";
@@ -2571,9 +2567,9 @@ static const char __pyx_k_exp[] = "exp";
 static const char __pyx_k_get[] = "get";
 static const char __pyx_k_jwt[] = "jwt";
 static const char __pyx_k_pop[] = "pop";
+static const char __pyx_k_set[] = "set";
 static const char __pyx_k_str[] = "str";
 static const char __pyx_k_sub[] = "sub";
-static const char __pyx_k_val[] = "val";
 static const char __pyx_k_None[] = "None";
 static const char __pyx_k_auth[] = "auth";
 static const char __pyx_k_bool[] = "bool";
@@ -2583,19 +2579,15 @@ static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_next[] = "next";
-static const char __pyx_k_read[] = "read";
 static const char __pyx_k_send[] = "send";
 static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_type[] = "type";
 static const char __pyx_k_user[] = "user";
 static const char __pyx_k_HS256[] = "HS256";
 static const char __pyx_k_await[] = "__await__";
 static const char __pyx_k_close[] = "close";
 static const char __pyx_k_error[] = "error";
-static const char __pyx_k_field[] = "field";
 static const char __pyx_k_login[] = "login";
-static const char __pyx_k_query[] = "query";
 static const char __pyx_k_throw[] = "throw";
 static const char __pyx_k_token[] = "token";
 static const char __pyx_k_utf_8[] = "utf-8";
@@ -2611,12 +2603,10 @@ static const char __pyx_k_hashed[] = "hashed";
 static const char __pyx_k_hashpw[] = "hashpw";
 static const char __pyx_k_logout[] = "logout";
 static const char __pyx_k_module[] = "__module__";
-static const char __pyx_k_paging[] = "paging";
 static const char __pyx_k_return[] = "return";
 static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_update[] = "update";
 static const char __pyx_k_utcnow[] = "utcnow";
-static const char __pyx_k_A_HHaab[] = "\200A\330'H\320Ha\320ab";
 static const char __pyx_k_Depends[] = "Depends";
 static const char __pyx_k_checkpw[] = "checkpw";
 static const char __pyx_k_disable[] = "disable";
@@ -2630,6 +2620,7 @@ static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_refresh[] = "refresh";
 static const char __pyx_k_token_2[] = "\347\224\250\346\210\267token\345\267\262\345\244\261\346\225\210\357\274\214\350\257\267\351\207\215\346\226\260\347\231\273\345\275\225";
 static const char __pyx_k_token_3[] = "\347\224\250\346\210\267token\344\270\215\345\220\210\346\263\225";
+static const char __pyx_k_user_id[] = "user_id";
 static const char __pyx_k_warning[] = "warning";
 static const char __pyx_k_A_q_wa_a[] = "\200A\340\027\037\230q\240\001\330\020\037\230w\240a\240\177\260a\330\t\n";
 static const char __pyx_k_AuthUser[] = "AuthUser";
@@ -2643,37 +2634,36 @@ static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_tokenUrl[] = "tokenUrl";
 static const char __pyx_k_username[] = "username";
-static const char __pyx_k_121213212[] = "121213212";
 static const char __pyx_k_AppConfig[] = "AppConfig";
 static const char __pyx_k_AuthLogin[] = "AuthLogin";
 static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_algorithm[] = "algorithm";
 static const char __pyx_k_auth_user[] = "auth_user";
+static const char __pyx_k_condition[] = "condition";
 static const char __pyx_k_db_update[] = "db_update";
 static const char __pyx_k_is_active[] = "is_active";
 static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_metaclass[] = "__metaclass__";
+static const char __pyx_k_pass_word[] = "pass_word";
+static const char __pyx_k_tenant_id[] = "tenant_id";
 static const char __pyx_k_timedelta[] = "timedelta";
 static const char __pyx_k_to_encode[] = "to_encode";
+static const char __pyx_k_user_name[] = "user_name";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_algorithms[] = "algorithms";
 static const char __pyx_k_auth_login[] = "auth_login";
 static const char __pyx_k_auth_token[] = "/auth/token";
-static const char __pyx_k_conditions[] = "conditions";
 static const char __pyx_k_last_login[] = "last_login";
-static const char __pyx_k_primary_id[] = "primary_id";
 static const char __pyx_k_AuthService[] = "AuthService";
 static const char __pyx_k_DataService[] = "DataService";
 static const char __pyx_k_model_class[] = "model_class";
 static const char __pyx_k_plain_bytes[] = "plain_bytes";
-static const char __pyx_k_query_first[] = "query_first";
 static const char __pyx_k_A_3gQgS_as_q[] = "\200A\330$%\340\010\t\330\014\023\2203\220g\230Q\230g\240S\320(;\270;\300a\300s\310!\330\017\020\330\014\022\220-\230q\240\010\250\001";
 static const char __pyx_k_AsyncSession[] = "AsyncSession";
 static const char __pyx_k_AuthPassword[] = "AuthPassword";
-static const char __pyx_k_QueryRequest[] = "QueryRequest";
 static const char __pyx_k_access_token[] = "access_token";
 static const char __pyx_k_auth_service[] = "auth_service";
-static const char __pyx_k_auth_user_id[] = "auth_user_id";
+static const char __pyx_k_current_user[] = "current_user";
 static const char __pyx_k_hashed_bytes[] = "hashed_bytes";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
@@ -2683,17 +2673,19 @@ static const char __pyx_k_token_decode[] = "token_decode";
 static const char __pyx_k_token_encode[] = "token_encode";
 static const char __pyx_k_update_model[] = "update_model";
 static const char __pyx_k_AuthException[] = "AuthException";
+static const char __pyx_k_TenantManager[] = "TenantManager";
 static const char __pyx_k_expires_delta[] = "expires_delta";
 static const char __pyx_k_hash_password[] = "hash_password";
 static const char __pyx_k_oauth2_scheme[] = "oauth2_scheme";
+static const char __pyx_k_query_columns[] = "query_columns";
 static const char __pyx_k_LoginException[] = "LoginException";
 static const char __pyx_k_casbin_service[] = "casbin_service";
 static const char __pyx_k_get_permission[] = "get_permission";
 static const char __pyx_k_logger_logging[] = "logger.logging_";
+static const char __pyx_k_model_validate[] = "model_validate";
 static const char __pyx_k_password_bytes[] = "password_bytes";
 static const char __pyx_k_password_model[] = "password_model";
 static const char __pyx_k_plain_password[] = "plain_password";
-static const char __pyx_k_response_class[] = "response_class";
 static const char __pyx_k_A_Q_wa_vXQ_vWAQ[] = "\200A\330%-\250Q\340\010\031\230\030\240\027\250\001\250\021\340\010\021\220\026\220w\230a\320\037/\250v\260X\270Q\330\010\017\210v\220W\230A\230Q";
 static const char __pyx_k_DBEngineService[] = "DBEngineService";
 static const char __pyx_k_TOKEN_ALGORITHM[] = "TOKEN_ALGORITHM";
@@ -2711,13 +2703,12 @@ static const char __pyx_k_config_app_config[] = "config.app_config";
 static const char __pyx_k_AuthService_logout[] = "AuthService.logout";
 static const char __pyx_k_Optional_timedelta[] = "Optional[timedelta]";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
-static const char __pyx_k_auth_user_username[] = "auth_user.username";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_AuthService_refresh[] = "AuthService.refresh";
 static const char __pyx_k_OAuth2PasswordBearer[] = "OAuth2PasswordBearer";
 static const char __pyx_k_TOKEN_EXPIRE_MINUTES[] = "TOKEN_EXPIRE_MINUTES";
 static const char __pyx_k_token_jwt_secret_key[] = "token_jwt_secret_key";
-static const char __pyx_k_schemas_query_request[] = "schemas.query_request";
+static const char __pyx_k_tools_tenant_checker[] = "tools.tenant_checker";
 static const char __pyx_k_services_data_service[] = "services.data_service";
 static const char __pyx_k_get_auth_async_session[] = "get_auth_async_session";
 static const char __pyx_k_A_o5TTU_D_Q_3nCy_A_s_S_S[] = "\200A\330 &\240o\3205T\320TU\340\010\024\220D\230\005\230Q\330\010\021\220\030\230\027\240\003\2403\240n\260C\260y\300\001\300\030\310\023\310A\330\010\021\220\027\230\002\230'\240\021\330\010\017\210s\220'\230\021\230+\240S\320(;\270:\300S\310\001";
@@ -2746,7 +2737,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_10get_current_user(CYTHON
 static PyObject *__pyx_pf_12auth_service_11AuthService_13logout(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
 static PyObject *__pyx_pf_12auth_service_11AuthService_16refresh(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
 static PyObject *__pyx_pf_12auth_service_11AuthService_19login(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_auth_login); /* proto */
-static PyObject *__pyx_pf_12auth_service_11AuthService_22modify_password(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_password_model, PyObject *__pyx_v_auth_user); /* proto */
+static PyObject *__pyx_pf_12auth_service_11AuthService_22modify_password(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_password_model, PyObject *__pyx_v_current_user); /* proto */
 static PyObject *__pyx_tp_new_12auth_service___pyx_defaults(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_12auth_service___pyx_scope_struct__get_current_user(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_12auth_service___pyx_scope_struct_1_logout(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -2807,7 +2798,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type__update;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[10];
-  PyObject *__pyx_string_tab[181];
+  PyObject *__pyx_string_tab[174];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2881,186 +2872,179 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #endif
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
-#define __pyx_kp_u_121213212 __pyx_string_tab[1]
-#define __pyx_n_u_AND __pyx_string_tab[2]
-#define __pyx_n_u_AppConfig __pyx_string_tab[3]
-#define __pyx_n_u_AsyncSession __pyx_string_tab[4]
-#define __pyx_n_u_AuthException __pyx_string_tab[5]
-#define __pyx_n_u_AuthLogin __pyx_string_tab[6]
-#define __pyx_n_u_AuthPassword __pyx_string_tab[7]
-#define __pyx_n_u_AuthService __pyx_string_tab[8]
-#define __pyx_n_u_AuthService_get_current_user __pyx_string_tab[9]
-#define __pyx_n_u_AuthService_get_permission __pyx_string_tab[10]
-#define __pyx_n_u_AuthService_hash_password __pyx_string_tab[11]
-#define __pyx_n_u_AuthService_login __pyx_string_tab[12]
-#define __pyx_n_u_AuthService_logout __pyx_string_tab[13]
-#define __pyx_n_u_AuthService_modify_password __pyx_string_tab[14]
-#define __pyx_n_u_AuthService_refresh __pyx_string_tab[15]
-#define __pyx_n_u_AuthService_token_decode __pyx_string_tab[16]
-#define __pyx_n_u_AuthService_token_encode __pyx_string_tab[17]
-#define __pyx_n_u_AuthService_verify_password __pyx_string_tab[18]
-#define __pyx_n_u_AuthUser __pyx_string_tab[19]
-#define __pyx_n_u_AuthUserResponse __pyx_string_tab[20]
-#define __pyx_n_u_DBEngineService __pyx_string_tab[21]
-#define __pyx_n_u_DataService __pyx_string_tab[22]
-#define __pyx_n_u_Depends __pyx_string_tab[23]
-#define __pyx_n_u_HS256 __pyx_string_tab[24]
-#define __pyx_n_u_LoginException __pyx_string_tab[25]
-#define __pyx_n_u_None __pyx_string_tab[26]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[27]
-#define __pyx_n_u_OAuth2PasswordBearer __pyx_string_tab[28]
-#define __pyx_n_u_Optional __pyx_string_tab[29]
-#define __pyx_kp_u_Optional_timedelta __pyx_string_tab[30]
-#define __pyx_n_u_PermissionService __pyx_string_tab[31]
-#define __pyx_n_u_QueryRequest __pyx_string_tab[32]
-#define __pyx_n_u_Security __pyx_string_tab[33]
-#define __pyx_n_u_TOKEN_ALGORITHM __pyx_string_tab[34]
-#define __pyx_n_u_TOKEN_EXPIRE_MINUTES __pyx_string_tab[35]
-#define __pyx_n_u_TOKEN_SECRET_KEY __pyx_string_tab[36]
-#define __pyx_n_u_TypeError __pyx_string_tab[37]
-#define __pyx_n_u_ValueError __pyx_string_tab[38]
-#define __pyx_kp_u__10 __pyx_string_tab[39]
-#define __pyx_kp_u__2 __pyx_string_tab[40]
-#define __pyx_kp_u__3 __pyx_string_tab[41]
-#define __pyx_kp_u__4 __pyx_string_tab[42]
-#define __pyx_kp_u__5 __pyx_string_tab[43]
-#define __pyx_n_u__6 __pyx_string_tab[44]
-#define __pyx_n_u__7 __pyx_string_tab[45]
-#define __pyx_n_u__8 __pyx_string_tab[46]
-#define __pyx_kp_u__9 __pyx_string_tab[47]
-#define __pyx_n_u_access_token __pyx_string_tab[48]
-#define __pyx_kp_u_add_note __pyx_string_tab[49]
-#define __pyx_n_u_algorithm __pyx_string_tab[50]
-#define __pyx_n_u_algorithms __pyx_string_tab[51]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[52]
-#define __pyx_n_u_auth __pyx_string_tab[53]
-#define __pyx_n_u_auth_login __pyx_string_tab[54]
-#define __pyx_n_u_auth_service __pyx_string_tab[55]
-#define __pyx_kp_u_auth_service_py __pyx_string_tab[56]
-#define __pyx_kp_u_auth_token __pyx_string_tab[57]
-#define __pyx_n_u_auth_user __pyx_string_tab[58]
-#define __pyx_n_u_auth_user_id __pyx_string_tab[59]
-#define __pyx_kp_u_auth_user_username __pyx_string_tab[60]
-#define __pyx_n_u_await __pyx_string_tab[61]
-#define __pyx_n_u_bcrypt __pyx_string_tab[62]
-#define __pyx_n_u_bool __pyx_string_tab[63]
-#define __pyx_n_u_casbin_service __pyx_string_tab[64]
-#define __pyx_n_u_checkpw __pyx_string_tab[65]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[66]
-#define __pyx_n_u_close __pyx_string_tab[67]
-#define __pyx_n_u_cls __pyx_string_tab[68]
-#define __pyx_n_u_commit __pyx_string_tab[69]
-#define __pyx_n_u_conditions __pyx_string_tab[70]
-#define __pyx_n_u_config_app_config __pyx_string_tab[71]
-#define __pyx_n_u_data __pyx_string_tab[72]
-#define __pyx_n_u_datetime __pyx_string_tab[73]
-#define __pyx_n_u_db __pyx_string_tab[74]
-#define __pyx_n_u_db_update __pyx_string_tab[75]
-#define __pyx_n_u_decode __pyx_string_tab[76]
-#define __pyx_n_u_dict __pyx_string_tab[77]
-#define __pyx_kp_u_disable __pyx_string_tab[78]
-#define __pyx_n_u_doc __pyx_string_tab[79]
-#define __pyx_n_u_e __pyx_string_tab[80]
-#define __pyx_kp_u_enable __pyx_string_tab[81]
-#define __pyx_n_u_encode __pyx_string_tab[82]
-#define __pyx_n_u_error __pyx_string_tab[83]
-#define __pyx_n_u_errors __pyx_string_tab[84]
-#define __pyx_n_u_exc __pyx_string_tab[85]
-#define __pyx_n_u_exc_info __pyx_string_tab[86]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[87]
-#define __pyx_n_u_exp __pyx_string_tab[88]
-#define __pyx_n_u_expire __pyx_string_tab[89]
-#define __pyx_n_u_expires_delta __pyx_string_tab[90]
-#define __pyx_n_u_fastapi __pyx_string_tab[91]
-#define __pyx_n_u_fastapi_security __pyx_string_tab[92]
-#define __pyx_n_u_field __pyx_string_tab[93]
-#define __pyx_n_u_func __pyx_string_tab[94]
-#define __pyx_kp_u_gc __pyx_string_tab[95]
-#define __pyx_n_u_gensalt __pyx_string_tab[96]
-#define __pyx_n_u_get __pyx_string_tab[97]
-#define __pyx_n_u_get_auth_async_session __pyx_string_tab[98]
-#define __pyx_n_u_get_current_user __pyx_string_tab[99]
-#define __pyx_n_u_get_permission __pyx_string_tab[100]
-#define __pyx_n_u_hash_password __pyx_string_tab[101]
-#define __pyx_n_u_hashed __pyx_string_tab[102]
-#define __pyx_n_u_hashed_bytes __pyx_string_tab[103]
-#define __pyx_n_u_hashed_password __pyx_string_tab[104]
-#define __pyx_n_u_hashpw __pyx_string_tab[105]
-#define __pyx_n_u_id __pyx_string_tab[106]
-#define __pyx_n_u_initializing __pyx_string_tab[107]
-#define __pyx_n_u_is_active __pyx_string_tab[108]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[109]
-#define __pyx_kp_u_isenabled __pyx_string_tab[110]
-#define __pyx_n_u_jwt __pyx_string_tab[111]
-#define __pyx_n_u_last_login __pyx_string_tab[112]
-#define __pyx_n_u_logger_logging __pyx_string_tab[113]
-#define __pyx_n_u_logging __pyx_string_tab[114]
-#define __pyx_n_u_login __pyx_string_tab[115]
-#define __pyx_n_u_logout __pyx_string_tab[116]
-#define __pyx_n_u_main __pyx_string_tab[117]
-#define __pyx_n_u_message __pyx_string_tab[118]
-#define __pyx_n_u_metaclass __pyx_string_tab[119]
-#define __pyx_n_u_minutes __pyx_string_tab[120]
-#define __pyx_n_u_model_class __pyx_string_tab[121]
-#define __pyx_n_u_modify_password __pyx_string_tab[122]
-#define __pyx_n_u_module __pyx_string_tab[123]
-#define __pyx_n_u_name __pyx_string_tab[124]
-#define __pyx_n_u_new_password __pyx_string_tab[125]
-#define __pyx_n_u_next __pyx_string_tab[126]
-#define __pyx_n_u_oauth2_scheme __pyx_string_tab[127]
-#define __pyx_n_u_old_password __pyx_string_tab[128]
-#define __pyx_n_u_op __pyx_string_tab[129]
-#define __pyx_n_u_paging __pyx_string_tab[130]
-#define __pyx_n_u_password __pyx_string_tab[131]
-#define __pyx_n_u_password_bytes __pyx_string_tab[132]
-#define __pyx_n_u_password_model __pyx_string_tab[133]
-#define __pyx_n_u_payload __pyx_string_tab[134]
-#define __pyx_n_u_plain_bytes __pyx_string_tab[135]
-#define __pyx_n_u_plain_password __pyx_string_tab[136]
-#define __pyx_n_u_pop __pyx_string_tab[137]
-#define __pyx_n_u_portal_auth_entity_table_auth_us __pyx_string_tab[138]
-#define __pyx_n_u_prepare __pyx_string_tab[139]
-#define __pyx_n_u_primary_id __pyx_string_tab[140]
-#define __pyx_n_u_qualname __pyx_string_tab[141]
-#define __pyx_n_u_query __pyx_string_tab[142]
-#define __pyx_n_u_query_first __pyx_string_tab[143]
-#define __pyx_n_u_read __pyx_string_tab[144]
-#define __pyx_n_u_refresh __pyx_string_tab[145]
-#define __pyx_n_u_response_class __pyx_string_tab[146]
-#define __pyx_n_u_return __pyx_string_tab[147]
-#define __pyx_n_u_schemas_query_request __pyx_string_tab[148]
-#define __pyx_n_u_send __pyx_string_tab[149]
-#define __pyx_n_u_services_data_service __pyx_string_tab[150]
-#define __pyx_n_u_services_db_engine_service __pyx_string_tab[151]
-#define __pyx_n_u_set_name __pyx_string_tab[152]
-#define __pyx_n_u_spec __pyx_string_tab[153]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[154]
-#define __pyx_n_u_str __pyx_string_tab[155]
-#define __pyx_n_u_sub __pyx_string_tab[156]
-#define __pyx_n_u_test __pyx_string_tab[157]
-#define __pyx_n_u_throw __pyx_string_tab[158]
-#define __pyx_n_u_timedelta __pyx_string_tab[159]
-#define __pyx_n_u_to_encode __pyx_string_tab[160]
-#define __pyx_n_u_token __pyx_string_tab[161]
-#define __pyx_n_u_tokenUrl __pyx_string_tab[162]
-#define __pyx_kp_u_token_2 __pyx_string_tab[163]
-#define __pyx_n_u_token_3 __pyx_string_tab[164]
-#define __pyx_n_u_token_decode __pyx_string_tab[165]
-#define __pyx_n_u_token_encode __pyx_string_tab[166]
-#define __pyx_n_u_token_jwt_expire_minutes __pyx_string_tab[167]
-#define __pyx_n_u_token_jwt_secret_key __pyx_string_tab[168]
-#define __pyx_n_u_type __pyx_string_tab[169]
-#define __pyx_n_u_typing __pyx_string_tab[170]
-#define __pyx_n_u_update __pyx_string_tab[171]
-#define __pyx_n_u_update_model __pyx_string_tab[172]
-#define __pyx_n_u_user __pyx_string_tab[173]
-#define __pyx_n_u_username __pyx_string_tab[174]
-#define __pyx_n_u_utcnow __pyx_string_tab[175]
-#define __pyx_kp_u_utf_8 __pyx_string_tab[176]
-#define __pyx_n_u_val __pyx_string_tab[177]
-#define __pyx_n_u_value __pyx_string_tab[178]
-#define __pyx_n_u_verify_password __pyx_string_tab[179]
-#define __pyx_n_u_warning __pyx_string_tab[180]
+#define __pyx_n_u_AppConfig __pyx_string_tab[1]
+#define __pyx_n_u_AsyncSession __pyx_string_tab[2]
+#define __pyx_n_u_AuthException __pyx_string_tab[3]
+#define __pyx_n_u_AuthLogin __pyx_string_tab[4]
+#define __pyx_n_u_AuthPassword __pyx_string_tab[5]
+#define __pyx_n_u_AuthService __pyx_string_tab[6]
+#define __pyx_n_u_AuthService_get_current_user __pyx_string_tab[7]
+#define __pyx_n_u_AuthService_get_permission __pyx_string_tab[8]
+#define __pyx_n_u_AuthService_hash_password __pyx_string_tab[9]
+#define __pyx_n_u_AuthService_login __pyx_string_tab[10]
+#define __pyx_n_u_AuthService_logout __pyx_string_tab[11]
+#define __pyx_n_u_AuthService_modify_password __pyx_string_tab[12]
+#define __pyx_n_u_AuthService_refresh __pyx_string_tab[13]
+#define __pyx_n_u_AuthService_token_decode __pyx_string_tab[14]
+#define __pyx_n_u_AuthService_token_encode __pyx_string_tab[15]
+#define __pyx_n_u_AuthService_verify_password __pyx_string_tab[16]
+#define __pyx_n_u_AuthUser __pyx_string_tab[17]
+#define __pyx_n_u_AuthUserResponse __pyx_string_tab[18]
+#define __pyx_n_u_DBEngineService __pyx_string_tab[19]
+#define __pyx_n_u_DataService __pyx_string_tab[20]
+#define __pyx_n_u_Depends __pyx_string_tab[21]
+#define __pyx_n_u_HS256 __pyx_string_tab[22]
+#define __pyx_n_u_LoginException __pyx_string_tab[23]
+#define __pyx_n_u_None __pyx_string_tab[24]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[25]
+#define __pyx_n_u_OAuth2PasswordBearer __pyx_string_tab[26]
+#define __pyx_n_u_Optional __pyx_string_tab[27]
+#define __pyx_kp_u_Optional_timedelta __pyx_string_tab[28]
+#define __pyx_n_u_PermissionService __pyx_string_tab[29]
+#define __pyx_n_u_Security __pyx_string_tab[30]
+#define __pyx_n_u_TOKEN_ALGORITHM __pyx_string_tab[31]
+#define __pyx_n_u_TOKEN_EXPIRE_MINUTES __pyx_string_tab[32]
+#define __pyx_n_u_TOKEN_SECRET_KEY __pyx_string_tab[33]
+#define __pyx_n_u_TenantManager __pyx_string_tab[34]
+#define __pyx_n_u_TypeError __pyx_string_tab[35]
+#define __pyx_n_u_ValueError __pyx_string_tab[36]
+#define __pyx_kp_u__2 __pyx_string_tab[37]
+#define __pyx_kp_u__3 __pyx_string_tab[38]
+#define __pyx_kp_u__4 __pyx_string_tab[39]
+#define __pyx_n_u__5 __pyx_string_tab[40]
+#define __pyx_n_u__6 __pyx_string_tab[41]
+#define __pyx_n_u__7 __pyx_string_tab[42]
+#define __pyx_kp_u__8 __pyx_string_tab[43]
+#define __pyx_kp_u__9 __pyx_string_tab[44]
+#define __pyx_n_u_access_token __pyx_string_tab[45]
+#define __pyx_kp_u_add_note __pyx_string_tab[46]
+#define __pyx_n_u_algorithm __pyx_string_tab[47]
+#define __pyx_n_u_algorithms __pyx_string_tab[48]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[49]
+#define __pyx_n_u_auth __pyx_string_tab[50]
+#define __pyx_n_u_auth_login __pyx_string_tab[51]
+#define __pyx_n_u_auth_service __pyx_string_tab[52]
+#define __pyx_kp_u_auth_service_py __pyx_string_tab[53]
+#define __pyx_kp_u_auth_token __pyx_string_tab[54]
+#define __pyx_n_u_auth_user __pyx_string_tab[55]
+#define __pyx_n_u_await __pyx_string_tab[56]
+#define __pyx_n_u_bcrypt __pyx_string_tab[57]
+#define __pyx_n_u_bool __pyx_string_tab[58]
+#define __pyx_n_u_casbin_service __pyx_string_tab[59]
+#define __pyx_n_u_checkpw __pyx_string_tab[60]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[61]
+#define __pyx_n_u_close __pyx_string_tab[62]
+#define __pyx_n_u_cls __pyx_string_tab[63]
+#define __pyx_n_u_commit __pyx_string_tab[64]
+#define __pyx_n_u_condition __pyx_string_tab[65]
+#define __pyx_n_u_config_app_config __pyx_string_tab[66]
+#define __pyx_n_u_current_user __pyx_string_tab[67]
+#define __pyx_n_u_data __pyx_string_tab[68]
+#define __pyx_n_u_datetime __pyx_string_tab[69]
+#define __pyx_n_u_db __pyx_string_tab[70]
+#define __pyx_n_u_db_update __pyx_string_tab[71]
+#define __pyx_n_u_decode __pyx_string_tab[72]
+#define __pyx_n_u_dict __pyx_string_tab[73]
+#define __pyx_n_u_disable __pyx_string_tab[74]
+#define __pyx_kp_u_disable __pyx_string_tab[75]
+#define __pyx_n_u_doc __pyx_string_tab[76]
+#define __pyx_n_u_e __pyx_string_tab[77]
+#define __pyx_kp_u_enable __pyx_string_tab[78]
+#define __pyx_n_u_encode __pyx_string_tab[79]
+#define __pyx_n_u_error __pyx_string_tab[80]
+#define __pyx_n_u_errors __pyx_string_tab[81]
+#define __pyx_n_u_exc __pyx_string_tab[82]
+#define __pyx_n_u_exc_info __pyx_string_tab[83]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[84]
+#define __pyx_n_u_exp __pyx_string_tab[85]
+#define __pyx_n_u_expire __pyx_string_tab[86]
+#define __pyx_n_u_expires_delta __pyx_string_tab[87]
+#define __pyx_n_u_fastapi __pyx_string_tab[88]
+#define __pyx_n_u_fastapi_security __pyx_string_tab[89]
+#define __pyx_n_u_func __pyx_string_tab[90]
+#define __pyx_kp_u_gc __pyx_string_tab[91]
+#define __pyx_n_u_gensalt __pyx_string_tab[92]
+#define __pyx_n_u_get __pyx_string_tab[93]
+#define __pyx_n_u_get_auth_async_session __pyx_string_tab[94]
+#define __pyx_n_u_get_current_user __pyx_string_tab[95]
+#define __pyx_n_u_get_permission __pyx_string_tab[96]
+#define __pyx_n_u_hash_password __pyx_string_tab[97]
+#define __pyx_n_u_hashed __pyx_string_tab[98]
+#define __pyx_n_u_hashed_bytes __pyx_string_tab[99]
+#define __pyx_n_u_hashed_password __pyx_string_tab[100]
+#define __pyx_n_u_hashpw __pyx_string_tab[101]
+#define __pyx_n_u_initializing __pyx_string_tab[102]
+#define __pyx_n_u_is_active __pyx_string_tab[103]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[104]
+#define __pyx_kp_u_isenabled __pyx_string_tab[105]
+#define __pyx_n_u_jwt __pyx_string_tab[106]
+#define __pyx_n_u_last_login __pyx_string_tab[107]
+#define __pyx_n_u_logger_logging __pyx_string_tab[108]
+#define __pyx_n_u_logging __pyx_string_tab[109]
+#define __pyx_n_u_login __pyx_string_tab[110]
+#define __pyx_n_u_logout __pyx_string_tab[111]
+#define __pyx_n_u_main __pyx_string_tab[112]
+#define __pyx_n_u_message __pyx_string_tab[113]
+#define __pyx_n_u_metaclass __pyx_string_tab[114]
+#define __pyx_n_u_minutes __pyx_string_tab[115]
+#define __pyx_n_u_model_class __pyx_string_tab[116]
+#define __pyx_n_u_model_validate __pyx_string_tab[117]
+#define __pyx_n_u_modify_password __pyx_string_tab[118]
+#define __pyx_n_u_module __pyx_string_tab[119]
+#define __pyx_n_u_name __pyx_string_tab[120]
+#define __pyx_n_u_new_password __pyx_string_tab[121]
+#define __pyx_n_u_next __pyx_string_tab[122]
+#define __pyx_n_u_oauth2_scheme __pyx_string_tab[123]
+#define __pyx_n_u_old_password __pyx_string_tab[124]
+#define __pyx_n_u_pass_word __pyx_string_tab[125]
+#define __pyx_n_u_password __pyx_string_tab[126]
+#define __pyx_n_u_password_bytes __pyx_string_tab[127]
+#define __pyx_n_u_password_model __pyx_string_tab[128]
+#define __pyx_n_u_payload __pyx_string_tab[129]
+#define __pyx_n_u_plain_bytes __pyx_string_tab[130]
+#define __pyx_n_u_plain_password __pyx_string_tab[131]
+#define __pyx_n_u_pop __pyx_string_tab[132]
+#define __pyx_n_u_portal_auth_entity_table_auth_us __pyx_string_tab[133]
+#define __pyx_n_u_prepare __pyx_string_tab[134]
+#define __pyx_n_u_qualname __pyx_string_tab[135]
+#define __pyx_n_u_query_columns __pyx_string_tab[136]
+#define __pyx_n_u_refresh __pyx_string_tab[137]
+#define __pyx_n_u_return __pyx_string_tab[138]
+#define __pyx_n_u_send __pyx_string_tab[139]
+#define __pyx_n_u_services_data_service __pyx_string_tab[140]
+#define __pyx_n_u_services_db_engine_service __pyx_string_tab[141]
+#define __pyx_n_u_set __pyx_string_tab[142]
+#define __pyx_n_u_set_name __pyx_string_tab[143]
+#define __pyx_n_u_spec __pyx_string_tab[144]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[145]
+#define __pyx_n_u_str __pyx_string_tab[146]
+#define __pyx_n_u_sub __pyx_string_tab[147]
+#define __pyx_n_u_tenant_id __pyx_string_tab[148]
+#define __pyx_n_u_test __pyx_string_tab[149]
+#define __pyx_n_u_throw __pyx_string_tab[150]
+#define __pyx_n_u_timedelta __pyx_string_tab[151]
+#define __pyx_n_u_to_encode __pyx_string_tab[152]
+#define __pyx_n_u_token __pyx_string_tab[153]
+#define __pyx_n_u_tokenUrl __pyx_string_tab[154]
+#define __pyx_kp_u_token_2 __pyx_string_tab[155]
+#define __pyx_n_u_token_3 __pyx_string_tab[156]
+#define __pyx_n_u_token_decode __pyx_string_tab[157]
+#define __pyx_n_u_token_encode __pyx_string_tab[158]
+#define __pyx_n_u_token_jwt_expire_minutes __pyx_string_tab[159]
+#define __pyx_n_u_token_jwt_secret_key __pyx_string_tab[160]
+#define __pyx_n_u_tools_tenant_checker __pyx_string_tab[161]
+#define __pyx_n_u_typing __pyx_string_tab[162]
+#define __pyx_n_u_update __pyx_string_tab[163]
+#define __pyx_n_u_update_model __pyx_string_tab[164]
+#define __pyx_n_u_user __pyx_string_tab[165]
+#define __pyx_n_u_user_id __pyx_string_tab[166]
+#define __pyx_n_u_user_name __pyx_string_tab[167]
+#define __pyx_n_u_username __pyx_string_tab[168]
+#define __pyx_n_u_utcnow __pyx_string_tab[169]
+#define __pyx_kp_u_utf_8 __pyx_string_tab[170]
+#define __pyx_n_u_value __pyx_string_tab[171]
+#define __pyx_n_u_verify_password __pyx_string_tab[172]
+#define __pyx_n_u_warning __pyx_string_tab[173]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3095,7 +3079,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_12auth_service___pyx_scope_struct_4_modify_password);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<10; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<181; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<174; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3130,7 +3114,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_12auth_service___pyx_scope_struct_4_modify_password);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<10; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<181; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<174; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -4992,12 +4976,12 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
   PyObject *__pyx_t_11 = NULL;
-  PyObject *__pyx_t_12 = NULL;
-  __Pyx_PySendResult __pyx_t_13;
+  __Pyx_PySendResult __pyx_t_12;
+  int __pyx_t_13;
   int __pyx_t_14;
   int __pyx_t_15;
-  int __pyx_t_16;
-  char const *__pyx_t_17;
+  char const *__pyx_t_16;
+  PyObject *__pyx_t_17 = NULL;
   PyObject *__pyx_t_18 = NULL;
   PyObject *__pyx_t_19 = NULL;
   PyObject *__pyx_t_20 = NULL;
@@ -5025,11 +5009,11 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
   }
 
   /* "auth_service.py":86
- *     ) -> AuthUser:
+ *     ) -> AuthUserResponse:
  *         """  """
  *         try:             # <<<<<<<<<<<<<<
  *             payload = cls.token_decode(token)
- *             auth_user_id: str = str(payload.get("id"))
+ *             username: str = str(payload.get("sub"))
 */
   {
     __Pyx_ExceptionSave(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3);
@@ -5042,8 +5026,8 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
  *         """  """
  *         try:
  *             payload = cls.token_decode(token)             # <<<<<<<<<<<<<<
- *             auth_user_id: str = str(payload.get("id"))
- *             if auth_user_id is None:
+ *             username: str = str(payload.get("sub"))
+ *             if username is None:
 */
       __pyx_t_5 = __pyx_cur_scope->__pyx_v_cls;
       __Pyx_INCREF(__pyx_t_5);
@@ -5062,15 +5046,15 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
       /* "auth_service.py":88
  *         try:
  *             payload = cls.token_decode(token)
- *             auth_user_id: str = str(payload.get("id"))             # <<<<<<<<<<<<<<
- *             if auth_user_id is None:
+ *             username: str = str(payload.get("sub"))             # <<<<<<<<<<<<<<
+ *             if username is None:
  *                 raise AuthException(message="token")
 */
       __pyx_t_5 = __pyx_cur_scope->__pyx_v_payload;
       __Pyx_INCREF(__pyx_t_5);
       __pyx_t_6 = 0;
       {
-        PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_mstate_global->__pyx_n_u_id};
+        PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_mstate_global->__pyx_n_u_sub};
         __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L4_error)
@@ -5080,25 +5064,25 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GIVEREF(__pyx_t_5);
-      __pyx_cur_scope->__pyx_v_auth_user_id = ((PyObject*)__pyx_t_5);
+      __pyx_cur_scope->__pyx_v_username = ((PyObject*)__pyx_t_5);
       __pyx_t_5 = 0;
 
       /* "auth_service.py":89
  *             payload = cls.token_decode(token)
- *             auth_user_id: str = str(payload.get("id"))
- *             if auth_user_id is None:             # <<<<<<<<<<<<<<
+ *             username: str = str(payload.get("sub"))
+ *             if username is None:             # <<<<<<<<<<<<<<
  *                 raise AuthException(message="token")
- *             user = await DataService.read(
+ *             #
 */
-      __pyx_t_7 = (__pyx_cur_scope->__pyx_v_auth_user_id == ((PyObject*)Py_None));
+      __pyx_t_7 = (__pyx_cur_scope->__pyx_v_username == ((PyObject*)Py_None));
       if (unlikely(__pyx_t_7)) {
 
         /* "auth_service.py":90
- *             auth_user_id: str = str(payload.get("id"))
- *             if auth_user_id is None:
+ *             username: str = str(payload.get("sub"))
+ *             if username is None:
  *                 raise AuthException(message="token")             # <<<<<<<<<<<<<<
- *             user = await DataService.read(
- *                 db=db, primary_id=int(auth_user_id), model_class=AuthUser,
+ *             #
+ *             TenantManager.disable()
 */
         __pyx_t_4 = NULL;
         __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 90, __pyx_L4_error)
@@ -5133,48 +5117,26 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
 
         /* "auth_service.py":89
  *             payload = cls.token_decode(token)
- *             auth_user_id: str = str(payload.get("id"))
- *             if auth_user_id is None:             # <<<<<<<<<<<<<<
+ *             username: str = str(payload.get("sub"))
+ *             if username is None:             # <<<<<<<<<<<<<<
  *                 raise AuthException(message="token")
- *             user = await DataService.read(
+ *             #
 */
       }
 
-      /* "auth_service.py":91
- *             if auth_user_id is None:
- *                 raise AuthException(message="token")
- *             user = await DataService.read(             # <<<<<<<<<<<<<<
- *                 db=db, primary_id=int(auth_user_id), model_class=AuthUser,
- *                 response_class=AuthUserResponse
-*/
-      __pyx_t_8 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 91, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_read); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-
       /* "auth_service.py":92
  *                 raise AuthException(message="token")
- *             user = await DataService.read(
- *                 db=db, primary_id=int(auth_user_id), model_class=AuthUser,             # <<<<<<<<<<<<<<
- *                 response_class=AuthUserResponse
- *             )
+ *             #
+ *             TenantManager.disable()             # <<<<<<<<<<<<<<
+ *             user = await DataService.query_columns(
+ *                 db, model_class=AuthUser,
 */
-      __pyx_t_9 = __Pyx_PyNumber_Int(__pyx_cur_scope->__pyx_v_auth_user_id); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 92, __pyx_L4_error)
+      __pyx_t_8 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 92, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 92, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_10);
-
-      /* "auth_service.py":93
- *             user = await DataService.read(
- *                 db=db, primary_id=int(auth_user_id), model_class=AuthUser,
- *                 response_class=AuthUserResponse             # <<<<<<<<<<<<<<
- *             )
- *             if not user:
-*/
-      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_AuthUserResponse); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 93, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_disable); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_6 = 1;
       #if CYTHON_UNPACK_METHODS
       if (unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -5188,26 +5150,83 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
       }
       #endif
       {
-        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_8, NULL};
-        __pyx_t_12 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 91, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db, __pyx_cur_scope->__pyx_v_db, __pyx_t_12, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 91, __pyx_L4_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_t_9, __pyx_t_12, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 91, __pyx_L4_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_10, __pyx_t_12, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 91, __pyx_L4_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_class, __pyx_t_11, __pyx_t_12, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 91, __pyx_L4_error)
-        __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_12);
+        PyObject *__pyx_callargs[2] = {__pyx_t_8, NULL};
+        __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L4_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_5);
       }
-      __pyx_t_13 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_5, &__pyx_r);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (likely(__pyx_t_13 == PYGEN_NEXT)) {
+
+      /* "auth_service.py":93
+ *             #
+ *             TenantManager.disable()
+ *             user = await DataService.query_columns(             # <<<<<<<<<<<<<<
+ *                 db, model_class=AuthUser,
+ *                 condition=AuthUser.user_name == username
+*/
+      __pyx_t_4 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_query_columns); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 93, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+
+      /* "auth_service.py":94
+ *             TenantManager.disable()
+ *             user = await DataService.query_columns(
+ *                 db, model_class=AuthUser,             # <<<<<<<<<<<<<<
+ *                 condition=AuthUser.user_name == username
+ *             )
+*/
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 94, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_8);
+
+      /* "auth_service.py":95
+ *             user = await DataService.query_columns(
+ *                 db, model_class=AuthUser,
+ *                 condition=AuthUser.user_name == username             # <<<<<<<<<<<<<<
+ *             )
+ *             if not user:
+*/
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 95, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_10 = PyObject_RichCompare(__pyx_t_11, __pyx_cur_scope->__pyx_v_username, Py_EQ); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 95, __pyx_L4_error)
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __pyx_t_6 = 1;
+      #if CYTHON_UNPACK_METHODS
+      if (unlikely(PyMethod_Check(__pyx_t_9))) {
+        __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_9);
+        assert(__pyx_t_4);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_9);
+        __Pyx_INCREF(__pyx_t_4);
+        __Pyx_INCREF(__pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_9, __pyx__function);
+        __pyx_t_6 = 0;
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_db};
+        __pyx_t_11 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 93, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_11);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_8, __pyx_t_11, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 93, __pyx_L4_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_condition, __pyx_t_10, __pyx_t_11, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 93, __pyx_L4_error)
+        __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_9, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_11);
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 93, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_5);
+      }
+      __pyx_t_12 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_5, &__pyx_r);
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      if (likely(__pyx_t_12 == PYGEN_NEXT)) {
         __Pyx_GOTREF(__pyx_r);
         __Pyx_XGIVEREF(__pyx_t_1);
         __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
@@ -5231,153 +5250,180 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
         __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
         __pyx_cur_scope->__pyx_t_2 = 0;
         __Pyx_XGOTREF(__pyx_t_3);
-        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 91, __pyx_L4_error)
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 93, __pyx_L4_error)
         __pyx_t_5 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_5);
-      } else if (likely(__pyx_t_13 == PYGEN_RETURN)) {
+      } else if (likely(__pyx_t_12 == PYGEN_RETURN)) {
         __Pyx_GOTREF(__pyx_r);
         __pyx_t_5 = __pyx_r; __pyx_r = NULL;
       } else {
         __Pyx_XGOTREF(__pyx_r);
-        __PYX_ERR(0, 91, __pyx_L4_error)
+        __PYX_ERR(0, 93, __pyx_L4_error)
       }
       __Pyx_GIVEREF(__pyx_t_5);
       __pyx_cur_scope->__pyx_v_user = __pyx_t_5;
       __pyx_t_5 = 0;
 
-      /* "auth_service.py":95
- *                 response_class=AuthUserResponse
+      /* "auth_service.py":97
+ *                 condition=AuthUser.user_name == username
  *             )
  *             if not user:             # <<<<<<<<<<<<<<
  *                 raise AuthException(message="token")
- *             if user.username != payload.get("sub"):
+ *             # ID
 */
-      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_user); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 95, __pyx_L4_error)
-      __pyx_t_14 = (!__pyx_t_7);
-      if (unlikely(__pyx_t_14)) {
+      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_user); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 97, __pyx_L4_error)
+      __pyx_t_13 = (!__pyx_t_7);
+      if (unlikely(__pyx_t_13)) {
 
-        /* "auth_service.py":96
+        /* "auth_service.py":98
  *             )
  *             if not user:
  *                 raise AuthException(message="token")             # <<<<<<<<<<<<<<
- *             if user.username != payload.get("sub"):
- *                 raise AuthException(message="token")
+ *             # ID
+ *             TenantManager.set(
 */
-        __pyx_t_4 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 96, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_12);
+        __pyx_t_9 = NULL;
+        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_6 = 1;
         #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_12))) {
-          __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_12);
-          assert(__pyx_t_4);
-          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_12);
-          __Pyx_INCREF(__pyx_t_4);
+        if (unlikely(PyMethod_Check(__pyx_t_11))) {
+          __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_11);
+          assert(__pyx_t_9);
+          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_11);
+          __Pyx_INCREF(__pyx_t_9);
           __Pyx_INCREF(__pyx__function);
-          __Pyx_DECREF_SET(__pyx_t_12, __pyx__function);
+          __Pyx_DECREF_SET(__pyx_t_11, __pyx__function);
           __pyx_t_6 = 0;
         }
         #endif
         {
-          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, NULL};
-          __pyx_t_11 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 96, __pyx_L4_error)
-          __Pyx_GOTREF(__pyx_t_11);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_token_3, __pyx_t_11, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 96, __pyx_L4_error)
-          __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_12, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_11);
-          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_9, NULL};
+          __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 98, __pyx_L4_error)
+          __Pyx_GOTREF(__pyx_t_10);
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_token_3, __pyx_t_10, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 98, __pyx_L4_error)
+          __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_11, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_10);
+          __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+          __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 96, __pyx_L4_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 98, __pyx_L4_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __Pyx_Raise(__pyx_t_5, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __PYX_ERR(0, 96, __pyx_L4_error)
-
-        /* "auth_service.py":95
- *                 response_class=AuthUserResponse
- *             )
- *             if not user:             # <<<<<<<<<<<<<<
- *                 raise AuthException(message="token")
- *             if user.username != payload.get("sub"):
-*/
-      }
-
-      /* "auth_service.py":97
- *             if not user:
- *                 raise AuthException(message="token")
- *             if user.username != payload.get("sub"):             # <<<<<<<<<<<<<<
- *                 raise AuthException(message="token")
- *             return user
-*/
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_user, __pyx_mstate_global->__pyx_n_u_username); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 97, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_11 = __pyx_cur_scope->__pyx_v_payload;
-      __Pyx_INCREF(__pyx_t_11);
-      __pyx_t_6 = 0;
-      {
-        PyObject *__pyx_callargs[2] = {__pyx_t_11, __pyx_mstate_global->__pyx_n_u_sub};
-        __pyx_t_12 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-        __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-        if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 97, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_12);
-      }
-      __pyx_t_11 = PyObject_RichCompare(__pyx_t_5, __pyx_t_12, Py_NE); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 97, __pyx_L4_error)
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely((__pyx_t_14 < 0))) __PYX_ERR(0, 97, __pyx_L4_error)
-      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      if (unlikely(__pyx_t_14)) {
-
-        /* "auth_service.py":98
- *                 raise AuthException(message="token")
- *             if user.username != payload.get("sub"):
- *                 raise AuthException(message="token")             # <<<<<<<<<<<<<<
- *             return user
- *         except AuthException as exc:
-*/
-        __pyx_t_12 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 98, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = 1;
-        #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_5))) {
-          __pyx_t_12 = PyMethod_GET_SELF(__pyx_t_5);
-          assert(__pyx_t_12);
-          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
-          __Pyx_INCREF(__pyx_t_12);
-          __Pyx_INCREF(__pyx__function);
-          __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
-          __pyx_t_6 = 0;
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_12, NULL};
-          __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L4_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_token_3, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 98, __pyx_L4_error)
-          __pyx_t_11 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
-          __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L4_error)
-          __Pyx_GOTREF(__pyx_t_11);
-        }
-        __Pyx_Raise(__pyx_t_11, 0, 0, 0);
-        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __PYX_ERR(0, 98, __pyx_L4_error)
 
         /* "auth_service.py":97
- *             if not user:
+ *                 condition=AuthUser.user_name == username
+ *             )
+ *             if not user:             # <<<<<<<<<<<<<<
  *                 raise AuthException(message="token")
- *             if user.username != payload.get("sub"):             # <<<<<<<<<<<<<<
- *                 raise AuthException(message="token")
- *             return user
+ *             # ID
 */
       }
 
-      /* "auth_service.py":99
- *             if user.username != payload.get("sub"):
+      /* "auth_service.py":100
  *                 raise AuthException(message="token")
+ *             # ID
+ *             TenantManager.set(             # <<<<<<<<<<<<<<
+ *                 user_name=user.user_name,
+ *                 tenant_id=user.tenant_id
+*/
+      __pyx_t_11 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 100, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_set); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 100, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+
+      /* "auth_service.py":101
+ *             # ID
+ *             TenantManager.set(
+ *                 user_name=user.user_name,             # <<<<<<<<<<<<<<
+ *                 tenant_id=user.tenant_id
+ *             )
+*/
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_user, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 101, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_10);
+
+      /* "auth_service.py":102
+ *             TenantManager.set(
+ *                 user_name=user.user_name,
+ *                 tenant_id=user.tenant_id             # <<<<<<<<<<<<<<
+ *             )
+ *             #  AuthUserResponse
+*/
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_user, __pyx_mstate_global->__pyx_n_u_tenant_id); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 102, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __pyx_t_6 = 1;
+      #if CYTHON_UNPACK_METHODS
+      if (unlikely(PyMethod_Check(__pyx_t_9))) {
+        __pyx_t_11 = PyMethod_GET_SELF(__pyx_t_9);
+        assert(__pyx_t_11);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_9);
+        __Pyx_INCREF(__pyx_t_11);
+        __Pyx_INCREF(__pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_9, __pyx__function);
+        __pyx_t_6 = 0;
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_11, NULL};
+        __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_user_name, __pyx_t_10, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 100, __pyx_L4_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tenant_id, __pyx_t_8, __pyx_t_4, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 100, __pyx_L4_error)
+        __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_9, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
+        __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_5);
+      }
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+      /* "auth_service.py":105
+ *             )
+ *             #  AuthUserResponse
+ *             user = AuthUserResponse.model_validate(user)             # <<<<<<<<<<<<<<
+ *             return user
+ *         except AuthException as exc:
+*/
+      __pyx_t_9 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthUserResponse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_model_validate); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 105, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_6 = 1;
+      #if CYTHON_UNPACK_METHODS
+      if (unlikely(PyMethod_Check(__pyx_t_8))) {
+        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_8);
+        assert(__pyx_t_9);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
+        __Pyx_INCREF(__pyx_t_9);
+        __Pyx_INCREF(__pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
+        __pyx_t_6 = 0;
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[2] = {__pyx_t_9, __pyx_cur_scope->__pyx_v_user};
+        __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 105, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_5);
+      }
+      __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_user);
+      __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_user, __pyx_t_5);
+      __Pyx_GIVEREF(__pyx_t_5);
+      __pyx_t_5 = 0;
+
+      /* "auth_service.py":106
+ *             #  AuthUserResponse
+ *             user = AuthUserResponse.model_validate(user)
  *             return user             # <<<<<<<<<<<<<<
  *         except AuthException as exc:
  *             raise exc
@@ -5388,48 +5434,47 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
       goto __pyx_L8_try_return;
 
       /* "auth_service.py":86
- *     ) -> AuthUser:
+ *     ) -> AuthUserResponse:
  *         """  """
  *         try:             # <<<<<<<<<<<<<<
  *             payload = cls.token_decode(token)
- *             auth_user_id: str = str(payload.get("id"))
+ *             username: str = str(payload.get("sub"))
 */
     }
     __pyx_L4_error:;
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "auth_service.py":100
- *                 raise AuthException(message="token")
+    /* "auth_service.py":107
+ *             user = AuthUserResponse.model_validate(user)
  *             return user
  *         except AuthException as exc:             # <<<<<<<<<<<<<<
  *             raise exc
  *         except Exception as exc:
 */
-    __Pyx_ErrFetch(&__pyx_t_11, &__pyx_t_5, &__pyx_t_4);
-    __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 100, __pyx_L6_except_error)
-    __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_15 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_11, __pyx_t_12);
-    __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    __Pyx_ErrRestore(__pyx_t_11, __pyx_t_5, __pyx_t_4);
-    __pyx_t_11 = 0; __pyx_t_5 = 0; __pyx_t_4 = 0;
-    if (__pyx_t_15) {
+    __Pyx_ErrFetch(&__pyx_t_5, &__pyx_t_8, &__pyx_t_9);
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 107, __pyx_L6_except_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_14 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_5, __pyx_t_4);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_ErrRestore(__pyx_t_5, __pyx_t_8, __pyx_t_9);
+    __pyx_t_5 = 0; __pyx_t_8 = 0; __pyx_t_9 = 0;
+    if (__pyx_t_14) {
       __Pyx_AddTraceback("auth_service.AuthService.get_current_user", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_5, &__pyx_t_11) < 0) __PYX_ERR(0, 100, __pyx_L6_except_error)
-      __Pyx_XGOTREF(__pyx_t_4);
+      if (__Pyx_GetException(&__pyx_t_9, &__pyx_t_8, &__pyx_t_5) < 0) __PYX_ERR(0, 107, __pyx_L6_except_error)
+      __Pyx_XGOTREF(__pyx_t_9);
+      __Pyx_XGOTREF(__pyx_t_8);
       __Pyx_XGOTREF(__pyx_t_5);
-      __Pyx_XGOTREF(__pyx_t_11);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_GIVEREF(__pyx_t_5);
-      __pyx_cur_scope->__pyx_v_exc = __pyx_t_5;
+      __Pyx_INCREF(__pyx_t_8);
+      __Pyx_GIVEREF(__pyx_t_8);
+      __pyx_cur_scope->__pyx_v_exc = __pyx_t_8;
       /*try:*/ {
 
-        /* "auth_service.py":101
+        /* "auth_service.py":108
  *             return user
  *         except AuthException as exc:
  *             raise exc             # <<<<<<<<<<<<<<
@@ -5437,73 +5482,72 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
  *             raise AuthException(message="token", errors=str(exc))
 */
         __Pyx_Raise(__pyx_cur_scope->__pyx_v_exc, 0, 0, 0);
-        __PYX_ERR(0, 101, __pyx_L19_error)
+        __PYX_ERR(0, 108, __pyx_L18_error)
       }
 
-      /* "auth_service.py":100
- *                 raise AuthException(message="token")
+      /* "auth_service.py":107
+ *             user = AuthUserResponse.model_validate(user)
  *             return user
  *         except AuthException as exc:             # <<<<<<<<<<<<<<
  *             raise exc
  *         except Exception as exc:
 */
       /*finally:*/ {
-        __pyx_L19_error:;
+        __pyx_L18_error:;
         /*exception exit:*/{
           __Pyx_PyThreadState_assign
-          __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0; __pyx_t_23 = 0;
+          __pyx_t_17 = 0; __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0;
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-          __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-           __Pyx_ExceptionSwap(&__pyx_t_21, &__pyx_t_22, &__pyx_t_23);
-          if ( unlikely(__Pyx_GetException(&__pyx_t_18, &__pyx_t_19, &__pyx_t_20) < 0)) __Pyx_ErrFetch(&__pyx_t_18, &__pyx_t_19, &__pyx_t_20);
+          __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+           __Pyx_ExceptionSwap(&__pyx_t_20, &__pyx_t_21, &__pyx_t_22);
+          if ( unlikely(__Pyx_GetException(&__pyx_t_17, &__pyx_t_18, &__pyx_t_19) < 0)) __Pyx_ErrFetch(&__pyx_t_17, &__pyx_t_18, &__pyx_t_19);
+          __Pyx_XGOTREF(__pyx_t_17);
           __Pyx_XGOTREF(__pyx_t_18);
           __Pyx_XGOTREF(__pyx_t_19);
           __Pyx_XGOTREF(__pyx_t_20);
           __Pyx_XGOTREF(__pyx_t_21);
           __Pyx_XGOTREF(__pyx_t_22);
-          __Pyx_XGOTREF(__pyx_t_23);
-          __pyx_t_15 = __pyx_lineno; __pyx_t_16 = __pyx_clineno; __pyx_t_17 = __pyx_filename;
+          __pyx_t_14 = __pyx_lineno; __pyx_t_15 = __pyx_clineno; __pyx_t_16 = __pyx_filename;
           {
             __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_exc);
             __Pyx_DECREF(__pyx_cur_scope->__pyx_v_exc); __pyx_cur_scope->__pyx_v_exc = 0;
           }
+          __Pyx_XGIVEREF(__pyx_t_20);
           __Pyx_XGIVEREF(__pyx_t_21);
           __Pyx_XGIVEREF(__pyx_t_22);
-          __Pyx_XGIVEREF(__pyx_t_23);
-          __Pyx_ExceptionReset(__pyx_t_21, __pyx_t_22, __pyx_t_23);
+          __Pyx_ExceptionReset(__pyx_t_20, __pyx_t_21, __pyx_t_22);
+          __Pyx_XGIVEREF(__pyx_t_17);
           __Pyx_XGIVEREF(__pyx_t_18);
           __Pyx_XGIVEREF(__pyx_t_19);
-          __Pyx_XGIVEREF(__pyx_t_20);
-          __Pyx_ErrRestore(__pyx_t_18, __pyx_t_19, __pyx_t_20);
-          __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0; __pyx_t_23 = 0;
-          __pyx_lineno = __pyx_t_15; __pyx_clineno = __pyx_t_16; __pyx_filename = __pyx_t_17;
+          __Pyx_ErrRestore(__pyx_t_17, __pyx_t_18, __pyx_t_19);
+          __pyx_t_17 = 0; __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0;
+          __pyx_lineno = __pyx_t_14; __pyx_clineno = __pyx_t_15; __pyx_filename = __pyx_t_16;
           goto __pyx_L6_except_error;
         }
       }
     }
 
-    /* "auth_service.py":102
+    /* "auth_service.py":109
  *         except AuthException as exc:
  *             raise exc
  *         except Exception as exc:             # <<<<<<<<<<<<<<
  *             raise AuthException(message="token", errors=str(exc))
  * 
 */
-    __pyx_t_16 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
-    if (__pyx_t_16) {
+    __pyx_t_15 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
+    if (__pyx_t_15) {
       __Pyx_AddTraceback("auth_service.AuthService.get_current_user", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_11, &__pyx_t_5, &__pyx_t_4) < 0) __PYX_ERR(0, 102, __pyx_L6_except_error)
-      __Pyx_XGOTREF(__pyx_t_11);
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_8, &__pyx_t_9) < 0) __PYX_ERR(0, 109, __pyx_L6_except_error)
       __Pyx_XGOTREF(__pyx_t_5);
-      __Pyx_XGOTREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_GIVEREF(__pyx_t_5);
-      __pyx_cur_scope->__pyx_v_exc = __pyx_t_5;
+      __Pyx_XGOTREF(__pyx_t_8);
+      __Pyx_XGOTREF(__pyx_t_9);
+      __Pyx_INCREF(__pyx_t_8);
+      __Pyx_GIVEREF(__pyx_t_8);
+      __pyx_cur_scope->__pyx_v_exc = __pyx_t_8;
       /*try:*/ {
 
-        /* "auth_service.py":103
+        /* "auth_service.py":110
  *             raise exc
  *         except Exception as exc:
  *             raise AuthException(message="token", errors=str(exc))             # <<<<<<<<<<<<<<
@@ -5511,42 +5555,42 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
  *     @classmethod
 */
         __pyx_t_10 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 103, __pyx_L30_error)
-        __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_8 = __Pyx_PyObject_Unicode(__pyx_cur_scope->__pyx_v_exc); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 103, __pyx_L30_error)
-        __Pyx_GOTREF(__pyx_t_8);
+        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 110, __pyx_L29_error)
+        __Pyx_GOTREF(__pyx_t_11);
+        __pyx_t_23 = __Pyx_PyObject_Unicode(__pyx_cur_scope->__pyx_v_exc); if (unlikely(!__pyx_t_23)) __PYX_ERR(0, 110, __pyx_L29_error)
+        __Pyx_GOTREF(__pyx_t_23);
         __pyx_t_6 = 1;
         #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_9))) {
-          __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_9);
+        if (unlikely(PyMethod_Check(__pyx_t_11))) {
+          __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_11);
           assert(__pyx_t_10);
-          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_9);
+          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_11);
           __Pyx_INCREF(__pyx_t_10);
           __Pyx_INCREF(__pyx__function);
-          __Pyx_DECREF_SET(__pyx_t_9, __pyx__function);
+          __Pyx_DECREF_SET(__pyx_t_11, __pyx__function);
           __pyx_t_6 = 0;
         }
         #endif
         {
           PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_10, NULL};
-          __pyx_t_24 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 103, __pyx_L30_error)
+          __pyx_t_24 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 110, __pyx_L29_error)
           __Pyx_GOTREF(__pyx_t_24);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_token_3, __pyx_t_24, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 103, __pyx_L30_error)
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_t_8, __pyx_t_24, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 103, __pyx_L30_error)
-          __pyx_t_12 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_9, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_24);
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_token_3, __pyx_t_24, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 110, __pyx_L29_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_t_23, __pyx_t_24, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 110, __pyx_L29_error)
+          __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_11, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_24);
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+          __Pyx_DECREF(__pyx_t_23); __pyx_t_23 = 0;
           __Pyx_DECREF(__pyx_t_24); __pyx_t_24 = 0;
-          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 103, __pyx_L30_error)
-          __Pyx_GOTREF(__pyx_t_12);
+          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L29_error)
+          __Pyx_GOTREF(__pyx_t_4);
         }
-        __Pyx_Raise(__pyx_t_12, 0, 0, 0);
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        __PYX_ERR(0, 103, __pyx_L30_error)
+        __Pyx_Raise(__pyx_t_4, 0, 0, 0);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __PYX_ERR(0, 110, __pyx_L29_error)
       }
 
-      /* "auth_service.py":102
+      /* "auth_service.py":109
  *         except AuthException as exc:
  *             raise exc
  *         except Exception as exc:             # <<<<<<<<<<<<<<
@@ -5554,38 +5598,38 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
  * 
 */
       /*finally:*/ {
-        __pyx_L30_error:;
+        __pyx_L29_error:;
         /*exception exit:*/{
           __Pyx_PyThreadState_assign
-          __pyx_t_23 = 0; __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0; __pyx_t_18 = 0;
+          __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0; __pyx_t_18 = 0; __pyx_t_17 = 0;
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
+          __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __Pyx_XDECREF(__pyx_t_23); __pyx_t_23 = 0;
           __Pyx_XDECREF(__pyx_t_24); __pyx_t_24 = 0;
-          __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-           __Pyx_ExceptionSwap(&__pyx_t_20, &__pyx_t_19, &__pyx_t_18);
-          if ( unlikely(__Pyx_GetException(&__pyx_t_23, &__pyx_t_22, &__pyx_t_21) < 0)) __Pyx_ErrFetch(&__pyx_t_23, &__pyx_t_22, &__pyx_t_21);
-          __Pyx_XGOTREF(__pyx_t_23);
+          __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+           __Pyx_ExceptionSwap(&__pyx_t_19, &__pyx_t_18, &__pyx_t_17);
+          if ( unlikely(__Pyx_GetException(&__pyx_t_22, &__pyx_t_21, &__pyx_t_20) < 0)) __Pyx_ErrFetch(&__pyx_t_22, &__pyx_t_21, &__pyx_t_20);
           __Pyx_XGOTREF(__pyx_t_22);
           __Pyx_XGOTREF(__pyx_t_21);
           __Pyx_XGOTREF(__pyx_t_20);
           __Pyx_XGOTREF(__pyx_t_19);
           __Pyx_XGOTREF(__pyx_t_18);
-          __pyx_t_16 = __pyx_lineno; __pyx_t_15 = __pyx_clineno; __pyx_t_25 = __pyx_filename;
+          __Pyx_XGOTREF(__pyx_t_17);
+          __pyx_t_15 = __pyx_lineno; __pyx_t_14 = __pyx_clineno; __pyx_t_25 = __pyx_filename;
           {
             __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_exc);
             __Pyx_DECREF(__pyx_cur_scope->__pyx_v_exc); __pyx_cur_scope->__pyx_v_exc = 0;
           }
-          __Pyx_XGIVEREF(__pyx_t_20);
           __Pyx_XGIVEREF(__pyx_t_19);
           __Pyx_XGIVEREF(__pyx_t_18);
-          __Pyx_ExceptionReset(__pyx_t_20, __pyx_t_19, __pyx_t_18);
-          __Pyx_XGIVEREF(__pyx_t_23);
+          __Pyx_XGIVEREF(__pyx_t_17);
+          __Pyx_ExceptionReset(__pyx_t_19, __pyx_t_18, __pyx_t_17);
           __Pyx_XGIVEREF(__pyx_t_22);
           __Pyx_XGIVEREF(__pyx_t_21);
-          __Pyx_ErrRestore(__pyx_t_23, __pyx_t_22, __pyx_t_21);
-          __pyx_t_23 = 0; __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0; __pyx_t_18 = 0;
-          __pyx_lineno = __pyx_t_16; __pyx_clineno = __pyx_t_15; __pyx_filename = __pyx_t_25;
+          __Pyx_XGIVEREF(__pyx_t_20);
+          __Pyx_ErrRestore(__pyx_t_22, __pyx_t_21, __pyx_t_20);
+          __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0; __pyx_t_18 = 0; __pyx_t_17 = 0;
+          __pyx_lineno = __pyx_t_15; __pyx_clineno = __pyx_t_14; __pyx_filename = __pyx_t_25;
           goto __pyx_L6_except_error;
         }
       }
@@ -5593,11 +5637,11 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
     goto __pyx_L6_except_error;
 
     /* "auth_service.py":86
- *     ) -> AuthUser:
+ *     ) -> AuthUserResponse:
  *         """  """
  *         try:             # <<<<<<<<<<<<<<
  *             payload = cls.token_decode(token)
- *             auth_user_id: str = str(payload.get("id"))
+ *             username: str = str(payload.get("sub"))
 */
     __pyx_L6_except_error:;
     __Pyx_XGIVEREF(__pyx_t_1);
@@ -5630,7 +5674,7 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_XDECREF(__pyx_t_12);
+  __Pyx_XDECREF(__pyx_t_23);
   __Pyx_XDECREF(__pyx_t_24);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
@@ -5648,7 +5692,7 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_12generator(__pyx_Corouti
 }
 static PyObject *__pyx_gb_12auth_service_11AuthService_15generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "auth_service.py":105
+/* "auth_service.py":112
  *             raise AuthException(message="token", errors=str(exc))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5695,32 +5739,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 105, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 105, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "logout", 0) < 0) __PYX_ERR(0, 105, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "logout", 0) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("logout", 1, 1, 1, i); __PYX_ERR(0, 105, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("logout", 1, 1, 1, i); __PYX_ERR(0, 112, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 105, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("logout", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 105, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("logout", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 112, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5753,7 +5797,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_13logout(CYTHON_UNUSED Py
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12auth_service___pyx_scope_struct_1_logout *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 105, __pyx_L1_error)
+    __PYX_ERR(0, 112, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -5761,7 +5805,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_13logout(CYTHON_UNUSED Py
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_cls);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_cls);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_15generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_logout, __pyx_mstate_global->__pyx_n_u_AuthService_logout, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_15generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_logout, __pyx_mstate_global->__pyx_n_u_AuthService_logout, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 112, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5795,7 +5839,7 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_15generator1(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 105, __pyx_L1_error)
+    __PYX_ERR(0, 112, __pyx_L1_error)
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
@@ -5819,7 +5863,7 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_15generator1(__pyx_Corout
 }
 static PyObject *__pyx_gb_12auth_service_11AuthService_18generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "auth_service.py":110
+/* "auth_service.py":117
  *         ...
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5866,32 +5910,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 110, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 117, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 110, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 117, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "refresh", 0) < 0) __PYX_ERR(0, 110, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "refresh", 0) < 0) __PYX_ERR(0, 117, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("refresh", 1, 1, 1, i); __PYX_ERR(0, 110, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("refresh", 1, 1, 1, i); __PYX_ERR(0, 117, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 110, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 117, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("refresh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 110, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("refresh", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 117, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5924,7 +5968,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_16refresh(CYTHON_UNUSED P
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12auth_service___pyx_scope_struct_2_refresh *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 110, __pyx_L1_error)
+    __PYX_ERR(0, 117, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -5932,7 +5976,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_16refresh(CYTHON_UNUSED P
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_cls);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_cls);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_18generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_refresh, __pyx_mstate_global->__pyx_n_u_AuthService_refresh, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 110, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_18generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_refresh, __pyx_mstate_global->__pyx_n_u_AuthService_refresh, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 117, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5952,12 +5996,6 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_18generator2(__pyx_Corout
 {
   struct __pyx_obj_12auth_service___pyx_scope_struct_2_refresh *__pyx_cur_scope = ((struct __pyx_obj_12auth_service___pyx_scope_struct_2_refresh *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  size_t __pyx_t_5;
-  PyObject *__pyx_t_6 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5972,91 +6010,14 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_18generator2(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 110, __pyx_L1_error)
+    __PYX_ERR(0, 117, __pyx_L1_error)
   }
-
-  /* "auth_service.py":113
- *     async def refresh(cls):
- *         # todo  refresh
- *         access_token = AuthService.token_encode(data={             # <<<<<<<<<<<<<<
- *             "sub": str("auth_user.username"),
- *             "id": str("121213212"),
-*/
-  __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_token_encode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "auth_service.py":114
- *         # todo  refresh
- *         access_token = AuthService.token_encode(data={
- *             "sub": str("auth_user.username"),             # <<<<<<<<<<<<<<
- *             "id": str("121213212"),
- *         })
-*/
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_sub, __pyx_mstate_global->__pyx_kp_u_auth_user_username) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_id, __pyx_mstate_global->__pyx_kp_u_121213212) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_2);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 113, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_t_3, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_access_token = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "auth_service.py":117
- *             "id": str("121213212"),
- *         })
- *         return access_token             # <<<<<<<<<<<<<<
- * 
- *     @classmethod
-*/
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_access_token);
-  __pyx_r = __pyx_cur_scope->__pyx_v_access_token;
-  goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "auth_service.py":110
- *         ...
- * 
- *     @classmethod             # <<<<<<<<<<<<<<
- *     async def refresh(cls):
- *         # todo  refresh
-*/
-
   /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_6);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
     __Pyx_AddTraceback("refresh", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -6073,8 +6034,8 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_18generator2(__pyx_Corout
 }
 static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "auth_service.py":119
- *         return access_token
+/* "auth_service.py":127
+ *         ...
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
@@ -6122,28 +6083,28 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_auth_login,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 119, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 127, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 119, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 127, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "login", 0) < 0) __PYX_ERR(0, 119, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "login", 0) < 0) __PYX_ERR(0, 127, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("login", 1, 1, 1, i); __PYX_ERR(0, 119, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("login", 1, 1, 1, i); __PYX_ERR(0, 127, __pyx_L3_error) }
       }
       for (Py_ssize_t i = 1; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("login", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 119, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("login", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 127, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("login", __pyx_mstate_global->__pyx_n_u_db); __PYX_ERR(0, 119, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("login", __pyx_mstate_global->__pyx_n_u_db); __PYX_ERR(0, 127, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_db = values[1];
@@ -6151,7 +6112,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("login", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 119, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("login", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 127, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6184,7 +6145,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_19login(CYTHON_UNUSED PyO
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12auth_service___pyx_scope_struct_3_login *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 119, __pyx_L1_error)
+    __PYX_ERR(0, 127, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -6198,7 +6159,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_19login(CYTHON_UNUSED PyO
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_auth_login);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_auth_login);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_21generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_login, __pyx_mstate_global->__pyx_n_u_AuthService_login, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_21generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_login, __pyx_mstate_global->__pyx_n_u_AuthService_login, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 127, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6225,17 +6186,17 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  size_t __pyx_t_9;
-  __Pyx_PySendResult __pyx_t_10;
-  int __pyx_t_11;
-  int __pyx_t_12;
+  size_t __pyx_t_8;
+  PyObject *__pyx_t_9 = NULL;
+  PyObject *__pyx_t_10 = NULL;
+  PyObject *__pyx_t_11 = NULL;
+  __Pyx_PySendResult __pyx_t_12;
   int __pyx_t_13;
-  PyObject *__pyx_t_14 = NULL;
+  int __pyx_t_14;
   int __pyx_t_15;
   int __pyx_t_16;
-  char const *__pyx_t_17;
-  PyObject *__pyx_t_18 = NULL;
+  int __pyx_t_17;
+  char const *__pyx_t_18;
   PyObject *__pyx_t_19 = NULL;
   PyObject *__pyx_t_20 = NULL;
   PyObject *__pyx_t_21 = NULL;
@@ -6260,15 +6221,15 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 119, __pyx_L1_error)
+    __PYX_ERR(0, 127, __pyx_L1_error)
   }
 
-  /* "auth_service.py":121
+  /* "auth_service.py":129
  *     @classmethod
  *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
  *         try:             # <<<<<<<<<<<<<<
- *             query = QueryRequest(**{
- *                 "type": "AND",
+ *             #
+ *             TenantManager.disable()
 */
   {
     __Pyx_ExceptionSave(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3);
@@ -6277,127 +6238,112 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "auth_service.py":122
- *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
+      /* "auth_service.py":131
  *         try:
- *             query = QueryRequest(**{             # <<<<<<<<<<<<<<
- *                 "type": "AND",
- *                 "conditions": [
+ *             #
+ *             TenantManager.disable()             # <<<<<<<<<<<<<<
+ *             #
+ *             auth_user = await DataService.query_columns(
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_QueryRequest); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 122, __pyx_L4_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_6);
-
-      /* "auth_service.py":125
- *                 "type": "AND",
- *                 "conditions": [
- *                     {"field": "username", "op": "=", "val": auth_login.username}             # <<<<<<<<<<<<<<
- *                 ], "paging": False
- *             })
-*/
-      __pyx_t_7 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L4_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_disable); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 131, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_7);
-      if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_field, __pyx_mstate_global->__pyx_n_u_username) < 0) __PYX_ERR(0, 125, __pyx_L4_error)
-      if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_op, __pyx_mstate_global->__pyx_kp_u__3) < 0) __PYX_ERR(0, 125, __pyx_L4_error)
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_login, __pyx_mstate_global->__pyx_n_u_username); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 125, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_val, __pyx_t_8) < 0) __PYX_ERR(0, 125, __pyx_L4_error)
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-
-      /* "auth_service.py":124
- *             query = QueryRequest(**{
- *                 "type": "AND",
- *                 "conditions": [             # <<<<<<<<<<<<<<
- *                     {"field": "username", "op": "=", "val": auth_login.username}
- *                 ], "paging": False
-*/
-      __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 124, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_GIVEREF(__pyx_t_7);
-      if (__Pyx_PyList_SET_ITEM(__pyx_t_8, 0, __pyx_t_7) != (0)) __PYX_ERR(0, 124, __pyx_L4_error);
-      __pyx_t_7 = 0;
-
-      /* "auth_service.py":126
- *                 "conditions": [
- *                     {"field": "username", "op": "=", "val": auth_login.username}
- *                 ], "paging": False             # <<<<<<<<<<<<<<
- *             })
- *             auth_user = await DataService.query_first(db, query, model_class=AuthUser)
-*/
-      __pyx_t_9 = 1;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_8 = 1;
       #if CYTHON_UNPACK_METHODS
-      if (unlikely(PyMethod_Check(__pyx_t_6))) {
-        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_6);
+      if (unlikely(PyMethod_Check(__pyx_t_7))) {
+        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_7);
         assert(__pyx_t_5);
-        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
         __Pyx_INCREF(__pyx_t_5);
         __Pyx_INCREF(__pyx__function);
-        __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
-        __pyx_t_9 = 0;
+        __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
+        __pyx_t_8 = 0;
       }
       #endif
       {
-        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_5, NULL};
-        __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 122, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_type, __pyx_mstate_global->__pyx_n_u_AND, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 122, __pyx_L4_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_conditions, __pyx_t_8, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 122, __pyx_L4_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_paging, Py_False, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 122, __pyx_L4_error)
-        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+        PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
+        __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L4_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
-      __Pyx_GIVEREF(__pyx_t_4);
-      __pyx_cur_scope->__pyx_v_query = __pyx_t_4;
-      __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "auth_service.py":128
- *                 ], "paging": False
- *             })
- *             auth_user = await DataService.query_first(db, query, model_class=AuthUser)             # <<<<<<<<<<<<<<
+      /* "auth_service.py":133
+ *             TenantManager.disable()
  *             #
- *             if not auth_user or not AuthService.verify_password(auth_login.password, auth_user.password):
+ *             auth_user = await DataService.query_columns(             # <<<<<<<<<<<<<<
+ *                 db, model_class=AuthUser,
+ *                 condition=AuthUser.user_name == auth_login.user_name
 */
-      __pyx_t_6 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_query_first); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 128, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = 1;
+      __pyx_t_7 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 133, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_query_columns); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+      /* "auth_service.py":134
+ *             #
+ *             auth_user = await DataService.query_columns(
+ *                 db, model_class=AuthUser,             # <<<<<<<<<<<<<<
+ *                 condition=AuthUser.user_name == auth_login.user_name
+ *             )
+*/
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_5);
+
+      /* "auth_service.py":135
+ *             auth_user = await DataService.query_columns(
+ *                 db, model_class=AuthUser,
+ *                 condition=AuthUser.user_name == auth_login.user_name             # <<<<<<<<<<<<<<
+ *             )
+ *             #
+*/
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 135, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 135, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_login, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 135, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __pyx_t_11 = PyObject_RichCompare(__pyx_t_10, __pyx_t_9, Py_EQ); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 135, __pyx_L4_error)
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+      __pyx_t_8 = 1;
       #if CYTHON_UNPACK_METHODS
-      if (unlikely(PyMethod_Check(__pyx_t_8))) {
-        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_8);
-        assert(__pyx_t_6);
-        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
-        __Pyx_INCREF(__pyx_t_6);
+      if (unlikely(PyMethod_Check(__pyx_t_6))) {
+        __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
+        assert(__pyx_t_7);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+        __Pyx_INCREF(__pyx_t_7);
         __Pyx_INCREF(__pyx__function);
-        __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
-        __pyx_t_9 = 0;
+        __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+        __pyx_t_8 = 0;
       }
       #endif
       {
-        PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_6, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_query};
-        __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 128, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_7, __pyx_t_5, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 128, __pyx_L4_error)
-        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_9, (3-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_7, __pyx_cur_scope->__pyx_v_db};
+        __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 133, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_5, __pyx_t_9, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 133, __pyx_L4_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_condition, __pyx_t_11, __pyx_t_9, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 133, __pyx_L4_error)
+        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
+        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 128, __pyx_L4_error)
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 133, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
-      __pyx_t_10 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_4, &__pyx_r);
+      __pyx_t_12 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_4, &__pyx_r);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (likely(__pyx_t_10 == PYGEN_NEXT)) {
+      if (likely(__pyx_t_12 == PYGEN_NEXT)) {
         __Pyx_GOTREF(__pyx_r);
         __Pyx_XGIVEREF(__pyx_t_1);
         __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
@@ -6421,193 +6367,255 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
         __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
         __pyx_cur_scope->__pyx_t_2 = 0;
         __Pyx_XGOTREF(__pyx_t_3);
-        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 128, __pyx_L4_error)
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 133, __pyx_L4_error)
         __pyx_t_4 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_4);
-      } else if (likely(__pyx_t_10 == PYGEN_RETURN)) {
+      } else if (likely(__pyx_t_12 == PYGEN_RETURN)) {
         __Pyx_GOTREF(__pyx_r);
         __pyx_t_4 = __pyx_r; __pyx_r = NULL;
       } else {
         __Pyx_XGOTREF(__pyx_r);
-        __PYX_ERR(0, 128, __pyx_L4_error)
+        __PYX_ERR(0, 133, __pyx_L4_error)
       }
       __Pyx_GIVEREF(__pyx_t_4);
       __pyx_cur_scope->__pyx_v_auth_user = __pyx_t_4;
       __pyx_t_4 = 0;
 
-      /* "auth_service.py":130
- *             auth_user = await DataService.query_first(db, query, model_class=AuthUser)
+      /* "auth_service.py":138
+ *             )
  *             #
- *             if not auth_user or not AuthService.verify_password(auth_login.password, auth_user.password):             # <<<<<<<<<<<<<<
+ *             if not auth_user or not AuthService.verify_password(auth_login.pass_word, auth_user.pass_word):             # <<<<<<<<<<<<<<
  *                 raise LoginException(message="")
  *             #
 */
-      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auth_user); if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 130, __pyx_L4_error)
-      __pyx_t_13 = (!__pyx_t_12);
-      if (!__pyx_t_13) {
+      __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auth_user); if (unlikely((__pyx_t_14 < 0))) __PYX_ERR(0, 138, __pyx_L4_error)
+      __pyx_t_15 = (!__pyx_t_14);
+      if (!__pyx_t_15) {
       } else {
-        __pyx_t_11 = __pyx_t_13;
+        __pyx_t_13 = __pyx_t_15;
         goto __pyx_L12_bool_binop_done;
       }
-      __pyx_t_8 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 130, __pyx_L4_error)
+      __pyx_t_6 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 138, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_verify_password); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 138, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_login, __pyx_mstate_global->__pyx_n_u_pass_word); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 138, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_pass_word); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 138, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_verify_password); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 130, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_login, __pyx_mstate_global->__pyx_n_u_password); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 130, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_password); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 130, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_9 = 1;
+      __pyx_t_8 = 1;
       #if CYTHON_UNPACK_METHODS
-      if (unlikely(PyMethod_Check(__pyx_t_7))) {
-        __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
-        assert(__pyx_t_8);
-        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-        __Pyx_INCREF(__pyx_t_8);
+      if (unlikely(PyMethod_Check(__pyx_t_11))) {
+        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_11);
+        assert(__pyx_t_6);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_11);
+        __Pyx_INCREF(__pyx_t_6);
         __Pyx_INCREF(__pyx__function);
-        __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-        __pyx_t_9 = 0;
+        __Pyx_DECREF_SET(__pyx_t_11, __pyx__function);
+        __pyx_t_8 = 0;
       }
       #endif
       {
-        PyObject *__pyx_callargs[3] = {__pyx_t_8, __pyx_t_5, __pyx_t_6};
-        __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_9, (3-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        PyObject *__pyx_callargs[3] = {__pyx_t_6, __pyx_t_9, __pyx_t_5};
+        __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_11, __pyx_callargs+__pyx_t_8, (3-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 130, __pyx_L4_error)
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
-      __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_13 < 0))) __PYX_ERR(0, 130, __pyx_L4_error)
+      __pyx_t_15 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_15 < 0))) __PYX_ERR(0, 138, __pyx_L4_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_12 = (!__pyx_t_13);
-      __pyx_t_11 = __pyx_t_12;
+      __pyx_t_14 = (!__pyx_t_15);
+      __pyx_t_13 = __pyx_t_14;
       __pyx_L12_bool_binop_done:;
-      if (unlikely(__pyx_t_11)) {
+      if (unlikely(__pyx_t_13)) {
 
-        /* "auth_service.py":131
+        /* "auth_service.py":139
  *             #
- *             if not auth_user or not AuthService.verify_password(auth_login.password, auth_user.password):
+ *             if not auth_user or not AuthService.verify_password(auth_login.pass_word, auth_user.pass_word):
  *                 raise LoginException(message="")             # <<<<<<<<<<<<<<
  *             #
  *             if auth_user.is_active is False:
 */
-        __pyx_t_7 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_9 = 1;
-        #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_6))) {
-          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
-          assert(__pyx_t_7);
-          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
-          __Pyx_INCREF(__pyx_t_7);
-          __Pyx_INCREF(__pyx__function);
-          __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
-          __pyx_t_9 = 0;
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
-          __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 131, __pyx_L4_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_kp_u__4, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 131, __pyx_L4_error)
-          __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
-          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 131, __pyx_L4_error)
-          __Pyx_GOTREF(__pyx_t_4);
-        }
-        __Pyx_Raise(__pyx_t_4, 0, 0, 0);
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __PYX_ERR(0, 131, __pyx_L4_error)
-
-        /* "auth_service.py":130
- *             auth_user = await DataService.query_first(db, query, model_class=AuthUser)
- *             #
- *             if not auth_user or not AuthService.verify_password(auth_login.password, auth_user.password):             # <<<<<<<<<<<<<<
- *                 raise LoginException(message="")
- *             #
-*/
-      }
-
-      /* "auth_service.py":133
- *                 raise LoginException(message="")
- *             #
- *             if auth_user.is_active is False:             # <<<<<<<<<<<<<<
- *                 raise LoginException(message="")
- *             #
-*/
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_is_active); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 133, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_11 = (__pyx_t_4 == Py_False);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(__pyx_t_11)) {
-
-        /* "auth_service.py":134
- *             #
- *             if auth_user.is_active is False:
- *                 raise LoginException(message="")             # <<<<<<<<<<<<<<
- *             #
- *             auth_user.last_login = datetime.utcnow()
-*/
-        __pyx_t_6 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L4_error)
+        __pyx_t_11 = NULL;
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_9 = 1;
+        __pyx_t_8 = 1;
         #if CYTHON_UNPACK_METHODS
         if (unlikely(PyMethod_Check(__pyx_t_5))) {
-          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
-          assert(__pyx_t_6);
+          __pyx_t_11 = PyMethod_GET_SELF(__pyx_t_5);
+          assert(__pyx_t_11);
           PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
-          __Pyx_INCREF(__pyx_t_6);
+          __Pyx_INCREF(__pyx_t_11);
           __Pyx_INCREF(__pyx__function);
           __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
-          __pyx_t_9 = 0;
+          __pyx_t_8 = 0;
         }
         #endif
         {
-          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_6, NULL};
-          __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 134, __pyx_L4_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_kp_u__5, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 134, __pyx_L4_error)
-          __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_11, NULL};
+          __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 139, __pyx_L4_error)
+          __Pyx_GOTREF(__pyx_t_9);
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_kp_u__3, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 139, __pyx_L4_error)
+          __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
+          __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 134, __pyx_L4_error)
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L4_error)
           __Pyx_GOTREF(__pyx_t_4);
         }
         __Pyx_Raise(__pyx_t_4, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __PYX_ERR(0, 134, __pyx_L4_error)
+        __PYX_ERR(0, 139, __pyx_L4_error)
 
-        /* "auth_service.py":133
- *                 raise LoginException(message="")
+        /* "auth_service.py":138
+ *             )
  *             #
- *             if auth_user.is_active is False:             # <<<<<<<<<<<<<<
+ *             if not auth_user or not AuthService.verify_password(auth_login.pass_word, auth_user.pass_word):             # <<<<<<<<<<<<<<
  *                 raise LoginException(message="")
  *             #
 */
       }
 
-      /* "auth_service.py":136
+      /* "auth_service.py":141
  *                 raise LoginException(message="")
  *             #
+ *             if auth_user.is_active is False:             # <<<<<<<<<<<<<<
+ *                 raise LoginException(message="")
+ *             # ID
+*/
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_is_active); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_13 = (__pyx_t_4 == Py_False);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (unlikely(__pyx_t_13)) {
+
+        /* "auth_service.py":142
+ *             #
+ *             if auth_user.is_active is False:
+ *                 raise LoginException(message="")             # <<<<<<<<<<<<<<
+ *             # ID
+ *             TenantManager.set(
+*/
+        __pyx_t_5 = NULL;
+        __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 142, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        __pyx_t_8 = 1;
+        #if CYTHON_UNPACK_METHODS
+        if (unlikely(PyMethod_Check(__pyx_t_9))) {
+          __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_9);
+          assert(__pyx_t_5);
+          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_9);
+          __Pyx_INCREF(__pyx_t_5);
+          __Pyx_INCREF(__pyx__function);
+          __Pyx_DECREF_SET(__pyx_t_9, __pyx__function);
+          __pyx_t_8 = 0;
+        }
+        #endif
+        {
+          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, NULL};
+          __pyx_t_11 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 142, __pyx_L4_error)
+          __Pyx_GOTREF(__pyx_t_11);
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_kp_u__4, __pyx_t_11, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 142, __pyx_L4_error)
+          __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_9, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_11);
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L4_error)
+          __Pyx_GOTREF(__pyx_t_4);
+        }
+        __Pyx_Raise(__pyx_t_4, 0, 0, 0);
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __PYX_ERR(0, 142, __pyx_L4_error)
+
+        /* "auth_service.py":141
+ *                 raise LoginException(message="")
+ *             #
+ *             if auth_user.is_active is False:             # <<<<<<<<<<<<<<
+ *                 raise LoginException(message="")
+ *             # ID
+*/
+      }
+
+      /* "auth_service.py":144
+ *                 raise LoginException(message="")
+ *             # ID
+ *             TenantManager.set(             # <<<<<<<<<<<<<<
+ *                 user_name=auth_user.user_name,
+ *                 tenant_id=auth_user.tenant_id,
+*/
+      __pyx_t_9 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 144, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_set); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 144, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+
+      /* "auth_service.py":145
+ *             # ID
+ *             TenantManager.set(
+ *                 user_name=auth_user.user_name,             # <<<<<<<<<<<<<<
+ *                 tenant_id=auth_user.tenant_id,
+ *             )
+*/
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 145, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_11);
+
+      /* "auth_service.py":146
+ *             TenantManager.set(
+ *                 user_name=auth_user.user_name,
+ *                 tenant_id=auth_user.tenant_id,             # <<<<<<<<<<<<<<
+ *             )
+ *             #
+*/
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_tenant_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 146, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_8 = 1;
+      #if CYTHON_UNPACK_METHODS
+      if (unlikely(PyMethod_Check(__pyx_t_5))) {
+        __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_5);
+        assert(__pyx_t_9);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_9);
+        __Pyx_INCREF(__pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
+        __pyx_t_8 = 0;
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_9, NULL};
+        __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_7);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_user_name, __pyx_t_11, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 144, __pyx_L4_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tenant_id, __pyx_t_6, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 144, __pyx_L4_error)
+        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_4);
+      }
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+      /* "auth_service.py":149
+ *             )
+ *             #
  *             auth_user.last_login = datetime.utcnow()             # <<<<<<<<<<<<<<
- *             auth_user = await DataService.update(db, auth_user.auth_user_id, model_class=AuthUser,
- *                                                  update_model=auth_user)
+ *             auth_user = await DataService.update(
+ *                 db, auth_user.user_id, model_class=AuthUser, update_model=auth_user
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_datetime); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 136, __pyx_L4_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_datetime); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 149, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_utcnow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 136, __pyx_L4_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_utcnow); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 149, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_9 = 1;
+      __pyx_t_8 = 1;
       #if CYTHON_UNPACK_METHODS
       if (unlikely(PyMethod_Check(__pyx_t_6))) {
         __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_6);
@@ -6616,46 +6624,46 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
         __Pyx_INCREF(__pyx_t_5);
         __Pyx_INCREF(__pyx__function);
         __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
-        __pyx_t_9 = 0;
+        __pyx_t_8 = 0;
       }
       #endif
       {
         PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
-        __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L4_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
-      if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_last_login, __pyx_t_4) < 0) __PYX_ERR(0, 136, __pyx_L4_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_last_login, __pyx_t_4) < 0) __PYX_ERR(0, 149, __pyx_L4_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "auth_service.py":137
+      /* "auth_service.py":150
  *             #
  *             auth_user.last_login = datetime.utcnow()
- *             auth_user = await DataService.update(db, auth_user.auth_user_id, model_class=AuthUser,             # <<<<<<<<<<<<<<
- *                                                  update_model=auth_user)
- *             access_token = AuthService.token_encode(data={
+ *             auth_user = await DataService.update(             # <<<<<<<<<<<<<<
+ *                 db, auth_user.user_id, model_class=AuthUser, update_model=auth_user
+ *             )
 */
       __pyx_t_6 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L4_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 150, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_update); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 137, __pyx_L4_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_update); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 150, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_auth_user_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 137, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_8);
 
-      /* "auth_service.py":138
+      /* "auth_service.py":151
  *             auth_user.last_login = datetime.utcnow()
- *             auth_user = await DataService.update(db, auth_user.auth_user_id, model_class=AuthUser,
- *                                                  update_model=auth_user)             # <<<<<<<<<<<<<<
+ *             auth_user = await DataService.update(
+ *                 db, auth_user.user_id, model_class=AuthUser, update_model=auth_user             # <<<<<<<<<<<<<<
+ *             )
  *             access_token = AuthService.token_encode(data={
- *                 "sub": str(auth_user.username),
 */
-      __pyx_t_9 = 1;
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_user_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 151, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 151, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __pyx_t_8 = 1;
       #if CYTHON_UNPACK_METHODS
       if (unlikely(PyMethod_Check(__pyx_t_7))) {
         __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
@@ -6664,27 +6672,27 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
         __Pyx_INCREF(__pyx_t_6);
         __Pyx_INCREF(__pyx__function);
         __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-        __pyx_t_9 = 0;
+        __pyx_t_8 = 0;
       }
       #endif
       {
         PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_6, __pyx_cur_scope->__pyx_v_db, __pyx_t_5};
-        __pyx_t_14 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 137, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_14);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_8, __pyx_t_14, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 137, __pyx_L4_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_auth_user, __pyx_t_14, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 137, __pyx_L4_error)
-        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_7, __pyx_callargs+__pyx_t_9, (3-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_14);
+        __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 150, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_9);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_11, __pyx_t_9, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 150, __pyx_L4_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_auth_user, __pyx_t_9, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 150, __pyx_L4_error)
+        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_7, __pyx_callargs+__pyx_t_8, (3-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L4_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 150, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
-      __pyx_t_10 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_4, &__pyx_r);
+      __pyx_t_12 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_4, &__pyx_r);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (likely(__pyx_t_10 == PYGEN_NEXT)) {
+      if (likely(__pyx_t_12 == PYGEN_NEXT)) {
         __Pyx_GOTREF(__pyx_r);
         __Pyx_XGIVEREF(__pyx_t_1);
         __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
@@ -6708,96 +6716,81 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
         __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
         __pyx_cur_scope->__pyx_t_2 = 0;
         __Pyx_XGOTREF(__pyx_t_3);
-        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 137, __pyx_L4_error)
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 150, __pyx_L4_error)
         __pyx_t_4 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_4);
-      } else if (likely(__pyx_t_10 == PYGEN_RETURN)) {
+      } else if (likely(__pyx_t_12 == PYGEN_RETURN)) {
         __Pyx_GOTREF(__pyx_r);
         __pyx_t_4 = __pyx_r; __pyx_r = NULL;
       } else {
         __Pyx_XGOTREF(__pyx_r);
-        __PYX_ERR(0, 137, __pyx_L4_error)
+        __PYX_ERR(0, 150, __pyx_L4_error)
       }
       __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_auth_user);
       __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_auth_user, __pyx_t_4);
       __Pyx_GIVEREF(__pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "auth_service.py":139
- *             auth_user = await DataService.update(db, auth_user.auth_user_id, model_class=AuthUser,
- *                                                  update_model=auth_user)
+      /* "auth_service.py":153
+ *                 db, auth_user.user_id, model_class=AuthUser, update_model=auth_user
+ *             )
  *             access_token = AuthService.token_encode(data={             # <<<<<<<<<<<<<<
- *                 "sub": str(auth_user.username),
- *                 "id": str(auth_user.auth_user_id),
-*/
-      __pyx_t_7 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 139, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_14);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_token_encode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 139, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-
-      /* "auth_service.py":140
- *                                                  update_model=auth_user)
- *             access_token = AuthService.token_encode(data={
- *                 "sub": str(auth_user.username),             # <<<<<<<<<<<<<<
- *                 "id": str(auth_user.auth_user_id),
+ *                 "sub": str(auth_user.user_name)
  *             })
 */
-      __pyx_t_14 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 140, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_14);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_username); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = __Pyx_PyObject_Unicode(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 140, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (PyDict_SetItem(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_sub, __pyx_t_6) < 0) __PYX_ERR(0, 140, __pyx_L4_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_7 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 153, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_token_encode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 153, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_11);
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-      /* "auth_service.py":141
+      /* "auth_service.py":154
+ *             )
  *             access_token = AuthService.token_encode(data={
- *                 "sub": str(auth_user.username),
- *                 "id": str(auth_user.auth_user_id),             # <<<<<<<<<<<<<<
+ *                 "sub": str(auth_user.user_name)             # <<<<<<<<<<<<<<
  *             })
  *             return access_token
 */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_auth_user_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L4_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_5 = __Pyx_PyObject_Unicode(__pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 141, __pyx_L4_error)
+      __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 154, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 154, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (PyDict_SetItem(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_id, __pyx_t_5) < 0) __PYX_ERR(0, 140, __pyx_L4_error)
+      __pyx_t_6 = __Pyx_PyObject_Unicode(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 154, __pyx_L4_error)
+      __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_9 = 1;
+      if (PyDict_SetItem(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_sub, __pyx_t_6) < 0) __PYX_ERR(0, 154, __pyx_L4_error)
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_8 = 1;
       #if CYTHON_UNPACK_METHODS
-      if (unlikely(PyMethod_Check(__pyx_t_8))) {
-        __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_8);
+      if (unlikely(PyMethod_Check(__pyx_t_11))) {
+        __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_11);
         assert(__pyx_t_7);
-        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_11);
         __Pyx_INCREF(__pyx_t_7);
         __Pyx_INCREF(__pyx__function);
-        __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
-        __pyx_t_9 = 0;
+        __Pyx_DECREF_SET(__pyx_t_11, __pyx__function);
+        __pyx_t_8 = 0;
       }
       #endif
       {
         PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
-        __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L4_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_t_14, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 139, __pyx_L4_error)
-        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
+        __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L4_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_data, __pyx_t_9, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 153, __pyx_L4_error)
+        __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_11, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L4_error)
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_GIVEREF(__pyx_t_4);
       __pyx_cur_scope->__pyx_v_access_token = __pyx_t_4;
       __pyx_t_4 = 0;
 
-      /* "auth_service.py":143
- *                 "id": str(auth_user.auth_user_id),
+      /* "auth_service.py":156
+ *                 "sub": str(auth_user.user_name)
  *             })
  *             return access_token             # <<<<<<<<<<<<<<
  *         except LoginException as exc:
@@ -6808,48 +6801,49 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
       __pyx_r = __pyx_cur_scope->__pyx_v_access_token;
       goto __pyx_L8_try_return;
 
-      /* "auth_service.py":121
+      /* "auth_service.py":129
  *     @classmethod
  *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
  *         try:             # <<<<<<<<<<<<<<
- *             query = QueryRequest(**{
- *                 "type": "AND",
+ *             #
+ *             TenantManager.disable()
 */
     }
     __pyx_L4_error:;
-    __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
+    __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+    __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "auth_service.py":144
+    /* "auth_service.py":157
  *             })
  *             return access_token
  *         except LoginException as exc:             # <<<<<<<<<<<<<<
  *             raise exc
  *         except Exception as exc:
 */
-    __Pyx_ErrFetch(&__pyx_t_4, &__pyx_t_8, &__pyx_t_5);
-    __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 144, __pyx_L6_except_error)
-    __Pyx_GOTREF(__pyx_t_14);
-    __pyx_t_15 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_4, __pyx_t_14);
-    __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    __Pyx_ErrRestore(__pyx_t_4, __pyx_t_8, __pyx_t_5);
-    __pyx_t_4 = 0; __pyx_t_8 = 0; __pyx_t_5 = 0;
-    if (__pyx_t_15) {
+    __Pyx_ErrFetch(&__pyx_t_4, &__pyx_t_11, &__pyx_t_6);
+    __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 157, __pyx_L6_except_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __pyx_t_16 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_4, __pyx_t_9);
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    __Pyx_ErrRestore(__pyx_t_4, __pyx_t_11, __pyx_t_6);
+    __pyx_t_4 = 0; __pyx_t_11 = 0; __pyx_t_6 = 0;
+    if (__pyx_t_16) {
       __Pyx_AddTraceback("auth_service.AuthService.login", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_8, &__pyx_t_4) < 0) __PYX_ERR(0, 144, __pyx_L6_except_error)
-      __Pyx_XGOTREF(__pyx_t_5);
-      __Pyx_XGOTREF(__pyx_t_8);
+      if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_11, &__pyx_t_4) < 0) __PYX_ERR(0, 157, __pyx_L6_except_error)
+      __Pyx_XGOTREF(__pyx_t_6);
+      __Pyx_XGOTREF(__pyx_t_11);
       __Pyx_XGOTREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_8);
-      __Pyx_GIVEREF(__pyx_t_8);
-      __pyx_cur_scope->__pyx_v_exc = __pyx_t_8;
+      __Pyx_INCREF(__pyx_t_11);
+      __Pyx_GIVEREF(__pyx_t_11);
+      __pyx_cur_scope->__pyx_v_exc = __pyx_t_11;
       /*try:*/ {
 
-        /* "auth_service.py":145
+        /* "auth_service.py":158
  *             return access_token
  *         except LoginException as exc:
  *             raise exc             # <<<<<<<<<<<<<<
@@ -6857,10 +6851,10 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
  *             raise LoginException(message="", errors=str(exc))
 */
         __Pyx_Raise(__pyx_cur_scope->__pyx_v_exc, 0, 0, 0);
-        __PYX_ERR(0, 145, __pyx_L21_error)
+        __PYX_ERR(0, 158, __pyx_L21_error)
       }
 
-      /* "auth_service.py":144
+      /* "auth_service.py":157
  *             })
  *             return access_token
  *         except LoginException as exc:             # <<<<<<<<<<<<<<
@@ -6871,58 +6865,59 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
         __pyx_L21_error:;
         /*exception exit:*/{
           __Pyx_PyThreadState_assign
-          __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0; __pyx_t_23 = 0;
-          __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0; __pyx_t_23 = 0; __pyx_t_24 = 0;
+          __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-           __Pyx_ExceptionSwap(&__pyx_t_21, &__pyx_t_22, &__pyx_t_23);
-          if ( unlikely(__Pyx_GetException(&__pyx_t_18, &__pyx_t_19, &__pyx_t_20) < 0)) __Pyx_ErrFetch(&__pyx_t_18, &__pyx_t_19, &__pyx_t_20);
-          __Pyx_XGOTREF(__pyx_t_18);
+          __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+           __Pyx_ExceptionSwap(&__pyx_t_22, &__pyx_t_23, &__pyx_t_24);
+          if ( unlikely(__Pyx_GetException(&__pyx_t_19, &__pyx_t_20, &__pyx_t_21) < 0)) __Pyx_ErrFetch(&__pyx_t_19, &__pyx_t_20, &__pyx_t_21);
           __Pyx_XGOTREF(__pyx_t_19);
           __Pyx_XGOTREF(__pyx_t_20);
           __Pyx_XGOTREF(__pyx_t_21);
           __Pyx_XGOTREF(__pyx_t_22);
           __Pyx_XGOTREF(__pyx_t_23);
-          __pyx_t_15 = __pyx_lineno; __pyx_t_16 = __pyx_clineno; __pyx_t_17 = __pyx_filename;
+          __Pyx_XGOTREF(__pyx_t_24);
+          __pyx_t_16 = __pyx_lineno; __pyx_t_17 = __pyx_clineno; __pyx_t_18 = __pyx_filename;
           {
             __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_exc);
             __Pyx_DECREF(__pyx_cur_scope->__pyx_v_exc); __pyx_cur_scope->__pyx_v_exc = 0;
           }
-          __Pyx_XGIVEREF(__pyx_t_21);
           __Pyx_XGIVEREF(__pyx_t_22);
           __Pyx_XGIVEREF(__pyx_t_23);
-          __Pyx_ExceptionReset(__pyx_t_21, __pyx_t_22, __pyx_t_23);
-          __Pyx_XGIVEREF(__pyx_t_18);
+          __Pyx_XGIVEREF(__pyx_t_24);
+          __Pyx_ExceptionReset(__pyx_t_22, __pyx_t_23, __pyx_t_24);
           __Pyx_XGIVEREF(__pyx_t_19);
           __Pyx_XGIVEREF(__pyx_t_20);
-          __Pyx_ErrRestore(__pyx_t_18, __pyx_t_19, __pyx_t_20);
-          __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0; __pyx_t_23 = 0;
-          __pyx_lineno = __pyx_t_15; __pyx_clineno = __pyx_t_16; __pyx_filename = __pyx_t_17;
+          __Pyx_XGIVEREF(__pyx_t_21);
+          __Pyx_ErrRestore(__pyx_t_19, __pyx_t_20, __pyx_t_21);
+          __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0; __pyx_t_22 = 0; __pyx_t_23 = 0; __pyx_t_24 = 0;
+          __pyx_lineno = __pyx_t_16; __pyx_clineno = __pyx_t_17; __pyx_filename = __pyx_t_18;
           goto __pyx_L6_except_error;
         }
       }
     }
 
-    /* "auth_service.py":146
+    /* "auth_service.py":159
  *         except LoginException as exc:
  *             raise exc
  *         except Exception as exc:             # <<<<<<<<<<<<<<
  *             raise LoginException(message="", errors=str(exc))
  * 
 */
-    __pyx_t_16 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
-    if (__pyx_t_16) {
+    __pyx_t_17 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
+    if (__pyx_t_17) {
       __Pyx_AddTraceback("auth_service.AuthService.login", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_8, &__pyx_t_5) < 0) __PYX_ERR(0, 146, __pyx_L6_except_error)
+      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_11, &__pyx_t_6) < 0) __PYX_ERR(0, 159, __pyx_L6_except_error)
       __Pyx_XGOTREF(__pyx_t_4);
-      __Pyx_XGOTREF(__pyx_t_8);
-      __Pyx_XGOTREF(__pyx_t_5);
-      __Pyx_INCREF(__pyx_t_8);
-      __Pyx_GIVEREF(__pyx_t_8);
-      __pyx_cur_scope->__pyx_v_exc = __pyx_t_8;
+      __Pyx_XGOTREF(__pyx_t_11);
+      __Pyx_XGOTREF(__pyx_t_6);
+      __Pyx_INCREF(__pyx_t_11);
+      __Pyx_GIVEREF(__pyx_t_11);
+      __pyx_cur_scope->__pyx_v_exc = __pyx_t_11;
       /*try:*/ {
 
-        /* "auth_service.py":147
+        /* "auth_service.py":160
  *             raise exc
  *         except Exception as exc:
  *             raise LoginException(message="", errors=str(exc))             # <<<<<<<<<<<<<<
@@ -6930,42 +6925,42 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
  *     @classmethod
 */
         __pyx_t_7 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 147, __pyx_L32_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_24 = __Pyx_PyObject_Unicode(__pyx_cur_scope->__pyx_v_exc); if (unlikely(!__pyx_t_24)) __PYX_ERR(0, 147, __pyx_L32_error)
-        __Pyx_GOTREF(__pyx_t_24);
-        __pyx_t_9 = 1;
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_LoginException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 160, __pyx_L32_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_10 = __Pyx_PyObject_Unicode(__pyx_cur_scope->__pyx_v_exc); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 160, __pyx_L32_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        __pyx_t_8 = 1;
         #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_6))) {
-          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
+        if (unlikely(PyMethod_Check(__pyx_t_5))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_5);
           assert(__pyx_t_7);
-          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
           __Pyx_INCREF(__pyx_t_7);
           __Pyx_INCREF(__pyx__function);
-          __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
-          __pyx_t_9 = 0;
+          __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
+          __pyx_t_8 = 0;
         }
         #endif
         {
           PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_7, NULL};
-          __pyx_t_25 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_25)) __PYX_ERR(0, 147, __pyx_L32_error)
+          __pyx_t_25 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_25)) __PYX_ERR(0, 160, __pyx_L32_error)
           __Pyx_GOTREF(__pyx_t_25);
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__6, __pyx_t_25, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 147, __pyx_L32_error)
-          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_t_24, __pyx_t_25, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 147, __pyx_L32_error)
-          __pyx_t_14 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_25);
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__5, __pyx_t_25, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 160, __pyx_L32_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_t_10, __pyx_t_25, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 160, __pyx_L32_error)
+          __pyx_t_9 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_25);
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_DECREF(__pyx_t_24); __pyx_t_24 = 0;
+          __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_25); __pyx_t_25 = 0;
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 147, __pyx_L32_error)
-          __Pyx_GOTREF(__pyx_t_14);
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L32_error)
+          __Pyx_GOTREF(__pyx_t_9);
         }
-        __Pyx_Raise(__pyx_t_14, 0, 0, 0);
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        __PYX_ERR(0, 147, __pyx_L32_error)
+        __Pyx_Raise(__pyx_t_9, 0, 0, 0);
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __PYX_ERR(0, 160, __pyx_L32_error)
       }
 
-      /* "auth_service.py":146
+      /* "auth_service.py":159
  *         except LoginException as exc:
  *             raise exc
  *         except Exception as exc:             # <<<<<<<<<<<<<<
@@ -6976,47 +6971,47 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
         __pyx_L32_error:;
         /*exception exit:*/{
           __Pyx_PyThreadState_assign
-          __pyx_t_23 = 0; __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0; __pyx_t_18 = 0;
-          __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-          __Pyx_XDECREF(__pyx_t_24); __pyx_t_24 = 0;
+          __pyx_t_24 = 0; __pyx_t_23 = 0; __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0;
+          __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_XDECREF(__pyx_t_25); __pyx_t_25 = 0;
-          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-           __Pyx_ExceptionSwap(&__pyx_t_20, &__pyx_t_19, &__pyx_t_18);
-          if ( unlikely(__Pyx_GetException(&__pyx_t_23, &__pyx_t_22, &__pyx_t_21) < 0)) __Pyx_ErrFetch(&__pyx_t_23, &__pyx_t_22, &__pyx_t_21);
+          __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+           __Pyx_ExceptionSwap(&__pyx_t_21, &__pyx_t_20, &__pyx_t_19);
+          if ( unlikely(__Pyx_GetException(&__pyx_t_24, &__pyx_t_23, &__pyx_t_22) < 0)) __Pyx_ErrFetch(&__pyx_t_24, &__pyx_t_23, &__pyx_t_22);
+          __Pyx_XGOTREF(__pyx_t_24);
           __Pyx_XGOTREF(__pyx_t_23);
           __Pyx_XGOTREF(__pyx_t_22);
           __Pyx_XGOTREF(__pyx_t_21);
           __Pyx_XGOTREF(__pyx_t_20);
           __Pyx_XGOTREF(__pyx_t_19);
-          __Pyx_XGOTREF(__pyx_t_18);
-          __pyx_t_16 = __pyx_lineno; __pyx_t_15 = __pyx_clineno; __pyx_t_26 = __pyx_filename;
+          __pyx_t_17 = __pyx_lineno; __pyx_t_16 = __pyx_clineno; __pyx_t_26 = __pyx_filename;
           {
             __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_exc);
             __Pyx_DECREF(__pyx_cur_scope->__pyx_v_exc); __pyx_cur_scope->__pyx_v_exc = 0;
           }
+          __Pyx_XGIVEREF(__pyx_t_21);
           __Pyx_XGIVEREF(__pyx_t_20);
           __Pyx_XGIVEREF(__pyx_t_19);
-          __Pyx_XGIVEREF(__pyx_t_18);
-          __Pyx_ExceptionReset(__pyx_t_20, __pyx_t_19, __pyx_t_18);
+          __Pyx_ExceptionReset(__pyx_t_21, __pyx_t_20, __pyx_t_19);
+          __Pyx_XGIVEREF(__pyx_t_24);
           __Pyx_XGIVEREF(__pyx_t_23);
           __Pyx_XGIVEREF(__pyx_t_22);
-          __Pyx_XGIVEREF(__pyx_t_21);
-          __Pyx_ErrRestore(__pyx_t_23, __pyx_t_22, __pyx_t_21);
-          __pyx_t_23 = 0; __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0; __pyx_t_18 = 0;
-          __pyx_lineno = __pyx_t_16; __pyx_clineno = __pyx_t_15; __pyx_filename = __pyx_t_26;
+          __Pyx_ErrRestore(__pyx_t_24, __pyx_t_23, __pyx_t_22);
+          __pyx_t_24 = 0; __pyx_t_23 = 0; __pyx_t_22 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0;
+          __pyx_lineno = __pyx_t_17; __pyx_clineno = __pyx_t_16; __pyx_filename = __pyx_t_26;
           goto __pyx_L6_except_error;
         }
       }
     }
     goto __pyx_L6_except_error;
 
-    /* "auth_service.py":121
+    /* "auth_service.py":129
  *     @classmethod
  *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
  *         try:             # <<<<<<<<<<<<<<
- *             query = QueryRequest(**{
- *                 "type": "AND",
+ *             #
+ *             TenantManager.disable()
 */
     __pyx_L6_except_error:;
     __Pyx_XGIVEREF(__pyx_t_1);
@@ -7033,8 +7028,8 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "auth_service.py":119
- *         return access_token
+  /* "auth_service.py":127
+ *         ...
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
@@ -7047,9 +7042,9 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_14);
-  __Pyx_XDECREF(__pyx_t_24);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_25);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
@@ -7067,12 +7062,12 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_21generator3(__pyx_Corout
 }
 static PyObject *__pyx_gb_12auth_service_11AuthService_24generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "auth_service.py":149
+/* "auth_service.py":162
  *             raise LoginException(message="", errors=str(exc))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser):
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):
+ *     async def modify_password(
+ *             cls, db: AsyncSession, *,
 */
 
 /* Python wrapper */
@@ -7094,7 +7089,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   CYTHON_UNUSED PyObject *__pyx_v_cls = 0;
   PyObject *__pyx_v_db = 0;
   PyObject *__pyx_v_password_model = 0;
-  PyObject *__pyx_v_auth_user = 0;
+  PyObject *__pyx_v_current_user = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
@@ -7115,43 +7110,43 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_password_model,&__pyx_mstate_global->__pyx_n_u_auth_user,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_password_model,&__pyx_mstate_global->__pyx_n_u_current_user,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 149, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 162, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 149, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 162, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 149, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 162, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "modify_password", 0) < 0) __PYX_ERR(0, 149, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "modify_password", 0) < 0) __PYX_ERR(0, 162, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("modify_password", 1, 2, 2, i); __PYX_ERR(0, 149, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("modify_password", 1, 2, 2, i); __PYX_ERR(0, 162, __pyx_L3_error) }
       }
       for (Py_ssize_t i = 2; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("modify_password", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 149, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("modify_password", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 162, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("modify_password", __pyx_mstate_global->__pyx_n_u_password_model); __PYX_ERR(0, 149, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("modify_password", __pyx_mstate_global->__pyx_n_u_password_model); __PYX_ERR(0, 162, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_db = values[1];
     __pyx_v_password_model = values[2];
-    __pyx_v_auth_user = values[3];
+    __pyx_v_current_user = values[3];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("modify_password", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 149, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("modify_password", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 162, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7162,7 +7157,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12auth_service_11AuthService_22modify_password(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_password_model, __pyx_v_auth_user);
+  __pyx_r = __pyx_pf_12auth_service_11AuthService_22modify_password(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_password_model, __pyx_v_current_user);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -7172,7 +7167,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12auth_service_11AuthService_22modify_password(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_password_model, PyObject *__pyx_v_auth_user) {
+static PyObject *__pyx_pf_12auth_service_11AuthService_22modify_password(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_password_model, PyObject *__pyx_v_current_user) {
   struct __pyx_obj_12auth_service___pyx_scope_struct_4_modify_password *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -7184,7 +7179,7 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_22modify_password(CYTHON_
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12auth_service___pyx_scope_struct_4_modify_password *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 149, __pyx_L1_error)
+    __PYX_ERR(0, 162, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -7197,11 +7192,11 @@ static PyObject *__pyx_pf_12auth_service_11AuthService_22modify_password(CYTHON_
   __pyx_cur_scope->__pyx_v_password_model = __pyx_v_password_model;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_password_model);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_password_model);
-  __pyx_cur_scope->__pyx_v_auth_user = __pyx_v_auth_user;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_auth_user);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_auth_user);
+  __pyx_cur_scope->__pyx_v_current_user = __pyx_v_current_user;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_current_user);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_current_user);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_24generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_modify_password, __pyx_mstate_global->__pyx_n_u_AuthService_modify_password, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 149, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12auth_service_11AuthService_24generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_modify_password, __pyx_mstate_global->__pyx_n_u_AuthService_modify_password, __pyx_mstate_global->__pyx_n_u_auth_service); if (unlikely(!gen)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7226,15 +7221,16 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_24generator4(__pyx_Corout
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  size_t __pyx_t_6;
-  int __pyx_t_7;
-  int __pyx_t_8;
-  PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
-  PyObject *__pyx_t_11 = NULL;
-  PyObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  size_t __pyx_t_8;
+  __Pyx_PySendResult __pyx_t_9;
+  int __pyx_t_10;
+  int __pyx_t_11;
+  int __pyx_t_12;
   PyObject *__pyx_t_13 = NULL;
-  __Pyx_PySendResult __pyx_t_14;
+  PyObject *__pyx_t_14 = NULL;
+  PyObject *__pyx_t_15 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -7242,8 +7238,9 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_24generator4(__pyx_Corout
   __Pyx_RefNannySetupContext("modify_password", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L5_resume_from_await;
-    case 2: goto __pyx_L7_resume_from_await;
+    case 1: goto __pyx_L4_resume_from_await;
+    case 2: goto __pyx_L8_resume_from_await;
+    case 3: goto __pyx_L10_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -7251,27 +7248,51 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_24generator4(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 149, __pyx_L1_error)
+    __PYX_ERR(0, 162, __pyx_L1_error)
   }
 
-  /* "auth_service.py":151
- *     @classmethod
- *     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser):
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):             # <<<<<<<<<<<<<<
- *             raise AuthException(message="")
- *         auth_user = await DataService.db_update(
+  /* "auth_service.py":167
+ *             password_model: AuthPassword, current_user: AuthUserResponse
+ *     ):
+ *         auth_user = await DataService.query_columns(             # <<<<<<<<<<<<<<
+ *             db, model_class=AuthUser,
+ *             condition=AuthUser.user_name == current_user.user_name
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_verify_password); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_query_columns); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_password_model, __pyx_mstate_global->__pyx_n_u_old_password); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)
+
+  /* "auth_service.py":168
+ *     ):
+ *         auth_user = await DataService.query_columns(
+ *             db, model_class=AuthUser,             # <<<<<<<<<<<<<<
+ *             condition=AuthUser.user_name == current_user.user_name
+ *         )
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_password); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 151, __pyx_L1_error)
+
+  /* "auth_service.py":169
+ *         auth_user = await DataService.query_columns(
+ *             db, model_class=AuthUser,
+ *             condition=AuthUser.user_name == current_user.user_name             # <<<<<<<<<<<<<<
+ *         )
+ *         if not auth_user or not AuthService.verify_password(password_model.old_password, auth_user.pass_word):
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = 1;
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_current_user, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_7 = PyObject_RichCompare(__pyx_t_6, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_8 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_4))) {
     __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
@@ -7280,168 +7301,27 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_24generator4(__pyx_Corout
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx__function);
     __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_6 = 0;
+    __pyx_t_8 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_t_3, __pyx_t_5};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db};
+    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_5, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_condition, __pyx_t_7, __pyx_t_5, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_8 = (!__pyx_t_7);
-  if (unlikely(__pyx_t_8)) {
-
-    /* "auth_service.py":152
- *     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser):
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):
- *             raise AuthException(message="")             # <<<<<<<<<<<<<<
- *         auth_user = await DataService.db_update(
- *             db, auth_user.auth_user_id, model_class=AuthUser,
-*/
-    __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 152, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_5))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_5);
-      assert(__pyx_t_4);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
-      __pyx_t_6 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, NULL};
-      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 152, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__7, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_Raise(__pyx_t_1, 0, 0, 0);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 152, __pyx_L1_error)
-
-    /* "auth_service.py":151
- *     @classmethod
- *     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser):
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):             # <<<<<<<<<<<<<<
- *             raise AuthException(message="")
- *         auth_user = await DataService.db_update(
-*/
-  }
-
-  /* "auth_service.py":153
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):
- *             raise AuthException(message="")
- *         auth_user = await DataService.db_update(             # <<<<<<<<<<<<<<
- *             db, auth_user.auth_user_id, model_class=AuthUser,
- *             update_model={"password": AuthService.hash_password(password_model.new_password)})
-*/
-  __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_update); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "auth_service.py":154
- *             raise AuthException(message="")
- *         auth_user = await DataService.db_update(
- *             db, auth_user.auth_user_id, model_class=AuthUser,             # <<<<<<<<<<<<<<
- *             update_model={"password": AuthService.hash_password(password_model.new_password)})
- *         if auth_user:
-*/
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_auth_user_id); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 154, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-
-  /* "auth_service.py":155
- *         auth_user = await DataService.db_update(
- *             db, auth_user.auth_user_id, model_class=AuthUser,
- *             update_model={"password": AuthService.hash_password(password_model.new_password)})             # <<<<<<<<<<<<<<
- *         if auth_user:
- *             await db.commit()
-*/
-  __pyx_t_9 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_11 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_hash_password); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_13);
-  __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_password_model, __pyx_mstate_global->__pyx_n_u_new_password); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_6 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_13))) {
-    __pyx_t_11 = PyMethod_GET_SELF(__pyx_t_13);
-    assert(__pyx_t_11);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_13);
-    __Pyx_INCREF(__pyx_t_11);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_13, __pyx__function);
-    __pyx_t_6 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_11, __pyx_t_12};
-    __pyx_t_10 = __Pyx_PyObject_FastCall(__pyx_t_13, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-    __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 155, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-  }
-  if (PyDict_SetItem(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_password, __pyx_t_10) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_6 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_5);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_5);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_6 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_5, __pyx_cur_scope->__pyx_v_db, __pyx_t_3};
-    __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 153, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_2, __pyx_t_10, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_t_9, __pyx_t_10, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_10);
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  __pyx_t_14 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (likely(__pyx_t_14 == PYGEN_NEXT)) {
+  if (likely(__pyx_t_9 == PYGEN_NEXT)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_XGIVEREF(__pyx_r);
     __Pyx_RefNannyFinishContext();
@@ -7449,124 +7329,342 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_24generator4(__pyx_Corout
     /* return from generator, awaiting value */
     __pyx_generator->resume_label = 1;
     return __pyx_r;
-    __pyx_L5_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 153, __pyx_L1_error)
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 167, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
-  } else if (likely(__pyx_t_14 == PYGEN_RETURN)) {
+  } else if (likely(__pyx_t_9 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 153, __pyx_L1_error)
+    __PYX_ERR(0, 167, __pyx_L1_error)
+  }
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_auth_user = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "auth_service.py":171
+ *             condition=AuthUser.user_name == current_user.user_name
+ *         )
+ *         if not auth_user or not AuthService.verify_password(password_model.old_password, auth_user.pass_word):             # <<<<<<<<<<<<<<
+ *             raise AuthException(message="")
+ *         auth_user = await DataService.db_update(
+*/
+  __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auth_user); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_t_12 = (!__pyx_t_11);
+  if (!__pyx_t_12) {
+  } else {
+    __pyx_t_10 = __pyx_t_12;
+    goto __pyx_L6_bool_binop_done;
+  }
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_verify_password); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_password_model, __pyx_mstate_global->__pyx_n_u_old_password); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_pass_word); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_8 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_7);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
+    __Pyx_INCREF(__pyx_t_4);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
+    __pyx_t_8 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[3] = {__pyx_t_4, __pyx_t_5, __pyx_t_3};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (3-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 171, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_11 = (!__pyx_t_12);
+  __pyx_t_10 = __pyx_t_11;
+  __pyx_L6_bool_binop_done:;
+  if (unlikely(__pyx_t_10)) {
+
+    /* "auth_service.py":172
+ *         )
+ *         if not auth_user or not AuthService.verify_password(password_model.old_password, auth_user.pass_word):
+ *             raise AuthException(message="")             # <<<<<<<<<<<<<<
+ *         auth_user = await DataService.db_update(
+ *             db, auth_user.user_id, model_class=AuthUser,
+*/
+    __pyx_t_7 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 172, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_8 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_3);
+      assert(__pyx_t_7);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_7);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+      __pyx_t_8 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
+      __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 172, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__6, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 172, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
+      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 172, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+    }
+    __Pyx_Raise(__pyx_t_1, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __PYX_ERR(0, 172, __pyx_L1_error)
+
+    /* "auth_service.py":171
+ *             condition=AuthUser.user_name == current_user.user_name
+ *         )
+ *         if not auth_user or not AuthService.verify_password(password_model.old_password, auth_user.pass_word):             # <<<<<<<<<<<<<<
+ *             raise AuthException(message="")
+ *         auth_user = await DataService.db_update(
+*/
+  }
+
+  /* "auth_service.py":173
+ *         if not auth_user or not AuthService.verify_password(password_model.old_password, auth_user.pass_word):
+ *             raise AuthException(message="")
+ *         auth_user = await DataService.db_update(             # <<<<<<<<<<<<<<
+ *             db, auth_user.user_id, model_class=AuthUser,
+ *             update_model={"pass_word": AuthService.hash_password(password_model.new_password)})
+*/
+  __pyx_t_3 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db_update); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "auth_service.py":174
+ *             raise AuthException(message="")
+ *         auth_user = await DataService.db_update(
+ *             db, auth_user.user_id, model_class=AuthUser,             # <<<<<<<<<<<<<<
+ *             update_model={"pass_word": AuthService.hash_password(password_model.new_password)})
+ *         if auth_user:
+*/
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_auth_user, __pyx_mstate_global->__pyx_n_u_user_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthUser); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+
+  /* "auth_service.py":175
+ *         auth_user = await DataService.db_update(
+ *             db, auth_user.user_id, model_class=AuthUser,
+ *             update_model={"pass_word": AuthService.hash_password(password_model.new_password)})             # <<<<<<<<<<<<<<
+ *         if auth_user:
+ *             await db.commit()
+*/
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_13 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_AuthService); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_14);
+  __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_mstate_global->__pyx_n_u_hash_password); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_15);
+  __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+  __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_password_model, __pyx_mstate_global->__pyx_n_u_new_password); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_14);
+  __pyx_t_8 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_15))) {
+    __pyx_t_13 = PyMethod_GET_SELF(__pyx_t_15);
+    assert(__pyx_t_13);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_15);
+    __Pyx_INCREF(__pyx_t_13);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_15, __pyx__function);
+    __pyx_t_8 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_13, __pyx_t_14};
+    __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_15, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
+    __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+    __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 175, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+  }
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_pass_word, __pyx_t_6) < 0) __PYX_ERR(0, 175, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_8 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_7);
+    assert(__pyx_t_3);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
+    __Pyx_INCREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
+    __pyx_t_8 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, __pyx_cur_scope->__pyx_v_db, __pyx_t_5};
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_4, __pyx_t_6, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_t_2, __pyx_t_6, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_7, __pyx_callargs+__pyx_t_8, (3-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_9 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_9 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 2;
+    return __pyx_r;
+    __pyx_L8_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_9 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 173, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_auth_user);
   __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_auth_user, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "auth_service.py":156
- *             db, auth_user.auth_user_id, model_class=AuthUser,
- *             update_model={"password": AuthService.hash_password(password_model.new_password)})
+  /* "auth_service.py":176
+ *             db, auth_user.user_id, model_class=AuthUser,
+ *             update_model={"pass_word": AuthService.hash_password(password_model.new_password)})
  *         if auth_user:             # <<<<<<<<<<<<<<
  *             await db.commit()
  *         else:
 */
-  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auth_user); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 156, __pyx_L1_error)
-  if (likely(__pyx_t_8)) {
+  __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auth_user); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (likely(__pyx_t_10)) {
 
-    /* "auth_service.py":157
- *             update_model={"password": AuthService.hash_password(password_model.new_password)})
+    /* "auth_service.py":177
+ *             update_model={"pass_word": AuthService.hash_password(password_model.new_password)})
  *         if auth_user:
  *             await db.commit()             # <<<<<<<<<<<<<<
  *         else:
  *             raise AuthException(message="")
 */
-    __pyx_t_4 = __pyx_cur_scope->__pyx_v_db;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_6 = 0;
+    __pyx_t_7 = __pyx_cur_scope->__pyx_v_db;
+    __Pyx_INCREF(__pyx_t_7);
+    __pyx_t_8 = 0;
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_commit, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)
+      PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
+      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_commit, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_t_14 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+    __pyx_t_9 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_14 == PYGEN_NEXT)) {
+    if (likely(__pyx_t_9 == PYGEN_NEXT)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_XGIVEREF(__pyx_r);
       __Pyx_RefNannyFinishContext();
       __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
       /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 2;
+      __pyx_generator->resume_label = 3;
       return __pyx_r;
-      __pyx_L7_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 157, __pyx_L1_error)
-    } else if (likely(__pyx_t_14 == PYGEN_RETURN)) {
+      __pyx_L10_resume_from_await:;
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 177, __pyx_L1_error)
+    } else if (likely(__pyx_t_9 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_DECREF(__pyx_r); __pyx_r = 0;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 157, __pyx_L1_error)
+      __PYX_ERR(0, 177, __pyx_L1_error)
     }
 
-    /* "auth_service.py":156
- *             db, auth_user.auth_user_id, model_class=AuthUser,
- *             update_model={"password": AuthService.hash_password(password_model.new_password)})
+    /* "auth_service.py":176
+ *             db, auth_user.user_id, model_class=AuthUser,
+ *             update_model={"pass_word": AuthService.hash_password(password_model.new_password)})
  *         if auth_user:             # <<<<<<<<<<<<<<
  *             await db.commit()
  *         else:
 */
-    goto __pyx_L6;
+    goto __pyx_L9;
   }
 
-  /* "auth_service.py":159
+  /* "auth_service.py":179
  *             await db.commit()
  *         else:
  *             raise AuthException(message="")             # <<<<<<<<<<<<<<
 */
   /*else*/ {
-    __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 159, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_6 = 1;
+    __pyx_t_7 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_AuthException); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 179, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_8 = 1;
     #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_10))) {
-      __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_10);
-      assert(__pyx_t_4);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_10);
-      __Pyx_INCREF(__pyx_t_4);
+    if (unlikely(PyMethod_Check(__pyx_t_6))) {
+      __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
+      assert(__pyx_t_7);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+      __Pyx_INCREF(__pyx_t_7);
       __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_10, __pyx__function);
-      __pyx_t_6 = 0;
+      __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+      __pyx_t_8 = 0;
     }
     #endif
     {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, NULL};
-      __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 159, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__8, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_10, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
+      __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__7, __pyx_t_2, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
+      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 159, __pyx_L1_error)
+    __PYX_ERR(0, 179, __pyx_L1_error)
   }
-  __pyx_L6:;
+  __pyx_L9:;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "auth_service.py":149
+  /* "auth_service.py":162
  *             raise LoginException(message="", errors=str(exc))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser):
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):
+ *     async def modify_password(
+ *             cls, db: AsyncSession, *,
 */
 
   /* function exit code */
@@ -7578,11 +7676,11 @@ static PyObject *__pyx_gb_12auth_service_11AuthService_24generator4(__pyx_Corout
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_XDECREF(__pyx_t_12);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_13);
+  __Pyx_XDECREF(__pyx_t_14);
+  __Pyx_XDECREF(__pyx_t_15);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
     __Pyx_AddTraceback("modify_password", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -7787,13 +7885,13 @@ static void __pyx_tp_dealloc_12auth_service___pyx_scope_struct__get_current_user
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_auth_user_id);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_db);
   Py_CLEAR(p->__pyx_v_exc);
   Py_CLEAR(p->__pyx_v_payload);
   Py_CLEAR(p->__pyx_v_token);
   Py_CLEAR(p->__pyx_v_user);
+  Py_CLEAR(p->__pyx_v_username);
   Py_CLEAR(p->__pyx_t_0);
   Py_CLEAR(p->__pyx_t_1);
   Py_CLEAR(p->__pyx_t_2);
@@ -8132,7 +8230,6 @@ static void __pyx_tp_dealloc_12auth_service___pyx_scope_struct_2_refresh(PyObjec
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_access_token);
   Py_CLEAR(p->__pyx_v_cls);
   #if CYTHON_USE_FREELISTS
   if (((int)(__pyx_mstate_global->__pyx_freecount_12auth_service___pyx_scope_struct_2_refresh < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_12auth_service___pyx_scope_struct_2_refresh)))) {
@@ -8157,9 +8254,6 @@ static int __pyx_tp_traverse_12auth_service___pyx_scope_struct_2_refresh(PyObjec
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
-  }
-  if (p->__pyx_v_access_token) {
-    e = (*v)(p->__pyx_v_access_token, a); if (e) return e;
   }
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
@@ -8298,7 +8392,6 @@ static void __pyx_tp_dealloc_12auth_service___pyx_scope_struct_3_login(PyObject 
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_db);
   Py_CLEAR(p->__pyx_v_exc);
-  Py_CLEAR(p->__pyx_v_query);
   Py_CLEAR(p->__pyx_t_0);
   Py_CLEAR(p->__pyx_t_1);
   Py_CLEAR(p->__pyx_t_2);
@@ -8343,9 +8436,6 @@ static int __pyx_tp_traverse_12auth_service___pyx_scope_struct_3_login(PyObject 
   }
   if (p->__pyx_v_exc) {
     e = (*v)(p->__pyx_v_exc, a); if (e) return e;
-  }
-  if (p->__pyx_v_query) {
-    e = (*v)(p->__pyx_v_query, a); if (e) return e;
   }
   if (p->__pyx_t_0) {
     e = (*v)(p->__pyx_t_0, a); if (e) return e;
@@ -8486,6 +8576,7 @@ static void __pyx_tp_dealloc_12auth_service___pyx_scope_struct_4_modify_password
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_auth_user);
   Py_CLEAR(p->__pyx_v_cls);
+  Py_CLEAR(p->__pyx_v_current_user);
   Py_CLEAR(p->__pyx_v_db);
   Py_CLEAR(p->__pyx_v_password_model);
   #if CYTHON_USE_FREELISTS
@@ -8517,6 +8608,9 @@ static int __pyx_tp_traverse_12auth_service___pyx_scope_struct_4_modify_password
   }
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
+  }
+  if (p->__pyx_v_current_user) {
+    e = (*v)(p->__pyx_v_current_user, a); if (e) return e;
   }
   if (p->__pyx_v_db) {
     e = (*v)(p->__pyx_v_db, a); if (e) return e;
@@ -8706,15 +8800,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_1_logout_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout)) __PYX_ERR(0, 105, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_1_logout_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_1_logout_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout)) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_1_logout_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout = &__pyx_type_12auth_service___pyx_scope_struct_1_logout;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout->tp_dictoffset && __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_1_logout->tp_getattro == PyObject_GenericGetAttr)) {
@@ -8722,15 +8816,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_2_refresh_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh)) __PYX_ERR(0, 110, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_2_refresh_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_2_refresh_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh)) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_2_refresh_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh = &__pyx_type_12auth_service___pyx_scope_struct_2_refresh;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh->tp_dictoffset && __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_2_refresh->tp_getattro == PyObject_GenericGetAttr)) {
@@ -8738,15 +8832,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_3_login_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login)) __PYX_ERR(0, 119, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_3_login_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_3_login_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login)) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_3_login_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login = &__pyx_type_12auth_service___pyx_scope_struct_3_login;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login->tp_dictoffset && __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_3_login->tp_getattro == PyObject_GenericGetAttr)) {
@@ -8754,15 +8848,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_4_modify_password_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password)) __PYX_ERR(0, 149, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_4_modify_password_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12auth_service___pyx_scope_struct_4_modify_password_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password)) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12auth_service___pyx_scope_struct_4_modify_password_spec, __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password = &__pyx_type_12auth_service___pyx_scope_struct_4_modify_password;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password->tp_dictoffset && __pyx_mstate->__pyx_ptype_12auth_service___pyx_scope_struct_4_modify_password->tp_getattro == PyObject_GenericGetAttr)) {
@@ -9278,7 +9372,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  * from ..exception.service_exception import LoginException, AuthException
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
  * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
- * from ..schemas.query_request import QueryRequest
+ * from ..services.data_service import DataService
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -9295,8 +9389,8 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  * from ..exception.service_exception import LoginException, AuthException
  * from ..logger.logging_ import logging
  * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword             # <<<<<<<<<<<<<<
- * from ..schemas.query_request import QueryRequest
  * from ..services.data_service import DataService
+ * from ..services.db_engine_service import DBEngineService
 */
   __pyx_t_3 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_AuthUser, __pyx_mstate_global->__pyx_n_u_AuthLogin, __pyx_mstate_global->__pyx_n_u_AuthUserResponse, __pyx_mstate_global->__pyx_n_u_AuthPassword); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -9324,54 +9418,54 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   /* "auth_service.py":23
  * from ..logger.logging_ import logging
  * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
- * from ..schemas.query_request import QueryRequest             # <<<<<<<<<<<<<<
- * from ..services.data_service import DataService
+ * from ..services.data_service import DataService             # <<<<<<<<<<<<<<
  * from ..services.db_engine_service import DBEngineService
+ * from ..tools.tenant_checker import TenantManager
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_QueryRequest); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_schemas_query_request, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_services_data_service, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_QueryRequest); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_QueryRequest, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "auth_service.py":24
  * from ..portal_auth.entity_table.auth_user import AuthUser, AuthLogin, AuthUserResponse, AuthPassword
- * from ..schemas.query_request import QueryRequest
- * from ..services.data_service import DataService             # <<<<<<<<<<<<<<
- * from ..services.db_engine_service import DBEngineService
+ * from ..services.data_service import DataService
+ * from ..services.db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
+ * from ..tools.tenant_checker import TenantManager
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_services_data_service, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_services_db_engine_service, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_t_3) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DBEngineService, __pyx_t_3) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "auth_service.py":25
- * from ..schemas.query_request import QueryRequest
  * from ..services.data_service import DataService
- * from ..services.db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
+ * from ..services.db_engine_service import DBEngineService
+ * from ..tools.tenant_checker import TenantManager             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_services_db_engine_service, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_tools_tenant_checker, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DBEngineService, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TenantManager, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -9567,7 +9661,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AuthUser) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AuthUserResponse) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
   __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_11get_current_user, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_get_current_user, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (!__Pyx_CyFunction_InitDefaults(__pyx_t_2, __pyx_mstate_global->__pyx_ptype_12auth_service___pyx_defaults)) __PYX_ERR(0, 80, __pyx_L1_error)
@@ -9577,7 +9671,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  *     async def get_current_user(
  *             cls, token=Security(oauth2_scheme),             # <<<<<<<<<<<<<<
  *             db: AsyncSession = Depends(DBEngineService.get_auth_async_session)
- *     ) -> AuthUser:
+ *     ) -> AuthUserResponse:
 */
   __pyx_t_4 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_Security); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 82, __pyx_L1_error)
@@ -9607,7 +9701,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
  *     async def get_current_user(
  *             cls, token=Security(oauth2_scheme),
  *             db: AsyncSession = Depends(DBEngineService.get_auth_async_session)             # <<<<<<<<<<<<<<
- *     ) -> AuthUser:
+ *     ) -> AuthUserResponse:
  *         """  """
 */
   __pyx_t_8 = NULL;
@@ -9648,82 +9742,82 @@ __Pyx_RefNannySetupContext("PyInit_auth_service", 0);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_current_user, __pyx_t_5) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "auth_service.py":105
+  /* "auth_service.py":112
  *             raise AuthException(message="token", errors=str(exc))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def logout(cls) -> None:
  *         # todo  logout
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_14logout, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_logout, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_14logout, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_logout, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logout, __pyx_t_5) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logout, __pyx_t_5) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "auth_service.py":110
+  /* "auth_service.py":117
  *         ...
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def refresh(cls):
  *         # todo  refresh
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_17refresh, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_refresh, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_17refresh, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_refresh, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_refresh, __pyx_t_2) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_refresh, __pyx_t_2) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "auth_service.py":119
- *         return access_token
+  /* "auth_service.py":127
+ *         ...
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
  *         try:
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auth_login, __pyx_mstate_global->__pyx_n_u_AuthLogin) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_20login, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_login, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auth_login, __pyx_mstate_global->__pyx_n_u_AuthLogin) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_20login, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_login, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_login, __pyx_t_2) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_login, __pyx_t_2) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "auth_service.py":149
+  /* "auth_service.py":162
  *             raise LoginException(message="", errors=str(exc))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def modify_password(cls, db: AsyncSession, *, password_model: AuthPassword, auth_user: AuthUser):
- *         if not AuthService.verify_password(password_model.old_password, auth_user.password):
+ *     async def modify_password(
+ *             cls, db: AsyncSession, *,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_password_model, __pyx_mstate_global->__pyx_n_u_AuthPassword) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auth_user, __pyx_mstate_global->__pyx_n_u_AuthUser) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_23modify_password, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_modify_password, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_password_model, __pyx_mstate_global->__pyx_n_u_AuthPassword) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_current_user, __pyx_mstate_global->__pyx_n_u_AuthUserResponse) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12auth_service_11AuthService_23modify_password, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_AuthService_modify_password, NULL, __pyx_mstate_global->__pyx_n_u_auth_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_modify_password, __pyx_t_2) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_modify_password, __pyx_t_2) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "auth_service.py":28
@@ -9815,8 +9909,6 @@ typedef struct {
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
-  {__pyx_k_121213212, sizeof(__pyx_k_121213212), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_121213212 */
-  {__pyx_k_AND, sizeof(__pyx_k_AND), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AND */
   {__pyx_k_AppConfig, sizeof(__pyx_k_AppConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AppConfig */
   {__pyx_k_AsyncSession, sizeof(__pyx_k_AsyncSession), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncSession */
   {__pyx_k_AuthException, sizeof(__pyx_k_AuthException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthException */
@@ -9846,21 +9938,20 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Optional, sizeof(__pyx_k_Optional), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Optional */
   {__pyx_k_Optional_timedelta, sizeof(__pyx_k_Optional_timedelta), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_timedelta */
   {__pyx_k_PermissionService, sizeof(__pyx_k_PermissionService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionService */
-  {__pyx_k_QueryRequest, sizeof(__pyx_k_QueryRequest), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryRequest */
   {__pyx_k_Security, sizeof(__pyx_k_Security), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Security */
   {__pyx_k_TOKEN_ALGORITHM, sizeof(__pyx_k_TOKEN_ALGORITHM), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TOKEN_ALGORITHM */
   {__pyx_k_TOKEN_EXPIRE_MINUTES, sizeof(__pyx_k_TOKEN_EXPIRE_MINUTES), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TOKEN_EXPIRE_MINUTES */
   {__pyx_k_TOKEN_SECRET_KEY, sizeof(__pyx_k_TOKEN_SECRET_KEY), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TOKEN_SECRET_KEY */
+  {__pyx_k_TenantManager, sizeof(__pyx_k_TenantManager), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager */
   {__pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TypeError */
   {__pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ValueError */
-  {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__10 */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
-  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
+  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 1}, /* PyObject cname: __pyx_n_u__5 */
   {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 1}, /* PyObject cname: __pyx_n_u__6 */
   {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 1}, /* PyObject cname: __pyx_n_u__7 */
-  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 1}, /* PyObject cname: __pyx_n_u__8 */
+  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__8 */
   {__pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__9 */
   {__pyx_k_access_token, sizeof(__pyx_k_access_token), 0, 1, 1}, /* PyObject cname: __pyx_n_u_access_token */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
@@ -9873,8 +9964,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_auth_service_py, sizeof(__pyx_k_auth_service_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_auth_service_py */
   {__pyx_k_auth_token, sizeof(__pyx_k_auth_token), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_auth_token */
   {__pyx_k_auth_user, sizeof(__pyx_k_auth_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_user */
-  {__pyx_k_auth_user_id, sizeof(__pyx_k_auth_user_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_user_id */
-  {__pyx_k_auth_user_username, sizeof(__pyx_k_auth_user_username), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_auth_user_username */
   {__pyx_k_await, sizeof(__pyx_k_await), 0, 1, 1}, /* PyObject cname: __pyx_n_u_await */
   {__pyx_k_bcrypt, sizeof(__pyx_k_bcrypt), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bcrypt */
   {__pyx_k_bool, sizeof(__pyx_k_bool), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bool */
@@ -9884,14 +9973,16 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
   {__pyx_k_cls, sizeof(__pyx_k_cls), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cls */
   {__pyx_k_commit, sizeof(__pyx_k_commit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_commit */
-  {__pyx_k_conditions, sizeof(__pyx_k_conditions), 0, 1, 1}, /* PyObject cname: __pyx_n_u_conditions */
+  {__pyx_k_condition, sizeof(__pyx_k_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_condition */
   {__pyx_k_config_app_config, sizeof(__pyx_k_config_app_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_config_app_config */
+  {__pyx_k_current_user, sizeof(__pyx_k_current_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_current_user */
   {__pyx_k_data, sizeof(__pyx_k_data), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data */
   {__pyx_k_datetime, sizeof(__pyx_k_datetime), 0, 1, 1}, /* PyObject cname: __pyx_n_u_datetime */
   {__pyx_k_db, sizeof(__pyx_k_db), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db */
   {__pyx_k_db_update, sizeof(__pyx_k_db_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_update */
   {__pyx_k_decode, sizeof(__pyx_k_decode), 0, 1, 1}, /* PyObject cname: __pyx_n_u_decode */
   {__pyx_k_dict, sizeof(__pyx_k_dict), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dict */
+  {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 1}, /* PyObject cname: __pyx_n_u_disable */
   {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disable */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_e, sizeof(__pyx_k_e), 0, 1, 1}, /* PyObject cname: __pyx_n_u_e */
@@ -9907,7 +9998,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_expires_delta, sizeof(__pyx_k_expires_delta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_expires_delta */
   {__pyx_k_fastapi, sizeof(__pyx_k_fastapi), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fastapi */
   {__pyx_k_fastapi_security, sizeof(__pyx_k_fastapi_security), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fastapi_security */
-  {__pyx_k_field, sizeof(__pyx_k_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
   {__pyx_k_gensalt, sizeof(__pyx_k_gensalt), 0, 1, 1}, /* PyObject cname: __pyx_n_u_gensalt */
@@ -9920,7 +10010,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_hashed_bytes, sizeof(__pyx_k_hashed_bytes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_hashed_bytes */
   {__pyx_k_hashed_password, sizeof(__pyx_k_hashed_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_hashed_password */
   {__pyx_k_hashpw, sizeof(__pyx_k_hashpw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_hashpw */
-  {__pyx_k_id, sizeof(__pyx_k_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_id */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_is_active, sizeof(__pyx_k_is_active), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_active */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
@@ -9936,6 +10025,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
   {__pyx_k_minutes, sizeof(__pyx_k_minutes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_minutes */
   {__pyx_k_model_class, sizeof(__pyx_k_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_class */
+  {__pyx_k_model_validate, sizeof(__pyx_k_model_validate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_validate */
   {__pyx_k_modify_password, sizeof(__pyx_k_modify_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_modify_password */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
@@ -9943,8 +10033,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
   {__pyx_k_oauth2_scheme, sizeof(__pyx_k_oauth2_scheme), 0, 1, 1}, /* PyObject cname: __pyx_n_u_oauth2_scheme */
   {__pyx_k_old_password, sizeof(__pyx_k_old_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_old_password */
-  {__pyx_k_op, sizeof(__pyx_k_op), 0, 1, 1}, /* PyObject cname: __pyx_n_u_op */
-  {__pyx_k_paging, sizeof(__pyx_k_paging), 0, 1, 1}, /* PyObject cname: __pyx_n_u_paging */
+  {__pyx_k_pass_word, sizeof(__pyx_k_pass_word), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pass_word */
   {__pyx_k_password, sizeof(__pyx_k_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_password */
   {__pyx_k_password_bytes, sizeof(__pyx_k_password_bytes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_password_bytes */
   {__pyx_k_password_model, sizeof(__pyx_k_password_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_password_model */
@@ -9954,23 +10043,20 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_portal_auth_entity_table_auth_us, sizeof(__pyx_k_portal_auth_entity_table_auth_us), 0, 1, 1}, /* PyObject cname: __pyx_n_u_portal_auth_entity_table_auth_us */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
-  {__pyx_k_primary_id, sizeof(__pyx_k_primary_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_primary_id */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
-  {__pyx_k_query, sizeof(__pyx_k_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query */
-  {__pyx_k_query_first, sizeof(__pyx_k_query_first), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_first */
-  {__pyx_k_read, sizeof(__pyx_k_read), 0, 1, 1}, /* PyObject cname: __pyx_n_u_read */
+  {__pyx_k_query_columns, sizeof(__pyx_k_query_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_columns */
   {__pyx_k_refresh, sizeof(__pyx_k_refresh), 0, 1, 1}, /* PyObject cname: __pyx_n_u_refresh */
-  {__pyx_k_response_class, sizeof(__pyx_k_response_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_class */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
-  {__pyx_k_schemas_query_request, sizeof(__pyx_k_schemas_query_request), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schemas_query_request */
   {__pyx_k_send, sizeof(__pyx_k_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_send */
   {__pyx_k_services_data_service, sizeof(__pyx_k_services_data_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_services_data_service */
   {__pyx_k_services_db_engine_service, sizeof(__pyx_k_services_db_engine_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_services_db_engine_service */
+  {__pyx_k_set, sizeof(__pyx_k_set), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
   {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_sqlmodel_ext_asyncio_session, sizeof(__pyx_k_sqlmodel_ext_asyncio_session), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sqlmodel_ext_asyncio_session */
   {__pyx_k_str, sizeof(__pyx_k_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_str */
   {__pyx_k_sub, sizeof(__pyx_k_sub), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sub */
+  {__pyx_k_tenant_id, sizeof(__pyx_k_tenant_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tenant_id */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_throw, sizeof(__pyx_k_throw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_throw */
   {__pyx_k_timedelta, sizeof(__pyx_k_timedelta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_timedelta */
@@ -9983,15 +10069,16 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_token_encode, sizeof(__pyx_k_token_encode), 0, 1, 1}, /* PyObject cname: __pyx_n_u_token_encode */
   {__pyx_k_token_jwt_expire_minutes, sizeof(__pyx_k_token_jwt_expire_minutes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_token_jwt_expire_minutes */
   {__pyx_k_token_jwt_secret_key, sizeof(__pyx_k_token_jwt_secret_key), 0, 1, 1}, /* PyObject cname: __pyx_n_u_token_jwt_secret_key */
-  {__pyx_k_type, sizeof(__pyx_k_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type */
+  {__pyx_k_tools_tenant_checker, sizeof(__pyx_k_tools_tenant_checker), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tools_tenant_checker */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
   {__pyx_k_update, sizeof(__pyx_k_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update */
   {__pyx_k_update_model, sizeof(__pyx_k_update_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_model */
   {__pyx_k_user, sizeof(__pyx_k_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user */
+  {__pyx_k_user_id, sizeof(__pyx_k_user_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_id */
+  {__pyx_k_user_name, sizeof(__pyx_k_user_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_name */
   {__pyx_k_username, sizeof(__pyx_k_username), 0, 1, 1}, /* PyObject cname: __pyx_n_u_username */
   {__pyx_k_utcnow, sizeof(__pyx_k_utcnow), 0, 1, 1}, /* PyObject cname: __pyx_n_u_utcnow */
   {__pyx_k_utf_8, sizeof(__pyx_k_utf_8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_utf_8 */
-  {__pyx_k_val, sizeof(__pyx_k_val), 0, 1, 1}, /* PyObject cname: __pyx_n_u_val */
   {__pyx_k_value, sizeof(__pyx_k_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_value */
   {__pyx_k_verify_password, sizeof(__pyx_k_verify_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_verify_password */
   {__pyx_k_warning, sizeof(__pyx_k_warning), 0, 1, 1}, /* PyObject cname: __pyx_n_u_warning */
@@ -10073,28 +10160,28 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   if (unlikely(!tuple_dedup_map)) return -1;
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 80, 23};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_token, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_payload, __pyx_mstate->__pyx_n_u_auth_user_id, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_exc};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_token, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_payload, __pyx_mstate->__pyx_n_u_username, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_exc};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_service_py, __pyx_mstate->__pyx_n_u_get_current_user, __pyx_k_A_q_wa_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 105, 5};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 112, 5};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_service_py, __pyx_mstate->__pyx_n_u_logout, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 110, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_access_token};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 117, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_service_py, __pyx_mstate->__pyx_n_u_refresh, __pyx_k_A_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 119, 7};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_auth_login, __pyx_mstate->__pyx_n_u_query, __pyx_mstate->__pyx_n_u_auth_user, __pyx_mstate->__pyx_n_u_access_token, __pyx_mstate->__pyx_n_u_exc};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 127, 7};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_auth_login, __pyx_mstate->__pyx_n_u_auth_user, __pyx_mstate->__pyx_n_u_access_token, __pyx_mstate->__pyx_n_u_exc};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_service_py, __pyx_mstate->__pyx_n_u_login, __pyx_k_A_3, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 2, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 149, 11};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_password_model, __pyx_mstate->__pyx_n_u_auth_user};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_service_py, __pyx_mstate->__pyx_n_u_modify_password, __pyx_k_A_HHaab, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 2, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 162, 10};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_password_model, __pyx_mstate->__pyx_n_u_current_user, __pyx_mstate->__pyx_n_u_auth_user};
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_auth_service_py, __pyx_mstate->__pyx_n_u_modify_password, __pyx_k_A_8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 36, 103};
@@ -14230,7 +14317,7 @@ bad:
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__9);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__8);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -16027,7 +16114,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__10);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__9);
     }
     goto done;
 }
