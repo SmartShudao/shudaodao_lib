@@ -1,5 +1,16 @@
-from _typeshed import Incomplete
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+# @License  ：(C)Copyright 2025, 数道智融科技
+# @Author   ：李锋
+# @Software ：PyCharm
+# @Date     ：2025/10/9 下午11:45
+# @Desc     ：路由行为与权限配置类
 
+from dataclasses import dataclass
+from typing import Optional
+
+
+@dataclass
 class RouterConfig:
     """路由配置类，用于声明单个 CRUD 操作的行为与权限策略。
 
@@ -18,24 +29,17 @@ class RouterConfig:
         - 所有字段均为可选，未设置时使用默认值（如 `enabled=True`, `auth=True`）。
     """
 
-    enabled: Incomplete
-    auth: Incomplete
-    auth_role: Incomplete
-    auth_obj: Incomplete
-    auth_act: Incomplete
-    message: Incomplete
-    summary: Incomplete
     def __init__(
         self,
         *,
-        enabled: bool | None = True,
-        auth: bool | None = True,
-        auth_role: str | None = None,
-        auth_obj: str | None = None,
-        auth_act: str | None = None,
-        message: str | None = None,
-        summary: str | None = None,
-    ) -> None:
+        enabled: Optional[bool] = True,
+        auth: Optional[bool] = True,
+        auth_role: Optional[str] = None,
+        auth_obj: Optional[str] = None,
+        auth_act: Optional[str] = None,
+        message: Optional[str] = None,
+        summary: Optional[str] = None,
+    ):
         """初始化路由配置。
 
         Args:
@@ -47,3 +51,10 @@ class RouterConfig:
             message (str, optional): 操作成功时返回的提示消息。
             summary (str, optional): OpenAPI 文档中该接口的简要描述。
         """
+        self.enabled = enabled
+        self.auth = auth
+        self.auth_role = auth_role
+        self.auth_obj = auth_obj
+        self.auth_act = auth_act
+        self.message = message
+        self.summary = summary
