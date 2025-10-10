@@ -2519,7 +2519,7 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_database_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_output_path, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2529,21 +2529,21 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
  *     # db_url: str = ""
  *     database_engine_name: str = "Generate"             # <<<<<<<<<<<<<<
  *     #  schema  schema = None ,
- *     default_schema_name: str = "shudaodao_generate"
+ *     default_schema_name: Optional[str] = "shudaodao_generate"
 */
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_database_engine_name, __pyx_mstate_global->__pyx_n_u_Generate) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
 
   /* "config.py":18
  *     database_engine_name: str = "Generate"
  *     #  schema  schema = None ,
- *     default_schema_name: str = "shudaodao_generate"             # <<<<<<<<<<<<<<
+ *     default_schema_name: Optional[str] = "shudaodao_generate"             # <<<<<<<<<<<<<<
  *     output_path: Optional[str] = None
 */
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_shudaodao_generate) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
 
   /* "config.py":19
  *     #  schema  schema = None ,
- *     default_schema_name: str = "shudaodao_generate"
+ *     default_schema_name: Optional[str] = "shudaodao_generate"
  *     output_path: Optional[str] = None             # <<<<<<<<<<<<<<
 */
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_output_path, Py_None) < 0) __PYX_ERR(0, 19, __pyx_L1_error)

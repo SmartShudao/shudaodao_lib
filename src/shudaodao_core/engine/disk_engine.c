@@ -1965,6 +1965,17 @@ static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key);
 #define __Pyx_PyObject_Dict_GetItem(obj, name)  PyObject_GetItem(obj, name)
 #endif
 
+/* RaiseException.proto */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
+
+/* SwapException.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_ExceptionSwap(type, value, tb)  __Pyx__ExceptionSwap(__pyx_tstate, type, value, tb)
+static CYTHON_INLINE void __Pyx__ExceptionSwap(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
+#else
+static CYTHON_INLINE void __Pyx_ExceptionSwap(PyObject **type, PyObject **value, PyObject **tb);
+#endif
+
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
@@ -2292,11 +2303,13 @@ int __pyx_module_is_main_disk_engine = 0;
 /* Implementation of "disk_engine" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_super;
+static PyObject *__pyx_builtin_KeyError;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = " -> ";
 static const char __pyx_k_A[] = "\200A";
-static const char __pyx_k__2[] = " ";
-static const char __pyx_k__3[] = "";
+static const char __pyx_k_e[] = "e";
+static const char __pyx_k__2[] = "";
+static const char __pyx_k__3[] = "\347\243\201\347\233\230\345\255\230\345\202\250\351\205\215\347\275\256 '";
 static const char __pyx_k__4[] = ".";
 static const char __pyx_k__5[] = "?";
 static const char __pyx_k_cls[] = "cls";
@@ -2325,11 +2338,9 @@ static const char __pyx_k_enter[] = "__enter__";
 static const char __pyx_k_mkdir[] = "mkdir";
 static const char __pyx_k_pools[] = "_pools";
 static const char __pyx_k_super[] = "super";
-static const char __pyx_k_A_F_Ja[] = "\200A\340\010\014\210F\220!\330\010\014\210J\220a";
 static const char __pyx_k_config[] = "config";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_name_2[] = "__name__";
-static const char __pyx_k_result[] = "result";
 static const char __pyx_k_return[] = "return";
 static const char __pyx_k_enabled[] = "enabled";
 static const char __pyx_k_logging[] = "logging";
@@ -2339,6 +2350,7 @@ static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_storage[] = "storage";
 static const char __pyx_k_warning[] = "warning";
 static const char __pyx_k_CoreUtil[] = "CoreUtil";
+static const char __pyx_k_KeyError[] = "KeyError";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_exist_ok[] = "exist_ok";
 static const char __pyx_k_get_path[] = "get_path";
@@ -2346,35 +2358,41 @@ static const char __pyx_k_instance[] = "_instance";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_AppConfig[] = "AppConfig";
+static const char __pyx_k_base_path[] = "base_path";
 static const char __pyx_k_disk_name[] = "disk \347\246\201\347\224\250 name: ";
+static const char __pyx_k_full_path[] = "full_path";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_threading[] = "threading";
 static const char __pyx_k_DiskEngine[] = "DiskEngine";
 static const char __pyx_k_child_path[] = "child_path";
 static const char __pyx_k_debug_line[] = "debug_line";
+static const char __pyx_k_A_a_A_81B_1[] = "\200A\360\n\000\t\n\330\014\020\220\006\220a\330\010\017\210}\230A\330\014\023\2208\2301\230B\320\036;\2701\340\014\020\220\n\230!";
 static const char __pyx_k_disk_engine[] = "disk_engine";
 static const char __pyx_k_disk_name_2[] = "disk \350\275\275\345\205\245 name: ";
 static const char __pyx_k_storage_dir[] = "_storage_dir";
-static const char __pyx_k_enabled_true[] = " \345\246\202\351\234\200\345\220\257\347\224\250\357\274\214\350\257\267\350\256\276\347\275\256 enabled: true ";
+static const char __pyx_k_enabled_true[] = " \345\246\202\351\234\200\345\220\257\347\224\250\357\274\214\350\257\267\350\256\276\347\275\256 enabled: true";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_storage_root[] = "_storage_root";
 static const char __pyx_k_get_root_path[] = "get_root_path";
 static const char __pyx_k_disk_engine_py[] = "disk_engine.py";
 static const char __pyx_k_logger_logging[] = "logger.logging_";
-static const char __pyx_k_DiskEngine___del[] = "DiskEngine.__del__";
+static const char __pyx_k_app_config_yaml[] = "' \346\234\252\345\220\257\347\224\250\346\210\226\344\270\215\345\255\230\345\234\250\357\274\214\350\257\267\346\243\200\346\237\245 app_config.yaml";
+static const char __pyx_k_DiskEngine___del[] = "DiskEngine.__del__ \346\270\205\347\220\206\345\274\202\345\270\270: ";
 static const char __pyx_k_DiskEngine___new[] = "DiskEngine.__new__";
 static const char __pyx_k_DiskEngine__load[] = "DiskEngine._load";
 static const char __pyx_k_DiskEngine_close[] = "DiskEngine.close";
 static const char __pyx_k_utils_core_utils[] = "utils.core_utils";
 static const char __pyx_k_config_app_config[] = "config.app_config";
 static const char __pyx_k_yaml_storage_disk[] = "\345\212\240\350\275\275: .yaml - storage - disk";
-static const char __pyx_k_U_m1_WAQ_1_WBa_y_q[] = "\320\004\035\230U\240,\250m\2701\330\010\021\220\024\220W\230A\230Q\340\010\013\2101\330\014\025\220W\230B\230a\330\014\022\220&\230\001\230\030\240\026\240y\260\001\330\010\017\210q";
+static const char __pyx_k_DiskEngine___del_2[] = "DiskEngine.__del__";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_DiskEngine_get_path[] = "DiskEngine.get_path";
-static const char __pyx_k_A_3k_A_A_3k_A_E_d_1_z_q_s[] = "\200A\330\010\013\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\250,\260d\270(\300!\3001\330\024\027\220z\240\026\240q\330\010\017\210s\220!";
-static const char __pyx_k_A_Ja_a_uAQ_Jixq_t6_xq_4F_6_axvYa[] = "\200A\330\010\014\210J\220a\330\010\030\230\010\240\016\250a\330\010\017\210{\230!\330\010\017\210u\220A\220Q\330\010\017\210{\230!\330\010\014\210J\220i\230x\240q\330\014\017\210t\2206\230\021\330\020\027\220x\230q\240\002\320\"4\260F\270!\330\020\021\330\014\033\230>\250\022\2506\260\021\330\014\030\230\006\230a\230x\240v\250Y\260a\330\014\023\2206\230\021\230\"\320\034.\250f\260K\270q\330\014\020\220\007\220q\230\006\230i\240q";
+static const char __pyx_k_A_3k_A_A_3k_A_E_d_1_z_q_s[] = "\200A\360\n\000\t\014\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\250,\260d\270(\300!\3001\330\024\027\220z\240\026\240q\330\010\017\210s\220!";
+static const char __pyx_k_U_m1_G1A_2_1_A_V1HF_1_1_q[] = "\320\004\035\230U\240,\250m\2701\360\034\000\t\n\330\014\030\230\004\230G\2401\240A\330\017\020\330\014\022\220(\230!\2302\230\\\250\021\340\010\013\2101\330\014\030\230\n\240\"\240A\330\014\025\220V\2301\230H\240F\250)\2601\330\014\023\2201\340\010\017\210q";
+static const char __pyx_k_A_Ja_a_uAQ_Jixq_t6_xq_a_6_axvYa[] = "\200A\360\020\000\t\r\210J\220a\330\010\030\230\010\240\016\250a\330\010\017\210{\230!\330\010\017\210u\220A\220Q\330\010\017\210{\230!\340\010\014\210J\220i\230x\240q\330\014\017\210t\2206\230\021\330\020\027\220x\230q\330\024\026\320\026(\250\006\250a\340\020\021\340\014\033\230>\250\022\2506\260\021\330\014\030\230\006\230a\230x\240v\250Y\260a\330\014\023\2206\230\021\230\"\320\034.\250f\260K\270q\330\014\020\220\007\220q\230\006\230i\240q";
+static const char __pyx_k_AppConfig_storage_disk_get_path[] = "\346\234\254\345\234\260\347\243\201\347\233\230\345\255\230\345\202\250\350\267\257\345\276\204\347\256\241\347\220\206\345\231\250\357\274\214\345\237\272\344\272\216\351\205\215\347\275\256\345\212\250\346\200\201\345\210\233\345\273\272\345\271\266\347\274\223\345\255\230\345\255\230\345\202\250\347\233\256\345\275\225\343\200\202\n\n    \345\212\237\350\203\275\357\274\232\n        - \344\273\216 `AppConfig.storage.disk` \345\212\240\350\275\275\345\244\232\344\270\252\347\243\201\347\233\230\345\255\230\345\202\250\351\205\215\347\275\256\357\274\233\n        - \344\270\272\346\257\217\344\270\252\345\220\257\347\224\250\347\232\204\345\255\230\345\202\250\351\241\271\345\210\233\345\273\272\345\271\266\347\274\223\345\255\230\345\205\266\347\273\235\345\257\271\350\267\257\345\276\204\357\274\210\350\207\252\345\212\250\345\210\233\345\273\272\347\233\256\345\275\225\357\274\211\357\274\233\n        - \346\217\220\344\276\233\344\276\277\346\215\267\346\226\271\346\263\225 `get_path(name, child_path)` \350\216\267\345\217\226\345\255\220\350\267\257\345\276\204\357\274\210\350\207\252\345\212\250\345\210\233\345\273\272\357\274\211\357\274\233\n        - \351\207\207\347\224\250\347\272\277\347\250\213\345\256\211\345\205\250\345\215\225\344\276\213\346\250\241\345\274\217\357\274\214\347\241\256\344\277\235\345\205\250\345\261\200\345\224\257\344\270\200\345\256\236\344\276\213\343\200\202\n\n    \345\205\270\345\236\213\347\224\250\351\200\224\357\274\232\n        - \346\226\207\344\273\266\344\270\212\344\274\240/\344\270\213\350\275\275\346\240\271\347\233\256\345\275\225\347\256\241\347\220\206\357\274\233\n        - \346\227\245\345\277\227\343\200\201\347\274\223\345\255\230\343\200\201\344\270\264\346\227\266\346\226\207\344\273\266\345\210\206\345\214\272\345\255\230\345\202\250\357\274\233\n        - \345\244\232\347\247\237\346\210\267\346\234\254\345\234\260\345\255\230\345\202\250\351\232\224\347\246\273\357\274\210\345\246\202 `tenant_a/files`, ""`tenant_b/files`\357\274\211\343\200\202\n\n    \346\263\250\346\204\217\357\274\232\n        - \346\211\200\346\234\211\350\267\257\345\276\204\345\235\207\345\237\272\344\272\216\351\241\271\347\233\256\346\240\271\347\233\256\345\275\225\357\274\210`CoreUtil.get_root_path()`\357\274\211\357\274\233\n        - \345\255\220\350\267\257\345\276\204\357\274\210`child_path`\357\274\211\346\224\257\346\214\201\345\244\232\347\272\247\357\274\210\345\246\202 `\"user/123/avatar\"`\357\274\211\357\274\233\n        - \347\233\256\345\275\225\345\210\233\345\273\272\344\275\277\347\224\250 `mkdir(parents=True, exist_ok=True)`\357\274\214\345\256\211\345\205\250\345\271\202\347\255\211\343\200\202\n    ";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
@@ -2423,7 +2441,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[2];
   PyObject *__pyx_codeobj_tab[5];
-  PyObject *__pyx_string_tab[78];
+  PyObject *__pyx_string_tab[84];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2463,82 +2481,88 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_AppConfig __pyx_string_tab[1]
-#define __pyx_n_u_CoreUtil __pyx_string_tab[2]
-#define __pyx_n_u_DiskEngine __pyx_string_tab[3]
-#define __pyx_n_u_DiskEngine___del __pyx_string_tab[4]
-#define __pyx_n_u_DiskEngine___new __pyx_string_tab[5]
-#define __pyx_n_u_DiskEngine__load __pyx_string_tab[6]
-#define __pyx_n_u_DiskEngine_close __pyx_string_tab[7]
-#define __pyx_n_u_DiskEngine_get_path __pyx_string_tab[8]
-#define __pyx_n_u_Lock __pyx_string_tab[9]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[10]
-#define __pyx_n_u_Path __pyx_string_tab[11]
-#define __pyx_kp_u__2 __pyx_string_tab[12]
-#define __pyx_kp_u__3 __pyx_string_tab[13]
-#define __pyx_kp_u__4 __pyx_string_tab[14]
-#define __pyx_kp_u__5 __pyx_string_tab[15]
-#define __pyx_kp_u_add_note __pyx_string_tab[16]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[17]
-#define __pyx_n_u_child_path __pyx_string_tab[18]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[19]
-#define __pyx_n_u_close __pyx_string_tab[20]
-#define __pyx_n_u_cls __pyx_string_tab[21]
-#define __pyx_n_u_config __pyx_string_tab[22]
-#define __pyx_n_u_config_app_config __pyx_string_tab[23]
-#define __pyx_n_u_debug __pyx_string_tab[24]
-#define __pyx_n_u_debug_line __pyx_string_tab[25]
-#define __pyx_n_u_del __pyx_string_tab[26]
-#define __pyx_n_u_disk __pyx_string_tab[27]
-#define __pyx_n_u_disk_engine __pyx_string_tab[28]
-#define __pyx_kp_u_disk_engine_py __pyx_string_tab[29]
-#define __pyx_kp_u_disk_name __pyx_string_tab[30]
-#define __pyx_kp_u_disk_name_2 __pyx_string_tab[31]
-#define __pyx_n_u_doc __pyx_string_tab[32]
-#define __pyx_n_u_enabled __pyx_string_tab[33]
-#define __pyx_kp_u_enabled_true __pyx_string_tab[34]
-#define __pyx_n_u_enter __pyx_string_tab[35]
-#define __pyx_n_u_exist_ok __pyx_string_tab[36]
-#define __pyx_n_u_exit __pyx_string_tab[37]
-#define __pyx_n_u_func __pyx_string_tab[38]
-#define __pyx_n_u_get_path __pyx_string_tab[39]
-#define __pyx_n_u_get_root_path __pyx_string_tab[40]
-#define __pyx_n_u_info __pyx_string_tab[41]
-#define __pyx_n_u_initializing __pyx_string_tab[42]
-#define __pyx_n_u_instance __pyx_string_tab[43]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[44]
-#define __pyx_n_u_load __pyx_string_tab[45]
-#define __pyx_n_u_lock __pyx_string_tab[46]
-#define __pyx_n_u_logger_logging __pyx_string_tab[47]
-#define __pyx_n_u_logging __pyx_string_tab[48]
-#define __pyx_n_u_main __pyx_string_tab[49]
-#define __pyx_n_u_metaclass __pyx_string_tab[50]
-#define __pyx_n_u_mkdir __pyx_string_tab[51]
-#define __pyx_n_u_module __pyx_string_tab[52]
-#define __pyx_n_u_name __pyx_string_tab[53]
-#define __pyx_n_u_name_2 __pyx_string_tab[54]
-#define __pyx_n_u_new __pyx_string_tab[55]
-#define __pyx_n_u_parents __pyx_string_tab[56]
-#define __pyx_n_u_path __pyx_string_tab[57]
-#define __pyx_n_u_pathlib __pyx_string_tab[58]
-#define __pyx_n_u_pools __pyx_string_tab[59]
-#define __pyx_n_u_pop __pyx_string_tab[60]
-#define __pyx_n_u_prepare __pyx_string_tab[61]
-#define __pyx_n_u_qualname __pyx_string_tab[62]
-#define __pyx_n_u_result __pyx_string_tab[63]
-#define __pyx_n_u_return __pyx_string_tab[64]
-#define __pyx_n_u_self __pyx_string_tab[65]
-#define __pyx_n_u_set_name __pyx_string_tab[66]
-#define __pyx_n_u_spec __pyx_string_tab[67]
-#define __pyx_n_u_storage __pyx_string_tab[68]
-#define __pyx_n_u_storage_dir __pyx_string_tab[69]
-#define __pyx_n_u_storage_root __pyx_string_tab[70]
-#define __pyx_n_u_str __pyx_string_tab[71]
-#define __pyx_n_u_super __pyx_string_tab[72]
-#define __pyx_n_u_test __pyx_string_tab[73]
-#define __pyx_n_u_threading __pyx_string_tab[74]
-#define __pyx_n_u_utils_core_utils __pyx_string_tab[75]
-#define __pyx_n_u_warning __pyx_string_tab[76]
-#define __pyx_kp_u_yaml_storage_disk __pyx_string_tab[77]
+#define __pyx_kp_u_AppConfig_storage_disk_get_path __pyx_string_tab[2]
+#define __pyx_n_u_CoreUtil __pyx_string_tab[3]
+#define __pyx_n_u_DiskEngine __pyx_string_tab[4]
+#define __pyx_kp_u_DiskEngine___del __pyx_string_tab[5]
+#define __pyx_n_u_DiskEngine___del_2 __pyx_string_tab[6]
+#define __pyx_n_u_DiskEngine___new __pyx_string_tab[7]
+#define __pyx_n_u_DiskEngine__load __pyx_string_tab[8]
+#define __pyx_n_u_DiskEngine_close __pyx_string_tab[9]
+#define __pyx_n_u_DiskEngine_get_path __pyx_string_tab[10]
+#define __pyx_n_u_KeyError __pyx_string_tab[11]
+#define __pyx_n_u_Lock __pyx_string_tab[12]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[13]
+#define __pyx_n_u_Path __pyx_string_tab[14]
+#define __pyx_kp_u__2 __pyx_string_tab[15]
+#define __pyx_kp_u__3 __pyx_string_tab[16]
+#define __pyx_kp_u__4 __pyx_string_tab[17]
+#define __pyx_kp_u__5 __pyx_string_tab[18]
+#define __pyx_kp_u_add_note __pyx_string_tab[19]
+#define __pyx_kp_u_app_config_yaml __pyx_string_tab[20]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[21]
+#define __pyx_n_u_base_path __pyx_string_tab[22]
+#define __pyx_n_u_child_path __pyx_string_tab[23]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[24]
+#define __pyx_n_u_close __pyx_string_tab[25]
+#define __pyx_n_u_cls __pyx_string_tab[26]
+#define __pyx_n_u_config __pyx_string_tab[27]
+#define __pyx_n_u_config_app_config __pyx_string_tab[28]
+#define __pyx_n_u_debug __pyx_string_tab[29]
+#define __pyx_n_u_debug_line __pyx_string_tab[30]
+#define __pyx_n_u_del __pyx_string_tab[31]
+#define __pyx_n_u_disk __pyx_string_tab[32]
+#define __pyx_n_u_disk_engine __pyx_string_tab[33]
+#define __pyx_kp_u_disk_engine_py __pyx_string_tab[34]
+#define __pyx_kp_u_disk_name __pyx_string_tab[35]
+#define __pyx_kp_u_disk_name_2 __pyx_string_tab[36]
+#define __pyx_n_u_doc __pyx_string_tab[37]
+#define __pyx_n_u_e __pyx_string_tab[38]
+#define __pyx_n_u_enabled __pyx_string_tab[39]
+#define __pyx_kp_u_enabled_true __pyx_string_tab[40]
+#define __pyx_n_u_enter __pyx_string_tab[41]
+#define __pyx_n_u_exist_ok __pyx_string_tab[42]
+#define __pyx_n_u_exit __pyx_string_tab[43]
+#define __pyx_n_u_full_path __pyx_string_tab[44]
+#define __pyx_n_u_func __pyx_string_tab[45]
+#define __pyx_n_u_get_path __pyx_string_tab[46]
+#define __pyx_n_u_get_root_path __pyx_string_tab[47]
+#define __pyx_n_u_info __pyx_string_tab[48]
+#define __pyx_n_u_initializing __pyx_string_tab[49]
+#define __pyx_n_u_instance __pyx_string_tab[50]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[51]
+#define __pyx_n_u_load __pyx_string_tab[52]
+#define __pyx_n_u_lock __pyx_string_tab[53]
+#define __pyx_n_u_logger_logging __pyx_string_tab[54]
+#define __pyx_n_u_logging __pyx_string_tab[55]
+#define __pyx_n_u_main __pyx_string_tab[56]
+#define __pyx_n_u_metaclass __pyx_string_tab[57]
+#define __pyx_n_u_mkdir __pyx_string_tab[58]
+#define __pyx_n_u_module __pyx_string_tab[59]
+#define __pyx_n_u_name __pyx_string_tab[60]
+#define __pyx_n_u_name_2 __pyx_string_tab[61]
+#define __pyx_n_u_new __pyx_string_tab[62]
+#define __pyx_n_u_parents __pyx_string_tab[63]
+#define __pyx_n_u_path __pyx_string_tab[64]
+#define __pyx_n_u_pathlib __pyx_string_tab[65]
+#define __pyx_n_u_pools __pyx_string_tab[66]
+#define __pyx_n_u_pop __pyx_string_tab[67]
+#define __pyx_n_u_prepare __pyx_string_tab[68]
+#define __pyx_n_u_qualname __pyx_string_tab[69]
+#define __pyx_n_u_return __pyx_string_tab[70]
+#define __pyx_n_u_self __pyx_string_tab[71]
+#define __pyx_n_u_set_name __pyx_string_tab[72]
+#define __pyx_n_u_spec __pyx_string_tab[73]
+#define __pyx_n_u_storage __pyx_string_tab[74]
+#define __pyx_n_u_storage_dir __pyx_string_tab[75]
+#define __pyx_n_u_storage_root __pyx_string_tab[76]
+#define __pyx_n_u_str __pyx_string_tab[77]
+#define __pyx_n_u_super __pyx_string_tab[78]
+#define __pyx_n_u_test __pyx_string_tab[79]
+#define __pyx_n_u_threading __pyx_string_tab[80]
+#define __pyx_n_u_utils_core_utils __pyx_string_tab[81]
+#define __pyx_n_u_warning __pyx_string_tab[82]
+#define __pyx_kp_u_yaml_storage_disk __pyx_string_tab[83]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2561,7 +2585,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #endif
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<5; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<78; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<84; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2584,18 +2608,18 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #endif
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<5; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<78; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<84; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "disk_engine.py":21
+/* "disk_engine.py":41
  *     _lock = threading.Lock()
  * 
  *     def __new__(cls):             # <<<<<<<<<<<<<<
- *         if cls._instance is None:
- *             with cls._lock:
+ *         """
+ * 
 */
 
 /* Python wrapper */
@@ -2606,7 +2630,8 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_1__new__ = {"__new__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_1__new__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+PyDoc_STRVAR(__pyx_doc_11disk_engine_10DiskEngine___new__, "\347\272\277\347\250\213\345\256\211\345\205\250\347\232\204\345\215\225\344\276\213\346\236\204\351\200\240\345\231\250\343\200\202\n\n        \351\246\226\346\254\241\350\260\203\347\224\250\346\227\266\345\212\240\350\275\275\346\211\200\346\234\211\345\220\257\347\224\250\347\232\204\347\243\201\347\233\230\345\255\230\345\202\250\351\205\215\347\275\256\345\271\266\345\210\233\345\273\272\347\233\256\345\275\225\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_1__new__ = {"__new__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_1__new__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11disk_engine_10DiskEngine___new__};
 static PyObject *__pyx_pw_11disk_engine_10DiskEngine_1__new__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -2637,32 +2662,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 21, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 21, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__new__", 0) < 0) __PYX_ERR(0, 21, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__new__", 0) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, i); __PYX_ERR(0, 21, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, i); __PYX_ERR(0, 41, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 21, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 21, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 41, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2705,33 +2730,33 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__new__", 0);
 
-  /* "disk_engine.py":22
+  /* "disk_engine.py":46
  * 
- *     def __new__(cls):
+ *         """
  *         if cls._instance is None:             # <<<<<<<<<<<<<<
  *             with cls._lock:
  *                 if cls._instance is None:
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = (__pyx_t_1 == Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "disk_engine.py":23
- *     def __new__(cls):
+    /* "disk_engine.py":47
+ *         """
  *         if cls._instance is None:
  *             with cls._lock:             # <<<<<<<<<<<<<<
  *                 if cls._instance is None:
  *                     cls._instance = super(DiskEngine, cls).__new__(cls)
 */
     /*with:*/ {
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_exit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_exit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_5 = NULL;
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_enter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L4_error)
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_enter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_7 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -2750,7 +2775,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L4_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -2765,20 +2790,20 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
           __Pyx_XGOTREF(__pyx_t_10);
           /*try:*/ {
 
-            /* "disk_engine.py":24
+            /* "disk_engine.py":48
  *         if cls._instance is None:
  *             with cls._lock:
  *                 if cls._instance is None:             # <<<<<<<<<<<<<<
  *                     cls._instance = super(DiskEngine, cls).__new__(cls)
  *                     cls._instance._load()
 */
-            __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L8_error)
+            __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L8_error)
             __Pyx_GOTREF(__pyx_t_1);
             __pyx_t_2 = (__pyx_t_1 == Py_None);
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             if (__pyx_t_2) {
 
-              /* "disk_engine.py":25
+              /* "disk_engine.py":49
  *             with cls._lock:
  *                 if cls._instance is None:
  *                     cls._instance = super(DiskEngine, cls).__new__(cls)             # <<<<<<<<<<<<<<
@@ -2788,7 +2813,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
               __pyx_t_5 = NULL;
               __Pyx_INCREF(__pyx_builtin_super);
               __pyx_t_11 = __pyx_builtin_super; 
-              __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_DiskEngine); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 25, __pyx_L8_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_DiskEngine); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 49, __pyx_L8_error)
               __Pyx_GOTREF(__pyx_t_12);
               __pyx_t_7 = 1;
               {
@@ -2797,7 +2822,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
                 __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
                 __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
                 __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-                if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 25, __pyx_L8_error)
+                if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 49, __pyx_L8_error)
                 __Pyx_GOTREF(__pyx_t_6);
               }
               __pyx_t_4 = __pyx_t_6;
@@ -2808,20 +2833,20 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
                 __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_new, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
                 __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
                 __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 25, __pyx_L8_error)
+                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L8_error)
                 __Pyx_GOTREF(__pyx_t_1);
               }
-              if (__Pyx_PyObject_SetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance, __pyx_t_1) < 0) __PYX_ERR(0, 25, __pyx_L8_error)
+              if (__Pyx_PyObject_SetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance, __pyx_t_1) < 0) __PYX_ERR(0, 49, __pyx_L8_error)
               __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-              /* "disk_engine.py":26
+              /* "disk_engine.py":50
  *                 if cls._instance is None:
  *                     cls._instance = super(DiskEngine, cls).__new__(cls)
  *                     cls._instance._load()             # <<<<<<<<<<<<<<
  *         return cls._instance
  * 
 */
-              __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L8_error)
+              __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L8_error)
               __Pyx_GOTREF(__pyx_t_4);
               __pyx_t_6 = __pyx_t_4;
               __Pyx_INCREF(__pyx_t_6);
@@ -2831,12 +2856,12 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
                 __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_load, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
                 __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
                 __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L8_error)
+                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L8_error)
                 __Pyx_GOTREF(__pyx_t_1);
               }
               __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-              /* "disk_engine.py":24
+              /* "disk_engine.py":48
  *         if cls._instance is None:
  *             with cls._lock:
  *                 if cls._instance is None:             # <<<<<<<<<<<<<<
@@ -2845,8 +2870,8 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
 */
             }
 
-            /* "disk_engine.py":23
- *     def __new__(cls):
+            /* "disk_engine.py":47
+ *         """
  *         if cls._instance is None:
  *             with cls._lock:             # <<<<<<<<<<<<<<
  *                 if cls._instance is None:
@@ -2866,20 +2891,20 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           /*except:*/ {
             __Pyx_AddTraceback("disk_engine.DiskEngine.__new__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-            if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_4, &__pyx_t_6) < 0) __PYX_ERR(0, 23, __pyx_L10_except_error)
+            if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_4, &__pyx_t_6) < 0) __PYX_ERR(0, 47, __pyx_L10_except_error)
             __Pyx_XGOTREF(__pyx_t_1);
             __Pyx_XGOTREF(__pyx_t_4);
             __Pyx_XGOTREF(__pyx_t_6);
-            __pyx_t_11 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 23, __pyx_L10_except_error)
+            __pyx_t_11 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 47, __pyx_L10_except_error)
             __Pyx_GOTREF(__pyx_t_11);
             __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 23, __pyx_L10_except_error)
+            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 47, __pyx_L10_except_error)
             __Pyx_GOTREF(__pyx_t_13);
             __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_13);
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-            if (__pyx_t_2 < 0) __PYX_ERR(0, 23, __pyx_L10_except_error)
+            if (__pyx_t_2 < 0) __PYX_ERR(0, 47, __pyx_L10_except_error)
             __pyx_t_14 = (!__pyx_t_2);
             if (unlikely(__pyx_t_14)) {
               __Pyx_GIVEREF(__pyx_t_1);
@@ -2887,7 +2912,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
               __Pyx_XGIVEREF(__pyx_t_6);
               __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_4, __pyx_t_6);
               __pyx_t_1 = 0;  __pyx_t_4 = 0;  __pyx_t_6 = 0; 
-              __PYX_ERR(0, 23, __pyx_L10_except_error)
+              __PYX_ERR(0, 47, __pyx_L10_except_error)
             }
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -2913,7 +2938,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
           if (__pyx_t_3) {
             __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[0], NULL);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 23, __pyx_L1_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 47, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           }
@@ -2928,16 +2953,16 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
       __pyx_L18:;
     }
 
-    /* "disk_engine.py":22
+    /* "disk_engine.py":46
  * 
- *     def __new__(cls):
+ *         """
  *         if cls._instance is None:             # <<<<<<<<<<<<<<
  *             with cls._lock:
  *                 if cls._instance is None:
 */
   }
 
-  /* "disk_engine.py":27
+  /* "disk_engine.py":51
  *                     cls._instance = super(DiskEngine, cls).__new__(cls)
  *                     cls._instance._load()
  *         return cls._instance             # <<<<<<<<<<<<<<
@@ -2945,18 +2970,18 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
  *     def _load(self):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "disk_engine.py":21
+  /* "disk_engine.py":41
  *     _lock = threading.Lock()
  * 
  *     def __new__(cls):             # <<<<<<<<<<<<<<
- *         if cls._instance is None:
- *             with cls._lock:
+ *         """
+ * 
 */
 
   /* function exit code */
@@ -2975,12 +3000,12 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine___new__(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "disk_engine.py":29
+/* "disk_engine.py":53
  *         return cls._instance
  * 
  *     def _load(self):             # <<<<<<<<<<<<<<
- *         self._pools = {}
- *         _storage_root = CoreUtil.get_root_path()
+ *         """
+ * 
 */
 
 /* Python wrapper */
@@ -2991,7 +3016,8 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_3_load = {"_load", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_3_load, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+PyDoc_STRVAR(__pyx_doc_11disk_engine_10DiskEngine_2_load, "\345\212\240\350\275\275\347\243\201\347\233\230\345\255\230\345\202\250\351\205\215\347\275\256\345\271\266\345\210\235\345\247\213\345\214\226\350\267\257\345\276\204\347\274\223\345\255\230\343\200\202\n\n        \351\201\215\345\216\206 `AppConfig.storage.disk`\357\274\214\345\257\271\346\257\217\344\270\252 `enabled=True` \347\232\204\351\205\215\347\275\256\351\241\271\357\274\232\n            - \346\213\274\346\216\245\345\256\214\346\225\264\350\267\257\345\276\204\357\274\232`<project_root>/<config.path>`\357\274\233\n            - \350\207\252\345\212\250\345\210\233\345\273\272\347\233\256\345\275\225\357\274\210\345\214\205\346\213\254\347\210\266\347\233\256\345\275\225\357\274\211\357\274\233\n            - \347\274\223\345\255\230\345\210\260 `_pools` \345\255\227\345\205\270\344\270\255\357\274\214\351\224\256\344\270\272 `config.name`\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_3_load = {"_load", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_3_load, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11disk_engine_10DiskEngine_2_load};
 static PyObject *__pyx_pw_11disk_engine_10DiskEngine_3_load(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -3022,32 +3048,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 29, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 53, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 29, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 53, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_load", 0) < 0) __PYX_ERR(0, 29, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_load", 0) < 0) __PYX_ERR(0, 53, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, i); __PYX_ERR(0, 29, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, i); __PYX_ERR(0, 53, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 29, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 53, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 29, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 53, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3086,36 +3112,36 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
   PyObject *__pyx_t_10 = NULL;
   PyObject *__pyx_t_11 = NULL;
   PyObject *__pyx_t_12[3];
-  PyObject *__pyx_t_13[5];
+  PyObject *__pyx_t_13[4];
   PyObject *__pyx_t_14 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_load", 0);
 
-  /* "disk_engine.py":30
- * 
- *     def _load(self):
+  /* "disk_engine.py":61
+ *             -  `_pools`  `config.name`
+ *         """
  *         self._pools = {}             # <<<<<<<<<<<<<<
  *         _storage_root = CoreUtil.get_root_path()
  *         logging.debug_line()
 */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools, __pyx_t_1) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools, __pyx_t_1) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "disk_engine.py":31
- *     def _load(self):
+  /* "disk_engine.py":62
+ *         """
  *         self._pools = {}
  *         _storage_root = CoreUtil.get_root_path()             # <<<<<<<<<<<<<<
  *         logging.debug_line()
  *         logging.info(": .yaml - storage - disk")
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_root_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_root_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -3135,13 +3161,13 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v__storage_root = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "disk_engine.py":32
+  /* "disk_engine.py":63
  *         self._pools = {}
  *         _storage_root = CoreUtil.get_root_path()
  *         logging.debug_line()             # <<<<<<<<<<<<<<
@@ -3149,9 +3175,9 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
  *         logging.debug_line()
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -3171,22 +3197,22 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "disk_engine.py":33
+  /* "disk_engine.py":64
  *         _storage_root = CoreUtil.get_root_path()
  *         logging.debug_line()
  *         logging.info(": .yaml - storage - disk")             # <<<<<<<<<<<<<<
  *         logging.debug_line()
- *         for config in AppConfig.storage.disk:
+ * 
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -3206,22 +3232,22 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "disk_engine.py":34
+  /* "disk_engine.py":65
  *         logging.debug_line()
  *         logging.info(": .yaml - storage - disk")
  *         logging.debug_line()             # <<<<<<<<<<<<<<
+ * 
  *         for config in AppConfig.storage.disk:
- *             if not config.enabled:
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -3241,24 +3267,24 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "disk_engine.py":35
- *         logging.info(": .yaml - storage - disk")
+  /* "disk_engine.py":67
  *         logging.debug_line()
+ * 
  *         for config in AppConfig.storage.disk:             # <<<<<<<<<<<<<<
  *             if not config.enabled:
- *                 logging.warning(f'disk  name: {config.name}  enabled: true ')
+ *                 logging.warning(
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_storage); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_storage); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_disk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_disk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
@@ -3266,9 +3292,9 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
     __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -3277,7 +3303,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 67, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
@@ -3287,7 +3313,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 67, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
@@ -3298,13 +3324,13 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
         #endif
         ++__pyx_t_6;
       }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
     } else {
       __pyx_t_1 = __pyx_t_7(__pyx_t_4);
       if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 35, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 67, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -3314,43 +3340,51 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
     __Pyx_XDECREF_SET(__pyx_v_config, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "disk_engine.py":36
- *         logging.debug_line()
+    /* "disk_engine.py":68
+ * 
  *         for config in AppConfig.storage.disk:
  *             if not config.enabled:             # <<<<<<<<<<<<<<
- *                 logging.warning(f'disk  name: {config.name}  enabled: true ')
- *                 continue
+ *                 logging.warning(
+ *                     f'disk  name: {config.name}  enabled: true'
 */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 36, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_9 = (!__pyx_t_8);
     if (__pyx_t_9) {
 
-      /* "disk_engine.py":37
+      /* "disk_engine.py":69
  *         for config in AppConfig.storage.disk:
  *             if not config.enabled:
- *                 logging.warning(f'disk  name: {config.name}  enabled: true ')             # <<<<<<<<<<<<<<
- *                 continue
- *             _storage_dir = _storage_root / config.path
+ *                 logging.warning(             # <<<<<<<<<<<<<<
+ *                     f'disk  name: {config.name}  enabled: true'
+ *                 )
 */
       __pyx_t_2 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 37, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
+
+      /* "disk_engine.py":70
+ *             if not config.enabled:
+ *                 logging.warning(
+ *                     f'disk  name: {config.name}  enabled: true'             # <<<<<<<<<<<<<<
+ *                 )
+ *                 continue
+*/
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 37, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 70, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_12[0] = __pyx_mstate_global->__pyx_kp_u_disk_name;
       __pyx_t_12[1] = __pyx_t_11;
       __pyx_t_12[2] = __pyx_mstate_global->__pyx_kp_u_enabled_true;
-      __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, 14 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 24, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11));
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, 14 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 23, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11));
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_t_5 = 1;
@@ -3371,49 +3405,49 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "disk_engine.py":38
- *             if not config.enabled:
- *                 logging.warning(f'disk  name: {config.name}  enabled: true ')
+      /* "disk_engine.py":72
+ *                     f'disk  name: {config.name}  enabled: true'
+ *                 )
  *                 continue             # <<<<<<<<<<<<<<
+ * 
  *             _storage_dir = _storage_root / config.path
- *             _storage_dir.mkdir(parents=True, exist_ok=True)
 */
       goto __pyx_L3_continue;
 
-      /* "disk_engine.py":36
- *         logging.debug_line()
+      /* "disk_engine.py":68
+ * 
  *         for config in AppConfig.storage.disk:
  *             if not config.enabled:             # <<<<<<<<<<<<<<
- *                 logging.warning(f'disk  name: {config.name}  enabled: true ')
- *                 continue
+ *                 logging.warning(
+ *                     f'disk  name: {config.name}  enabled: true'
 */
     }
 
-    /* "disk_engine.py":39
- *                 logging.warning(f'disk  name: {config.name}  enabled: true ')
+    /* "disk_engine.py":74
  *                 continue
+ * 
  *             _storage_dir = _storage_root / config.path             # <<<<<<<<<<<<<<
  *             _storage_dir.mkdir(parents=True, exist_ok=True)
- *             logging.debug(f"disk  name: {config.name} -> {_storage_dir} ")
+ *             logging.debug(f"disk  name: {config.name} -> {_storage_dir}")
 */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_10 = __Pyx_PyNumber_Divide(__pyx_v__storage_root, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyNumber_Divide(__pyx_v__storage_root, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v__storage_dir, __pyx_t_10);
     __pyx_t_10 = 0;
 
-    /* "disk_engine.py":40
- *                 continue
+    /* "disk_engine.py":75
+ * 
  *             _storage_dir = _storage_root / config.path
  *             _storage_dir.mkdir(parents=True, exist_ok=True)             # <<<<<<<<<<<<<<
- *             logging.debug(f"disk  name: {config.name} -> {_storage_dir} ")
+ *             logging.debug(f"disk  name: {config.name} -> {_storage_dir}")
  *             self._pools[config.name] = _storage_dir
 */
     __pyx_t_1 = __pyx_v__storage_dir;
@@ -3421,45 +3455,44 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
     __pyx_t_5 = 0;
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_1, NULL};
-      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_parents, Py_True, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_exist_ok, Py_True, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_parents, Py_True, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_exist_ok, Py_True, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
       __pyx_t_10 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_mkdir, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 40, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 75, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
     }
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-    /* "disk_engine.py":41
+    /* "disk_engine.py":76
  *             _storage_dir = _storage_root / config.path
  *             _storage_dir.mkdir(parents=True, exist_ok=True)
- *             logging.debug(f"disk  name: {config.name} -> {_storage_dir} ")             # <<<<<<<<<<<<<<
+ *             logging.debug(f"disk  name: {config.name} -> {_storage_dir}")             # <<<<<<<<<<<<<<
  *             self._pools[config.name] = _storage_dir
  * 
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v__storage_dir, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v__storage_dir, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_13[0] = __pyx_mstate_global->__pyx_kp_u_disk_name_2;
     __pyx_t_13[1] = __pyx_t_11;
     __pyx_t_13[2] = __pyx_mstate_global->__pyx_kp_u_;
     __pyx_t_13[3] = __pyx_t_1;
-    __pyx_t_13[4] = __pyx_mstate_global->__pyx_kp_u__2;
-    __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_13, 5, 14 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 4 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + 1, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1));
-    if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_13, 4, 14 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 4 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1));
+    if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_14);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3481,43 +3514,43 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 41, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 76, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
     }
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-    /* "disk_engine.py":42
+    /* "disk_engine.py":77
  *             _storage_dir.mkdir(parents=True, exist_ok=True)
- *             logging.debug(f"disk  name: {config.name} -> {_storage_dir} ")
+ *             logging.debug(f"disk  name: {config.name} -> {_storage_dir}")
  *             self._pools[config.name] = _storage_dir             # <<<<<<<<<<<<<<
  * 
  *     def get_path(self, name: str, child_path: str = "") -> Path:
 */
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely((PyObject_SetItem(__pyx_t_10, __pyx_t_2, __pyx_v__storage_dir) < 0))) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (unlikely((PyObject_SetItem(__pyx_t_10, __pyx_t_2, __pyx_v__storage_dir) < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "disk_engine.py":35
- *         logging.info(": .yaml - storage - disk")
+    /* "disk_engine.py":67
  *         logging.debug_line()
+ * 
  *         for config in AppConfig.storage.disk:             # <<<<<<<<<<<<<<
  *             if not config.enabled:
- *                 logging.warning(f'disk  name: {config.name}  enabled: true ')
+ *                 logging.warning(
 */
     __pyx_L3_continue:;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "disk_engine.py":29
+  /* "disk_engine.py":53
  *         return cls._instance
  * 
  *     def _load(self):             # <<<<<<<<<<<<<<
- *         self._pools = {}
- *         _storage_root = CoreUtil.get_root_path()
+ *         """
+ * 
 */
 
   /* function exit code */
@@ -3542,12 +3575,12 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "disk_engine.py":44
+/* "disk_engine.py":79
  *             self._pools[config.name] = _storage_dir
  * 
  *     def get_path(self, name: str, child_path: str = "") -> Path:             # <<<<<<<<<<<<<<
- *         result = self._pools[name]
- *         # if CoreUtil.is_not_null(child_path):
+ *         """
+ * 
 */
 
 /* Python wrapper */
@@ -3558,7 +3591,8 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_5get_path = {"get_path", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_5get_path, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+PyDoc_STRVAR(__pyx_doc_11disk_engine_10DiskEngine_4get_path, "\350\216\267\345\217\226\346\214\207\345\256\232\345\255\230\345\202\250\351\241\271\347\232\204\345\256\214\346\225\264\350\267\257\345\276\204\357\274\214\346\224\257\346\214\201\350\207\252\345\212\250\345\210\233\345\273\272\345\255\220\347\233\256\345\275\225\343\200\202\n\n        Args:\n            name (str): \345\255\230\345\202\250\351\205\215\347\275\256\345\220\215\347\247\260\357\274\210\351\234\200\345\234\250\351\205\215\347\275\256\344\270\255\345\220\257\347\224\250\357\274\211\343\200\202\n            child_path (str, optional): \347\233\270\345\257\271\344\272\216\346\240\271\345\255\230\345\202\250\347\233\256\345\275\225\347\232\204\345\255\220\350\267\257\345\276\204\357\274\210\345\246\202 \"uploads/2025/10\"\357\274\211\343\200\202\n\n        Returns:\n            Path: \347\273\235\345\257\271\350\267\257\345\276\204\345\257\271\350\261\241\357\274\214\345\257\271\345\272\224\347\233\256\345\275\225\345\267\262\347\241\256\344\277\235\345\255\230\345\234\250\343\200\202\n\n        Raises:\n            KeyError: \350\213\245 `name` \346\234\252\345\234\250\351\205\215\347\275\256\344\270\255\345\220\257\347\224\250\346\210\226\344\270\215\345\255\230\345\234\250\343\200\202\n            ValueError: \350\213\245 `child_path` \345\214\205\345\220\253\351\235\236\346\263\225\345\255\227\347\254\246\357\274\210\347\224\261 `pathlib` \350\207\252\345\212\250\345\244\204\347\220\206\357\274\211\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_5get_path = {"get_path", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_5get_path, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11disk_engine_10DiskEngine_4get_path};
 static PyObject *__pyx_pw_11disk_engine_10DiskEngine_5get_path(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -3591,45 +3625,45 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_name,&__pyx_mstate_global->__pyx_n_u_child_path,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 44, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 79, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 79, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 79, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 79, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_path", 0) < 0) __PYX_ERR(0, 44, __pyx_L3_error)
-      if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)((PyObject*)__pyx_mstate_global->__pyx_kp_u__3)));
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_path", 0) < 0) __PYX_ERR(0, 79, __pyx_L3_error)
+      if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)((PyObject*)__pyx_mstate_global->__pyx_kp_u__2)));
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_path", 0, 2, 3, i); __PYX_ERR(0, 44, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_path", 0, 2, 3, i); __PYX_ERR(0, 79, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 79, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 79, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 79, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
-      if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)((PyObject*)__pyx_mstate_global->__pyx_kp_u__3)));
+      if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)((PyObject*)__pyx_mstate_global->__pyx_kp_u__2)));
     }
     __pyx_v_self = values[0];
     __pyx_v_name = ((PyObject*)values[1]);
@@ -3637,7 +3671,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_path", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 44, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_path", 0, 2, 3, __pyx_nargs); __PYX_ERR(0, 79, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3648,8 +3682,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 2))) __PYX_ERR(0, 44, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_child_path), (&PyUnicode_Type), 0, "child_path", 2))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 2))) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_child_path), (&PyUnicode_Type), 0, "child_path", 2))) __PYX_ERR(0, 79, __pyx_L1_error)
   __pyx_r = __pyx_pf_11disk_engine_10DiskEngine_4get_path(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_child_path);
 
   /* function exit code */
@@ -3670,133 +3704,255 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_pf_11disk_engine_10DiskEngine_4get_path(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_name, PyObject *__pyx_v_child_path) {
-  PyObject *__pyx_v_result = NULL;
+  PyObject *__pyx_v_base_path = NULL;
+  PyObject *__pyx_v_full_path = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
-  size_t __pyx_t_4;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  PyObject *__pyx_t_10 = NULL;
+  PyObject *__pyx_t_11[3];
+  PyObject *__pyx_t_12 = NULL;
+  size_t __pyx_t_13;
+  int __pyx_t_14;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_path", 0);
 
-  /* "disk_engine.py":45
+  /* "disk_engine.py":93
+ *             ValueError:  `child_path`  `pathlib`
+ *         """
+ *         try:             # <<<<<<<<<<<<<<
+ *             base_path = self._pools[name]
+ *         except KeyError:
+*/
+  {
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ExceptionSave(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3);
+    __Pyx_XGOTREF(__pyx_t_1);
+    __Pyx_XGOTREF(__pyx_t_2);
+    __Pyx_XGOTREF(__pyx_t_3);
+    /*try:*/ {
+
+      /* "disk_engine.py":94
+ *         """
+ *         try:
+ *             base_path = self._pools[name]             # <<<<<<<<<<<<<<
+ *         except KeyError:
+ *             raise KeyError(f" '{name}'  app_config.yaml")
+*/
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_t_4, __pyx_v_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_v_base_path = __pyx_t_5;
+      __pyx_t_5 = 0;
+
+      /* "disk_engine.py":93
+ *             ValueError:  `child_path`  `pathlib`
+ *         """
+ *         try:             # <<<<<<<<<<<<<<
+ *             base_path = self._pools[name]
+ *         except KeyError:
+*/
+    }
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L8_try_end;
+    __pyx_L3_error:;
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+    /* "disk_engine.py":95
+ *         try:
+ *             base_path = self._pools[name]
+ *         except KeyError:             # <<<<<<<<<<<<<<
+ *             raise KeyError(f" '{name}'  app_config.yaml")
  * 
- *     def get_path(self, name: str, child_path: str = "") -> Path:
- *         result = self._pools[name]             # <<<<<<<<<<<<<<
- *         # if CoreUtil.is_not_null(child_path):
+*/
+    __pyx_t_6 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_KeyError);
+    if (__pyx_t_6) {
+      __Pyx_AddTraceback("disk_engine.DiskEngine.get_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_7) < 0) __PYX_ERR(0, 95, __pyx_L5_except_error)
+      __Pyx_XGOTREF(__pyx_t_5);
+      __Pyx_XGOTREF(__pyx_t_4);
+      __Pyx_XGOTREF(__pyx_t_7);
+
+      /* "disk_engine.py":96
+ *             base_path = self._pools[name]
+ *         except KeyError:
+ *             raise KeyError(f" '{name}'  app_config.yaml")             # <<<<<<<<<<<<<<
+ * 
  *         if child_path:
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_v_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_result = __pyx_t_2;
-  __pyx_t_2 = 0;
+      __pyx_t_9 = NULL;
+      __Pyx_INCREF(__pyx_builtin_KeyError);
+      __pyx_t_10 = __pyx_builtin_KeyError; 
+      __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__3;
+      __pyx_t_11[1] = __pyx_v_name;
+      __pyx_t_11[2] = __pyx_mstate_global->__pyx_kp_u_app_config_yaml;
+      __pyx_t_12 = __Pyx_PyUnicode_Join(__pyx_t_11, 3, 8 + __Pyx_PyUnicode_GET_LENGTH(__pyx_v_name) + 29, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_name));
+      if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 96, __pyx_L5_except_error)
+      __Pyx_GOTREF(__pyx_t_12);
+      __pyx_t_13 = 1;
+      {
+        PyObject *__pyx_callargs[2] = {__pyx_t_9, __pyx_t_12};
+        __pyx_t_8 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+__pyx_t_13, (2-__pyx_t_13) | (__pyx_t_13*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L5_except_error)
+        __Pyx_GOTREF(__pyx_t_8);
+      }
+      __Pyx_Raise(__pyx_t_8, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __PYX_ERR(0, 96, __pyx_L5_except_error)
+    }
+    goto __pyx_L5_except_error;
 
-  /* "disk_engine.py":47
- *         result = self._pools[name]
- *         # if CoreUtil.is_not_null(child_path):
+    /* "disk_engine.py":93
+ *             ValueError:  `child_path`  `pathlib`
+ *         """
+ *         try:             # <<<<<<<<<<<<<<
+ *             base_path = self._pools[name]
+ *         except KeyError:
+*/
+    __pyx_L5_except_error:;
+    __Pyx_XGIVEREF(__pyx_t_1);
+    __Pyx_XGIVEREF(__pyx_t_2);
+    __Pyx_XGIVEREF(__pyx_t_3);
+    __Pyx_ExceptionReset(__pyx_t_1, __pyx_t_2, __pyx_t_3);
+    goto __pyx_L1_error;
+    __pyx_L8_try_end:;
+  }
+
+  /* "disk_engine.py":98
+ *             raise KeyError(f" '{name}'  app_config.yaml")
+ * 
  *         if child_path:             # <<<<<<<<<<<<<<
- *             result = result / child_path
- *             result.mkdir(parents=True, exist_ok=True)
+ *             full_path = base_path / child_path
+ *             full_path.mkdir(parents=True, exist_ok=True)
 */
   {
     Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_v_child_path);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 47, __pyx_L1_error)
-    __pyx_t_3 = (__pyx_temp != 0);
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 98, __pyx_L1_error)
+    __pyx_t_14 = (__pyx_temp != 0);
   }
 
-  if (__pyx_t_3) {
+  if (__pyx_t_14) {
 
-    /* "disk_engine.py":48
- *         # if CoreUtil.is_not_null(child_path):
+    /* "disk_engine.py":99
+ * 
  *         if child_path:
- *             result = result / child_path             # <<<<<<<<<<<<<<
- *             result.mkdir(parents=True, exist_ok=True)
- *         return result
+ *             full_path = base_path / child_path             # <<<<<<<<<<<<<<
+ *             full_path.mkdir(parents=True, exist_ok=True)
+ *             return full_path
 */
-    __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_v_result, __pyx_v_child_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF_SET(__pyx_v_result, __pyx_t_2);
-    __pyx_t_2 = 0;
+    __pyx_t_7 = __Pyx_PyNumber_Divide(__pyx_v_base_path, __pyx_v_child_path); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __pyx_v_full_path = __pyx_t_7;
+    __pyx_t_7 = 0;
 
-    /* "disk_engine.py":49
+    /* "disk_engine.py":100
  *         if child_path:
- *             result = result / child_path
- *             result.mkdir(parents=True, exist_ok=True)             # <<<<<<<<<<<<<<
- *         return result
+ *             full_path = base_path / child_path
+ *             full_path.mkdir(parents=True, exist_ok=True)             # <<<<<<<<<<<<<<
+ *             return full_path
  * 
 */
-    __pyx_t_1 = __pyx_v_result;
-    __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_4 = 0;
+    __pyx_t_4 = __pyx_v_full_path;
+    __Pyx_INCREF(__pyx_t_4);
+    __pyx_t_13 = 0;
     {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_1, NULL};
-      __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_4, NULL};
+      __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 100, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_parents, Py_True, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_exist_ok, Py_True, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_mkdir, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
-      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_parents, Py_True, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_exist_ok, Py_True, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_mkdir, __pyx_callargs+__pyx_t_13, (1-__pyx_t_13) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
+      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
     }
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "disk_engine.py":47
- *         result = self._pools[name]
- *         # if CoreUtil.is_not_null(child_path):
+    /* "disk_engine.py":101
+ *             full_path = base_path / child_path
+ *             full_path.mkdir(parents=True, exist_ok=True)
+ *             return full_path             # <<<<<<<<<<<<<<
+ * 
+ *         return base_path
+*/
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_v_full_path);
+    __pyx_r = __pyx_v_full_path;
+    goto __pyx_L0;
+
+    /* "disk_engine.py":98
+ *             raise KeyError(f" '{name}'  app_config.yaml")
+ * 
  *         if child_path:             # <<<<<<<<<<<<<<
- *             result = result / child_path
- *             result.mkdir(parents=True, exist_ok=True)
+ *             full_path = base_path / child_path
+ *             full_path.mkdir(parents=True, exist_ok=True)
 */
   }
 
-  /* "disk_engine.py":50
- *             result = result / child_path
- *             result.mkdir(parents=True, exist_ok=True)
- *         return result             # <<<<<<<<<<<<<<
+  /* "disk_engine.py":103
+ *             return full_path
+ * 
+ *         return base_path             # <<<<<<<<<<<<<<
  * 
  *     def close(self):
 */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_v_result);
-  __pyx_r = __pyx_v_result;
+  __Pyx_INCREF(__pyx_v_base_path);
+  __pyx_r = __pyx_v_base_path;
   goto __pyx_L0;
 
-  /* "disk_engine.py":44
+  /* "disk_engine.py":79
  *             self._pools[config.name] = _storage_dir
  * 
  *     def get_path(self, name: str, child_path: str = "") -> Path:             # <<<<<<<<<<<<<<
- *         result = self._pools[name]
- *         # if CoreUtil.is_not_null(child_path):
+ *         """
+ * 
 */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_XDECREF(__pyx_t_12);
   __Pyx_AddTraceback("disk_engine.DiskEngine.get_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_result);
+  __Pyx_XDECREF(__pyx_v_base_path);
+  __Pyx_XDECREF(__pyx_v_full_path);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "disk_engine.py":52
- *         return result
+/* "disk_engine.py":105
+ *         return base_path
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         ...
+ *         """
  * 
 */
 
@@ -3808,7 +3964,8 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_7close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_7close, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+PyDoc_STRVAR(__pyx_doc_11disk_engine_10DiskEngine_6close, "\351\242\204\347\225\231\350\265\204\346\272\220\346\270\205\347\220\206\346\216\245\345\217\243\357\274\210\345\275\223\345\211\215\346\227\240\345\256\236\351\231\205\346\223\215\344\275\234\357\274\211\343\200\202\n\n        \345\217\257\347\224\250\344\272\216\346\234\252\346\235\245\346\211\251\345\261\225\357\274\210\345\246\202\351\207\212\346\224\276\346\226\207\344\273\266\351\224\201\343\200\201\345\205\263\351\227\255\347\233\221\346\216\247\345\217\245\346\237\204\347\255\211\357\274\211\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_7close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_7close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11disk_engine_10DiskEngine_6close};
 static PyObject *__pyx_pw_11disk_engine_10DiskEngine_7close(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -3839,32 +3996,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 52, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 105, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 52, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 105, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "close", 0) < 0) __PYX_ERR(0, 52, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "close", 0) < 0) __PYX_ERR(0, 105, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("close", 1, 1, 1, i); __PYX_ERR(0, 52, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("close", 1, 1, 1, i); __PYX_ERR(0, 105, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 52, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 105, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("close", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 52, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("close", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 105, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3897,12 +4054,12 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_6close(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "disk_engine.py":55
- *         ...
+/* "disk_engine.py":112
+ *         pass
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
- *         """"""
- *         self.close()
+ *         """
+ * 
 */
 
 /* Python wrapper */
@@ -3913,7 +4070,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_11disk_engine_10DiskEngine_8__del__, "\346\236\220\346\236\204\346\227\266\345\205\263\351\227\255\346\211\200\346\234\211\350\277\236\346\216\245");
+PyDoc_STRVAR(__pyx_doc_11disk_engine_10DiskEngine_8__del__, "\346\236\220\346\236\204\345\207\275\346\225\260\357\274\232\346\270\205\347\220\206\345\206\205\351\203\250\347\212\266\346\200\201\343\200\202\n\n        \346\263\250\346\204\217\357\274\232Path \345\257\271\350\261\241\346\234\254\350\272\253\346\227\240\351\234\200\346\230\276\345\274\217\345\205\263\351\227\255\357\274\214\346\255\244\345\244\204\344\273\205\351\207\215\347\275\256\345\274\225\347\224\250\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_11disk_engine_10DiskEngine_9__del__ = {"__del__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11disk_engine_10DiskEngine_9__del__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11disk_engine_10DiskEngine_8__del__};
 static PyObject *__pyx_pw_11disk_engine_10DiskEngine_9__del__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -3945,32 +4102,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 55, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 55, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__del__", 0) < 0) __PYX_ERR(0, 55, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__del__", 0) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__del__", 1, 1, 1, i); __PYX_ERR(0, 55, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__del__", 1, 1, 1, i); __PYX_ERR(0, 112, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 55, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__del__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 55, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__del__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 112, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3992,58 +4149,309 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_pf_11disk_engine_10DiskEngine_8__del__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_v_e = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  size_t __pyx_t_3;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  int __pyx_t_7;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  PyObject *__pyx_t_10 = NULL;
+  PyObject *__pyx_t_11 = NULL;
+  PyObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_13 = NULL;
+  int __pyx_t_14;
+  char const *__pyx_t_15;
+  PyObject *__pyx_t_16 = NULL;
+  PyObject *__pyx_t_17 = NULL;
+  PyObject *__pyx_t_18 = NULL;
+  PyObject *__pyx_t_19 = NULL;
+  PyObject *__pyx_t_20 = NULL;
+  PyObject *__pyx_t_21 = NULL;
+  char const *__pyx_t_22;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__del__", 0);
 
-  /* "disk_engine.py":57
- *     def __del__(self):
- *         """"""
- *         self.close()             # <<<<<<<<<<<<<<
- *         self._pools = None
+  /* "disk_engine.py":117
+ *         Path
+ *         """
+ *         try:             # <<<<<<<<<<<<<<
+ *             self.close()
+ *         except Exception as e:
 */
-  __pyx_t_2 = __pyx_v_self;
-  __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_3 = 0;
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_close, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
+  /*try:*/ {
+    {
+      __Pyx_PyThreadState_declare
+      __Pyx_PyThreadState_assign
+      __Pyx_ExceptionSave(&__pyx_t_1, &__pyx_t_2, &__pyx_t_3);
+      __Pyx_XGOTREF(__pyx_t_1);
+      __Pyx_XGOTREF(__pyx_t_2);
+      __Pyx_XGOTREF(__pyx_t_3);
+      /*try:*/ {
+
+        /* "disk_engine.py":118
+ *         """
+ *         try:
+ *             self.close()             # <<<<<<<<<<<<<<
+ *         except Exception as e:
+ *             logging.warning(f"DiskEngine.__del__ : {e}")
+*/
+        __pyx_t_5 = __pyx_v_self;
+        __Pyx_INCREF(__pyx_t_5);
+        __pyx_t_6 = 0;
+        {
+          PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
+          __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_close, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+          if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 118, __pyx_L6_error)
+          __Pyx_GOTREF(__pyx_t_4);
+        }
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+        /* "disk_engine.py":117
+ *         Path
+ *         """
+ *         try:             # <<<<<<<<<<<<<<
+ *             self.close()
+ *         except Exception as e:
+*/
+      }
+      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      goto __pyx_L11_try_end;
+      __pyx_L6_error:;
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+      /* "disk_engine.py":119
+ *         try:
+ *             self.close()
+ *         except Exception as e:             # <<<<<<<<<<<<<<
+ *             logging.warning(f"DiskEngine.__del__ : {e}")
+ *         finally:
+*/
+      __pyx_t_7 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
+      if (__pyx_t_7) {
+        __Pyx_AddTraceback("disk_engine.DiskEngine.__del__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+        if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_5, &__pyx_t_8) < 0) __PYX_ERR(0, 119, __pyx_L8_except_error)
+        __Pyx_XGOTREF(__pyx_t_4);
+        __Pyx_XGOTREF(__pyx_t_5);
+        __Pyx_XGOTREF(__pyx_t_8);
+        __Pyx_INCREF(__pyx_t_5);
+        __pyx_v_e = __pyx_t_5;
+        /*try:*/ {
+
+          /* "disk_engine.py":120
+ *             self.close()
+ *         except Exception as e:
+ *             logging.warning(f"DiskEngine.__del__ : {e}")             # <<<<<<<<<<<<<<
+ *         finally:
+ *             self._pools = None
+*/
+          __pyx_t_10 = NULL;
+          __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 120, __pyx_L17_error)
+          __Pyx_GOTREF(__pyx_t_11);
+          __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 120, __pyx_L17_error)
+          __Pyx_GOTREF(__pyx_t_12);
+          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 120, __pyx_L17_error)
+          __Pyx_GOTREF(__pyx_t_11);
+          __pyx_t_13 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_DiskEngine___del, __pyx_t_11); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 120, __pyx_L17_error)
+          __Pyx_GOTREF(__pyx_t_13);
+          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+          __pyx_t_6 = 1;
+          #if CYTHON_UNPACK_METHODS
+          if (unlikely(PyMethod_Check(__pyx_t_12))) {
+            __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_12);
+            assert(__pyx_t_10);
+            PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_12);
+            __Pyx_INCREF(__pyx_t_10);
+            __Pyx_INCREF(__pyx__function);
+            __Pyx_DECREF_SET(__pyx_t_12, __pyx__function);
+            __pyx_t_6 = 0;
+          }
+          #endif
+          {
+            PyObject *__pyx_callargs[2] = {__pyx_t_10, __pyx_t_13};
+            __pyx_t_9 = __Pyx_PyObject_FastCall(__pyx_t_12, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+            __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+            __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+            __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+            if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 120, __pyx_L17_error)
+            __Pyx_GOTREF(__pyx_t_9);
+          }
+          __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        }
+
+        /* "disk_engine.py":119
+ *         try:
+ *             self.close()
+ *         except Exception as e:             # <<<<<<<<<<<<<<
+ *             logging.warning(f"DiskEngine.__del__ : {e}")
+ *         finally:
+*/
+        /*finally:*/ {
+          /*normal exit:*/{
+            __Pyx_DECREF(__pyx_v_e); __pyx_v_e = 0;
+            goto __pyx_L18;
+          }
+          __pyx_L17_error:;
+          /*exception exit:*/{
+            __Pyx_PyThreadState_declare
+            __Pyx_PyThreadState_assign
+            __pyx_t_16 = 0; __pyx_t_17 = 0; __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0;
+            __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+            __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+            __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
+            __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
+            __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+             __Pyx_ExceptionSwap(&__pyx_t_19, &__pyx_t_20, &__pyx_t_21);
+            if ( unlikely(__Pyx_GetException(&__pyx_t_16, &__pyx_t_17, &__pyx_t_18) < 0)) __Pyx_ErrFetch(&__pyx_t_16, &__pyx_t_17, &__pyx_t_18);
+            __Pyx_XGOTREF(__pyx_t_16);
+            __Pyx_XGOTREF(__pyx_t_17);
+            __Pyx_XGOTREF(__pyx_t_18);
+            __Pyx_XGOTREF(__pyx_t_19);
+            __Pyx_XGOTREF(__pyx_t_20);
+            __Pyx_XGOTREF(__pyx_t_21);
+            __pyx_t_7 = __pyx_lineno; __pyx_t_14 = __pyx_clineno; __pyx_t_15 = __pyx_filename;
+            {
+              __Pyx_DECREF(__pyx_v_e); __pyx_v_e = 0;
+            }
+            __Pyx_XGIVEREF(__pyx_t_19);
+            __Pyx_XGIVEREF(__pyx_t_20);
+            __Pyx_XGIVEREF(__pyx_t_21);
+            __Pyx_ExceptionReset(__pyx_t_19, __pyx_t_20, __pyx_t_21);
+            __Pyx_XGIVEREF(__pyx_t_16);
+            __Pyx_XGIVEREF(__pyx_t_17);
+            __Pyx_XGIVEREF(__pyx_t_18);
+            __Pyx_ErrRestore(__pyx_t_16, __pyx_t_17, __pyx_t_18);
+            __pyx_t_16 = 0; __pyx_t_17 = 0; __pyx_t_18 = 0; __pyx_t_19 = 0; __pyx_t_20 = 0; __pyx_t_21 = 0;
+            __pyx_lineno = __pyx_t_7; __pyx_clineno = __pyx_t_14; __pyx_filename = __pyx_t_15;
+            goto __pyx_L8_except_error;
+          }
+          __pyx_L18:;
+        }
+        __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+        goto __pyx_L7_exception_handled;
+      }
+      goto __pyx_L8_except_error;
+
+      /* "disk_engine.py":117
+ *         Path
+ *         """
+ *         try:             # <<<<<<<<<<<<<<
+ *             self.close()
+ *         except Exception as e:
+*/
+      __pyx_L8_except_error:;
+      __Pyx_XGIVEREF(__pyx_t_1);
+      __Pyx_XGIVEREF(__pyx_t_2);
+      __Pyx_XGIVEREF(__pyx_t_3);
+      __Pyx_ExceptionReset(__pyx_t_1, __pyx_t_2, __pyx_t_3);
+      goto __pyx_L4_error;
+      __pyx_L7_exception_handled:;
+      __Pyx_XGIVEREF(__pyx_t_1);
+      __Pyx_XGIVEREF(__pyx_t_2);
+      __Pyx_XGIVEREF(__pyx_t_3);
+      __Pyx_ExceptionReset(__pyx_t_1, __pyx_t_2, __pyx_t_3);
+      __pyx_L11_try_end:;
+    }
   }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "disk_engine.py":58
- *         """"""
- *         self.close()
- *         self._pools = None             # <<<<<<<<<<<<<<
+  /* "disk_engine.py":122
+ *             logging.warning(f"DiskEngine.__del__ : {e}")
+ *         finally:
+ *             self._pools = None             # <<<<<<<<<<<<<<
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools, Py_None) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
+  /*finally:*/ {
+    /*normal exit:*/{
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools, Py_None) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+      goto __pyx_L5;
+    }
+    __pyx_L4_error:;
+    /*exception exit:*/{
+      __Pyx_PyThreadState_declare
+      __Pyx_PyThreadState_assign
+      __pyx_t_3 = 0; __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0;
+      __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
+      __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
+      __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+       __Pyx_ExceptionSwap(&__pyx_t_21, &__pyx_t_20, &__pyx_t_19);
+      if ( unlikely(__Pyx_GetException(&__pyx_t_3, &__pyx_t_2, &__pyx_t_1) < 0)) __Pyx_ErrFetch(&__pyx_t_3, &__pyx_t_2, &__pyx_t_1);
+      __Pyx_XGOTREF(__pyx_t_3);
+      __Pyx_XGOTREF(__pyx_t_2);
+      __Pyx_XGOTREF(__pyx_t_1);
+      __Pyx_XGOTREF(__pyx_t_21);
+      __Pyx_XGOTREF(__pyx_t_20);
+      __Pyx_XGOTREF(__pyx_t_19);
+      __pyx_t_14 = __pyx_lineno; __pyx_t_7 = __pyx_clineno; __pyx_t_22 = __pyx_filename;
+      {
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_pools, Py_None) < 0) __PYX_ERR(0, 122, __pyx_L24_error)
+      }
+      __Pyx_XGIVEREF(__pyx_t_21);
+      __Pyx_XGIVEREF(__pyx_t_20);
+      __Pyx_XGIVEREF(__pyx_t_19);
+      __Pyx_ExceptionReset(__pyx_t_21, __pyx_t_20, __pyx_t_19);
+      __Pyx_XGIVEREF(__pyx_t_3);
+      __Pyx_XGIVEREF(__pyx_t_2);
+      __Pyx_XGIVEREF(__pyx_t_1);
+      __Pyx_ErrRestore(__pyx_t_3, __pyx_t_2, __pyx_t_1);
+      __pyx_t_3 = 0; __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0;
+      __pyx_lineno = __pyx_t_14; __pyx_clineno = __pyx_t_7; __pyx_filename = __pyx_t_22;
+      goto __pyx_L1_error;
+      __pyx_L24_error:;
+      __Pyx_XGIVEREF(__pyx_t_21);
+      __Pyx_XGIVEREF(__pyx_t_20);
+      __Pyx_XGIVEREF(__pyx_t_19);
+      __Pyx_ExceptionReset(__pyx_t_21, __pyx_t_20, __pyx_t_19);
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_21 = 0; __pyx_t_20 = 0; __pyx_t_19 = 0;
+      goto __pyx_L1_error;
+    }
+    __pyx_L5:;
+  }
 
-  /* "disk_engine.py":55
- *         ...
+  /* "disk_engine.py":112
+ *         pass
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
- *         """"""
- *         self.close()
+ *         """
+ * 
 */
 
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_XDECREF(__pyx_t_11);
+  __Pyx_XDECREF(__pyx_t_12);
+  __Pyx_XDECREF(__pyx_t_13);
   __Pyx_AddTraceback("disk_engine.DiskEngine.__del__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_e);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -4418,120 +4826,120 @@ __Pyx_RefNannySetupContext("PyInit_disk_engine", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "disk_engine.py":9
- * # @Desc
+  /* "disk_engine.py":10
+ * 
  * 
  * import threading             # <<<<<<<<<<<<<<
  * from pathlib import Path
  * 
 */
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_threading, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_threading, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_threading, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_threading, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "disk_engine.py":10
+  /* "disk_engine.py":11
  * 
  * import threading
  * from pathlib import Path             # <<<<<<<<<<<<<<
  * 
  * from ..config.app_config import AppConfig
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_pathlib, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_pathlib, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Path, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Path, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "disk_engine.py":12
+  /* "disk_engine.py":13
  * from pathlib import Path
  * 
  * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
  * from ..logger.logging_ import logging
  * from ..utils.core_utils import CoreUtil
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_config_app_config, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_config_app_config, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "disk_engine.py":13
+  /* "disk_engine.py":14
  * 
  * from ..config.app_config import AppConfig
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
  * from ..utils.core_utils import CoreUtil
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_logger_logging, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_logger_logging, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "disk_engine.py":14
+  /* "disk_engine.py":15
  * from ..config.app_config import AppConfig
  * from ..logger.logging_ import logging
  * from ..utils.core_utils import CoreUtil             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_utils_core_utils, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_utils_core_utils, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "disk_engine.py":17
+  /* "disk_engine.py":18
  * 
  * 
  * class DiskEngine:             # <<<<<<<<<<<<<<
- *     _instance = None
- *     _lock = threading.Lock()
+ *     """
+ * 
 */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_DiskEngine, __pyx_mstate_global->__pyx_n_u_DiskEngine, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_DiskEngine, __pyx_mstate_global->__pyx_n_u_DiskEngine, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_kp_u_AppConfig_storage_disk_get_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "disk_engine.py":18
+  /* "disk_engine.py":38
+ *     """
  * 
- * class DiskEngine:
  *     _instance = None             # <<<<<<<<<<<<<<
  *     _lock = threading.Lock()
  * 
 */
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_instance, Py_None) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_instance, Py_None) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
 
-  /* "disk_engine.py":19
- * class DiskEngine:
+  /* "disk_engine.py":39
+ * 
  *     _instance = None
  *     _lock = threading.Lock()             # <<<<<<<<<<<<<<
  * 
  *     def __new__(cls):
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_Lock); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_Lock); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_7 = 1;
@@ -4540,90 +4948,90 @@ __Pyx_RefNannySetupContext("PyInit_disk_engine", 0);
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_lock, __pyx_t_3) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_lock, __pyx_t_3) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "disk_engine.py":21
+  /* "disk_engine.py":41
  *     _lock = threading.Lock()
  * 
  *     def __new__(cls):             # <<<<<<<<<<<<<<
- *         if cls._instance is None:
- *             with cls._lock:
+ *         """
+ * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_1__new__, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_DiskEngine___new, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_1__new__, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_DiskEngine___new, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNewInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_new, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_SetNewInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_new, __pyx_t_3) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "disk_engine.py":29
+  /* "disk_engine.py":53
  *         return cls._instance
  * 
  *     def _load(self):             # <<<<<<<<<<<<<<
- *         self._pools = {}
- *         _storage_root = CoreUtil.get_root_path()
+ *         """
+ * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_3_load, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine__load, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_3_load, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine__load, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_3) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_3) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "disk_engine.py":44
+  /* "disk_engine.py":79
  *             self._pools[config.name] = _storage_dir
  * 
  *     def get_path(self, name: str, child_path: str = "") -> Path:             # <<<<<<<<<<<<<<
- *         result = self._pools[name]
- *         # if CoreUtil.is_not_null(child_path):
+ *         """
+ * 
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_Path) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_5get_path, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine_get_path, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_Path) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_5get_path, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine_get_path, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_6, __pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_6, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_path, __pyx_t_6) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_path, __pyx_t_6) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "disk_engine.py":52
- *         return result
+  /* "disk_engine.py":105
+ *         return base_path
  * 
  *     def close(self):             # <<<<<<<<<<<<<<
- *         ...
+ *         """
  * 
 */
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_7close, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine_close, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_7close, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine_close, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_6) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_6) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "disk_engine.py":55
- *         ...
+  /* "disk_engine.py":112
+ *         pass
  * 
  *     def __del__(self):             # <<<<<<<<<<<<<<
- *         """"""
- *         self.close()
+ *         """
+ * 
 */
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_9__del__, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine___del, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_11disk_engine_10DiskEngine_9__del__, 0, __pyx_mstate_global->__pyx_n_u_DiskEngine___del_2, NULL, __pyx_mstate_global->__pyx_n_u_disk_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_del, __pyx_t_6) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_del, __pyx_t_6) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "disk_engine.py":17
+  /* "disk_engine.py":18
  * 
  * 
  * class DiskEngine:             # <<<<<<<<<<<<<<
- *     _instance = None
- *     _lock = threading.Lock()
+ *     """
+ * 
 */
-  __pyx_t_6 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_DiskEngine, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_DiskEngine, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DiskEngine, __pyx_t_6) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DiskEngine, __pyx_t_6) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
@@ -4676,11 +5084,11 @@ __Pyx_RefNannySetupContext("PyInit_disk_engine", 0);
 
 typedef struct {
     const char *s;
-#if 179 <= 65535
+#if 2703 <= 65535
     const unsigned short n;
-#elif 179 / 2 < INT_MAX
+#elif 2703 / 2 < INT_MAX
     const unsigned int n;
-#elif 179 / 2 < LONG_MAX
+#elif 2703 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -4701,13 +5109,16 @@ static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_AppConfig, sizeof(__pyx_k_AppConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AppConfig */
+  {__pyx_k_AppConfig_storage_disk_get_path, sizeof(__pyx_k_AppConfig_storage_disk_get_path), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_AppConfig_storage_disk_get_path */
   {__pyx_k_CoreUtil, sizeof(__pyx_k_CoreUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil */
   {__pyx_k_DiskEngine, sizeof(__pyx_k_DiskEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DiskEngine */
-  {__pyx_k_DiskEngine___del, sizeof(__pyx_k_DiskEngine___del), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DiskEngine___del */
+  {__pyx_k_DiskEngine___del, sizeof(__pyx_k_DiskEngine___del), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_DiskEngine___del */
+  {__pyx_k_DiskEngine___del_2, sizeof(__pyx_k_DiskEngine___del_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DiskEngine___del_2 */
   {__pyx_k_DiskEngine___new, sizeof(__pyx_k_DiskEngine___new), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DiskEngine___new */
   {__pyx_k_DiskEngine__load, sizeof(__pyx_k_DiskEngine__load), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DiskEngine__load */
   {__pyx_k_DiskEngine_close, sizeof(__pyx_k_DiskEngine_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DiskEngine_close */
   {__pyx_k_DiskEngine_get_path, sizeof(__pyx_k_DiskEngine_get_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DiskEngine_get_path */
+  {__pyx_k_KeyError, sizeof(__pyx_k_KeyError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_KeyError */
   {__pyx_k_Lock, sizeof(__pyx_k_Lock), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Lock */
   {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
   {__pyx_k_Path, sizeof(__pyx_k_Path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Path */
@@ -4716,7 +5127,9 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
+  {__pyx_k_app_config_yaml, sizeof(__pyx_k_app_config_yaml), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_app_config_yaml */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
+  {__pyx_k_base_path, sizeof(__pyx_k_base_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_base_path */
   {__pyx_k_child_path, sizeof(__pyx_k_child_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_child_path */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
@@ -4732,11 +5145,13 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_disk_name, sizeof(__pyx_k_disk_name), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disk_name */
   {__pyx_k_disk_name_2, sizeof(__pyx_k_disk_name_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disk_name_2 */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
+  {__pyx_k_e, sizeof(__pyx_k_e), 0, 1, 1}, /* PyObject cname: __pyx_n_u_e */
   {__pyx_k_enabled, sizeof(__pyx_k_enabled), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enabled */
   {__pyx_k_enabled_true, sizeof(__pyx_k_enabled_true), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enabled_true */
   {__pyx_k_enter, sizeof(__pyx_k_enter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enter */
   {__pyx_k_exist_ok, sizeof(__pyx_k_exist_ok), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exist_ok */
   {__pyx_k_exit, sizeof(__pyx_k_exit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exit */
+  {__pyx_k_full_path, sizeof(__pyx_k_full_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_full_path */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_get_path, sizeof(__pyx_k_get_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_path */
   {__pyx_k_get_root_path, sizeof(__pyx_k_get_root_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_root_path */
@@ -4762,7 +5177,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
-  {__pyx_k_result, sizeof(__pyx_k_result), 0, 1, 1}, /* PyObject cname: __pyx_n_u_result */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_self, sizeof(__pyx_k_self), 0, 1, 1}, /* PyObject cname: __pyx_n_u_self */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
@@ -4786,7 +5200,8 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_super); if (!__pyx_builtin_super) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_super); if (!__pyx_builtin_super) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 95, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -4798,25 +5213,25 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "disk_engine.py":23
- *     def __new__(cls):
+  /* "disk_engine.py":47
+ *         """
  *         if cls._instance is None:
  *             with cls._lock:             # <<<<<<<<<<<<<<
  *                 if cls._instance is None:
  *                     cls._instance = super(DiskEngine, cls).__new__(cls)
 */
-  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
 
-  /* "disk_engine.py":44
+  /* "disk_engine.py":79
  *             self._pools[config.name] = _storage_dir
  * 
  *     def get_path(self, name: str, child_path: str = "") -> Path:             # <<<<<<<<<<<<<<
- *         result = self._pools[name]
- *         # if CoreUtil.is_not_null(child_path):
+ *         """
+ * 
 */
-  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(1, ((PyObject*)__pyx_mstate_global->__pyx_kp_u__3)); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(1, ((PyObject*)__pyx_mstate_global->__pyx_kp_u__2)); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_RefNannyFinishContext();
@@ -4844,7 +5259,7 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
             unsigned int num_kwonly_args : 1;
             unsigned int nlocals : 3;
             unsigned int flags : 10;
-            unsigned int first_line : 6;
+            unsigned int first_line : 7;
             unsigned int line_table_length : 12;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
@@ -4862,29 +5277,29 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 21, 64};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 41, 66};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_new, __pyx_k_A_3k_A_A_3k_A_E_d_1_z_q_s, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 29, 137};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 53, 140};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_storage_root, __pyx_mstate->__pyx_n_u_config, __pyx_mstate->__pyx_n_u_storage_dir};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_Ja_a_uAQ_Jixq_t6_xq_4F_6_axvYa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_Ja_a_uAQ_Jixq_t6_xq_a_6_axvYa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 44, 56};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_name, __pyx_mstate->__pyx_n_u_child_path, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_get_path, __pyx_k_U_m1_WAQ_1_WBa_y_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 79, 82};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_name, __pyx_mstate->__pyx_n_u_child_path, __pyx_mstate->__pyx_n_u_base_path, __pyx_mstate->__pyx_n_u_full_path};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_get_path, __pyx_k_U_m1_G1A_2_1_A_V1HF_1_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 52, 2};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 105, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_close, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 55, 16};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_del, __pyx_k_A_F_Ja, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 112, 42};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_e};
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_del, __pyx_k_A_a_A_81B_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -6610,6 +7025,168 @@ static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key) {
         }
     }
     return value;
+}
+#endif
+
+/* RaiseException */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause) {
+    PyObject* owned_instance = NULL;
+    if (tb == Py_None) {
+        tb = 0;
+    } else if (tb && !PyTraceBack_Check(tb)) {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: arg 3 must be a traceback or None");
+        goto bad;
+    }
+    if (value == Py_None)
+        value = 0;
+    if (PyExceptionInstance_Check(type)) {
+        if (value) {
+            PyErr_SetString(PyExc_TypeError,
+                "instance exception may not have a separate value");
+            goto bad;
+        }
+        value = type;
+        type = (PyObject*) Py_TYPE(value);
+    } else if (PyExceptionClass_Check(type)) {
+        PyObject *instance_class = NULL;
+        if (value && PyExceptionInstance_Check(value)) {
+            instance_class = (PyObject*) Py_TYPE(value);
+            if (instance_class != type) {
+                int is_subclass = PyObject_IsSubclass(instance_class, type);
+                if (!is_subclass) {
+                    instance_class = NULL;
+                } else if (unlikely(is_subclass == -1)) {
+                    goto bad;
+                } else {
+                    type = instance_class;
+                }
+            }
+        }
+        if (!instance_class) {
+            PyObject *args;
+            if (!value)
+                args = PyTuple_New(0);
+            else if (PyTuple_Check(value)) {
+                Py_INCREF(value);
+                args = value;
+            } else
+                args = PyTuple_Pack(1, value);
+            if (!args)
+                goto bad;
+            owned_instance = PyObject_Call(type, args, NULL);
+            Py_DECREF(args);
+            if (!owned_instance)
+                goto bad;
+            value = owned_instance;
+            if (!PyExceptionInstance_Check(value)) {
+                PyErr_Format(PyExc_TypeError,
+                             "calling %R should have returned an instance of "
+                             "BaseException, not %R",
+                             type, Py_TYPE(value));
+                goto bad;
+            }
+        }
+    } else {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: exception class must be a subclass of BaseException");
+        goto bad;
+    }
+    if (cause) {
+        PyObject *fixed_cause;
+        if (cause == Py_None) {
+            fixed_cause = NULL;
+        } else if (PyExceptionClass_Check(cause)) {
+            fixed_cause = PyObject_CallObject(cause, NULL);
+            if (fixed_cause == NULL)
+                goto bad;
+        } else if (PyExceptionInstance_Check(cause)) {
+            fixed_cause = cause;
+            Py_INCREF(fixed_cause);
+        } else {
+            PyErr_SetString(PyExc_TypeError,
+                            "exception causes must derive from "
+                            "BaseException");
+            goto bad;
+        }
+        PyException_SetCause(value, fixed_cause);
+    }
+    PyErr_SetObject(type, value);
+    if (tb) {
+#if PY_VERSION_HEX >= 0x030C00A6
+        PyException_SetTraceback(value, tb);
+#elif CYTHON_FAST_THREAD_STATE
+        PyThreadState *tstate = __Pyx_PyThreadState_Current;
+        PyObject* tmp_tb = tstate->curexc_traceback;
+        if (tb != tmp_tb) {
+            Py_INCREF(tb);
+            tstate->curexc_traceback = tb;
+            Py_XDECREF(tmp_tb);
+        }
+#else
+        PyObject *tmp_type, *tmp_value, *tmp_tb;
+        PyErr_Fetch(&tmp_type, &tmp_value, &tmp_tb);
+        Py_INCREF(tb);
+        PyErr_Restore(tmp_type, tmp_value, tb);
+        Py_XDECREF(tmp_tb);
+#endif
+    }
+bad:
+    Py_XDECREF(owned_instance);
+    return;
+}
+
+/* SwapException */
+#if CYTHON_FAST_THREAD_STATE
+static CYTHON_INLINE void __Pyx__ExceptionSwap(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+  #if CYTHON_USE_EXC_INFO_STACK && PY_VERSION_HEX >= 0x030B00a4
+    _PyErr_StackItem *exc_info = tstate->exc_info;
+    tmp_value = exc_info->exc_value;
+    exc_info->exc_value = *value;
+    if (tmp_value == NULL || tmp_value == Py_None) {
+        Py_XDECREF(tmp_value);
+        tmp_value = NULL;
+        tmp_type = NULL;
+        tmp_tb = NULL;
+    } else {
+        tmp_type = (PyObject*) Py_TYPE(tmp_value);
+        Py_INCREF(tmp_type);
+        #if CYTHON_COMPILING_IN_CPYTHON
+        tmp_tb = ((PyBaseExceptionObject*) tmp_value)->traceback;
+        Py_XINCREF(tmp_tb);
+        #else
+        tmp_tb = PyException_GetTraceback(tmp_value);
+        #endif
+    }
+  #elif CYTHON_USE_EXC_INFO_STACK
+    _PyErr_StackItem *exc_info = tstate->exc_info;
+    tmp_type = exc_info->exc_type;
+    tmp_value = exc_info->exc_value;
+    tmp_tb = exc_info->exc_traceback;
+    exc_info->exc_type = *type;
+    exc_info->exc_value = *value;
+    exc_info->exc_traceback = *tb;
+  #else
+    tmp_type = tstate->exc_type;
+    tmp_value = tstate->exc_value;
+    tmp_tb = tstate->exc_traceback;
+    tstate->exc_type = *type;
+    tstate->exc_value = *value;
+    tstate->exc_traceback = *tb;
+  #endif
+    *type = tmp_type;
+    *value = tmp_value;
+    *tb = tmp_tb;
+}
+#else
+static CYTHON_INLINE void __Pyx_ExceptionSwap(PyObject **type, PyObject **value, PyObject **tb) {
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    PyErr_GetExcInfo(&tmp_type, &tmp_value, &tmp_tb);
+    PyErr_SetExcInfo(*type, *value, *tb);
+    *type = tmp_type;
+    *value = tmp_value;
+    *tb = tmp_tb;
 }
 #endif
 

@@ -2207,6 +2207,7 @@ int __pyx_module_is_main_enum_service = 0;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = ".";
 static const char __pyx_k__2[] = "?";
+static const char __pyx_k_API[] = "\346\236\232\344\270\276\350\247\243\346\236\220\346\234\215\345\212\241\347\261\273\343\200\202\n    \346\217\220\344\276\233\347\273\237\344\270\200\346\216\245\345\217\243\357\274\214\347\224\250\344\272\216\345\260\206\345\255\227\345\205\270\344\270\255\347\232\204\345\216\237\345\247\213\345\255\227\346\256\265\345\200\274\357\274\210\345\246\202\345\255\227\347\254\246\344\270\262\346\210\226\346\225\264\346\225\260\357\274\211\350\247\243\346\236\220\344\270\272\345\257\271\345\272\224\347\232\204\346\236\232\344\270\276\345\256\236\344\276\213\357\274\214\n    \351\200\232\345\270\270\347\224\250\344\272\216\346\225\260\346\215\256\345\217\215\345\272\217\345\210\227\345\214\226\343\200\201API \350\276\223\345\205\245\346\240\241\351\252\214\346\210\226\346\225\260\346\215\256\345\272\223\350\256\260\345\275\225\346\230\240\345\260\204\347\255\211\345\234\272\346\231\257\343\200\202\n    ";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_pop[] = "pop";
@@ -2231,7 +2232,7 @@ static const char __pyx_k_LabelEnum[] = "LabelEnum";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_field_name[] = "field_name";
 static const char __pyx_k_EnumService[] = "EnumService";
-static const char __pyx_k_A_3_BVVW_6_Q[] = "\200A\330!3\260?\320BV\320VW\330\010\032\230!\2306\240\034\250Q";
+static const char __pyx_k_A_3_BVVW_6_Q[] = "\200A\330!3\260?\320BV\320VW\340\010\032\230!\2306\240\034\250Q";
 static const char __pyx_k_enum_service[] = "enum_service";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_resolve_field[] = "resolve_field";
@@ -2286,7 +2287,7 @@ typedef struct {
   #endif
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[1];
-  PyObject *__pyx_string_tab[38];
+  PyObject *__pyx_string_tab[39];
 /* #### Code section: module_state_contents ### */
 /* CachedMethodType.module_state_decls */
 #if CYTHON_COMPILING_IN_LIMITED_API
@@ -2325,43 +2326,44 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #endif
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
-#define __pyx_n_u_EnumService __pyx_string_tab[1]
-#define __pyx_n_u_EnumService_resolve_field __pyx_string_tab[2]
-#define __pyx_n_u_LabelEnum __pyx_string_tab[3]
-#define __pyx_n_u_None __pyx_string_tab[4]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[5]
-#define __pyx_n_u_Type __pyx_string_tab[6]
-#define __pyx_kp_u_Type_LabelEnum __pyx_string_tab[7]
-#define __pyx_kp_u__2 __pyx_string_tab[8]
-#define __pyx_kp_u_add_note __pyx_string_tab[9]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[10]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[11]
-#define __pyx_n_u_cls __pyx_string_tab[12]
-#define __pyx_n_u_data __pyx_string_tab[13]
-#define __pyx_n_u_dict __pyx_string_tab[14]
-#define __pyx_n_u_doc __pyx_string_tab[15]
-#define __pyx_n_u_enum_cls __pyx_string_tab[16]
-#define __pyx_n_u_enum_label_enum __pyx_string_tab[17]
-#define __pyx_n_u_enum_resolve_enum __pyx_string_tab[18]
-#define __pyx_n_u_enum_service __pyx_string_tab[19]
-#define __pyx_kp_u_enum_service_py __pyx_string_tab[20]
-#define __pyx_n_u_field_name __pyx_string_tab[21]
-#define __pyx_n_u_func __pyx_string_tab[22]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[23]
-#define __pyx_n_u_main __pyx_string_tab[24]
-#define __pyx_n_u_metaclass __pyx_string_tab[25]
-#define __pyx_n_u_module __pyx_string_tab[26]
-#define __pyx_n_u_name __pyx_string_tab[27]
-#define __pyx_n_u_pop __pyx_string_tab[28]
-#define __pyx_n_u_prepare __pyx_string_tab[29]
-#define __pyx_n_u_qualname __pyx_string_tab[30]
-#define __pyx_n_u_resolve_enum_field __pyx_string_tab[31]
-#define __pyx_n_u_resolve_field __pyx_string_tab[32]
-#define __pyx_n_u_return __pyx_string_tab[33]
-#define __pyx_n_u_set_name __pyx_string_tab[34]
-#define __pyx_n_u_str __pyx_string_tab[35]
-#define __pyx_n_u_test __pyx_string_tab[36]
-#define __pyx_n_u_typing __pyx_string_tab[37]
+#define __pyx_kp_u_API __pyx_string_tab[1]
+#define __pyx_n_u_EnumService __pyx_string_tab[2]
+#define __pyx_n_u_EnumService_resolve_field __pyx_string_tab[3]
+#define __pyx_n_u_LabelEnum __pyx_string_tab[4]
+#define __pyx_n_u_None __pyx_string_tab[5]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[6]
+#define __pyx_n_u_Type __pyx_string_tab[7]
+#define __pyx_kp_u_Type_LabelEnum __pyx_string_tab[8]
+#define __pyx_kp_u__2 __pyx_string_tab[9]
+#define __pyx_kp_u_add_note __pyx_string_tab[10]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[11]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[12]
+#define __pyx_n_u_cls __pyx_string_tab[13]
+#define __pyx_n_u_data __pyx_string_tab[14]
+#define __pyx_n_u_dict __pyx_string_tab[15]
+#define __pyx_n_u_doc __pyx_string_tab[16]
+#define __pyx_n_u_enum_cls __pyx_string_tab[17]
+#define __pyx_n_u_enum_label_enum __pyx_string_tab[18]
+#define __pyx_n_u_enum_resolve_enum __pyx_string_tab[19]
+#define __pyx_n_u_enum_service __pyx_string_tab[20]
+#define __pyx_kp_u_enum_service_py __pyx_string_tab[21]
+#define __pyx_n_u_field_name __pyx_string_tab[22]
+#define __pyx_n_u_func __pyx_string_tab[23]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[24]
+#define __pyx_n_u_main __pyx_string_tab[25]
+#define __pyx_n_u_metaclass __pyx_string_tab[26]
+#define __pyx_n_u_module __pyx_string_tab[27]
+#define __pyx_n_u_name __pyx_string_tab[28]
+#define __pyx_n_u_pop __pyx_string_tab[29]
+#define __pyx_n_u_prepare __pyx_string_tab[30]
+#define __pyx_n_u_qualname __pyx_string_tab[31]
+#define __pyx_n_u_resolve_enum_field __pyx_string_tab[32]
+#define __pyx_n_u_resolve_field __pyx_string_tab[33]
+#define __pyx_n_u_return __pyx_string_tab[34]
+#define __pyx_n_u_set_name __pyx_string_tab[35]
+#define __pyx_n_u_str __pyx_string_tab[36]
+#define __pyx_n_u_test __pyx_string_tab[37]
+#define __pyx_n_u_typing __pyx_string_tab[38]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2383,7 +2385,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   __Pyx_State_RemoveModule(NULL);
   #endif
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<38; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<39; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2405,18 +2407,18 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<38; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<39; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "enum_service.py":16
- * class EnumService:
+/* "enum_service.py":20
+ *     """
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def resolve_field(cls, data: dict, field_name: str, enum_cls: Type[LabelEnum]) -> None:
- *         resolve_enum_field(data, field_name, enum_cls)
+ *         """ LabelEnum """
 */
 
 /* Python wrapper */
@@ -2427,7 +2429,8 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_12enum_service_11EnumService_1resolve_field = {"resolve_field", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12enum_service_11EnumService_1resolve_field, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+PyDoc_STRVAR(__pyx_doc_12enum_service_11EnumService_resolve_field, "\345\260\206\345\255\227\345\205\270\344\270\255\346\214\207\345\256\232\345\255\227\346\256\265\347\232\204\345\200\274\350\247\243\346\236\220\344\270\272\345\257\271\345\272\224\347\232\204 LabelEnum \346\236\232\344\270\276\345\256\236\344\276\213\343\200\202");
+static PyMethodDef __pyx_mdef_12enum_service_11EnumService_1resolve_field = {"resolve_field", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12enum_service_11EnumService_1resolve_field, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12enum_service_11EnumService_resolve_field};
 static PyObject *__pyx_pw_12enum_service_11EnumService_1resolve_field(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -2461,44 +2464,44 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_data,&__pyx_mstate_global->__pyx_n_u_field_name,&__pyx_mstate_global->__pyx_n_u_enum_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 16, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 20, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 16, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 20, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 16, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 20, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 16, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 20, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 16, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 20, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "resolve_field", 0) < 0) __PYX_ERR(0, 16, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "resolve_field", 0) < 0) __PYX_ERR(0, 20, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, i); __PYX_ERR(0, 16, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, i); __PYX_ERR(0, 20, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 4)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 16, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 20, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 16, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 20, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 16, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 20, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 16, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 20, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_data = ((PyObject*)values[1]);
@@ -2507,7 +2510,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 16, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 20, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2518,8 +2521,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyDict_Type), 0, "data", 2))) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_field_name), (&PyUnicode_Type), 0, "field_name", 2))) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyDict_Type), 0, "data", 2))) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_field_name), (&PyUnicode_Type), 0, "field_name", 2))) __PYX_ERR(0, 21, __pyx_L1_error)
   __pyx_r = __pyx_pf_12enum_service_11EnumService_resolve_field(__pyx_self, __pyx_v_cls, __pyx_v_data, __pyx_v_field_name, __pyx_v_enum_cls);
 
   /* function exit code */
@@ -2551,13 +2554,13 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("resolve_field", 0);
 
-  /* "enum_service.py":18
- *     @classmethod
+  /* "enum_service.py":23
  *     def resolve_field(cls, data: dict, field_name: str, enum_cls: Type[LabelEnum]) -> None:
+ *         """ LabelEnum """
  *         resolve_enum_field(data, field_name, enum_cls)             # <<<<<<<<<<<<<<
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_resolve_enum_field); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_resolve_enum_field); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -2576,17 +2579,17 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_4, (4-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "enum_service.py":16
- * class EnumService:
+  /* "enum_service.py":20
+ *     """
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def resolve_field(cls, data: dict, field_name: str, enum_cls: Type[LabelEnum]) -> None:
- *         resolve_enum_field(data, field_name, enum_cls)
+ *         """ LabelEnum """
 */
 
   /* function exit code */
@@ -3028,41 +3031,41 @@ __Pyx_RefNannySetupContext("PyInit_enum_service", 0);
  * 
  * 
  * class EnumService:             # <<<<<<<<<<<<<<
+ *     """
  * 
- *     @classmethod
 */
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_mstate_global->__pyx_n_u_EnumService, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_enum_service, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_mstate_global->__pyx_n_u_EnumService, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_kp_u_API); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "enum_service.py":16
- * class EnumService:
+  /* "enum_service.py":20
+ *     """
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def resolve_field(cls, data: dict, field_name: str, enum_cls: Type[LabelEnum]) -> None:
- *         resolve_enum_field(data, field_name, enum_cls)
+ *         """ LabelEnum """
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data, __pyx_mstate_global->__pyx_n_u_dict) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_field_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_enum_cls, __pyx_mstate_global->__pyx_kp_u_Type_LabelEnum) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12enum_service_11EnumService_1resolve_field, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_EnumService_resolve_field, NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_data, __pyx_mstate_global->__pyx_n_u_dict) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_field_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_enum_cls, __pyx_mstate_global->__pyx_kp_u_Type_LabelEnum) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12enum_service_11EnumService_1resolve_field, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_EnumService_resolve_field, NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_resolve_field, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_resolve_field, __pyx_t_2) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "enum_service.py":14
  * 
  * 
  * class EnumService:             # <<<<<<<<<<<<<<
+ *     """
  * 
- *     @classmethod
 */
   __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -3117,11 +3120,11 @@ __Pyx_RefNannySetupContext("PyInit_enum_service", 0);
 
 typedef struct {
     const char *s;
-#if 179 <= 65535
+#if 910 <= 65535
     const unsigned short n;
-#elif 179 / 2 < INT_MAX
+#elif 910 / 2 < INT_MAX
     const unsigned int n;
-#elif 179 / 2 < LONG_MAX
+#elif 910 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -3141,6 +3144,7 @@ typedef struct {
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
+  {__pyx_k_API, sizeof(__pyx_k_API), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_API */
   {__pyx_k_EnumService, sizeof(__pyx_k_EnumService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumService */
   {__pyx_k_EnumService_resolve_field, sizeof(__pyx_k_EnumService_resolve_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumService_resolve_field */
   {__pyx_k_LabelEnum, sizeof(__pyx_k_LabelEnum), 0, 1, 1}, /* PyObject cname: __pyx_n_u_LabelEnum */
@@ -3235,7 +3239,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 16, 24};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 20, 24};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_field_name, __pyx_mstate->__pyx_n_u_enum_cls};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_enum_service_py, __pyx_mstate->__pyx_n_u_resolve_field, __pyx_k_A_3_BVVW_6_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }

@@ -1115,8 +1115,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__field
-#define __PYX_HAVE_API__field
+#define __PYX_HAVE__table_controller
+#define __PYX_HAVE_API__table_controller
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1325,7 +1325,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char* const __pyx_f[] = {
-  "field.py",
+  "table_controller.py",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* Atomics.proto */
@@ -1621,17 +1621,17 @@ static CYTHON_INLINE int __Pyx_PyUnicode_Equals(PyObject* s1, PyObject* s2, int 
 #define __Pyx_ArgsSlice_FASTCALL(args, start, stop) PyTuple_GetSlice(args, start, stop)
 #endif
 
-/* KeywordStringCheck.proto */
-static CYTHON_INLINE int __Pyx_CheckKeywordStrings(const char* function_name, PyObject *kw);
+/* RaiseDoubleKeywords.proto */
+static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
 
-/* PyDictContains.proto */
-static CYTHON_INLINE int __Pyx_PyDict_ContainsTF(PyObject* item, PyObject* dict, int eq) {
-    int result = PyDict_Contains(dict, item);
-    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
-}
-
-/* dict_getitem_default.proto */
-static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value);
+/* ParseKeywords.proto */
+static CYTHON_INLINE int __Pyx_ParseKeywords(
+    PyObject *kwds, PyObject *const *kwvalues, PyObject ** const argnames[],
+    PyObject *kwds2, PyObject *values[],
+    Py_ssize_t num_pos_args, Py_ssize_t num_kwargs,
+    const char* function_name,
+    int ignore_unknown_kwargs
+);
 
 /* CallCFunction.proto */
 #define __Pyx_CallCFunction(cfunc, self, args)\
@@ -1688,9 +1688,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_CallMethO(PyObject *func, PyObject
 #define __Pyx_PyObject_FastCall(func, args, nargs)  __Pyx_PyObject_FastCallDict(func, args, (size_t)(nargs), NULL)
 static CYTHON_INLINE PyObject* __Pyx_PyObject_FastCallDict(PyObject *func, PyObject * const*args, size_t nargs, PyObject *kwargs);
 
-/* PyObjectCall2Args.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2);
-
 /* PyObjectGetAttrStr.proto */
 #if CYTHON_USE_TYPE_SLOTS
 static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name);
@@ -1731,15 +1728,6 @@ static CYTHON_INLINE void __Pyx_CachedCFunction_SetFinishedInitializing(__Pyx_Ca
 #define __Pyx_CachedCFunction_SetFinishedInitializing(cfunc)
 #endif
 
-/* CallUnboundCMethod1.proto */
-CYTHON_UNUSED
-static PyObject* __Pyx__CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg);
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg);
-#else
-#define __Pyx_CallUnboundCMethod1(cfunc, self, arg)  __Pyx__CallUnboundCMethod1(cfunc, self, arg)
-#endif
-
 /* CallUnboundCMethod2.proto */
 CYTHON_UNUSED
 static PyObject* __Pyx__CallUnboundCMethod2(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg1, PyObject* arg2);
@@ -1748,6 +1736,60 @@ static CYTHON_INLINE PyObject *__Pyx_CallUnboundCMethod2(__Pyx_CachedCFunction *
 #else
 #define __Pyx_CallUnboundCMethod2(cfunc, self, arg1, arg2)  __Pyx__CallUnboundCMethod2(cfunc, self, arg1, arg2)
 #endif
+
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
+
+/* RaiseKeywordRequired.proto */
+static void __Pyx_RaiseKeywordRequired(const char* func_name, PyObject* kw_name);
+
+/* ArgTypeTest.proto */
+#define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
+    ((likely(__Pyx_IS_TYPE(obj, type) | (none_allowed && (obj == Py_None)))) ? 1 :\
+        __Pyx__ArgTypeTest(obj, type, name, exact))
+static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
+
+/* PyObjectDelAttr.proto */
+#if CYTHON_COMPILING_IN_LIMITED_API && __PYX_LIMITED_VERSION_HEX < 0x030d0000
+#define __Pyx_PyObject_DelAttr(o, n) PyObject_SetAttr(o, n, NULL)
+#else
+#define __Pyx_PyObject_DelAttr(o, n) PyObject_DelAttr(o, n)
+#endif
+
+/* PyObjectSetAttrStr.proto */
+#if CYTHON_USE_TYPE_SLOTS
+#define __Pyx_PyObject_DelAttrStr(o,n) __Pyx_PyObject_SetAttrStr(o, n, NULL)
+static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value);
+#else
+#define __Pyx_PyObject_DelAttrStr(o,n)   __Pyx_PyObject_DelAttr(o,n)
+#define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
+#endif
+
+/* PyUnicode_Unicode.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyUnicode_Unicode(PyObject *obj);
+
+/* UnicodeConcatInPlace.proto */
+# if CYTHON_COMPILING_IN_CPYTHON
+    #if CYTHON_REFNANNY
+        #define __Pyx_PyUnicode_ConcatInPlace(left, right) __Pyx_PyUnicode_ConcatInPlaceImpl(&left, right, __pyx_refnanny)
+    #else
+        #define __Pyx_PyUnicode_ConcatInPlace(left, right) __Pyx_PyUnicode_ConcatInPlaceImpl(&left, right)
+    #endif
+    static CYTHON_INLINE PyObject *__Pyx_PyUnicode_ConcatInPlaceImpl(PyObject **p_left, PyObject *right
+        #if CYTHON_REFNANNY
+        , void* __pyx_refnanny
+        #endif
+    );
+#else
+#define __Pyx_PyUnicode_ConcatInPlace __Pyx_PyUnicode_Concat
+#endif
+#define __Pyx_PyUnicode_ConcatInPlaceSafe(left, right) ((unlikely((left) == Py_None) || unlikely((right) == Py_None)) ?\
+    PyNumber_InPlaceAdd(left, right) : __Pyx_PyUnicode_ConcatInPlace(left, right))
+
+/* JoinPyUnicode.proto */
+static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char);
 
 /* PyErrExceptionMatches.proto */
 #if CYTHON_FAST_THREAD_STATE
@@ -1853,14 +1895,23 @@ static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_ve
 static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
 #endif
 
-/* ListPack.proto */
-static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...);
-
-/* Import.proto */
-static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
-
-/* ImportFrom.proto */
-static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
+/* PyObjectVectorCallKwBuilder.proto */
+CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
+#if CYTHON_VECTORCALL
+#if PY_VERSION_HEX >= 0x03090000
+#define __Pyx_Object_Vectorcall_CallFromBuilder PyObject_Vectorcall
+#else
+#define __Pyx_Object_Vectorcall_CallFromBuilder _PyObject_Vectorcall
+#endif
+#define __Pyx_MakeVectorcallBuilderKwds(n) PyTuple_New(n)
+static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
+static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n);
+#else
+#define __Pyx_Object_Vectorcall_CallFromBuilder __Pyx_PyObject_FastCallDict
+#define __Pyx_MakeVectorcallBuilderKwds(n) __Pyx_PyDict_NewPresized(n)
+#define __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n) PyDict_SetItem(builder, key, value)
+#define __Pyx_VectorcallBuilder_AddArgStr(key, value, builder, args, n) PyDict_SetItemString(builder, key, value)
+#endif
 
 /* LimitedApiGetTypeDict.proto */
 #if CYTHON_COMPILING_IN_LIMITED_API
@@ -1998,6 +2049,54 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml,
                                       PyObject *module, PyObject *globals,
                                       PyObject* code);
 
+/* ListPack.proto */
+static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...);
+
+/* Import.proto */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
+
+/* ImportFrom.proto */
+static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
+
+/* ClassMethod.proto */
+#if !CYTHON_COMPILING_IN_LIMITED_API
+#include "descrobject.h"
+#endif
+CYTHON_UNUSED static PyObject* __Pyx_Method_ClassMethod(PyObject *method);
+
+/* SetNameInClass.proto */
+#if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX < 0x030d0000
+#define __Pyx_SetNameInClass(ns, name, value)\
+    (likely(PyDict_CheckExact(ns)) ? _PyDict_SetItem_KnownHash(ns, name, value, ((PyASCIIObject *) name)->hash) : PyObject_SetItem(ns, name, value))
+#elif CYTHON_COMPILING_IN_CPYTHON
+#define __Pyx_SetNameInClass(ns, name, value)\
+    (likely(PyDict_CheckExact(ns)) ? PyDict_SetItem(ns, name, value) : PyObject_SetItem(ns, name, value))
+#else
+#define __Pyx_SetNameInClass(ns, name, value)  PyObject_SetItem(ns, name, value)
+#endif
+
+/* CalculateMetaclass.proto */
+static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases);
+
+/* PyObjectCall2Args.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2);
+
+/* PyObjectLookupSpecial.proto */
+#if CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+#define __Pyx_PyObject_LookupSpecialNoError(obj, attr_name)  __Pyx__PyObject_LookupSpecial(obj, attr_name, 0)
+#define __Pyx_PyObject_LookupSpecial(obj, attr_name)  __Pyx__PyObject_LookupSpecial(obj, attr_name, 1)
+static CYTHON_INLINE PyObject* __Pyx__PyObject_LookupSpecial(PyObject* obj, PyObject* attr_name, int with_error);
+#else
+#define __Pyx_PyObject_LookupSpecialNoError(o,n) __Pyx_PyObject_GetAttrStrNoError(o,n)
+#define __Pyx_PyObject_LookupSpecial(o,n) __Pyx_PyObject_GetAttrStr(o,n)
+#endif
+
+/* Py3ClassCreate.proto */
+static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases, PyObject *name, PyObject *qualname,
+                                           PyObject *mkw, PyObject *modname, PyObject *doc);
+static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObject *bases, PyObject *dict,
+                                      PyObject *mkw, int calculate_metaclass, int allow_py2_metaclass);
+
 /* CLineInTraceback.proto */
 #if CYTHON_CLINE_IN_TRACEBACK && CYTHON_CLINE_IN_TRACEBACK_RUNTIME
 static int __Pyx_CLineForTraceback(PyThreadState *tstate, int c_line);
@@ -2051,24 +2150,6 @@ typedef const char *__Pyx_TypeName;
 /* GCCDiagnostics.proto */
 #if !defined(__INTEL_COMPILER) && defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6))
 #define __Pyx_HAS_GCC_DIAGNOSTIC
-#endif
-
-/* PyObjectVectorCallKwBuilder.proto */
-CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
-#if CYTHON_VECTORCALL
-#if PY_VERSION_HEX >= 0x03090000
-#define __Pyx_Object_Vectorcall_CallFromBuilder PyObject_Vectorcall
-#else
-#define __Pyx_Object_Vectorcall_CallFromBuilder _PyObject_Vectorcall
-#endif
-#define __Pyx_MakeVectorcallBuilderKwds(n) PyTuple_New(n)
-static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
-static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n);
-#else
-#define __Pyx_Object_Vectorcall_CallFromBuilder __Pyx_PyObject_FastCallDict
-#define __Pyx_MakeVectorcallBuilderKwds(n) __Pyx_PyDict_NewPresized(n)
-#define __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n) PyDict_SetItem(builder, key, value)
-#define __Pyx_VectorcallBuilder_AddArgStr(key, value, builder, args, n) PyDict_SetItemString(builder, key, value)
 #endif
 
 /* CIntToPy.proto */
@@ -2158,45 +2239,123 @@ static int __Pyx_State_RemoveModule(void*);
 #define __PYX_TYPE_MODULE_PREFIX __PYX_ABI_MODULE_NAME "."
 
 
-/* Module declarations from "field" */
+/* Module declarations from "table_controller" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "field"
-extern int __pyx_module_is_main_field;
-int __pyx_module_is_main_field = 0;
+#define __Pyx_MODULE_NAME "table_controller"
+extern int __pyx_module_is_main_table_controller;
+int __pyx_module_is_main_table_controller = 0;
 
-/* Implementation of "field" */
+/* Implementation of "table_controller" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = ".";
-static const char __pyx_k__2[] = "?";
-static const char __pyx_k_Any[] = "Any";
-static const char __pyx_k_get[] = "get";
-static const char __pyx_k_args[] = "args";
+static const char __pyx_k_[] = "/";
+static const char __pyx_k__2[] = "";
+static const char __pyx_k__3[] = ".";
+static const char __pyx_k__4[] = "\345\210\233\345\273\272\346\210\220\345\212\237";
+static const char __pyx_k__5[] = "\346\233\264\346\226\260\346\210\220\345\212\237";
+static const char __pyx_k__6[] = "\350\216\267\345\217\226\346\210\220\345\212\237";
+static const char __pyx_k__7[] = "\345\210\240\351\231\244\346\210\220\345\212\237";
+static const char __pyx_k__8[] = "\346\237\245\350\257\242\346\210\220\345\212\237";
+static const char __pyx_k__9[] = "?";
+static const char __pyx_k_v1[] = "/v1/";
+static const char __pyx_k_cls[] = "cls";
+static const char __pyx_k_doc[] = "__doc__";
+static const char __pyx_k_pop[] = "pop";
+static const char __pyx_k_tag[] = "_tag";
+static const char __pyx_k_None[] = "None";
+static const char __pyx_k_Type[] = "Type";
+static const char __pyx_k_auth[] = "auth";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
+static const char __pyx_k_read[] = "read - \350\257\273\345\217\226 ";
+static const char __pyx_k_tags[] = "tags";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_Field[] = "Field";
-static const char __pyx_k_field[] = "field";
-static const char __pyx_k_kwargs[] = "kwargs";
+static const char __pyx_k_query[] = "query - \346\237\245\350\257\242";
+static const char __pyx_k_table[] = "table";
+static const char __pyx_k_create[] = "create - \345\210\233\345\273\272";
+static const char __pyx_k_delete[] = "delete - \345\210\240\351\231\244";
 static const char __pyx_k_module[] = "__module__";
-static const char __pyx_k_return[] = "return";
+static const char __pyx_k_prefix[] = "prefix";
+static const char __pyx_k_read_2[] = "read";
+static const char __pyx_k_router[] = "router";
 static const char __pyx_k_typing[] = "typing";
-static const char __pyx_k_comment[] = "comment";
-static const char __pyx_k_field_py[] = "field.py";
+static const char __pyx_k_update[] = "update - \346\233\264\346\226\260";
+static const char __pyx_k_enabled[] = "enabled";
+static const char __pyx_k_message[] = "message";
+static const char __pyx_k_prepare[] = "__prepare__";
+static const char __pyx_k_query_2[] = "query";
+static const char __pyx_k_summary[] = "summary";
+static const char __pyx_k_Optional[] = "Optional";
+static const char __pyx_k_add_note[] = "add_note";
+static const char __pyx_k_auth_act[] = "auth_act";
+static const char __pyx_k_auth_obj[] = "auth_obj";
+static const char __pyx_k_create_2[] = "create";
+static const char __pyx_k_delete_2[] = "delete";
+static const char __pyx_k_prefix_2[] = "_prefix";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
-static const char __pyx_k_sqlmodel[] = "sqlmodel";
-static const char __pyx_k_description[] = "description";
+static const char __pyx_k_type_var[] = "type.var";
+static const char __pyx_k_update_2[] = "update";
+static const char __pyx_k_auth_role[] = "auth_role";
+static const char __pyx_k_metaclass[] = "__metaclass__";
+static const char __pyx_k_AuthRouter[] = "AuthRouter";
+static const char __pyx_k_SQLModelDB[] = "SQLModelDB";
+static const char __pyx_k_auth_obj_2[] = "_auth_obj";
+static const char __pyx_k_table_name[] = "table_name";
+static const char __pyx_k_auth_router[] = "auth_router";
+static const char __pyx_k_model_class[] = "model_class";
+static const char __pyx_k_read_router[] = "read_router";
+static const char __pyx_k_schema_name[] = "schema_name";
+static const char __pyx_k_Optional_str[] = "Optional[str]";
+static const char __pyx_k_RouterConfig[] = "RouterConfig";
+static const char __pyx_k_default_role[] = "default_role";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_SQLModelField[] = "SQLModelField";
-static const char __pyx_k_S_fD_c_vT_A_Q[] = "\320\000(\250\001\340\004\007\200~\220S\230\001\330\010\026\220f\230D\240\001\240\021\330\010\013\320\013\036\230c\240\021\330\014\037\230v\240T\250\021\250!\330\014\034\230A\230]\250!\340\014\022\220!\320\023*\250+\260Q\330\004\013\210=\230\002\230(\240!";
-static const char __pyx_k_sa_column_kwargs[] = "sa_column_kwargs";
+static const char __pyx_k_query_router[] = "query_router";
+static const char __pyx_k_schema_name1[] = "_schema_name1";
+static const char __pyx_k_schema_name2[] = "_schema_name2";
+static const char __pyx_k_Optional_list[] = "Optional[list]";
+static const char __pyx_k_create_router[] = "create_router";
+static const char __pyx_k_create_schema[] = "create_schema";
+static const char __pyx_k_delete_router[] = "delete_router";
+static const char __pyx_k_read_router_2[] = "_read_router";
+static const char __pyx_k_router_config[] = "router_config";
+static const char __pyx_k_update_router[] = "update_router";
+static const char __pyx_k_update_schema[] = "update_schema";
+static const char __pyx_k_AuthController[] = "AuthController";
+static const char __pyx_k_SQLModelCreate[] = "SQLModelCreate";
+static const char __pyx_k_SQLModelUpdate[] = "SQLModelUpdate";
+static const char __pyx_k_db_config_name[] = "db_config_name";
+static const char __pyx_k_default_role_2[] = "_default_role";
+static const char __pyx_k_default_router[] = "default_router";
+static const char __pyx_k_query_router_2[] = "_query_router";
+static const char __pyx_k_Type_SQLModelDB[] = "Type[SQLModelDB]";
+static const char __pyx_k_create_router_2[] = "_create_router";
+static const char __pyx_k_delete_router_2[] = "_delete_router";
+static const char __pyx_k_response_schema[] = "response_schema";
+static const char __pyx_k_update_router_2[] = "_update_router";
+static const char __pyx_k_SQLModelResponse[] = "SQLModelResponse";
+static const char __pyx_k_auth_auth_router[] = "auth.auth_router";
+static const char __pyx_k_table_controller[] = "table_controller";
+static const char __pyx_k_GenericController[] = "GenericController";
+static const char __pyx_k_apply_route_config[] = "_apply_route_config";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_generic_controller[] = "generic_controller";
+static const char __pyx_k_Type_SQLModelCreate[] = "Type[SQLModelCreate]";
+static const char __pyx_k_Type_SQLModelUpdate[] = "Type[SQLModelUpdate]";
+static const char __pyx_k_table_controller_py[] = "table_controller.py";
+static const char __pyx_k_AuthController_create[] = "AuthController.create";
+static const char __pyx_k_Type_SQLModelResponse[] = "Type[SQLModelResponse]";
+static const char __pyx_k_create_RBAC_ABAC_Restful_API_Ge[] = "\350\256\244\350\257\201\346\216\247\345\210\266\345\231\250\345\267\245\345\216\202\347\261\273\343\200\202\n\n    \350\257\245\347\261\273\346\217\220\344\276\233\344\270\200\344\270\252\347\273\237\344\270\200\347\232\204\345\267\245\345\216\202\346\226\271\346\263\225 `create`\357\274\214\347\224\250\344\272\216\345\277\253\351\200\237\347\224\237\346\210\220\345\270\246\346\234\211\346\235\203\351\231\220\346\216\247\345\210\266\357\274\210RBAC/ABAC\357\274\211\347\232\204 Restful API \346\216\247\345\210\266\345\231\250\343\200\202\n    \345\256\203\345\237\272\344\272\216\351\200\232\347\224\250\346\216\247\345\210\266\345\231\250 `GenericController` \345\260\201\350\243\205\357\274\214\345\271\266\347\273\223\345\220\210 `AuthRouter` \345\256\236\347\216\260\350\267\257\347\224\261\346\263\250\345\206\214\344\270\216\346\235\203\351\231\220\346\240\241\351\252\214\351\200\273\350\276\221\343\200\202\n    \346\224\257\346\214\201\345\257\271\345\210\233\345\273\272\343\200\201\350\257\273\345\217\226\343\200\201\346\233\264\346\226\260\343\200\201\345\210\240\351\231\244\343\200\201\346\237\245\350\257\242\347\255\211\346\223\215\344\275\234\345\210\206\345\210\253\351\205\215\347\275\256\350\267\257\347\224\261\350\241\214\344\270\272\344\270\216\346\235\203\351\231\220\347\255\226\347\225\245\343\200\202\n\n    \351\200\202\347\224\250\344\272\216\351\234\200\350\246\201\345\257\271\346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\357\274\210SQLModel\357\274\211\345\277\253\351\200\237\346\232\264\351\234\262\345\270\246\346\235\203\351\231\220\351\252\214\350\257\201\346\216\245\345\217\243\347\232\204\345\234\272\346\231\257\343\200\202\n    ";
+static const char __pyx_k_wc_q_vYc_q_c_q_v_fJc_q_fJc_q_V9[] = "\210\001\330\014\017\210w\220c\230\021\330\020\027\220q\330\014\017\210v\220Y\230c\240\021\330\020\027\220q\340\014\022\220(\230&\240\006\240c\250\036\260q\330\014\022\220-\230v\240[\260\003\260>\300\021\330\014\022\220,\230f\240J\250c\260\036\270q\330\014\022\220,\230f\240J\250c\260\036\270q\330\014\022\220+\230V\2409\250C\250~\270Q\330\014\022\220+\230V\2409\250C\250~\270Q\330\014\023\2201";
+static const char __pyx_k_A_1_1_1_1_1_A_q_a_a_AP_o_a_o_a_B[] = "\200A\360\010\000\032\033\330\014\033\2301\330\014\033\2301\330\035\036\330\014\033\2301\330\014\033\2301\330\014\031\230\021\330\014\033\2301\330\014\032\230!\340\014\024\220A\330\014\031\230\021\330\014\030\230\001\330\014\022\220!\330\014\032\230!\330\014\027\220q\330\014\026\220a\330\014\026\220a\330\014\034\230A\360P\001\000\t\031\230\002\230$\230o\320->\270a\330\010\030\230\002\230$\230o\320->\270a\330\010\022\220'\230\023\230B\230h\240o\260Q\330\010\017\210u\220C\220q\230\002\230$\230a\330\010\030\230\r\240S\250\001\330\010\024\220I\230S\240\002\240$\240o\260Q\340\010\026\220j\240\001\330\014\023\2201\330\014\021\220\021\330\014\033\2301\330\014\031\230\021\330\014\026\220a\330\014\025\220Q\330\014\025\220Q\360\006\000\t\n\360\036\000\t\032\320\031,\250A\250_\270L\310\001\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\031\320\031,\250A\250_\270L\310\001\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\027\320\027*\250!\250=\270\014\300A\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\031\320\031,\250A\250_\270L\310\001\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\030\320\030+\2501\250N\270,\300a\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\360\006\000\t\032\230\021\330\014\030\230\001\330\014\030\230\001\330\014\032\230!\330\014\032\230!\330\014\034\230A\330\014\032\230!\330\014\032\230!\330\014\030\230\001\330\014\032\230!\330\014\031\230\021\360\006\000\t\020\210q";
+static const char __pyx_k_AuthController_create_locals__ap[] = "AuthController.create.<locals>._apply_route_config";
+static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_5field_Field(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
+static PyObject *__pyx_pf_16table_controller_14AuthController_6create__apply_route_config(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_router, PyObject *__pyx_v_default_router); /* proto */
+static PyObject *__pyx_pf_16table_controller_14AuthController_create(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_schema, PyObject *__pyx_v_update_schema, PyObject *__pyx_v_response_schema, PyObject *__pyx_v_create_router, PyObject *__pyx_v_update_router, PyObject *__pyx_v_read_router, PyObject *__pyx_v_delete_router, PyObject *__pyx_v_query_router, PyObject *__pyx_v_prefix, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_table_name, PyObject *__pyx_v_tags, PyObject *__pyx_v_default_role, PyObject *__pyx_v_auth_role, PyObject *__pyx_v_auth_obj, PyObject *__pyx_v_auth_act, PyObject *__pyx_v_db_config_name); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2235,9 +2394,9 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_get;
-  PyObject *__pyx_codeobj_tab[1];
-  PyObject *__pyx_string_tab[26];
+  __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
+  PyObject *__pyx_codeobj_tab[2];
+  PyObject *__pyx_string_tab[102];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2276,31 +2435,107 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #endif
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
-#define __pyx_n_u_Any __pyx_string_tab[1]
-#define __pyx_n_u_Field __pyx_string_tab[2]
-#define __pyx_n_u_SQLModelField __pyx_string_tab[3]
-#define __pyx_kp_u__2 __pyx_string_tab[4]
-#define __pyx_n_u_args __pyx_string_tab[5]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[6]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[7]
-#define __pyx_n_u_comment __pyx_string_tab[8]
-#define __pyx_n_u_description __pyx_string_tab[9]
-#define __pyx_n_u_field __pyx_string_tab[10]
-#define __pyx_kp_u_field_py __pyx_string_tab[11]
-#define __pyx_n_u_func __pyx_string_tab[12]
-#define __pyx_n_u_get __pyx_string_tab[13]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[14]
-#define __pyx_n_u_kwargs __pyx_string_tab[15]
-#define __pyx_n_u_main __pyx_string_tab[16]
-#define __pyx_n_u_module __pyx_string_tab[17]
-#define __pyx_n_u_name __pyx_string_tab[18]
-#define __pyx_n_u_qualname __pyx_string_tab[19]
-#define __pyx_n_u_return __pyx_string_tab[20]
-#define __pyx_n_u_sa_column_kwargs __pyx_string_tab[21]
-#define __pyx_n_u_set_name __pyx_string_tab[22]
-#define __pyx_n_u_sqlmodel __pyx_string_tab[23]
-#define __pyx_n_u_test __pyx_string_tab[24]
-#define __pyx_n_u_typing __pyx_string_tab[25]
+#define __pyx_n_u_AuthController __pyx_string_tab[1]
+#define __pyx_n_u_AuthController_create __pyx_string_tab[2]
+#define __pyx_n_u_AuthController_create_locals__ap __pyx_string_tab[3]
+#define __pyx_n_u_AuthRouter __pyx_string_tab[4]
+#define __pyx_n_u_GenericController __pyx_string_tab[5]
+#define __pyx_kp_u_None __pyx_string_tab[6]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[7]
+#define __pyx_n_u_Optional __pyx_string_tab[8]
+#define __pyx_kp_u_Optional_list __pyx_string_tab[9]
+#define __pyx_kp_u_Optional_str __pyx_string_tab[10]
+#define __pyx_n_u_RouterConfig __pyx_string_tab[11]
+#define __pyx_n_u_SQLModelCreate __pyx_string_tab[12]
+#define __pyx_n_u_SQLModelDB __pyx_string_tab[13]
+#define __pyx_n_u_SQLModelResponse __pyx_string_tab[14]
+#define __pyx_n_u_SQLModelUpdate __pyx_string_tab[15]
+#define __pyx_n_u_Type __pyx_string_tab[16]
+#define __pyx_kp_u_Type_SQLModelCreate __pyx_string_tab[17]
+#define __pyx_kp_u_Type_SQLModelDB __pyx_string_tab[18]
+#define __pyx_kp_u_Type_SQLModelResponse __pyx_string_tab[19]
+#define __pyx_kp_u_Type_SQLModelUpdate __pyx_string_tab[20]
+#define __pyx_kp_u__2 __pyx_string_tab[21]
+#define __pyx_kp_u__3 __pyx_string_tab[22]
+#define __pyx_n_u__4 __pyx_string_tab[23]
+#define __pyx_n_u__5 __pyx_string_tab[24]
+#define __pyx_n_u__6 __pyx_string_tab[25]
+#define __pyx_n_u__7 __pyx_string_tab[26]
+#define __pyx_n_u__8 __pyx_string_tab[27]
+#define __pyx_kp_u__9 __pyx_string_tab[28]
+#define __pyx_kp_u_add_note __pyx_string_tab[29]
+#define __pyx_n_u_apply_route_config __pyx_string_tab[30]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[31]
+#define __pyx_n_u_auth __pyx_string_tab[32]
+#define __pyx_n_u_auth_act __pyx_string_tab[33]
+#define __pyx_n_u_auth_auth_router __pyx_string_tab[34]
+#define __pyx_n_u_auth_obj __pyx_string_tab[35]
+#define __pyx_n_u_auth_obj_2 __pyx_string_tab[36]
+#define __pyx_n_u_auth_role __pyx_string_tab[37]
+#define __pyx_n_u_auth_router __pyx_string_tab[38]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[39]
+#define __pyx_n_u_cls __pyx_string_tab[40]
+#define __pyx_kp_u_create __pyx_string_tab[41]
+#define __pyx_n_u_create_2 __pyx_string_tab[42]
+#define __pyx_kp_u_create_RBAC_ABAC_Restful_API_Ge __pyx_string_tab[43]
+#define __pyx_n_u_create_router __pyx_string_tab[44]
+#define __pyx_n_u_create_router_2 __pyx_string_tab[45]
+#define __pyx_n_u_create_schema __pyx_string_tab[46]
+#define __pyx_n_u_db_config_name __pyx_string_tab[47]
+#define __pyx_n_u_default_role __pyx_string_tab[48]
+#define __pyx_n_u_default_role_2 __pyx_string_tab[49]
+#define __pyx_n_u_default_router __pyx_string_tab[50]
+#define __pyx_kp_u_delete __pyx_string_tab[51]
+#define __pyx_n_u_delete_2 __pyx_string_tab[52]
+#define __pyx_n_u_delete_router __pyx_string_tab[53]
+#define __pyx_n_u_delete_router_2 __pyx_string_tab[54]
+#define __pyx_n_u_doc __pyx_string_tab[55]
+#define __pyx_n_u_enabled __pyx_string_tab[56]
+#define __pyx_n_u_func __pyx_string_tab[57]
+#define __pyx_n_u_generic_controller __pyx_string_tab[58]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[59]
+#define __pyx_n_u_main __pyx_string_tab[60]
+#define __pyx_n_u_message __pyx_string_tab[61]
+#define __pyx_n_u_metaclass __pyx_string_tab[62]
+#define __pyx_n_u_model_class __pyx_string_tab[63]
+#define __pyx_n_u_module __pyx_string_tab[64]
+#define __pyx_n_u_name __pyx_string_tab[65]
+#define __pyx_n_u_pop __pyx_string_tab[66]
+#define __pyx_n_u_prefix __pyx_string_tab[67]
+#define __pyx_n_u_prefix_2 __pyx_string_tab[68]
+#define __pyx_n_u_prepare __pyx_string_tab[69]
+#define __pyx_n_u_qualname __pyx_string_tab[70]
+#define __pyx_kp_u_query __pyx_string_tab[71]
+#define __pyx_n_u_query_2 __pyx_string_tab[72]
+#define __pyx_n_u_query_router __pyx_string_tab[73]
+#define __pyx_n_u_query_router_2 __pyx_string_tab[74]
+#define __pyx_kp_u_read __pyx_string_tab[75]
+#define __pyx_n_u_read_2 __pyx_string_tab[76]
+#define __pyx_n_u_read_router __pyx_string_tab[77]
+#define __pyx_n_u_read_router_2 __pyx_string_tab[78]
+#define __pyx_n_u_response_schema __pyx_string_tab[79]
+#define __pyx_n_u_router __pyx_string_tab[80]
+#define __pyx_n_u_router_config __pyx_string_tab[81]
+#define __pyx_n_u_schema_name __pyx_string_tab[82]
+#define __pyx_n_u_schema_name1 __pyx_string_tab[83]
+#define __pyx_n_u_schema_name2 __pyx_string_tab[84]
+#define __pyx_n_u_set_name __pyx_string_tab[85]
+#define __pyx_n_u_summary __pyx_string_tab[86]
+#define __pyx_n_u_table __pyx_string_tab[87]
+#define __pyx_n_u_table_controller __pyx_string_tab[88]
+#define __pyx_kp_u_table_controller_py __pyx_string_tab[89]
+#define __pyx_n_u_table_name __pyx_string_tab[90]
+#define __pyx_n_u_tag __pyx_string_tab[91]
+#define __pyx_n_u_tags __pyx_string_tab[92]
+#define __pyx_n_u_test __pyx_string_tab[93]
+#define __pyx_n_u_type_var __pyx_string_tab[94]
+#define __pyx_n_u_typing __pyx_string_tab[95]
+#define __pyx_kp_u_update __pyx_string_tab[96]
+#define __pyx_n_u_update_2 __pyx_string_tab[97]
+#define __pyx_n_u_update_router __pyx_string_tab[98]
+#define __pyx_n_u_update_router_2 __pyx_string_tab[99]
+#define __pyx_n_u_update_schema __pyx_string_tab[100]
+#define __pyx_kp_u_v1 __pyx_string_tab[101]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2321,8 +2556,8 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<26; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<102; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2343,201 +2578,1361 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<26; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<102; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "field.py":15
+/* "table_controller.py":27
+ *     """
  * 
- * # noinspection PyPep8Naming
- * def Field(*args: Any, **kwargs: Any) -> SQLModelField:             # <<<<<<<<<<<<<<
- *     """ description   sa_column_kwargs { "comment": description }  """
- *     if "description" in kwargs:
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def create(
+ *             cls,
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5field_1Field(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-PyDoc_STRVAR(__pyx_doc_5field_Field, " description \345\255\227\346\256\265 \350\275\254 sa_column_kwargs { \"comment\": description } \345\267\245\345\216\202\345\207\275\346\225\260 ");
-static PyMethodDef __pyx_mdef_5field_1Field = {"Field", (PyCFunction)(void(*)(void))(PyCFunctionWithKeywords)__pyx_pw_5field_1Field, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5field_Field};
-static PyObject *__pyx_pw_5field_1Field(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyObject *__pyx_v_args = 0;
-  PyObject *__pyx_v_kwargs = 0;
+static PyObject *__pyx_pw_16table_controller_14AuthController_1create(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_16table_controller_14AuthController_create, "\n        \345\210\233\345\273\272\344\270\200\344\270\252\345\270\246\346\235\203\351\231\220\346\216\247\345\210\266\347\232\204\346\216\247\345\210\266\345\231\250\345\256\236\344\276\213\357\274\214\345\271\266\346\263\250\345\206\214\345\257\271\345\272\224\350\267\257\347\224\261\343\200\202\n\n        \350\257\245\346\226\271\346\263\225\351\200\232\350\277\207\347\273\204\345\220\210 `AuthRouter` \344\270\216 `GenericController`\357\274\214\344\270\272\346\214\207\345\256\232\347\232\204\346\225\260\346\215\256\346\250\241\345\236\213\350\207\252\345\212\250\347\224\237\346\210\220\346\240\207\345\207\206\n        CRUD+Q\357\274\210\346\237\245\350\257\242\357\274\211\346\216\245\345\217\243\357\274\214\345\271\266\351\233\206\346\210\220\346\235\203\351\231\220\344\270\255\351\227\264\344\273\266\343\200\202\346\211\200\346\234\211\346\216\245\345\217\243\351\273\230\350\256\244\345\220\257\347\224\250\350\256\244\350\257\201\344\270\216\346\216\210\346\235\203\357\274\214\n        \345\217\257\351\200\232\350\277\207 `RouterConfig` \347\262\276\347\273\206\346\216\247\345\210\266\345\220\204\346\223\215\344\275\234\347\232\204\350\241\214\344\270\272\343\200\202\n\n        Args:\n            model_class (Type[SQLModelDB]): \345\257\271\345\272\224\346\225\260\346\215\256\345\272\223\350\241\250\347\232\204 SQLModel \346\250\241\345\236\213\347\261\273\357\274\210\351\234\200\347\273\247\346\211\277\350\207\252 SQLModelDB\357\274\211\343\200\202\n            create_schema (Type[SQLModelCreate], optional): \345\210\233\345\273\272\346\225\260\346\215\256\346\227\266\344\275\277\347\224\250\347\232\204 Pydantic \350\276\223\345\205\245\346\250\241\345\236\213\343\200\202\n            update_schema (Type[SQLModelUpdate], optional): \346\233\264\346\226\260\346\225\260\346\215\256\346\227\266\344\275\277\347\224\250\347\232\204 Pydantic \350\276\223\345\205\245\346\250\241\345\236\213\343\200\202\n            response_schema (Type[SQLModelResponse]): \346\216""\245\345\217\243\350\277\224\345\233\236\346\227\266\344\275\277\347\224\250\347\232\204 Pydantic \350\276\223\345\207\272\346\250\241\345\236\213\343\200\202\n            create_router (RouterConfig, optional): \345\210\233\345\273\272\346\223\215\344\275\234\347\232\204\350\267\257\347\224\261\351\205\215\347\275\256\343\200\202\350\213\245\344\270\272 None\357\274\214\345\210\231\344\275\277\347\224\250\351\273\230\350\256\244\351\205\215\347\275\256\343\200\202\n            update_router (RouterConfig, optional): \346\233\264\346\226\260\346\223\215\344\275\234\347\232\204\350\267\257\347\224\261\351\205\215\347\275\256\343\200\202\350\213\245\344\270\272 None\357\274\214\345\210\231\344\275\277\347\224\250\351\273\230\350\256\244\351\205\215\347\275\256\343\200\202\n            read_router (RouterConfig, optional): \345\215\225\346\235\241\350\257\273\345\217\226\346\223\215\344\275\234\347\232\204\350\267\257\347\224\261\351\205\215\347\275\256\343\200\202\350\213\245\344\270\272 None\357\274\214\345\210\231\344\275\277\347\224\250\351\273\230\350\256\244\351\205\215\347\275\256\343\200\202\n            delete_router (RouterConfig, optional): \345\210\240\351\231\244\346\223\215\344\275\234\347\232\204\350\267\257\347\224\261\351\205\215\347\275\256\343\200\202\350\213\245\344\270\272 None\357\274\214\345\210\231\344\275\277\347\224\250\351\273\230\350\256\244\351\205\215\347\275\256\343\200\202\n            query_router (RouterConfig, optional): \345\210\227\350\241\250\346\237\245\350\257\242\346\223\215\344\275\234\347\232\204\350\267\257\347\224\261\351\205\215\347\275\256\343\200\202\350\213\245\344\270\272 None\357\274\214\345\210\231\344\275\277\347\224\250\351\273\230\350\256\244\351\205\215\347\275\256\343\200\202\n            prefix (str, optional): API \350\267\257\347\224\261\345\211\215\347\274\200\343\200\202\350\213\245\346\234\252\346\214\207\345\256\232\357\274\214\345\260\206\350\207\252\345\212\250\347\224\237\346\210\220\344\270\272 ``/v1/{""schema_name}/{table_name}``\343\200\202\n            schema_name (str, optional): \351\200\273\350\276\221\346\250\241\345\235\227\345\220\215\357\274\210\345\246\202 \"user\", \"order\"\357\274\211\357\274\214\347\224\250\344\272\216\347\224\237\346\210\220\351\273\230\350\256\244\346\235\203\351\231\220\350\247\222\350\211\262\343\200\201\345\257\271\350\261\241\345\220\215\345\217\212\346\240\207\347\255\276\343\200\202\n            table_name (str, optional): \346\225\260\346\215\256\350\241\250\345\220\215\357\274\210\346\210\226\350\265\204\346\272\220\345\220\215\357\274\211\357\274\214\347\224\250\344\272\216\347\224\237\346\210\220\350\267\257\347\224\261\345\211\215\347\274\200\345\222\214\346\235\203\351\231\220\345\257\271\350\261\241\346\240\207\350\257\206\343\200\202\n            tags (List[str], optional): OpenAPI \346\226\207\346\241\243\344\270\255\347\232\204\346\240\207\347\255\276\357\274\214\347\224\250\344\272\216\345\210\206\347\273\204\346\216\245\345\217\243\343\200\202\351\273\230\350\256\244\344\270\272 ``[\"{schema_name}.table\"]``\343\200\202\n            default_role (str, optional): \351\273\230\350\256\244\350\247\222\350\211\262\345\220\215\357\274\214\347\224\250\344\272\216\350\247\222\350\211\262\345\256\232\344\271\211\345\271\266\345\205\263\350\201\224\345\257\271\350\261\241\345\212\250\344\275\234\343\200\202\351\273\230\350\256\244\344\270\272 ``schema_name``\343\200\202\n            auth_role (str, optional): \347\211\271\345\256\232\350\247\222\350\211\262\350\256\277\351\227\256\346\216\210\346\235\203\346\240\241\351\252\214\346\227\266\344\275\277\347\224\250\347\232\204\350\247\222\350\211\262\346\240\207\350\257\206\343\200\202\351\273\230\350\256\244\344\270\272 None\343\200\202\n            auth_obj (str, optional): \346\235\203\351\231\220\346\240\241\351\252\214\346\227\266\347\232\204\346\223\215\344\275\234\345\257\271\350\261\241\357\274\210\350\265\204\346\272\220\357\274\211\346\240\207\350\257\206\343\200""\202\351\273\230\350\256\244\344\270\272 ``{schema_name}.{table_name}``\343\200\202\n            auth_act (str, optional): \345\205\250\345\261\200\351\273\230\350\256\244\347\232\204\346\223\215\344\275\234\345\212\250\344\275\234\357\274\210\345\246\202 \"read\"\357\274\211\357\274\214\344\275\206\351\200\232\345\270\270\347\224\261\345\220\204 RouterConfig \350\246\206\347\233\226\343\200\202\n            db_config_name (str, optional): \346\214\207\345\256\232\344\275\277\347\224\250\347\232\204\346\225\260\346\215\256\345\272\223\351\205\215\347\275\256\345\220\215\347\247\260\343\200\202\n\n        Returns:\n            AuthRouter: \345\267\262\351\205\215\347\275\256\345\271\266\346\263\250\345\206\214\344\272\206\346\211\200\346\234\211\346\223\215\344\275\234\350\267\257\347\224\261\347\232\204\350\256\244\350\257\201\350\267\257\347\224\261\345\231\250\345\256\236\344\276\213\357\274\214\345\217\257\347\224\250\344\272\216\346\214\202\350\275\275\345\210\260 FastAPI \345\272\224\347\224\250\343\200\202\n\n        Note:\n            - \345\220\204 ``RouterConfig`` \345\256\236\344\276\213\350\213\245\346\234\252\346\230\276\345\274\217\350\256\276\347\275\256 ``enabled=False``\357\274\214\345\210\231\345\257\271\345\272\224\346\216\245\345\217\243\345\260\206\350\242\253\345\220\257\347\224\250\343\200\202\n            - \346\235\203\351\231\220\345\255\227\346\256\265\357\274\210\345\246\202 ``auth_role``, ``auth_obj``, ``auth_act``\357\274\211\346\224\257\346\214\201\345\234\250\345\205\250\345\261\200\345\222\214\345\215\225\344\270\252\350\267\257\347\224\261\347\272\247\345\210\253\345\210\206\345\210\253\351\205\215\347\275\256\357\274\214\n              \350\267\257\347\224\261\347\272\247\345\210\253\351\205\215\347\275\256\344\274\230\345\205\210\343\200\202\n            - \350\207\252\345\212\250\347\224\237\346\210\220\347\232\204\346\235\203\351\231\220\346\240\207\350\257\206\351\201\265\345\276\252 ``{schema}.{resource}`` \345\221\275\345\220""\215\350\247\204\350\214\203\357\274\214\344\276\277\344\272\216 RBAC/ABAC \347\255\226\347\225\245\347\256\241\347\220\206\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_16table_controller_14AuthController_1create = {"create", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_16table_controller_14AuthController_1create, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_16table_controller_14AuthController_create};
+static PyObject *__pyx_pw_16table_controller_14AuthController_1create(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  CYTHON_UNUSED PyObject *__pyx_v_cls = 0;
+  PyObject *__pyx_v_model_class = 0;
+  PyObject *__pyx_v_create_schema = 0;
+  PyObject *__pyx_v_update_schema = 0;
+  PyObject *__pyx_v_response_schema = 0;
+  PyObject *__pyx_v_create_router = 0;
+  PyObject *__pyx_v_update_router = 0;
+  PyObject *__pyx_v_read_router = 0;
+  PyObject *__pyx_v_delete_router = 0;
+  PyObject *__pyx_v_query_router = 0;
+  PyObject *__pyx_v_prefix = 0;
+  PyObject *__pyx_v_schema_name = 0;
+  PyObject *__pyx_v_table_name = 0;
+  PyObject *__pyx_v_tags = 0;
+  PyObject *__pyx_v_default_role = 0;
+  PyObject *__pyx_v_auth_role = 0;
+  PyObject *__pyx_v_auth_obj = 0;
+  PyObject *__pyx_v_auth_act = 0;
+  PyObject *__pyx_v_db_config_name = 0;
+  #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[19] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("Field (wrapper)", 0);
+  __Pyx_RefNannySetupContext("create (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
   #else
   __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
   #endif
-  __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_VARARGS(__pyx_kwds) : 0;
-  if (unlikely(__pyx_kwds_len < 0)) return NULL;
-  if (__pyx_kwds_len > 0) {
-    if (unlikely(__Pyx_CheckKeywordStrings("Field", __pyx_kwds) == -1)) return NULL;
-    __pyx_v_kwargs = __Pyx_KwargsAsDict_VARARGS(__pyx_kwds, __pyx_kwvalues);
-    if (unlikely(!__pyx_v_kwargs)) return NULL;
-    __Pyx_GOTREF(__pyx_v_kwargs);
-  } else {
-    __pyx_v_kwargs = PyDict_New();
-    if (unlikely(!__pyx_v_kwargs)) return NULL;
-    __Pyx_GOTREF(__pyx_v_kwargs);
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_response_schema,&__pyx_mstate_global->__pyx_n_u_create_schema,&__pyx_mstate_global->__pyx_n_u_update_schema,&__pyx_mstate_global->__pyx_n_u_create_router,&__pyx_mstate_global->__pyx_n_u_update_router,&__pyx_mstate_global->__pyx_n_u_read_router,&__pyx_mstate_global->__pyx_n_u_delete_router,&__pyx_mstate_global->__pyx_n_u_query_router,&__pyx_mstate_global->__pyx_n_u_prefix,&__pyx_mstate_global->__pyx_n_u_schema_name,&__pyx_mstate_global->__pyx_n_u_table_name,&__pyx_mstate_global->__pyx_n_u_tags,&__pyx_mstate_global->__pyx_n_u_default_role,&__pyx_mstate_global->__pyx_n_u_auth_role,&__pyx_mstate_global->__pyx_n_u_auth_obj,&__pyx_mstate_global->__pyx_n_u_auth_act,&__pyx_mstate_global->__pyx_n_u_db_config_name,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 27, __pyx_L3_error)
+    if (likely(__pyx_kwds_len > 0)) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 27, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "create", 0) < 0) __PYX_ERR(0, 27, __pyx_L3_error)
+
+      /* "table_controller.py":32
+ *             *,
+ *             model_class: Type[SQLModelDB],
+ *             create_schema: Type[SQLModelCreate] = None,             # <<<<<<<<<<<<<<
+ *             update_schema: Type[SQLModelUpdate] = None,
+ *             response_schema: Type[SQLModelResponse],
+*/
+      if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
+
+      /* "table_controller.py":33
+ *             model_class: Type[SQLModelDB],
+ *             create_schema: Type[SQLModelCreate] = None,
+ *             update_schema: Type[SQLModelUpdate] = None,             # <<<<<<<<<<<<<<
+ *             response_schema: Type[SQLModelResponse],
+ *             create_router: RouterConfig = None,
+*/
+      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)Py_None));
+
+      /* "table_controller.py":35
+ *             update_schema: Type[SQLModelUpdate] = None,
+ *             response_schema: Type[SQLModelResponse],
+ *             create_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             update_router: RouterConfig = None,
+ *             read_router: RouterConfig = None,
+*/
+      if (!values[5]) values[5] = __Pyx_NewRef(((PyObject *)Py_None));
+
+      /* "table_controller.py":36
+ *             response_schema: Type[SQLModelResponse],
+ *             create_router: RouterConfig = None,
+ *             update_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             read_router: RouterConfig = None,
+ *             delete_router: RouterConfig = None,
+*/
+      if (!values[6]) values[6] = __Pyx_NewRef(((PyObject *)Py_None));
+
+      /* "table_controller.py":37
+ *             create_router: RouterConfig = None,
+ *             update_router: RouterConfig = None,
+ *             read_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             delete_router: RouterConfig = None,
+ *             query_router: RouterConfig = None,
+*/
+      if (!values[7]) values[7] = __Pyx_NewRef(((PyObject *)Py_None));
+
+      /* "table_controller.py":38
+ *             update_router: RouterConfig = None,
+ *             read_router: RouterConfig = None,
+ *             delete_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             query_router: RouterConfig = None,
+ *             #
+*/
+      if (!values[8]) values[8] = __Pyx_NewRef(((PyObject *)Py_None));
+
+      /* "table_controller.py":39
+ *             read_router: RouterConfig = None,
+ *             delete_router: RouterConfig = None,
+ *             query_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             #
+ *             prefix: Optional[str] = None,
+*/
+      if (!values[9]) values[9] = __Pyx_NewRef(((PyObject *)Py_None));
+
+      /* "table_controller.py":41
+ *             query_router: RouterConfig = None,
+ *             #
+ *             prefix: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             schema_name: Optional[str] = None,
+ *             table_name: Optional[str] = None,
+*/
+      if (!values[10]) values[10] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":42
+ *             #
+ *             prefix: Optional[str] = None,
+ *             schema_name: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             table_name: Optional[str] = None,
+ *             tags: Optional[list] = None,
+*/
+      if (!values[11]) values[11] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":43
+ *             prefix: Optional[str] = None,
+ *             schema_name: Optional[str] = None,
+ *             table_name: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             tags: Optional[list] = None,
+ *             default_role: Optional[str] = None,
+*/
+      if (!values[12]) values[12] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":44
+ *             schema_name: Optional[str] = None,
+ *             table_name: Optional[str] = None,
+ *             tags: Optional[list] = None,             # <<<<<<<<<<<<<<
+ *             default_role: Optional[str] = None,
+ *             auth_role: Optional[str] = None,
+*/
+      if (!values[13]) values[13] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":45
+ *             table_name: Optional[str] = None,
+ *             tags: Optional[list] = None,
+ *             default_role: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             auth_role: Optional[str] = None,
+ *             auth_obj: Optional[str] = None,
+*/
+      if (!values[14]) values[14] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":46
+ *             tags: Optional[list] = None,
+ *             default_role: Optional[str] = None,
+ *             auth_role: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             auth_obj: Optional[str] = None,
+ *             auth_act: Optional[str] = None,
+*/
+      if (!values[15]) values[15] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":47
+ *             default_role: Optional[str] = None,
+ *             auth_role: Optional[str] = None,
+ *             auth_obj: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             auth_act: Optional[str] = None,
+ *             db_config_name: Optional[str] = None,
+*/
+      if (!values[16]) values[16] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":48
+ *             auth_role: Optional[str] = None,
+ *             auth_obj: Optional[str] = None,
+ *             auth_act: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             db_config_name: Optional[str] = None,
+ *     ):
+*/
+      if (!values[17]) values[17] = __Pyx_NewRef(((PyObject*)Py_None));
+
+      /* "table_controller.py":49
+ *             auth_obj: Optional[str] = None,
+ *             auth_act: Optional[str] = None,
+ *             db_config_name: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *     ):
+ *         """
+*/
+      if (!values[18]) values[18] = __Pyx_NewRef(((PyObject*)Py_None));
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("create", 1, 1, 1, i); __PYX_ERR(0, 27, __pyx_L3_error) }
+      }
+      for (Py_ssize_t i = 1; i < 3; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("create", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 27, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      __Pyx_RaiseKeywordRequired("create", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 27, __pyx_L3_error)
+    }
+    __pyx_v_cls = values[0];
+    __pyx_v_model_class = values[1];
+    __pyx_v_response_schema = values[2];
+    __pyx_v_create_schema = values[3];
+    __pyx_v_update_schema = values[4];
+    __pyx_v_create_router = values[5];
+    __pyx_v_update_router = values[6];
+    __pyx_v_read_router = values[7];
+    __pyx_v_delete_router = values[8];
+    __pyx_v_query_router = values[9];
+    __pyx_v_prefix = ((PyObject*)values[10]);
+    __pyx_v_schema_name = ((PyObject*)values[11]);
+    __pyx_v_table_name = ((PyObject*)values[12]);
+    __pyx_v_tags = ((PyObject*)values[13]);
+    __pyx_v_default_role = ((PyObject*)values[14]);
+    __pyx_v_auth_role = ((PyObject*)values[15]);
+    __pyx_v_auth_obj = ((PyObject*)values[16]);
+    __pyx_v_auth_act = ((PyObject*)values[17]);
+    __pyx_v_db_config_name = ((PyObject*)values[18]);
   }
-  __Pyx_INCREF(__pyx_args);
-  __pyx_v_args = __pyx_args;
-  __pyx_r = __pyx_pf_5field_Field(__pyx_self, __pyx_v_args, __pyx_v_kwargs);
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("create", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 27, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("table_controller.AuthController.create", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prefix), (&PyUnicode_Type), 1, "prefix", 2))) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_table_name), (&PyUnicode_Type), 1, "table_name", 2))) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_tags), (&PyList_Type), 1, "tags", 2))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_default_role), (&PyUnicode_Type), 1, "default_role", 2))) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_auth_role), (&PyUnicode_Type), 1, "auth_role", 2))) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_auth_obj), (&PyUnicode_Type), 1, "auth_obj", 2))) __PYX_ERR(0, 47, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_auth_act), (&PyUnicode_Type), 1, "auth_act", 2))) __PYX_ERR(0, 48, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_db_config_name), (&PyUnicode_Type), 1, "db_config_name", 2))) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_r = __pyx_pf_16table_controller_14AuthController_create(__pyx_self, __pyx_v_cls, __pyx_v_model_class, __pyx_v_create_schema, __pyx_v_update_schema, __pyx_v_response_schema, __pyx_v_create_router, __pyx_v_update_router, __pyx_v_read_router, __pyx_v_delete_router, __pyx_v_query_router, __pyx_v_prefix, __pyx_v_schema_name, __pyx_v_table_name, __pyx_v_tags, __pyx_v_default_role, __pyx_v_auth_role, __pyx_v_auth_obj, __pyx_v_auth_act, __pyx_v_db_config_name);
+
+  /* "table_controller.py":27
+ *     """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def create(
+ *             cls,
+*/
 
   /* function exit code */
-  __Pyx_DECREF(__pyx_v_args);
-  __Pyx_DECREF(__pyx_v_kwargs);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  goto __pyx_L7_cleaned_up;
+  __pyx_L0:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __pyx_L7_cleaned_up:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5field_Field(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs) {
-  PyObject *__pyx_v_description = NULL;
-  PyObject *__pyx_v_sa_column_kwargs = NULL;
+/* "table_controller.py":106
+ *         )
+ * 
+ *         def _apply_route_config(router, default_router):             # <<<<<<<<<<<<<<
+ *             if router is None:
+ *                 return default_router
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_16table_controller_14AuthController_6create_1_apply_route_config(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_16table_controller_14AuthController_6create_1_apply_route_config = {"_apply_route_config", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_16table_controller_14AuthController_6create_1_apply_route_config, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_16table_controller_14AuthController_6create_1_apply_route_config(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_router = 0;
+  PyObject *__pyx_v_default_router = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_apply_route_config (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_router,&__pyx_mstate_global->__pyx_n_u_default_router,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 106, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 106, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 106, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_apply_route_config", 0) < 0) __PYX_ERR(0, 106, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_apply_route_config", 1, 2, 2, i); __PYX_ERR(0, 106, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 2)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 106, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 106, __pyx_L3_error)
+    }
+    __pyx_v_router = values[0];
+    __pyx_v_default_router = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("_apply_route_config", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 106, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("table_controller.AuthController.create._apply_route_config", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_16table_controller_14AuthController_6create__apply_route_config(__pyx_self, __pyx_v_router, __pyx_v_default_router);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_16table_controller_14AuthController_6create__apply_route_config(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_router, PyObject *__pyx_v_default_router) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("Field", 0);
+  __Pyx_RefNannySetupContext("_apply_route_config", 0);
 
-  /* "field.py":17
- * def Field(*args: Any, **kwargs: Any) -> SQLModelField:
- *     """ description   sa_column_kwargs { "comment": description }  """
- *     if "description" in kwargs:             # <<<<<<<<<<<<<<
- *         description = kwargs.get("description")
- *         if "sa_column_kwargs" in kwargs:
+  /* "table_controller.py":107
+ * 
+ *         def _apply_route_config(router, default_router):
+ *             if router is None:             # <<<<<<<<<<<<<<
+ *                 return default_router
+ *             if router.enabled is False:
 */
-  __pyx_t_1 = (__Pyx_PyDict_ContainsTF(__pyx_mstate_global->__pyx_n_u_description, __pyx_v_kwargs, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_v_router == Py_None);
   if (__pyx_t_1) {
 
-    /* "field.py":18
- *     """ description   sa_column_kwargs { "comment": description }  """
- *     if "description" in kwargs:
- *         description = kwargs.get("description")             # <<<<<<<<<<<<<<
- *         if "sa_column_kwargs" in kwargs:
- *             sa_column_kwargs = kwargs.get("sa_column_kwargs")
+    /* "table_controller.py":108
+ *         def _apply_route_config(router, default_router):
+ *             if router is None:
+ *                 return default_router             # <<<<<<<<<<<<<<
+ *             if router.enabled is False:
+ *                 return router
 */
-    __pyx_t_2 = __Pyx_PyDict_GetItemDefault(__pyx_v_kwargs, __pyx_mstate_global->__pyx_n_u_description, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_v_description = __pyx_t_2;
-    __pyx_t_2 = 0;
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_v_default_router);
+    __pyx_r = __pyx_v_default_router;
+    goto __pyx_L0;
 
-    /* "field.py":19
- *     if "description" in kwargs:
- *         description = kwargs.get("description")
- *         if "sa_column_kwargs" in kwargs:             # <<<<<<<<<<<<<<
- *             sa_column_kwargs = kwargs.get("sa_column_kwargs")
- *             sa_column_kwargs["comment"] = description
-*/
-    __pyx_t_1 = (__Pyx_PyDict_ContainsTF(__pyx_mstate_global->__pyx_n_u_sa_column_kwargs, __pyx_v_kwargs, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 19, __pyx_L1_error)
-    if (__pyx_t_1) {
-
-      /* "field.py":20
- *         description = kwargs.get("description")
- *         if "sa_column_kwargs" in kwargs:
- *             sa_column_kwargs = kwargs.get("sa_column_kwargs")             # <<<<<<<<<<<<<<
- *             sa_column_kwargs["comment"] = description
- *         else:
-*/
-      __pyx_t_2 = __Pyx_PyDict_GetItemDefault(__pyx_v_kwargs, __pyx_mstate_global->__pyx_n_u_sa_column_kwargs, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_v_sa_column_kwargs = __pyx_t_2;
-      __pyx_t_2 = 0;
-
-      /* "field.py":21
- *         if "sa_column_kwargs" in kwargs:
- *             sa_column_kwargs = kwargs.get("sa_column_kwargs")
- *             sa_column_kwargs["comment"] = description             # <<<<<<<<<<<<<<
- *         else:
- *             kwargs["sa_column_kwargs"] = {"comment": description}
-*/
-      if (unlikely((PyObject_SetItem(__pyx_v_sa_column_kwargs, __pyx_mstate_global->__pyx_n_u_comment, __pyx_v_description) < 0))) __PYX_ERR(0, 21, __pyx_L1_error)
-
-      /* "field.py":19
- *     if "description" in kwargs:
- *         description = kwargs.get("description")
- *         if "sa_column_kwargs" in kwargs:             # <<<<<<<<<<<<<<
- *             sa_column_kwargs = kwargs.get("sa_column_kwargs")
- *             sa_column_kwargs["comment"] = description
-*/
-      goto __pyx_L4;
-    }
-
-    /* "field.py":23
- *             sa_column_kwargs["comment"] = description
- *         else:
- *             kwargs["sa_column_kwargs"] = {"comment": description}             # <<<<<<<<<<<<<<
- *     return SQLModelField(*args, **kwargs)
+    /* "table_controller.py":107
  * 
-*/
-    /*else*/ {
-      __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_comment, __pyx_v_description) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-      if (unlikely((PyDict_SetItem(__pyx_v_kwargs, __pyx_mstate_global->__pyx_n_u_sa_column_kwargs, __pyx_t_2) < 0))) __PYX_ERR(0, 23, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    }
-    __pyx_L4:;
-
-    /* "field.py":17
- * def Field(*args: Any, **kwargs: Any) -> SQLModelField:
- *     """ description   sa_column_kwargs { "comment": description }  """
- *     if "description" in kwargs:             # <<<<<<<<<<<<<<
- *         description = kwargs.get("description")
- *         if "sa_column_kwargs" in kwargs:
+ *         def _apply_route_config(router, default_router):
+ *             if router is None:             # <<<<<<<<<<<<<<
+ *                 return default_router
+ *             if router.enabled is False:
 */
   }
 
-  /* "field.py":24
- *         else:
- *             kwargs["sa_column_kwargs"] = {"comment": description}
- *     return SQLModelField(*args, **kwargs)             # <<<<<<<<<<<<<<
+  /* "table_controller.py":109
+ *             if router is None:
+ *                 return default_router
+ *             if router.enabled is False:             # <<<<<<<<<<<<<<
+ *                 return router
  * 
 */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SQLModelField); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_1 = (__pyx_t_2 == Py_False);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_1) {
+
+    /* "table_controller.py":110
+ *                 return default_router
+ *             if router.enabled is False:
+ *                 return router             # <<<<<<<<<<<<<<
+ * 
+ *             router.auth = router.auth or default_router.auth
+*/
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_v_router);
+    __pyx_r = __pyx_v_router;
+    goto __pyx_L0;
+
+    /* "table_controller.py":109
+ *             if router is None:
+ *                 return default_router
+ *             if router.enabled is False:             # <<<<<<<<<<<<<<
+ *                 return router
+ * 
+*/
+  }
+
+  /* "table_controller.py":112
+ *                 return router
+ * 
+ *             router.auth = router.auth or default_router.auth             # <<<<<<<<<<<<<<
+ *             router.auth_role = router.auth_role or default_router.auth_role
+ *             router.auth_obj = router.auth_obj or default_router.auth_obj
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (!__pyx_t_1) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L5_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_r = __pyx_t_4;
-  __pyx_t_4 = 0;
+  __pyx_L5_bool_binop_done:;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth, __pyx_t_2) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":113
+ * 
+ *             router.auth = router.auth or default_router.auth
+ *             router.auth_role = router.auth_role or default_router.auth_role             # <<<<<<<<<<<<<<
+ *             router.auth_obj = router.auth_obj or default_router.auth_obj
+ *             router.auth_act = router.auth_act or default_router.auth_act
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (!__pyx_t_1) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L7_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_L7_bool_binop_done:;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_role, __pyx_t_2) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":114
+ *             router.auth = router.auth or default_router.auth
+ *             router.auth_role = router.auth_role or default_router.auth_role
+ *             router.auth_obj = router.auth_obj or default_router.auth_obj             # <<<<<<<<<<<<<<
+ *             router.auth_act = router.auth_act or default_router.auth_act
+ *             router.message = router.message or default_router.message
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (!__pyx_t_1) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L9_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_L9_bool_binop_done:;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_obj, __pyx_t_2) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":115
+ *             router.auth_role = router.auth_role or default_router.auth_role
+ *             router.auth_obj = router.auth_obj or default_router.auth_obj
+ *             router.auth_act = router.auth_act or default_router.auth_act             # <<<<<<<<<<<<<<
+ *             router.message = router.message or default_router.message
+ *             router.summary = router.summary or default_router.summary
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_act); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 115, __pyx_L1_error)
+  if (!__pyx_t_1) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L11_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_act); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_L11_bool_binop_done:;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_act, __pyx_t_2) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":116
+ *             router.auth_obj = router.auth_obj or default_router.auth_obj
+ *             router.auth_act = router.auth_act or default_router.auth_act
+ *             router.message = router.message or default_router.message             # <<<<<<<<<<<<<<
+ *             router.summary = router.summary or default_router.summary
+ *             return router
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_message); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 116, __pyx_L1_error)
+  if (!__pyx_t_1) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L13_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_message); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_L13_bool_binop_done:;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_message, __pyx_t_2) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":117
+ *             router.auth_act = router.auth_act or default_router.auth_act
+ *             router.message = router.message or default_router.message
+ *             router.summary = router.summary or default_router.summary             # <<<<<<<<<<<<<<
+ *             return router
+ * 
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_summary); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (!__pyx_t_1) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L15_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_summary); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_L15_bool_binop_done:;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_summary, __pyx_t_2) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":118
+ *             router.message = router.message or default_router.message
+ *             router.summary = router.summary or default_router.summary
+ *             return router             # <<<<<<<<<<<<<<
+ * 
+ *         #
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_router);
+  __pyx_r = __pyx_v_router;
   goto __pyx_L0;
 
-  /* "field.py":15
+  /* "table_controller.py":106
+ *         )
  * 
- * # noinspection PyPep8Naming
- * def Field(*args: Any, **kwargs: Any) -> SQLModelField:             # <<<<<<<<<<<<<<
- *     """ description   sa_column_kwargs { "comment": description }  """
- *     if "description" in kwargs:
+ *         def _apply_route_config(router, default_router):             # <<<<<<<<<<<<<<
+ *             if router is None:
+ *                 return default_router
 */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("field.Field", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("table_controller.AuthController.create._apply_route_config", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_description);
-  __Pyx_XDECREF(__pyx_v_sa_column_kwargs);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "table_controller.py":27
+ *     """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def create(
+ *             cls,
+*/
+
+static PyObject *__pyx_pf_16table_controller_14AuthController_create(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_schema, PyObject *__pyx_v_update_schema, PyObject *__pyx_v_response_schema, PyObject *__pyx_v_create_router, PyObject *__pyx_v_update_router, PyObject *__pyx_v_read_router, PyObject *__pyx_v_delete_router, PyObject *__pyx_v_query_router, PyObject *__pyx_v_prefix, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_table_name, PyObject *__pyx_v_tags, PyObject *__pyx_v_default_role, PyObject *__pyx_v_auth_role, PyObject *__pyx_v_auth_obj, PyObject *__pyx_v_auth_act, PyObject *__pyx_v_db_config_name) {
+  PyObject *__pyx_v__schema_name1 = NULL;
+  PyObject *__pyx_v__schema_name2 = NULL;
+  PyObject *__pyx_v__prefix = NULL;
+  PyObject *__pyx_v__tag = NULL;
+  PyObject *__pyx_v__default_role = NULL;
+  PyObject *__pyx_v__auth_obj = NULL;
+  PyObject *__pyx_v_auth_router = NULL;
+  PyObject *__pyx_v__apply_route_config = 0;
+  PyObject *__pyx_v__create_router = NULL;
+  PyObject *__pyx_v__update_router = NULL;
+  PyObject *__pyx_v__read_router = NULL;
+  PyObject *__pyx_v__delete_router = NULL;
+  PyObject *__pyx_v__query_router = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5[3];
+  PyObject *__pyx_t_6 = NULL;
+  size_t __pyx_t_7;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("create", 0);
+
+  /* "table_controller.py":89
+ * 
+ *         #
+ *         _schema_name1 = f"{schema_name}/" if schema_name else ""             # <<<<<<<<<<<<<<
+ *         _schema_name2 = f"{schema_name}." if schema_name else ""
+ *         _prefix = prefix or f"/v1/{_schema_name1}{table_name}"
+*/
+  if (__pyx_v_schema_name == Py_None) __pyx_t_2 = 0;
+  else
+  {
+    Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_v_schema_name);
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_2 = (__pyx_temp != 0);
+  }
+
+  if (__pyx_t_2) {
+    __pyx_t_3 = __Pyx_PyUnicode_Unicode(__pyx_v_schema_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_1 = __pyx_t_4;
+    __pyx_t_4 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__2);
+    __pyx_t_1 = __pyx_mstate_global->__pyx_kp_u__2;
+  }
+  __pyx_v__schema_name1 = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":90
+ *         #
+ *         _schema_name1 = f"{schema_name}/" if schema_name else ""
+ *         _schema_name2 = f"{schema_name}." if schema_name else ""             # <<<<<<<<<<<<<<
+ *         _prefix = prefix or f"/v1/{_schema_name1}{table_name}"
+ *         _tag = tags or [f"{_schema_name2}table"]
+*/
+  if (__pyx_v_schema_name == Py_None) __pyx_t_2 = 0;
+  else
+  {
+    Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_v_schema_name);
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_2 = (__pyx_temp != 0);
+  }
+
+  if (__pyx_t_2) {
+    __pyx_t_4 = __Pyx_PyUnicode_Unicode(__pyx_v_schema_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_3 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u__3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_1 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__2);
+    __pyx_t_1 = __pyx_mstate_global->__pyx_kp_u__2;
+  }
+  __pyx_v__schema_name2 = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":91
+ *         _schema_name1 = f"{schema_name}/" if schema_name else ""
+ *         _schema_name2 = f"{schema_name}." if schema_name else ""
+ *         _prefix = prefix or f"/v1/{_schema_name1}{table_name}"             # <<<<<<<<<<<<<<
+ *         _tag = tags or [f"{_schema_name2}table"]
+ *         _default_role = default_role or schema_name
+*/
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_prefix); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (!__pyx_t_2) {
+  } else {
+    __Pyx_INCREF(__pyx_v_prefix);
+    __pyx_t_1 = __pyx_v_prefix;
+    goto __pyx_L3_bool_binop_done;
+  }
+  __pyx_t_3 = __Pyx_PyUnicode_Unicode(__pyx_v__schema_name1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyUnicode_Unicode(__pyx_v_table_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5[0] = __pyx_mstate_global->__pyx_kp_u_v1;
+  __pyx_t_5[1] = __pyx_t_3;
+  __pyx_t_5[2] = __pyx_t_4;
+  __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_5, 3, 4 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4));
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_INCREF(__pyx_t_6);
+  __pyx_t_1 = __pyx_t_6;
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_L3_bool_binop_done:;
+  __pyx_v__prefix = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":92
+ *         _schema_name2 = f"{schema_name}." if schema_name else ""
+ *         _prefix = prefix or f"/v1/{_schema_name1}{table_name}"
+ *         _tag = tags or [f"{_schema_name2}table"]             # <<<<<<<<<<<<<<
+ *         _default_role = default_role or schema_name
+ *         _auth_obj = auth_obj or f"{_schema_name2}{table_name}"
+*/
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_tags); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (!__pyx_t_2) {
+  } else {
+    __Pyx_INCREF(__pyx_v_tags);
+    __pyx_t_1 = __pyx_v_tags;
+    goto __pyx_L5_bool_binop_done;
+  }
+  __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v__schema_name2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_4 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_GIVEREF(__pyx_t_4);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_4) != (0)) __PYX_ERR(0, 92, __pyx_L1_error);
+  __pyx_t_4 = 0;
+  __Pyx_INCREF(__pyx_t_6);
+  __pyx_t_1 = __pyx_t_6;
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_L5_bool_binop_done:;
+  __pyx_v__tag = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":93
+ *         _prefix = prefix or f"/v1/{_schema_name1}{table_name}"
+ *         _tag = tags or [f"{_schema_name2}table"]
+ *         _default_role = default_role or schema_name             # <<<<<<<<<<<<<<
+ *         _auth_obj = auth_obj or f"{_schema_name2}{table_name}"
+ * 
+*/
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_default_role); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+  if (!__pyx_t_2) {
+  } else {
+    __Pyx_INCREF(__pyx_v_default_role);
+    __pyx_t_1 = __pyx_v_default_role;
+    goto __pyx_L7_bool_binop_done;
+  }
+  __Pyx_INCREF(__pyx_v_schema_name);
+  __pyx_t_1 = __pyx_v_schema_name;
+  __pyx_L7_bool_binop_done:;
+  __pyx_v__default_role = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":94
+ *         _tag = tags or [f"{_schema_name2}table"]
+ *         _default_role = default_role or schema_name
+ *         _auth_obj = auth_obj or f"{_schema_name2}{table_name}"             # <<<<<<<<<<<<<<
+ * 
+ *         auth_router = AuthRouter(
+*/
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_auth_obj); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 94, __pyx_L1_error)
+  if (!__pyx_t_2) {
+  } else {
+    __Pyx_INCREF(__pyx_v_auth_obj);
+    __pyx_t_1 = __pyx_v_auth_obj;
+    goto __pyx_L9_bool_binop_done;
+  }
+  __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v__schema_name2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_4 = __Pyx_PyUnicode_Unicode(__pyx_v_table_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_6, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_1 = __pyx_t_3;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_L9_bool_binop_done:;
+  __pyx_v__auth_obj = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":96
+ *         _auth_obj = auth_obj or f"{_schema_name2}{table_name}"
+ * 
+ *         auth_router = AuthRouter(             # <<<<<<<<<<<<<<
+ *             prefix=_prefix,
+ *             tags=_tag,
+*/
+  __pyx_t_3 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthRouter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+
+  /* "table_controller.py":103
+ *             auth_role=auth_role,
+ *             auth_obj=_auth_obj,
+ *             auth_act=auth_act,             # <<<<<<<<<<<<<<
+ *         )
+ * 
+*/
+  __pyx_t_7 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_3);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_7 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 7 : 0)] = {__pyx_t_3, NULL};
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 96, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_v__prefix, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tags, __pyx_v__tag, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_config_name, __pyx_v_db_config_name, __pyx_t_6, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_default_role, __pyx_v__default_role, __pyx_t_6, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_role, __pyx_v_auth_role, __pyx_t_6, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_obj, __pyx_v__auth_obj, __pyx_t_6, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_v_auth_act, __pyx_t_6, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_v_auth_router = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":106
+ *         )
+ * 
+ *         def _apply_route_config(router, default_router):             # <<<<<<<<<<<<<<
+ *             if router is None:
+ *                 return default_router
+*/
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_16table_controller_14AuthController_6create_1_apply_route_config, 0, __pyx_mstate_global->__pyx_n_u_AuthController_create_locals__ap, NULL, __pyx_mstate_global->__pyx_n_u_table_controller, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v__apply_route_config = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":121
+ * 
+ *         #
+ *         _create_router = _apply_route_config(create_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="create - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="create",
+*/
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_RouterConfig); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+
+  /* "table_controller.py":123
+ *         _create_router = _apply_route_config(create_router, RouterConfig(
+ *             enabled=True, message="", summary="create - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="create",             # <<<<<<<<<<<<<<
+ *         ))
+ *         _update_router = _apply_route_config(update_router, RouterConfig(
+*/
+  __pyx_t_7 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_6);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+    __Pyx_INCREF(__pyx_t_4);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+    __pyx_t_7 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 7 : 0)] = {__pyx_t_4, NULL};
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_enabled, Py_True, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__4, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_kp_u_create, __pyx_t_3, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth, Py_True, __pyx_t_3, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_role, Py_None, __pyx_t_3, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_obj, Py_None, __pyx_t_3, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_create_2, __pyx_t_3, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+
+  /* "table_controller.py":121
+ * 
+ *         #
+ *         _create_router = _apply_route_config(create_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="create - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="create",
+*/
+  __pyx_t_6 = __pyx_pf_16table_controller_14AuthController_6create__apply_route_config(__pyx_v__apply_route_config, __pyx_v_create_router, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v__create_router = __pyx_t_6;
+  __pyx_t_6 = 0;
+
+  /* "table_controller.py":125
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="create",
+ *         ))
+ *         _update_router = _apply_route_config(update_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="update - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="update",
+*/
+  __pyx_t_1 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_RouterConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+
+  /* "table_controller.py":127
+ *         _update_router = _apply_route_config(update_router, RouterConfig(
+ *             enabled=True, message="", summary="update - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="update",             # <<<<<<<<<<<<<<
+ *         ))
+ *         _read_router = _apply_route_config(read_router, RouterConfig(
+*/
+  __pyx_t_7 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+    assert(__pyx_t_1);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+    __pyx_t_7 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 7 : 0)] = {__pyx_t_1, NULL};
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_enabled, Py_True, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__5, __pyx_t_4, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_kp_u_update, __pyx_t_4, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth, Py_True, __pyx_t_4, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_role, Py_None, __pyx_t_4, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_obj, Py_None, __pyx_t_4, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_update_2, __pyx_t_4, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 125, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+  }
+
+  /* "table_controller.py":125
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="create",
+ *         ))
+ *         _update_router = _apply_route_config(update_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="update - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="update",
+*/
+  __pyx_t_3 = __pyx_pf_16table_controller_14AuthController_6create__apply_route_config(__pyx_v__apply_route_config, __pyx_v_update_router, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_v__update_router = __pyx_t_3;
+  __pyx_t_3 = 0;
+
+  /* "table_controller.py":129
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="update",
+ *         ))
+ *         _read_router = _apply_route_config(read_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="read -  ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="read",
+*/
+  __pyx_t_6 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_RouterConfig); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+
+  /* "table_controller.py":131
+ *         _read_router = _apply_route_config(read_router, RouterConfig(
+ *             enabled=True, message="", summary="read -  ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="read",             # <<<<<<<<<<<<<<
+ *         ))
+ *         _delete_router = _apply_route_config(delete_router, RouterConfig(
+*/
+  __pyx_t_7 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_6);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_6);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_7 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 7 : 0)] = {__pyx_t_6, NULL};
+    __pyx_t_1 = __Pyx_MakeVectorcallBuilderKwds(7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_enabled, Py_True, __pyx_t_1, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__6, __pyx_t_1, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_kp_u_read, __pyx_t_1, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth, Py_True, __pyx_t_1, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_role, Py_None, __pyx_t_1, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_obj, Py_None, __pyx_t_1, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_read_2, __pyx_t_1, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_1);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+  }
+
+  /* "table_controller.py":129
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="update",
+ *         ))
+ *         _read_router = _apply_route_config(read_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="read -  ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="read",
+*/
+  __pyx_t_4 = __pyx_pf_16table_controller_14AuthController_6create__apply_route_config(__pyx_v__apply_route_config, __pyx_v_read_router, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v__read_router = __pyx_t_4;
+  __pyx_t_4 = 0;
+
+  /* "table_controller.py":133
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="read",
+ *         ))
+ *         _delete_router = _apply_route_config(delete_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="delete - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="delete",
+*/
+  __pyx_t_3 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_RouterConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+
+  /* "table_controller.py":135
+ *         _delete_router = _apply_route_config(delete_router, RouterConfig(
+ *             enabled=True, message="", summary="delete - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="delete",             # <<<<<<<<<<<<<<
+ *         ))
+ *         _query_router = _apply_route_config(query_router, RouterConfig(
+*/
+  __pyx_t_7 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_1))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+    assert(__pyx_t_3);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_1);
+    __Pyx_INCREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_1, __pyx__function);
+    __pyx_t_7 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 7 : 0)] = {__pyx_t_3, NULL};
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_enabled, Py_True, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__7, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_kp_u_delete, __pyx_t_6, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth, Py_True, __pyx_t_6, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_role, Py_None, __pyx_t_6, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_obj, Py_None, __pyx_t_6, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_delete_2, __pyx_t_6, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_1, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 133, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+  }
+
+  /* "table_controller.py":133
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="read",
+ *         ))
+ *         _delete_router = _apply_route_config(delete_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="delete - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="delete",
+*/
+  __pyx_t_1 = __pyx_pf_16table_controller_14AuthController_6create__apply_route_config(__pyx_v__apply_route_config, __pyx_v_delete_router, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_v__delete_router = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "table_controller.py":137
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="delete",
+ *         ))
+ *         _query_router = _apply_route_config(query_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="query - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="query",
+*/
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_RouterConfig); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+
+  /* "table_controller.py":139
+ *         _query_router = _apply_route_config(query_router, RouterConfig(
+ *             enabled=True, message="", summary="query - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="query",             # <<<<<<<<<<<<<<
+ *         ))
+ * 
+*/
+  __pyx_t_7 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_6);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+    __Pyx_INCREF(__pyx_t_4);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+    __pyx_t_7 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 7 : 0)] = {__pyx_t_4, NULL};
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_enabled, Py_True, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u__8, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_summary, __pyx_mstate_global->__pyx_kp_u_query, __pyx_t_3, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth, Py_True, __pyx_t_3, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_role, Py_None, __pyx_t_3, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_obj, Py_None, __pyx_t_3, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_n_u_query_2, __pyx_t_3, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+
+  /* "table_controller.py":137
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="delete",
+ *         ))
+ *         _query_router = _apply_route_config(query_router, RouterConfig(             # <<<<<<<<<<<<<<
+ *             enabled=True, message="", summary="query - ",
+ *             auth=True, auth_role=None, auth_obj=None, auth_act="query",
+*/
+  __pyx_t_6 = __pyx_pf_16table_controller_14AuthController_6create__apply_route_config(__pyx_v__apply_route_config, __pyx_v_query_router, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v__query_router = __pyx_t_6;
+  __pyx_t_6 = 0;
+
+  /* "table_controller.py":142
+ *         ))
+ * 
+ *         GenericController(             # <<<<<<<<<<<<<<
+ *             auth_router=auth_router,
+ *             model_class=model_class,
+*/
+  __pyx_t_1 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_GenericController); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+
+  /* "table_controller.py":152
+ *             read_router=_read_router,
+ *             delete_router=_delete_router,
+ *             query_router=_query_router             # <<<<<<<<<<<<<<
+ *         )
+ * 
+*/
+  __pyx_t_7 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+    assert(__pyx_t_1);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+    __pyx_t_7 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 10 : 0)] = {__pyx_t_1, NULL};
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_auth_router, __pyx_v_auth_router, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_v_model_class, __pyx_t_4, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_schema, __pyx_v_create_schema, __pyx_t_4, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_schema, __pyx_v_update_schema, __pyx_t_4, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_schema, __pyx_v_response_schema, __pyx_t_4, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_router, __pyx_v__create_router, __pyx_t_4, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_router, __pyx_v__update_router, __pyx_t_4, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_read_router, __pyx_v__read_router, __pyx_t_4, __pyx_callargs+1, 7) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_delete_router, __pyx_v__delete_router, __pyx_t_4, __pyx_callargs+1, 8) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_query_router, __pyx_v__query_router, __pyx_t_4, __pyx_callargs+1, 9) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+  }
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "table_controller.py":155
+ *         )
+ * 
+ *         return auth_router             # <<<<<<<<<<<<<<
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_auth_router);
+  __pyx_r = __pyx_v_auth_router;
+  goto __pyx_L0;
+
+  /* "table_controller.py":27
+ *     """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def create(
+ *             cls,
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("table_controller.AuthController.create", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v__schema_name1);
+  __Pyx_XDECREF(__pyx_v__schema_name2);
+  __Pyx_XDECREF(__pyx_v__prefix);
+  __Pyx_XDECREF(__pyx_v__tag);
+  __Pyx_XDECREF(__pyx_v__default_role);
+  __Pyx_XDECREF(__pyx_v__auth_obj);
+  __Pyx_XDECREF(__pyx_v_auth_router);
+  __Pyx_XDECREF(__pyx_v__apply_route_config);
+  __Pyx_XDECREF(__pyx_v__create_router);
+  __Pyx_XDECREF(__pyx_v__update_router);
+  __Pyx_XDECREF(__pyx_v__read_router);
+  __Pyx_XDECREF(__pyx_v__delete_router);
+  __Pyx_XDECREF(__pyx_v__query_router);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -2627,10 +4022,10 @@ static int __Pyx_modinit_function_import_code(__pyx_mstatetype *__pyx_mstate) {
 
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_field(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_table_controller(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_field},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_table_controller},
   #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
   {Py_mod_gil, Py_MOD_GIL_USED},
   #endif
@@ -2649,7 +4044,7 @@ namespace {
   #endif
   {
       PyModuleDef_HEAD_INIT,
-      "field",
+      "table_controller",
       0, /* m_doc */
     #if CYTHON_USE_MODULE_STATE
       sizeof(__pyx_mstatetype), /* m_size */
@@ -2687,8 +4082,8 @@ namespace {
   #endif
 #endif
 
-__Pyx_PyMODINIT_FUNC PyInit_field(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_field(void)
+__Pyx_PyMODINIT_FUNC PyInit_table_controller(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_table_controller(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -2791,7 +4186,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_field(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_table_controller(PyObject *__pyx_pyinit_module)
 #endif
 {
   int stringtab_initialized = 0;
@@ -2802,6 +4197,8 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_field(PyObject *__pyx_pyinit_modul
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2809,7 +4206,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_field(PyObject *__pyx_pyinit_modul
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'field' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'table_controller' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #else
@@ -2825,7 +4222,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_field(PyObject *__pyx_pyinit_modul
   #if CYTHON_USE_MODULE_STATE
   {
     int add_module_result = __Pyx_State_AddModule(__pyx_t_1, &__pyx_moduledef);
-    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "field" pseudovariable */
+    __pyx_t_1 = 0; /* transfer ownership from __pyx_t_1 to "table_controller" pseudovariable */
     if (unlikely((add_module_result < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     pystate_addmodule_run = 1;
   }
@@ -2853,7 +4250,7 @@ if (!__Pyx_RefNanny) {
 }
 #endif
 
-__Pyx_RefNannySetupContext("PyInit_field", 0);
+__Pyx_RefNannySetupContext("PyInit_table_controller", 0);
   if (__Pyx_check_binary_version(__PYX_LIMITED_VERSION_HEX, __Pyx_get_runtime_version(), CYTHON_COMPILING_IN_LIMITED_API) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -2884,13 +4281,13 @@ __Pyx_RefNannySetupContext("PyInit_field", 0);
   if (__pyx_AsyncGen_init(__pyx_m) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   /*--- Library function declarations ---*/
-  if (__pyx_module_is_main_field) {
+  if (__pyx_module_is_main_table_controller) {
     if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "field")) {
-      if (unlikely((PyDict_SetItemString(modules, "field", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "table_controller")) {
+      if (unlikely((PyDict_SetItemString(modules, "table_controller", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   /*--- Builtin init code ---*/
@@ -2908,62 +4305,329 @@ __Pyx_RefNannySetupContext("PyInit_field", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "field.py":9
+  /* "table_controller.py":9
  * # @Desc
  * 
- * from typing import Any             # <<<<<<<<<<<<<<
+ * from typing import Type, Optional             # <<<<<<<<<<<<<<
  * 
- * from sqlmodel import Field as SQLModelField
+ * from .generic_controller import GenericController
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Any); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_Type, __pyx_mstate_global->__pyx_n_u_Optional); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_typing, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Any); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Any, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Type, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Optional); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Optional, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "field.py":11
- * from typing import Any
+  /* "table_controller.py":11
+ * from typing import Type, Optional
  * 
- * from sqlmodel import Field as SQLModelField             # <<<<<<<<<<<<<<
+ * from .generic_controller import GenericController             # <<<<<<<<<<<<<<
+ * from .router_config import RouterConfig
+ * from ..auth.auth_router import AuthRouter
+*/
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_GenericController); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_generic_controller, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_GenericController); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_GenericController, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":12
+ * 
+ * from .generic_controller import GenericController
+ * from .router_config import RouterConfig             # <<<<<<<<<<<<<<
+ * from ..auth.auth_router import AuthRouter
+ * from ..type.var import SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLModelResponse
+*/
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_RouterConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_router_config, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_RouterConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_RouterConfig, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "table_controller.py":13
+ * from .generic_controller import GenericController
+ * from .router_config import RouterConfig
+ * from ..auth.auth_router import AuthRouter             # <<<<<<<<<<<<<<
+ * from ..type.var import SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLModelResponse
+ * 
+*/
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthRouter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_auth_auth_router, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthRouter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthRouter, __pyx_t_3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "table_controller.py":14
+ * from .router_config import RouterConfig
+ * from ..auth.auth_router import AuthRouter
+ * from ..type.var import SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLModelResponse             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Field); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_sqlmodel, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_SQLModelDB, __pyx_mstate_global->__pyx_n_u_SQLModelCreate, __pyx_mstate_global->__pyx_n_u_SQLModelUpdate, __pyx_mstate_global->__pyx_n_u_SQLModelResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Field); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_type_var, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SQLModelField, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_SQLModelDB); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SQLModelDB, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_SQLModelCreate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SQLModelCreate, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_SQLModelUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SQLModelUpdate, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_SQLModelResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SQLModelResponse, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "field.py":15
+  /* "table_controller.py":17
  * 
- * # noinspection PyPep8Naming
- * def Field(*args: Any, **kwargs: Any) -> SQLModelField:             # <<<<<<<<<<<<<<
- *     """ description   sa_column_kwargs { "comment": description }  """
- *     if "description" in kwargs:
+ * 
+ * class AuthController:             # <<<<<<<<<<<<<<
+ *     """
+ * 
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_args, __pyx_mstate_global->__pyx_n_u_Any) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_kwargs, __pyx_mstate_global->__pyx_n_u_Any) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_SQLModelField) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5field_1Field, 0, __pyx_mstate_global->__pyx_n_u_Field, NULL, __pyx_mstate_global->__pyx_n_u_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_AuthController, __pyx_mstate_global->__pyx_n_u_AuthController, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_table_controller, __pyx_mstate_global->__pyx_kp_u_create_RBAC_ABAC_Restful_API_Ge); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
+
+  /* "table_controller.py":27
+ *     """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def create(
+ *             cls,
+*/
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(16); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+
+  /* "table_controller.py":32
+ *             *,
+ *             model_class: Type[SQLModelDB],
+ *             create_schema: Type[SQLModelCreate] = None,             # <<<<<<<<<<<<<<
+ *             update_schema: Type[SQLModelUpdate] = None,
+ *             response_schema: Type[SQLModelResponse],
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_create_schema, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":33
+ *             model_class: Type[SQLModelDB],
+ *             create_schema: Type[SQLModelCreate] = None,
+ *             update_schema: Type[SQLModelUpdate] = None,             # <<<<<<<<<<<<<<
+ *             response_schema: Type[SQLModelResponse],
+ *             create_router: RouterConfig = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_update_schema, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":35
+ *             update_schema: Type[SQLModelUpdate] = None,
+ *             response_schema: Type[SQLModelResponse],
+ *             create_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             update_router: RouterConfig = None,
+ *             read_router: RouterConfig = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_create_router, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":36
+ *             response_schema: Type[SQLModelResponse],
+ *             create_router: RouterConfig = None,
+ *             update_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             read_router: RouterConfig = None,
+ *             delete_router: RouterConfig = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_update_router, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":37
+ *             create_router: RouterConfig = None,
+ *             update_router: RouterConfig = None,
+ *             read_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             delete_router: RouterConfig = None,
+ *             query_router: RouterConfig = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_read_router, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":38
+ *             update_router: RouterConfig = None,
+ *             read_router: RouterConfig = None,
+ *             delete_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             query_router: RouterConfig = None,
+ *             #
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_delete_router, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":39
+ *             read_router: RouterConfig = None,
+ *             delete_router: RouterConfig = None,
+ *             query_router: RouterConfig = None,             # <<<<<<<<<<<<<<
+ *             #
+ *             prefix: Optional[str] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_query_router, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":41
+ *             query_router: RouterConfig = None,
+ *             #
+ *             prefix: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             schema_name: Optional[str] = None,
+ *             table_name: Optional[str] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_prefix, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":42
+ *             #
+ *             prefix: Optional[str] = None,
+ *             schema_name: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             table_name: Optional[str] = None,
+ *             tags: Optional[list] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema_name, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":43
+ *             prefix: Optional[str] = None,
+ *             schema_name: Optional[str] = None,
+ *             table_name: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             tags: Optional[list] = None,
+ *             default_role: Optional[str] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_table_name, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":44
+ *             schema_name: Optional[str] = None,
+ *             table_name: Optional[str] = None,
+ *             tags: Optional[list] = None,             # <<<<<<<<<<<<<<
+ *             default_role: Optional[str] = None,
+ *             auth_role: Optional[str] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_tags, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":45
+ *             table_name: Optional[str] = None,
+ *             tags: Optional[list] = None,
+ *             default_role: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             auth_role: Optional[str] = None,
+ *             auth_obj: Optional[str] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_default_role, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":46
+ *             tags: Optional[list] = None,
+ *             default_role: Optional[str] = None,
+ *             auth_role: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             auth_obj: Optional[str] = None,
+ *             auth_act: Optional[str] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auth_role, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":47
+ *             default_role: Optional[str] = None,
+ *             auth_role: Optional[str] = None,
+ *             auth_obj: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             auth_act: Optional[str] = None,
+ *             db_config_name: Optional[str] = None,
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auth_obj, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":48
+ *             auth_role: Optional[str] = None,
+ *             auth_obj: Optional[str] = None,
+ *             auth_act: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *             db_config_name: Optional[str] = None,
+ *     ):
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auth_act, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":49
+ *             auth_obj: Optional[str] = None,
+ *             auth_act: Optional[str] = None,
+ *             db_config_name: Optional[str] = None,             # <<<<<<<<<<<<<<
+ *     ):
+ *         """
+*/
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db_config_name, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "table_controller.py":27
+ *     """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def create(
+ *             cls,
+*/
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(18); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_create_schema, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelCreate) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_update_schema, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelUpdate) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_response_schema, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelResponse) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_create_router, __pyx_mstate_global->__pyx_n_u_RouterConfig) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_update_router, __pyx_mstate_global->__pyx_n_u_RouterConfig) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_read_router, __pyx_mstate_global->__pyx_n_u_RouterConfig) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_delete_router, __pyx_mstate_global->__pyx_n_u_RouterConfig) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_query_router, __pyx_mstate_global->__pyx_n_u_RouterConfig) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_prefix, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_table_name, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_tags, __pyx_mstate_global->__pyx_kp_u_Optional_list) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_default_role, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_auth_role, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_auth_obj, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_auth_act, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db_config_name, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_16table_controller_14AuthController_1create, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_AuthController_create, NULL, __pyx_mstate_global->__pyx_n_u_table_controller, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_5, __pyx_t_2);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Field, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_create_2, __pyx_t_4) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "table_controller.py":17
+ * 
+ * 
+ * class AuthController:             # <<<<<<<<<<<<<<
+ *     """
+ * 
+*/
+  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_AuthController, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthController, __pyx_t_4) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "field.py":1
+  /* "table_controller.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
@@ -2979,9 +4643,11 @@ __Pyx_RefNannySetupContext("PyInit_field", 0);
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
   if (__pyx_m) {
     if (__pyx_mstate->__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init field", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init table_controller", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -2995,7 +4661,7 @@ __Pyx_RefNannySetupContext("PyInit_field", 0);
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init field");
+    PyErr_SetString(PyExc_ImportError, "init table_controller");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -3009,11 +4675,11 @@ __Pyx_RefNannySetupContext("PyInit_field", 0);
 
 typedef struct {
     const char *s;
-#if 18 <= 65535
+#if 1692 <= 65535
     const unsigned short n;
-#elif 18 / 2 < INT_MAX
+#elif 1692 / 2 < INT_MAX
     const unsigned int n;
-#elif 18 / 2 < LONG_MAX
+#elif 1692 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -3033,31 +4699,107 @@ typedef struct {
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
-  {__pyx_k_Any, sizeof(__pyx_k_Any), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Any */
-  {__pyx_k_Field, sizeof(__pyx_k_Field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Field */
-  {__pyx_k_SQLModelField, sizeof(__pyx_k_SQLModelField), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLModelField */
+  {__pyx_k_AuthController, sizeof(__pyx_k_AuthController), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthController */
+  {__pyx_k_AuthController_create, sizeof(__pyx_k_AuthController_create), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthController_create */
+  {__pyx_k_AuthController_create_locals__ap, sizeof(__pyx_k_AuthController_create_locals__ap), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthController_create_locals__ap */
+  {__pyx_k_AuthRouter, sizeof(__pyx_k_AuthRouter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthRouter */
+  {__pyx_k_GenericController, sizeof(__pyx_k_GenericController), 0, 1, 1}, /* PyObject cname: __pyx_n_u_GenericController */
+  {__pyx_k_None, sizeof(__pyx_k_None), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_None */
+  {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
+  {__pyx_k_Optional, sizeof(__pyx_k_Optional), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Optional */
+  {__pyx_k_Optional_list, sizeof(__pyx_k_Optional_list), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_list */
+  {__pyx_k_Optional_str, sizeof(__pyx_k_Optional_str), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_str */
+  {__pyx_k_RouterConfig, sizeof(__pyx_k_RouterConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RouterConfig */
+  {__pyx_k_SQLModelCreate, sizeof(__pyx_k_SQLModelCreate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLModelCreate */
+  {__pyx_k_SQLModelDB, sizeof(__pyx_k_SQLModelDB), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLModelDB */
+  {__pyx_k_SQLModelResponse, sizeof(__pyx_k_SQLModelResponse), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLModelResponse */
+  {__pyx_k_SQLModelUpdate, sizeof(__pyx_k_SQLModelUpdate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLModelUpdate */
+  {__pyx_k_Type, sizeof(__pyx_k_Type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Type */
+  {__pyx_k_Type_SQLModelCreate, sizeof(__pyx_k_Type_SQLModelCreate), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Type_SQLModelCreate */
+  {__pyx_k_Type_SQLModelDB, sizeof(__pyx_k_Type_SQLModelDB), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Type_SQLModelDB */
+  {__pyx_k_Type_SQLModelResponse, sizeof(__pyx_k_Type_SQLModelResponse), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Type_SQLModelResponse */
+  {__pyx_k_Type_SQLModelUpdate, sizeof(__pyx_k_Type_SQLModelUpdate), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Type_SQLModelUpdate */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
-  {__pyx_k_args, sizeof(__pyx_k_args), 0, 1, 1}, /* PyObject cname: __pyx_n_u_args */
+  {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
+  {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 1}, /* PyObject cname: __pyx_n_u__4 */
+  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 1}, /* PyObject cname: __pyx_n_u__5 */
+  {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 1}, /* PyObject cname: __pyx_n_u__6 */
+  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 1}, /* PyObject cname: __pyx_n_u__7 */
+  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 1}, /* PyObject cname: __pyx_n_u__8 */
+  {__pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__9 */
+  {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
+  {__pyx_k_apply_route_config, sizeof(__pyx_k_apply_route_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_apply_route_config */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
+  {__pyx_k_auth, sizeof(__pyx_k_auth), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth */
+  {__pyx_k_auth_act, sizeof(__pyx_k_auth_act), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_act */
+  {__pyx_k_auth_auth_router, sizeof(__pyx_k_auth_auth_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_auth_router */
+  {__pyx_k_auth_obj, sizeof(__pyx_k_auth_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_obj */
+  {__pyx_k_auth_obj_2, sizeof(__pyx_k_auth_obj_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_obj_2 */
+  {__pyx_k_auth_role, sizeof(__pyx_k_auth_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_role */
+  {__pyx_k_auth_router, sizeof(__pyx_k_auth_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth_router */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
-  {__pyx_k_comment, sizeof(__pyx_k_comment), 0, 1, 1}, /* PyObject cname: __pyx_n_u_comment */
-  {__pyx_k_description, sizeof(__pyx_k_description), 0, 1, 1}, /* PyObject cname: __pyx_n_u_description */
-  {__pyx_k_field, sizeof(__pyx_k_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field */
-  {__pyx_k_field_py, sizeof(__pyx_k_field_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_field_py */
+  {__pyx_k_cls, sizeof(__pyx_k_cls), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cls */
+  {__pyx_k_create, sizeof(__pyx_k_create), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_create */
+  {__pyx_k_create_2, sizeof(__pyx_k_create_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_2 */
+  {__pyx_k_create_RBAC_ABAC_Restful_API_Ge, sizeof(__pyx_k_create_RBAC_ABAC_Restful_API_Ge), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_create_RBAC_ABAC_Restful_API_Ge */
+  {__pyx_k_create_router, sizeof(__pyx_k_create_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_router */
+  {__pyx_k_create_router_2, sizeof(__pyx_k_create_router_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_router_2 */
+  {__pyx_k_create_schema, sizeof(__pyx_k_create_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_schema */
+  {__pyx_k_db_config_name, sizeof(__pyx_k_db_config_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_config_name */
+  {__pyx_k_default_role, sizeof(__pyx_k_default_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_role */
+  {__pyx_k_default_role_2, sizeof(__pyx_k_default_role_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_role_2 */
+  {__pyx_k_default_router, sizeof(__pyx_k_default_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_router */
+  {__pyx_k_delete, sizeof(__pyx_k_delete), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_delete */
+  {__pyx_k_delete_2, sizeof(__pyx_k_delete_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_delete_2 */
+  {__pyx_k_delete_router, sizeof(__pyx_k_delete_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_delete_router */
+  {__pyx_k_delete_router_2, sizeof(__pyx_k_delete_router_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_delete_router_2 */
+  {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
+  {__pyx_k_enabled, sizeof(__pyx_k_enabled), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enabled */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
-  {__pyx_k_get, sizeof(__pyx_k_get), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get */
+  {__pyx_k_generic_controller, sizeof(__pyx_k_generic_controller), 0, 1, 1}, /* PyObject cname: __pyx_n_u_generic_controller */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
-  {__pyx_k_kwargs, sizeof(__pyx_k_kwargs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_kwargs */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
+  {__pyx_k_message, sizeof(__pyx_k_message), 0, 1, 1}, /* PyObject cname: __pyx_n_u_message */
+  {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
+  {__pyx_k_model_class, sizeof(__pyx_k_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_class */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
+  {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
+  {__pyx_k_prefix, sizeof(__pyx_k_prefix), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix */
+  {__pyx_k_prefix_2, sizeof(__pyx_k_prefix_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix_2 */
+  {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
-  {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
-  {__pyx_k_sa_column_kwargs, sizeof(__pyx_k_sa_column_kwargs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sa_column_kwargs */
+  {__pyx_k_query, sizeof(__pyx_k_query), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_query */
+  {__pyx_k_query_2, sizeof(__pyx_k_query_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_2 */
+  {__pyx_k_query_router, sizeof(__pyx_k_query_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_router */
+  {__pyx_k_query_router_2, sizeof(__pyx_k_query_router_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_router_2 */
+  {__pyx_k_read, sizeof(__pyx_k_read), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_read */
+  {__pyx_k_read_2, sizeof(__pyx_k_read_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_read_2 */
+  {__pyx_k_read_router, sizeof(__pyx_k_read_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_read_router */
+  {__pyx_k_read_router_2, sizeof(__pyx_k_read_router_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_read_router_2 */
+  {__pyx_k_response_schema, sizeof(__pyx_k_response_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_schema */
+  {__pyx_k_router, sizeof(__pyx_k_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_router */
+  {__pyx_k_router_config, sizeof(__pyx_k_router_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_router_config */
+  {__pyx_k_schema_name, sizeof(__pyx_k_schema_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_name */
+  {__pyx_k_schema_name1, sizeof(__pyx_k_schema_name1), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_name1 */
+  {__pyx_k_schema_name2, sizeof(__pyx_k_schema_name2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_name2 */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
-  {__pyx_k_sqlmodel, sizeof(__pyx_k_sqlmodel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sqlmodel */
+  {__pyx_k_summary, sizeof(__pyx_k_summary), 0, 1, 1}, /* PyObject cname: __pyx_n_u_summary */
+  {__pyx_k_table, sizeof(__pyx_k_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table */
+  {__pyx_k_table_controller, sizeof(__pyx_k_table_controller), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_controller */
+  {__pyx_k_table_controller_py, sizeof(__pyx_k_table_controller_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_table_controller_py */
+  {__pyx_k_table_name, sizeof(__pyx_k_table_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_name */
+  {__pyx_k_tag, sizeof(__pyx_k_tag), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tag */
+  {__pyx_k_tags, sizeof(__pyx_k_tags), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tags */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
+  {__pyx_k_type_var, sizeof(__pyx_k_type_var), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type_var */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
+  {__pyx_k_update, sizeof(__pyx_k_update), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_update */
+  {__pyx_k_update_2, sizeof(__pyx_k_update_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_2 */
+  {__pyx_k_update_router, sizeof(__pyx_k_update_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_router */
+  {__pyx_k_update_router_2, sizeof(__pyx_k_update_router_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_router_2 */
+  {__pyx_k_update_schema, sizeof(__pyx_k_update_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_schema */
+  {__pyx_k_v1, sizeof(__pyx_k_v1), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_v1 */
   {0, 0, 0, 0, 0}
 };
 /* InitStrings.proto */
@@ -3082,8 +4824,8 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_mstate->__pyx_umethod_PyDict_Type_get.type = (PyObject*)&PyDict_Type;
-  __pyx_mstate->__pyx_umethod_PyDict_Type_get.method_name = &__pyx_mstate->__pyx_n_u_get;
+  __pyx_mstate->__pyx_umethod_PyDict_Type_pop.type = (PyObject*)&PyDict_Type;
+  __pyx_mstate->__pyx_umethod_PyDict_Type_pop.method_name = &__pyx_mstate->__pyx_n_u_pop;
   if (__Pyx_InitStrings(__pyx_string_tab, __pyx_mstate->__pyx_string_tab, __pyx_string_tab_encodings) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   return 0;
   __pyx_L1_error:;
@@ -3092,13 +4834,13 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
 /* #### Code section: init_codeobjects ### */
 \
         typedef struct {
-            unsigned int argcount : 1;
+            unsigned int argcount : 2;
             unsigned int num_posonly_args : 1;
-            unsigned int num_kwonly_args : 1;
-            unsigned int nlocals : 3;
+            unsigned int num_kwonly_args : 5;
+            unsigned int nlocals : 6;
             unsigned int flags : 10;
-            unsigned int first_line : 4;
-            unsigned int line_table_length : 11;
+            unsigned int first_line : 7;
+            unsigned int line_table_length : 14;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
 static PyObject* __Pyx_PyCode_New(
@@ -3115,9 +4857,14 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_VARARGS|CO_VARKEYWORDS), 15, 78};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_args, __pyx_mstate->__pyx_n_u_kwargs, __pyx_mstate->__pyx_n_u_description, __pyx_mstate->__pyx_n_u_sa_column_kwargs};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_field_py, __pyx_mstate->__pyx_n_u_Field, __pyx_k_S_fD_c_vT_A_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 106, 127};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_router, __pyx_mstate->__pyx_n_u_default_router};
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_table_controller_py, __pyx_mstate->__pyx_n_u_apply_route_config, __pyx_k_wc_q_vYc_q_c_q_v_fJc_q_fJc_q_V9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 18, 33, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 27, 508};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_create_schema, __pyx_mstate->__pyx_n_u_update_schema, __pyx_mstate->__pyx_n_u_response_schema, __pyx_mstate->__pyx_n_u_create_router, __pyx_mstate->__pyx_n_u_update_router, __pyx_mstate->__pyx_n_u_read_router, __pyx_mstate->__pyx_n_u_delete_router, __pyx_mstate->__pyx_n_u_query_router, __pyx_mstate->__pyx_n_u_prefix, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_table_name, __pyx_mstate->__pyx_n_u_tags, __pyx_mstate->__pyx_n_u_default_role, __pyx_mstate->__pyx_n_u_auth_role, __pyx_mstate->__pyx_n_u_auth_obj, __pyx_mstate->__pyx_n_u_auth_act, __pyx_mstate->__pyx_n_u_db_config_name, __pyx_mstate->__pyx_n_u_schema_name1, __pyx_mstate->__pyx_n_u_schema_name2, __pyx_mstate->__pyx_n_u_prefix_2, __pyx_mstate->__pyx_n_u_tag, __pyx_mstate->__pyx_n_u_default_role_2, __pyx_mstate->__pyx_n_u_auth_obj_2, __pyx_mstate->__pyx_n_u_auth_router, __pyx_mstate->__pyx_n_u_apply_route_config, __pyx_mstate->__pyx_n_u_apply_route_config, __pyx_mstate->__pyx_n_u_create_router_2, __pyx_mstate->__pyx_n_u_update_router_2, __pyx_mstate->__pyx_n_u_read_router_2, __pyx_mstate->__pyx_n_u_delete_router_2, __pyx_mstate->__pyx_n_u_query_router_2};
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_table_controller_py, __pyx_mstate->__pyx_n_u_create_2, __pyx_k_A_1_1_1_1_1_A_q_a_a_AP_o_a_o_a_B, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -3425,47 +5172,13 @@ bad:
 #endif
 #endif
 
-/* KeywordStringCheck */
-static int __Pyx_CheckKeywordStrings(
-    const char* function_name,
-    PyObject *kw)
+/* RaiseDoubleKeywords */
+static void __Pyx_RaiseDoubleKeywordsError(
+    const char* func_name,
+    PyObject* kw_name)
 {
-#if CYTHON_COMPILING_IN_PYPY && !defined(PyArg_ValidateKeywordArguments)
-    CYTHON_UNUSED_VAR(function_name);
-    CYTHON_UNUSED_VAR(kw);
-    return 0;
-#else
-    if (CYTHON_METH_FASTCALL && likely(PyTuple_Check(kw))) {
-#if PY_VERSION_HEX >= 0x03090000
-        CYTHON_UNUSED_VAR(function_name);
-#else
-        Py_ssize_t kwsize;
-        #if CYTHON_ASSUME_SAFE_SIZE
-        kwsize = PyTuple_GET_SIZE(kw);
-        #else
-        kwsize = PyTuple_Size(kw);
-        if (unlikely(kwsize < 0)) return -1;
-        #endif
-        for (Py_ssize_t pos = 0; pos < kwsize; pos++) {
-            PyObject* key = NULL;
-            #if CYTHON_ASSUME_SAFE_MACROS
-            key = PyTuple_GET_ITEM(kw, pos);
-            #else
-            key = PyTuple_GetItem(kw, pos);
-            if (unlikely(!key)) return -1;
-            #endif
-            if (unlikely(!PyUnicode_Check(key))) {
-                PyErr_Format(PyExc_TypeError,
-                    "%.200s() keywords must be strings", function_name);
-                return -1;
-            }
-        }
-#endif
-    } else {
-        if (unlikely(!PyArg_ValidateKeywordArguments(kw))) return -1;
-    }
-    return 0;
-#endif
+    PyErr_Format(PyExc_TypeError,
+        "%s() got multiple values for keyword argument '%U'", func_name, kw_name);
 }
 
 /* PyFunctionFastCall */
@@ -3711,12 +5424,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_FastCallDict(PyObject *func, PyObj
     #endif
 }
 
-/* PyObjectCall2Args */
-static CYTHON_INLINE PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2) {
-    PyObject *args[3] = {NULL, arg1, arg2};
-    return __Pyx_PyObject_FastCall(function, args+1, 2 | __Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET);
-}
-
 /* PyObjectGetAttrStr */
 #if CYTHON_USE_TYPE_SLOTS
 static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject* attr_name) {
@@ -3812,59 +5519,6 @@ static int __Pyx_TryUnpackUnboundCMethod(__Pyx_CachedCFunction* target) {
     return 0;
 }
 
-/* CallUnboundCMethod1 */
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg) {
-    int was_initialized =  __Pyx_CachedCFunction_GetAndSetInitializing(cfunc);
-    if (likely(was_initialized == 2 && cfunc->func)) {
-        int flag = cfunc->flag;
-        if (flag == METH_O) {
-            return __Pyx_CallCFunction(cfunc, self, arg);
-        } else if (flag == METH_FASTCALL) {
-            return __Pyx_CallCFunctionFast(cfunc, self, &arg, 1);
-        } else if (flag == (METH_FASTCALL | METH_KEYWORDS)) {
-            return __Pyx_CallCFunctionFastWithKeywords(cfunc, self, &arg, 1, NULL);
-        }
-    }
-#if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-    else if (unlikely(was_initialized == 1)) {
-        __Pyx_CachedCFunction tmp_cfunc = {
-#ifndef __cplusplus
-            0
-#endif
-        };
-        tmp_cfunc.type = cfunc->type;
-        tmp_cfunc.method_name = cfunc->method_name;
-        return __Pyx__CallUnboundCMethod1(&tmp_cfunc, self, arg);
-    }
-#endif
-    PyObject* result = __Pyx__CallUnboundCMethod1(cfunc, self, arg);
-    __Pyx_CachedCFunction_SetFinishedInitializing(cfunc);
-    return result;
-}
-#endif
-static PyObject* __Pyx__CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg){
-    PyObject *result = NULL;
-    if (unlikely(!cfunc->func && !cfunc->method) && unlikely(__Pyx_TryUnpackUnboundCMethod(cfunc) < 0)) return NULL;
-#if CYTHON_COMPILING_IN_CPYTHON
-    if (cfunc->func && (cfunc->flag & METH_VARARGS)) {
-        PyObject *args = PyTuple_New(1);
-        if (unlikely(!args)) return NULL;
-        Py_INCREF(arg);
-        PyTuple_SET_ITEM(args, 0, arg);
-        if (cfunc->flag & METH_KEYWORDS)
-            result = __Pyx_CallCFunctionWithKeywords(cfunc, self, args, NULL);
-        else
-            result = __Pyx_CallCFunction(cfunc, self, args);
-        Py_DECREF(args);
-    } else
-#endif
-    {
-        result = __Pyx_PyObject_Call2Args(cfunc->method, self, arg);
-    }
-    return result;
-}
-
 /* CallUnboundCMethod2 */
 #if CYTHON_COMPILING_IN_CPYTHON
 static CYTHON_INLINE PyObject *__Pyx_CallUnboundCMethod2(__Pyx_CachedCFunction *cfunc, PyObject *self, PyObject *arg1, PyObject *arg2) {
@@ -3919,34 +5573,618 @@ static PyObject* __Pyx__CallUnboundCMethod2(__Pyx_CachedCFunction* cfunc, PyObje
     }
 }
 
-/* dict_getitem_default */
-static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value) {
-    PyObject* value;
-#if !CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07020000
-    value = PyDict_GetItemWithError(d, key);
-    if (unlikely(!value)) {
-        if (unlikely(PyErr_Occurred()))
-            return NULL;
-        value = default_value;
-    }
-    Py_INCREF(value);
-    if ((1));
-#else
-    if (PyBytes_CheckExact(key) || PyUnicode_CheckExact(key) || PyLong_CheckExact(key)) {
-        value = PyDict_GetItem(d, key);
-        if (unlikely(!value)) {
-            value = default_value;
+/* ParseKeywords */
+static int __Pyx_ValidateDuplicatePosArgs(
+    PyObject *kwds,
+    PyObject ** const argnames[],
+    PyObject ** const *first_kw_arg,
+    const char* function_name)
+{
+    PyObject ** const *name = argnames;
+    while (name != first_kw_arg) {
+        PyObject *key = **name;
+        int found = PyDict_Contains(kwds, key);
+        if (unlikely(found)) {
+            if (found == 1) __Pyx_RaiseDoubleKeywordsError(function_name, key);
+            goto bad;
         }
-        Py_INCREF(value);
+        name++;
+    }
+    return 0;
+bad:
+    return -1;
+}
+#if CYTHON_USE_UNICODE_INTERNALS
+static CYTHON_INLINE int __Pyx_UnicodeKeywordsEqual(PyObject *s1, PyObject *s2) {
+    int kind;
+    Py_ssize_t len = PyUnicode_GET_LENGTH(s1);
+    if (len != PyUnicode_GET_LENGTH(s2)) return 0;
+    kind = PyUnicode_KIND(s1);
+    if (kind != PyUnicode_KIND(s2)) return 0;
+    const void *data1 = PyUnicode_DATA(s1);
+    const void *data2 = PyUnicode_DATA(s2);
+    return (memcmp(data1, data2, (size_t) len * (size_t) kind) == 0);
+}
+#endif
+static int __Pyx_MatchKeywordArg_str(
+    PyObject *key,
+    PyObject ** const argnames[],
+    PyObject ** const *first_kw_arg,
+    size_t *index_found,
+    const char *function_name)
+{
+    PyObject ** const *name;
+    #if CYTHON_USE_UNICODE_INTERNALS
+    Py_hash_t key_hash = ((PyASCIIObject*)key)->hash;
+    if (unlikely(key_hash == -1)) {
+        key_hash = PyObject_Hash(key);
+        if (unlikely(key_hash == -1))
+            goto bad;
+    }
+    #endif
+    name = first_kw_arg;
+    while (*name) {
+        PyObject *name_str = **name;
+        #if CYTHON_USE_UNICODE_INTERNALS
+        if (key_hash == ((PyASCIIObject*)name_str)->hash && __Pyx_UnicodeKeywordsEqual(name_str, key)) {
+            *index_found = (size_t) (name - argnames);
+            return 1;
+        }
+        #else
+        #if CYTHON_ASSUME_SAFE_SIZE
+        if (PyUnicode_GET_LENGTH(name_str) == PyUnicode_GET_LENGTH(key))
+        #endif
+        {
+            int cmp = PyUnicode_Compare(name_str, key);
+            if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
+            if (cmp == 0) {
+                *index_found = (size_t) (name - argnames);
+                return 1;
+            }
+        }
+        #endif
+        name++;
+    }
+    name = argnames;
+    while (name != first_kw_arg) {
+        PyObject *name_str = **name;
+        #if CYTHON_USE_UNICODE_INTERNALS
+        if (unlikely(key_hash == ((PyASCIIObject*)name_str)->hash)) {
+            if (__Pyx_UnicodeKeywordsEqual(name_str, key))
+                goto arg_passed_twice;
+        }
+        #else
+        #if CYTHON_ASSUME_SAFE_SIZE
+        if (PyUnicode_GET_LENGTH(name_str) == PyUnicode_GET_LENGTH(key))
+        #endif
+        {
+            if (unlikely(name_str == key)) goto arg_passed_twice;
+            int cmp = PyUnicode_Compare(name_str, key);
+            if (cmp < 0 && unlikely(PyErr_Occurred())) goto bad;
+            if (cmp == 0) goto arg_passed_twice;
+        }
+        #endif
+        name++;
+    }
+    return 0;
+arg_passed_twice:
+    __Pyx_RaiseDoubleKeywordsError(function_name, key);
+    goto bad;
+bad:
+    return -1;
+}
+static int __Pyx_MatchKeywordArg_nostr(
+    PyObject *key,
+    PyObject ** const argnames[],
+    PyObject ** const *first_kw_arg,
+    size_t *index_found,
+    const char *function_name)
+{
+    PyObject ** const *name;
+    if (unlikely(!PyUnicode_Check(key))) goto invalid_keyword_type;
+    name = first_kw_arg;
+    while (*name) {
+        int cmp = PyObject_RichCompareBool(**name, key, Py_EQ);
+        if (cmp == 1) {
+            *index_found = (size_t) (name - argnames);
+            return 1;
+        }
+        if (unlikely(cmp == -1)) goto bad;
+        name++;
+    }
+    name = argnames;
+    while (name != first_kw_arg) {
+        int cmp = PyObject_RichCompareBool(**name, key, Py_EQ);
+        if (unlikely(cmp != 0)) {
+            if (cmp == 1) goto arg_passed_twice;
+            else goto bad;
+        }
+        name++;
+    }
+    return 0;
+arg_passed_twice:
+    __Pyx_RaiseDoubleKeywordsError(function_name, key);
+    goto bad;
+invalid_keyword_type:
+    PyErr_Format(PyExc_TypeError,
+        "%.200s() keywords must be strings", function_name);
+    goto bad;
+bad:
+    return -1;
+}
+static CYTHON_INLINE int __Pyx_MatchKeywordArg(
+    PyObject *key,
+    PyObject ** const argnames[],
+    PyObject ** const *first_kw_arg,
+    size_t *index_found,
+    const char *function_name)
+{
+    return likely(PyUnicode_CheckExact(key)) ?
+        __Pyx_MatchKeywordArg_str(key, argnames, first_kw_arg, index_found, function_name) :
+        __Pyx_MatchKeywordArg_nostr(key, argnames, first_kw_arg, index_found, function_name);
+}
+static void __Pyx_RejectUnknownKeyword(
+    PyObject *kwds,
+    PyObject ** const argnames[],
+    PyObject ** const *first_kw_arg,
+    const char *function_name)
+{
+    Py_ssize_t pos = 0;
+    PyObject *key = NULL;
+    __Pyx_BEGIN_CRITICAL_SECTION(kwds);
+    while (PyDict_Next(kwds, &pos, &key, NULL)) {
+        PyObject** const *name = first_kw_arg;
+        while (*name && (**name != key)) name++;
+        if (!*name) {
+            #if CYTHON_AVOID_BORROWED_REFS
+            Py_INCREF(key);
+            #endif
+            size_t index_found = 0;
+            int cmp = __Pyx_MatchKeywordArg(key, argnames, first_kw_arg, &index_found, function_name);
+            if (cmp != 1) {
+                if (cmp == 0) {
+                    PyErr_Format(PyExc_TypeError,
+                        "%s() got an unexpected keyword argument '%U'",
+                        function_name, key);
+                }
+                #if CYTHON_AVOID_BORROWED_REFS
+                Py_DECREF(key);
+                #endif
+                break;
+            }
+            #if CYTHON_AVOID_BORROWED_REFS
+            Py_DECREF(key);
+            #endif
+        }
+    }
+    __Pyx_END_CRITICAL_SECTION();
+    assert(PyErr_Occurred());
+}
+static int __Pyx_ParseKeywordDict(
+    PyObject *kwds,
+    PyObject ** const argnames[],
+    PyObject *values[],
+    Py_ssize_t num_pos_args,
+    Py_ssize_t num_kwargs,
+    const char* function_name,
+    int ignore_unknown_kwargs)
+{
+    PyObject** const *name;
+    PyObject** const *first_kw_arg = argnames + num_pos_args;
+    Py_ssize_t extracted = 0;
+#if !CYTHON_COMPILING_IN_PYPY || defined(PyArg_ValidateKeywordArguments)
+    if (unlikely(!PyArg_ValidateKeywordArguments(kwds))) return -1;
+#endif
+    name = first_kw_arg;
+    while (*name && num_kwargs > extracted) {
+        PyObject * key = **name;
+        PyObject *value;
+        int found = 0;
+        #if __PYX_LIMITED_VERSION_HEX >= 0x030d0000
+        found = PyDict_GetItemRef(kwds, key, &value);
+        #else
+        value = PyDict_GetItemWithError(kwds, key);
+        if (value) {
+            Py_INCREF(value);
+            found = 1;
+        } else {
+            if (unlikely(PyErr_Occurred())) goto bad;
+        }
+        #endif
+        if (found) {
+            if (unlikely(found < 0)) goto bad;
+            values[name-argnames] = value;
+            extracted++;
+        }
+        name++;
+    }
+    if (num_kwargs > extracted) {
+        if (ignore_unknown_kwargs) {
+            if (unlikely(__Pyx_ValidateDuplicatePosArgs(kwds, argnames, first_kw_arg, function_name) == -1))
+                goto bad;
+        } else {
+            __Pyx_RejectUnknownKeyword(kwds, argnames, first_kw_arg, function_name);
+            goto bad;
+        }
+    }
+    return 0;
+bad:
+    return -1;
+}
+static int __Pyx_ParseKeywordDictToDict(
+    PyObject *kwds,
+    PyObject ** const argnames[],
+    PyObject *kwds2,
+    PyObject *values[],
+    Py_ssize_t num_pos_args,
+    const char* function_name)
+{
+    PyObject** const *name;
+    PyObject** const *first_kw_arg = argnames + num_pos_args;
+    Py_ssize_t len;
+#if !CYTHON_COMPILING_IN_PYPY || defined(PyArg_ValidateKeywordArguments)
+    if (unlikely(!PyArg_ValidateKeywordArguments(kwds))) return -1;
+#endif
+    if (PyDict_Update(kwds2, kwds) < 0) goto bad;
+    name = first_kw_arg;
+    while (*name) {
+        PyObject *key = **name;
+        PyObject *value;
+#if !CYTHON_COMPILING_IN_LIMITED_API && (PY_VERSION_HEX >= 0x030d00A2 || defined(PyDict_Pop))
+        int found = PyDict_Pop(kwds2, key, &value);
+        if (found) {
+            if (unlikely(found < 0)) goto bad;
+            values[name-argnames] = value;
+        }
+#elif __PYX_LIMITED_VERSION_HEX >= 0x030d0000
+        int found = PyDict_GetItemRef(kwds2, key, &value);
+        if (found) {
+            if (unlikely(found < 0)) goto bad;
+            values[name-argnames] = value;
+            if (unlikely(PyDict_DelItem(kwds2, key) < 0)) goto bad;
+        }
+#else
+    #if CYTHON_COMPILING_IN_CPYTHON
+        value = _PyDict_Pop(kwds2, key, kwds2);
+    #else
+        value = __Pyx_CallUnboundCMethod2(&__pyx_mstate_global->__pyx_umethod_PyDict_Type_pop, kwds2, key, kwds2);
+    #endif
+        if (value == kwds2) {
+            Py_DECREF(value);
+        } else {
+            if (unlikely(!value)) goto bad;
+            values[name-argnames] = value;
+        }
+#endif
+        name++;
+    }
+    len = PyDict_Size(kwds2);
+    if (len > 0) {
+        return __Pyx_ValidateDuplicatePosArgs(kwds, argnames, first_kw_arg, function_name);
+    } else if (unlikely(len == -1)) {
+        goto bad;
+    }
+    return 0;
+bad:
+    return -1;
+}
+static int __Pyx_ParseKeywordsTuple(
+    PyObject *kwds,
+    PyObject * const *kwvalues,
+    PyObject ** const argnames[],
+    PyObject *kwds2,
+    PyObject *values[],
+    Py_ssize_t num_pos_args,
+    Py_ssize_t num_kwargs,
+    const char* function_name,
+    int ignore_unknown_kwargs)
+{
+    PyObject *key = NULL;
+    PyObject** const * name;
+    PyObject** const *first_kw_arg = argnames + num_pos_args;
+    for (Py_ssize_t pos = 0; pos < num_kwargs; pos++) {
+#if CYTHON_AVOID_BORROWED_REFS
+        key = __Pyx_PySequence_ITEM(kwds, pos);
+#else
+        key = __Pyx_PyTuple_GET_ITEM(kwds, pos);
+#endif
+#if !CYTHON_ASSUME_SAFE_MACROS
+        if (unlikely(!key)) goto bad;
+#endif
+        name = first_kw_arg;
+        while (*name && (**name != key)) name++;
+        if (*name) {
+            PyObject *value = kwvalues[pos];
+            values[name-argnames] = __Pyx_NewRef(value);
+        } else {
+            size_t index_found = 0;
+            int cmp = __Pyx_MatchKeywordArg(key, argnames, first_kw_arg, &index_found, function_name);
+            if (cmp == 1) {
+                PyObject *value = kwvalues[pos];
+                values[index_found] = __Pyx_NewRef(value);
+            } else {
+                if (unlikely(cmp == -1)) goto bad;
+                if (kwds2) {
+                    PyObject *value = kwvalues[pos];
+                    if (unlikely(PyDict_SetItem(kwds2, key, value))) goto bad;
+                } else if (!ignore_unknown_kwargs) {
+                    goto invalid_keyword;
+                }
+            }
+        }
+        #if CYTHON_AVOID_BORROWED_REFS
+        Py_DECREF(key);
+        key = NULL;
+        #endif
+    }
+    return 0;
+invalid_keyword:
+    PyErr_Format(PyExc_TypeError,
+        "%s() got an unexpected keyword argument '%U'",
+        function_name, key);
+    goto bad;
+bad:
+    #if CYTHON_AVOID_BORROWED_REFS
+    Py_XDECREF(key);
+    #endif
+    return -1;
+}
+static int __Pyx_ParseKeywords(
+    PyObject *kwds,
+    PyObject * const *kwvalues,
+    PyObject ** const argnames[],
+    PyObject *kwds2,
+    PyObject *values[],
+    Py_ssize_t num_pos_args,
+    Py_ssize_t num_kwargs,
+    const char* function_name,
+    int ignore_unknown_kwargs)
+{
+    if (CYTHON_METH_FASTCALL && likely(PyTuple_Check(kwds)))
+        return __Pyx_ParseKeywordsTuple(kwds, kwvalues, argnames, kwds2, values, num_pos_args, num_kwargs, function_name, ignore_unknown_kwargs);
+    else if (kwds2)
+        return __Pyx_ParseKeywordDictToDict(kwds, argnames, kwds2, values, num_pos_args, function_name);
+    else
+        return __Pyx_ParseKeywordDict(kwds, argnames, values, num_pos_args, num_kwargs, function_name, ignore_unknown_kwargs);
+}
+
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
+{
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
+    }
+    if (exact) {
+        more_or_less = "exactly";
+    }
+    PyErr_Format(PyExc_TypeError,
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
+}
+
+/* RaiseKeywordRequired */
+static void __Pyx_RaiseKeywordRequired(const char* func_name, PyObject* kw_name) {
+    PyErr_Format(PyExc_TypeError,
+        "%s() needs keyword-only argument %U", func_name, kw_name);
+}
+
+/* ArgTypeTest */
+static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
+{
+    __Pyx_TypeName type_name;
+    __Pyx_TypeName obj_type_name;
+    PyObject *extra_info = __pyx_mstate_global->__pyx_empty_unicode;
+    int from_annotation_subclass = 0;
+    if (unlikely(!type)) {
+        PyErr_SetString(PyExc_SystemError, "Missing type object");
+        return 0;
+    }
+    else if (!exact) {
+        if (likely(__Pyx_TypeCheck(obj, type))) return 1;
+    } else if (exact == 2) {
+        if (__Pyx_TypeCheck(obj, type)) {
+            from_annotation_subclass = 1;
+            extra_info = __pyx_mstate_global->__pyx_kp_u_Note_that_Cython_is_deliberately;
+        }
+    }
+    type_name = __Pyx_PyType_GetFullyQualifiedName(type);
+    obj_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(obj));
+    PyErr_Format(PyExc_TypeError,
+        "Argument '%.200s' has incorrect type (expected " __Pyx_FMT_TYPENAME
+        ", got " __Pyx_FMT_TYPENAME ")"
+#if __PYX_LIMITED_VERSION_HEX < 0x030C0000
+        "%s%U"
+#endif
+        , name, type_name, obj_type_name
+#if __PYX_LIMITED_VERSION_HEX < 0x030C0000
+        , (from_annotation_subclass ? ". " : ""), extra_info
+#endif
+        );
+#if __PYX_LIMITED_VERSION_HEX >= 0x030C0000
+    if (exact == 2 && from_annotation_subclass) {
+        PyObject *res;
+        PyObject *vargs[2];
+        vargs[0] = PyErr_GetRaisedException();
+        vargs[1] = extra_info;
+        res = PyObject_VectorcallMethod(__pyx_mstate_global->__pyx_kp_u_add_note, vargs, 2, NULL);
+        Py_XDECREF(res);
+        PyErr_SetRaisedException(vargs[0]);
     }
 #endif
-    else {
-        if (default_value == Py_None)
-            value = __Pyx_CallUnboundCMethod1(&__pyx_mstate_global->__pyx_umethod_PyDict_Type_get, d, key);
-        else
-            value = __Pyx_CallUnboundCMethod2(&__pyx_mstate_global->__pyx_umethod_PyDict_Type_get, d, key, default_value);
+    __Pyx_DECREF_TypeName(type_name);
+    __Pyx_DECREF_TypeName(obj_type_name);
+    return 0;
+}
+
+/* PyObjectSetAttrStr */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value) {
+    PyTypeObject* tp = Py_TYPE(obj);
+    if (likely(tp->tp_setattro))
+        return tp->tp_setattro(obj, attr_name, value);
+    return PyObject_SetAttr(obj, attr_name, value);
+}
+#endif
+
+/* PyUnicode_Unicode */
+static CYTHON_INLINE PyObject* __Pyx_PyUnicode_Unicode(PyObject *obj) {
+    if (unlikely(obj == Py_None))
+        obj = __pyx_mstate_global->__pyx_kp_u_None;
+    return __Pyx_NewRef(obj);
+}
+
+/* UnicodeConcatInPlace */
+# if CYTHON_COMPILING_IN_CPYTHON
+static int
+__Pyx_unicode_modifiable(PyObject *unicode)
+{
+    if (Py_REFCNT(unicode) != 1)
+        return 0;
+    if (!PyUnicode_CheckExact(unicode))
+        return 0;
+    if (PyUnicode_CHECK_INTERNED(unicode))
+        return 0;
+    return 1;
+}
+static CYTHON_INLINE PyObject *__Pyx_PyUnicode_ConcatInPlaceImpl(PyObject **p_left, PyObject *right
+        #if CYTHON_REFNANNY
+        , void* __pyx_refnanny
+        #endif
+    ) {
+    PyObject *left = *p_left;
+    Py_ssize_t left_len, right_len, new_len;
+    if (unlikely(__Pyx_PyUnicode_READY(left) == -1))
+        return NULL;
+    if (unlikely(__Pyx_PyUnicode_READY(right) == -1))
+        return NULL;
+    left_len = PyUnicode_GET_LENGTH(left);
+    if (left_len == 0) {
+        Py_INCREF(right);
+        return right;
     }
-    return value;
+    right_len = PyUnicode_GET_LENGTH(right);
+    if (right_len == 0) {
+        Py_INCREF(left);
+        return left;
+    }
+    if (unlikely(left_len > PY_SSIZE_T_MAX - right_len)) {
+        PyErr_SetString(PyExc_OverflowError,
+                        "strings are too large to concat");
+        return NULL;
+    }
+    new_len = left_len + right_len;
+    if (__Pyx_unicode_modifiable(left)
+            && PyUnicode_CheckExact(right)
+            && PyUnicode_KIND(right) <= PyUnicode_KIND(left)
+            && !(PyUnicode_IS_ASCII(left) && !PyUnicode_IS_ASCII(right))) {
+        int ret;
+        __Pyx_GIVEREF(*p_left);
+        ret = PyUnicode_Resize(p_left, new_len);
+        __Pyx_GOTREF(*p_left);
+        if (unlikely(ret != 0))
+            return NULL;
+        #if PY_VERSION_HEX >= 0x030d0000
+        if (unlikely(PyUnicode_CopyCharacters(*p_left, left_len, right, 0, right_len) < 0)) return NULL;
+        #else
+        _PyUnicode_FastCopyCharacters(*p_left, left_len, right, 0, right_len);
+        #endif
+        __Pyx_INCREF(*p_left);
+        __Pyx_GIVEREF(*p_left);
+        return *p_left;
+    } else {
+        return __Pyx_PyUnicode_Concat(left, right);
+    }
+  }
+#endif
+
+/* JoinPyUnicode */
+static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char) {
+#if CYTHON_USE_UNICODE_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    PyObject *result_uval;
+    int result_ukind, kind_shift;
+    Py_ssize_t i, char_pos;
+    void *result_udata;
+    if (max_char > 1114111) max_char = 1114111;
+    result_uval = PyUnicode_New(result_ulength, max_char);
+    if (unlikely(!result_uval)) return NULL;
+    result_ukind = (max_char <= 255) ? PyUnicode_1BYTE_KIND : (max_char <= 65535) ? PyUnicode_2BYTE_KIND : PyUnicode_4BYTE_KIND;
+    kind_shift = (result_ukind == PyUnicode_4BYTE_KIND) ? 2 : result_ukind - 1;
+    result_udata = PyUnicode_DATA(result_uval);
+    assert(kind_shift == 2 || kind_shift == 1 || kind_shift == 0);
+    if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - result_ulength < 0))
+        goto overflow;
+    char_pos = 0;
+    for (i=0; i < value_count; i++) {
+        int ukind;
+        Py_ssize_t ulength;
+        void *udata;
+        PyObject *uval = values[i];
+        #if !CYTHON_COMPILING_IN_LIMITED_API
+        if (__Pyx_PyUnicode_READY(uval) == (-1))
+            goto bad;
+        #endif
+        ulength = __Pyx_PyUnicode_GET_LENGTH(uval);
+        #if !CYTHON_ASSUME_SAFE_SIZE
+        if (unlikely(ulength < 0)) goto bad;
+        #endif
+        if (unlikely(!ulength))
+            continue;
+        if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - ulength < char_pos))
+            goto overflow;
+        ukind = __Pyx_PyUnicode_KIND(uval);
+        udata = __Pyx_PyUnicode_DATA(uval);
+        if (ukind == result_ukind) {
+            memcpy((char *)result_udata + (char_pos << kind_shift), udata, (size_t) (ulength << kind_shift));
+        } else {
+            #if PY_VERSION_HEX >= 0x030d0000
+            if (unlikely(PyUnicode_CopyCharacters(result_uval, char_pos, uval, 0, ulength) < 0)) goto bad;
+            #elif CYTHON_COMPILING_IN_CPYTHON || defined(_PyUnicode_FastCopyCharacters)
+            _PyUnicode_FastCopyCharacters(result_uval, char_pos, uval, 0, ulength);
+            #else
+            Py_ssize_t j;
+            for (j=0; j < ulength; j++) {
+                Py_UCS4 uchar = __Pyx_PyUnicode_READ(ukind, udata, j);
+                __Pyx_PyUnicode_WRITE(result_ukind, result_udata, char_pos+j, uchar);
+            }
+            #endif
+        }
+        char_pos += ulength;
+    }
+    return result_uval;
+overflow:
+    PyErr_SetString(PyExc_OverflowError, "join() result is too long for a Python string");
+bad:
+    Py_DECREF(result_uval);
+    return NULL;
+#else
+    Py_ssize_t i;
+    PyObject *result = NULL;
+    PyObject *value_tuple = PyTuple_New(value_count);
+    if (unlikely(!value_tuple)) return NULL;
+    CYTHON_UNUSED_VAR(max_char);
+    CYTHON_UNUSED_VAR(result_ulength);
+    for (i=0; i<value_count; i++) {
+        if (__Pyx_PyTuple_SET_ITEM(value_tuple, i, values[i]) != (0)) goto bad;
+        Py_INCREF(values[i]);
+    }
+    result = PyUnicode_Join(__pyx_mstate_global->__pyx_empty_unicode, value_tuple);
+bad:
+    Py_DECREF(value_tuple);
+    return result;
+#endif
 }
 
 /* PyErrExceptionMatches */
@@ -4150,94 +6388,37 @@ static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
     return __Pyx_GetBuiltinName(name);
 }
 
-/* ListPack */
-static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...) {
-    va_list va;
-    PyObject *l = PyList_New(n);
-    va_start(va, n);
-    if (unlikely(!l)) goto end;
-    for (Py_ssize_t i=0; i<n; ++i) {
-        PyObject *arg = va_arg(va, PyObject*);
-        Py_INCREF(arg);
-        if (__Pyx_PyList_SET_ITEM(l, i, arg) != (0)) {
-            Py_CLEAR(l);
-            goto end;
-        }
-    }
-    end:
-    va_end(va);
-    return l;
+/* PyObjectVectorCallKwBuilder */
+#if CYTHON_VECTORCALL
+static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
+    (void)__Pyx_PyObject_FastCallDict;
+    if (__Pyx_PyTuple_SET_ITEM(builder, n, key) != (0)) return -1;
+    Py_INCREF(key);
+    args[n] = value;
+    return 0;
 }
-
-/* Import */
-static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
-    PyObject *module = 0;
-    PyObject *empty_dict = 0;
-    PyObject *empty_list = 0;
-    empty_dict = PyDict_New();
-    if (unlikely(!empty_dict))
-        goto bad;
-    if (level == -1) {
-        const char* package_sep = strchr(__Pyx_MODULE_NAME, '.');
-        if (package_sep != (0)) {
-            module = PyImport_ImportModuleLevelObject(
-                name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, 1);
-            if (unlikely(!module)) {
-                if (unlikely(!PyErr_ExceptionMatches(PyExc_ImportError)))
-                    goto bad;
-                PyErr_Clear();
-            }
-        }
-        level = 0;
+CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
+    (void)__Pyx_VectorcallBuilder_AddArgStr;
+    if (unlikely(!PyUnicode_Check(key))) {
+        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
+        return -1;
     }
-    if (!module) {
-        module = PyImport_ImportModuleLevelObject(
-            name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, level);
-    }
-bad:
-    Py_XDECREF(empty_dict);
-    Py_XDECREF(empty_list);
-    return module;
+    return __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n);
 }
-
-/* ImportFrom */
-static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
-    PyObject* value = __Pyx_PyObject_GetAttrStr(module, name);
-    if (unlikely(!value) && PyErr_ExceptionMatches(PyExc_AttributeError)) {
-        const char* module_name_str = 0;
-        PyObject* module_name = 0;
-        PyObject* module_dot = 0;
-        PyObject* full_name = 0;
-        PyErr_Clear();
-        module_name_str = PyModule_GetName(module);
-        if (unlikely(!module_name_str)) { goto modbad; }
-        module_name = PyUnicode_FromString(module_name_str);
-        if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u_);
-        if (unlikely(!module_dot)) { goto modbad; }
-        full_name = PyUnicode_Concat(module_dot, name);
-        if (unlikely(!full_name)) { goto modbad; }
-        #if (CYTHON_COMPILING_IN_PYPY && PYPY_VERSION_NUM  < 0x07030400) ||\
-                CYTHON_COMPILING_IN_GRAAL
-        {
-            PyObject *modules = PyImport_GetModuleDict();
-            if (unlikely(!modules))
-                goto modbad;
-            value = PyObject_GetItem(modules, full_name);
-        }
-        #else
-        value = PyImport_GetModule(full_name);
-        #endif
-      modbad:
-        Py_XDECREF(full_name);
-        Py_XDECREF(module_dot);
-        Py_XDECREF(module_name);
-    }
-    if (unlikely(!value)) {
-        PyErr_Format(PyExc_ImportError, "cannot import name %S", name);
-    }
-    return value;
+static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
+    PyObject *pyKey = PyUnicode_FromString(key);
+    if (!pyKey) return -1;
+    return __Pyx_VectorcallBuilder_AddArg(pyKey, value, builder, args, n);
 }
+#else // CYTHON_VECTORCALL
+CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, CYTHON_UNUSED PyObject **args, CYTHON_UNUSED int n) {
+    if (unlikely(!PyUnicode_Check(key))) {
+        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
+        return -1;
+    }
+    return PyDict_SetItem(builder, key, value);
+}
+#endif
 
 /* LimitedApiGetTypeDict */
 #if CYTHON_COMPILING_IN_LIMITED_API
@@ -5721,6 +7902,283 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml, int flags, PyObject* qual
     return op;
 }
 
+/* ListPack */
+static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...) {
+    va_list va;
+    PyObject *l = PyList_New(n);
+    va_start(va, n);
+    if (unlikely(!l)) goto end;
+    for (Py_ssize_t i=0; i<n; ++i) {
+        PyObject *arg = va_arg(va, PyObject*);
+        Py_INCREF(arg);
+        if (__Pyx_PyList_SET_ITEM(l, i, arg) != (0)) {
+            Py_CLEAR(l);
+            goto end;
+        }
+    }
+    end:
+    va_end(va);
+    return l;
+}
+
+/* Import */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
+    PyObject *module = 0;
+    PyObject *empty_dict = 0;
+    PyObject *empty_list = 0;
+    empty_dict = PyDict_New();
+    if (unlikely(!empty_dict))
+        goto bad;
+    if (level == -1) {
+        const char* package_sep = strchr(__Pyx_MODULE_NAME, '.');
+        if (package_sep != (0)) {
+            module = PyImport_ImportModuleLevelObject(
+                name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, 1);
+            if (unlikely(!module)) {
+                if (unlikely(!PyErr_ExceptionMatches(PyExc_ImportError)))
+                    goto bad;
+                PyErr_Clear();
+            }
+        }
+        level = 0;
+    }
+    if (!module) {
+        module = PyImport_ImportModuleLevelObject(
+            name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, level);
+    }
+bad:
+    Py_XDECREF(empty_dict);
+    Py_XDECREF(empty_list);
+    return module;
+}
+
+/* ImportFrom */
+static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
+    PyObject* value = __Pyx_PyObject_GetAttrStr(module, name);
+    if (unlikely(!value) && PyErr_ExceptionMatches(PyExc_AttributeError)) {
+        const char* module_name_str = 0;
+        PyObject* module_name = 0;
+        PyObject* module_dot = 0;
+        PyObject* full_name = 0;
+        PyErr_Clear();
+        module_name_str = PyModule_GetName(module);
+        if (unlikely(!module_name_str)) { goto modbad; }
+        module_name = PyUnicode_FromString(module_name_str);
+        if (unlikely(!module_name)) { goto modbad; }
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__3);
+        if (unlikely(!module_dot)) { goto modbad; }
+        full_name = PyUnicode_Concat(module_dot, name);
+        if (unlikely(!full_name)) { goto modbad; }
+        #if (CYTHON_COMPILING_IN_PYPY && PYPY_VERSION_NUM  < 0x07030400) ||\
+                CYTHON_COMPILING_IN_GRAAL
+        {
+            PyObject *modules = PyImport_GetModuleDict();
+            if (unlikely(!modules))
+                goto modbad;
+            value = PyObject_GetItem(modules, full_name);
+        }
+        #else
+        value = PyImport_GetModule(full_name);
+        #endif
+      modbad:
+        Py_XDECREF(full_name);
+        Py_XDECREF(module_dot);
+        Py_XDECREF(module_name);
+    }
+    if (unlikely(!value)) {
+        PyErr_Format(PyExc_ImportError, "cannot import name %S", name);
+    }
+    return value;
+}
+
+/* ClassMethod */
+static PyObject* __Pyx_Method_ClassMethod(PyObject *method) {
+#if CYTHON_COMPILING_IN_PYPY && PYPY_VERSION_NUM <= 0x05080000
+    if (PyObject_TypeCheck(method, &PyWrapperDescr_Type)) {
+        return PyClassMethod_New(method);
+    }
+#else
+#if CYTHON_COMPILING_IN_PYPY
+    if (PyMethodDescr_Check(method))
+#else
+    if (__Pyx_TypeCheck(method, &PyMethodDescr_Type))
+#endif
+    {
+#if CYTHON_COMPILING_IN_LIMITED_API
+        return PyErr_Format(
+            PyExc_SystemError,
+            "Cython cannot yet handle classmethod on a MethodDescriptorType (%S) in limited API mode. "
+            "This is most likely a classmethod in a cdef class method with binding=False. "
+            "Try setting 'binding' to True.",
+            method);
+#elif CYTHON_COMPILING_IN_GRAAL
+        PyTypeObject *d_type = PyDescrObject_GetType(method);
+        return PyDescr_NewClassMethod(d_type, PyMethodDescrObject_GetMethod(method));
+#else
+        PyMethodDescrObject *descr = (PyMethodDescrObject *)method;
+        PyTypeObject *d_type = descr->d_common.d_type;
+        return PyDescr_NewClassMethod(d_type, descr->d_method);
+#endif
+    }
+#endif
+#if !CYTHON_COMPILING_IN_LIMITED_API
+    else if (PyMethod_Check(method)) {
+        return PyClassMethod_New(PyMethod_GET_FUNCTION(method));
+    }
+    else {
+        return PyClassMethod_New(method);
+    }
+#else
+    {
+        PyObject *func=NULL;
+        PyObject *builtins, *classmethod, *classmethod_str, *result=NULL;
+        if (__Pyx_TypeCheck(method, __pyx_mstate_global->__Pyx_CachedMethodType)) {
+            func = PyObject_GetAttrString(method, "__func__");
+            if (!func) goto bad;
+        } else {
+            func = method;
+            Py_INCREF(func);
+        }
+        builtins = PyEval_GetBuiltins(); // borrowed
+        if (unlikely(!builtins)) goto bad;
+        classmethod_str = PyUnicode_FromString("classmethod");
+        if (unlikely(!classmethod_str)) goto bad;
+        classmethod = PyObject_GetItem(builtins, classmethod_str);
+        Py_DECREF(classmethod_str);
+        if (unlikely(!classmethod)) goto bad;
+        result = PyObject_CallFunctionObjArgs(classmethod, func, NULL);
+        Py_DECREF(classmethod);
+        bad:
+        Py_XDECREF(func);
+        return result;
+    }
+#endif
+}
+
+/* CalculateMetaclass */
+static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases) {
+    Py_ssize_t i, nbases;
+#if CYTHON_ASSUME_SAFE_SIZE
+    nbases = PyTuple_GET_SIZE(bases);
+#else
+    nbases = PyTuple_Size(bases);
+    if (nbases < 0) return NULL;
+#endif
+    for (i=0; i < nbases; i++) {
+        PyTypeObject *tmptype;
+#if CYTHON_ASSUME_SAFE_MACROS
+        PyObject *tmp = PyTuple_GET_ITEM(bases, i);
+#else
+        PyObject *tmp = PyTuple_GetItem(bases, i);
+        if (!tmp) return NULL;
+#endif
+        tmptype = Py_TYPE(tmp);
+        if (!metaclass) {
+            metaclass = tmptype;
+            continue;
+        }
+        if (PyType_IsSubtype(metaclass, tmptype))
+            continue;
+        if (PyType_IsSubtype(tmptype, metaclass)) {
+            metaclass = tmptype;
+            continue;
+        }
+        PyErr_SetString(PyExc_TypeError,
+                        "metaclass conflict: "
+                        "the metaclass of a derived class "
+                        "must be a (non-strict) subclass "
+                        "of the metaclasses of all its bases");
+        return NULL;
+    }
+    if (!metaclass) {
+        metaclass = &PyType_Type;
+    }
+    Py_INCREF((PyObject*) metaclass);
+    return (PyObject*) metaclass;
+}
+
+/* PyObjectCall2Args */
+static CYTHON_INLINE PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2) {
+    PyObject *args[3] = {NULL, arg1, arg2};
+    return __Pyx_PyObject_FastCall(function, args+1, 2 | __Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET);
+}
+
+/* PyObjectLookupSpecial */
+#if CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject* __Pyx__PyObject_LookupSpecial(PyObject* obj, PyObject* attr_name, int with_error) {
+    PyObject *res;
+    PyTypeObject *tp = Py_TYPE(obj);
+    res = _PyType_Lookup(tp, attr_name);
+    if (likely(res)) {
+        descrgetfunc f = Py_TYPE(res)->tp_descr_get;
+        if (!f) {
+            Py_INCREF(res);
+        } else {
+            res = f(res, obj, (PyObject *)tp);
+        }
+    } else if (with_error) {
+        PyErr_SetObject(PyExc_AttributeError, attr_name);
+    }
+    return res;
+}
+#endif
+
+/* Py3ClassCreate */
+static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases, PyObject *name,
+                                           PyObject *qualname, PyObject *mkw, PyObject *modname, PyObject *doc) {
+    PyObject *ns;
+    if (metaclass) {
+        PyObject *prep = __Pyx_PyObject_GetAttrStrNoError(metaclass, __pyx_mstate_global->__pyx_n_u_prepare);
+        if (prep) {
+            PyObject *pargs[3] = {NULL, name, bases};
+            ns = __Pyx_PyObject_FastCallDict(prep, pargs+1, 2 | __Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET, mkw);
+            Py_DECREF(prep);
+        } else {
+            if (unlikely(PyErr_Occurred()))
+                return NULL;
+            ns = PyDict_New();
+        }
+    } else {
+        ns = PyDict_New();
+    }
+    if (unlikely(!ns))
+        return NULL;
+    if (unlikely(PyObject_SetItem(ns, __pyx_mstate_global->__pyx_n_u_module, modname) < 0)) goto bad;
+    if (unlikely(PyObject_SetItem(ns, __pyx_mstate_global->__pyx_n_u_qualname, qualname) < 0)) goto bad;
+    if (unlikely(doc && PyObject_SetItem(ns, __pyx_mstate_global->__pyx_n_u_doc, doc) < 0)) goto bad;
+    return ns;
+bad:
+    Py_DECREF(ns);
+    return NULL;
+}
+static PyObject *__Pyx_Py3ClassCreate(PyObject *metaclass, PyObject *name, PyObject *bases,
+                                      PyObject *dict, PyObject *mkw,
+                                      int calculate_metaclass, int allow_py2_metaclass) {
+    PyObject *result;
+    PyObject *owned_metaclass = NULL;
+    PyObject *margs[4] = {NULL, name, bases, dict};
+    if (allow_py2_metaclass) {
+        owned_metaclass = PyObject_GetItem(dict, __pyx_mstate_global->__pyx_n_u_metaclass);
+        if (owned_metaclass) {
+            metaclass = owned_metaclass;
+        } else if (likely(PyErr_ExceptionMatches(PyExc_KeyError))) {
+            PyErr_Clear();
+        } else {
+            return NULL;
+        }
+    }
+    if (calculate_metaclass && (!metaclass || PyType_Check(metaclass))) {
+        metaclass = __Pyx_CalculateMetaclass((PyTypeObject*) metaclass, bases);
+        Py_XDECREF(owned_metaclass);
+        if (unlikely(!metaclass))
+            return NULL;
+        owned_metaclass = metaclass;
+    }
+    result = __Pyx_PyObject_FastCallDict(metaclass, margs+1, 3 | __Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET, mkw);
+    Py_XDECREF(owned_metaclass);
+    return result;
+}
+
 /* CLineInTraceback */
 #if CYTHON_CLINE_IN_TRACEBACK && CYTHON_CLINE_IN_TRACEBACK_RUNTIME
 static int __Pyx_CLineForTraceback(PyThreadState *tstate, int c_line) {
@@ -6056,41 +8514,9 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__2);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__9);
     }
     goto done;
-}
-#endif
-
-/* PyObjectVectorCallKwBuilder */
-#if CYTHON_VECTORCALL
-static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
-    (void)__Pyx_PyObject_FastCallDict;
-    if (__Pyx_PyTuple_SET_ITEM(builder, n, key) != (0)) return -1;
-    Py_INCREF(key);
-    args[n] = value;
-    return 0;
-}
-CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
-    (void)__Pyx_VectorcallBuilder_AddArgStr;
-    if (unlikely(!PyUnicode_Check(key))) {
-        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
-        return -1;
-    }
-    return __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n);
-}
-static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
-    PyObject *pyKey = PyUnicode_FromString(key);
-    if (!pyKey) return -1;
-    return __Pyx_VectorcallBuilder_AddArg(pyKey, value, builder, args, n);
-}
-#else // CYTHON_VECTORCALL
-CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, CYTHON_UNUSED PyObject **args, CYTHON_UNUSED int n) {
-    if (unlikely(!PyUnicode_Check(key))) {
-        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
-        return -1;
-    }
-    return PyDict_SetItem(builder, key, value);
 }
 #endif
 

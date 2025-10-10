@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime, timedelta, tzinfo
 
-__all__ = ['Snowflake', 'SnowflakeGenerator', 'MAX_TS', 'MAX_INSTANCE', 'MAX_SEQ']
+__all__ = ["Snowflake", "SnowflakeGenerator", "MAX_TS", "MAX_INSTANCE", "MAX_SEQ"]
 
 MAX_TS: int
 MAX_INSTANCE: int
@@ -30,7 +30,14 @@ class Snowflake:
     def __int__(self) -> int: ...
 
 class SnowflakeGenerator:
-    def __init__(self, instance: int, *, seq: int = 0, epoch: int = 0, timestamp: int | None = None) -> None: ...
+    def __init__(
+        self,
+        instance: int,
+        *,
+        seq: int = 0,
+        epoch: int = 0,
+        timestamp: int | None = None,
+    ) -> None: ...
     @classmethod
     def from_snowflake(cls, sf: Snowflake) -> SnowflakeGenerator: ...
     @property

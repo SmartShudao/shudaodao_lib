@@ -18,6 +18,9 @@ from .app.base_app import BaseApplication
 from .auth.auth_router import AuthRouter
 from .config.app_config import AppConfig
 from .config.running_config import RunningConfig
+from .controller.generic_controller import GenericController
+from .controller.router_config import RouterConfig
+from .controller.table_controller import AuthController
 from .engine.database_engine import DatabaseEngine
 from .engine.disk_engine import DiskEngine
 from .engine.redis_engine import RedisEngine
@@ -31,7 +34,7 @@ from .exception.service_exception import (
 )
 from .generate.config import GeneratorConfig
 from .logger.logging_ import logging
-from .model.field import Field
+from .sqlmodel_ext.field import Field
 from .schemas.query_request import QueryRequest
 from .schemas.response import BaseResponse
 from .services.auth_service import AuthService

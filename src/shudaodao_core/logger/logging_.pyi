@@ -3,12 +3,16 @@ from _typeshed import Incomplete
 from enum import Enum
 
 class LoggingLevel(Enum):
+    """日志级别枚举"""
+
     DEBUG = 10
     INFO = 20
     WARNING = 30
     ERROR = 40
 
 class _Logger:
+    """自定义日志系统，不影响标准 logging 模块的其他日志"""
+
     line_length: int
     logger: Incomplete
     def __init__(self) -> None: ...

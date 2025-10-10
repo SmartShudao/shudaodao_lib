@@ -2288,7 +2288,7 @@ static PyObject *__pyx_builtin_ValueError;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = ".";
 static const char __pyx_k_e[] = "e";
-static const char __pyx_k__2[] = "\345\272\224\347\224\250\351\205\215\347\275\256\345\212\240\350\275\275\345\231\250";
+static const char __pyx_k__2[] = "\345\272\224\347\224\250\351\205\215\347\275\256\345\212\240\350\275\275\345\231\250\357\274\214\345\256\236\347\216\260\351\205\215\347\275\256\347\232\204\345\215\225\344\276\213\345\212\240\350\275\275\344\270\216\345\237\272\347\241\200\351\252\214\350\257\201\343\200\202\n\n    \350\257\245\347\261\273\347\241\256\344\277\235\346\225\264\344\270\252\345\272\224\347\224\250\347\224\237\345\221\275\345\221\250\346\234\237\344\270\255\344\273\205\345\212\240\350\275\275\344\270\200\346\254\241\351\205\215\347\275\256\357\274\210\346\203\260\346\200\247\345\215\225\344\276\213\357\274\211\357\274\214\n    \345\271\266\345\234\250\345\212\240\350\275\275\345\220\216\346\211\247\350\241\214\345\277\205\350\246\201\347\232\204\345\256\211\345\205\250\344\270\216\347\216\257\345\242\203\345\220\210\350\247\204\346\200\247\346\243\200\346\237\245\343\200\202\n    ";
 static const char __pyx_k__3[] = "?";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
@@ -2324,7 +2324,7 @@ static const char __pyx_k_load_config[] = "load_config";
 static const char __pyx_k_ConfigLoader[] = "ConfigLoader";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_A_6_c_F_s_81A[] = "\200A\330&'\340\010\013\2106\220\035\230c\240\027\250\004\250F\260'\270\026\270s\300!\330\014\023\2208\2301\230A";
+static const char __pyx_k_A_6_c_F_s_81A[] = "\200A\330&'\360\024\000\t\014\2106\220\035\230c\240\027\250\004\250F\260'\270\026\270s\300!\330\014\023\2208\2301\230A";
 static const char __pyx_k_app_config_py[] = "app_config.py";
 static const char __pyx_k_AppConfigLoader[] = "AppConfigLoader";
 static const char __pyx_k_config_instance[] = "_config_instance";
@@ -2335,7 +2335,7 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_schemas_app_config[] = "schemas.app_config";
 static const char __pyx_k_Failed_to_load_config[] = "Failed to load config: ";
 static const char __pyx_k_AppConfigLoader_load_config[] = "AppConfigLoader.load_config";
-static const char __pyx_k_A_3_1_5_AQ_7s_aq_AS_vQb_3aq_s[] = "\200A\330\034\035\360\024\000\t\014\2103\320\016 \240\003\2401\330\014\r\330\020\027\220|\2405\250\001\330\020\023\220>\240\027\250\001\330\024\032\230*\240A\240Q\330\020\023\320\023'\320'7\260s\270$\270a\270q\330\020\023\320\023$\240A\240S\250\001\330\014\023\220=\240\001\330\020\027\220v\230Q\230b\320 ;\2703\270a\270q\330\020\021\330\010\017\210s\220!";
+static const char __pyx_k_A_3_1_5_AQ_7s_aq_AS_vQb_3aq_s[] = "\200A\330\034\035\360\032\000\t\014\2103\320\016 \240\003\2401\330\014\r\330\020\027\220|\2405\250\001\330\020\023\220>\240\027\250\001\330\024\032\230*\240A\240Q\330\020\023\320\023'\320'7\260s\270$\270a\270q\330\020\023\320\023$\240A\240S\250\001\330\014\023\220=\240\001\330\020\027\220v\230Q\230b\320 ;\2703\270a\270q\330\020\021\330\010\017\210s\220!";
 static const char __pyx_k_Config_file_missing_SmartShudao[] = "Config file missing 'SmartShudao' section";
 static const char __pyx_k_Production_environment_is_using[] = "Production environment is using default host 0.0.0.0";
 static const char __pyx_k_AppConfigLoader__validate_config[] = "AppConfigLoader._validate_config";
@@ -2433,7 +2433,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_Production_environment_is_using __pyx_string_tab[10]
 #define __pyx_n_u_SmartShudao __pyx_string_tab[11]
 #define __pyx_n_u_ValueError __pyx_string_tab[12]
-#define __pyx_n_u__2 __pyx_string_tab[13]
+#define __pyx_kp_u__2 __pyx_string_tab[13]
 #define __pyx_kp_u__3 __pyx_string_tab[14]
 #define __pyx_n_u_app_config __pyx_string_tab[15]
 #define __pyx_kp_u_app_config_py __pyx_string_tab[16]
@@ -2520,7 +2520,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
 #endif
 /* #### Code section: module_code ### */
 
-/* "app_config.py":20
+/* "app_config.py":25
  *     _config_instance = None  #
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -2536,7 +2536,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10app_config_15AppConfigLoader_load_config, "\345\212\240\350\275\275\345\271\266\350\277\224\345\233\236\345\272\224\347\224\250\351\205\215\347\275\256\n\n        Returns:\n            _AppConfig: \345\212\240\350\275\275\347\232\204\345\272\224\347\224\250\351\205\215\347\275\256\n\n        Raises:\n            ValueError: \345\275\223\351\205\215\347\275\256\346\226\207\344\273\266\344\270\255\347\274\272\345\260\221\345\277\205\350\246\201\351\203\250\345\210\206\346\227\266\n            Exception: \345\205\266\344\273\226\345\212\240\350\275\275\351\205\215\347\275\256\346\227\266\347\232\204\351\224\231\350\257\257\n        ");
+PyDoc_STRVAR(__pyx_doc_10app_config_15AppConfigLoader_load_config, "\345\212\240\350\275\275\345\271\266\350\277\224\345\233\236\345\272\224\347\224\250\351\205\215\347\275\256\345\256\236\344\276\213\357\274\210\345\215\225\344\276\213\357\274\211\343\200\202\n\n        \351\246\226\346\254\241\350\260\203\347\224\250\346\227\266\344\273\216\351\205\215\347\275\256\346\226\207\344\273\266\344\270\255\350\257\273\345\217\226 'SmartShudao' \350\212\202\347\202\271\345\271\266\350\247\243\346\236\220\344\270\272 AppConfigSetting \345\257\271\350\261\241\357\274\214\n        \345\220\216\347\273\255\350\260\203\347\224\250\347\233\264\346\216\245\350\277\224\345\233\236\347\274\223\345\255\230\345\256\236\344\276\213\343\200\202\n\n        Returns:\n            AppConfigSetting: \350\247\243\346\236\220\345\220\216\347\232\204\345\272\224\347\224\250\351\205\215\347\275\256\345\257\271\350\261\241\343\200\202\n\n        Raises:\n            ValueError: \345\275\223\351\205\215\347\275\256\346\226\207\344\273\266\344\270\255\347\274\272\345\260\221 'SmartShudao' \346\240\271\350\212\202\347\202\271\346\227\266\343\200\202\n            Exception: \351\205\215\347\275\256\350\247\243\346\236\220\346\210\226\345\212\240\350\275\275\350\277\207\347\250\213\344\270\255\345\217\221\347\224\237\347\232\204\345\205\266\344\273\226\345\274\202\345\270\270\357\274\210\345\246\202\346\226\207\344\273\266\344\270\215\345\255\230\345\234\250\343\200\201\346\240\274\345\274\217\351\224\231\350\257\257\347\255\211\357\274\211\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_10app_config_15AppConfigLoader_1load_config = {"load_config", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10app_config_15AppConfigLoader_1load_config, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10app_config_15AppConfigLoader_load_config};
 static PyObject *__pyx_pw_10app_config_15AppConfigLoader_1load_config(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -2568,32 +2568,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 20, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 20, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "load_config", 0) < 0) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "load_config", 0) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("load_config", 1, 1, 1, i); __PYX_ERR(0, 20, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("load_config", 1, 1, 1, i); __PYX_ERR(0, 25, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 20, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("load_config", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 20, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("load_config", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 25, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2646,20 +2646,20 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_config", 0);
 
-  /* "app_config.py":31
+  /* "app_config.py":39
  *             Exception:
  *         """
  *         if cls._config_instance is None:             # <<<<<<<<<<<<<<
  *             try:
  *                 data = ConfigLoader.open()
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = (__pyx_t_1 == Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "app_config.py":32
+    /* "app_config.py":40
  *         """
  *         if cls._config_instance is None:
  *             try:             # <<<<<<<<<<<<<<
@@ -2675,7 +2675,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
       __Pyx_XGOTREF(__pyx_t_5);
       /*try:*/ {
 
-        /* "app_config.py":33
+        /* "app_config.py":41
  *         if cls._config_instance is None:
  *             try:
  *                 data = ConfigLoader.open()             # <<<<<<<<<<<<<<
@@ -2683,9 +2683,9 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
  *                     raise ValueError("Config file missing 'SmartShudao' section")
 */
         __pyx_t_6 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ConfigLoader); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L4_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_ConfigLoader); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 41, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_open); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 33, __pyx_L4_error)
+        __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_open); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __pyx_t_9 = 1;
@@ -2705,23 +2705,23 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
           __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L4_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L4_error)
           __Pyx_GOTREF(__pyx_t_1);
         }
         __pyx_v_data = __pyx_t_1;
         __pyx_t_1 = 0;
 
-        /* "app_config.py":34
+        /* "app_config.py":42
  *             try:
  *                 data = ConfigLoader.open()
  *                 if "SmartShudao" not in data:             # <<<<<<<<<<<<<<
  *                     raise ValueError("Config file missing 'SmartShudao' section")
  *                 cls._config_instance = AppConfigSetting(**data["SmartShudao"])
 */
-        __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_mstate_global->__pyx_n_u_SmartShudao, __pyx_v_data, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 34, __pyx_L4_error)
+        __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_mstate_global->__pyx_n_u_SmartShudao, __pyx_v_data, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 42, __pyx_L4_error)
         if (unlikely(__pyx_t_2)) {
 
-          /* "app_config.py":35
+          /* "app_config.py":43
  *                 data = ConfigLoader.open()
  *                 if "SmartShudao" not in data:
  *                     raise ValueError("Config file missing 'SmartShudao' section")             # <<<<<<<<<<<<<<
@@ -2737,14 +2737,14 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
             __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
             __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
             __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L4_error)
+            if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L4_error)
             __Pyx_GOTREF(__pyx_t_1);
           }
           __Pyx_Raise(__pyx_t_1, 0, 0, 0);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __PYX_ERR(0, 35, __pyx_L4_error)
+          __PYX_ERR(0, 43, __pyx_L4_error)
 
-          /* "app_config.py":34
+          /* "app_config.py":42
  *             try:
  *                 data = ConfigLoader.open()
  *                 if "SmartShudao" not in data:             # <<<<<<<<<<<<<<
@@ -2753,20 +2753,20 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
 */
         }
 
-        /* "app_config.py":36
+        /* "app_config.py":44
  *                 if "SmartShudao" not in data:
  *                     raise ValueError("Config file missing 'SmartShudao' section")
  *                 cls._config_instance = AppConfigSetting(**data["SmartShudao"])             # <<<<<<<<<<<<<<
  *                 cls._validate_config(cls._config_instance)
  *             except Exception as e:
 */
-        __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfigSetting); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L4_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfigSetting); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_data, __pyx_mstate_global->__pyx_n_u_SmartShudao); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 36, __pyx_L4_error)
+        __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_data, __pyx_mstate_global->__pyx_n_u_SmartShudao); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 44, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_8);
         if (unlikely(__pyx_t_8 == Py_None)) {
           PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
-          __PYX_ERR(0, 36, __pyx_L4_error)
+          __PYX_ERR(0, 44, __pyx_L4_error)
         }
         if (likely(PyDict_CheckExact(__pyx_t_8))) {
           #if CYTHON_COMPILING_IN_CPYTHON || CYTHON_COMPILING_IN_LIMITED_API
@@ -2776,23 +2776,23 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
           } else
           #endif
           {
-            __pyx_t_6 = PyDict_Copy(__pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L4_error)
+            __pyx_t_6 = PyDict_Copy(__pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L4_error)
             __Pyx_GOTREF(__pyx_t_6);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           }
         } else {
-          __pyx_t_6 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L4_error)
+          __pyx_t_6 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_t_8); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L4_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
-        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 36, __pyx_L4_error)
+        __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 44, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (__Pyx_PyObject_SetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance, __pyx_t_8) < 0) __PYX_ERR(0, 36, __pyx_L4_error)
+        if (__Pyx_PyObject_SetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance, __pyx_t_8) < 0) __PYX_ERR(0, 44, __pyx_L4_error)
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "app_config.py":37
+        /* "app_config.py":45
  *                     raise ValueError("Config file missing 'SmartShudao' section")
  *                 cls._config_instance = AppConfigSetting(**data["SmartShudao"])
  *                 cls._validate_config(cls._config_instance)             # <<<<<<<<<<<<<<
@@ -2801,7 +2801,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
 */
         __pyx_t_6 = __pyx_v_cls;
         __Pyx_INCREF(__pyx_t_6);
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L4_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_9 = 0;
         {
@@ -2809,12 +2809,12 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
           __pyx_t_8 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_validate_config, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 37, __pyx_L4_error)
+          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 45, __pyx_L4_error)
           __Pyx_GOTREF(__pyx_t_8);
         }
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "app_config.py":32
+        /* "app_config.py":40
  *         """
  *         if cls._config_instance is None:
  *             try:             # <<<<<<<<<<<<<<
@@ -2832,7 +2832,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "app_config.py":38
+      /* "app_config.py":46
  *                 cls._config_instance = AppConfigSetting(**data["SmartShudao"])
  *                 cls._validate_config(cls._config_instance)
  *             except Exception as e:             # <<<<<<<<<<<<<<
@@ -2842,7 +2842,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
       __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
       if (__pyx_t_10) {
         __Pyx_AddTraceback("app_config.AppConfigLoader.load_config", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_1, &__pyx_t_6) < 0) __PYX_ERR(0, 38, __pyx_L6_except_error)
+        if (__Pyx_GetException(&__pyx_t_8, &__pyx_t_1, &__pyx_t_6) < 0) __PYX_ERR(0, 46, __pyx_L6_except_error)
         __Pyx_XGOTREF(__pyx_t_8);
         __Pyx_XGOTREF(__pyx_t_1);
         __Pyx_XGOTREF(__pyx_t_6);
@@ -2850,7 +2850,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
         __pyx_v_e = __pyx_t_1;
         /*try:*/ {
 
-          /* "app_config.py":39
+          /* "app_config.py":47
  *                 cls._validate_config(cls._config_instance)
  *             except Exception as e:
  *                 logging.error(f"Failed to load config: {str(e)}")             # <<<<<<<<<<<<<<
@@ -2858,14 +2858,14 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
  *         return cls._config_instance
 */
           __pyx_t_11 = NULL;
-          __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 39, __pyx_L16_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 47, __pyx_L16_error)
           __Pyx_GOTREF(__pyx_t_12);
-          __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 39, __pyx_L16_error)
+          __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 47, __pyx_L16_error)
           __Pyx_GOTREF(__pyx_t_13);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          __pyx_t_12 = __Pyx_PyObject_Unicode(__pyx_v_e); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 39, __pyx_L16_error)
+          __pyx_t_12 = __Pyx_PyObject_Unicode(__pyx_v_e); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 47, __pyx_L16_error)
           __Pyx_GOTREF(__pyx_t_12);
-          __pyx_t_14 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_Failed_to_load_config, __pyx_t_12); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 39, __pyx_L16_error)
+          __pyx_t_14 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_Failed_to_load_config, __pyx_t_12); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 47, __pyx_L16_error)
           __Pyx_GOTREF(__pyx_t_14);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           __pyx_t_9 = 1;
@@ -2886,12 +2886,12 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
             __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
             __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-            if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 39, __pyx_L16_error)
+            if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 47, __pyx_L16_error)
             __Pyx_GOTREF(__pyx_t_7);
           }
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-          /* "app_config.py":40
+          /* "app_config.py":48
  *             except Exception as e:
  *                 logging.error(f"Failed to load config: {str(e)}")
  *                 raise             # <<<<<<<<<<<<<<
@@ -2903,10 +2903,10 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
           __Pyx_XGIVEREF(__pyx_t_6);
           __Pyx_ErrRestoreWithState(__pyx_t_8, __pyx_t_1, __pyx_t_6);
           __pyx_t_8 = 0;  __pyx_t_1 = 0;  __pyx_t_6 = 0; 
-          __PYX_ERR(0, 40, __pyx_L16_error)
+          __PYX_ERR(0, 48, __pyx_L16_error)
         }
 
-        /* "app_config.py":38
+        /* "app_config.py":46
  *                 cls._config_instance = AppConfigSetting(**data["SmartShudao"])
  *                 cls._validate_config(cls._config_instance)
  *             except Exception as e:             # <<<<<<<<<<<<<<
@@ -2952,7 +2952,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
       }
       goto __pyx_L6_except_error;
 
-      /* "app_config.py":32
+      /* "app_config.py":40
  *         """
  *         if cls._config_instance is None:
  *             try:             # <<<<<<<<<<<<<<
@@ -2968,7 +2968,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
       __pyx_L9_try_end:;
     }
 
-    /* "app_config.py":31
+    /* "app_config.py":39
  *             Exception:
  *         """
  *         if cls._config_instance is None:             # <<<<<<<<<<<<<<
@@ -2977,7 +2977,7 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
 */
   }
 
-  /* "app_config.py":41
+  /* "app_config.py":49
  *                 logging.error(f"Failed to load config: {str(e)}")
  *                 raise
  *         return cls._config_instance             # <<<<<<<<<<<<<<
@@ -2985,13 +2985,13 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
  *     @classmethod
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_config_instance); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "app_config.py":20
+  /* "app_config.py":25
  *     _config_instance = None  #
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3019,12 +3019,12 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_load_config(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "app_config.py":43
+/* "app_config.py":51
  *         return cls._config_instance
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _validate_config(cls, config: AppConfigSetting):
- *         """"""
+ *         """
 */
 
 /* Python wrapper */
@@ -3035,7 +3035,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_10app_config_15AppConfigLoader_2_validate_config, "\351\252\214\350\257\201\351\205\215\347\275\256\347\232\204\351\242\235\345\244\226\351\200\273\350\276\221");
+PyDoc_STRVAR(__pyx_doc_10app_config_15AppConfigLoader_2_validate_config, "\345\257\271\345\212\240\350\275\275\347\232\204\351\205\215\347\275\256\346\211\247\350\241\214\351\242\235\345\244\226\347\232\204\344\270\232\345\212\241\346\210\226\345\256\211\345\205\250\351\252\214\350\257\201\343\200\202\n\n        \345\275\223\345\211\215\345\256\236\347\216\260\357\274\232\n        - \345\234\250\347\224\237\344\272\247\347\216\257\345\242\203\357\274\210environment == 'prod'\357\274\211\344\270\213\357\274\214\350\213\245 host \344\270\272 '0.0.0.0'\357\274\214\350\256\260\345\275\225\350\255\246\345\221\212\346\227\245\345\277\227\357\274\214\n          \346\217\220\347\244\272\345\217\257\350\203\275\345\255\230\345\234\250\345\256\211\345\205\250\351\243\216\351\231\251\357\274\210\345\272\224\347\273\221\345\256\232\345\205\267\344\275\223 IP \346\210\226\344\275\277\347\224\250\345\217\215\345\220\221\344\273\243\347\220\206\357\274\211\343\200\202\n\n        Args:\n            config (AppConfigSetting): \345\267\262\345\212\240\350\275\275\347\232\204\351\205\215\347\275\256\345\257\271\350\261\241\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_10app_config_15AppConfigLoader_3_validate_config = {"_validate_config", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10app_config_15AppConfigLoader_3_validate_config, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_10app_config_15AppConfigLoader_2_validate_config};
 static PyObject *__pyx_pw_10app_config_15AppConfigLoader_3_validate_config(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -3068,39 +3068,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_config,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 43, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 51, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 43, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 51, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 43, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 51, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_validate_config", 0) < 0) __PYX_ERR(0, 43, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_validate_config", 0) < 0) __PYX_ERR(0, 51, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_validate_config", 1, 2, 2, i); __PYX_ERR(0, 43, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_validate_config", 1, 2, 2, i); __PYX_ERR(0, 51, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 43, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 51, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 43, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 51, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_config = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_validate_config", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 43, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_validate_config", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 51, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3136,44 +3136,44 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_2_validate_config(CYTHO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_validate_config", 0);
 
-  /* "app_config.py":46
- *     def _validate_config(cls, config: AppConfigSetting):
- *         """"""
+  /* "app_config.py":62
+ *             config (AppConfigSetting):
+ *         """
  *         if config.environment == "prod" and config.webapp.host == "0.0.0.0":             # <<<<<<<<<<<<<<
  *             logging.warning("Production environment is using default host 0.0.0.0")
  * 
 */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_environment); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_environment); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_prod, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_prod, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
   } else {
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_webapp); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_config, __pyx_mstate_global->__pyx_n_u_webapp); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_host); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_host); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_0_0_0_0, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_0_0_0_0, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_1 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "app_config.py":47
- *         """"""
+    /* "app_config.py":63
+ *         """
  *         if config.environment == "prod" and config.webapp.host == "0.0.0.0":
  *             logging.warning("Production environment is using default host 0.0.0.0")             # <<<<<<<<<<<<<<
  * 
  * 
 */
     __pyx_t_2 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_7 = 1;
@@ -3193,26 +3193,26 @@ static PyObject *__pyx_pf_10app_config_15AppConfigLoader_2_validate_config(CYTHO
       __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "app_config.py":46
- *     def _validate_config(cls, config: AppConfigSetting):
- *         """"""
+    /* "app_config.py":62
+ *             config (AppConfigSetting):
+ *         """
  *         if config.environment == "prod" and config.webapp.host == "0.0.0.0":             # <<<<<<<<<<<<<<
  *             logging.warning("Production environment is using default host 0.0.0.0")
  * 
 */
   }
 
-  /* "app_config.py":43
+  /* "app_config.py":51
  *         return cls._config_instance
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _validate_config(cls, config: AppConfigSetting):
- *         """"""
+ *         """
 */
 
   /* function exit code */
@@ -3599,135 +3599,135 @@ __Pyx_RefNannySetupContext("PyInit_app_config", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "app_config.py":9
- * # @Desc
+  /* "app_config.py":10
+ * 
  * 
  * import logging             # <<<<<<<<<<<<<<
  * 
- * from .schemas.app_config import AppConfigSetting
-*/
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_logging, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "app_config.py":11
- * import logging
- * 
- * from .schemas.app_config import AppConfigSetting             # <<<<<<<<<<<<<<
  * from .loader import ConfigLoader
- * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfigSetting); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_logging, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_schemas_app_config, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AppConfigSetting); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfigSetting, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "app_config.py":12
+ * import logging
  * 
- * from .schemas.app_config import AppConfigSetting
  * from .loader import ConfigLoader             # <<<<<<<<<<<<<<
+ * from .schemas.app_config import AppConfigSetting
+ * 
+*/
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_ConfigLoader); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_loader, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ConfigLoader); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ConfigLoader, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "app_config.py":13
+ * 
+ * from .loader import ConfigLoader
+ * from .schemas.app_config import AppConfigSetting             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_ConfigLoader); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfigSetting); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_loader, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_schemas_app_config, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_ConfigLoader); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AppConfigSetting); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ConfigLoader, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfigSetting, __pyx_t_3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "app_config.py":15
+  /* "app_config.py":16
  * 
  * 
  * class AppConfigLoader:             # <<<<<<<<<<<<<<
- *     """"""
+ *     """
  * 
 */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_AppConfigLoader, __pyx_mstate_global->__pyx_n_u_AppConfigLoader, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_app_config, __pyx_mstate_global->__pyx_n_u__2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_AppConfigLoader, __pyx_mstate_global->__pyx_n_u_AppConfigLoader, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_app_config, __pyx_mstate_global->__pyx_kp_u__2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "app_config.py":18
- *     """"""
+  /* "app_config.py":23
+ *     """
  * 
  *     _config_instance = None  #             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
 */
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_config_instance, Py_None) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_config_instance, Py_None) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
 
-  /* "app_config.py":20
+  /* "app_config.py":25
  *     _config_instance = None  #
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def load_config(cls) -> AppConfigSetting:
  *         """
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AppConfigSetting) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10app_config_15AppConfigLoader_1load_config, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_AppConfigLoader_load_config, NULL, __pyx_mstate_global->__pyx_n_u_app_config, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AppConfigSetting) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10app_config_15AppConfigLoader_1load_config, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_AppConfigLoader_load_config, NULL, __pyx_mstate_global->__pyx_n_u_app_config, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load_config, __pyx_t_3) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load_config, __pyx_t_3) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "app_config.py":43
+  /* "app_config.py":51
  *         return cls._config_instance
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _validate_config(cls, config: AppConfigSetting):
- *         """"""
+ *         """
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_config, __pyx_mstate_global->__pyx_n_u_AppConfigSetting) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10app_config_15AppConfigLoader_3_validate_config, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_AppConfigLoader__validate_config, NULL, __pyx_mstate_global->__pyx_n_u_app_config, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_config, __pyx_mstate_global->__pyx_n_u_AppConfigSetting) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10app_config_15AppConfigLoader_3_validate_config, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_AppConfigLoader__validate_config, NULL, __pyx_mstate_global->__pyx_n_u_app_config, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_validate_config, __pyx_t_3) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_validate_config, __pyx_t_3) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "app_config.py":15
+  /* "app_config.py":16
  * 
  * 
  * class AppConfigLoader:             # <<<<<<<<<<<<<<
- *     """"""
+ *     """
  * 
 */
-  __pyx_t_3 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_AppConfigLoader, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_AppConfigLoader, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfigLoader, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfigLoader, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "app_config.py":51
- * 
+  /* "app_config.py":68
  * #
- * AppConfig = AppConfigLoader.load_config()             # <<<<<<<<<<<<<<
+ * # from app.config import AppConfig; print(AppConfig.database.url)
+ * AppConfig: AppConfigSetting = AppConfigLoader.load_config()             # <<<<<<<<<<<<<<
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AppConfigLoader); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AppConfigLoader); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_load_config); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_load_config); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_6 = 1;
@@ -3736,10 +3736,10 @@ __Pyx_RefNannySetupContext("PyInit_app_config", 0);
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_2) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_2) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "app_config.py":1
@@ -3790,11 +3790,11 @@ __Pyx_RefNannySetupContext("PyInit_app_config", 0);
 
 typedef struct {
     const char *s;
-#if 84 <= 65535
+#if 872 <= 65535
     const unsigned short n;
-#elif 84 / 2 < INT_MAX
+#elif 872 / 2 < INT_MAX
     const unsigned int n;
-#elif 84 / 2 < LONG_MAX
+#elif 872 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -3826,7 +3826,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Production_environment_is_using, sizeof(__pyx_k_Production_environment_is_using), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Production_environment_is_using */
   {__pyx_k_SmartShudao, sizeof(__pyx_k_SmartShudao), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SmartShudao */
   {__pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ValueError */
-  {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
+  {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k_app_config, sizeof(__pyx_k_app_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_app_config */
   {__pyx_k_app_config_py, sizeof(__pyx_k_app_config_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_app_config_py */
@@ -3873,7 +3873,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 43, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3924,12 +3924,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 20, 113};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 25, 113};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_data, __pyx_mstate->__pyx_n_u_e};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_app_config_py, __pyx_mstate->__pyx_n_u_load_config, __pyx_k_A_3_1_5_AQ_7s_aq_AS_vQb_3aq_s, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 43, 37};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 51, 39};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_config};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_app_config_py, __pyx_mstate->__pyx_n_u_validate_config, __pyx_k_A_6_c_F_s_81A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }

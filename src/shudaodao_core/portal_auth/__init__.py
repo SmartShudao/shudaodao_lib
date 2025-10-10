@@ -33,7 +33,7 @@ def get_schema_name():
 def get_table_schema():
     if DatabaseEngine().support_schema(name=get_engine_name()):
         return RunningConfig.get_sqlmodel_schema("shudaodao_auth")
-    return ""
+    return None
 
 
 # SQLModel 类: foreign_key= 用于这里 -> schema_name.t_table_name.field_id"

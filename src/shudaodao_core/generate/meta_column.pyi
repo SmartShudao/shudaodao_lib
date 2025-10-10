@@ -4,6 +4,8 @@ from typing import Any
 
 @dataclass
 class MetaColumn:
+    """列 元数据"""
+
     name: str
     type: Any
     sa_type: str | None
