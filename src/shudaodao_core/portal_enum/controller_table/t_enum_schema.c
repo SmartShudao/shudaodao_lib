@@ -1903,14 +1903,15 @@ int __pyx_module_is_main_shudaodao_core__portal_enum__controller_table__t_enum_s
 /* Implementation of "shudaodao_core.portal_enum.controller_table.t_enum_schema" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = ".";
-static const char __pyx_k__2[] = "";
+static const char __pyx_k_[] = "";
+static const char __pyx_k__2[] = ".";
 static const char __pyx_k__3[] = "?";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_create[] = "create";
 static const char __pyx_k_module[] = "__module__";
+static const char __pyx_k_prefix[] = "prefix";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_table_name[] = "table_name";
 static const char __pyx_k_TEnumSchema[] = "TEnumSchema";
@@ -1921,16 +1922,17 @@ static const char __pyx_k_t_enum_schema[] = "t_enum_schema";
 static const char __pyx_k_update_schema[] = "update_schema";
 static const char __pyx_k_AuthController[] = "AuthController";
 static const char __pyx_k_db_config_name[] = "db_config_name";
-static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
 static const char __pyx_k_get_engine_name[] = "get_engine_name";
 static const char __pyx_k_get_schema_name[] = "get_schema_name";
 static const char __pyx_k_response_schema[] = "response_schema";
+static const char __pyx_k_v1_enums_schema[] = "/v1/enums/schema";
 static const char __pyx_k_TEnumSchemaCreate[] = "TEnumSchemaCreate";
 static const char __pyx_k_TEnumSchemaUpdate[] = "TEnumSchemaUpdate";
 static const char __pyx_k_TEnumSchema_Router[] = "TEnumSchema_Router";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_TEnumSchemaResponse[] = "TEnumSchemaResponse";
 static const char __pyx_k_entity_table_t_enum_schema[] = "entity_table.t_enum_schema";
+static const char __pyx_k_controller_table_controller[] = "controller.table_controller";
 /* #### Code section: decls ### */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
@@ -1970,7 +1972,7 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_string_tab[28];
+  PyObject *__pyx_string_tab[30];
 /* #### Code section: module_state_contents ### */
 /* CodeObjectCache.module_state_decls */
 struct __Pyx_CodeObjectCache __pyx_code_cache;
@@ -2000,34 +2002,36 @@ static __pyx_mstatetype __pyx_mstate_global_static =
 static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_static;
 #endif
 /* #### Code section: constant_name_defines ### */
-#define __pyx_kp_u_ __pyx_string_tab[0]
+#define __pyx_n_u_ __pyx_string_tab[0]
 #define __pyx_n_u_AuthController __pyx_string_tab[1]
 #define __pyx_n_u_TEnumSchema __pyx_string_tab[2]
 #define __pyx_n_u_TEnumSchemaCreate __pyx_string_tab[3]
 #define __pyx_n_u_TEnumSchemaResponse __pyx_string_tab[4]
 #define __pyx_n_u_TEnumSchemaUpdate __pyx_string_tab[5]
 #define __pyx_n_u_TEnumSchema_Router __pyx_string_tab[6]
-#define __pyx_n_u__2 __pyx_string_tab[7]
+#define __pyx_kp_u__2 __pyx_string_tab[7]
 #define __pyx_kp_u__3 __pyx_string_tab[8]
 #define __pyx_n_u_cline_in_traceback __pyx_string_tab[9]
-#define __pyx_n_u_create __pyx_string_tab[10]
-#define __pyx_n_u_create_schema __pyx_string_tab[11]
-#define __pyx_n_u_db_config_name __pyx_string_tab[12]
-#define __pyx_n_u_entity_table_t_enum_schema __pyx_string_tab[13]
-#define __pyx_n_u_get_engine_name __pyx_string_tab[14]
-#define __pyx_n_u_get_schema_name __pyx_string_tab[15]
-#define __pyx_n_u_main __pyx_string_tab[16]
-#define __pyx_n_u_model_class __pyx_string_tab[17]
-#define __pyx_n_u_module __pyx_string_tab[18]
-#define __pyx_n_u_name __pyx_string_tab[19]
-#define __pyx_n_u_qualname __pyx_string_tab[20]
-#define __pyx_n_u_response_schema __pyx_string_tab[21]
-#define __pyx_n_u_schema_name __pyx_string_tab[22]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[23]
-#define __pyx_n_u_t_enum_schema __pyx_string_tab[24]
-#define __pyx_n_u_table_name __pyx_string_tab[25]
-#define __pyx_n_u_test __pyx_string_tab[26]
-#define __pyx_n_u_update_schema __pyx_string_tab[27]
+#define __pyx_n_u_controller_table_controller __pyx_string_tab[10]
+#define __pyx_n_u_create __pyx_string_tab[11]
+#define __pyx_n_u_create_schema __pyx_string_tab[12]
+#define __pyx_n_u_db_config_name __pyx_string_tab[13]
+#define __pyx_n_u_entity_table_t_enum_schema __pyx_string_tab[14]
+#define __pyx_n_u_get_engine_name __pyx_string_tab[15]
+#define __pyx_n_u_get_schema_name __pyx_string_tab[16]
+#define __pyx_n_u_main __pyx_string_tab[17]
+#define __pyx_n_u_model_class __pyx_string_tab[18]
+#define __pyx_n_u_module __pyx_string_tab[19]
+#define __pyx_n_u_name __pyx_string_tab[20]
+#define __pyx_n_u_prefix __pyx_string_tab[21]
+#define __pyx_n_u_qualname __pyx_string_tab[22]
+#define __pyx_n_u_response_schema __pyx_string_tab[23]
+#define __pyx_n_u_schema_name __pyx_string_tab[24]
+#define __pyx_n_u_t_enum_schema __pyx_string_tab[25]
+#define __pyx_n_u_table_name __pyx_string_tab[26]
+#define __pyx_n_u_test __pyx_string_tab[27]
+#define __pyx_n_u_update_schema __pyx_string_tab[28]
+#define __pyx_kp_u_v1_enums_schema __pyx_string_tab[29]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2048,7 +2052,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<28; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<30; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2069,7 +2073,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<28; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<30; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2452,87 +2456,87 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
   /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":9
  * # @Desc     controller classes for shudaodao_enum.t_enum_schema
  * 
- * from shudaodao_core import AuthController             # <<<<<<<<<<<<<<
- * from .. import get_engine_name, get_schema_name
- * from ..entity_table.t_enum_schema import (
-*/
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthController); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthController); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthController, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":10
- * 
- * from shudaodao_core import AuthController
  * from .. import get_engine_name, get_schema_name             # <<<<<<<<<<<<<<
  * from ..entity_table.t_enum_schema import (
  *     TEnumSchema, TEnumSchemaResponse,
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_get_engine_name, __pyx_mstate_global->__pyx_n_u_get_schema_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u__2, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_get_engine_name, __pyx_mstate_global->__pyx_n_u_get_schema_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_engine_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_engine_name, __pyx_t_3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_schema_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_schema_name, __pyx_t_3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_engine_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_engine_name, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_schema_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_schema_name, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":12
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":11
  * from .. import get_engine_name, get_schema_name
  * from ..entity_table.t_enum_schema import (
  *     TEnumSchema, TEnumSchemaResponse,             # <<<<<<<<<<<<<<
  *     TEnumSchemaCreate, TEnumSchemaUpdate
  * )
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_TEnumSchema, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_TEnumSchema, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":11
- * from shudaodao_core import AuthController
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":10
+ * 
  * from .. import get_engine_name, get_schema_name
  * from ..entity_table.t_enum_schema import (             # <<<<<<<<<<<<<<
  *     TEnumSchema, TEnumSchemaResponse,
  *     TEnumSchemaCreate, TEnumSchemaUpdate
 */
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_table_t_enum_schema, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_table_t_enum_schema, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_TEnumSchema); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchema, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":14
+ *     TEnumSchemaCreate, TEnumSchemaUpdate
+ * )
+ * from ...controller.table_controller import AuthController             # <<<<<<<<<<<<<<
+ * 
+ * TEnumSchema_Router = AuthController.create(
+*/
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthController); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_controller_table_controller, __pyx_t_2, 3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TEnumSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthController); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchema, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate, __pyx_t_2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate, __pyx_t_2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthController, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":16
- * )
+ * from ...controller.table_controller import AuthController
  * 
  * TEnumSchema_Router = AuthController.create(             # <<<<<<<<<<<<<<
  *     # prefix=f"/v1/{get_schema_name()}/t_enum_schema",
- *     db_config_name=get_engine_name(),  #
+ *     prefix="/v1/enums/schema",
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthController); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
@@ -2541,15 +2545,15 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":18
- * TEnumSchema_Router = AuthController.create(
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":19
  *     # prefix=f"/v1/{get_schema_name()}/t_enum_schema",
+ *     prefix="/v1/enums/schema",
  *     db_config_name=get_engine_name(),  #             # <<<<<<<<<<<<<<
  *     schema_name=get_schema_name(),
  *     table_name="t_enum_schema",
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_get_engine_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_get_engine_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_8 = 1;
   {
@@ -2557,19 +2561,19 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
     __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 19, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":19
- *     # prefix=f"/v1/{get_schema_name()}/t_enum_schema",
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":20
+ *     prefix="/v1/enums/schema",
  *     db_config_name=get_engine_name(),  #
  *     schema_name=get_schema_name(),             # <<<<<<<<<<<<<<
  *     table_name="t_enum_schema",
  *     # :
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_get_schema_name); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_get_schema_name); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_8 = 1;
   {
@@ -2577,60 +2581,61 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
     __pyx_t_7 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 19, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 20, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":22
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":23
  *     table_name="t_enum_schema",
  *     # :
  *     model_class=TEnumSchema,             # <<<<<<<<<<<<<<
  *     create_schema=TEnumSchemaCreate,
  *     update_schema=TEnumSchemaUpdate,
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_TEnumSchema); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_TEnumSchema); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":23
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":24
  *     # :
  *     model_class=TEnumSchema,
  *     create_schema=TEnumSchemaCreate,             # <<<<<<<<<<<<<<
  *     update_schema=TEnumSchemaUpdate,
  *     response_schema=TEnumSchemaResponse,
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_TEnumSchemaCreate); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":24
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":25
  *     model_class=TEnumSchema,
  *     create_schema=TEnumSchemaCreate,
  *     update_schema=TEnumSchemaUpdate,             # <<<<<<<<<<<<<<
  *     response_schema=TEnumSchemaResponse,
  * )
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_TEnumSchemaUpdate); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
 
-  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":25
+  /* "shudaodao_core/portal_enum/controller_table/t_enum_schema.py":26
  *     create_schema=TEnumSchemaCreate,
  *     update_schema=TEnumSchemaUpdate,
  *     response_schema=TEnumSchemaResponse,             # <<<<<<<<<<<<<<
  * )
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_TEnumSchemaResponse); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __pyx_t_8 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 7 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_12 = __Pyx_MakeVectorcallBuilderKwds(7); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 16, __pyx_L1_error)
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 8 : 0)] = {__pyx_t_2, NULL};
+    __pyx_t_12 = __Pyx_MakeVectorcallBuilderKwds(8); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 16, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_config_name, __pyx_t_4, __pyx_t_12, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_schema_name, __pyx_t_7, __pyx_t_12, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_table_name, __pyx_mstate_global->__pyx_n_u_t_enum_schema, __pyx_t_12, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_9, __pyx_t_12, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_schema, __pyx_t_6, __pyx_t_12, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_schema, __pyx_t_10, __pyx_t_12, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_schema, __pyx_t_11, __pyx_t_12, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_mstate_global->__pyx_kp_u_v1_enums_schema, __pyx_t_12, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_config_name, __pyx_t_4, __pyx_t_12, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_schema_name, __pyx_t_7, __pyx_t_12, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_table_name, __pyx_mstate_global->__pyx_n_u_t_enum_schema, __pyx_t_12, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_9, __pyx_t_12, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_schema, __pyx_t_6, __pyx_t_12, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_schema, __pyx_t_10, __pyx_t_12, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_schema, __pyx_t_11, __pyx_t_12, __pyx_callargs+1, 7) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
     __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_12);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -2701,11 +2706,11 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
 
 typedef struct {
     const char *s;
-#if 26 <= 65535
+#if 27 <= 65535
     const unsigned short n;
-#elif 26 / 2 < INT_MAX
+#elif 27 / 2 < INT_MAX
     const unsigned int n;
-#elif 26 / 2 < LONG_MAX
+#elif 27 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -2724,16 +2729,17 @@ typedef struct {
 } __Pyx_StringTabEntry;
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
+  {__pyx_k_, sizeof(__pyx_k_), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ */
   {__pyx_k_AuthController, sizeof(__pyx_k_AuthController), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthController */
   {__pyx_k_TEnumSchema, sizeof(__pyx_k_TEnumSchema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TEnumSchema */
   {__pyx_k_TEnumSchemaCreate, sizeof(__pyx_k_TEnumSchemaCreate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TEnumSchemaCreate */
   {__pyx_k_TEnumSchemaResponse, sizeof(__pyx_k_TEnumSchemaResponse), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TEnumSchemaResponse */
   {__pyx_k_TEnumSchemaUpdate, sizeof(__pyx_k_TEnumSchemaUpdate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TEnumSchemaUpdate */
   {__pyx_k_TEnumSchema_Router, sizeof(__pyx_k_TEnumSchema_Router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TEnumSchema_Router */
-  {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
+  {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
+  {__pyx_k_controller_table_controller, sizeof(__pyx_k_controller_table_controller), 0, 1, 1}, /* PyObject cname: __pyx_n_u_controller_table_controller */
   {__pyx_k_create, sizeof(__pyx_k_create), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create */
   {__pyx_k_create_schema, sizeof(__pyx_k_create_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_schema */
   {__pyx_k_db_config_name, sizeof(__pyx_k_db_config_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_config_name */
@@ -2744,14 +2750,15 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_model_class, sizeof(__pyx_k_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_class */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
+  {__pyx_k_prefix, sizeof(__pyx_k_prefix), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_response_schema, sizeof(__pyx_k_response_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_schema */
   {__pyx_k_schema_name, sizeof(__pyx_k_schema_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_name */
-  {__pyx_k_shudaodao_core, sizeof(__pyx_k_shudaodao_core), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_core */
   {__pyx_k_t_enum_schema, sizeof(__pyx_k_t_enum_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_t_enum_schema */
   {__pyx_k_table_name, sizeof(__pyx_k_table_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_name */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_update_schema, sizeof(__pyx_k_update_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_schema */
+  {__pyx_k_v1_enums_schema, sizeof(__pyx_k_v1_enums_schema), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_v1_enums_schema */
   {0, 0, 0, 0, 0}
 };
 /* InitStrings.proto */
@@ -2907,7 +2914,7 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u_);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__2);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }

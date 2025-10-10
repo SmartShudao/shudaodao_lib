@@ -2243,9 +2243,8 @@ int __pyx_module_is_main_base_context = 0;
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_LookupError;
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = "\345\244\232\347\247\237\346\210\267\346\250\241\345\274\217\357\274\214\346\234\252\350\256\276\347\275\256\347\224\250\346\210\267\346\210\226\347\247\237\346\210\267\344\277\241\346\201\257";
-static const char __pyx_k__2[] = ".";
-static const char __pyx_k__3[] = "?";
+static const char __pyx_k_[] = ".";
+static const char __pyx_k__2[] = "?";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_get[] = "get";
 static const char __pyx_k_pop[] = "pop";
@@ -2277,6 +2276,8 @@ static const char __pyx_k_tenant_id[] = "tenant_id";
 static const char __pyx_k_user_info[] = "_user_info";
 static const char __pyx_k_user_name[] = "user_name";
 static const char __pyx_k_ContextVar[] = "ContextVar";
+static const char __pyx_k_auth_false[] = "\345\244\232\347\247\237\346\210\267\346\250\241\345\274\217:\346\234\252\350\256\276\347\275\256\347\224\250\346\210\267\346\210\226\347\247\237\346\210\267\344\277\241\346\201\257 (\347\247\237\346\210\267\346\272\220\350\207\252\347\231\273\345\275\225\347\224\250\346\210\267\357\274\214\345\244\232\347\247\237\346\210\267\346\250\241\345\274\217\344\270\213 auth=false \347\232\204\350\267\257\347\224\261\344\271\237\344\274\232\350\257\245\345\274\202\345\270\270)";
+static const char __pyx_k_q_z_Q_m1_1[] = "\320\000\037\230q\360\030\000\005\006\330\010\017\210z\230\024\230Q\330\013\014\330\010\016\210m\2301\330\014\030\230\001\330\014\023\2201";
 static const char __pyx_k_LookupError[] = "LookupError";
 static const char __pyx_k_contextvars[] = "contextvars";
 static const char __pyx_k_status_code[] = "status_code";
@@ -2285,7 +2286,6 @@ static const char __pyx_k_Optional_int[] = "Optional[int]";
 static const char __pyx_k_Optional_str[] = "Optional[str]";
 static const char __pyx_k_base_context[] = "base_context";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_q_z_Q_m1L_WA[] = "\320\000\037\230q\360\030\000\005\006\330\010\017\210z\230\024\230Q\330\013\014\330\010\016\210m\2301\230L\250\005\250W\260A";
 static const char __pyx_k_HTTPException[] = "HTTPException";
 static const char __pyx_k_Optional_bool[] = "Optional[bool]";
 static const char __pyx_k_tenant_enabled[] = "tenant_enabled";
@@ -2396,10 +2396,10 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_UserInfo __pyx_string_tab[10]
 #define __pyx_n_u_UserInfo___init __pyx_string_tab[11]
 #define __pyx_kp_u__2 __pyx_string_tab[12]
-#define __pyx_kp_u__3 __pyx_string_tab[13]
-#define __pyx_kp_u_add_note __pyx_string_tab[14]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[15]
-#define __pyx_n_u_auth __pyx_string_tab[16]
+#define __pyx_kp_u_add_note __pyx_string_tab[13]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[14]
+#define __pyx_n_u_auth __pyx_string_tab[15]
+#define __pyx_kp_u_auth_false __pyx_string_tab[16]
 #define __pyx_n_u_base_context __pyx_string_tab[17]
 #define __pyx_kp_u_base_context_py __pyx_string_tab[18]
 #define __pyx_n_u_cline_in_traceback __pyx_string_tab[19]
@@ -2892,7 +2892,7 @@ static PyObject *__pyx_pf_12base_context_get_current_user_info(CYTHON_UNUSED PyO
  *     try:
  *         return _user_info.get()             # <<<<<<<<<<<<<<
  *     except LookupError:
- *         raise HTTPException(status_code=401, detail="")
+ *         raise HTTPException(
 */
       __Pyx_XDECREF(__pyx_r);
       __pyx_t_5 = NULL;
@@ -2943,8 +2943,8 @@ static PyObject *__pyx_pf_12base_context_get_current_user_info(CYTHON_UNUSED PyO
  *     try:
  *         return _user_info.get()
  *     except LookupError:             # <<<<<<<<<<<<<<
- *         raise HTTPException(status_code=401, detail="")
- * 
+ *         raise HTTPException(
+ *             status_code=401,
 */
     __pyx_t_9 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_LookupError);
     if (__pyx_t_9) {
@@ -2957,9 +2957,9 @@ static PyObject *__pyx_pf_12base_context_get_current_user_info(CYTHON_UNUSED PyO
       /* "base_context.py":72
  *         return _user_info.get()
  *     except LookupError:
- *         raise HTTPException(status_code=401, detail="")             # <<<<<<<<<<<<<<
- * 
- * 
+ *         raise HTTPException(             # <<<<<<<<<<<<<<
+ *             status_code=401,
+ *             detail=": ( auth=false )"
 */
       __pyx_t_10 = NULL;
       __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_HTTPException); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 72, __pyx_L5_except_error)
@@ -2981,7 +2981,7 @@ static PyObject *__pyx_pf_12base_context_get_current_user_info(CYTHON_UNUSED PyO
         __pyx_t_12 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 72, __pyx_L5_except_error)
         __Pyx_GOTREF(__pyx_t_12);
         if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_status_code, __pyx_mstate_global->__pyx_int_401, __pyx_t_12, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 72, __pyx_L5_except_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_detail, __pyx_mstate_global->__pyx_kp_u_, __pyx_t_12, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 72, __pyx_L5_except_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_detail, __pyx_mstate_global->__pyx_kp_u_auth_false, __pyx_t_12, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 72, __pyx_L5_except_error)
         __pyx_t_6 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_11, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_12);
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
@@ -3041,7 +3041,7 @@ static PyObject *__pyx_pf_12base_context_get_current_user_info(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "base_context.py":75
+/* "base_context.py":78
  * 
  * 
  * def set_current_user_info(user_info: UserInfo):             # <<<<<<<<<<<<<<
@@ -3089,32 +3089,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_user_info_2,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 75, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 78, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 78, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "set_current_user_info", 0) < 0) __PYX_ERR(0, 75, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "set_current_user_info", 0) < 0) __PYX_ERR(0, 78, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("set_current_user_info", 1, 1, 1, i); __PYX_ERR(0, 75, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("set_current_user_info", 1, 1, 1, i); __PYX_ERR(0, 78, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 75, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 78, __pyx_L3_error)
     }
     __pyx_v_user_info = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("set_current_user_info", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 75, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("set_current_user_info", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 78, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3148,15 +3148,15 @@ static PyObject *__pyx_pf_12base_context_2set_current_user_info(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_current_user_info", 0);
 
-  /* "base_context.py":83
+  /* "base_context.py":86
  *         user_info (UserInfo):
  *     """
  *     _user_info.set(user_info)             # <<<<<<<<<<<<<<
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -3176,12 +3176,12 @@ static PyObject *__pyx_pf_12base_context_2set_current_user_info(CYTHON_UNUSED Py
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "base_context.py":75
+  /* "base_context.py":78
  * 
  * 
  * def set_current_user_info(user_info: UserInfo):             # <<<<<<<<<<<<<<
@@ -3726,21 +3726,21 @@ __Pyx_RefNannySetupContext("PyInit_base_context", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_current_user_info, __pyx_t_3) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "base_context.py":75
+  /* "base_context.py":78
  * 
  * 
  * def set_current_user_info(user_info: UserInfo):             # <<<<<<<<<<<<<<
  *     """
  * 
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_user_info_2, __pyx_mstate_global->__pyx_n_u_UserInfo) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12base_context_3set_current_user_info, 0, __pyx_mstate_global->__pyx_n_u_set_current_user_info, NULL, __pyx_mstate_global->__pyx_n_u_base_context, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_user_info_2, __pyx_mstate_global->__pyx_n_u_UserInfo) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12base_context_3set_current_user_info, 0, __pyx_mstate_global->__pyx_n_u_set_current_user_info, NULL, __pyx_mstate_global->__pyx_n_u_base_context, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_set_current_user_info, __pyx_t_2) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_set_current_user_info, __pyx_t_2) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "base_context.py":1
@@ -3826,10 +3826,10 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_UserInfo, sizeof(__pyx_k_UserInfo), 0, 1, 1}, /* PyObject cname: __pyx_n_u_UserInfo */
   {__pyx_k_UserInfo___init, sizeof(__pyx_k_UserInfo___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_UserInfo___init */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
-  {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
   {__pyx_k_auth, sizeof(__pyx_k_auth), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth */
+  {__pyx_k_auth_false, sizeof(__pyx_k_auth_false), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_auth_false */
   {__pyx_k_base_context, sizeof(__pyx_k_base_context), 0, 1, 1}, /* PyObject cname: __pyx_n_u_base_context */
   {__pyx_k_base_context_py, sizeof(__pyx_k_base_context_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_base_context_py */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
@@ -3946,12 +3946,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_base_context_py, __pyx_mstate->__pyx_n_u_init, __pyx_k_A_q_q_A_M_M_Q_5_q_4t1_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 57, 37};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 57, 39};
     PyObject* const varnames[] = {0};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_base_context_py, __pyx_mstate->__pyx_n_u_get_current_user_info, __pyx_k_q_z_Q_m1L_WA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_base_context_py, __pyx_mstate->__pyx_n_u_get_current_user_info, __pyx_k_q_z_Q_m1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 75, 16};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 78, 16};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_user_info_2};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_base_context_py, __pyx_mstate->__pyx_n_u_set_current_user_info, __pyx_k_Q_d_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
@@ -5710,7 +5710,7 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__2);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u_);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -7677,7 +7677,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__3);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__2);
     }
     goto done;
 }

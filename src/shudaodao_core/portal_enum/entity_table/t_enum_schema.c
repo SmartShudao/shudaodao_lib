@@ -2171,6 +2171,7 @@ static const char __pyx_k_lambda[] = "<lambda>";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_schema[] = "schema";
 static const char __pyx_k_typing[] = "typing";
+static const char __pyx_k_unique[] = "unique";
 static const char __pyx_k_comment[] = "comment";
 static const char __pyx_k_default[] = "default";
 static const char __pyx_k_prepare[] = "__prepare__";
@@ -2274,7 +2275,7 @@ typedef struct {
   PyTypeObject *__pyx_CoroutineType;
   #endif
   PyObject *__pyx_codeobj_tab[2];
-  PyObject *__pyx_string_tab[94];
+  PyObject *__pyx_string_tab[95];
   PyObject *__pyx_int_10;
   PyObject *__pyx_int_50;
   PyObject *__pyx_int_100;
@@ -2406,9 +2407,10 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_tenant_id __pyx_string_tab[88]
 #define __pyx_n_u_test __pyx_string_tab[89]
 #define __pyx_n_u_typing __pyx_string_tab[90]
-#define __pyx_n_u_update_at __pyx_string_tab[91]
-#define __pyx_n_u_update_by __pyx_string_tab[92]
-#define __pyx_n_u_utils_generate_unique_id __pyx_string_tab[93]
+#define __pyx_n_u_unique __pyx_string_tab[91]
+#define __pyx_n_u_update_at __pyx_string_tab[92]
+#define __pyx_n_u_update_by __pyx_string_tab[93]
+#define __pyx_n_u_utils_generate_unique_id __pyx_string_tab[94]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2430,7 +2432,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   __Pyx_State_RemoveModule(NULL);
   #endif
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<94; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<95; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_10);
   Py_CLEAR(clear_module_state->__pyx_int_50);
   Py_CLEAR(clear_module_state->__pyx_int_100);
@@ -2455,7 +2457,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<94; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<95; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_10);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_50);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_100);
@@ -3089,8 +3091,8 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
  * from sqlmodel import SQLModel, Relationship
  * 
  * from .. import RegistryModel, get_table_schema             # <<<<<<<<<<<<<<
- * from ...sqlmodel_ext.field import Field
  * from ...schemas.response import BaseResponse
+ * from ...sqlmodel_ext.field import Field
 */
   __pyx_t_2 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_RegistryModel, __pyx_mstate_global->__pyx_n_u_get_table_schema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -3110,42 +3112,42 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
   /* "shudaodao_core/portal_enum/entity_table/t_enum_schema.py":17
  * 
  * from .. import RegistryModel, get_table_schema
- * from ...sqlmodel_ext.field import Field             # <<<<<<<<<<<<<<
- * from ...schemas.response import BaseResponse
+ * from ...schemas.response import BaseResponse             # <<<<<<<<<<<<<<
+ * from ...sqlmodel_ext.field import Field
  * from ...utils.generate_unique_id import get_primary_id
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Field); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_BaseResponse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_sqlmodel_ext_field, __pyx_t_3, 3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_schemas_response, __pyx_t_3, 3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Field); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_BaseResponse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Field, __pyx_t_3) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_BaseResponse, __pyx_t_3) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "shudaodao_core/portal_enum/entity_table/t_enum_schema.py":18
  * from .. import RegistryModel, get_table_schema
- * from ...sqlmodel_ext.field import Field
- * from ...schemas.response import BaseResponse             # <<<<<<<<<<<<<<
+ * from ...schemas.response import BaseResponse
+ * from ...sqlmodel_ext.field import Field             # <<<<<<<<<<<<<<
  * from ...utils.generate_unique_id import get_primary_id
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_BaseResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Field); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_schemas_response, __pyx_t_2, 3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_sqlmodel_ext_field, __pyx_t_2, 3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_BaseResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Field); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_BaseResponse, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Field, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_core/portal_enum/entity_table/t_enum_schema.py":19
- * from ...sqlmodel_ext.field import Field
  * from ...schemas.response import BaseResponse
+ * from ...sqlmodel_ext.field import Field
  * from ...utils.generate_unique_id import get_primary_id             # <<<<<<<<<<<<<<
  * 
  * if TYPE_CHECKING:
@@ -3283,7 +3285,7 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
  * 
  *     schema_id: int = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="ID")             # <<<<<<<<<<<<<<
  *     schema_label: str = Field(max_length=100, description="")
- *     schema_name: str = Field(max_length=100, description="")
+ *     schema_name: str = Field(unique=True, max_length=100, description="")
 */
   __pyx_t_8 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_Field); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 30, __pyx_L1_error)
@@ -3317,7 +3319,7 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
  * 
  *     schema_id: int = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="ID")
  *     schema_label: str = Field(max_length=100, description="")             # <<<<<<<<<<<<<<
- *     schema_name: str = Field(max_length=100, description="")
+ *     schema_name: str = Field(unique=True, max_length=100, description="")
  * 
 */
   __pyx_t_10 = NULL;
@@ -3343,7 +3345,7 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
   /* "shudaodao_core/portal_enum/entity_table/t_enum_schema.py":32
  *     schema_id: int = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="ID")
  *     schema_label: str = Field(max_length=100, description="")
- *     schema_name: str = Field(max_length=100, description="")             # <<<<<<<<<<<<<<
+ *     schema_name: str = Field(unique=True, max_length=100, description="")             # <<<<<<<<<<<<<<
  * 
  *     sort_order: Optional[int] = Field(default=10, nullable=True, description="")
 */
@@ -3352,11 +3354,12 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
   __Pyx_GOTREF(__pyx_t_12);
   __pyx_t_11 = 1;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_13, NULL};
-    __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 32, __pyx_L1_error)
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_13, NULL};
+    __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 32, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_max_length, __pyx_mstate_global->__pyx_int_100, __pyx_t_10, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_description, __pyx_mstate_global->__pyx_n_u__4, __pyx_t_10, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_unique, Py_True, __pyx_t_10, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_max_length, __pyx_mstate_global->__pyx_int_100, __pyx_t_10, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_description, __pyx_mstate_global->__pyx_n_u__4, __pyx_t_10, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
     __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_12, __pyx_callargs+__pyx_t_11, (1-__pyx_t_11) | (__pyx_t_11*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_10);
     __Pyx_XDECREF(__pyx_t_13); __pyx_t_13 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -3368,7 +3371,7 @@ __Pyx_RefNannySetupContext("PyInit_t_enum_schema", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "shudaodao_core/portal_enum/entity_table/t_enum_schema.py":34
- *     schema_name: str = Field(max_length=100, description="")
+ *     schema_name: str = Field(unique=True, max_length=100, description="")
  * 
  *     sort_order: Optional[int] = Field(default=10, nullable=True, description="")             # <<<<<<<<<<<<<<
  *     description: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="")
@@ -4295,6 +4298,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_tenant_id, sizeof(__pyx_k_tenant_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tenant_id */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
+  {__pyx_k_unique, sizeof(__pyx_k_unique), 0, 1, 1}, /* PyObject cname: __pyx_n_u_unique */
   {__pyx_k_update_at, sizeof(__pyx_k_update_at), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_at */
   {__pyx_k_update_by, sizeof(__pyx_k_update_by), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_by */
   {__pyx_k_utils_generate_unique_id, sizeof(__pyx_k_utils_generate_unique_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_utils_generate_unique_id */

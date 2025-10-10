@@ -2349,7 +2349,7 @@ static const char __pyx_k_table_controller_py[] = "table_controller.py";
 static const char __pyx_k_AuthController_create[] = "AuthController.create";
 static const char __pyx_k_Type_SQLModelResponse[] = "Type[SQLModelResponse]";
 static const char __pyx_k_create_RBAC_ABAC_Restful_API_Ge[] = "\350\256\244\350\257\201\346\216\247\345\210\266\345\231\250\345\267\245\345\216\202\347\261\273\343\200\202\n\n    \350\257\245\347\261\273\346\217\220\344\276\233\344\270\200\344\270\252\347\273\237\344\270\200\347\232\204\345\267\245\345\216\202\346\226\271\346\263\225 `create`\357\274\214\347\224\250\344\272\216\345\277\253\351\200\237\347\224\237\346\210\220\345\270\246\346\234\211\346\235\203\351\231\220\346\216\247\345\210\266\357\274\210RBAC/ABAC\357\274\211\347\232\204 Restful API \346\216\247\345\210\266\345\231\250\343\200\202\n    \345\256\203\345\237\272\344\272\216\351\200\232\347\224\250\346\216\247\345\210\266\345\231\250 `GenericController` \345\260\201\350\243\205\357\274\214\345\271\266\347\273\223\345\220\210 `AuthRouter` \345\256\236\347\216\260\350\267\257\347\224\261\346\263\250\345\206\214\344\270\216\346\235\203\351\231\220\346\240\241\351\252\214\351\200\273\350\276\221\343\200\202\n    \346\224\257\346\214\201\345\257\271\345\210\233\345\273\272\343\200\201\350\257\273\345\217\226\343\200\201\346\233\264\346\226\260\343\200\201\345\210\240\351\231\244\343\200\201\346\237\245\350\257\242\347\255\211\346\223\215\344\275\234\345\210\206\345\210\253\351\205\215\347\275\256\350\267\257\347\224\261\350\241\214\344\270\272\344\270\216\346\235\203\351\231\220\347\255\226\347\225\245\343\200\202\n\n    \351\200\202\347\224\250\344\272\216\351\234\200\350\246\201\345\257\271\346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\357\274\210SQLModel\357\274\211\345\277\253\351\200\237\346\232\264\351\234\262\345\270\246\346\235\203\351\231\220\351\252\214\350\257\201\346\216\245\345\217\243\347\232\204\345\234\272\346\231\257\343\200\202\n    ";
-static const char __pyx_k_wc_q_vYc_q_c_q_v_fJc_q_fJc_q_V9[] = "\210\001\330\014\017\210w\220c\230\021\330\020\027\220q\330\014\017\210v\220Y\230c\240\021\330\020\027\220q\340\014\022\220(\230&\240\006\240c\250\036\260q\330\014\022\220-\230v\240[\260\003\260>\300\021\330\014\022\220,\230f\240J\250c\260\036\270q\330\014\022\220,\230f\240J\250c\260\036\270q\330\014\022\220+\230V\2409\250C\250~\270Q\330\014\022\220+\230V\2409\250C\250~\270Q\330\014\023\2201";
+static const char __pyx_k_wc_q_vYc_q_vWJnTU_v_6_G_Uccd_fM[] = "\210\001\330\014\017\210w\220c\230\021\330\020\027\220q\330\014\017\210v\220Y\230c\240\021\330\020\027\220q\340\014\022\220(\230&\240\t\250\026\250v\260W\270J\300n\320TU\330\014\022\220-\230v\240^\2606\270\033\300G\310:\320Uc\320cd\330\014\022\220,\230f\240M\260\026\260z\300\027\310\n\320R`\320`a\330\014\022\220,\230f\240M\260\026\260z\300\027\310\n\320R`\320`a\330\014\022\220+\230V\240<\250v\260Y\270g\300Z\310~\320]^\330\014\022\220+\230V\240<\250v\260Y\270g\300Z\310~\320]^\330\014\023\2201";
 static const char __pyx_k_A_1_1_1_1_1_A_q_a_a_AP_o_a_o_a_B[] = "\200A\360\010\000\032\033\330\014\033\2301\330\014\033\2301\330\035\036\330\014\033\2301\330\014\033\2301\330\014\031\230\021\330\014\033\2301\330\014\032\230!\340\014\024\220A\330\014\031\230\021\330\014\030\230\001\330\014\022\220!\330\014\032\230!\330\014\027\220q\330\014\026\220a\330\014\026\220a\330\014\034\230A\360P\001\000\t\031\230\002\230$\230o\320->\270a\330\010\030\230\002\230$\230o\320->\270a\330\010\022\220'\230\023\230B\230h\240o\260Q\330\010\017\210u\220C\220q\230\002\230$\230a\330\010\030\230\r\240S\250\001\330\010\024\220I\230S\240\002\240$\240o\260Q\340\010\026\220j\240\001\330\014\023\2201\330\014\021\220\021\330\014\033\2301\330\014\031\230\021\330\014\026\220a\330\014\025\220Q\330\014\025\220Q\360\006\000\t\n\360\036\000\t\032\320\031,\250A\250_\270L\310\001\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\031\320\031,\250A\250_\270L\310\001\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\027\320\027*\250!\250=\270\014\300A\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\031\320\031,\250A\250_\270L\310\001\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\340\010\030\320\030+\2501\250N\270,\300a\330\014\024\220F\230(\240(\250(\260!\330\014\021\220\026\220z\240\026\240y\260\006\260i\270q\360\006\000\t\032\230\021\330\014\030\230\001\330\014\030\230\001\330\014\032\230!\330\014\032\230!\330\014\034\230A\330\014\032\230!\330\014\032\230!\330\014\030\230\001\330\014\032\230!\330\014\031\230\021\360\006\000\t\020\210q";
 static const char __pyx_k_AuthController_create_locals__ap[] = "AuthController.create.<locals>._apply_route_config";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
@@ -3048,7 +3048,7 @@ static PyObject *__pyx_pf_16table_controller_14AuthController_6create__apply_rou
  *             if router.enabled is False:
  *                 return router             # <<<<<<<<<<<<<<
  * 
- *             router.auth = router.auth or default_router.auth
+ *             router.auth = router.auth if router.auth is not None else default_router.auth
 */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_INCREF(__pyx_v_router);
@@ -3067,168 +3067,156 @@ static PyObject *__pyx_pf_16table_controller_14AuthController_6create__apply_rou
   /* "table_controller.py":112
  *                 return router
  * 
- *             router.auth = router.auth or default_router.auth             # <<<<<<<<<<<<<<
- *             router.auth_role = router.auth_role or default_router.auth_role
- *             router.auth_obj = router.auth_obj or default_router.auth_obj
+ *             router.auth = router.auth if router.auth is not None else default_router.auth             # <<<<<<<<<<<<<<
+ *             router.auth_role = router.auth_role if router.auth_role is not None else default_router.auth_role
+ *             router.auth_obj = router.auth_obj if router.auth_obj is not None else default_router.auth_obj
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 112, __pyx_L1_error)
-  if (!__pyx_t_1) {
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_2 = __pyx_t_3;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L5_bool_binop_done;
-  }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = __pyx_t_3;
+  __pyx_t_1 = (__pyx_t_3 != Py_None);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L5_bool_binop_done:;
+  if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 112, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  }
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth, __pyx_t_2) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "table_controller.py":113
  * 
- *             router.auth = router.auth or default_router.auth
- *             router.auth_role = router.auth_role or default_router.auth_role             # <<<<<<<<<<<<<<
- *             router.auth_obj = router.auth_obj or default_router.auth_obj
- *             router.auth_act = router.auth_act or default_router.auth_act
+ *             router.auth = router.auth if router.auth is not None else default_router.auth
+ *             router.auth_role = router.auth_role if router.auth_role is not None else default_router.auth_role             # <<<<<<<<<<<<<<
+ *             router.auth_obj = router.auth_obj if router.auth_obj is not None else default_router.auth_obj
+ *             router.auth_act = router.auth_act if router.auth_act is not None else default_router.auth_act
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 113, __pyx_L1_error)
-  if (!__pyx_t_1) {
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_2 = __pyx_t_3;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L7_bool_binop_done;
-  }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = __pyx_t_3;
+  __pyx_t_1 = (__pyx_t_3 != Py_None);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L7_bool_binop_done:;
+  if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 113, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  }
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_role, __pyx_t_2) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "table_controller.py":114
- *             router.auth = router.auth or default_router.auth
- *             router.auth_role = router.auth_role or default_router.auth_role
- *             router.auth_obj = router.auth_obj or default_router.auth_obj             # <<<<<<<<<<<<<<
- *             router.auth_act = router.auth_act or default_router.auth_act
- *             router.message = router.message or default_router.message
+ *             router.auth = router.auth if router.auth is not None else default_router.auth
+ *             router.auth_role = router.auth_role if router.auth_role is not None else default_router.auth_role
+ *             router.auth_obj = router.auth_obj if router.auth_obj is not None else default_router.auth_obj             # <<<<<<<<<<<<<<
+ *             router.auth_act = router.auth_act if router.auth_act is not None else default_router.auth_act
+ *             router.message = router.message if router.message is not None else default_router.message
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 114, __pyx_L1_error)
-  if (!__pyx_t_1) {
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_2 = __pyx_t_3;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L9_bool_binop_done;
-  }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = __pyx_t_3;
+  __pyx_t_1 = (__pyx_t_3 != Py_None);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L9_bool_binop_done:;
+  if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  }
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_obj, __pyx_t_2) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "table_controller.py":115
- *             router.auth_role = router.auth_role or default_router.auth_role
- *             router.auth_obj = router.auth_obj or default_router.auth_obj
- *             router.auth_act = router.auth_act or default_router.auth_act             # <<<<<<<<<<<<<<
- *             router.message = router.message or default_router.message
- *             router.summary = router.summary or default_router.summary
+ *             router.auth_role = router.auth_role if router.auth_role is not None else default_router.auth_role
+ *             router.auth_obj = router.auth_obj if router.auth_obj is not None else default_router.auth_obj
+ *             router.auth_act = router.auth_act if router.auth_act is not None else default_router.auth_act             # <<<<<<<<<<<<<<
+ *             router.message = router.message if router.message is not None else default_router.message
+ *             router.summary = router.summary if router.summary is not None else default_router.summary
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_act); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 115, __pyx_L1_error)
-  if (!__pyx_t_1) {
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_2 = __pyx_t_3;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L11_bool_binop_done;
-  }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_act); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = __pyx_t_3;
+  __pyx_t_1 = (__pyx_t_3 != Py_None);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L11_bool_binop_done:;
+  if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_act); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_auth_act); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 115, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  }
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_auth_act, __pyx_t_2) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "table_controller.py":116
- *             router.auth_obj = router.auth_obj or default_router.auth_obj
- *             router.auth_act = router.auth_act or default_router.auth_act
- *             router.message = router.message or default_router.message             # <<<<<<<<<<<<<<
- *             router.summary = router.summary or default_router.summary
+ *             router.auth_obj = router.auth_obj if router.auth_obj is not None else default_router.auth_obj
+ *             router.auth_act = router.auth_act if router.auth_act is not None else default_router.auth_act
+ *             router.message = router.message if router.message is not None else default_router.message             # <<<<<<<<<<<<<<
+ *             router.summary = router.summary if router.summary is not None else default_router.summary
  *             return router
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_message); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 116, __pyx_L1_error)
-  if (!__pyx_t_1) {
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_2 = __pyx_t_3;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L13_bool_binop_done;
-  }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_message); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = __pyx_t_3;
+  __pyx_t_1 = (__pyx_t_3 != Py_None);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L13_bool_binop_done:;
+  if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_message); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_message); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  }
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_message, __pyx_t_2) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "table_controller.py":117
- *             router.auth_act = router.auth_act or default_router.auth_act
- *             router.message = router.message or default_router.message
- *             router.summary = router.summary or default_router.summary             # <<<<<<<<<<<<<<
+ *             router.auth_act = router.auth_act if router.auth_act is not None else default_router.auth_act
+ *             router.message = router.message if router.message is not None else default_router.message
+ *             router.summary = router.summary if router.summary is not None else default_router.summary             # <<<<<<<<<<<<<<
  *             return router
  * 
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_summary); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 117, __pyx_L1_error)
-  if (!__pyx_t_1) {
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_2 = __pyx_t_3;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    goto __pyx_L15_bool_binop_done;
-  }
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_summary); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_2 = __pyx_t_3;
+  __pyx_t_1 = (__pyx_t_3 != Py_None);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L15_bool_binop_done:;
+  if (__pyx_t_1) {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_summary); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_default_router, __pyx_mstate_global->__pyx_n_u_summary); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 117, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  }
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_summary, __pyx_t_2) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "table_controller.py":118
- *             router.message = router.message or default_router.message
- *             router.summary = router.summary or default_router.summary
+ *             router.message = router.message if router.message is not None else default_router.message
+ *             router.summary = router.summary if router.summary is not None else default_router.summary
  *             return router             # <<<<<<<<<<<<<<
  * 
  *         #
@@ -4857,9 +4845,9 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 106, 127};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 106, 172};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_router, __pyx_mstate->__pyx_n_u_default_router};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_table_controller_py, __pyx_mstate->__pyx_n_u_apply_route_config, __pyx_k_wc_q_vYc_q_c_q_v_fJc_q_fJc_q_V9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_table_controller_py, __pyx_mstate->__pyx_n_u_apply_route_config, __pyx_k_wc_q_vYc_q_vWJnTU_v_6_G_Uccd_fM, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 18, 33, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 27, 508};
