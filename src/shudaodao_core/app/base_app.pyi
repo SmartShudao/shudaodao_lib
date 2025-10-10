@@ -1,4 +1,3 @@
-import abc
 from ..auth.auth_router import AuthRouter as AuthRouter
 from ..config.app_config import AppConfig as AppConfig
 from ..config.schemas.routers import RouterConfigSetting as RouterConfigSetting
@@ -19,10 +18,10 @@ from ..tools.database_checker import DatabaseChecker as DatabaseChecker
 from ..tools.tenant_checker import TenantManager as TenantManager
 from ..utils.core_utils import CoreUtil as CoreUtil
 from _typeshed import Incomplete
-from abc import ABC, abstractmethod
-from fastapi import FastAPI
+from abc import ABC
+from typing import Callable
 
-class BaseApplication(ABC, metaclass=abc.ABCMeta):
+class Application(ABC):
     """应用核心类，负责初始化和管理FastAPI应用。
 
     该类封装了FastAPI应用的完整生命周期，包括环境初始化、许可验证、数据库检查、
@@ -30,7 +29,7 @@ class BaseApplication(ABC, metaclass=abc.ABCMeta):
     子类必须实现抽象方法以完成自定义初始化逻辑。
     """
 
-    app: Incomplete
+    fastapi: Incomplete
     def __init__(self) -> None:
         """初始化应用核心组件。
 
@@ -44,16 +43,10 @@ class BaseApplication(ABC, metaclass=abc.ABCMeta):
         7. 加载路由
         8. 注册全局异常处理器
         """
-    @abstractmethod
-    def application_init(self, app: FastAPI) -> None:
-        """子类必须实现：用于注册中间件、事件等FastAPI初始化逻辑。
-
-        Args:
-            app (FastAPI): 当前FastAPI应用实例。
-        """
-    @abstractmethod
-    async def application_load(self):
-        """子类必须实现：应用启动时加载自定义资源（如缓存预热、连接池等）。"""
-    @abstractmethod
-    async def application_unload(self):
-        """子类必须实现：应用关闭时释放资源（如关闭连接、保存状态等）。"""
+    @classmethod
+    def verify_license(cls) -> None: ...
+    def run(self) -> None: ...
+    def startup(self, func: Callable):
+        """装饰器或直接注册启动回调"""
+    def shutdown(self, func: Callable):
+        """装饰器或直接注册关闭回调"""

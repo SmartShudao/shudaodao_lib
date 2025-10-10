@@ -14,10 +14,10 @@ from sqlalchemy import BigInteger, Integer
 from sqlmodel import SQLModel
 
 from .. import get_table_schema, RegistryModel
-from ...sqlmodel_ext.field import Field
 from ...schemas.core_enum import UserStatus
 from ...schemas.response import BaseResponse
 from ...services.enum_service import EnumService
+from ...sqlmodel_ext.field import Field
 from ...utils.generate_unique_id import get_primary_id
 
 

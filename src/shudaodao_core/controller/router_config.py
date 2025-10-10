@@ -6,11 +6,9 @@
 # @Date     ：2025/10/9 下午11:45
 # @Desc     ：路由行为与权限配置类
 
-from dataclasses import dataclass
 from typing import Optional
 
 
-@dataclass
 class RouterConfig:
     """路由配置类，用于声明单个 CRUD 操作的行为与权限策略。
 
