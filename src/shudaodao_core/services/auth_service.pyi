@@ -4,6 +4,10 @@ from ..exception.service_exception import (
     LoginException as LoginException,
 )
 from ..logger.logging_ import logging as logging
+from ..portal_auth.entity_table.auth_user import (
+    AuthUser as AuthUser,
+    AuthUserResponse as AuthUserResponse,
+)
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..tools.tenant_checker import TenantManager as TenantManager
