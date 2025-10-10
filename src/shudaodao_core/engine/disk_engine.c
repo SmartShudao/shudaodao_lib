@@ -2323,7 +2323,6 @@ static const char __pyx_k_Path[] = "Path";
 static const char __pyx_k_disk[] = "disk";
 static const char __pyx_k_exit[] = "__exit__";
 static const char __pyx_k_func[] = "__func__";
-static const char __pyx_k_info[] = "info";
 static const char __pyx_k_load[] = "_load";
 static const char __pyx_k_lock[] = "_lock";
 static const char __pyx_k_main[] = "__main__";
@@ -2391,7 +2390,7 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_DiskEngine_get_path[] = "DiskEngine.get_path";
 static const char __pyx_k_A_3k_A_A_3k_A_E_d_1_z_q_s[] = "\200A\360\n\000\t\014\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\250,\260d\270(\300!\3001\330\024\027\220z\240\026\240q\330\010\017\210s\220!";
 static const char __pyx_k_U_m1_G1A_2_1_A_V1HF_1_1_q[] = "\320\004\035\230U\240,\250m\2701\360\034\000\t\n\330\014\030\230\004\230G\2401\240A\330\017\020\330\014\022\220(\230!\2302\230\\\250\021\340\010\013\2101\330\014\030\230\n\240\"\240A\330\014\025\220V\2301\230H\240F\250)\2601\330\014\023\2201\340\010\017\210q";
-static const char __pyx_k_A_Ja_a_uAQ_Jixq_t6_xq_a_6_axvYa[] = "\200A\360\020\000\t\r\210J\220a\330\010\030\230\010\240\016\250a\330\010\017\210{\230!\330\010\017\210u\220A\220Q\330\010\017\210{\230!\340\010\014\210J\220i\230x\240q\330\014\017\210t\2206\230\021\330\020\027\220x\230q\330\024\026\320\026(\250\006\250a\340\020\021\340\014\033\230>\250\022\2506\260\021\330\014\030\230\006\230a\230x\240v\250Y\260a\330\014\023\2206\230\021\230\"\320\034.\250f\260K\270q\330\014\020\220\007\220q\230\006\230i\240q";
+static const char __pyx_k_A_Ja_a_vQa_Jixq_t6_xq_a_6_axvYa[] = "\200A\360\020\000\t\r\210J\220a\330\010\030\230\010\240\016\250a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\340\010\014\210J\220i\230x\240q\330\014\017\210t\2206\230\021\330\020\027\220x\230q\330\024\026\320\026(\250\006\250a\340\020\021\340\014\033\230>\250\022\2506\260\021\330\014\030\230\006\230a\230x\240v\250Y\260a\330\014\023\2206\230\021\230\"\320\034.\250f\260K\270q\330\014\020\220\007\220q\230\006\230i\240q";
 static const char __pyx_k_AppConfig_storage_disk_get_path[] = "\346\234\254\345\234\260\347\243\201\347\233\230\345\255\230\345\202\250\350\267\257\345\276\204\347\256\241\347\220\206\345\231\250\357\274\214\345\237\272\344\272\216\351\205\215\347\275\256\345\212\250\346\200\201\345\210\233\345\273\272\345\271\266\347\274\223\345\255\230\345\255\230\345\202\250\347\233\256\345\275\225\343\200\202\n\n    \345\212\237\350\203\275\357\274\232\n        - \344\273\216 `AppConfig.storage.disk` \345\212\240\350\275\275\345\244\232\344\270\252\347\243\201\347\233\230\345\255\230\345\202\250\351\205\215\347\275\256\357\274\233\n        - \344\270\272\346\257\217\344\270\252\345\220\257\347\224\250\347\232\204\345\255\230\345\202\250\351\241\271\345\210\233\345\273\272\345\271\266\347\274\223\345\255\230\345\205\266\347\273\235\345\257\271\350\267\257\345\276\204\357\274\210\350\207\252\345\212\250\345\210\233\345\273\272\347\233\256\345\275\225\357\274\211\357\274\233\n        - \346\217\220\344\276\233\344\276\277\346\215\267\346\226\271\346\263\225 `get_path(name, child_path)` \350\216\267\345\217\226\345\255\220\350\267\257\345\276\204\357\274\210\350\207\252\345\212\250\345\210\233\345\273\272\357\274\211\357\274\233\n        - \351\207\207\347\224\250\347\272\277\347\250\213\345\256\211\345\205\250\345\215\225\344\276\213\346\250\241\345\274\217\357\274\214\347\241\256\344\277\235\345\205\250\345\261\200\345\224\257\344\270\200\345\256\236\344\276\213\343\200\202\n\n    \345\205\270\345\236\213\347\224\250\351\200\224\357\274\232\n        - \346\226\207\344\273\266\344\270\212\344\274\240/\344\270\213\350\275\275\346\240\271\347\233\256\345\275\225\347\256\241\347\220\206\357\274\233\n        - \346\227\245\345\277\227\343\200\201\347\274\223\345\255\230\343\200\201\344\270\264\346\227\266\346\226\207\344\273\266\345\210\206\345\214\272\345\255\230\345\202\250\357\274\233\n        - \345\244\232\347\247\237\346\210\267\346\234\254\345\234\260\345\255\230\345\202\250\351\232\224\347\246\273\357\274\210\345\246\202 `tenant_a/files`, ""`tenant_b/files`\357\274\211\343\200\202\n\n    \346\263\250\346\204\217\357\274\232\n        - \346\211\200\346\234\211\350\267\257\345\276\204\345\235\207\345\237\272\344\272\216\351\241\271\347\233\256\346\240\271\347\233\256\345\275\225\357\274\210`CoreUtil.get_root_path()`\357\274\211\357\274\233\n        - \345\255\220\350\267\257\345\276\204\357\274\210`child_path`\357\274\211\346\224\257\346\214\201\345\244\232\347\272\247\357\274\210\345\246\202 `\"user/123/avatar\"`\357\274\211\357\274\233\n        - \347\233\256\345\275\225\345\210\233\345\273\272\344\275\277\347\224\250 `mkdir(parents=True, exist_ok=True)`\357\274\214\345\256\211\345\205\250\345\271\202\347\255\211\343\200\202\n    ";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 /* #### Code section: decls ### */
@@ -2441,7 +2440,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[2];
   PyObject *__pyx_codeobj_tab[5];
-  PyObject *__pyx_string_tab[84];
+  PyObject *__pyx_string_tab[83];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2527,42 +2526,41 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_func __pyx_string_tab[45]
 #define __pyx_n_u_get_path __pyx_string_tab[46]
 #define __pyx_n_u_get_root_path __pyx_string_tab[47]
-#define __pyx_n_u_info __pyx_string_tab[48]
-#define __pyx_n_u_initializing __pyx_string_tab[49]
-#define __pyx_n_u_instance __pyx_string_tab[50]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[51]
-#define __pyx_n_u_load __pyx_string_tab[52]
-#define __pyx_n_u_lock __pyx_string_tab[53]
-#define __pyx_n_u_logger_logging __pyx_string_tab[54]
-#define __pyx_n_u_logging __pyx_string_tab[55]
-#define __pyx_n_u_main __pyx_string_tab[56]
-#define __pyx_n_u_metaclass __pyx_string_tab[57]
-#define __pyx_n_u_mkdir __pyx_string_tab[58]
-#define __pyx_n_u_module __pyx_string_tab[59]
-#define __pyx_n_u_name __pyx_string_tab[60]
-#define __pyx_n_u_name_2 __pyx_string_tab[61]
-#define __pyx_n_u_new __pyx_string_tab[62]
-#define __pyx_n_u_parents __pyx_string_tab[63]
-#define __pyx_n_u_path __pyx_string_tab[64]
-#define __pyx_n_u_pathlib __pyx_string_tab[65]
-#define __pyx_n_u_pools __pyx_string_tab[66]
-#define __pyx_n_u_pop __pyx_string_tab[67]
-#define __pyx_n_u_prepare __pyx_string_tab[68]
-#define __pyx_n_u_qualname __pyx_string_tab[69]
-#define __pyx_n_u_return __pyx_string_tab[70]
-#define __pyx_n_u_self __pyx_string_tab[71]
-#define __pyx_n_u_set_name __pyx_string_tab[72]
-#define __pyx_n_u_spec __pyx_string_tab[73]
-#define __pyx_n_u_storage __pyx_string_tab[74]
-#define __pyx_n_u_storage_dir __pyx_string_tab[75]
-#define __pyx_n_u_storage_root __pyx_string_tab[76]
-#define __pyx_n_u_str __pyx_string_tab[77]
-#define __pyx_n_u_super __pyx_string_tab[78]
-#define __pyx_n_u_test __pyx_string_tab[79]
-#define __pyx_n_u_threading __pyx_string_tab[80]
-#define __pyx_n_u_utils_core_utils __pyx_string_tab[81]
-#define __pyx_n_u_warning __pyx_string_tab[82]
-#define __pyx_kp_u_yaml_storage_disk __pyx_string_tab[83]
+#define __pyx_n_u_initializing __pyx_string_tab[48]
+#define __pyx_n_u_instance __pyx_string_tab[49]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[50]
+#define __pyx_n_u_load __pyx_string_tab[51]
+#define __pyx_n_u_lock __pyx_string_tab[52]
+#define __pyx_n_u_logger_logging __pyx_string_tab[53]
+#define __pyx_n_u_logging __pyx_string_tab[54]
+#define __pyx_n_u_main __pyx_string_tab[55]
+#define __pyx_n_u_metaclass __pyx_string_tab[56]
+#define __pyx_n_u_mkdir __pyx_string_tab[57]
+#define __pyx_n_u_module __pyx_string_tab[58]
+#define __pyx_n_u_name __pyx_string_tab[59]
+#define __pyx_n_u_name_2 __pyx_string_tab[60]
+#define __pyx_n_u_new __pyx_string_tab[61]
+#define __pyx_n_u_parents __pyx_string_tab[62]
+#define __pyx_n_u_path __pyx_string_tab[63]
+#define __pyx_n_u_pathlib __pyx_string_tab[64]
+#define __pyx_n_u_pools __pyx_string_tab[65]
+#define __pyx_n_u_pop __pyx_string_tab[66]
+#define __pyx_n_u_prepare __pyx_string_tab[67]
+#define __pyx_n_u_qualname __pyx_string_tab[68]
+#define __pyx_n_u_return __pyx_string_tab[69]
+#define __pyx_n_u_self __pyx_string_tab[70]
+#define __pyx_n_u_set_name __pyx_string_tab[71]
+#define __pyx_n_u_spec __pyx_string_tab[72]
+#define __pyx_n_u_storage __pyx_string_tab[73]
+#define __pyx_n_u_storage_dir __pyx_string_tab[74]
+#define __pyx_n_u_storage_root __pyx_string_tab[75]
+#define __pyx_n_u_str __pyx_string_tab[76]
+#define __pyx_n_u_super __pyx_string_tab[77]
+#define __pyx_n_u_test __pyx_string_tab[78]
+#define __pyx_n_u_threading __pyx_string_tab[79]
+#define __pyx_n_u_utils_core_utils __pyx_string_tab[80]
+#define __pyx_n_u_warning __pyx_string_tab[81]
+#define __pyx_kp_u_yaml_storage_disk __pyx_string_tab[82]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2585,7 +2583,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #endif
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<5; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<84; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<83; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2608,7 +2606,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #endif
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<5; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<84; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<83; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3136,7 +3134,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
  *         self._pools = {}
  *         _storage_root = CoreUtil.get_root_path()             # <<<<<<<<<<<<<<
  *         logging.debug_line()
- *         logging.info(": .yaml - storage - disk")
+ *         logging.debug(": .yaml - storage - disk")
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
@@ -3171,7 +3169,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
  *         self._pools = {}
  *         _storage_root = CoreUtil.get_root_path()
  *         logging.debug_line()             # <<<<<<<<<<<<<<
- *         logging.info(": .yaml - storage - disk")
+ *         logging.debug(": .yaml - storage - disk")
  *         logging.debug_line()
 */
   __pyx_t_4 = NULL;
@@ -3205,14 +3203,14 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
   /* "disk_engine.py":64
  *         _storage_root = CoreUtil.get_root_path()
  *         logging.debug_line()
- *         logging.info(": .yaml - storage - disk")             # <<<<<<<<<<<<<<
+ *         logging.debug(": .yaml - storage - disk")             # <<<<<<<<<<<<<<
  *         logging.debug_line()
  * 
 */
   __pyx_t_3 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -3239,7 +3237,7 @@ static PyObject *__pyx_pf_11disk_engine_10DiskEngine_2_load(CYTHON_UNUSED PyObje
 
   /* "disk_engine.py":65
  *         logging.debug_line()
- *         logging.info(": .yaml - storage - disk")
+ *         logging.debug(": .yaml - storage - disk")
  *         logging.debug_line()             # <<<<<<<<<<<<<<
  * 
  *         for config in AppConfig.storage.disk:
@@ -5155,7 +5153,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_get_path, sizeof(__pyx_k_get_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_path */
   {__pyx_k_get_root_path, sizeof(__pyx_k_get_root_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_root_path */
-  {__pyx_k_info, sizeof(__pyx_k_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_info */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_instance, sizeof(__pyx_k_instance), 0, 1, 1}, /* PyObject cname: __pyx_n_u_instance */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
@@ -5284,7 +5281,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 53, 140};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_storage_root, __pyx_mstate->__pyx_n_u_config, __pyx_mstate->__pyx_n_u_storage_dir};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_Ja_a_uAQ_Jixq_t6_xq_a_6_axvYa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_disk_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_Ja_a_vQa_Jixq_t6_xq_a_6_axvYa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 79, 82};

@@ -2364,7 +2364,6 @@ static const char __pyx_k_db_2[] = ", db=";
 static const char __pyx_k_exit[] = "__exit__";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_host[] = "host";
-static const char __pyx_k_info[] = "info";
 static const char __pyx_k_load[] = "_load";
 static const char __pyx_k_lock[] = "_lock";
 static const char __pyx_k_main[] = "__main__";
@@ -2405,7 +2404,6 @@ static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_4waq_uF_1[] = "\320\004(\250\010\260\001\360 \000\t\n\330\014\023\2204\220w\230a\230q\330\017\020\330\014\022\220(\230!\330\020\022\220.\240\001\340\010\017\210u\220F\230!\320\033+\2501";
 static const char __pyx_k_AppConfig[] = "AppConfig";
-static const char __pyx_k_info_line[] = "info_line";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_pool_name[] = "pool_name";
 static const char __pyx_k_threading[] = "threading";
@@ -2438,7 +2436,7 @@ static const char __pyx_k_RedisEngine___del_2[] = "RedisEngine.__del__";
 static const char __pyx_k_A_3k_A_A_3k_A_E_t81A_z_q_s[] = "\200A\360\n\000\t\014\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\250-\260t\2708\3001\300A\330\024\027\220z\240\026\240q\330\010\017\210s\220!";
 static const char __pyx_k_RedisEngine_get_connection[] = "RedisEngine.get_connection";
 static const char __pyx_k_app_config_yaml_storage_redis[] = "' \346\234\252\345\220\257\347\224\250\346\210\226\344\270\215\345\255\230\345\234\250\357\274\214\350\257\267\346\243\200\346\237\245 app_config.yaml \344\270\255 storage.redis \351\205\215\347\275\256";
-static const char __pyx_k_A_Ja_z_uAQ_Jixq_t6_xq_q_fG5_7_a[] = "\200A\360\016\000\t\r\210J\220a\330\010\017\210z\230\021\330\010\017\210u\220A\220Q\330\010\017\210{\230!\340\010\014\210J\220i\230x\240q\330\014\017\210t\2206\230\021\330\020\027\220x\230q\330\024\026\320\026)\250\026\250q\340\020\021\360\006\000\r\027\220f\230G\2405\250\001\330\014\023\2207\230!\330\020\030\230\006\230a\330\020\030\230\006\230a\330\020\026\220f\230A\360\006\000\r\031\230\006\230a\330\014\017\210z\230\027\240\004\240A\330\020\027\220v\230Q\230b\320 3\3203G\300v\310^\320[a\320am\320ms\320st\330\020\024\220G\2301\230M\250\025\250o\270S\300\001";
+static const char __pyx_k_A_Ja_vQa_Jixq_t6_xq_q_fG5_7_a_a[] = "\200A\360\016\000\t\r\210J\220a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\340\010\014\210J\220i\230x\240q\330\014\017\210t\2206\230\021\330\020\027\220x\230q\330\024\026\320\026)\250\026\250q\340\020\021\360\006\000\r\027\220f\230G\2405\250\001\330\014\023\2207\230!\330\020\030\230\006\230a\330\020\030\230\006\230a\330\020\026\220f\230A\360\006\000\r\031\230\006\230a\330\014\017\210z\230\027\240\004\240A\330\020\027\220v\230Q\230b\320 3\3203G\300v\310^\320[a\320am\320ms\320st\330\020\024\220G\2301\230M\250\025\250o\270S\300\001";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 static const char __pyx_k_Redis_AppConfig_storage_redis_Re[] = "Redis \345\244\232\345\256\236\344\276\213\350\277\236\346\216\245\346\261\240\347\256\241\347\220\206\345\231\250\357\274\214\345\237\272\344\272\216\351\205\215\347\275\256\345\212\250\346\200\201\345\210\233\345\273\272\350\277\236\346\216\245\346\261\240\357\274\214\351\207\207\347\224\250\347\272\277\347\250\213\345\256\211\345\205\250\345\215\225\344\276\213\346\250\241\345\274\217\343\200\202\n\n    \345\212\237\350\203\275\357\274\232\n        - \344\273\216 `AppConfig.storage.redis` \345\212\240\350\275\275\345\244\232\344\270\252 Redis \351\205\215\347\275\256\357\274\233\n        - \344\270\272\346\257\217\344\270\252\345\220\257\347\224\250\347\232\204 Redis \345\256\236\344\276\213\345\210\233\345\273\272\347\213\254\347\253\213\347\232\204 `redis.ConnectionPool`\357\274\233\n        - \346\217\220\344\276\233 `get_connection(name)` \350\216\267\345\217\226\347\272\277\347\250\213\345\256\211\345\205\250\347\232\204 `redis.Redis` \345\256\242\346\210\267\347\253\257\357\274\233\n        - \346\224\257\346\214\201\347\273\237\344\270\200\350\265\204\346\272\220\351\207\212\346\224\276\357\274\210`close()` / \346\236\220\346\236\204\345\207\275\346\225\260\357\274\211\343\200\202\n\n    \350\256\276\350\256\241\350\257\264\346\230\216\357\274\232\n        - \346\257\217\344\270\252 `redis.Redis` \345\256\236\344\276\213\346\230\257\350\275\273\351\207\217\347\272\247\347\232\204\357\274\214\345\272\225\345\261\202\345\205\261\344\272\253\350\277\236\346\216\245\346\261\240\357\274\214\345\217\257\345\256\211\345\205\250\347\224\250\344\272\216\345\244\232\347\272\277\347\250\213\357\274\233\n        - \350\277\236\346\216\245\346\261\240\345\217\202\346\225\260\357\274\210\345\246\202 `max_connections`, `password`, `ssl` \347\255\211\357\274\211\351\200\232\350\277\207 `config.kwargs` \344\274\240\345\205\245\357\274\233\n        - \350\207\252\345\212\250\350\267\263\350\277\207 `enabled: false` \347\232\204\351\205\215\347\275\256\351\241\271\343\200""\202\n\n    \345\205\270\345\236\213\347\224\250\346\263\225\357\274\232\n        redis_client = RedisEngine().get_connection(\"cache\")\n        value = redis_client.get(\"user:123\")\n    ";
 /* #### Code section: decls ### */
@@ -2488,7 +2486,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[5];
-  PyObject *__pyx_string_tab[88];
+  PyObject *__pyx_string_tab[86];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2570,50 +2568,48 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_get_connection __pyx_string_tab[41]
 #define __pyx_n_u_host __pyx_string_tab[42]
 #define __pyx_kp_u_host_2 __pyx_string_tab[43]
-#define __pyx_n_u_info __pyx_string_tab[44]
-#define __pyx_n_u_info_line __pyx_string_tab[45]
-#define __pyx_n_u_initializing __pyx_string_tab[46]
-#define __pyx_n_u_instance __pyx_string_tab[47]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[48]
-#define __pyx_n_u_kwargs __pyx_string_tab[49]
-#define __pyx_n_u_kwargs_2 __pyx_string_tab[50]
-#define __pyx_n_u_load __pyx_string_tab[51]
-#define __pyx_n_u_lock __pyx_string_tab[52]
-#define __pyx_n_u_logger_logging __pyx_string_tab[53]
-#define __pyx_n_u_logging __pyx_string_tab[54]
-#define __pyx_n_u_main __pyx_string_tab[55]
-#define __pyx_n_u_metaclass __pyx_string_tab[56]
-#define __pyx_n_u_module __pyx_string_tab[57]
-#define __pyx_n_u_name __pyx_string_tab[58]
-#define __pyx_n_u_name_2 __pyx_string_tab[59]
-#define __pyx_n_u_new __pyx_string_tab[60]
-#define __pyx_n_u_pool __pyx_string_tab[61]
-#define __pyx_n_u_pool_name __pyx_string_tab[62]
-#define __pyx_n_u_pools __pyx_string_tab[63]
-#define __pyx_n_u_pop __pyx_string_tab[64]
-#define __pyx_n_u_port __pyx_string_tab[65]
-#define __pyx_kp_u_port_2 __pyx_string_tab[66]
-#define __pyx_n_u_prepare __pyx_string_tab[67]
-#define __pyx_n_u_qualname __pyx_string_tab[68]
-#define __pyx_n_u_redis __pyx_string_tab[69]
-#define __pyx_kp_u_redis_Redis __pyx_string_tab[70]
-#define __pyx_n_u_redis_engine __pyx_string_tab[71]
-#define __pyx_kp_u_redis_engine_py __pyx_string_tab[72]
-#define __pyx_kp_u_redis_name __pyx_string_tab[73]
-#define __pyx_kp_u_redis_name_2 __pyx_string_tab[74]
-#define __pyx_n_u_return __pyx_string_tab[75]
-#define __pyx_n_u_self __pyx_string_tab[76]
-#define __pyx_n_u_set_name __pyx_string_tab[77]
-#define __pyx_n_u_spec __pyx_string_tab[78]
-#define __pyx_n_u_storage __pyx_string_tab[79]
-#define __pyx_n_u_str __pyx_string_tab[80]
-#define __pyx_n_u_super __pyx_string_tab[81]
-#define __pyx_n_u_test __pyx_string_tab[82]
-#define __pyx_n_u_threading __pyx_string_tab[83]
-#define __pyx_n_u_update __pyx_string_tab[84]
-#define __pyx_n_u_values __pyx_string_tab[85]
-#define __pyx_n_u_warning __pyx_string_tab[86]
-#define __pyx_kp_u_yaml_storage_redis __pyx_string_tab[87]
+#define __pyx_n_u_initializing __pyx_string_tab[44]
+#define __pyx_n_u_instance __pyx_string_tab[45]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[46]
+#define __pyx_n_u_kwargs __pyx_string_tab[47]
+#define __pyx_n_u_kwargs_2 __pyx_string_tab[48]
+#define __pyx_n_u_load __pyx_string_tab[49]
+#define __pyx_n_u_lock __pyx_string_tab[50]
+#define __pyx_n_u_logger_logging __pyx_string_tab[51]
+#define __pyx_n_u_logging __pyx_string_tab[52]
+#define __pyx_n_u_main __pyx_string_tab[53]
+#define __pyx_n_u_metaclass __pyx_string_tab[54]
+#define __pyx_n_u_module __pyx_string_tab[55]
+#define __pyx_n_u_name __pyx_string_tab[56]
+#define __pyx_n_u_name_2 __pyx_string_tab[57]
+#define __pyx_n_u_new __pyx_string_tab[58]
+#define __pyx_n_u_pool __pyx_string_tab[59]
+#define __pyx_n_u_pool_name __pyx_string_tab[60]
+#define __pyx_n_u_pools __pyx_string_tab[61]
+#define __pyx_n_u_pop __pyx_string_tab[62]
+#define __pyx_n_u_port __pyx_string_tab[63]
+#define __pyx_kp_u_port_2 __pyx_string_tab[64]
+#define __pyx_n_u_prepare __pyx_string_tab[65]
+#define __pyx_n_u_qualname __pyx_string_tab[66]
+#define __pyx_n_u_redis __pyx_string_tab[67]
+#define __pyx_kp_u_redis_Redis __pyx_string_tab[68]
+#define __pyx_n_u_redis_engine __pyx_string_tab[69]
+#define __pyx_kp_u_redis_engine_py __pyx_string_tab[70]
+#define __pyx_kp_u_redis_name __pyx_string_tab[71]
+#define __pyx_kp_u_redis_name_2 __pyx_string_tab[72]
+#define __pyx_n_u_return __pyx_string_tab[73]
+#define __pyx_n_u_self __pyx_string_tab[74]
+#define __pyx_n_u_set_name __pyx_string_tab[75]
+#define __pyx_n_u_spec __pyx_string_tab[76]
+#define __pyx_n_u_storage __pyx_string_tab[77]
+#define __pyx_n_u_str __pyx_string_tab[78]
+#define __pyx_n_u_super __pyx_string_tab[79]
+#define __pyx_n_u_test __pyx_string_tab[80]
+#define __pyx_n_u_threading __pyx_string_tab[81]
+#define __pyx_n_u_update __pyx_string_tab[82]
+#define __pyx_n_u_values __pyx_string_tab[83]
+#define __pyx_n_u_warning __pyx_string_tab[84]
+#define __pyx_kp_u_yaml_storage_redis __pyx_string_tab[85]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2636,7 +2632,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #endif
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<5; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<88; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<86; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2659,7 +2655,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #endif
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<5; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<88; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<86; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3176,8 +3172,8 @@ static PyObject *__pyx_pf_12redis_engine_11RedisEngine_2_load(CYTHON_UNUSED PyOb
  *             -  `redis.ConnectionPool`
  *         """
  *         self._pools = {}             # <<<<<<<<<<<<<<
- *         logging.info_line()
- *         logging.info(": .yaml - storage - redis")
+ *         logging.debug_line()
+ *         logging.debug(": .yaml - storage - redis")
 */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -3187,14 +3183,14 @@ static PyObject *__pyx_pf_12redis_engine_11RedisEngine_2_load(CYTHON_UNUSED PyOb
   /* "redis_engine.py":59
  *         """
  *         self._pools = {}
- *         logging.info_line()             # <<<<<<<<<<<<<<
- *         logging.info(": .yaml - storage - redis")
+ *         logging.debug_line()             # <<<<<<<<<<<<<<
+ *         logging.debug(": .yaml - storage - redis")
  *         logging.debug_line()
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_info_line); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -3221,15 +3217,15 @@ static PyObject *__pyx_pf_12redis_engine_11RedisEngine_2_load(CYTHON_UNUSED PyOb
 
   /* "redis_engine.py":60
  *         self._pools = {}
- *         logging.info_line()
- *         logging.info(": .yaml - storage - redis")             # <<<<<<<<<<<<<<
+ *         logging.debug_line()
+ *         logging.debug(": .yaml - storage - redis")             # <<<<<<<<<<<<<<
  *         logging.debug_line()
  * 
 */
   __pyx_t_4 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -3255,8 +3251,8 @@ static PyObject *__pyx_pf_12redis_engine_11RedisEngine_2_load(CYTHON_UNUSED PyOb
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "redis_engine.py":61
- *         logging.info_line()
- *         logging.info(": .yaml - storage - redis")
+ *         logging.debug_line()
+ *         logging.debug(": .yaml - storage - redis")
  *         logging.debug_line()             # <<<<<<<<<<<<<<
  * 
  *         for config in AppConfig.storage.redis:
@@ -5472,8 +5468,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_get_connection, sizeof(__pyx_k_get_connection), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_connection */
   {__pyx_k_host, sizeof(__pyx_k_host), 0, 1, 1}, /* PyObject cname: __pyx_n_u_host */
   {__pyx_k_host_2, sizeof(__pyx_k_host_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_host_2 */
-  {__pyx_k_info, sizeof(__pyx_k_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_info */
-  {__pyx_k_info_line, sizeof(__pyx_k_info_line), 0, 1, 1}, /* PyObject cname: __pyx_n_u_info_line */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_instance, sizeof(__pyx_k_instance), 0, 1, 1}, /* PyObject cname: __pyx_n_u_instance */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
@@ -5598,7 +5592,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 51, 183};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_config, __pyx_mstate->__pyx_n_u_kwargs_2, __pyx_mstate->__pyx_n_u_pool_name};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_redis_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_Ja_z_uAQ_Jixq_t6_xq_q_fG5_7_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_redis_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_Ja_vQa_Jixq_t6_xq_q_fG5_7_a_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 83, 54};

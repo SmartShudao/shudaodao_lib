@@ -2386,7 +2386,6 @@ typedef struct {
   PyObject *__pyx_string_tab[86];
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_1;
-  PyObject *__pyx_int_30;
   PyObject *__pyx_int_60;
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
@@ -2536,7 +2535,6 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   for (int i=0; i<86; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_1);
-  Py_CLEAR(clear_module_state->__pyx_int_30);
   Py_CLEAR(clear_module_state->__pyx_int_60);
   return 0;
 }
@@ -2563,7 +2561,6 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   for (int i=0; i<86; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_1);
-  __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_30);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_60);
   return 0;
 }
@@ -4133,7 +4130,7 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
  * 
  *         #
  *         AppConfig.get_default_tenant_id()             # <<<<<<<<<<<<<<
- *         return f": {payload['sub']}  {exp_days} " if exp_days < 30 else None
+ *         return f": {payload['sub']}  {exp_days} " if exp_days < 60 else None
  * 
 */
       __pyx_t_5 = NULL;
@@ -4167,12 +4164,12 @@ static PyObject *__pyx_pf_6verify_verify_license(CYTHON_UNUSED PyObject *__pyx_s
       /* "verify.py":63
  *         #
  *         AppConfig.get_default_tenant_id()
- *         return f": {payload['sub']}  {exp_days} " if exp_days < 30 else None             # <<<<<<<<<<<<<<
+ *         return f": {payload['sub']}  {exp_days} " if exp_days < 60 else None             # <<<<<<<<<<<<<<
  * 
  *         # todo
 */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_v_exp_days, __pyx_mstate_global->__pyx_int_30, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L5_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_v_exp_days, __pyx_mstate_global->__pyx_int_60, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L5_error)
       __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 63, __pyx_L5_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_1) {
@@ -5228,7 +5225,6 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   if (__Pyx_InitStrings(__pyx_string_tab, __pyx_mstate->__pyx_string_tab, __pyx_string_tab_encodings) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_mstate->__pyx_int_0 = PyLong_FromLong(0); if (unlikely(!__pyx_mstate->__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_mstate->__pyx_int_1 = PyLong_FromLong(1); if (unlikely(!__pyx_mstate->__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_mstate->__pyx_int_30 = PyLong_FromLong(30); if (unlikely(!__pyx_mstate->__pyx_int_30)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_mstate->__pyx_int_60 = PyLong_FromLong(60); if (unlikely(!__pyx_mstate->__pyx_int_60)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;

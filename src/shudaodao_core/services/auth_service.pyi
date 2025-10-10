@@ -4,12 +4,6 @@ from ..exception.service_exception import (
     LoginException as LoginException,
 )
 from ..logger.logging_ import logging as logging
-from ..portal_auth.entity_table.auth_user import (
-    AuthLogin as AuthLogin,
-    AuthPassword as AuthPassword,
-    AuthUser as AuthUser,
-    AuthUserResponse as AuthUserResponse,
-)
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..tools.tenant_checker import TenantManager as TenantManager
@@ -92,9 +86,7 @@ class AuthService:
             PermissionService: 权限服务实例
         """
     @classmethod
-    async def get_current_user(
-        cls, token=..., db: AsyncSession = ...
-    ) -> AuthUserResponse:
+    async def get_current_user(cls, token=..., db: AsyncSession = ...):
         """获取当前登录用户信息。
 
         Args:
@@ -125,7 +117,7 @@ class AuthService:
             待实现的刷新令牌功能
         """
     @classmethod
-    async def login(cls, *, db: AsyncSession, auth_login: AuthLogin):
+    async def login(cls, *, db: AsyncSession, auth_login):
         """用户登录认证。
 
         Args:
@@ -139,13 +131,7 @@ class AuthService:
             LoginException: 当用户名密码错误、账户未激活或其他登录错误时
         """
     @classmethod
-    async def modify_password(
-        cls,
-        db: AsyncSession,
-        *,
-        password_model: AuthPassword,
-        current_user: AuthUserResponse,
-    ):
+    async def modify_password(cls, db: AsyncSession, *, password_model, current_user):
         """修改用户密码。
 
         Args:
