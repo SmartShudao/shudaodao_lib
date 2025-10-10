@@ -801,7 +801,7 @@ wheels = [
 
 [[package]]
 name = "shudaodao"
-version = "0.1.43"
+version = "0.1.48"
 source = { editable = "." }
 dependencies = [
     { name = "aiosqlite" },
