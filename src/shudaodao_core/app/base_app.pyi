@@ -10,12 +10,6 @@ from ..exception.register_handlers import (
 )
 from ..license.verify import verify_license as verify_license
 from ..logger.logging_ import logging as logging
-from ..portal_auth import auth_registry as auth_registry
-from ..portal_auth.entity_table.auth_user import (
-    AuthRegister as AuthRegister,
-    AuthUser as AuthUser,
-)
-from ..portal_enum import enum_registry as enum_registry
 from ..services.auth_service import AuthService as AuthService
 from ..services.casbin_service import PermissionService as PermissionService
 from ..services.data_service import DataService as DataService
