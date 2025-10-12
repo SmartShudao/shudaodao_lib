@@ -4267,7 +4267,6 @@ static PyObject *__pyx_gb_17db_engine_service_15DBEngineService_13generator1(__p
  *         async with AsyncSession(cls.get_auth_async_engine()) as session:
  *             yield session             # <<<<<<<<<<<<<<
  * 
- *     # @classmethod
 */
           __Pyx_INCREF(__pyx_cur_scope->__pyx_v_session);
           __pyx_r = __pyx_cur_scope->__pyx_v_session;

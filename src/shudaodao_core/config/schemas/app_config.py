@@ -29,8 +29,12 @@ class EnvironmentConfigSetting(BaseModel):
         return self.model == "prod"
 
     @property
+    def is_dev(self) -> bool:
+        return self.model == "dev"
+
+    @property
     def model_desc(self) -> str:
-        return "开发环境" if self.model == "dev" else "生产环境"
+        return "开发环境" if self.is_dev else "生产环境"
 
     @property
     def logging_level_desc(self) -> str:

@@ -36,7 +36,7 @@ class RouterConfig:
         auth_obj: Optional[str] = None,
         auth_act: Optional[str] = None,
         message: Optional[str] = None,
-        summary: Optional[str] = None,
+        summary: Optional[str] = "",
     ):
         """初始化路由配置。
 

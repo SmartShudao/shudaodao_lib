@@ -17,7 +17,6 @@ class PermissionEngine:
     注意：
         - 本类使用 **双重检查锁（DCL）** 实现线程安全的单例模式；
         - `_load()` 在首次实例化时同步执行，因此应避免在异步上下文中首次触发；
-        - 若需完全异步初始化，建议改用 `__init__` + `async classmethod` 模式（当前为简化设计）。
 
     典型用法：
         enforcer = PermissionEngine().get_async_enforcer()

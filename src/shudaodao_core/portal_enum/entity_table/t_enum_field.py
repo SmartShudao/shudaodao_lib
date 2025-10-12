@@ -48,7 +48,7 @@ class TEnumField(RegistryModel, table=True):
 
 class TEnumFieldBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    group_id: int = Field(sa_type=BigInteger, description="分组内码")
+    schema_id: int = Field(sa_type=BigInteger, description="分组内码")
     field_label: str = Field(max_length=50, description="字段标签")
     field_class: str = Field(max_length=50, description="字段类名")
     field_name: str = Field(max_length=50, description="字段列名")
@@ -70,7 +70,7 @@ class TEnumFieldUpdate(TEnumFieldBase):
 class TEnumFieldResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     field_id: int = Field(description="字段内码", sa_type=BigInteger)
-    group_id: int = Field(description="分组内码", sa_type=BigInteger)
+    schema_id: int = Field(description="分组内码", sa_type=BigInteger)
     field_label: str = Field(description="字段标签")
     field_class: str = Field(description="字段类名")
     field_name: str = Field(description="字段列名")

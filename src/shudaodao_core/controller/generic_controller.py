@@ -120,7 +120,7 @@ class GenericController(Generic[SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLM
                     response_class=self._response_schema
                 )
                 return ResponseUtil.success(
-                    name=query_request.format, data=query_result, message=self._query_router.message
+                    message=self._query_router.message, data=query_result,
                 )
 
         if self._create_router.enabled:

@@ -60,17 +60,31 @@ class BaseResponse(SQLModel):
         return self.model_dump(*args, **kwargs)
 
 
-class DataResponse(BaseResponse):
-    success: bool = True
+class SuccessResponse(BaseResponse):
     code: int = Field(200, description="Response code")
-    name: Optional[str] = None
     message: str = ""
     data: Optional[Any] = None
 
 
 class ErrorResponse(BaseModel):
-    success: bool = True
     code: int = Field(..., description="Response code")
-    name: Optional[str] = None
     message: str = ""
     error: Optional[Any] = None
+
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str = "Bearer"
+    expires_in: int
+    refresh_token: Optional[str] = None
+    refresh_expires_in: int
+    scope: Optional[str] = None
+    user: Dict[str, Any]
+    id_token: Optional[str] = None
+
+
+class TokenErrorResponse(BaseModel):
+    error: str
+    error_description: str
+    error_code: Optional[str] = None
+    timestamp: str = Field(default_factory=lambda: datetime.now().timestamp())

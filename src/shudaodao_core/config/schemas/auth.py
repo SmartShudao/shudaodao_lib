@@ -17,8 +17,9 @@ class TenantConfigSetting(BaseModel):
 
 
 class AuthConfigSetting(BaseModel):
-    token_jwt_secret_key: str = Field(..., description="JWT TOKEN_SECRET_KEY")
-    token_jwt_expire_minutes: int = Field(30, description="JWT TOKEN_ 过期时间")
+    token_secret_key: str = Field(..., description="token 私钥")
+    token_expire_minutes: int = Field(30, description="token 登录过期")
+    token_refresh_expire_days: int = Field(7, description="token 刷新过期")
     rebuild_auth_rule: bool = Field(False, description="重置")
     default_admin_roles: list[str] = ["admin"]
     default_admin_users: list[str] = ["admin"]

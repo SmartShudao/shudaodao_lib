@@ -4,13 +4,18 @@ from ..exception.service_exception import (
     LoginException as LoginException,
 )
 from ..logger.logging_ import logging as logging
+from ..schemas.response import TokenResponse as TokenResponse
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..tools.tenant_checker import TenantManager as TenantManager
 from .casbin_service import PermissionService as PermissionService
 from _typeshed import Incomplete
-from datetime import timedelta
+from fastapi import Depends as Depends
+from fastapi.security import (
+    HTTPAuthorizationCredentials as HTTPAuthorizationCredentials,
+)
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
+from typing import Annotated
 
 class AuthService:
     """认证服务类，处理用户认证、密码验证、JWT令牌管理等操作。
@@ -19,13 +24,14 @@ class AuthService:
         TOKEN_SECRET_KEY: JWT令牌密钥
         TOKEN_ALGORITHM: JWT算法
         TOKEN_EXPIRE_MINUTES: 令牌过期时间（分钟）
-        oauth2_scheme: OAuth2密码流方案
+        http_bearer: HTTPBearer 方案
     """
 
     TOKEN_SECRET_KEY: Incomplete
     TOKEN_ALGORITHM: str
     TOKEN_EXPIRE_MINUTES: Incomplete
-    oauth2_scheme: Incomplete
+    TOKEN_REFRESH_EXPIRE_DAYS: Incomplete
+    http_bearer: Incomplete
     @classmethod
     def verify_password(cls, plain_password: str, hashed_password: str) -> bool:
         """验证明文密码与哈希密码是否匹配。
@@ -55,18 +61,17 @@ class AuthService:
             bcrypt会自动处理超过72字节的密码
         """
     @classmethod
-    def token_encode(cls, data: dict, expires_delta: timedelta | None = None) -> str:
+    def jwt_encode(cls, data: dict) -> str:
         """编码数据生成JWT令牌。
 
         Args:
             data: 需要编码到令牌中的数据
-            expires_delta: 可选的过期时间增量，默认为配置的过期时间
 
         Returns:
             str: 编码后的JWT令牌字符串
         """
     @classmethod
-    def token_decode(cls, token) -> dict:
+    def jwt_decode(cls, token) -> dict:
         """解码JWT令牌获取原始数据。
 
         Args:
@@ -86,11 +91,15 @@ class AuthService:
             PermissionService: 权限服务实例
         """
     @classmethod
-    async def get_current_user(cls, token=..., db: AsyncSession = ...):
+    async def get_current_user(
+        cls,
+        auth_bearer: Annotated[HTTPAuthorizationCredentials, None],
+        db: Annotated[AsyncSession, None],
+    ):
         """获取当前登录用户信息。
 
         Args:
-            token: JWT令牌，通过OAuth2安全方案获取
+            auth_bearer: JWT令牌，通过 HTTPBearer 获取
             db: 数据库会话依赖项
 
         Returns:
@@ -107,7 +116,7 @@ class AuthService:
             此功能尚未实现
         """
     @classmethod
-    async def refresh(cls) -> None:
+    async def refresh(cls, refresh_token, db: AsyncSession):
         """刷新访问令牌。
 
         Note:

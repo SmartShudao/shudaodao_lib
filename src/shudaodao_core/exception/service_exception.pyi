@@ -6,12 +6,9 @@ def raise_permission_exception(*, message: str, errors: str = None): ...
 
 class ShudaodaoException(Exception):
     code: Incomplete
-    name: Incomplete
     errors: Incomplete
     message: Incomplete
-    def __init__(
-        self, code: int, name: str, message: str, errors: Any = None
-    ) -> None: ...
+    def __init__(self, *, code: int, message: str, errors: Any = None) -> None: ...
 
 class LoginException(ShudaodaoException):
     """自定义 登录异常"""

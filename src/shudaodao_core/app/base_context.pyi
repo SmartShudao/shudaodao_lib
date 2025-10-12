@@ -8,19 +8,19 @@ class UserInfo:
     当租户功能被禁用时，tenant_id 将被强制置为 None。
     """
 
-    user_name: Incomplete
+    username: Incomplete
     tenant_id: Incomplete
     tenant_enabled: Incomplete
     def __init__(
         self,
-        user_name: str | None = None,
+        username: str | None = None,
         tenant_id: int | None = None,
         tenant_enabled: bool | None = None,
     ) -> None:
         """初始化用户上下文信息。
 
         Args:
-            user_name (Optional[str]): 当前用户名。默认为 None。
+            username (Optional[str]): 当前用户名。默认为 None。
             tenant_id (Optional[int]): 当前租户ID。若租户功能关闭，则会被忽略并设为 None。
             tenant_enabled (Optional[bool]): 是否启用租户隔离。
                 若未提供，则从 AppConfig.auth.tenant.enabled 自动读取。

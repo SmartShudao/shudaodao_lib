@@ -2266,20 +2266,20 @@ static const char __pyx_k_loc_type[] = "loc_type";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_sqlmodel[] = "sqlmodel";
+static const char __pyx_k_username[] = "username";
 static const char __pyx_k_create_by[] = "create_by";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_tenant_id[] = "tenant_id";
 static const char __pyx_k_update_at[] = "update_at";
 static const char __pyx_k_update_by[] = "update_by";
 static const char __pyx_k_user_info[] = "user_info";
-static const char __pyx_k_user_name[] = "user_name";
 static const char __pyx_k_conditions[] = "conditions";
 static const char __pyx_k_value_type[] = "value_type";
-static const char __pyx_k_A_Qha_1_a_a[] = "\200A\360\006\000\t\036\230Q\230h\240a\330\014\033\2301\330\014\026\220a\330\014\026\220a";
+static const char __pyx_k_A_Qha_1_Q_a[] = "\200A\360\006\000\t\036\230Q\230h\240a\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
 static const char __pyx_k_python_type[] = "python_type";
 static const char __pyx_k_check_enable[] = "_check_enable";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_A56_Qha_1_a_a[] = "\200A\33056\340\010\035\230Q\230h\240a\330\014\033\2301\330\014\026\220a\330\014\026\220a";
+static const char __pyx_k_A45_Qha_1_Q_a[] = "\200A\33045\340\010\035\230Q\230h\240a\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
 static const char __pyx_k_A_4y_1_4y_A_q[] = "\200A\340\010\024\320\024)\250\021\340\010\013\2104\210y\230\001\330\014\023\2201\330\010\013\2104\210y\230\001\330\014*\250!\330\020\031\230\021\330\020\024\220A\340\010\017\210q";
 static const char __pyx_k_TenantManager[] = "TenantManager";
 static const char __pyx_k_set_from_token[] = "set_from_token";
@@ -2315,8 +2315,8 @@ static const char __pyx_k_TenantManager_get_tenant_conditi[] = "TenantManager.ge
 static const char __pyx_k_TenantManager_set_field_with_use[] = "TenantManager.set_field_with_user_and_tenant";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_14tenant_checker_13TenantManager_disable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
-static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_user_name, PyObject *__pyx_v_tenant_id); /* proto */
-static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_user_name, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled); /* proto */
+static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id); /* proto */
+static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled); /* proto */
 static PyObject *__pyx_pf_14tenant_checker_13TenantManager_6apply_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model, PyObject *__pyx_v_conditions); /* proto */
 static PyObject *__pyx_pf_14tenant_checker_13TenantManager_8get_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
 static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user_and_tenant(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
@@ -2470,7 +2470,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_update_at __pyx_string_tab[67]
 #define __pyx_n_u_update_by __pyx_string_tab[68]
 #define __pyx_n_u_user_info __pyx_string_tab[69]
-#define __pyx_n_u_user_name __pyx_string_tab[70]
+#define __pyx_n_u_username __pyx_string_tab[70]
 #define __pyx_n_u_value_type __pyx_string_tab[71]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
@@ -2635,7 +2635,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_disable(CYTHON_UNUSED
  *         #
  *         set_current_user_info(UserInfo(             # <<<<<<<<<<<<<<
  *             tenant_enabled=False,
- *             # user_name=auth_login.user_name,
+ *             # username=auth_login.username,
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_current_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
@@ -2648,7 +2648,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_disable(CYTHON_UNUSED
  *         #
  *         set_current_user_info(UserInfo(
  *             tenant_enabled=False,             # <<<<<<<<<<<<<<
- *             # user_name=auth_login.user_name,
+ *             # username=auth_login.username,
  *             # tenant_id=AppConfig.get_default_tenant_id()
 */
   __pyx_t_7 = 1;
@@ -2729,7 +2729,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_disable(CYTHON_UNUSED
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set(cls, *, user_name, tenant_id):
+ *     def set(cls, *, username, tenant_id):
  *         # ID
 */
 
@@ -2750,7 +2750,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   CYTHON_UNUSED PyObject *__pyx_v_cls = 0;
-  PyObject *__pyx_v_user_name = 0;
+  PyObject *__pyx_v_username = 0;
   PyObject *__pyx_v_tenant_id = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
@@ -2772,7 +2772,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_user_name,&__pyx_mstate_global->__pyx_n_u_tenant_id,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_username,&__pyx_mstate_global->__pyx_n_u_tenant_id,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
     if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 29, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
@@ -2795,10 +2795,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("set", __pyx_mstate_global->__pyx_n_u_user_name); __PYX_ERR(0, 29, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("set", __pyx_mstate_global->__pyx_n_u_username); __PYX_ERR(0, 29, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
-    __pyx_v_user_name = values[1];
+    __pyx_v_username = values[1];
     __pyx_v_tenant_id = values[2];
   }
   goto __pyx_L6_skip;
@@ -2814,7 +2814,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_checker_13TenantManager_2set(__pyx_self, __pyx_v_cls, __pyx_v_user_name, __pyx_v_tenant_id);
+  __pyx_r = __pyx_pf_14tenant_checker_13TenantManager_2set(__pyx_self, __pyx_v_cls, __pyx_v_username, __pyx_v_tenant_id);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -2824,7 +2824,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_user_name, PyObject *__pyx_v_tenant_id) {
+static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2841,11 +2841,11 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED Py
   __Pyx_RefNannySetupContext("set", 0);
 
   /* "tenant_checker.py":32
- *     def set(cls, *, user_name, tenant_id):
+ *     def set(cls, *, username, tenant_id):
  *         # ID
  *         set_current_user_info(UserInfo(             # <<<<<<<<<<<<<<
  *             tenant_enabled=None,  # None
- *             user_name=user_name,
+ *             username=username,
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_current_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
@@ -2856,7 +2856,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED Py
 
   /* "tenant_checker.py":35
  *             tenant_enabled=None,  # None
- *             user_name=user_name,
+ *             username=username,
  *             tenant_id=tenant_id             # <<<<<<<<<<<<<<
  *         ))
  * 
@@ -2878,7 +2878,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED Py
     __pyx_t_8 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 32, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tenant_enabled, Py_None, __pyx_t_8, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_user_name, __pyx_v_user_name, __pyx_t_8, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_username, __pyx_v_username, __pyx_t_8, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tenant_id, __pyx_v_tenant_id, __pyx_t_8, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
     __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_8);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -2914,7 +2914,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED Py
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set(cls, *, user_name, tenant_id):
+ *     def set(cls, *, username, tenant_id):
  *         # ID
 */
 
@@ -2941,7 +2941,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_2set(CYTHON_UNUSED Py
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
 */
 
@@ -2962,7 +2962,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   CYTHON_UNUSED PyObject *__pyx_v_cls = 0;
-  PyObject *__pyx_v_user_name = 0;
+  PyObject *__pyx_v_username = 0;
   PyObject *__pyx_v_tenant_id = 0;
   PyObject *__pyx_v_tenant_enabled = 0;
   #if !CYTHON_METH_FASTCALL
@@ -2985,7 +2985,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_user_name,&__pyx_mstate_global->__pyx_n_u_tenant_id,&__pyx_mstate_global->__pyx_n_u_tenant_enabled,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_username,&__pyx_mstate_global->__pyx_n_u_tenant_id,&__pyx_mstate_global->__pyx_n_u_tenant_enabled,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
     if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 38, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
@@ -3003,7 +3003,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       /* "tenant_checker.py":39
  * 
  *     @classmethod
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):             # <<<<<<<<<<<<<<
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):             # <<<<<<<<<<<<<<
  *         # ID
  *         set_current_user_info(UserInfo(
 */
@@ -3017,10 +3017,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("set_from_token", __pyx_mstate_global->__pyx_n_u_user_name); __PYX_ERR(0, 38, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("set_from_token", __pyx_mstate_global->__pyx_n_u_username); __PYX_ERR(0, 38, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
-    __pyx_v_user_name = values[1];
+    __pyx_v_username = values[1];
     __pyx_v_tenant_id = values[2];
     __pyx_v_tenant_enabled = values[3];
   }
@@ -3037,13 +3037,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_checker_13TenantManager_4set_from_token(__pyx_self, __pyx_v_cls, __pyx_v_user_name, __pyx_v_tenant_id, __pyx_v_tenant_enabled);
+  __pyx_r = __pyx_pf_14tenant_checker_13TenantManager_4set_from_token(__pyx_self, __pyx_v_cls, __pyx_v_username, __pyx_v_tenant_id, __pyx_v_tenant_enabled);
 
   /* "tenant_checker.py":38
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
 */
 
@@ -3055,7 +3055,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_user_name, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled) {
+static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3072,11 +3072,11 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHO
   __Pyx_RefNannySetupContext("set_from_token", 0);
 
   /* "tenant_checker.py":41
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
  *         set_current_user_info(UserInfo(             # <<<<<<<<<<<<<<
  *             tenant_enabled=tenant_enabled,  # token
- *             user_name=user_name,
+ *             username=username,
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_current_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
@@ -3087,7 +3087,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHO
 
   /* "tenant_checker.py":44
  *             tenant_enabled=tenant_enabled,  # token
- *             user_name=user_name,
+ *             username=username,
  *             tenant_id=tenant_id             # <<<<<<<<<<<<<<
  *         ))
  * 
@@ -3109,7 +3109,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHO
     __pyx_t_8 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tenant_enabled, __pyx_v_tenant_enabled, __pyx_t_8, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_user_name, __pyx_v_user_name, __pyx_t_8, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_username, __pyx_v_username, __pyx_t_8, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tenant_id, __pyx_v_tenant_id, __pyx_t_8, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
     __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_8);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -3145,7 +3145,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_4set_from_token(CYTHO
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
 */
 
@@ -4005,7 +4005,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  *         # create_by -
  *         if hasattr(db_model, "create_by"):             # <<<<<<<<<<<<<<
  *             if not getattr(db_model, "create_by", None):
- *                 setattr(db_model, "create_by", user_info.user_name)
+ *                 setattr(db_model, "create_by", user_info.username)
 */
   __pyx_t_5 = __Pyx_HasAttr(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_create_by); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 89, __pyx_L1_error)
   if (__pyx_t_5) {
@@ -4014,7 +4014,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  *         # create_by -
  *         if hasattr(db_model, "create_by"):
  *             if not getattr(db_model, "create_by", None):             # <<<<<<<<<<<<<<
- *                 setattr(db_model, "create_by", user_info.user_name)
+ *                 setattr(db_model, "create_by", user_info.username)
  * 
 */
     __pyx_t_2 = __Pyx_GetAttr3(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_create_by, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
@@ -4027,11 +4027,11 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
       /* "tenant_checker.py":91
  *         if hasattr(db_model, "create_by"):
  *             if not getattr(db_model, "create_by", None):
- *                 setattr(db_model, "create_by", user_info.user_name)             # <<<<<<<<<<<<<<
+ *                 setattr(db_model, "create_by", user_info.username)             # <<<<<<<<<<<<<<
  * 
  *         # update_by -
 */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_user_info, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_user_info, __pyx_mstate_global->__pyx_n_u_username); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_6 = PyObject_SetAttr(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_create_by, __pyx_t_2); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4040,7 +4040,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  *         # create_by -
  *         if hasattr(db_model, "create_by"):
  *             if not getattr(db_model, "create_by", None):             # <<<<<<<<<<<<<<
- *                 setattr(db_model, "create_by", user_info.user_name)
+ *                 setattr(db_model, "create_by", user_info.username)
  * 
 */
     }
@@ -4050,7 +4050,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  *         # create_by -
  *         if hasattr(db_model, "create_by"):             # <<<<<<<<<<<<<<
  *             if not getattr(db_model, "create_by", None):
- *                 setattr(db_model, "create_by", user_info.user_name)
+ *                 setattr(db_model, "create_by", user_info.username)
 */
   }
 
@@ -4058,7 +4058,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  * 
  *         # update_by -
  *         if hasattr(db_model, "update_by"):             # <<<<<<<<<<<<<<
- *             setattr(db_model, "update_by", user_info.user_name)
+ *             setattr(db_model, "update_by", user_info.username)
  *         # update_at -
 */
   __pyx_t_4 = __Pyx_HasAttr(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_update_by); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 94, __pyx_L1_error)
@@ -4067,11 +4067,11 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
     /* "tenant_checker.py":95
  *         # update_by -
  *         if hasattr(db_model, "update_by"):
- *             setattr(db_model, "update_by", user_info.user_name)             # <<<<<<<<<<<<<<
+ *             setattr(db_model, "update_by", user_info.username)             # <<<<<<<<<<<<<<
  *         # update_at -
  *         if hasattr(db_model, "update_at"):
 */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_user_info, __pyx_mstate_global->__pyx_n_u_user_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_user_info, __pyx_mstate_global->__pyx_n_u_username); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_6 = PyObject_SetAttr(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_update_by, __pyx_t_2); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -4080,13 +4080,13 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  * 
  *         # update_by -
  *         if hasattr(db_model, "update_by"):             # <<<<<<<<<<<<<<
- *             setattr(db_model, "update_by", user_info.user_name)
+ *             setattr(db_model, "update_by", user_info.username)
  *         # update_at -
 */
   }
 
   /* "tenant_checker.py":97
- *             setattr(db_model, "update_by", user_info.user_name)
+ *             setattr(db_model, "update_by", user_info.username)
  *         # update_at -
  *         if hasattr(db_model, "update_at"):             # <<<<<<<<<<<<<<
  *             value_type = db_model.__table__.c["update_at"].type.python_type
@@ -4260,7 +4260,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  *                 setattr(db_model, "update_at", datetime.now().date())
  *             elif value_type == datetime.time:             # <<<<<<<<<<<<<<
  *                 setattr(db_model, "update_at", datetime.now().time())
- *             # setattr(db_model, "update_at", user_info.user_name)
+ *             # setattr(db_model, "update_at", user_info.username)
 */
     __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_datetime); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 103, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
@@ -4277,7 +4277,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  *                 setattr(db_model, "update_at", datetime.now().date())
  *             elif value_type == datetime.time:
  *                 setattr(db_model, "update_at", datetime.now().time())             # <<<<<<<<<<<<<<
- *             # setattr(db_model, "update_at", user_info.user_name)
+ *             # setattr(db_model, "update_at", user_info.username)
  * 
 */
       __pyx_t_10 = NULL;
@@ -4325,13 +4325,13 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
  *                 setattr(db_model, "update_at", datetime.now().date())
  *             elif value_type == datetime.time:             # <<<<<<<<<<<<<<
  *                 setattr(db_model, "update_at", datetime.now().time())
- *             # setattr(db_model, "update_at", user_info.user_name)
+ *             # setattr(db_model, "update_at", user_info.username)
 */
     }
     __pyx_L12:;
 
     /* "tenant_checker.py":97
- *             setattr(db_model, "update_by", user_info.user_name)
+ *             setattr(db_model, "update_by", user_info.username)
  *         # update_at -
  *         if hasattr(db_model, "update_at"):             # <<<<<<<<<<<<<<
  *             value_type = db_model.__table__.c["update_at"].type.python_type
@@ -4369,7 +4369,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_10set_field_with_user
 }
 
 /* "tenant_checker.py":107
- *             # setattr(db_model, "update_at", user_info.user_name)
+ *             # setattr(db_model, "update_at", user_info.username)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def check_permission(cls, db_model):
@@ -4598,7 +4598,7 @@ static PyObject *__pyx_pf_14tenant_checker_13TenantManager_12check_permission(CY
   }
 
   /* "tenant_checker.py":107
- *             # setattr(db_model, "update_at", user_info.user_name)
+ *             # setattr(db_model, "update_at", user_info.username)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def check_permission(cls, db_model):
@@ -5372,7 +5372,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_checker", 0);
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set(cls, *, user_name, tenant_id):
+ *     def set(cls, *, username, tenant_id):
  *         # ID
 */
   __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_checker_13TenantManager_3set, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set, NULL, __pyx_mstate_global->__pyx_n_u_tenant_checker, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
@@ -5387,7 +5387,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_checker", 0);
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
 */
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
@@ -5396,7 +5396,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_checker", 0);
   /* "tenant_checker.py":39
  * 
  *     @classmethod
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):             # <<<<<<<<<<<<<<
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):             # <<<<<<<<<<<<<<
  *         # ID
  *         set_current_user_info(UserInfo(
 */
@@ -5406,7 +5406,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_checker", 0);
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def set_from_token(cls, *, user_name, tenant_id, tenant_enabled=None):
+ *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
 */
   __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_checker_13TenantManager_5set_from_token, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set_from_token, NULL, __pyx_mstate_global->__pyx_n_u_tenant_checker, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
@@ -5465,7 +5465,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_checker", 0);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "tenant_checker.py":107
- *             # setattr(db_model, "update_at", user_info.user_name)
+ *             # setattr(db_model, "update_at", user_info.username)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def check_permission(cls, db_model):
@@ -5647,7 +5647,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_update_at, sizeof(__pyx_k_update_at), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_at */
   {__pyx_k_update_by, sizeof(__pyx_k_update_by), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_by */
   {__pyx_k_user_info, sizeof(__pyx_k_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_info */
-  {__pyx_k_user_name, sizeof(__pyx_k_user_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user_name */
+  {__pyx_k_username, sizeof(__pyx_k_username), 0, 1, 1}, /* PyObject cname: __pyx_n_u_username */
   {__pyx_k_value_type, sizeof(__pyx_k_value_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_value_type */
   {0, 0, 0, 0, 0}
 };
@@ -5712,13 +5712,13 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 29, 28};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_user_name, __pyx_mstate->__pyx_n_u_tenant_id};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_checker_py, __pyx_mstate->__pyx_n_u_set, __pyx_k_A_Qha_1_a_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_username, __pyx_mstate->__pyx_n_u_tenant_id};
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_checker_py, __pyx_mstate->__pyx_n_u_set, __pyx_k_A_Qha_1_Q_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 3, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 38, 29};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_user_name, __pyx_mstate->__pyx_n_u_tenant_id, __pyx_mstate->__pyx_n_u_tenant_enabled};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_checker_py, __pyx_mstate->__pyx_n_u_set_from_token, __pyx_k_A56_Qha_1_a_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_username, __pyx_mstate->__pyx_n_u_tenant_id, __pyx_mstate->__pyx_n_u_tenant_enabled};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_checker_py, __pyx_mstate->__pyx_n_u_set_from_token, __pyx_k_A45_Qha_1_Q_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 47, 73};

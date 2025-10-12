@@ -119,23 +119,23 @@ class AuthController:
 
         # 处理默认值
         _create_router = _apply_route_config(create_router, RouterConfig(
-            enabled=True, message="创建成功", summary="create - 创建",
+            enabled=True, message="创建成功", summary=f"{table_name} - 创建(create)",
             auth=True, auth_role=None, auth_obj=None, auth_act="create",
         ))
         _update_router = _apply_route_config(update_router, RouterConfig(
-            enabled=True, message="更新成功", summary="update - 更新",
+            enabled=True, message="更新成功", summary=f"{table_name} - 更新(update)",
             auth=True, auth_role=None, auth_obj=None, auth_act="update",
         ))
         _read_router = _apply_route_config(read_router, RouterConfig(
-            enabled=True, message="获取成功", summary="read - 读取 ",
+            enabled=True, message="获取成功", summary=f"{table_name} - 读取(read)",
             auth=True, auth_role=None, auth_obj=None, auth_act="read",
         ))
         _delete_router = _apply_route_config(delete_router, RouterConfig(
-            enabled=True, message="删除成功", summary="delete - 删除",
+            enabled=True, message="删除成功", summary=f"{table_name} - 删除(delete)",
             auth=True, auth_role=None, auth_obj=None, auth_act="delete",
         ))
         _query_router = _apply_route_config(query_router, RouterConfig(
-            enabled=True, message="查询成功", summary="query - 查询",
+            enabled=True, message="查询成功", summary=f"{table_name} - 查询(query)",
             auth=True, auth_role=None, auth_obj=None, auth_act="query",
         ))
 
