@@ -89,7 +89,7 @@ class AuthUserResponse(BaseResponse):
     """ 用户响应模型 """
     # --- 核心字段 ---
     sub: Optional[str] = Field(default=None)
-    # username: str = Field(..., description="用户名")
+    username: str = Field(..., description="用户名")
     name: Optional[str] = Field(default=None, description="姓名")
     nickname: Optional[str] = Field(default=None, description="昵称")
     email: Optional[EmailStr] = Field(default=None, description="邮件")

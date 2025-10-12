@@ -88,3 +88,7 @@ class TokenErrorResponse(BaseModel):
     error_description: str
     error_code: Optional[str] = None
     timestamp: str = Field(default_factory=lambda: datetime.now().timestamp())
+
+
+class TokenRefreshModel(BaseModel):
+    refresh_token: str

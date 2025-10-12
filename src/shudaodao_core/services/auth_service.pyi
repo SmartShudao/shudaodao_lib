@@ -10,12 +10,10 @@ from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..tools.tenant_checker import TenantManager as TenantManager
 from .casbin_service import PermissionService as PermissionService
 from _typeshed import Incomplete
-from fastapi import Depends as Depends
 from fastapi.security import (
     HTTPAuthorizationCredentials as HTTPAuthorizationCredentials,
 )
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
-from typing import Annotated
 
 class AuthService:
     """认证服务类，处理用户认证、密码验证、JWT令牌管理等操作。
@@ -92,9 +90,7 @@ class AuthService:
         """
     @classmethod
     async def get_current_user(
-        cls,
-        auth_bearer: Annotated[HTTPAuthorizationCredentials, None],
-        db: Annotated[AsyncSession, None],
+        cls, auth_bearer: HTTPAuthorizationCredentials = ..., db: AsyncSession = ...
     ):
         """获取当前登录用户信息。
 
