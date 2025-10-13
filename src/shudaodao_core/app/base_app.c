@@ -2939,6 +2939,7 @@ static const char __pyx_k_Application[] = "Application";
 static const char __pyx_k_AuthService[] = "AuthService";
 static const char __pyx_k_DataService[] = "DataService";
 static const char __pyx_k_RedisEngine[] = "RedisEngine";
+static const char __pyx_k_Restful_API[] = "\346\225\260\351\201\223\346\231\272\350\236\215 Restful API \346\226\207\346\241\243";
 static const char __pyx_k_StaticFiles[] = "StaticFiles";
 static const char __pyx_k_async_close[] = "async_close";
 static const char __pyx_k_auto_commit[] = "auto_commit";
@@ -3047,7 +3048,6 @@ static const char __pyx_k_metadata_to_database[] = "metadata_to_database";
 static const char __pyx_k_router_override_tags[] = "_router_override_tags";
 static const char __pyx_k_tools_tenant_checker[] = "tools.tenant_checker";
 static const char __pyx_k_Application__lifespan[] = "Application._lifespan";
-static const char __pyx_k_Shudaodao_Restful_API[] = "Shudaodao Restful API \346\226\207\346\241\243";
 static const char __pyx_k_get_default_tenant_id[] = "get_default_tenant_id";
 static const char __pyx_k_services_auth_service[] = "services.auth_service";
 static const char __pyx_k_services_data_service[] = "services.data_service";
@@ -3081,7 +3081,7 @@ static const char __pyx_k_Application__init_print_banner[] = "Application._init_
 static const char __pyx_k_Application__lifespan_services[] = "Application._lifespan_services";
 static const char __pyx_k_q_vQa_gQ_7_IWA_T_Q_a_6_e1_D_7I[] = "\320\004\037\230q\360\022\000\t\020\210{\230!\330\010\017\210v\220Q\220a\340\010\016\210g\220Q\330\014\022\220)\2307\240!\340\014\024\220I\230W\240A\330\014\025\220T\230\021\330\014\025\220Q\330\014\026\220a\360\010\000\t\014\2106\220\021\220+\230[\250\001\250\032\260;\270e\3001\340\010\t\210\023\210D\220\001\220\031\230/\250\036\3207I\310\021\360\024\000\t\n\210\023\210D\220\001\220\032\230?\250.\3208J\310!\360|\001\000\t\020\210q";
 static const char __pyx_k_Application__service_permission[] = "Application._service_permission";
-static const char __pyx_k_DOCTYPE_html_html_head_title_AP[] = "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>API Documentation</title>\n    <!-- \344\275\277\347\224\250\346\234\254\345\234\260\345\255\227\344\275\223\346\210\226\347\263\273\347\273\237\345\255\227\344\275\223 -->\n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\n            margin: 0;\n            padding: 0;\n        }\n        .hqgvLZ {\n            width: 20% !important;\n            top:0 !important;\n        }\n        .api-info {\n            display: none !important;\n        }\n        .hutltu{\n            padding: 0 40px !important;\n        }\n        .chOOHy{\n            padding: 10px 0 0 0 !important;\n        }\n        .kzhJjR{\n            padding: 20px 0 !important;\n        }\n        \n    </style>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"icon\" type=\"image/png\" href=\"/static/favicon.png\">\n</head>\n<body>\n    <div id=\"redoc-container\"></div>\n    <script src=\"/static/redoc.standalone.js\"></script>\n    <script>\n        Redoc.init(\n            '/openapi.json',\n            {\n                scrollYOffset: 50,\n                hideDownloadButton: false,\n                expandResponses: \"200,201\",\n                pathInMiddlePanel: true\n            },\n            document.getElementById('redoc-container')\n        );\n    </script>\n</body>\n</html>\n    ";
+static const char __pyx_k_DOCTYPE_html_html_head_title_Re[] = "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>\346\225\260\351\201\223\346\231\272\350\236\215 Restful API \346\226\207\346\241\243</title>\n    <!-- \344\275\277\347\224\250\346\234\254\345\234\260\345\255\227\344\275\223\346\210\226\347\263\273\347\273\237\345\255\227\344\275\223 -->\n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\n            margin: 0;\n            padding: 0;\n        }\n        .hqgvLZ {\n            width: 20% !important;\n            top:0 !important;\n        }\n        .api-info {\n            display: none !important;\n        }\n        .hutltu{\n            padding: 0 40px !important;\n        }\n        .chOOHy{\n            padding: 10px 0 0 0 !important;\n        }\n        .kzhJjR{\n            padding: 20px 0 !important;\n        }\n        \n    </style>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"icon\" type=\"image/png\" href=\"/static/favicon.png\">\n</head>\n<body>\n    <div id=\"redoc-container\"></div>\n    <script src=\"/static/redoc.standalone.js\"></script>\n    <script>\n        Redoc.init(\n            '/openapi.json',\n            {\n                scrollYOffset: 50,\n                hideDownloadButton: false,\n                expandResponses: \"200,201\",\n                pathInMiddlePanel: true\n            },\n            document.getElementById('redoc-container')\n        );\n    </script>\n</body>\n</html>\n    ";
 static const char __pyx_k_A_N_j_AQ_t_Qiq_aq_D_xq_B_5Zxr_PQ[] = "\200A\360\022\000\t\r\210N\230!\330\014\026\220j\240\004\240A\240Q\330\014\017\210t\220:\230Q\230i\240q\330\020\030\230\n\240$\240a\240q\330\020\032\230*\240D\250\001\250\021\330\020\027\220x\230q\330\024\034\230B\320\0365\260Z\270x\300r\310\027\320PQ\360\006\000\021\022\330\014\020\220\010\230\017\240q\330\020\027\220z\240\024\240Q\240a\330\020\027\220z\240\024\240Q\240a\330\020\025\220Z\230t\2401\240A";
 static const char __pyx_k_A_iq_z_uARz_gQa_z_uARz_q_uARz_IS[] = "\200A\330\"#\360\n\000\t\017\210i\220q\330\010\017\210z\230\021\330\010\017\210u\220A\220R\220z\240\031\250'\260\025\260g\270Q\270a\330\010\017\210z\230\021\330\010\017\210u\220A\220R\220z\240\030\250\036\260q\330\010\017\210u\220A\220R\220z\240\023\240I\250S\260\001\330\010\017\210u\220A\220R\220z\240\023\320$5\260S\270\001\330\010\017\210u\220A\220R\220z\240\031\250'\260\021\330\010\022\220%\220y\240\007\240}\260I\270W\300A\330\010\017\210u\220A\220R\220z\240\034\250\\\270\031\300'\310\035\320VW";
 static const char __pyx_k_A_vQa_auA_Jiq_vV3a_xq_fA_t6_xq_6[] = "\200A\360\024\000\t\020\210v\220Q\220a\330\010\032\230!\320\033.\250a\250u\260A\330\010\014\210J\220i\230q\330\014\017\210v\220V\2303\230a\330\020\027\220x\230q\240\002\240,\250f\260A\330\020\021\330\014\017\210t\2206\230\021\330\020\027\220x\230q\240\002\320\"6\260f\270A\330\020\021\330\014\033\2307\240!\2401\340\010\035\230Q\340\010\014\210J\220a\330\014\023\2206\230\021\230\"\230L\250\006\320.@\300\006\320FX\320X^\320^_\330\014 \240\014\320,C\3001\330\020\035\230V\2401\330\020\033\2301\330\020\032\230!\340\014\033\2301\330\014\020\220\006\220g\320\035.\250f\260A\330\020\037\230q\330\020\023\2203\220f\230D\240\003\2401\240C\240w\250b\260\001\330\024#\2403\240a\330\020\023\2206\230\026\230t\2403\240a\240v\250W\260B\260a\330\024#\2406\250\021\330\020\024\320\024*\250!\2505\260\001\330\020\"\240'\250\022\250:\260U\270*\300F\310(\320RU\320UV\330\020 \240\001\330\014\023\2206\230\021\230\"\230G\2401\330\010\017\210v\220S\230\001\330\010\014\210M\230\021\230!";
@@ -3343,7 +3343,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_ClassScanner __pyx_string_tab[37]
 #define __pyx_n_u_CoreUtil __pyx_string_tab[38]
 #define __pyx_n_u_DBEngineService __pyx_string_tab[39]
-#define __pyx_kp_u_DOCTYPE_html_html_head_title_AP __pyx_string_tab[40]
+#define __pyx_kp_u_DOCTYPE_html_html_head_title_Re __pyx_string_tab[40]
 #define __pyx_n_u_DataService __pyx_string_tab[41]
 #define __pyx_n_u_DatabaseChecker __pyx_string_tab[42]
 #define __pyx_n_u_DatabaseEngine __pyx_string_tab[43]
@@ -3360,8 +3360,8 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_Powered_by_Shudaodao __pyx_string_tab[54]
 #define __pyx_n_u_RedisEngine __pyx_string_tab[55]
 #define __pyx_kp_u_RegistryModel __pyx_string_tab[56]
-#define __pyx_n_u_RouterConfigSetting __pyx_string_tab[57]
-#define __pyx_kp_u_Shudaodao_Restful_API __pyx_string_tab[58]
+#define __pyx_kp_u_Restful_API __pyx_string_tab[57]
+#define __pyx_n_u_RouterConfigSetting __pyx_string_tab[58]
 #define __pyx_n_u_StaticFiles __pyx_string_tab[59]
 #define __pyx_n_u_TenantManager __pyx_string_tab[60]
 #define __pyx_kp_u__10 __pyx_string_tab[61]
@@ -5721,7 +5721,7 @@ static PyObject *__pyx_gb_8base_app_11Application_13_init_fastapi_2generator8(__
  *         async def custom_docs():
  *             return get_swagger_ui_html(             # <<<<<<<<<<<<<<
  *                 openapi_url="/openapi.json",
- *                 title="Shudaodao Restful API ",
+ *                 title=" Restful API ",
 */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = NULL;
@@ -5744,7 +5744,7 @@ static PyObject *__pyx_gb_8base_app_11Application_13_init_fastapi_2generator8(__
     __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_openapi_url, __pyx_mstate_global->__pyx_kp_u_openapi_json, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_title, __pyx_mstate_global->__pyx_kp_u_Shudaodao_Restful_API, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_title, __pyx_mstate_global->__pyx_kp_u_Restful_API, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_js_url, __pyx_mstate_global->__pyx_kp_u_static_swagger_ui_bundle_js, __pyx_t_5, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_css_url, __pyx_mstate_global->__pyx_kp_u_static_swagger_ui_css, __pyx_t_5, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_favicon_url, __pyx_mstate_global->__pyx_kp_u_static_favicon_png, __pyx_t_5, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
@@ -5874,8 +5874,8 @@ static PyObject *__pyx_gb_8base_app_11Application_13_init_fastapi_5generator9(__
  * <html>
 */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_DOCTYPE_html_html_head_title_AP);
-  __pyx_r = __pyx_mstate_global->__pyx_kp_u_DOCTYPE_html_html_head_title_AP;
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_DOCTYPE_html_html_head_title_Re);
+  __pyx_r = __pyx_mstate_global->__pyx_kp_u_DOCTYPE_html_html_head_title_Re;
   goto __pyx_L0;
 
   /* "base_app.py":158
@@ -16282,11 +16282,11 @@ __Pyx_RefNannySetupContext("PyInit_base_app", 0);
 
 typedef struct {
     const char *s;
-#if 1502 <= 65535
+#if 1570 <= 65535
     const unsigned short n;
-#elif 1502 / 2 < INT_MAX
+#elif 1570 / 2 < INT_MAX
     const unsigned int n;
-#elif 1502 / 2 < LONG_MAX
+#elif 1570 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -16345,7 +16345,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_ClassScanner, sizeof(__pyx_k_ClassScanner), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ClassScanner */
   {__pyx_k_CoreUtil, sizeof(__pyx_k_CoreUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil */
   {__pyx_k_DBEngineService, sizeof(__pyx_k_DBEngineService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DBEngineService */
-  {__pyx_k_DOCTYPE_html_html_head_title_AP, sizeof(__pyx_k_DOCTYPE_html_html_head_title_AP), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_DOCTYPE_html_html_head_title_AP */
+  {__pyx_k_DOCTYPE_html_html_head_title_Re, sizeof(__pyx_k_DOCTYPE_html_html_head_title_Re), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_DOCTYPE_html_html_head_title_Re */
   {__pyx_k_DataService, sizeof(__pyx_k_DataService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataService */
   {__pyx_k_DatabaseChecker, sizeof(__pyx_k_DatabaseChecker), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DatabaseChecker */
   {__pyx_k_DatabaseEngine, sizeof(__pyx_k_DatabaseEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DatabaseEngine */
@@ -16362,8 +16362,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Powered_by_Shudaodao, sizeof(__pyx_k_Powered_by_Shudaodao), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Powered_by_Shudaodao */
   {__pyx_k_RedisEngine, sizeof(__pyx_k_RedisEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RedisEngine */
   {__pyx_k_RegistryModel, sizeof(__pyx_k_RegistryModel), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_RegistryModel */
+  {__pyx_k_Restful_API, sizeof(__pyx_k_Restful_API), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Restful_API */
   {__pyx_k_RouterConfigSetting, sizeof(__pyx_k_RouterConfigSetting), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RouterConfigSetting */
-  {__pyx_k_Shudaodao_Restful_API, sizeof(__pyx_k_Shudaodao_Restful_API), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Shudaodao_Restful_API */
   {__pyx_k_StaticFiles, sizeof(__pyx_k_StaticFiles), 0, 1, 1}, /* PyObject cname: __pyx_n_u_StaticFiles */
   {__pyx_k_TenantManager, sizeof(__pyx_k_TenantManager), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager */
   {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__10 */

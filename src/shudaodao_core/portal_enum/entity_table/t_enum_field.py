@@ -13,8 +13,8 @@ from sqlalchemy import BigInteger, Text, Boolean
 from sqlmodel import SQLModel, Relationship
 
 from .. import RegistryModel, get_table_schema, get_foreign_schema
-from ...sqlmodel_ext.field import Field
 from ...schemas.response import BaseResponse
+from ...sqlmodel_ext.field import Field
 from ...utils.generate_unique_id import get_primary_id
 
 if TYPE_CHECKING:

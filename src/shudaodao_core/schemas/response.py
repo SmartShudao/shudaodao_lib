@@ -62,25 +62,29 @@ class BaseResponse(SQLModel):
 
 class SuccessResponse(BaseResponse):
     code: int = Field(200, description="Response code")
-    message: str = ""
+    msg: str = ""
     data: Optional[Any] = None
 
 
 class ErrorResponse(BaseModel):
     code: int = Field(..., description="Response code")
-    message: str = ""
+    msg: str = ""
     error: Optional[Any] = None
 
 
 class TokenResponse(BaseModel):
-    access_token: str
     token_type: str = "Bearer"
+    access_token: str
     expires_in: int
+
     refresh_token: Optional[str] = None
     refresh_expires_in: int
-    scope: Optional[str] = None
-    user: Dict[str, Any]
-    id_token: Optional[str] = None
+    # scope: Optional[str] = None
+
+    # user: Dict[str, Any]  # 暂时用不上
+    # Art Design Pro
+    token: str
+    # id_token: Optional[str] = None  # 暂时用不上
 
 
 class TokenErrorResponse(BaseModel):

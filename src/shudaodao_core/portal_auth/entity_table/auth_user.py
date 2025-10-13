@@ -76,7 +76,7 @@ class AuthUserRegister(SQLModel):
 class AuthLogin(SQLModel):
     """ 登录模型 """
     username: str = Field(min_length=3, max_length=50)
-    password: str = Field(min_length=6)
+    password: str = Field(min_length=5)
 
 
 class AuthPassword(SQLModel):
@@ -88,6 +88,7 @@ class AuthPassword(SQLModel):
 class AuthUserResponse(BaseResponse):
     """ 用户响应模型 """
     # --- 核心字段 ---
+    user_id: Optional[int] = Field(sa_type=BigInteger, description="内码")
     sub: Optional[str] = Field(default=None)
     username: str = Field(..., description="用户名")
     name: Optional[str] = Field(default=None, description="姓名")

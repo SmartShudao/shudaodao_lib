@@ -10,6 +10,7 @@ from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..tools.tenant_checker import TenantManager as TenantManager
 from .casbin_service import PermissionService as PermissionService
 from _typeshed import Incomplete
+from fastapi import Request as Request
 from fastapi.security import (
     HTTPAuthorizationCredentials as HTTPAuthorizationCredentials,
 )
@@ -88,6 +89,10 @@ class AuthService:
         Returns:
             PermissionService: 权限服务实例
         """
+    @classmethod
+    async def get_current_user_request(
+        cls, request: Request, db: AsyncSession = ...
+    ): ...
     @classmethod
     async def get_current_user(
         cls, auth_bearer: HTTPAuthorizationCredentials = ..., db: AsyncSession = ...
