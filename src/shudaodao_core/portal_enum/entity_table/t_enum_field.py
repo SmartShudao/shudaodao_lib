@@ -18,11 +18,11 @@ from ...sqlmodel_ext.field import Field
 from ...utils.generate_unique_id import get_primary_id
 
 if TYPE_CHECKING:
-    from .t_enum_schema import TEnumSchema
-    from .t_enum_value import TEnumValue
+    from .t_enum_schema import EnumSchema
+    from .t_enum_value import EnumValue
 
 
-class TEnumField(RegistryModel, table=True):
+class EnumField(RegistryModel, table=True):
     """ 数据库对象模型 """
     __tablename__ = "t_enum_field"
     __table_args__ = {"schema": get_table_schema(), "comment": "枚举字段表"}
@@ -33,20 +33,20 @@ class TEnumField(RegistryModel, table=True):
     field_label: str = Field(max_length=50, description="字段标签")
     field_class: str = Field(max_length=50, description="字段类名")
     field_name: str = Field(max_length=50, description="字段列名")
-    description: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="描述")
-    sort_order: Optional[int] = Field(default=10, nullable=True, description="字段索引")
-    is_active: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="是否启用")
+    description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
+    is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
+    sort_order: int = Field(default=10, description="排序权重")
     create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
     create_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="创建日期")
     update_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="修改人")
     update_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="修改日期")
     # -- 外键 --> 父对象 --
-    schema: "TEnumSchema" = Relationship(back_populates="enum_fields")
+    schema: "EnumSchema" = Relationship(back_populates="enum_fields")
     # -- 外键 --> 子对象 --
-    enum_values: list["TEnumValue"] = Relationship(back_populates="field")
+    enum_values: list["EnumValue"] = Relationship(back_populates="field")
 
 
-class TEnumFieldBase(SQLModel):
+class EnumFieldBase(SQLModel):
     """ 创建、更新模型 共用字段 """
     schema_id: int = Field(sa_type=BigInteger, description="分组内码")
     field_label: str = Field(max_length=50, description="字段标签")
@@ -57,17 +57,17 @@ class TEnumFieldBase(SQLModel):
     is_active: Optional[bool] = Field(default=None, description="是否启用")
 
 
-class TEnumFieldCreate(TEnumFieldBase):
+class EnumFieldCreate(EnumFieldBase):
     """ 前端创建模型 - 用于接口请求 """
     ...
 
 
-class TEnumFieldUpdate(TEnumFieldBase):
+class EnumFieldUpdate(EnumFieldBase):
     """ 前端更新模型 - 用于接口请求 """
     ...
 
 
-class TEnumFieldResponse(BaseResponse):
+class EnumFieldResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     field_id: int = Field(description="字段内码", sa_type=BigInteger)
     schema_id: int = Field(description="分组内码", sa_type=BigInteger)

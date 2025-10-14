@@ -19,10 +19,10 @@ from ...schemas.response import BaseResponse
 from ...utils.generate_unique_id import get_primary_id
 
 if TYPE_CHECKING:
-    from .t_enum_field import TEnumField
+    from .t_enum_field import EnumField
 
 
-class TEnumValue(RegistryModel, table=True):
+class EnumValue(RegistryModel, table=True):
     """ 数据库对象模型 """
     __tablename__ = "t_enum_value"
     __table_args__ = {"schema": get_table_schema(), "comment": "枚举值表"}
@@ -34,18 +34,18 @@ class TEnumValue(RegistryModel, table=True):
     enum_label: str = Field(max_length=100, description="枚举名")
     enum_name: str = Field(max_length=100, description="枚举值")
     enum_value: int = Field(description="枚举中文")
-    sort_order: Optional[int] = Field(default=10, nullable=True, description="字段索引")
-    is_active: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="是否启用")
-    description: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="描述")
+    is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
+    sort_order: int = Field(default=10, description="排序权重")
+    description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
     create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
     create_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="创建日期")
     update_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="修改人")
     update_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="修改日期")
     # -- 外键 --> 父对象 --
-    field: "TEnumField" = Relationship(back_populates="enum_values")
+    field: "EnumField" = Relationship(back_populates="enum_values")
 
 
-class TEnumValueBase(SQLModel):
+class EnumValueBase(SQLModel):
     """ 创建、更新模型 共用字段 """
     field_id: int = Field(sa_type=BigInteger, description="字段内码")
     enum_pid: int = Field(default=-1, sa_type=BigInteger, description="上级枚举")
@@ -57,17 +57,17 @@ class TEnumValueBase(SQLModel):
     description: Optional[str] = Field(default=None, description="描述")
 
 
-class TEnumValueCreate(TEnumValueBase):
+class EnumValueCreate(EnumValueBase):
     """ 前端创建模型 - 用于接口请求 """
     ...
 
 
-class TEnumValueUpdate(TEnumValueBase):
+class EnumValueUpdate(EnumValueBase):
     """ 前端更新模型 - 用于接口请求 """
     ...
 
 
-class TEnumValueResponse(BaseResponse):
+class EnumValueResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     enum_id: int = Field(description="枚举内码", sa_type=BigInteger)
     field_id: int = Field(description="字段内码", sa_type=BigInteger)

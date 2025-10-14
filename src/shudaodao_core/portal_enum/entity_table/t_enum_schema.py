@@ -10,7 +10,7 @@
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
 
-from sqlalchemy import BigInteger, Text
+from sqlalchemy import BigInteger, Text, Boolean
 from sqlmodel import SQLModel, Relationship
 
 from .. import RegistryModel, get_table_schema
@@ -19,10 +19,10 @@ from ...sqlmodel_ext.field import Field
 from ...utils.generate_unique_id import get_primary_id
 
 if TYPE_CHECKING:
-    from .t_enum_field import TEnumField
+    from .t_enum_field import EnumField
 
 
-class TEnumSchema(RegistryModel, table=True):
+class EnumSchema(RegistryModel, table=True):
     """ 数据库对象模型 """
     __tablename__ = "t_enum_schema"
     __table_args__ = {"schema": get_table_schema(), "comment": "数据库模式"}
@@ -31,19 +31,18 @@ class TEnumSchema(RegistryModel, table=True):
     schema_label: str = Field(max_length=100, description="模式别名")
     schema_name: str = Field(unique=True, max_length=100, description="数据库模式")
 
-    sort_order: Optional[int] = Field(default=10, nullable=True, description="排序权重")
-    description: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="描述")
-
+    is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
+    sort_order: int = Field(default=10, description="排序权重")
     create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
     create_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="创建日期")
     update_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="修改人")
     update_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="修改日期")
     tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="租户内码")
     # -- 外键 --> 子对象 --
-    enum_fields: list["TEnumField"] = Relationship(back_populates="schema")
+    enum_fields: list["EnumField"] = Relationship(back_populates="schema")
 
 
-class TEnumSchemaBase(SQLModel):
+class EnumSchemaBase(SQLModel):
     """ 创建、更新模型 共用字段 """
     schema_label: str = Field(max_length=100, description="模式别名")
     schema_name: str = Field(max_length=100, description="数据库模式")
@@ -51,17 +50,17 @@ class TEnumSchemaBase(SQLModel):
     description: Optional[str] = Field(default=None, description="描述")
 
 
-class TEnumSchemaCreate(TEnumSchemaBase):
+class EnumSchemaCreate(EnumSchemaBase):
     """ 前端创建模型 - 用于接口请求 """
     ...
 
 
-class TEnumSchemaUpdate(TEnumSchemaBase):
+class EnumSchemaUpdate(EnumSchemaBase):
     """ 前端更新模型 - 用于接口请求 """
     ...
 
 
-class TEnumSchemaResponse(BaseResponse):
+class EnumSchemaResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     schema_id: int = Field(description="主键ID", sa_type=BigInteger)
     schema_label: str = Field(description="模式别名")

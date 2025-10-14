@@ -9,7 +9,7 @@
 
 from typing import Optional, TYPE_CHECKING
 
-from sqlalchemy import BigInteger, Text
+from sqlalchemy import BigInteger, Text, Boolean
 from sqlmodel import Relationship, SQLModel
 
 from .. import get_table_schema, RegistryModel, get_foreign_schema
@@ -35,7 +35,8 @@ class PolicyAction(RegistryModel, table=True):
     # 动作:增删改查
     action_name: str = Field(unique=True, index=True, description="动作名称")
     # 通用字段
-    sort_order: Optional[int] = Field(default=10, nullable=True, description="排序权重")
+    is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
+    sort_order: int = Field(default=10, description="排序权重")
     description: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="描述")
     # -- 外键 --> 父对象 --
     policy_object: "PolicyObject" = Relationship(back_populates="policy_actions")

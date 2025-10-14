@@ -9,12 +9,12 @@
 
 from typing import Optional, TYPE_CHECKING
 
-from sqlalchemy import BigInteger, Text
+from sqlalchemy import BigInteger, Text, Boolean
 from sqlmodel import Relationship, SQLModel
 
 from .. import get_table_schema, RegistryModel
-from ...sqlmodel_ext.field import Field
 from ...schemas.response import BaseResponse
+from ...sqlmodel_ext.field import Field
 from ...utils.generate_unique_id import get_primary_id
 
 if TYPE_CHECKING:
@@ -30,8 +30,8 @@ class PolicyObject(RegistryModel, table=True):
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="策略对象内码")
     # 表: schema+table
     object_name: str = Field(unique=True, index=True, description="对象名称")
-
-    sort_order: Optional[int] = Field(default=10, nullable=True, description="排序权重")
+    is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
+    sort_order: int = Field(default=10, description="排序权重")
     description: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="描述")
     # -- 外键 --> 子对象 --
     policy_actions: list["PolicyAction"] = Relationship(back_populates="policy_object")

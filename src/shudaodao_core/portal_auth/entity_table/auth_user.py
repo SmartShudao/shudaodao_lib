@@ -10,7 +10,7 @@ from datetime import datetime
 from typing import Optional
 
 from pydantic import EmailStr
-from sqlalchemy import BigInteger
+from sqlalchemy import BigInteger, Boolean
 from sqlmodel import SQLModel
 
 from .. import get_table_schema, RegistryModel
@@ -22,15 +22,17 @@ from ...utils.generate_unique_id import get_primary_id
 class AuthUser(RegistryModel, table=True):
     """ 数据模型 - 数据库表 T_Auth_User 结构模型 """
     __tablename__ = "t_auth_user"
-    __table_args__ = {"schema": get_table_schema(), "comment": "鉴权用户表"}
+    __table_args__ = {"schema": get_table_schema(), "comment": "鉴权账户"}
 
-    user_id: Optional[int] = Field(default_factory=get_primary_id, primary_key=True, sa_type=BigInteger,
-                                   description="内码")
+    user_id: Optional[int] = Field(
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="内码"
+    )
     # --- 核心字段 ---
-    username: str = Field(unique=True, index=True, max_length=50, description="用户名")
+    username: str = Field(unique=True, index=True, max_length=50, description="账户名")
     name: str = Field(default=None, nullable=True, description="姓名")
     password: str = Field(description="密码")
-    is_active: bool = Field(default=True, nullable=True, description="启用状态")
+    is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
+
     last_login_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), description="最后登录时间")
     # --- 可修改字段 ---
     nickname: str = Field(default=None, nullable=True, description="昵称")
@@ -54,6 +56,7 @@ class AuthUser(RegistryModel, table=True):
     update_by: Optional[str] = Field(default=None, nullable=True, description="修改人")
     update_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="修改日期")
     tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="默认租户")
+    staff_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="默认用户")
 
 
 class AuthUserRegister(SQLModel):
