@@ -2187,18 +2187,18 @@ static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_RunningConfig[] = "RunningConfig";
 static const char __pyx_k_running_config[] = "running_config";
 static const char __pyx_k_get_engine_name[] = "get_engine_name";
+static const char __pyx_k_get_router_path[] = "get_router_path";
 static const char __pyx_k_running_config_py[] = "running_config.py";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_get_sqlmodel_schema[] = "get_sqlmodel_schema";
-static const char __pyx_k_get_controller_schema[] = "get_controller_schema";
 static const char __pyx_k_RunningConfig_get_engine_name[] = "RunningConfig.get_engine_name";
+static const char __pyx_k_RunningConfig_get_router_path[] = "RunningConfig.get_router_path";
 static const char __pyx_k_schema_SQLModel_schema_schema[] = "\350\277\220\350\241\214\346\227\266\351\205\215\347\275\256\350\247\243\346\236\220\345\231\250\357\274\214\346\217\220\344\276\233\347\273\237\344\270\200\347\232\204 schema \345\222\214\345\274\225\346\223\216\345\220\215\347\247\260\345\244\204\347\220\206\351\200\273\350\276\221\343\200\202\n\n    \350\257\245\347\261\273\344\270\273\350\246\201\347\224\250\344\272\216\345\234\250\345\272\224\347\224\250\350\277\220\350\241\214\346\234\237\351\227\264\357\274\214\346\240\271\346\215\256\351\205\215\347\275\256\345\212\250\346\200\201\345\206\263\345\256\232\357\274\232\n    - SQLModel \344\275\277\347\224\250\347\232\204\346\225\260\346\215\256\345\272\223 schema\357\274\233\n    - \346\216\247\345\210\266\345\231\250\345\261\202\344\275\277\347\224\250\347\232\204\351\200\273\350\276\221 schema\357\274\233\n    - \346\225\260\346\215\256\345\272\223\345\274\225\346\223\216\345\220\215\347\247\260\347\232\204\346\234\200\347\273\210\345\275\242\345\274\217\343\200\202\n\n    \345\275\223\345\211\215\345\256\236\347\216\260\344\270\272\345\215\240\344\275\215\351\200\273\350\276\221\357\274\214\346\234\252\346\235\245\345\217\257\346\211\251\345\261\225\344\270\272\346\224\257\346\214\201\345\244\232\347\247\237\346\210\267\343\200\201\347\216\257\345\242\203\351\232\224\347\246\273\346\210\226\345\212\250\346\200\201\350\267\257\347\224\261\347\255\211\345\234\272\346\231\257\343\200\202\n    ";
-static const char __pyx_k_RunningConfig_get_controller_sch[] = "RunningConfig.get_controller_schema";
 static const char __pyx_k_RunningConfig_get_sqlmodel_schem[] = "RunningConfig.get_sqlmodel_schema";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_14running_config_13RunningConfig_get_sqlmodel_schema(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_schema_name); /* proto */
-static PyObject *__pyx_pf_14running_config_13RunningConfig_2get_controller_schema(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_schema_name); /* proto */
+static PyObject *__pyx_pf_14running_config_13RunningConfig_2get_router_path(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_schema_name); /* proto */
 static PyObject *__pyx_pf_14running_config_13RunningConfig_4get_engine_name(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_engine_name, PyObject *__pyx_v_schema_name); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
@@ -2280,8 +2280,8 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_RunningConfig __pyx_string_tab[1]
-#define __pyx_n_u_RunningConfig_get_controller_sch __pyx_string_tab[2]
-#define __pyx_n_u_RunningConfig_get_engine_name __pyx_string_tab[3]
+#define __pyx_n_u_RunningConfig_get_engine_name __pyx_string_tab[2]
+#define __pyx_n_u_RunningConfig_get_router_path __pyx_string_tab[3]
 #define __pyx_n_u_RunningConfig_get_sqlmodel_schem __pyx_string_tab[4]
 #define __pyx_n_u_asyncio_coroutines __pyx_string_tab[5]
 #define __pyx_n_u_cline_in_traceback __pyx_string_tab[6]
@@ -2289,8 +2289,8 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_doc __pyx_string_tab[8]
 #define __pyx_n_u_engine_name __pyx_string_tab[9]
 #define __pyx_n_u_func __pyx_string_tab[10]
-#define __pyx_n_u_get_controller_schema __pyx_string_tab[11]
-#define __pyx_n_u_get_engine_name __pyx_string_tab[12]
+#define __pyx_n_u_get_engine_name __pyx_string_tab[11]
+#define __pyx_n_u_get_router_path __pyx_string_tab[12]
 #define __pyx_n_u_get_sqlmodel_schema __pyx_string_tab[13]
 #define __pyx_n_u_is_coroutine __pyx_string_tab[14]
 #define __pyx_n_u_main __pyx_string_tab[15]
@@ -2510,21 +2510,21 @@ static PyObject *__pyx_pf_14running_config_13RunningConfig_get_sqlmodel_schema(C
  *         return schema_name if schema_name else None
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def get_controller_schema(cls, schema_name):
+ *     def get_router_path(cls, schema_name):
  *         """ schema
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14running_config_13RunningConfig_3get_controller_schema(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14running_config_13RunningConfig_3get_router_path(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14running_config_13RunningConfig_2get_controller_schema, "\350\216\267\345\217\226\346\216\247\345\210\266\345\231\250\345\261\202\345\272\224\344\275\277\347\224\250\347\232\204\351\200\273\350\276\221 schema \345\220\215\347\247\260\343\200\202\n\n        \344\270\216 SQLModel schema \350\247\243\350\200\246\357\274\214\344\276\277\344\272\216\346\234\252\346\235\245\345\256\236\347\216\260\345\211\215\345\220\216\347\253\257 schema \346\230\240\345\260\204\343\200\201\n        \345\244\232\347\247\237\346\210\267\351\232\224\347\246\273\346\210\226 API \347\211\210\346\234\254\346\216\247\345\210\266\347\255\211\351\200\273\350\276\221\343\200\202\n\n        Args:\n            schema_name (str or None): \351\205\215\347\275\256\344\270\255\346\214\207\345\256\232\347\232\204\351\200\273\350\276\221 schema \345\220\215\347\247\260\343\200\202\n\n        Returns:\n            str or None: \346\234\211\346\225\210\347\232\204\351\200\273\350\276\221 schema \345\220\215\347\247\260\357\274\214\346\210\226 None \350\241\250\347\244\272\346\234\252\346\214\207\345\256\232\343\200\202\n        ");
-static PyMethodDef __pyx_mdef_14running_config_13RunningConfig_3get_controller_schema = {"get_controller_schema", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14running_config_13RunningConfig_3get_controller_schema, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14running_config_13RunningConfig_2get_controller_schema};
-static PyObject *__pyx_pw_14running_config_13RunningConfig_3get_controller_schema(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_14running_config_13RunningConfig_2get_router_path, "\350\216\267\345\217\226\346\216\247\345\210\266\345\231\250\345\261\202\345\272\224\344\275\277\347\224\250\347\232\204\351\200\273\350\276\221 schema \345\220\215\347\247\260\343\200\202\n\n        \344\270\216 SQLModel schema \350\247\243\350\200\246\357\274\214\344\276\277\344\272\216\346\234\252\346\235\245\345\256\236\347\216\260\345\211\215\345\220\216\347\253\257 schema \346\230\240\345\260\204\343\200\201\n        \345\244\232\347\247\237\346\210\267\351\232\224\347\246\273\346\210\226 API \347\211\210\346\234\254\346\216\247\345\210\266\347\255\211\351\200\273\350\276\221\343\200\202\n\n        Args:\n            schema_name (str or None): \351\205\215\347\275\256\344\270\255\346\214\207\345\256\232\347\232\204\351\200\273\350\276\221 schema \345\220\215\347\247\260\343\200\202\n\n        Returns:\n            str or None: \346\234\211\346\225\210\347\232\204\351\200\273\350\276\221 schema \345\220\215\347\247\260\357\274\214\346\210\226 None \350\241\250\347\244\272\346\234\252\346\214\207\345\256\232\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_14running_config_13RunningConfig_3get_router_path = {"get_router_path", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14running_config_13RunningConfig_3get_router_path, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14running_config_13RunningConfig_2get_router_path};
+static PyObject *__pyx_pw_14running_config_13RunningConfig_3get_router_path(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2543,7 +2543,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_controller_schema (wrapper)", 0);
+  __Pyx_RefNannySetupContext("get_router_path (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -2570,9 +2570,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_controller_schema", 0) < 0) __PYX_ERR(0, 36, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_router_path", 0) < 0) __PYX_ERR(0, 36, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_controller_schema", 1, 2, 2, i); __PYX_ERR(0, 36, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_router_path", 1, 2, 2, i); __PYX_ERR(0, 36, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -2587,18 +2587,18 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_controller_schema", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 36, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_router_path", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 36, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("running_config.RunningConfig.get_controller_schema", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("running_config.RunningConfig.get_router_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14running_config_13RunningConfig_2get_controller_schema(__pyx_self, __pyx_v_cls, __pyx_v_schema_name);
+  __pyx_r = __pyx_pf_14running_config_13RunningConfig_2get_router_path(__pyx_self, __pyx_v_cls, __pyx_v_schema_name);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -2608,7 +2608,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14running_config_13RunningConfig_2get_controller_schema(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_schema_name) {
+static PyObject *__pyx_pf_14running_config_13RunningConfig_2get_router_path(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_schema_name) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2616,7 +2616,7 @@ static PyObject *__pyx_pf_14running_config_13RunningConfig_2get_controller_schem
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_controller_schema", 0);
+  __Pyx_RefNannySetupContext("get_router_path", 0);
 
   /* "running_config.py":49
  *             str or None:  schema  None
@@ -2642,14 +2642,14 @@ static PyObject *__pyx_pf_14running_config_13RunningConfig_2get_controller_schem
  *         return schema_name if schema_name else None
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def get_controller_schema(cls, schema_name):
+ *     def get_router_path(cls, schema_name):
  *         """ schema
 */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("running_config.RunningConfig.get_controller_schema", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("running_config.RunningConfig.get_router_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3202,15 +3202,15 @@ __Pyx_RefNannySetupContext("PyInit_running_config", 0);
  *         return schema_name if schema_name else None
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     def get_controller_schema(cls, schema_name):
+ *     def get_router_path(cls, schema_name):
  *         """ schema
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14running_config_13RunningConfig_3get_controller_schema, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_RunningConfig_get_controller_sch, NULL, __pyx_mstate_global->__pyx_n_u_running_config, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14running_config_13RunningConfig_3get_router_path, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_RunningConfig_get_router_path, NULL, __pyx_mstate_global->__pyx_n_u_running_config, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_controller_schema, __pyx_t_3) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_router_path, __pyx_t_3) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "running_config.py":51
@@ -3313,8 +3313,8 @@ static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_RunningConfig, sizeof(__pyx_k_RunningConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RunningConfig */
-  {__pyx_k_RunningConfig_get_controller_sch, sizeof(__pyx_k_RunningConfig_get_controller_sch), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RunningConfig_get_controller_sch */
   {__pyx_k_RunningConfig_get_engine_name, sizeof(__pyx_k_RunningConfig_get_engine_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RunningConfig_get_engine_name */
+  {__pyx_k_RunningConfig_get_router_path, sizeof(__pyx_k_RunningConfig_get_router_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RunningConfig_get_router_path */
   {__pyx_k_RunningConfig_get_sqlmodel_schem, sizeof(__pyx_k_RunningConfig_get_sqlmodel_schem), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RunningConfig_get_sqlmodel_schem */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
@@ -3322,8 +3322,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_engine_name, sizeof(__pyx_k_engine_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_engine_name */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
-  {__pyx_k_get_controller_schema, sizeof(__pyx_k_get_controller_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_controller_schema */
   {__pyx_k_get_engine_name, sizeof(__pyx_k_get_engine_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_engine_name */
+  {__pyx_k_get_router_path, sizeof(__pyx_k_get_router_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_router_path */
   {__pyx_k_get_sqlmodel_schema, sizeof(__pyx_k_get_sqlmodel_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_sqlmodel_schema */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
@@ -3403,7 +3403,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 36, 14};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_schema_name};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_running_config_py, __pyx_mstate->__pyx_n_u_get_controller_schema, __pyx_k_A_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_running_config_py, __pyx_mstate->__pyx_n_u_get_router_path, __pyx_k_A_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 51, 17};

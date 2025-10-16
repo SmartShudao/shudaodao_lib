@@ -37,8 +37,8 @@ class AuthController:
             read_router: RouterConfig = None,
             delete_router: RouterConfig = None,
             query_router: RouterConfig = None,
-            #
             prefix: Optional[str] = None,
+            router_path: Optional[str] = None,
             schema_name: Optional[str] = None,
             table_name: Optional[str] = None,
             tags: Optional[list] = None,
@@ -65,8 +65,9 @@ class AuthController:
             read_router (RouterConfig, optional): 单条读取操作的路由配置。若为 None，则使用默认配置。
             delete_router (RouterConfig, optional): 删除操作的路由配置。若为 None，则使用默认配置。
             query_router (RouterConfig, optional): 列表查询操作的路由配置。若为 None，则使用默认配置。
-            prefix (str, optional): API 路由前缀。若未指定，将自动生成为 ``/v1/{schema_name}/{table_name}``。
-            schema_name (str, optional): 逻辑模块名（如 "user", "order"），用于生成默认权限角色、对象名及标签。
+            prefix (str, optional): API 路由前缀。若未指定，将自动生成为 ``/v1/{router_path}/{table_name}``。
+            router_path (str, optional): 逻辑模块名（如 "user", "order"），用于生成默认权限角色、对象名及标签。
+            schema_name (str, optional): 数据库架构（schema），用于各类默认值。
             table_name (str, optional): 数据表名（或资源名），用于生成路由前缀和权限对象标识。
             tags (List[str], optional): OpenAPI 文档中的标签，用于分组接口。默认为 ``["{schema_name}.table"]``。
             default_role (str, optional): 默认角色名，用于角色定义并关联对象动作。默认为 ``schema_name``。
@@ -86,18 +87,17 @@ class AuthController:
         """
 
         # 处理默认值
-        _schema_name1 = f"{schema_name}/" if schema_name else ""
-        _schema_name2 = f"{schema_name}." if schema_name else ""
-        _prefix = prefix or f"/v1/{_schema_name1}{table_name}"
-        _tag = tags or [f"{_schema_name2}table"]
-        _default_role = default_role or schema_name
-        _auth_obj = auth_obj or f"{_schema_name2}{table_name}"
+
+        _router_path = f"{router_path}/" if router_path else ""
+        _prefix = prefix or f"/v1/{_router_path}{table_name}"
+        _router_tags = f"{schema_name}.table" if schema_name else f"{router_path}.table"
+        _auth_obj = auth_obj or f"{schema_name}.{table_name}"
 
         auth_router = AuthRouter(
             prefix=_prefix,
-            tags=_tag,
+            tags=tags or [_router_tags],
             db_config_name=db_config_name,
-            default_role=_default_role,
+            default_role=default_role or schema_name,
             auth_role=auth_role,
             auth_obj=_auth_obj,
             auth_act=auth_act,

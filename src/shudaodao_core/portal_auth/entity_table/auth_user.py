@@ -32,7 +32,6 @@ class AuthUser(RegistryModel, table=True):
     name: str = Field(default=None, nullable=True, description="姓名")
     password: str = Field(description="密码")
     is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
-
     last_login_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), description="最后登录时间")
     # --- 可修改字段 ---
     nickname: str = Field(default=None, nullable=True, description="昵称")
@@ -71,7 +70,7 @@ class AuthUserRegister(SQLModel):
     picture: Optional[str] = Field(default=None, nullable=True, description="头像URL地址")
     email: Optional[EmailStr] = Field(default=None, nullable=True, description="邮件")
     # --- 用户验证增强 ---
-    email_verified: Optional[bool] = Field(default=None, nullable=True, description="邮箱是否已验证")
+    # email_verified: Optional[bool] = Field(default=None, nullable=True, description="邮箱是否已验证")
     # --- 内部管理字段 ---
     tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="默认租户")
 
@@ -102,10 +101,10 @@ class AuthUserResponse(BaseResponse):
     picture: Optional[str] = Field(default=None, description="头像URL地址")
     last_login_at: Optional[datetime] = Field(default=None, description="最后登录时间")
     # --- 内容源自业务 ---
-    # role: Optional[str] = Field(default=None, description="用户角色")
-    # roles: Optional[str] = Field(default=None, description="角色列表")
-    # groups: Optional[str] = Field(default=None, description="部门列表")
-    # permissions: Optional[str] = Field(default=None, description="权限列表")
-    # organization: Optional[str] = Field(default=None, description="所属组织")
-    # department: Optional[str] = Field(default=None, description="所在部门")
-    # job_title: Optional[str] = Field(default=None, description="职务职称")
+    role: Optional[str] = Field(default=None, description="用户角色")
+    roles: Optional[str] = Field(default=None, description="角色列表")
+    groups: Optional[str] = Field(default=None, description="部门列表")
+    permissions: Optional[str] = Field(default=None, description="权限列表")
+    organization: Optional[str] = Field(default=None, description="所属组织")
+    department: Optional[str] = Field(default=None, description="所在部门")
+    job_title: Optional[str] = Field(default=None, description="职务职称")

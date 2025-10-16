@@ -26,7 +26,7 @@ setattr(auth_registry, "engine_name", get_engine_name())
 
 # 用于 Controller
 def get_schema_name():
-    return RunningConfig.get_controller_schema("shudaodao_auth")
+    return RunningConfig.get_router_path("shudaodao_auth")
 
 
 # SQLModel 类: __table_args__ = {"schema": "用于这里"}

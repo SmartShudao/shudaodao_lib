@@ -22,7 +22,7 @@ class RunningConfig:
             str or None: 有效的 schema 名称，或 None 表示默认 schema。
         """
     @classmethod
-    def get_controller_schema(cls, schema_name):
+    def get_router_path(cls, schema_name):
         """获取控制器层应使用的逻辑 schema 名称。
 
         与 SQLModel schema 解耦，便于未来实现前后端 schema 映射、
