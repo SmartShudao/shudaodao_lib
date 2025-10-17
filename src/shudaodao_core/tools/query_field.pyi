@@ -1,3 +1,10 @@
+from ..enum.enum_str_int import EnumInt as EnumInt, EnumStr as EnumStr
+
+def get_enum_field_names(model_class):
+    """
+    获取 SQLModel 类中，类型注解为 EnumStr 的所有字段名
+    """
+
 def get_class_fields_with_sa_type(model_class, sa_type): ...
 def convert_datetime_iso_to_standard(dt_str):
     """

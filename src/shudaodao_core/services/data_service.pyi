@@ -1,4 +1,7 @@
-from ..exception.service_exception import DataNotFoundException as DataNotFoundException
+from ..exception.service_exception import (
+    DataNotFoundException as DataNotFoundException,
+    raise_request_validation_error as raise_request_validation_error,
+)
 from ..schemas.element import Paging as Paging
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..tools.query_builder import QueryBuilder as QueryBuilder
@@ -185,15 +188,14 @@ class DataService:
             DataNotFoundException: 若记录不存在或无权限访问。
         """
     @classmethod
-    async def query_columns(
+    async def query_columns_first(
         cls,
         db: AsyncSession,
         *,
         model_class: type[SQLModelDB],
-        condition: list[ColumnElement] | ColumnElement | Any,
+        condition: list[ColumnElement] | ColumnElement | any,
     ) -> SQLModelDB:
         """根据列条件查询单条记录。
-
         自动附加租户过滤条件。
 
         Args:
@@ -204,6 +206,27 @@ class DataService:
         Returns:
             SQLModelDB: 查询到的第一条记录，若无则返回 None（但类型提示为模型，实际可能为 None）。
         """
+    @classmethod
+    async def query_columns(
+        cls,
+        db: AsyncSession,
+        *,
+        model_class: type[SQLModelDB],
+        condition: list[ColumnElement] | ColumnElement | any,
+    ):
+        """根据列条件查询单条记录。
+        自动附加租户过滤条件。
+
+        Args:
+            db (AsyncSession): 异步数据库会话。
+            model_class (Type[SQLModelDB]): 数据库模型类。
+            condition (Union[List[ColumnElement], ColumnElement, Any]): 查询条件。
+
+        Returns:
+            SQLModelDB: 查询到的所有记录，若无则返回 None（但类型提示为模型，实际可能为 None）。
+        """
+    @classmethod
+    def get_condition_from_columns(cls, condition, model_class): ...
     @classmethod
     async def query(
         cls,

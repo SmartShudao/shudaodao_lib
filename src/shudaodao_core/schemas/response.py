@@ -5,7 +5,6 @@
 # @Software ：PyCharm
 # @Date     ：2025/8/18 下午7:43
 # @Desc     ：
-
 from datetime import datetime, date, time
 from typing import Any, Dict
 from typing import Optional
@@ -14,7 +13,8 @@ from pydantic import Field, BaseModel
 from sqlalchemy import BigInteger
 from sqlmodel import SQLModel
 
-from ..tools.query_field import convert_datetime_iso_to_standard
+from ..tools.query_builder import QueryBuilder
+from ..tools.query_field import convert_datetime_iso_to_standard, get_enum_field_names
 
 
 class BaseResponse(SQLModel):
@@ -49,11 +49,35 @@ class BaseResponse(SQLModel):
                 data[field_name] = value.isoformat()  # "10:30:00"
             # 5. BaseReadModel 实例 → 递归转换
             elif isinstance(value, BaseResponse):
-                data[field_name] = value.model_dump(*args, **kwargs)
+                dump_value = value.model_dump(*args, **kwargs)
+                data[field_name] = self.base_response_format_enum(value.__class__, dump_value)
             # 6. 字段是列表，且元素是 BaseReadModel → 递归转换每个元素
-            # 查询接口已经处理过了
-
+            elif isinstance(value, list):
+                rows = []
+                for item in value:
+                    dump_value = item.model_dump(*args, **kwargs)
+                    if isinstance(item, BaseResponse):
+                        rows.append(self.base_response_format_enum(item.__class__, dump_value))
+                    else:
+                        rows.append(item)
+                data[field_name] = rows
         return data
+
+    @staticmethod
+    def base_response_format_enum(model_class, dump_value):
+        # 获取枚举字段
+        enum_fields = get_enum_field_names(model_class)
+        enum_dict = {}
+        for key, val in dump_value.items():
+            enum_dict[key] = val
+            QueryBuilder.format_enum(
+                enum_fields=enum_fields,
+                item_dict=enum_dict,
+                field_value=val,
+                key=key,
+                model_class=model_class
+            )
+        return enum_dict
 
     # 兼容 Pydantic v1 / jsonable_encoder
     def dict(self, *args, **kwargs) -> Dict[str, Any]:

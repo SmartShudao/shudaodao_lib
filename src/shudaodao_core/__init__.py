@@ -45,6 +45,7 @@ from .sqlmodel_ext.field import Field
 from .utils.core_utils import CoreUtil
 from .utils.generate_unique_id import get_primary_str, get_primary_id
 from .utils.response_utils import ResponseUtil
+from .enum.enum_str_int import EnumStr
 
 # 其他类库的引用
 AsyncSession = _AsyncSession

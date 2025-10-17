@@ -5,6 +5,12 @@ class ClassScanner:
     """
     通用类扫描器：递归扫描包，找出满足条件的类
     """
+    @staticmethod
+    def import_class(dotted_path):
+        """
+        从字符串路径导入类，例如：
+        'mypackage.utils.helpers.MyClass'
+        """
     @classmethod
     def find_classes(
         cls,

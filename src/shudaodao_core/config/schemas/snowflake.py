@@ -12,4 +12,4 @@ from pydantic import BaseModel, Field
 
 class SnowflakeConfigSetting(BaseModel):
     instance_id: int = Field(..., description="实例ID（机器ID），用于区分不同的生成器实例")
-    epoch_time: int = Field(1735689600000, description="自定义起始时间戳（毫秒), 默认2025-01-01")
+    epoch_time: int = Field(1759991400000, description="自定义起始时间戳（毫秒), 默认2025-10-08 14:30:00")

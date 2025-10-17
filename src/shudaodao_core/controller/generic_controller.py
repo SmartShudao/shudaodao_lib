@@ -7,7 +7,7 @@
 # @Desc     ：泛型控制器基类，自动注册标准 CRUD 和查询路由
 
 
-from typing import Type, Generic
+from typing import Type, Generic, Union, List
 
 from fastapi import Depends
 from sqlmodel.ext.asyncio.session import AsyncSession
@@ -71,8 +71,8 @@ class GenericController(Generic[SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLM
         """
         self._router = auth_router
         self._model_class = model_class
-        self._create_schema = create_schema
-        self._update_schema = update_schema
+        self._create_schema = Union[create_schema, List[create_schema]]
+        self._update_schema = update_schema  # Union[update_schema, List[update_schema]]
         self._response_schema = response_schema
 
         self._create_router = create_router
@@ -145,14 +145,29 @@ class GenericController(Generic[SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLM
                 Returns:
                     Response: 成功响应，包含创建后的资源数据。
                 """
-                data_create = await DataService.create(
-                    db, model_class=self._model_class,
-                    create_model=create_model,
-                    response_class=self._response_schema
-                )
-                return ResponseUtil.success(
-                    data=data_create, message=self._create_router.message
-                )
+                if isinstance(create_model, list):
+                    result = []
+                    for model in create_model:
+                        data_create = await DataService.create(
+                            db, model_class=self._model_class,
+                            create_model=model,
+                            response_class=self._response_schema,
+                            auto_commit=False
+                        )
+                        result.append(data_create)
+                    await db.commit()
+                    return ResponseUtil.success(
+                        data=result, message=self._create_router.message + f", 共{len(result)}条"
+                    )
+                else:
+                    data_create = await DataService.create(
+                        db, model_class=self._model_class,
+                        create_model=create_model,
+                        response_class=self._response_schema,
+                    )
+                    return ResponseUtil.success(
+                        data=data_create, message=self._create_router.message
+                    )
 
         if self._read_router.enabled:
             @self._router.get(

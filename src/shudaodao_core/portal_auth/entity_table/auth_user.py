@@ -9,12 +9,13 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import EmailStr
+from pydantic import EmailStr, computed_field
 from sqlalchemy import BigInteger, Boolean
 from sqlmodel import SQLModel
 
 from .. import get_table_schema, RegistryModel
 from ...schemas.response import BaseResponse
+from ...services.enum_service import EnumService
 from ...sqlmodel_ext.field import Field
 from ...utils.generate_unique_id import get_primary_id
 
@@ -23,7 +24,9 @@ class AuthUser(RegistryModel, table=True):
     """ 数据模型 - 数据库表 T_Auth_User 结构模型 """
     __tablename__ = "t_auth_user"
     __table_args__ = {"schema": get_table_schema(), "comment": "鉴权账户"}
-
+    # 非数据库字段：仅用于内部处理
+    __database_schema__ = "shudaodao_enum"
+    # 数据库字段
     user_id: Optional[int] = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="内码"
     )
@@ -108,3 +111,9 @@ class AuthUserResponse(BaseResponse):
     organization: Optional[str] = Field(default=None, description="所属组织")
     department: Optional[str] = Field(default=None, description="所在部门")
     job_title: Optional[str] = Field(default=None, description="职务职称")
+
+    @computed_field
+    def module_type_label(self) -> str:
+        return EnumService.resolve_field(
+            schema="shudaodao_acm", field="module_type", value=self.module_type
+        )

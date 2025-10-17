@@ -7,10 +7,12 @@ from ..schemas.query_request import (
     QueryRequest as QueryRequest,
     QuerySimpleCondition as QuerySimpleCondition,
 )
+from ..services.enum_service import EnumService as EnumService
 from ..type.var import SQLModelDB as SQLModelDB, SQLModelResponse as SQLModelResponse
 from .query_field import (
     convert_datetime_iso_to_standard as convert_datetime_iso_to_standard,
     get_class_fields_with_sa_type as get_class_fields_with_sa_type,
+    get_enum_field_names as get_enum_field_names,
 )
 from .tenant_checker import TenantManager as TenantManager
 from sqlmodel import SQLModel as SQLModel
@@ -32,8 +34,15 @@ class QueryBuilder:
     def get_fields(cls, query: QueryRequest, model_class: type[SQLModel]) -> Any: ...
     @classmethod
     def get_where(cls, condition: Condition, model_class: type[SQLModel]) -> Any: ...
+    @classmethod
+    def get_condition(cls, model_class, field_name: str, field_op: str, field_val: str):
+        """构建简单条件"""
     @staticmethod
     def get_condition_python_value(field, field_type, field_value): ...
+    @classmethod
+    def format_enum(
+        cls, enum_fields, field_value, item_dict, key, model_class
+    ) -> None: ...
     @classmethod
     def method_name(cls, fields, item, tag) -> None: ...
     @classmethod
