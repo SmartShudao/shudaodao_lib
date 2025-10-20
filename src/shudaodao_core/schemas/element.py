@@ -21,5 +21,3 @@ class Paging(BaseModel):
     def set_total(self, total):
         self.total = total
         self.pages = (total + self.size - 1) // self.size
-
-

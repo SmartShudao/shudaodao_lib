@@ -31,7 +31,7 @@ class MetaTable:
         schema_name,
         default_schema_name,
         support_schema,
-        parent_foreign_keys,
+        table_foreign_keys,
         enum_fields,
     ) -> None: ...
     def get_database_columns(self) -> list[MetaColumn]: ...

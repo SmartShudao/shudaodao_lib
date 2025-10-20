@@ -55,8 +55,8 @@ class BaseResponse(SQLModel):
             elif isinstance(value, list):
                 rows = []
                 for item in value:
-                    dump_value = item.model_dump(*args, **kwargs)
                     if isinstance(item, BaseResponse):
+                        dump_value = item.model_dump(*args, **kwargs)
                         rows.append(self.base_response_format_enum(item.__class__, dump_value))
                     else:
                         rows.append(item)
@@ -67,6 +67,9 @@ class BaseResponse(SQLModel):
     def base_response_format_enum(model_class, dump_value):
         # 获取枚举字段
         enum_fields = get_enum_field_names(model_class)
+        if not enum_fields:
+            return dump_value
+
         enum_dict = {}
         for key, val in dump_value.items():
             enum_dict[key] = val
@@ -103,7 +106,7 @@ class TokenResponse(BaseModel):
 
     refresh_token: Optional[str] = None
     refresh_expires_in: int
-    # scope: Optional[str] = None
+    # scope: Optional[str] = None # 暂时用不上
 
     # user: Dict[str, Any]  # 暂时用不上
     # Art Design Pro

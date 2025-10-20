@@ -4,6 +4,7 @@ from dataclasses import dataclass
 class MetaForeignColumn:
     schema_name: str
     alias_index: str
+    sort_order: bool
     constrained_table: str
     constrained_class: str
     constrained_column: str

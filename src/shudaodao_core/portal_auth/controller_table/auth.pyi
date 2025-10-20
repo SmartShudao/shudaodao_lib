@@ -7,7 +7,8 @@ from ...exception.service_exception import (
 from ...schemas.response import TokenRefreshModel as TokenRefreshModel
 from ...services.auth_service import AuthService as AuthService
 from ...services.data_service import DataService as DataService
-from ...tools.tenant_checker import TenantManager as TenantManager
+from ...services.query_service import QueryService as QueryService
+from ...tools.tenant_manager import TenantManager as TenantManager
 from ...utils.response_utils import ResponseUtil as ResponseUtil
 from ..entity_table.auth_user import (
     AuthLogin as AuthLogin,

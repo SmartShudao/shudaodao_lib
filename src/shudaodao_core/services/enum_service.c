@@ -1494,7 +1494,7 @@ static const char* const __pyx_f[] = {
 /*--- Type declarations ---*/
 struct __pyx_obj_12enum_service___pyx_scope_struct__load;
 
-/* "enum_service.py":45
+/* "enum_service.py":46
  *         # return f"{schema}-{field}-{value}"
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -1503,7 +1503,7 @@ struct __pyx_obj_12enum_service___pyx_scope_struct__load;
 */
 struct __pyx_obj_12enum_service___pyx_scope_struct__load {
   PyObject_HEAD
-  PyObject *__pyx_v_DataService;
+  PyObject *__pyx_v_QueryService;
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_condition;
   PyObject *__pyx_v_db;
@@ -2535,7 +2535,6 @@ static const char __pyx_k_enum_value[] = "enum_value";
 static const char __pyx_k_field_name[] = "field_name";
 static const char __pyx_k_row_schema[] = "row_schema";
 static const char __pyx_k_value_node[] = "value_node";
-static const char __pyx_k_DataService[] = "DataService";
 static const char __pyx_k_EnumService[] = "EnumService";
 static const char __pyx_k_field_class[] = "field_class";
 static const char __pyx_k_field_items[] = "field_items";
@@ -2547,12 +2546,13 @@ static const char __pyx_k_schema_name[] = "schema_name";
 static const char __pyx_k_value_class[] = "value_class";
 static const char __pyx_k_value_items[] = "value_items";
 static const char __pyx_k_AsyncSession[] = "AsyncSession";
-static const char __pyx_k_data_service[] = "data_service";
+static const char __pyx_k_QueryService[] = "QueryService";
 static const char __pyx_k_enum_service[] = "enum_service";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_rows_schemas[] = "rows_schemas";
 static const char __pyx_k_schema_class[] = "schema_class";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
+static const char __pyx_k_query_service[] = "query_service";
 static const char __pyx_k_resolve_field[] = "resolve_field";
 static const char __pyx_k_logger_logging[] = "logger.logging_";
 static const char __pyx_k_enum_service_py[] = "enum_service.py";
@@ -2666,10 +2666,10 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_kp_u_API __pyx_string_tab[1]
 #define __pyx_n_u_AsyncSession __pyx_string_tab[2]
-#define __pyx_n_u_DataService __pyx_string_tab[3]
-#define __pyx_n_u_EnumService __pyx_string_tab[4]
-#define __pyx_n_u_EnumService_load __pyx_string_tab[5]
-#define __pyx_n_u_EnumService_resolve_field __pyx_string_tab[6]
+#define __pyx_n_u_EnumService __pyx_string_tab[3]
+#define __pyx_n_u_EnumService_load __pyx_string_tab[4]
+#define __pyx_n_u_EnumService_resolve_field __pyx_string_tab[5]
+#define __pyx_n_u_QueryService __pyx_string_tab[6]
 #define __pyx_n_u__2 __pyx_string_tab[7]
 #define __pyx_kp_u__3 __pyx_string_tab[8]
 #define __pyx_kp_u__4 __pyx_string_tab[9]
@@ -2681,42 +2681,42 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_close __pyx_string_tab[15]
 #define __pyx_n_u_cls __pyx_string_tab[16]
 #define __pyx_n_u_condition __pyx_string_tab[17]
-#define __pyx_n_u_data_service __pyx_string_tab[18]
-#define __pyx_n_u_db __pyx_string_tab[19]
-#define __pyx_kp_u_disable __pyx_string_tab[20]
-#define __pyx_n_u_doc __pyx_string_tab[21]
-#define __pyx_kp_u_enable __pyx_string_tab[22]
-#define __pyx_n_u_enum_label __pyx_string_tab[23]
-#define __pyx_n_u_enum_service __pyx_string_tab[24]
-#define __pyx_kp_u_enum_service_py __pyx_string_tab[25]
-#define __pyx_n_u_enum_value __pyx_string_tab[26]
-#define __pyx_n_u_enums __pyx_string_tab[27]
-#define __pyx_n_u_exec __pyx_string_tab[28]
-#define __pyx_n_u_field __pyx_string_tab[29]
-#define __pyx_kp_u_field_2 __pyx_string_tab[30]
-#define __pyx_n_u_field_class __pyx_string_tab[31]
-#define __pyx_n_u_field_id __pyx_string_tab[32]
-#define __pyx_n_u_field_items __pyx_string_tab[33]
-#define __pyx_n_u_field_name __pyx_string_tab[34]
-#define __pyx_n_u_fields __pyx_string_tab[35]
-#define __pyx_n_u_func __pyx_string_tab[36]
-#define __pyx_kp_u_gc __pyx_string_tab[37]
-#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[38]
-#define __pyx_kp_u_is_active_1 __pyx_string_tab[39]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[40]
-#define __pyx_kp_u_isenabled __pyx_string_tab[41]
-#define __pyx_n_u_load __pyx_string_tab[42]
-#define __pyx_n_u_logger_logging __pyx_string_tab[43]
-#define __pyx_n_u_logging __pyx_string_tab[44]
-#define __pyx_n_u_main __pyx_string_tab[45]
-#define __pyx_n_u_metaclass __pyx_string_tab[46]
-#define __pyx_n_u_model_class __pyx_string_tab[47]
-#define __pyx_n_u_module __pyx_string_tab[48]
-#define __pyx_n_u_name __pyx_string_tab[49]
-#define __pyx_n_u_next __pyx_string_tab[50]
-#define __pyx_n_u_pop __pyx_string_tab[51]
-#define __pyx_n_u_prepare __pyx_string_tab[52]
-#define __pyx_n_u_qualname __pyx_string_tab[53]
+#define __pyx_n_u_db __pyx_string_tab[18]
+#define __pyx_kp_u_disable __pyx_string_tab[19]
+#define __pyx_n_u_doc __pyx_string_tab[20]
+#define __pyx_kp_u_enable __pyx_string_tab[21]
+#define __pyx_n_u_enum_label __pyx_string_tab[22]
+#define __pyx_n_u_enum_service __pyx_string_tab[23]
+#define __pyx_kp_u_enum_service_py __pyx_string_tab[24]
+#define __pyx_n_u_enum_value __pyx_string_tab[25]
+#define __pyx_n_u_enums __pyx_string_tab[26]
+#define __pyx_n_u_exec __pyx_string_tab[27]
+#define __pyx_n_u_field __pyx_string_tab[28]
+#define __pyx_kp_u_field_2 __pyx_string_tab[29]
+#define __pyx_n_u_field_class __pyx_string_tab[30]
+#define __pyx_n_u_field_id __pyx_string_tab[31]
+#define __pyx_n_u_field_items __pyx_string_tab[32]
+#define __pyx_n_u_field_name __pyx_string_tab[33]
+#define __pyx_n_u_fields __pyx_string_tab[34]
+#define __pyx_n_u_func __pyx_string_tab[35]
+#define __pyx_kp_u_gc __pyx_string_tab[36]
+#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[37]
+#define __pyx_kp_u_is_active_1 __pyx_string_tab[38]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[39]
+#define __pyx_kp_u_isenabled __pyx_string_tab[40]
+#define __pyx_n_u_load __pyx_string_tab[41]
+#define __pyx_n_u_logger_logging __pyx_string_tab[42]
+#define __pyx_n_u_logging __pyx_string_tab[43]
+#define __pyx_n_u_main __pyx_string_tab[44]
+#define __pyx_n_u_metaclass __pyx_string_tab[45]
+#define __pyx_n_u_model_class __pyx_string_tab[46]
+#define __pyx_n_u_module __pyx_string_tab[47]
+#define __pyx_n_u_name __pyx_string_tab[48]
+#define __pyx_n_u_next __pyx_string_tab[49]
+#define __pyx_n_u_pop __pyx_string_tab[50]
+#define __pyx_n_u_prepare __pyx_string_tab[51]
+#define __pyx_n_u_qualname __pyx_string_tab[52]
+#define __pyx_n_u_query_service __pyx_string_tab[53]
 #define __pyx_n_u_resolve_field __pyx_string_tab[54]
 #define __pyx_n_u_return __pyx_string_tab[55]
 #define __pyx_n_u_row_field __pyx_string_tab[56]
@@ -2799,7 +2799,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
 #endif
 /* #### Code section: module_code ### */
 
-/* "enum_service.py":22
+/* "enum_service.py":23
  *     enums = {}
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -2850,44 +2850,44 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_schema,&__pyx_mstate_global->__pyx_n_u_field,&__pyx_mstate_global->__pyx_n_u_value,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 22, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "resolve_field", 0) < 0) __PYX_ERR(0, 22, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "resolve_field", 0) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, i); __PYX_ERR(0, 22, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, i); __PYX_ERR(0, 23, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 4)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 22, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 22, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 22, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 23, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 22, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 23, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_schema = values[1];
@@ -2896,7 +2896,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 22, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("resolve_field", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2936,16 +2936,16 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
   __Pyx_RefNannySetupContext("resolve_field", 0);
   __Pyx_INCREF(__pyx_v_value);
 
-  /* "enum_service.py":25
+  /* "enum_service.py":26
  *     def resolve_field(cls, schema, field, value) -> str:
  *         """ LabelEnum """
  *         value = str(value) if value else ""             # <<<<<<<<<<<<<<
  *         if not cls.enums:
  *             logging.warning(f"")
 */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_value); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 26, __pyx_L1_error)
   if (__pyx_t_2) {
-    __pyx_t_3 = __Pyx_PyObject_Unicode(__pyx_v_value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Unicode(__pyx_v_value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -2956,21 +2956,21 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
   __Pyx_DECREF_SET(__pyx_v_value, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "enum_service.py":26
+  /* "enum_service.py":27
  *         """ LabelEnum """
  *         value = str(value) if value else ""
  *         if not cls.enums:             # <<<<<<<<<<<<<<
  *             logging.warning(f"")
  *             return value
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_4 = (!__pyx_t_2);
   if (__pyx_t_4) {
 
-    /* "enum_service.py":27
+    /* "enum_service.py":28
  *         value = str(value) if value else ""
  *         if not cls.enums:
  *             logging.warning(f"")             # <<<<<<<<<<<<<<
@@ -2978,9 +2978,9 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
  *         if schema in cls.enums:
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 27, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_7 = 1;
@@ -3000,12 +3000,12 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "enum_service.py":28
+    /* "enum_service.py":29
  *         if not cls.enums:
  *             logging.warning(f"")
  *             return value             # <<<<<<<<<<<<<<
@@ -3013,12 +3013,12 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
  *             field_items = cls.enums[schema]
 */
     __Pyx_XDECREF(__pyx_r);
-    if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_v_value))) __PYX_ERR(0, 28, __pyx_L1_error)
+    if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_v_value))) __PYX_ERR(0, 29, __pyx_L1_error)
     __Pyx_INCREF(__pyx_v_value);
     __pyx_r = ((PyObject*)__pyx_v_value);
     goto __pyx_L0;
 
-    /* "enum_service.py":26
+    /* "enum_service.py":27
  *         """ LabelEnum """
  *         value = str(value) if value else ""
  *         if not cls.enums:             # <<<<<<<<<<<<<<
@@ -3027,67 +3027,67 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
 */
   }
 
-  /* "enum_service.py":29
+  /* "enum_service.py":30
  *             logging.warning(f"")
  *             return value
  *         if schema in cls.enums:             # <<<<<<<<<<<<<<
  *             field_items = cls.enums[schema]
  *             if field in field_items:
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_schema, __pyx_t_1, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_schema, __pyx_t_1, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "enum_service.py":30
+    /* "enum_service.py":31
  *             return value
  *         if schema in cls.enums:
  *             field_items = cls.enums[schema]             # <<<<<<<<<<<<<<
  *             if field in field_items:
  *                 value_items = field_items[field]
 */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_schema); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 30, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_schema); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 31, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_field_items = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "enum_service.py":31
+    /* "enum_service.py":32
  *         if schema in cls.enums:
  *             field_items = cls.enums[schema]
  *             if field in field_items:             # <<<<<<<<<<<<<<
  *                 value_items = field_items[field]
  *                 if value in value_items:
 */
-    __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_field, __pyx_v_field_items, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
+    __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_field, __pyx_v_field_items, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 32, __pyx_L1_error)
     if (__pyx_t_4) {
 
-      /* "enum_service.py":32
+      /* "enum_service.py":33
  *             field_items = cls.enums[schema]
  *             if field in field_items:
  *                 value_items = field_items[field]             # <<<<<<<<<<<<<<
  *                 if value in value_items:
  *                     return value_items[value]
 */
-      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_field_items, __pyx_v_field); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_field_items, __pyx_v_field); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_v_value_items = __pyx_t_6;
       __pyx_t_6 = 0;
 
-      /* "enum_service.py":33
+      /* "enum_service.py":34
  *             if field in field_items:
  *                 value_items = field_items[field]
  *                 if value in value_items:             # <<<<<<<<<<<<<<
  *                     return value_items[value]
  *                 else:
 */
-      __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_value, __pyx_v_value_items, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
+      __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_value, __pyx_v_value_items, Py_EQ)); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 34, __pyx_L1_error)
       if (__pyx_t_4) {
 
-        /* "enum_service.py":34
+        /* "enum_service.py":35
  *                 value_items = field_items[field]
  *                 if value in value_items:
  *                     return value_items[value]             # <<<<<<<<<<<<<<
@@ -3095,14 +3095,14 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
  *                     logging.warning(f" value{value}")
 */
         __Pyx_XDECREF(__pyx_r);
-        __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_value_items, __pyx_v_value); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_value_items, __pyx_v_value); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 35, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_6))) __PYX_ERR(0, 34, __pyx_L1_error)
+        if (!(likely(PyUnicode_CheckExact(__pyx_t_6))||((__pyx_t_6) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_6))) __PYX_ERR(0, 35, __pyx_L1_error)
         __pyx_r = ((PyObject*)__pyx_t_6);
         __pyx_t_6 = 0;
         goto __pyx_L0;
 
-        /* "enum_service.py":33
+        /* "enum_service.py":34
  *             if field in field_items:
  *                 value_items = field_items[field]
  *                 if value in value_items:             # <<<<<<<<<<<<<<
@@ -3111,7 +3111,7 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
 */
       }
 
-      /* "enum_service.py":36
+      /* "enum_service.py":37
  *                     return value_items[value]
  *                 else:
  *                     logging.warning(f" value{value}")             # <<<<<<<<<<<<<<
@@ -3120,14 +3120,14 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
 */
       /*else*/ {
         __pyx_t_1 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_value, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_value_2, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 36, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_value_2, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 37, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_t_7 = 1;
@@ -3148,13 +3148,13 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L1_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 37, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       }
 
-      /* "enum_service.py":31
+      /* "enum_service.py":32
  *         if schema in cls.enums:
  *             field_items = cls.enums[schema]
  *             if field in field_items:             # <<<<<<<<<<<<<<
@@ -3164,7 +3164,7 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
       goto __pyx_L5;
     }
 
-    /* "enum_service.py":38
+    /* "enum_service.py":39
  *                     logging.warning(f" value{value}")
  *             else:
  *                 logging.warning(f" field{field}")             # <<<<<<<<<<<<<<
@@ -3173,14 +3173,14 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
 */
     /*else*/ {
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 38, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 39, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_v_field, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 38, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_v_field, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 39, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_field_2, __pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_field_2, __pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_7 = 1;
@@ -3201,14 +3201,14 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 38, __pyx_L1_error)
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
       }
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __pyx_L5:;
 
-    /* "enum_service.py":29
+    /* "enum_service.py":30
  *             logging.warning(f"")
  *             return value
  *         if schema in cls.enums:             # <<<<<<<<<<<<<<
@@ -3218,7 +3218,7 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
     goto __pyx_L4;
   }
 
-  /* "enum_service.py":40
+  /* "enum_service.py":41
  *                 logging.warning(f" field{field}")
  *         else:
  *             logging.warning(f" schema{schema}")             # <<<<<<<<<<<<<<
@@ -3227,14 +3227,14 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
 */
   /*else*/ {
     __pyx_t_1 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_schema, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_schema, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_schema_2, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_schema_2, __pyx_t_3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_7 = 1;
@@ -3255,14 +3255,14 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 40, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
     }
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __pyx_L4:;
 
-  /* "enum_service.py":41
+  /* "enum_service.py":42
  *         else:
  *             logging.warning(f" schema{schema}")
  *         return value             # <<<<<<<<<<<<<<
@@ -3270,12 +3270,12 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
  *         # return f"{schema}-{field}-{value}"
 */
   __Pyx_XDECREF(__pyx_r);
-  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_v_value))) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (!(likely(PyUnicode_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_v_value))) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_INCREF(__pyx_v_value);
   __pyx_r = ((PyObject*)__pyx_v_value);
   goto __pyx_L0;
 
-  /* "enum_service.py":22
+  /* "enum_service.py":23
  *     enums = {}
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3302,7 +3302,7 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_resolve_field(CYTHON_UNUS
 }
 static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "enum_service.py":45
+/* "enum_service.py":46
  *         # return f"{schema}-{field}-{value}"
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3353,50 +3353,50 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_schema_class,&__pyx_mstate_global->__pyx_n_u_field_class,&__pyx_mstate_global->__pyx_n_u_value_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 45, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 46, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 45, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 46, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 45, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 46, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 45, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 46, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 45, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 46, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 45, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 46, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "load", 0) < 0) __PYX_ERR(0, 45, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "load", 0) < 0) __PYX_ERR(0, 46, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 5; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("load", 1, 5, 5, i); __PYX_ERR(0, 45, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("load", 1, 5, 5, i); __PYX_ERR(0, 46, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 5)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 45, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 46, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 45, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 46, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 45, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 46, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 45, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 46, __pyx_L3_error)
       values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 45, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 46, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_db = values[1];
@@ -3406,7 +3406,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("load", 1, 5, 5, __pyx_nargs); __PYX_ERR(0, 45, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("load", 1, 5, 5, __pyx_nargs); __PYX_ERR(0, 46, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3439,7 +3439,7 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_2load(CYTHON_UNUSED PyObj
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12enum_service___pyx_scope_struct__load *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 46, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -3459,7 +3459,7 @@ static PyObject *__pyx_pf_12enum_service_11EnumService_2load(CYTHON_UNUSED PyObj
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_value_class);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_value_class);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12enum_service_11EnumService_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_load, __pyx_mstate_global->__pyx_n_u_EnumService_load, __pyx_mstate_global->__pyx_n_u_enum_service); if (unlikely(!gen)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12enum_service_11EnumService_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_load, __pyx_mstate_global->__pyx_n_u_EnumService_load, __pyx_mstate_global->__pyx_n_u_enum_service); if (unlikely(!gen)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3511,89 +3511,89 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 46, __pyx_L1_error)
   }
 
-  /* "enum_service.py":47
+  /* "enum_service.py":48
  *     @classmethod
  *     async def load(cls, db: AsyncSession, schema_class, field_class, value_class):
  *         if cls.enums:             # <<<<<<<<<<<<<<
  *             return
- *         from .data_service import DataService
+ *         condition = "is_active = 1"
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "enum_service.py":48
+    /* "enum_service.py":49
  *     async def load(cls, db: AsyncSession, schema_class, field_class, value_class):
  *         if cls.enums:
  *             return             # <<<<<<<<<<<<<<
- *         from .data_service import DataService
  *         condition = "is_active = 1"
+ *         from .query_service import QueryService
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "enum_service.py":47
+    /* "enum_service.py":48
  *     @classmethod
  *     async def load(cls, db: AsyncSession, schema_class, field_class, value_class):
  *         if cls.enums:             # <<<<<<<<<<<<<<
  *             return
- *         from .data_service import DataService
+ *         condition = "is_active = 1"
 */
   }
 
-  /* "enum_service.py":49
+  /* "enum_service.py":50
  *         if cls.enums:
  *             return
- *         from .data_service import DataService             # <<<<<<<<<<<<<<
- *         condition = "is_active = 1"
- *         # schema_class
-*/
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u_DataService);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_n_u_DataService);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_n_u_DataService) != (0)) __PYX_ERR(0, 49, __pyx_L1_error);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_data_service, __pyx_t_1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_DataService = __pyx_t_1;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "enum_service.py":50
- *             return
- *         from .data_service import DataService
  *         condition = "is_active = 1"             # <<<<<<<<<<<<<<
+ *         from .query_service import QueryService
  *         # schema_class
- *         where_condition = DataService.get_condition_from_columns(
 */
   __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_is_active_1);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u_is_active_1);
   __pyx_cur_scope->__pyx_v_condition = __pyx_mstate_global->__pyx_kp_u_is_active_1;
 
-  /* "enum_service.py":52
+  /* "enum_service.py":51
+ *             return
  *         condition = "is_active = 1"
+ *         from .query_service import QueryService             # <<<<<<<<<<<<<<
  *         # schema_class
- *         where_condition = DataService.get_condition_from_columns(             # <<<<<<<<<<<<<<
+ *         where_condition = QueryService.get_condition_from_columns(
+*/
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u_QueryService);
+  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_n_u_QueryService);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_n_u_QueryService) != (0)) __PYX_ERR(0, 51, __pyx_L1_error);
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_query_service, __pyx_t_1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_QueryService = __pyx_t_1;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "enum_service.py":53
+ *         from .query_service import QueryService
+ *         # schema_class
+ *         where_condition = QueryService.get_condition_from_columns(             # <<<<<<<<<<<<<<
  *             condition, model_class=schema_class,
  *         )
 */
-  __pyx_t_1 = __pyx_cur_scope->__pyx_v_DataService;
+  __pyx_t_1 = __pyx_cur_scope->__pyx_v_QueryService;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "enum_service.py":53
+  /* "enum_service.py":54
  *         # schema_class
- *         where_condition = DataService.get_condition_from_columns(
+ *         where_condition = QueryService.get_condition_from_columns(
  *             condition, model_class=schema_class,             # <<<<<<<<<<<<<<
  *         )
  *         statement = select(schema_class).where(where_condition)
@@ -3601,20 +3601,20 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __pyx_t_4 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_condition};
-    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_schema_class, __pyx_t_5, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_schema_class, __pyx_t_5, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
     __pyx_t_3 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_get_condition_from_columns, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_where_condition = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":55
+  /* "enum_service.py":56
  *             condition, model_class=schema_class,
  *         )
  *         statement = select(schema_class).where(where_condition)             # <<<<<<<<<<<<<<
@@ -3622,7 +3622,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
  *         # field_class
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3641,7 +3641,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_5 = __pyx_t_1;
@@ -3652,19 +3652,19 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_where, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_statement = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":56
+  /* "enum_service.py":57
  *         )
  *         statement = select(schema_class).where(where_condition)
  *         rows_schemas = (await db.exec(statement)).all()             # <<<<<<<<<<<<<<
  *         # field_class
- *         where_condition = DataService.get_condition_from_columns(
+ *         where_condition = QueryService.get_condition_from_columns(
 */
   __pyx_t_7 = __pyx_cur_scope->__pyx_v_db;
   __Pyx_INCREF(__pyx_t_7);
@@ -3673,7 +3673,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_cur_scope->__pyx_v_statement};
     __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_exec, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   }
   __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_5, &__pyx_r);
@@ -3697,14 +3697,14 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
     __pyx_cur_scope->__pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 57, __pyx_L1_error)
     __pyx_t_5 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_5);
   } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_5 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 56, __pyx_L1_error)
+    __PYX_ERR(0, 57, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_t_5;
   __Pyx_INCREF(__pyx_t_1);
@@ -3714,26 +3714,26 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_all, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_rows_schemas = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":58
+  /* "enum_service.py":59
  *         rows_schemas = (await db.exec(statement)).all()
  *         # field_class
- *         where_condition = DataService.get_condition_from_columns(             # <<<<<<<<<<<<<<
+ *         where_condition = QueryService.get_condition_from_columns(             # <<<<<<<<<<<<<<
  *             condition, model_class=field_class,
  *         )
 */
-  __pyx_t_5 = __pyx_cur_scope->__pyx_v_DataService;
+  __pyx_t_5 = __pyx_cur_scope->__pyx_v_QueryService;
   __Pyx_INCREF(__pyx_t_5);
 
-  /* "enum_service.py":59
+  /* "enum_service.py":60
  *         # field_class
- *         where_condition = DataService.get_condition_from_columns(
+ *         where_condition = QueryService.get_condition_from_columns(
  *             condition, model_class=field_class,             # <<<<<<<<<<<<<<
  *         )
  *         statement = select(field_class).where(where_condition)
@@ -3741,13 +3741,13 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __pyx_t_4 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_5, __pyx_cur_scope->__pyx_v_condition};
-    __pyx_t_1 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_field_class, __pyx_t_1, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_field_class, __pyx_t_1, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
     __pyx_t_3 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_get_condition_from_columns, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_1);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_where_condition);
@@ -3755,7 +3755,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":61
+  /* "enum_service.py":62
  *             condition, model_class=field_class,
  *         )
  *         statement = select(field_class).where(where_condition)             # <<<<<<<<<<<<<<
@@ -3763,7 +3763,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
  *         # value_class
 */
   __pyx_t_7 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3782,7 +3782,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   }
   __pyx_t_1 = __pyx_t_5;
@@ -3793,7 +3793,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_where, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_statement);
@@ -3801,12 +3801,12 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":62
+  /* "enum_service.py":63
  *         )
  *         statement = select(field_class).where(where_condition)
  *         rows_fields = (await db.exec(statement)).all()             # <<<<<<<<<<<<<<
  *         # value_class
- *         where_condition = DataService.get_condition_from_columns(
+ *         where_condition = QueryService.get_condition_from_columns(
 */
   __pyx_t_6 = __pyx_cur_scope->__pyx_v_db;
   __Pyx_INCREF(__pyx_t_6);
@@ -3815,7 +3815,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_cur_scope->__pyx_v_statement};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_exec, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -3839,14 +3839,14 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_5 = __pyx_cur_scope->__pyx_t_1;
     __pyx_cur_scope->__pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_t_5);
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 63, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 62, __pyx_L1_error)
+    __PYX_ERR(0, 63, __pyx_L1_error)
   }
   __pyx_t_5 = __pyx_t_1;
   __Pyx_INCREF(__pyx_t_5);
@@ -3856,26 +3856,26 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_all, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_rows_fields = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":64
+  /* "enum_service.py":65
  *         rows_fields = (await db.exec(statement)).all()
  *         # value_class
- *         where_condition = DataService.get_condition_from_columns(             # <<<<<<<<<<<<<<
+ *         where_condition = QueryService.get_condition_from_columns(             # <<<<<<<<<<<<<<
  *             condition, model_class=value_class,
  *         )
 */
-  __pyx_t_1 = __pyx_cur_scope->__pyx_v_DataService;
+  __pyx_t_1 = __pyx_cur_scope->__pyx_v_QueryService;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "enum_service.py":65
+  /* "enum_service.py":66
  *         # value_class
- *         where_condition = DataService.get_condition_from_columns(
+ *         where_condition = QueryService.get_condition_from_columns(
  *             condition, model_class=value_class,             # <<<<<<<<<<<<<<
  *         )
  *         statement = select(value_class).where(where_condition)
@@ -3883,13 +3883,13 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __pyx_t_4 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_1, __pyx_cur_scope->__pyx_v_condition};
-    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_value_class, __pyx_t_5, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_value_class, __pyx_t_5, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
     __pyx_t_3 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_get_condition_from_columns, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_where_condition);
@@ -3897,7 +3897,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":67
+  /* "enum_service.py":68
  *             condition, model_class=value_class,
  *         )
  *         statement = select(value_class).where(where_condition)             # <<<<<<<<<<<<<<
@@ -3905,7 +3905,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
  * 
 */
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3924,7 +3924,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_5 = __pyx_t_1;
@@ -3935,7 +3935,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_where, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_statement);
@@ -3943,7 +3943,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":68
+  /* "enum_service.py":69
  *         )
  *         statement = select(value_class).where(where_condition)
  *         rows_values = (await db.exec(statement)).all()             # <<<<<<<<<<<<<<
@@ -3957,7 +3957,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_cur_scope->__pyx_v_statement};
     __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_exec, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   }
   __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_5, &__pyx_r);
@@ -3981,14 +3981,14 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
     __pyx_cur_scope->__pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_t_3);
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 69, __pyx_L1_error)
     __pyx_t_5 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_5);
   } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_5 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 68, __pyx_L1_error)
+    __PYX_ERR(0, 69, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_t_5;
   __Pyx_INCREF(__pyx_t_1);
@@ -3998,14 +3998,14 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_all, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GIVEREF(__pyx_t_3);
   __pyx_cur_scope->__pyx_v_rows_values = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "enum_service.py":70
+  /* "enum_service.py":71
  *         rows_values = (await db.exec(statement)).all()
  * 
  *         for row_schema in rows_schemas:             # <<<<<<<<<<<<<<
@@ -4017,9 +4017,9 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __pyx_t_9 = 0;
     __pyx_t_10 = NULL;
   } else {
-    __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_rows_schemas); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_9 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_rows_schemas); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_10 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_10 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 71, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_10)) {
@@ -4027,7 +4027,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 70, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
           #endif
           if (__pyx_t_9 >= __pyx_temp) break;
         }
@@ -4037,7 +4037,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 70, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
           #endif
           if (__pyx_t_9 >= __pyx_temp) break;
         }
@@ -4048,13 +4048,13 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
         #endif
         ++__pyx_t_9;
       }
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L1_error)
     } else {
       __pyx_t_5 = __pyx_t_10(__pyx_t_3);
       if (unlikely(!__pyx_t_5)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 70, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 71, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -4066,21 +4066,21 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     __Pyx_GIVEREF(__pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "enum_service.py":71
+    /* "enum_service.py":72
  * 
  *         for row_schema in rows_schemas:
  *             fields = {}             # <<<<<<<<<<<<<<
  *             for row_field in rows_fields:
  *                 if row_schema.schema_id == row_field.schema_id:
 */
-    __pyx_t_5 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_fields);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_fields, ((PyObject*)__pyx_t_5));
     __Pyx_GIVEREF(__pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "enum_service.py":72
+    /* "enum_service.py":73
  *         for row_schema in rows_schemas:
  *             fields = {}
  *             for row_field in rows_fields:             # <<<<<<<<<<<<<<
@@ -4092,9 +4092,9 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
       __pyx_t_11 = 0;
       __pyx_t_12 = NULL;
     } else {
-      __pyx_t_11 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_rows_fields); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
+      __pyx_t_11 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_rows_fields); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 72, __pyx_L1_error)
+      __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 73, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_12)) {
@@ -4102,7 +4102,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 72, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
             #endif
             if (__pyx_t_11 >= __pyx_temp) break;
           }
@@ -4112,7 +4112,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 72, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
             #endif
             if (__pyx_t_11 >= __pyx_temp) break;
           }
@@ -4123,13 +4123,13 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
           #endif
           ++__pyx_t_11;
         }
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
       } else {
         __pyx_t_1 = __pyx_t_12(__pyx_t_5);
         if (unlikely(!__pyx_t_1)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 72, __pyx_L1_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 73, __pyx_L1_error)
             PyErr_Clear();
           }
           break;
@@ -4141,39 +4141,39 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
       __Pyx_GIVEREF(__pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "enum_service.py":73
+      /* "enum_service.py":74
  *             fields = {}
  *             for row_field in rows_fields:
  *                 if row_schema.schema_id == row_field.schema_id:             # <<<<<<<<<<<<<<
  *                     value_node = {}
  *                     for value in rows_values:
 */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_schema, __pyx_mstate_global->__pyx_n_u_schema_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_schema, __pyx_mstate_global->__pyx_n_u_schema_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_field, __pyx_mstate_global->__pyx_n_u_schema_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 73, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_field, __pyx_mstate_global->__pyx_n_u_schema_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 74, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
+      __pyx_t_6 = PyObject_RichCompare(__pyx_t_1, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 74, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (__pyx_t_2) {
 
-        /* "enum_service.py":74
+        /* "enum_service.py":75
  *             for row_field in rows_fields:
  *                 if row_schema.schema_id == row_field.schema_id:
  *                     value_node = {}             # <<<<<<<<<<<<<<
  *                     for value in rows_values:
  *                         if row_field.field_id == value.field_id:
 */
-        __pyx_t_6 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 74, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 75, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_value_node);
         __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_value_node, ((PyObject*)__pyx_t_6));
         __Pyx_GIVEREF(__pyx_t_6);
         __pyx_t_6 = 0;
 
-        /* "enum_service.py":75
+        /* "enum_service.py":76
  *                 if row_schema.schema_id == row_field.schema_id:
  *                     value_node = {}
  *                     for value in rows_values:             # <<<<<<<<<<<<<<
@@ -4185,9 +4185,9 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
           __pyx_t_13 = 0;
           __pyx_t_14 = NULL;
         } else {
-          __pyx_t_13 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_rows_values); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 75, __pyx_L1_error)
+          __pyx_t_13 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_rows_values); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 76, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_14 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 75, __pyx_L1_error)
+          __pyx_t_14 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 76, __pyx_L1_error)
         }
         for (;;) {
           if (likely(!__pyx_t_14)) {
@@ -4195,7 +4195,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
               {
                 Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
                 #if !CYTHON_ASSUME_SAFE_SIZE
-                if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
+                if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 76, __pyx_L1_error)
                 #endif
                 if (__pyx_t_13 >= __pyx_temp) break;
               }
@@ -4205,7 +4205,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
               {
                 Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
                 #if !CYTHON_ASSUME_SAFE_SIZE
-                if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
+                if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 76, __pyx_L1_error)
                 #endif
                 if (__pyx_t_13 >= __pyx_temp) break;
               }
@@ -4216,13 +4216,13 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
               #endif
               ++__pyx_t_13;
             }
-            if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 75, __pyx_L1_error)
+            if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 76, __pyx_L1_error)
           } else {
             __pyx_t_7 = __pyx_t_14(__pyx_t_6);
             if (unlikely(!__pyx_t_7)) {
               PyObject* exc_type = PyErr_Occurred();
               if (exc_type) {
-                if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 75, __pyx_L1_error)
+                if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 76, __pyx_L1_error)
                 PyErr_Clear();
               }
               break;
@@ -4234,40 +4234,40 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
           __Pyx_GIVEREF(__pyx_t_7);
           __pyx_t_7 = 0;
 
-          /* "enum_service.py":76
+          /* "enum_service.py":77
  *                     value_node = {}
  *                     for value in rows_values:
  *                         if row_field.field_id == value.field_id:             # <<<<<<<<<<<<<<
  *                             value_node[value.enum_value] = value.enum_label
  *                     fields[row_field.field_name] = value_node
 */
-          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_field, __pyx_mstate_global->__pyx_n_u_field_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 76, __pyx_L1_error)
+          __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_field, __pyx_mstate_global->__pyx_n_u_field_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 77, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_value, __pyx_mstate_global->__pyx_n_u_field_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_value, __pyx_mstate_global->__pyx_n_u_field_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_15 = PyObject_RichCompare(__pyx_t_7, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_15); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 76, __pyx_L1_error)
+          __pyx_t_15 = PyObject_RichCompare(__pyx_t_7, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_15); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 77, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_15); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 76, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_15); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
           if (__pyx_t_2) {
 
-            /* "enum_service.py":77
+            /* "enum_service.py":78
  *                     for value in rows_values:
  *                         if row_field.field_id == value.field_id:
  *                             value_node[value.enum_value] = value.enum_label             # <<<<<<<<<<<<<<
  *                     fields[row_field.field_name] = value_node
  *             cls.enums[row_schema.schema_name] = fields
 */
-            __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_value, __pyx_mstate_global->__pyx_n_u_enum_label); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 77, __pyx_L1_error)
+            __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_value, __pyx_mstate_global->__pyx_n_u_enum_label); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 78, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_15);
-            __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_value, __pyx_mstate_global->__pyx_n_u_enum_value); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+            __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_value, __pyx_mstate_global->__pyx_n_u_enum_value); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
-            if (unlikely((PyDict_SetItem(__pyx_cur_scope->__pyx_v_value_node, __pyx_t_1, __pyx_t_15) < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
+            if (unlikely((PyDict_SetItem(__pyx_cur_scope->__pyx_v_value_node, __pyx_t_1, __pyx_t_15) < 0))) __PYX_ERR(0, 78, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
 
-            /* "enum_service.py":76
+            /* "enum_service.py":77
  *                     value_node = {}
  *                     for value in rows_values:
  *                         if row_field.field_id == value.field_id:             # <<<<<<<<<<<<<<
@@ -4276,7 +4276,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
 */
           }
 
-          /* "enum_service.py":75
+          /* "enum_service.py":76
  *                 if row_schema.schema_id == row_field.schema_id:
  *                     value_node = {}
  *                     for value in rows_values:             # <<<<<<<<<<<<<<
@@ -4286,19 +4286,19 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "enum_service.py":78
+        /* "enum_service.py":79
  *                         if row_field.field_id == value.field_id:
  *                             value_node[value.enum_value] = value.enum_label
  *                     fields[row_field.field_name] = value_node             # <<<<<<<<<<<<<<
  *             cls.enums[row_schema.schema_name] = fields
  *         ...
 */
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_field, __pyx_mstate_global->__pyx_n_u_field_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 78, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_field, __pyx_mstate_global->__pyx_n_u_field_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 79, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
-        if (unlikely((PyDict_SetItem(__pyx_cur_scope->__pyx_v_fields, __pyx_t_6, __pyx_cur_scope->__pyx_v_value_node) < 0))) __PYX_ERR(0, 78, __pyx_L1_error)
+        if (unlikely((PyDict_SetItem(__pyx_cur_scope->__pyx_v_fields, __pyx_t_6, __pyx_cur_scope->__pyx_v_value_node) < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "enum_service.py":73
+        /* "enum_service.py":74
  *             fields = {}
  *             for row_field in rows_fields:
  *                 if row_schema.schema_id == row_field.schema_id:             # <<<<<<<<<<<<<<
@@ -4307,7 +4307,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
 */
       }
 
-      /* "enum_service.py":72
+      /* "enum_service.py":73
  *         for row_schema in rows_schemas:
  *             fields = {}
  *             for row_field in rows_fields:             # <<<<<<<<<<<<<<
@@ -4317,22 +4317,22 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "enum_service.py":79
+    /* "enum_service.py":80
  *                             value_node[value.enum_value] = value.enum_label
  *                     fields[row_field.field_name] = value_node
  *             cls.enums[row_schema.schema_name] = fields             # <<<<<<<<<<<<<<
  *         ...
  * 
 */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_enums); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_row_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (unlikely((PyObject_SetItem(__pyx_t_5, __pyx_t_6, __pyx_cur_scope->__pyx_v_fields) < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+    if (unlikely((PyObject_SetItem(__pyx_t_5, __pyx_t_6, __pyx_cur_scope->__pyx_v_fields) < 0))) __PYX_ERR(0, 80, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "enum_service.py":70
+    /* "enum_service.py":71
  *         rows_values = (await db.exec(statement)).all()
  * 
  *         for row_schema in rows_schemas:             # <<<<<<<<<<<<<<
@@ -4343,7 +4343,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_4generator(__pyx_Coroutin
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "enum_service.py":45
+  /* "enum_service.py":46
  *         # return f"{schema}-{field}-{value}"
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4409,7 +4409,7 @@ static void __pyx_tp_dealloc_12enum_service___pyx_scope_struct__load(PyObject *o
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_DataService);
+  Py_CLEAR(p->__pyx_v_QueryService);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_condition);
   Py_CLEAR(p->__pyx_v_db);
@@ -4452,8 +4452,8 @@ static int __pyx_tp_traverse_12enum_service___pyx_scope_struct__load(PyObject *o
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
   }
-  if (p->__pyx_v_DataService) {
-    e = (*v)(p->__pyx_v_DataService, a); if (e) return e;
+  if (p->__pyx_v_QueryService) {
+    e = (*v)(p->__pyx_v_QueryService, a); if (e) return e;
   }
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
@@ -4656,15 +4656,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12enum_service___pyx_scope_struct__load_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load)) __PYX_ERR(0, 45, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12enum_service___pyx_scope_struct__load_spec, __pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12enum_service___pyx_scope_struct__load_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load)) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12enum_service___pyx_scope_struct__load_spec, __pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load = &__pyx_type_12enum_service___pyx_scope_struct__load;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load->tp_dictoffset && __pyx_mstate->__pyx_ptype_12enum_service___pyx_scope_struct__load->tp_getattro == PyObject_GenericGetAttr)) {
@@ -5012,7 +5012,7 @@ __Pyx_RefNannySetupContext("PyInit_enum_service", 0);
  * from sqlmodel import select
  * from sqlmodel.ext.asyncio.session import AsyncSession             # <<<<<<<<<<<<<<
  * 
- * from ..logger.logging_ import logging
+ * 
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AsyncSession); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -5025,96 +5025,96 @@ __Pyx_RefNannySetupContext("PyInit_enum_service", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "enum_service.py":11
- * from sqlmodel.ext.asyncio.session import AsyncSession
+  /* "enum_service.py":12
+ * 
  * 
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_logger_logging, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_logger_logging, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "enum_service.py":14
+  /* "enum_service.py":15
  * 
  * 
  * class EnumService:             # <<<<<<<<<<<<<<
  *     """
  * 
 */
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_mstate_global->__pyx_n_u_EnumService, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_kp_u_API); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_mstate_global->__pyx_n_u_EnumService, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_kp_u_API); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "enum_service.py":20
+  /* "enum_service.py":21
  *     """
  * 
  *     enums = {}             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_enums, __pyx_t_2) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_enums, __pyx_t_2) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "enum_service.py":22
+  /* "enum_service.py":23
  *     enums = {}
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def resolve_field(cls, schema, field, value) -> str:
  *         """ LabelEnum """
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12enum_service_11EnumService_1resolve_field, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_EnumService_resolve_field, NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12enum_service_11EnumService_1resolve_field, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_EnumService_resolve_field, NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_resolve_field, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_resolve_field, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "enum_service.py":45
+  /* "enum_service.py":46
  *         # return f"{schema}-{field}-{value}"
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def load(cls, db: AsyncSession, schema_class, field_class, value_class):
  *         if cls.enums:
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12enum_service_11EnumService_3load, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_EnumService_load, NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12enum_service_11EnumService_3load, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_EnumService_load, NULL, __pyx_mstate_global->__pyx_n_u_enum_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_2) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "enum_service.py":14
+  /* "enum_service.py":15
  * 
  * 
  * class EnumService:             # <<<<<<<<<<<<<<
  *     """
  * 
 */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -5191,10 +5191,10 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_API, sizeof(__pyx_k_API), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_API */
   {__pyx_k_AsyncSession, sizeof(__pyx_k_AsyncSession), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncSession */
-  {__pyx_k_DataService, sizeof(__pyx_k_DataService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataService */
   {__pyx_k_EnumService, sizeof(__pyx_k_EnumService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumService */
   {__pyx_k_EnumService_load, sizeof(__pyx_k_EnumService_load), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumService_load */
   {__pyx_k_EnumService_resolve_field, sizeof(__pyx_k_EnumService_resolve_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumService_resolve_field */
+  {__pyx_k_QueryService, sizeof(__pyx_k_QueryService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryService */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
@@ -5206,7 +5206,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
   {__pyx_k_cls, sizeof(__pyx_k_cls), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cls */
   {__pyx_k_condition, sizeof(__pyx_k_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_condition */
-  {__pyx_k_data_service, sizeof(__pyx_k_data_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_service */
   {__pyx_k_db, sizeof(__pyx_k_db), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db */
   {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disable */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
@@ -5242,6 +5241,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_query_service, sizeof(__pyx_k_query_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_service */
   {__pyx_k_resolve_field, sizeof(__pyx_k_resolve_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_resolve_field */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_row_field, sizeof(__pyx_k_row_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_row_field */
@@ -5328,12 +5328,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 17, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 45, 5};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_schema_class, __pyx_mstate->__pyx_n_u_field_class, __pyx_mstate->__pyx_n_u_value_class, __pyx_mstate->__pyx_n_u_DataService, __pyx_mstate->__pyx_n_u_condition, __pyx_mstate->__pyx_n_u_where_condition, __pyx_mstate->__pyx_n_u_statement, __pyx_mstate->__pyx_n_u_rows_schemas, __pyx_mstate->__pyx_n_u_rows_fields, __pyx_mstate->__pyx_n_u_rows_values, __pyx_mstate->__pyx_n_u_row_schema, __pyx_mstate->__pyx_n_u_fields, __pyx_mstate->__pyx_n_u_row_field, __pyx_mstate->__pyx_n_u_value_node, __pyx_mstate->__pyx_n_u_value};
+    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 17, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 46, 5};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_schema_class, __pyx_mstate->__pyx_n_u_field_class, __pyx_mstate->__pyx_n_u_value_class, __pyx_mstate->__pyx_n_u_condition, __pyx_mstate->__pyx_n_u_QueryService, __pyx_mstate->__pyx_n_u_where_condition, __pyx_mstate->__pyx_n_u_statement, __pyx_mstate->__pyx_n_u_rows_schemas, __pyx_mstate->__pyx_n_u_rows_fields, __pyx_mstate->__pyx_n_u_rows_values, __pyx_mstate->__pyx_n_u_row_schema, __pyx_mstate->__pyx_n_u_fields, __pyx_mstate->__pyx_n_u_row_field, __pyx_mstate->__pyx_n_u_value_node, __pyx_mstate->__pyx_n_u_value};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_enum_service_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 22, 146};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 23, 146};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_schema, __pyx_mstate->__pyx_n_u_field, __pyx_mstate->__pyx_n_u_value, __pyx_mstate->__pyx_n_u_field_items, __pyx_mstate->__pyx_n_u_value_items};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_enum_service_py, __pyx_mstate->__pyx_n_u_resolve_field, __pyx_k_A45_1Jk_4s_83a_1_7_S_V1A_vS_k_6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }

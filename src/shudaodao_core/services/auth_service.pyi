@@ -7,8 +7,9 @@ from ..logger.logging_ import logging as logging
 from ..schemas.response import TokenResponse as TokenResponse
 from ..services.data_service import DataService as DataService
 from ..services.db_engine_service import DBEngineService as DBEngineService
-from ..tools.tenant_checker import TenantManager as TenantManager
+from ..tools.tenant_manager import TenantManager as TenantManager
 from .casbin_service import PermissionService as PermissionService
+from .query_service import QueryService as QueryService
 from _typeshed import Incomplete
 from fastapi import Request as Request
 from fastapi.security import (

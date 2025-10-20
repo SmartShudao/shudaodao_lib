@@ -16,6 +16,7 @@ from .router_config import RouterConfig
 from ..auth.auth_router import AuthRouter
 from ..schemas.query_request import QueryRequest
 from ..services.data_service import DataService
+from ..services.query_service import QueryService
 from ..type.var import SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLModelResponse
 from ..utils.response_utils import ResponseUtil
 
@@ -115,8 +116,8 @@ class GenericController(Generic[SQLModelDB, SQLModelCreate, SQLModelUpdate, SQLM
                 Returns:
                     Response: 成功响应，包含查询结果列表及元信息。
                 """
-                query_result = await DataService.query(
-                    db, query_request, model_class=self._model_class,
+                query_result = await QueryService.query(
+                    db, query_request=query_request, model_class=self._model_class,
                     response_class=self._response_schema
                 )
                 return ResponseUtil.success(

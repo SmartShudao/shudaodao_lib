@@ -14,6 +14,7 @@ class TemplateBuilder:
 
     default_factory: bool
     support_schema: Incomplete
+    sort_columns: Incomplete
     output: Path
     def __init__(self, *, config: GeneratorConfig) -> None: ...
     @staticmethod

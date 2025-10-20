@@ -2,17 +2,16 @@ from ..exception.service_exception import (
     DataNotFoundException as DataNotFoundException,
     raise_request_validation_error as raise_request_validation_error,
 )
-from ..schemas.element import Paging as Paging
-from ..schemas.query_request import QueryRequest as QueryRequest
 from ..tools.query_builder import QueryBuilder as QueryBuilder
-from ..tools.tenant_checker import TenantManager as TenantManager
+from ..tools.tenant_manager import TenantManager as TenantManager
 from ..type.var import (
     SQLModelCreate as SQLModelCreate,
     SQLModelDB as SQLModelDB,
     SQLModelResponse as SQLModelResponse,
     SQLModelUpdate as SQLModelUpdate,
 )
-from sqlalchemy import ColumnElement
+from sqlalchemy import ColumnElement as ColumnElement
+from sqlmodel import and_ as and_, select as select
 from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
 from typing import Any
 
@@ -188,66 +187,6 @@ class DataService:
             DataNotFoundException: 若记录不存在或无权限访问。
         """
     @classmethod
-    async def query_columns_first(
-        cls,
-        db: AsyncSession,
-        *,
-        model_class: type[SQLModelDB],
-        condition: list[ColumnElement] | ColumnElement | any,
-    ) -> SQLModelDB:
-        """根据列条件查询单条记录。
-        自动附加租户过滤条件。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-            condition (Union[List[ColumnElement], ColumnElement, Any]): 查询条件。
-
-        Returns:
-            SQLModelDB: 查询到的第一条记录，若无则返回 None（但类型提示为模型，实际可能为 None）。
-        """
-    @classmethod
-    async def query_columns(
-        cls,
-        db: AsyncSession,
-        *,
-        model_class: type[SQLModelDB],
-        condition: list[ColumnElement] | ColumnElement | any,
-    ):
-        """根据列条件查询单条记录。
-        自动附加租户过滤条件。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-            condition (Union[List[ColumnElement], ColumnElement, Any]): 查询条件。
-
-        Returns:
-            SQLModelDB: 查询到的所有记录，若无则返回 None（但类型提示为模型，实际可能为 None）。
-        """
-    @classmethod
-    def get_condition_from_columns(cls, condition, model_class): ...
-    @classmethod
-    async def query(
-        cls,
-        db: AsyncSession,
-        query: QueryRequest,
-        *,
-        model_class: type[SQLModelDB],
-        response_class: type[SQLModelResponse],
-    ):
-        """使用 QueryRequest 执行高级查询，支持分页、列表、树形三种格式。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            query (QueryRequest): 查询请求对象，包含字段、条件、排序、分页等。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-            response_class (Type[SQLModelResponse]): 响应模型类。
-
-        Returns:
-            Paging | list[SQLModelResponse] | dict: 根据 query.format 返回分页对象、列表或树形结构。
-        """
-    @classmethod
     def get_primary_key_name(
         cls, model_class: type[SQLModelDB]
     ) -> str | list[str] | None:
@@ -261,4 +200,12 @@ class DataService:
                 - 单个主键时返回字段名（str），
                 - 复合主键时返回字段名列表（list[str]），
                 - 无主键时返回 None。
+        """
+    @staticmethod
+    def reset_schema(db: AsyncSession, db_model_class: type[SQLModelDB]):
+        """重置模型的 schema，以兼容 SQLite 等不支持 schema 的数据库。
+
+        Args:
+            db (AsyncSession): 数据库会话。
+            db_model_class (Type[SQLModelDB]): 数据库模型类。
         """

@@ -1910,18 +1910,21 @@ static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
 #define __Pyx_PyList_Append(L,x) PyList_Append(L,x)
 #endif
 
+/* PySequenceContains.proto */
+static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
+    int result = PySequence_Contains(seq, item);
+    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
+}
+
+/* GetAttr.proto */
+static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *, PyObject *);
+
 /* HasAttr.proto */
 #if __PYX_LIMITED_VERSION_HEX >= 0x030d0000
 #define __Pyx_HasAttr(o, n)  PyObject_HasAttrWithError(o, n)
 #else
 static CYTHON_INLINE int __Pyx_HasAttr(PyObject *, PyObject *);
 #endif
-
-/* PySequenceContains.proto */
-static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
-    int result = PySequence_Contains(seq, item);
-    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
-}
 
 /* GetAttr3.proto */
 static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *, PyObject *, PyObject *);
@@ -2285,6 +2288,7 @@ static const char __pyx_k__5[] = ".";
 static const char __pyx_k__6[] = "?";
 static const char __pyx_k_re[] = "re";
 static const char __pyx_k_day[] = "day";
+static const char __pyx_k_key[] = "key";
 static const char __pyx_k_mro[] = "__mro__";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_base[] = "base";
@@ -2296,6 +2300,7 @@ static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_year[] = "year";
 static const char __pyx_k_items[] = "items";
+static const char __pyx_k_label[] = "_label";
 static const char __pyx_k_match[] = "match";
 static const char __pyx_k_month[] = "month";
 static const char __pyx_k_dt_str[] = "dt_str";
@@ -2314,25 +2319,33 @@ static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_BaseModel[] = "BaseModel";
 static const char __pyx_k_attr_name[] = "attr_name";
+static const char __pyx_k_item_dict[] = "item_dict";
 static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_attr_value[] = "attr_value";
 static const char __pyx_k_field_name[] = "field_name";
 static const char __pyx_k_field_type[] = "field_type";
+static const char __pyx_k_EnumService[] = "EnumService";
 static const char __pyx_k_annotations[] = "__annotations__";
 static const char __pyx_k_enum_fields[] = "enum_fields";
+static const char __pyx_k_field_value[] = "field_value";
+static const char __pyx_k_format_enum[] = "format_enum";
 static const char __pyx_k_model_class[] = "model_class";
 static const char __pyx_k_query_field[] = "query_field";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_model_fields[] = "model_fields";
+static const char __pyx_k_t3a_b_K_Q_1M[] = "\200\001\340\004\007\200t\2103\210a\330\010\021\220\021\220$\220b\230\014\240K\250~\270Q\330\014\023\2201\220M\240\021\330\014\r\330\014\r";
 static const char __pyx_k_annotations_2[] = "annotations";
+static const char __pyx_k_enums_str_int[] = "enums.str_int";
+static const char __pyx_k_resolve_field[] = "resolve_field";
 static const char __pyx_k_query_field_py[] = "query_field.py";
 static const char __pyx_k_sa_type_fields[] = "sa_type_fields";
-static const char __pyx_k_enum_enum_str_int[] = "enum.enum_str_int";
+static const char __pyx_k_database_schema[] = "__database_schema__";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Q_N_V1_c_waq_1_waq_1[] = "\200\001\360\n\000\005\023\220+\230Q\340\004\022\220!\330\004\010\210\014\220N\240+\250V\2601\340\010\013\210;\220c\230\021\330\014\027\220w\230a\230q\330\r\030\230\003\2301\330\014\027\220w\230a\230q\330\004\013\2101";
 static const char __pyx_k_get_enum_field_names[] = "get_enum_field_names";
+static const char __pyx_k_services_enum_service[] = "services.enum_service";
 static const char __pyx_k_a_BfAYa_q_gU_gQ_r_WHF_j[] = "\200\001\360\n\000\005\017\210a\330\004\014\210B\210f\220A\220Y\230a\340\004\007\200q\330\010\016\210g\220U\230&\240\010\250\t\260\025\260g\270Q\330\010\017\210r\220\024\220W\230H\240F\250'\260\031\270!\340\010\016\210j\230\001\230\022\230>\250\021";
 static const char __pyx_k_d_4_d_2_d_2_T_d_2_d_2_d_2[] = "^(\\d{4})-(\\d{2})-(\\d{2})T(\\d{2}):(\\d{2}):(\\d{2})";
 static const char __pyx_k_get_class_fields_with_sa_type[] = "get_class_fields_with_sa_type";
@@ -2340,8 +2353,9 @@ static const char __pyx_k_Q_Q_1_4z_Ks_j_1_4wavQ_K_T_fA_z[] = "\200\001\330\004\r
 static const char __pyx_k_convert_datetime_iso_to_standard[] = "convert_datetime_iso_to_standard";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_model_class); /* proto */
-static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_sa_type); /* proto */
-static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dt_str); /* proto */
+static PyObject *__pyx_pf_11query_field_2format_enum(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_enum_fields, PyObject *__pyx_v_field_value, PyObject *__pyx_v_item_dict, PyObject *__pyx_v_key, PyObject *__pyx_v_model_class); /* proto */
+static PyObject *__pyx_pf_11query_field_4get_class_fields_with_sa_type(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_sa_type); /* proto */
+static PyObject *__pyx_pf_11query_field_6convert_datetime_iso_to_standard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dt_str); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2381,8 +2395,8 @@ typedef struct {
   PyTypeObject *__pyx_CoroutineType;
   #endif
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
-  PyObject *__pyx_codeobj_tab[3];
-  PyObject *__pyx_string_tab[58];
+  PyObject *__pyx_codeobj_tab[4];
+  PyObject *__pyx_string_tab[67];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2423,61 +2437,70 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_BaseModel __pyx_string_tab[1]
 #define __pyx_n_u_EnumInt __pyx_string_tab[2]
-#define __pyx_n_u_EnumStr __pyx_string_tab[3]
-#define __pyx_n_u_SQLModel __pyx_string_tab[4]
-#define __pyx_n_u_ValueError __pyx_string_tab[5]
-#define __pyx_kp_u__2 __pyx_string_tab[6]
-#define __pyx_kp_u__3 __pyx_string_tab[7]
-#define __pyx_kp_u__4 __pyx_string_tab[8]
-#define __pyx_kp_u__5 __pyx_string_tab[9]
-#define __pyx_kp_u__6 __pyx_string_tab[10]
-#define __pyx_n_u_annotations __pyx_string_tab[11]
-#define __pyx_n_u_annotations_2 __pyx_string_tab[12]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[13]
-#define __pyx_n_u_attr_name __pyx_string_tab[14]
-#define __pyx_n_u_attr_value __pyx_string_tab[15]
-#define __pyx_n_u_base __pyx_string_tab[16]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[17]
-#define __pyx_n_u_convert_datetime_iso_to_standard __pyx_string_tab[18]
-#define __pyx_kp_u_d_4_d_2_d_2_T_d_2_d_2_d_2 __pyx_string_tab[19]
-#define __pyx_n_u_day __pyx_string_tab[20]
-#define __pyx_n_u_dt_str __pyx_string_tab[21]
-#define __pyx_n_u_enum_enum_str_int __pyx_string_tab[22]
-#define __pyx_n_u_enum_fields __pyx_string_tab[23]
-#define __pyx_n_u_field_name __pyx_string_tab[24]
-#define __pyx_n_u_field_type __pyx_string_tab[25]
-#define __pyx_n_u_fields __pyx_string_tab[26]
-#define __pyx_n_u_func __pyx_string_tab[27]
-#define __pyx_n_u_get_class_fields_with_sa_type __pyx_string_tab[28]
-#define __pyx_n_u_get_enum_field_names __pyx_string_tab[29]
-#define __pyx_n_u_groups __pyx_string_tab[30]
-#define __pyx_n_u_hour __pyx_string_tab[31]
-#define __pyx_n_u_initializing __pyx_string_tab[32]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[33]
-#define __pyx_n_u_items __pyx_string_tab[34]
-#define __pyx_n_u_main __pyx_string_tab[35]
-#define __pyx_n_u_match __pyx_string_tab[36]
-#define __pyx_n_u_metadata __pyx_string_tab[37]
-#define __pyx_n_u_minute __pyx_string_tab[38]
-#define __pyx_n_u_model_class __pyx_string_tab[39]
-#define __pyx_n_u_model_fields __pyx_string_tab[40]
-#define __pyx_n_u_module __pyx_string_tab[41]
-#define __pyx_n_u_month __pyx_string_tab[42]
-#define __pyx_n_u_mro __pyx_string_tab[43]
-#define __pyx_n_u_name __pyx_string_tab[44]
-#define __pyx_n_u_pattern __pyx_string_tab[45]
-#define __pyx_n_u_pop __pyx_string_tab[46]
-#define __pyx_n_u_qualname __pyx_string_tab[47]
-#define __pyx_n_u_query_field __pyx_string_tab[48]
-#define __pyx_kp_u_query_field_py __pyx_string_tab[49]
-#define __pyx_n_u_re __pyx_string_tab[50]
-#define __pyx_n_u_sa_type __pyx_string_tab[51]
-#define __pyx_n_u_sa_type_fields __pyx_string_tab[52]
-#define __pyx_n_u_second __pyx_string_tab[53]
-#define __pyx_n_u_set_name __pyx_string_tab[54]
-#define __pyx_n_u_spec __pyx_string_tab[55]
-#define __pyx_n_u_test __pyx_string_tab[56]
-#define __pyx_n_u_year __pyx_string_tab[57]
+#define __pyx_n_u_EnumService __pyx_string_tab[3]
+#define __pyx_n_u_EnumStr __pyx_string_tab[4]
+#define __pyx_n_u_SQLModel __pyx_string_tab[5]
+#define __pyx_n_u_ValueError __pyx_string_tab[6]
+#define __pyx_kp_u__2 __pyx_string_tab[7]
+#define __pyx_kp_u__3 __pyx_string_tab[8]
+#define __pyx_kp_u__4 __pyx_string_tab[9]
+#define __pyx_kp_u__5 __pyx_string_tab[10]
+#define __pyx_kp_u__6 __pyx_string_tab[11]
+#define __pyx_n_u_annotations __pyx_string_tab[12]
+#define __pyx_n_u_annotations_2 __pyx_string_tab[13]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[14]
+#define __pyx_n_u_attr_name __pyx_string_tab[15]
+#define __pyx_n_u_attr_value __pyx_string_tab[16]
+#define __pyx_n_u_base __pyx_string_tab[17]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[18]
+#define __pyx_n_u_convert_datetime_iso_to_standard __pyx_string_tab[19]
+#define __pyx_kp_u_d_4_d_2_d_2_T_d_2_d_2_d_2 __pyx_string_tab[20]
+#define __pyx_n_u_database_schema __pyx_string_tab[21]
+#define __pyx_n_u_day __pyx_string_tab[22]
+#define __pyx_n_u_dt_str __pyx_string_tab[23]
+#define __pyx_n_u_enum_fields __pyx_string_tab[24]
+#define __pyx_n_u_enums_str_int __pyx_string_tab[25]
+#define __pyx_n_u_field_name __pyx_string_tab[26]
+#define __pyx_n_u_field_type __pyx_string_tab[27]
+#define __pyx_n_u_field_value __pyx_string_tab[28]
+#define __pyx_n_u_fields __pyx_string_tab[29]
+#define __pyx_n_u_format_enum __pyx_string_tab[30]
+#define __pyx_n_u_func __pyx_string_tab[31]
+#define __pyx_n_u_get_class_fields_with_sa_type __pyx_string_tab[32]
+#define __pyx_n_u_get_enum_field_names __pyx_string_tab[33]
+#define __pyx_n_u_groups __pyx_string_tab[34]
+#define __pyx_n_u_hour __pyx_string_tab[35]
+#define __pyx_n_u_initializing __pyx_string_tab[36]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[37]
+#define __pyx_n_u_item_dict __pyx_string_tab[38]
+#define __pyx_n_u_items __pyx_string_tab[39]
+#define __pyx_n_u_key __pyx_string_tab[40]
+#define __pyx_n_u_label __pyx_string_tab[41]
+#define __pyx_n_u_main __pyx_string_tab[42]
+#define __pyx_n_u_match __pyx_string_tab[43]
+#define __pyx_n_u_metadata __pyx_string_tab[44]
+#define __pyx_n_u_minute __pyx_string_tab[45]
+#define __pyx_n_u_model_class __pyx_string_tab[46]
+#define __pyx_n_u_model_fields __pyx_string_tab[47]
+#define __pyx_n_u_module __pyx_string_tab[48]
+#define __pyx_n_u_month __pyx_string_tab[49]
+#define __pyx_n_u_mro __pyx_string_tab[50]
+#define __pyx_n_u_name __pyx_string_tab[51]
+#define __pyx_n_u_pattern __pyx_string_tab[52]
+#define __pyx_n_u_pop __pyx_string_tab[53]
+#define __pyx_n_u_qualname __pyx_string_tab[54]
+#define __pyx_n_u_query_field __pyx_string_tab[55]
+#define __pyx_kp_u_query_field_py __pyx_string_tab[56]
+#define __pyx_n_u_re __pyx_string_tab[57]
+#define __pyx_n_u_resolve_field __pyx_string_tab[58]
+#define __pyx_n_u_sa_type __pyx_string_tab[59]
+#define __pyx_n_u_sa_type_fields __pyx_string_tab[60]
+#define __pyx_n_u_second __pyx_string_tab[61]
+#define __pyx_n_u_services_enum_service __pyx_string_tab[62]
+#define __pyx_n_u_set_name __pyx_string_tab[63]
+#define __pyx_n_u_spec __pyx_string_tab[64]
+#define __pyx_n_u_test __pyx_string_tab[65]
+#define __pyx_n_u_year __pyx_string_tab[66]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2498,8 +2521,8 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<3; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<58; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<4; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<67; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2520,14 +2543,14 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<3; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<58; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<4; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<67; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "query_field.py":13
+/* "query_field.py":14
  * 
  * 
  * def get_enum_field_names(model_class):             # <<<<<<<<<<<<<<
@@ -2575,32 +2598,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_model_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 13, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 14, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 13, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 14, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_enum_field_names", 0) < 0) __PYX_ERR(0, 13, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_enum_field_names", 0) < 0) __PYX_ERR(0, 14, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_enum_field_names", 1, 1, 1, i); __PYX_ERR(0, 13, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_enum_field_names", 1, 1, 1, i); __PYX_ERR(0, 14, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 13, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 14, __pyx_L3_error)
     }
     __pyx_v_model_class = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_enum_field_names", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 13, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_enum_field_names", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 14, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2642,31 +2665,31 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_enum_field_names", 0);
 
-  /* "query_field.py":18
+  /* "query_field.py":19
  *     """
  *     #
  *     annotations = model_class.__annotations__             # <<<<<<<<<<<<<<
  * 
  *     enum_fields = []
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_annotations); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_annotations); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_annotations = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "query_field.py":20
+  /* "query_field.py":21
  *     annotations = model_class.__annotations__
  * 
  *     enum_fields = []             # <<<<<<<<<<<<<<
  *     for field_name, field_type in annotations.items():
  *         #  EnumStr
 */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_enum_fields = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "query_field.py":21
+  /* "query_field.py":22
  * 
  *     enum_fields = []
  *     for field_name, field_type in annotations.items():             # <<<<<<<<<<<<<<
@@ -2676,9 +2699,9 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
   __pyx_t_2 = 0;
   if (unlikely(__pyx_v_annotations == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 21, __pyx_L1_error)
+    __PYX_ERR(0, 22, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_annotations, 0, __pyx_mstate_global->__pyx_n_u_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_dict_iterator(__pyx_v_annotations, 0, __pyx_mstate_global->__pyx_n_u_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -2686,7 +2709,7 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, &__pyx_t_6, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 21, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XDECREF_SET(__pyx_v_field_name, __pyx_t_5);
@@ -2694,29 +2717,29 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
     __Pyx_XDECREF_SET(__pyx_v_field_type, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "query_field.py":23
+    /* "query_field.py":24
  *     for field_name, field_type in annotations.items():
  *         #  EnumStr
  *         if field_type is EnumStr:             # <<<<<<<<<<<<<<
  *             enum_fields.append(field_name)
  *         elif field_type is EnumInt:
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_EnumStr); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_EnumStr); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 24, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = (__pyx_v_field_type == __pyx_t_6);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (__pyx_t_8) {
 
-      /* "query_field.py":24
+      /* "query_field.py":25
  *         #  EnumStr
  *         if field_type is EnumStr:
  *             enum_fields.append(field_name)             # <<<<<<<<<<<<<<
  *         elif field_type is EnumInt:
  *             enum_fields.append(field_name)
 */
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_enum_fields, __pyx_v_field_name); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 24, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_enum_fields, __pyx_v_field_name); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 25, __pyx_L1_error)
 
-      /* "query_field.py":23
+      /* "query_field.py":24
  *     for field_name, field_type in annotations.items():
  *         #  EnumStr
  *         if field_type is EnumStr:             # <<<<<<<<<<<<<<
@@ -2726,29 +2749,29 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
       goto __pyx_L5;
     }
 
-    /* "query_field.py":25
+    /* "query_field.py":26
  *         if field_type is EnumStr:
  *             enum_fields.append(field_name)
  *         elif field_type is EnumInt:             # <<<<<<<<<<<<<<
  *             enum_fields.append(field_name)
  *     return enum_fields
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_EnumInt); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_EnumInt); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = (__pyx_v_field_type == __pyx_t_6);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (__pyx_t_8) {
 
-      /* "query_field.py":26
+      /* "query_field.py":27
  *             enum_fields.append(field_name)
  *         elif field_type is EnumInt:
  *             enum_fields.append(field_name)             # <<<<<<<<<<<<<<
  *     return enum_fields
  * 
 */
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_enum_fields, __pyx_v_field_name); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 26, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_enum_fields, __pyx_v_field_name); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 27, __pyx_L1_error)
 
-      /* "query_field.py":25
+      /* "query_field.py":26
  *         if field_type is EnumStr:
  *             enum_fields.append(field_name)
  *         elif field_type is EnumInt:             # <<<<<<<<<<<<<<
@@ -2760,7 +2783,7 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "query_field.py":27
+  /* "query_field.py":28
  *         elif field_type is EnumInt:
  *             enum_fields.append(field_name)
  *     return enum_fields             # <<<<<<<<<<<<<<
@@ -2772,7 +2795,7 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
   __pyx_r = __pyx_v_enum_fields;
   goto __pyx_L0;
 
-  /* "query_field.py":13
+  /* "query_field.py":14
  * 
  * 
  * def get_enum_field_names(model_class):             # <<<<<<<<<<<<<<
@@ -2797,7 +2820,255 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "query_field.py":30
+/* "query_field.py":31
+ * 
+ * 
+ * def format_enum(enum_fields, field_value, item_dict, key, model_class):             # <<<<<<<<<<<<<<
+ *     #
+ *     if key in enum_fields:
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_11query_field_3format_enum(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_11query_field_3format_enum = {"format_enum", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11query_field_3format_enum, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11query_field_3format_enum(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_enum_fields = 0;
+  PyObject *__pyx_v_field_value = 0;
+  PyObject *__pyx_v_item_dict = 0;
+  PyObject *__pyx_v_key = 0;
+  PyObject *__pyx_v_model_class = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[5] = {0,0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("format_enum (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_enum_fields,&__pyx_mstate_global->__pyx_n_u_field_value,&__pyx_mstate_global->__pyx_n_u_item_dict,&__pyx_mstate_global->__pyx_n_u_key,&__pyx_mstate_global->__pyx_n_u_model_class,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 31, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  5:
+        values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 31, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 31, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 31, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 31, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 31, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "format_enum", 0) < 0) __PYX_ERR(0, 31, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 5; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("format_enum", 1, 5, 5, i); __PYX_ERR(0, 31, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 5)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 31, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 31, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 31, __pyx_L3_error)
+      values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 31, __pyx_L3_error)
+      values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 31, __pyx_L3_error)
+    }
+    __pyx_v_enum_fields = values[0];
+    __pyx_v_field_value = values[1];
+    __pyx_v_item_dict = values[2];
+    __pyx_v_key = values[3];
+    __pyx_v_model_class = values[4];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("format_enum", 1, 5, 5, __pyx_nargs); __PYX_ERR(0, 31, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("query_field.format_enum", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_11query_field_2format_enum(__pyx_self, __pyx_v_enum_fields, __pyx_v_field_value, __pyx_v_item_dict, __pyx_v_key, __pyx_v_model_class);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_11query_field_2format_enum(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_enum_fields, PyObject *__pyx_v_field_value, PyObject *__pyx_v_item_dict, PyObject *__pyx_v_key, PyObject *__pyx_v_model_class) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("format_enum", 0);
+
+  /* "query_field.py":33
+ * def format_enum(enum_fields, field_value, item_dict, key, model_class):
+ *     #
+ *     if key in enum_fields:             # <<<<<<<<<<<<<<
+ *         item_dict[key + "_label"] = EnumService.resolve_field(
+ *             getattr(model_class, "__database_schema__"),
+*/
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_v_enum_fields, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
+  if (__pyx_t_1) {
+
+    /* "query_field.py":34
+ *     #
+ *     if key in enum_fields:
+ *         item_dict[key + "_label"] = EnumService.resolve_field(             # <<<<<<<<<<<<<<
+ *             getattr(model_class, "__database_schema__"),
+ *             key,
+*/
+    __pyx_t_3 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_EnumService); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_resolve_field); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+    /* "query_field.py":35
+ *     if key in enum_fields:
+ *         item_dict[key + "_label"] = EnumService.resolve_field(
+ *             getattr(model_class, "__database_schema__"),             # <<<<<<<<<<<<<<
+ *             key,
+ *             field_value
+*/
+    __pyx_t_4 = __Pyx_GetAttr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_database_schema); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+
+    /* "query_field.py":37
+ *             getattr(model_class, "__database_schema__"),
+ *             key,
+ *             field_value             # <<<<<<<<<<<<<<
+ *         )
+ * 
+*/
+    __pyx_t_6 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_5);
+      assert(__pyx_t_3);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
+      __pyx_t_6 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[4] = {__pyx_t_3, __pyx_t_4, __pyx_v_key, __pyx_v_field_value};
+      __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (4-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+
+    /* "query_field.py":34
+ *     #
+ *     if key in enum_fields:
+ *         item_dict[key + "_label"] = EnumService.resolve_field(             # <<<<<<<<<<<<<<
+ *             getattr(model_class, "__database_schema__"),
+ *             key,
+*/
+    __pyx_t_5 = PyNumber_Add(__pyx_v_key, __pyx_mstate_global->__pyx_n_u_label); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (unlikely((PyObject_SetItem(__pyx_v_item_dict, __pyx_t_5, __pyx_t_2) < 0))) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "query_field.py":33
+ * def format_enum(enum_fields, field_value, item_dict, key, model_class):
+ *     #
+ *     if key in enum_fields:             # <<<<<<<<<<<<<<
+ *         item_dict[key + "_label"] = EnumService.resolve_field(
+ *             getattr(model_class, "__database_schema__"),
+*/
+  }
+
+  /* "query_field.py":31
+ * 
+ * 
+ * def format_enum(enum_fields, field_value, item_dict, key, model_class):             # <<<<<<<<<<<<<<
+ *     #
+ *     if key in enum_fields:
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("query_field.format_enum", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "query_field.py":41
  * 
  * 
  * def get_class_fields_with_sa_type(model_class, sa_type):             # <<<<<<<<<<<<<<
@@ -2806,15 +3077,15 @@ static PyObject *__pyx_pf_11query_field_get_enum_field_names(CYTHON_UNUSED PyObj
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11query_field_3get_class_fields_with_sa_type(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_11query_field_5get_class_fields_with_sa_type(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_11query_field_3get_class_fields_with_sa_type = {"get_class_fields_with_sa_type", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11query_field_3get_class_fields_with_sa_type, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_11query_field_3get_class_fields_with_sa_type(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_11query_field_5get_class_fields_with_sa_type = {"get_class_fields_with_sa_type", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11query_field_5get_class_fields_with_sa_type, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_11query_field_5get_class_fields_with_sa_type(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2845,39 +3116,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_sa_type,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 30, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 30, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 30, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_class_fields_with_sa_type", 0) < 0) __PYX_ERR(0, 30, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_class_fields_with_sa_type", 0) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_class_fields_with_sa_type", 1, 2, 2, i); __PYX_ERR(0, 30, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_class_fields_with_sa_type", 1, 2, 2, i); __PYX_ERR(0, 41, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 30, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 30, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 41, __pyx_L3_error)
     }
     __pyx_v_model_class = values[0];
     __pyx_v_sa_type = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_class_fields_with_sa_type", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 30, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_class_fields_with_sa_type", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 41, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2888,7 +3159,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11query_field_2get_class_fields_with_sa_type(__pyx_self, __pyx_v_model_class, __pyx_v_sa_type);
+  __pyx_r = __pyx_pf_11query_field_4get_class_fields_with_sa_type(__pyx_self, __pyx_v_model_class, __pyx_v_sa_type);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -2898,7 +3169,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_sa_type) {
+static PyObject *__pyx_pf_11query_field_4get_class_fields_with_sa_type(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_sa_type) {
   PyObject *__pyx_v_fields = NULL;
   PyObject *__pyx_v_sa_type_fields = NULL;
   PyObject *__pyx_v_base = NULL;
@@ -2924,47 +3195,47 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_class_fields_with_sa_type", 0);
 
-  /* "query_field.py":31
+  /* "query_field.py":42
  * 
  * def get_class_fields_with_sa_type(model_class, sa_type):
  *     fields = []             # <<<<<<<<<<<<<<
  *     sa_type_fields = []
  *     #
 */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_fields = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "query_field.py":32
+  /* "query_field.py":43
  * def get_class_fields_with_sa_type(model_class, sa_type):
  *     fields = []
  *     sa_type_fields = []             # <<<<<<<<<<<<<<
  *     #
  *     for base in model_class.__mro__:
 */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_sa_type_fields = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "query_field.py":34
+  /* "query_field.py":45
  *     sa_type_fields = []
  *     #
  *     for base in model_class.__mro__:             # <<<<<<<<<<<<<<
  *         if base.__name__ == "SQLModel" or base.__name__ == "BaseModel":
  *             break
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_mro); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_mro); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
     __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -2973,7 +3244,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 34, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 45, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
@@ -2983,7 +3254,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 34, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 45, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
@@ -2994,13 +3265,13 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
         #endif
         ++__pyx_t_3;
       }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
     } else {
       __pyx_t_1 = __pyx_t_4(__pyx_t_2);
       if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 34, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 45, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -3010,31 +3281,31 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
     __Pyx_XDECREF_SET(__pyx_v_base, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "query_field.py":35
+    /* "query_field.py":46
  *     #
  *     for base in model_class.__mro__:
  *         if base.__name__ == "SQLModel" or base.__name__ == "BaseModel":             # <<<<<<<<<<<<<<
  *             break
  *         if not hasattr(base, "metadata"):
 */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_SQLModel, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_SQLModel, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (!__pyx_t_6) {
     } else {
       __pyx_t_5 = __pyx_t_6;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_BaseModel, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_BaseModel, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_5 = __pyx_t_6;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_5) {
 
-      /* "query_field.py":36
+      /* "query_field.py":47
  *     for base in model_class.__mro__:
  *         if base.__name__ == "SQLModel" or base.__name__ == "BaseModel":
  *             break             # <<<<<<<<<<<<<<
@@ -3043,7 +3314,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
 */
       goto __pyx_L4_break;
 
-      /* "query_field.py":35
+      /* "query_field.py":46
  *     #
  *     for base in model_class.__mro__:
  *         if base.__name__ == "SQLModel" or base.__name__ == "BaseModel":             # <<<<<<<<<<<<<<
@@ -3052,18 +3323,18 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
 */
     }
 
-    /* "query_field.py":37
+    /* "query_field.py":48
  *         if base.__name__ == "SQLModel" or base.__name__ == "BaseModel":
  *             break
  *         if not hasattr(base, "metadata"):             # <<<<<<<<<<<<<<
  *             continue
  *         for attr_name, attr_value in base.model_fields.items():
 */
-    __pyx_t_5 = __Pyx_HasAttr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_metadata); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_HasAttr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_metadata); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
     __pyx_t_6 = (!__pyx_t_5);
     if (__pyx_t_6) {
 
-      /* "query_field.py":38
+      /* "query_field.py":49
  *             break
  *         if not hasattr(base, "metadata"):
  *             continue             # <<<<<<<<<<<<<<
@@ -3072,7 +3343,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
 */
       goto __pyx_L3_continue;
 
-      /* "query_field.py":37
+      /* "query_field.py":48
  *         if base.__name__ == "SQLModel" or base.__name__ == "BaseModel":
  *             break
  *         if not hasattr(base, "metadata"):             # <<<<<<<<<<<<<<
@@ -3081,7 +3352,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
 */
     }
 
-    /* "query_field.py":39
+    /* "query_field.py":50
  *         if not hasattr(base, "metadata"):
  *             continue
  *         for attr_name, attr_value in base.model_fields.items():             # <<<<<<<<<<<<<<
@@ -3089,13 +3360,13 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
  *                 fields.append(attr_name)
 */
     __pyx_t_7 = 0;
-    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_model_fields); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_base, __pyx_mstate_global->__pyx_n_u_model_fields); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (unlikely(__pyx_t_10 == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-      __PYX_ERR(0, 39, __pyx_L1_error)
+      __PYX_ERR(0, 50, __pyx_L1_error)
     }
-    __pyx_t_11 = __Pyx_dict_iterator(__pyx_t_10, 0, __pyx_mstate_global->__pyx_n_u_items, (&__pyx_t_8), (&__pyx_t_9)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_dict_iterator(__pyx_t_10, 0, __pyx_mstate_global->__pyx_n_u_items, (&__pyx_t_8), (&__pyx_t_9)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_XDECREF(__pyx_t_1);
@@ -3104,7 +3375,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
     while (1) {
       __pyx_t_12 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_8, &__pyx_t_7, &__pyx_t_11, &__pyx_t_10, NULL, __pyx_t_9);
       if (unlikely(__pyx_t_12 == 0)) break;
-      if (unlikely(__pyx_t_12 == -1)) __PYX_ERR(0, 39, __pyx_L1_error)
+      if (unlikely(__pyx_t_12 == -1)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_XDECREF_SET(__pyx_v_attr_name, __pyx_t_11);
@@ -3112,26 +3383,26 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
       __Pyx_XDECREF_SET(__pyx_v_attr_value, __pyx_t_10);
       __pyx_t_10 = 0;
 
-      /* "query_field.py":40
+      /* "query_field.py":51
  *             continue
  *         for attr_name, attr_value in base.model_fields.items():
  *             if attr_name not in fields:             # <<<<<<<<<<<<<<
  *                 fields.append(attr_name)
  *             if getattr(attr_value, "sa_type", None) == sa_type:
 */
-      __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_attr_name, __pyx_v_fields, Py_NE)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 40, __pyx_L1_error)
+      __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_attr_name, __pyx_v_fields, Py_NE)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 51, __pyx_L1_error)
       if (__pyx_t_6) {
 
-        /* "query_field.py":41
+        /* "query_field.py":52
  *         for attr_name, attr_value in base.model_fields.items():
  *             if attr_name not in fields:
  *                 fields.append(attr_name)             # <<<<<<<<<<<<<<
  *             if getattr(attr_value, "sa_type", None) == sa_type:
  *                 if attr_name not in sa_type_fields:
 */
-        __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_fields, __pyx_v_attr_name); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 41, __pyx_L1_error)
+        __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_fields, __pyx_v_attr_name); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 52, __pyx_L1_error)
 
-        /* "query_field.py":40
+        /* "query_field.py":51
  *             continue
  *         for attr_name, attr_value in base.model_fields.items():
  *             if attr_name not in fields:             # <<<<<<<<<<<<<<
@@ -3140,41 +3411,41 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
 */
       }
 
-      /* "query_field.py":42
+      /* "query_field.py":53
  *             if attr_name not in fields:
  *                 fields.append(attr_name)
  *             if getattr(attr_value, "sa_type", None) == sa_type:             # <<<<<<<<<<<<<<
  *                 if attr_name not in sa_type_fields:
  *                     sa_type_fields.append(attr_name)
 */
-      __pyx_t_10 = __Pyx_GetAttr3(__pyx_v_attr_value, __pyx_mstate_global->__pyx_n_u_sa_type, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 42, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_GetAttr3(__pyx_v_attr_value, __pyx_mstate_global->__pyx_n_u_sa_type, Py_None); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_11 = PyObject_RichCompare(__pyx_t_10, __pyx_v_sa_type, Py_EQ); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 42, __pyx_L1_error)
+      __pyx_t_11 = PyObject_RichCompare(__pyx_t_10, __pyx_v_sa_type, Py_EQ); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 42, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       if (__pyx_t_6) {
 
-        /* "query_field.py":43
+        /* "query_field.py":54
  *                 fields.append(attr_name)
  *             if getattr(attr_value, "sa_type", None) == sa_type:
  *                 if attr_name not in sa_type_fields:             # <<<<<<<<<<<<<<
  *                     sa_type_fields.append(attr_name)
  * 
 */
-        __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_attr_name, __pyx_v_sa_type_fields, Py_NE)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 43, __pyx_L1_error)
+        __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_attr_name, __pyx_v_sa_type_fields, Py_NE)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 54, __pyx_L1_error)
         if (__pyx_t_6) {
 
-          /* "query_field.py":44
+          /* "query_field.py":55
  *             if getattr(attr_value, "sa_type", None) == sa_type:
  *                 if attr_name not in sa_type_fields:
  *                     sa_type_fields.append(attr_name)             # <<<<<<<<<<<<<<
  * 
  *     return fields, sa_type_fields
 */
-          __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_sa_type_fields, __pyx_v_attr_name); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 44, __pyx_L1_error)
+          __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_sa_type_fields, __pyx_v_attr_name); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 55, __pyx_L1_error)
 
-          /* "query_field.py":43
+          /* "query_field.py":54
  *                 fields.append(attr_name)
  *             if getattr(attr_value, "sa_type", None) == sa_type:
  *                 if attr_name not in sa_type_fields:             # <<<<<<<<<<<<<<
@@ -3183,7 +3454,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
 */
         }
 
-        /* "query_field.py":42
+        /* "query_field.py":53
  *             if attr_name not in fields:
  *                 fields.append(attr_name)
  *             if getattr(attr_value, "sa_type", None) == sa_type:             # <<<<<<<<<<<<<<
@@ -3194,7 +3465,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "query_field.py":34
+    /* "query_field.py":45
  *     sa_type_fields = []
  *     #
  *     for base in model_class.__mro__:             # <<<<<<<<<<<<<<
@@ -3210,7 +3481,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
   goto __pyx_L14_for_end;
   __pyx_L14_for_end:;
 
-  /* "query_field.py":46
+  /* "query_field.py":57
  *                     sa_type_fields.append(attr_name)
  * 
  *     return fields, sa_type_fields             # <<<<<<<<<<<<<<
@@ -3218,19 +3489,19 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
  * 
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_fields);
   __Pyx_GIVEREF(__pyx_v_fields);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_fields) != (0)) __PYX_ERR(0, 46, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_fields) != (0)) __PYX_ERR(0, 57, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_sa_type_fields);
   __Pyx_GIVEREF(__pyx_v_sa_type_fields);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_sa_type_fields) != (0)) __PYX_ERR(0, 46, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_sa_type_fields) != (0)) __PYX_ERR(0, 57, __pyx_L1_error);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "query_field.py":30
+  /* "query_field.py":41
  * 
  * 
  * def get_class_fields_with_sa_type(model_class, sa_type):             # <<<<<<<<<<<<<<
@@ -3257,7 +3528,7 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
   return __pyx_r;
 }
 
-/* "query_field.py":49
+/* "query_field.py":60
  * 
  * 
  * def convert_datetime_iso_to_standard(dt_str):             # <<<<<<<<<<<<<<
@@ -3266,16 +3537,16 @@ static PyObject *__pyx_pf_11query_field_2get_class_fields_with_sa_type(CYTHON_UN
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_11query_field_5convert_datetime_iso_to_standard(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_11query_field_7convert_datetime_iso_to_standard(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_11query_field_4convert_datetime_iso_to_standard, "\n    \345\260\206 ISO 8601 \346\240\274\345\274\217\357\274\210\345\220\253T\357\274\211\347\232\204\346\227\266\351\227\264\345\255\227\347\254\246\344\270\262\350\275\254\346\215\242\344\270\272 'YYYY-MM-DD HH:MM:SS' \346\240\274\345\274\217\n    \346\224\257\346\214\201\357\274\2322025-09-22T10:30:00, 2025-09-22T10:30:00Z, 2025-09-22T10:30:00+08:00 \347\255\211\n    ");
-static PyMethodDef __pyx_mdef_11query_field_5convert_datetime_iso_to_standard = {"convert_datetime_iso_to_standard", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11query_field_5convert_datetime_iso_to_standard, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11query_field_4convert_datetime_iso_to_standard};
-static PyObject *__pyx_pw_11query_field_5convert_datetime_iso_to_standard(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_11query_field_6convert_datetime_iso_to_standard, "\n    \345\260\206 ISO 8601 \346\240\274\345\274\217\357\274\210\345\220\253T\357\274\211\347\232\204\346\227\266\351\227\264\345\255\227\347\254\246\344\270\262\350\275\254\346\215\242\344\270\272 'YYYY-MM-DD HH:MM:SS' \346\240\274\345\274\217\n    \346\224\257\346\214\201\357\274\2322025-09-22T10:30:00, 2025-09-22T10:30:00Z, 2025-09-22T10:30:00+08:00 \347\255\211\n    ");
+static PyMethodDef __pyx_mdef_11query_field_7convert_datetime_iso_to_standard = {"convert_datetime_iso_to_standard", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11query_field_7convert_datetime_iso_to_standard, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11query_field_6convert_datetime_iso_to_standard};
+static PyObject *__pyx_pw_11query_field_7convert_datetime_iso_to_standard(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3305,32 +3576,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_dt_str,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 49, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 60, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 49, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 60, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "convert_datetime_iso_to_standard", 0) < 0) __PYX_ERR(0, 49, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "convert_datetime_iso_to_standard", 0) < 0) __PYX_ERR(0, 60, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("convert_datetime_iso_to_standard", 1, 1, 1, i); __PYX_ERR(0, 49, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("convert_datetime_iso_to_standard", 1, 1, 1, i); __PYX_ERR(0, 60, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 49, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 60, __pyx_L3_error)
     }
     __pyx_v_dt_str = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("convert_datetime_iso_to_standard", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 49, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("convert_datetime_iso_to_standard", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 60, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3341,7 +3612,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_11query_field_4convert_datetime_iso_to_standard(__pyx_self, __pyx_v_dt_str);
+  __pyx_r = __pyx_pf_11query_field_6convert_datetime_iso_to_standard(__pyx_self, __pyx_v_dt_str);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -3351,7 +3622,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dt_str) {
+static PyObject *__pyx_pf_11query_field_6convert_datetime_iso_to_standard(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dt_str) {
   PyObject *__pyx_v_pattern = NULL;
   PyObject *__pyx_v_match = NULL;
   PyObject *__pyx_v_year = NULL;
@@ -3379,7 +3650,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("convert_datetime_iso_to_standard", 0);
 
-  /* "query_field.py":54
+  /* "query_field.py":65
  *     2025-09-22T10:30:00, 2025-09-22T10:30:00Z, 2025-09-22T10:30:00+08:00
  *     """
  *     pattern = r'^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})'             # <<<<<<<<<<<<<<
@@ -3389,7 +3660,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
   __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_d_4_d_2_d_2_T_d_2_d_2_d_2);
   __pyx_v_pattern = __pyx_mstate_global->__pyx_kp_u_d_4_d_2_d_2_T_d_2_d_2_d_2;
 
-  /* "query_field.py":55
+  /* "query_field.py":66
  *     """
  *     pattern = r'^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})'
  *     match = re.match(pattern, dt_str)             # <<<<<<<<<<<<<<
@@ -3397,9 +3668,9 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
  *     if match:
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -3419,23 +3690,23 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_match = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "query_field.py":57
+  /* "query_field.py":68
  *     match = re.match(pattern, dt_str)
  * 
  *     if match:             # <<<<<<<<<<<<<<
  *         year, month, day, hour, minute, second = match.groups()
  *         return f"{year}-{month}-{day} {hour}:{minute}:{second}"
 */
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_match); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_match); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 68, __pyx_L1_error)
   if (likely(__pyx_t_6)) {
 
-    /* "query_field.py":58
+    /* "query_field.py":69
  * 
  *     if match:
  *         year, month, day, hour, minute, second = match.groups()             # <<<<<<<<<<<<<<
@@ -3449,7 +3720,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
       PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_groups, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
@@ -3458,7 +3729,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
       if (unlikely(size != 6)) {
         if (size > 6) __Pyx_RaiseTooManyValuesError(6);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 58, __pyx_L1_error)
+        __PYX_ERR(0, 69, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -3476,22 +3747,22 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
         __Pyx_INCREF(__pyx_t_9);
       } else {
         __pyx_t_4 = __Pyx_PyList_GetItemRef(sequence, 0);
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 58, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_4);
         __pyx_t_2 = __Pyx_PyList_GetItemRef(sequence, 1);
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_2);
         __pyx_t_3 = __Pyx_PyList_GetItemRef(sequence, 2);
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_3);
         __pyx_t_7 = __Pyx_PyList_GetItemRef(sequence, 3);
-        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 58, __pyx_L1_error)
+        if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_7);
         __pyx_t_8 = __Pyx_PyList_GetItemRef(sequence, 4);
-        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 58, __pyx_L1_error)
+        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_8);
         __pyx_t_9 = __Pyx_PyList_GetItemRef(sequence, 5);
-        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 58, __pyx_L1_error)
+        if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 69, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_9);
       }
       #else
@@ -3499,7 +3770,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
         Py_ssize_t i;
         PyObject** temps[6] = {&__pyx_t_4,&__pyx_t_2,&__pyx_t_3,&__pyx_t_7,&__pyx_t_8,&__pyx_t_9};
         for (i=0; i < 6; i++) {
-          PyObject* item = __Pyx_PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 58, __pyx_L1_error)
+          PyObject* item = __Pyx_PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 69, __pyx_L1_error)
           __Pyx_GOTREF(item);
           *(temps[i]) = item;
         }
@@ -3509,7 +3780,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
     } else {
       Py_ssize_t index = -1;
       PyObject** temps[6] = {&__pyx_t_4,&__pyx_t_2,&__pyx_t_3,&__pyx_t_7,&__pyx_t_8,&__pyx_t_9};
-      __pyx_t_10 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 58, __pyx_L1_error)
+      __pyx_t_10 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 69, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_11 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_10);
@@ -3518,7 +3789,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
         __Pyx_GOTREF(item);
         *(temps[index]) = item;
       }
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 6) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_11(__pyx_t_10), 6) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
       __pyx_t_11 = NULL;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       goto __pyx_L5_unpacking_done;
@@ -3526,7 +3797,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_t_11 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 58, __pyx_L1_error)
+      __PYX_ERR(0, 69, __pyx_L1_error)
       __pyx_L5_unpacking_done:;
     }
     __pyx_v_year = __pyx_t_4;
@@ -3542,7 +3813,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
     __pyx_v_second = __pyx_t_9;
     __pyx_t_9 = 0;
 
-    /* "query_field.py":59
+    /* "query_field.py":70
  *     if match:
  *         year, month, day, hour, minute, second = match.groups()
  *         return f"{year}-{month}-{day} {hour}:{minute}:{second}"             # <<<<<<<<<<<<<<
@@ -3550,17 +3821,17 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
  *         raise ValueError(f": {dt_str}")
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_year, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_year, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_month, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_v_month, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_v_day, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_v_day, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_hour, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_hour, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_minute, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_minute, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_v_second, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_v_second, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_12[0] = __pyx_t_1;
     __pyx_t_12[1] = __pyx_mstate_global->__pyx_kp_u_;
@@ -3574,7 +3845,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
     __pyx_t_12[9] = __pyx_mstate_global->__pyx_kp_u__3;
     __pyx_t_12[10] = __pyx_t_2;
     __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_12, 11, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + 1 * 5 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_9) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_2), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2));
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -3586,7 +3857,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "query_field.py":57
+    /* "query_field.py":68
  *     match = re.match(pattern, dt_str)
  * 
  *     if match:             # <<<<<<<<<<<<<<
@@ -3595,7 +3866,7 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
 */
   }
 
-  /* "query_field.py":61
+  /* "query_field.py":72
  *         return f"{year}-{month}-{day} {hour}:{minute}:{second}"
  *     else:
  *         raise ValueError(f": {dt_str}")             # <<<<<<<<<<<<<<
@@ -3604,9 +3875,9 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
     __pyx_t_2 = NULL;
     __Pyx_INCREF(__pyx_builtin_ValueError);
     __pyx_t_3 = __pyx_builtin_ValueError; 
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_dt_str, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_dt_str, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__4, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__4, __pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_5 = 1;
@@ -3616,15 +3887,15 @@ static PyObject *__pyx_pf_11query_field_4convert_datetime_iso_to_standard(CYTHON
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 61, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 61, __pyx_L1_error)
+    __PYX_ERR(0, 72, __pyx_L1_error)
   }
 
-  /* "query_field.py":49
+  /* "query_field.py":60
  * 
  * 
  * def convert_datetime_iso_to_standard(dt_str):             # <<<<<<<<<<<<<<
@@ -4028,7 +4299,7 @@ __Pyx_RefNannySetupContext("PyInit_query_field", 0);
  * # @Desc
  * import re             # <<<<<<<<<<<<<<
  * 
- * from ..enum.enum_str_int import EnumStr, EnumInt
+ * from ..enums.str_int import EnumStr, EnumInt
 */
   __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_re, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -4038,13 +4309,13 @@ __Pyx_RefNannySetupContext("PyInit_query_field", 0);
   /* "query_field.py":10
  * import re
  * 
- * from ..enum.enum_str_int import EnumStr, EnumInt             # <<<<<<<<<<<<<<
- * 
+ * from ..enums.str_int import EnumStr, EnumInt             # <<<<<<<<<<<<<<
+ * from ..services.enum_service import EnumService
  * 
 */
   __pyx_t_2 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_EnumStr, __pyx_mstate_global->__pyx_n_u_EnumInt); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_enum_enum_str_int, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_enums_str_int, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_EnumStr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
@@ -4057,51 +4328,81 @@ __Pyx_RefNannySetupContext("PyInit_query_field", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "query_field.py":13
+  /* "query_field.py":11
+ * 
+ * from ..enums.str_int import EnumStr, EnumInt
+ * from ..services.enum_service import EnumService             # <<<<<<<<<<<<<<
+ * 
+ * 
+*/
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_EnumService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_services_enum_service, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_EnumService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_EnumService, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "query_field.py":14
  * 
  * 
  * def get_enum_field_names(model_class):             # <<<<<<<<<<<<<<
  *     """
  *      SQLModel  EnumStr
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11query_field_1get_enum_field_names, 0, __pyx_mstate_global->__pyx_n_u_get_enum_field_names, NULL, __pyx_mstate_global->__pyx_n_u_query_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_enum_field_names, __pyx_t_3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11query_field_1get_enum_field_names, 0, __pyx_mstate_global->__pyx_n_u_get_enum_field_names, NULL, __pyx_mstate_global->__pyx_n_u_query_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_enum_field_names, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "query_field.py":30
+  /* "query_field.py":31
+ * 
+ * 
+ * def format_enum(enum_fields, field_value, item_dict, key, model_class):             # <<<<<<<<<<<<<<
+ *     #
+ *     if key in enum_fields:
+*/
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11query_field_3format_enum, 0, __pyx_mstate_global->__pyx_n_u_format_enum, NULL, __pyx_mstate_global->__pyx_n_u_query_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_enum, __pyx_t_2) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "query_field.py":41
  * 
  * 
  * def get_class_fields_with_sa_type(model_class, sa_type):             # <<<<<<<<<<<<<<
  *     fields = []
  *     sa_type_fields = []
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11query_field_3get_class_fields_with_sa_type, 0, __pyx_mstate_global->__pyx_n_u_get_class_fields_with_sa_type, NULL, __pyx_mstate_global->__pyx_n_u_query_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_class_fields_with_sa_type, __pyx_t_3) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11query_field_5get_class_fields_with_sa_type, 0, __pyx_mstate_global->__pyx_n_u_get_class_fields_with_sa_type, NULL, __pyx_mstate_global->__pyx_n_u_query_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_class_fields_with_sa_type, __pyx_t_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "query_field.py":49
+  /* "query_field.py":60
  * 
  * 
  * def convert_datetime_iso_to_standard(dt_str):             # <<<<<<<<<<<<<<
  *     """
  *      ISO 8601 T 'YYYY-MM-DD HH:MM:SS'
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_11query_field_5convert_datetime_iso_to_standard, 0, __pyx_mstate_global->__pyx_n_u_convert_datetime_iso_to_standard, NULL, __pyx_mstate_global->__pyx_n_u_query_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_convert_datetime_iso_to_standard, __pyx_t_3) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_11query_field_7convert_datetime_iso_to_standard, 0, __pyx_mstate_global->__pyx_n_u_convert_datetime_iso_to_standard, NULL, __pyx_mstate_global->__pyx_n_u_query_field, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_convert_datetime_iso_to_standard, __pyx_t_2) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "query_field.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -4165,6 +4466,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_BaseModel, sizeof(__pyx_k_BaseModel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_BaseModel */
   {__pyx_k_EnumInt, sizeof(__pyx_k_EnumInt), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumInt */
+  {__pyx_k_EnumService, sizeof(__pyx_k_EnumService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumService */
   {__pyx_k_EnumStr, sizeof(__pyx_k_EnumStr), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EnumStr */
   {__pyx_k_SQLModel, sizeof(__pyx_k_SQLModel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLModel */
   {__pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ValueError */
@@ -4182,13 +4484,16 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
   {__pyx_k_convert_datetime_iso_to_standard, sizeof(__pyx_k_convert_datetime_iso_to_standard), 0, 1, 1}, /* PyObject cname: __pyx_n_u_convert_datetime_iso_to_standard */
   {__pyx_k_d_4_d_2_d_2_T_d_2_d_2_d_2, sizeof(__pyx_k_d_4_d_2_d_2_T_d_2_d_2_d_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_d_4_d_2_d_2_T_d_2_d_2_d_2 */
+  {__pyx_k_database_schema, sizeof(__pyx_k_database_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_database_schema */
   {__pyx_k_day, sizeof(__pyx_k_day), 0, 1, 1}, /* PyObject cname: __pyx_n_u_day */
   {__pyx_k_dt_str, sizeof(__pyx_k_dt_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dt_str */
-  {__pyx_k_enum_enum_str_int, sizeof(__pyx_k_enum_enum_str_int), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enum_enum_str_int */
   {__pyx_k_enum_fields, sizeof(__pyx_k_enum_fields), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enum_fields */
+  {__pyx_k_enums_str_int, sizeof(__pyx_k_enums_str_int), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enums_str_int */
   {__pyx_k_field_name, sizeof(__pyx_k_field_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field_name */
   {__pyx_k_field_type, sizeof(__pyx_k_field_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field_type */
+  {__pyx_k_field_value, sizeof(__pyx_k_field_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field_value */
   {__pyx_k_fields, sizeof(__pyx_k_fields), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fields */
+  {__pyx_k_format_enum, sizeof(__pyx_k_format_enum), 0, 1, 1}, /* PyObject cname: __pyx_n_u_format_enum */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_get_class_fields_with_sa_type, sizeof(__pyx_k_get_class_fields_with_sa_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_class_fields_with_sa_type */
   {__pyx_k_get_enum_field_names, sizeof(__pyx_k_get_enum_field_names), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_enum_field_names */
@@ -4196,7 +4501,10 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_hour, sizeof(__pyx_k_hour), 0, 1, 1}, /* PyObject cname: __pyx_n_u_hour */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
+  {__pyx_k_item_dict, sizeof(__pyx_k_item_dict), 0, 1, 1}, /* PyObject cname: __pyx_n_u_item_dict */
   {__pyx_k_items, sizeof(__pyx_k_items), 0, 1, 1}, /* PyObject cname: __pyx_n_u_items */
+  {__pyx_k_key, sizeof(__pyx_k_key), 0, 1, 1}, /* PyObject cname: __pyx_n_u_key */
+  {__pyx_k_label, sizeof(__pyx_k_label), 0, 1, 1}, /* PyObject cname: __pyx_n_u_label */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_match, sizeof(__pyx_k_match), 0, 1, 1}, /* PyObject cname: __pyx_n_u_match */
   {__pyx_k_metadata, sizeof(__pyx_k_metadata), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metadata */
@@ -4213,9 +4521,11 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_query_field, sizeof(__pyx_k_query_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_field */
   {__pyx_k_query_field_py, sizeof(__pyx_k_query_field_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_query_field_py */
   {__pyx_k_re, sizeof(__pyx_k_re), 0, 1, 1}, /* PyObject cname: __pyx_n_u_re */
+  {__pyx_k_resolve_field, sizeof(__pyx_k_resolve_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_resolve_field */
   {__pyx_k_sa_type, sizeof(__pyx_k_sa_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sa_type */
   {__pyx_k_sa_type_fields, sizeof(__pyx_k_sa_type_fields), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sa_type_fields */
   {__pyx_k_second, sizeof(__pyx_k_second), 0, 1, 1}, /* PyObject cname: __pyx_n_u_second */
+  {__pyx_k_services_enum_service, sizeof(__pyx_k_services_enum_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_services_enum_service */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
   {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
@@ -4229,7 +4539,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 72, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -4257,7 +4567,7 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
 /* #### Code section: init_codeobjects ### */
 \
         typedef struct {
-            unsigned int argcount : 2;
+            unsigned int argcount : 3;
             unsigned int num_posonly_args : 1;
             unsigned int num_kwonly_args : 1;
             unsigned int nlocals : 4;
@@ -4280,19 +4590,24 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 13, 68};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 14, 68};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_annotations_2, __pyx_mstate->__pyx_n_u_enum_fields, __pyx_mstate->__pyx_n_u_field_name, __pyx_mstate->__pyx_n_u_field_type};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_field_py, __pyx_mstate->__pyx_n_u_get_enum_field_names, __pyx_k_Q_N_V1_c_waq_1_waq_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 30, 136};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_sa_type, __pyx_mstate->__pyx_n_u_fields, __pyx_mstate->__pyx_n_u_sa_type_fields, __pyx_mstate->__pyx_n_u_base, __pyx_mstate->__pyx_n_u_attr_name, __pyx_mstate->__pyx_n_u_attr_value};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_field_py, __pyx_mstate->__pyx_n_u_get_class_fields_with_sa_type, __pyx_k_Q_Q_1_4z_Ks_j_1_4wavQ_K_T_fA_z, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 31, 43};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_enum_fields, __pyx_mstate->__pyx_n_u_field_value, __pyx_mstate->__pyx_n_u_item_dict, __pyx_mstate->__pyx_n_u_key, __pyx_mstate->__pyx_n_u_model_class};
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_field_py, __pyx_mstate->__pyx_n_u_format_enum, __pyx_k_t3a_b_K_Q_1M, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 49, 78};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 41, 136};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_sa_type, __pyx_mstate->__pyx_n_u_fields, __pyx_mstate->__pyx_n_u_sa_type_fields, __pyx_mstate->__pyx_n_u_base, __pyx_mstate->__pyx_n_u_attr_name, __pyx_mstate->__pyx_n_u_attr_value};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_field_py, __pyx_mstate->__pyx_n_u_get_class_fields_with_sa_type, __pyx_k_Q_Q_1_4z_Ks_j_1_4wavQ_K_T_fA_z, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 60, 78};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_dt_str, __pyx_mstate->__pyx_n_u_pattern, __pyx_mstate->__pyx_n_u_match, __pyx_mstate->__pyx_n_u_year, __pyx_mstate->__pyx_n_u_month, __pyx_mstate->__pyx_n_u_day, __pyx_mstate->__pyx_n_u_hour, __pyx_mstate->__pyx_n_u_minute, __pyx_mstate->__pyx_n_u_second};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_field_py, __pyx_mstate->__pyx_n_u_convert_datetime_iso_to_standard, __pyx_k_a_BfAYa_q_gU_gQ_r_WHF_j, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_field_py, __pyx_mstate->__pyx_n_u_convert_datetime_iso_to_standard, __pyx_k_a_BfAYa_q_gU_gQ_r_WHF_j, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -6023,6 +6338,15 @@ static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
     PyErr_Clear();
 #endif
     return __Pyx_GetBuiltinName(name);
+}
+
+/* GetAttr */
+static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *o, PyObject *n) {
+#if CYTHON_USE_TYPE_SLOTS
+    if (likely(PyUnicode_Check(n)))
+        return __Pyx_PyObject_GetAttrStr(o, n);
+#endif
+    return PyObject_GetAttr(o, n);
 }
 
 /* HasAttr */

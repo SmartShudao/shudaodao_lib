@@ -20,7 +20,6 @@ def get_engine_name():
     return RunningConfig.get_engine_name("Auth", "shudaodao_auth")
 
 
-# noinspection DuplicatedCode
 setattr(auth_registry, "engine_name", get_engine_name())
 
 
