@@ -1798,12 +1798,57 @@ static CYTHON_INLINE PyObject *__Pyx_CallUnboundCMethod2(__Pyx_CachedCFunction *
 static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
     Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
 
+/* PyObjectFormatSimple.proto */
+#if CYTHON_COMPILING_IN_PYPY
+    #define __Pyx_PyObject_FormatSimple(s, f) (\
+        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
+        PyObject_Format(s, f))
+#elif CYTHON_USE_TYPE_SLOTS
+    #define __Pyx_PyObject_FormatSimple(s, f) (\
+        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
+        likely(PyLong_CheckExact(s)) ? PyLong_Type.tp_repr(s) :\
+        likely(PyFloat_CheckExact(s)) ? PyFloat_Type.tp_repr(s) :\
+        PyObject_Format(s, f))
+#else
+    #define __Pyx_PyObject_FormatSimple(s, f) (\
+        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
+        PyObject_Format(s, f))
+#endif
+
+/* UnicodeConcatInPlace.proto */
+# if CYTHON_COMPILING_IN_CPYTHON
+    #if CYTHON_REFNANNY
+        #define __Pyx_PyUnicode_ConcatInPlace(left, right) __Pyx_PyUnicode_ConcatInPlaceImpl(&left, right, __pyx_refnanny)
+    #else
+        #define __Pyx_PyUnicode_ConcatInPlace(left, right) __Pyx_PyUnicode_ConcatInPlaceImpl(&left, right)
+    #endif
+    static CYTHON_INLINE PyObject *__Pyx_PyUnicode_ConcatInPlaceImpl(PyObject **p_left, PyObject *right
+        #if CYTHON_REFNANNY
+        , void* __pyx_refnanny
+        #endif
+    );
+#else
+#define __Pyx_PyUnicode_ConcatInPlace __Pyx_PyUnicode_Concat
+#endif
+#define __Pyx_PyUnicode_ConcatInPlaceSafe(left, right) ((unlikely((left) == Py_None) || unlikely((right) == Py_None)) ?\
+    PyNumber_InPlaceAdd(left, right) : __Pyx_PyUnicode_ConcatInPlace(left, right))
+
+/* Import.proto */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
+
+/* ImportDottedModule.proto */
+static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple);
+static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *name, PyObject *parts_tuple);
+
 /* PyObjectFastCallMethod.proto */
 #if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
 #define __Pyx_PyObject_FastCallMethod(name, args, nargsf) PyObject_VectorcallMethod(name, args, nargsf, NULL)
 #else
 static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *args, size_t nargsf);
 #endif
+
+/* GetAttr3.proto */
+static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *, PyObject *, PyObject *);
 
 /* RaiseNeedMoreValuesToUnpack.proto */
 static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
@@ -1880,23 +1925,6 @@ static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject 
 static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
 #else
 static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb);
-#endif
-
-/* PyObjectFormatSimple.proto */
-#if CYTHON_COMPILING_IN_PYPY
-    #define __Pyx_PyObject_FormatSimple(s, f) (\
-        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
-        PyObject_Format(s, f))
-#elif CYTHON_USE_TYPE_SLOTS
-    #define __Pyx_PyObject_FormatSimple(s, f) (\
-        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
-        likely(PyLong_CheckExact(s)) ? PyLong_Type.tp_repr(s) :\
-        likely(PyFloat_CheckExact(s)) ? PyFloat_Type.tp_repr(s) :\
-        PyObject_Format(s, f))
-#else
-    #define __Pyx_PyObject_FormatSimple(s, f) (\
-        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
-        PyObject_Format(s, f))
 #endif
 
 /* JoinPyUnicode.proto */
@@ -2096,18 +2124,17 @@ static CYTHON_INLINE int __Pyx_PyDict_ContainsTF(PyObject* item, PyObject* dict,
     return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
 }
 
-/* Import.proto */
-static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
-
-/* ImportDottedModule.proto */
-static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple);
-static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *name, PyObject *parts_tuple);
-
 /* ListPack.proto */
 static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...);
 
 /* ImportFrom.proto */
 static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
+
+/* ClassMethod.proto */
+#if !CYTHON_COMPILING_IN_LIMITED_API
+#include "descrobject.h"
+#endif
+CYTHON_UNUSED static PyObject* __Pyx_Method_ClassMethod(PyObject *method);
 
 /* SetNameInClass.proto */
 #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX < 0x030d0000
@@ -2119,12 +2146,6 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
 #else
 #define __Pyx_SetNameInClass(ns, name, value)  PyObject_SetItem(ns, name, value)
 #endif
-
-/* ClassMethod.proto */
-#if !CYTHON_COMPILING_IN_LIMITED_API
-#include "descrobject.h"
-#endif
-CYTHON_UNUSED static PyObject* __Pyx_Method_ClassMethod(PyObject *method);
 
 /* CalculateMetaclass.proto */
 static PyObject *__Pyx_CalculateMetaclass(PyTypeObject *metaclass, PyObject *bases);
@@ -2338,7 +2359,7 @@ static const char __pyx_k_split[] = "split";
 static const char __pyx_k_types[] = "types";
 static const char __pyx_k_is_pkg[] = "is_pkg";
 static const char __pyx_k_lambda[] = "<lambda>";
-static const char __pyx_k_module[] = "module";
+static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_object[] = "object";
 static const char __pyx_k_path_2[] = "path";
 static const char __pyx_k_prefix[] = "prefix";
@@ -2355,9 +2376,11 @@ static const char __pyx_k_pkgutil[] = "pkgutil";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_Callable[] = "Callable";
 static const char __pyx_k_Optional[] = "Optional";
+static const char __pyx_k_Response[] = "Response";
+static const char __pyx_k_Type_Any[] = "Type[Any]";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_importer[] = "importer";
-static const char __pyx_k_module_2[] = "__module__";
+static const char __pyx_k_module_2[] = "module";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_full_name[] = "full_name";
@@ -2369,6 +2392,7 @@ static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_base_class[] = "base_class";
 static const char __pyx_k_class_name[] = "class_name";
 static const char __pyx_k_getmembers[] = "getmembers";
+static const char __pyx_k_module_obj[] = "module_obj";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_dotted_path[] = "dotted_path";
 static const char __pyx_k_module_name[] = "module_name";
@@ -2389,11 +2413,16 @@ static const char __pyx_k_import_module[] = "import_module";
 static const char __pyx_k_walk_packages[] = "walk_packages";
 static const char __pyx_k_AttributeError[] = "AttributeError";
 static const char __pyx_k_logger_logging[] = "logger.logging_";
+static const char __pyx_k_original_class[] = "original_class";
+static const char __pyx_k_response_class[] = "response_class";
 static const char __pyx_k_class_scaner_py[] = "class_scaner.py";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_ModuleNotFoundError[] = "ModuleNotFoundError";
+static const char __pyx_k_response_class_name[] = "response_class_name";
+static const char __pyx_k_A6_a_q_1_b_A_YnAQ_B_Q[] = "\200A\3306>\270a\360\006\000\t\022\220\036\230q\330\010\025\220^\2401\340\010\036\230b\240\004\240A\340\017\020\330\010\025\220Y\230n\250A\250Q\330\010\031\230\027\240\001\240\034\320-B\300!\340\010\017\320\017!\240\037\260\003\260:\270Q";
 static const char __pyx_k_find_classes_instances[] = "find_classes_instances";
+static const char __pyx_k_get_model_response_class[] = "get_model_response_class";
 static const char __pyx_k_A_6_U_1_YnAQ_7_81__A_Qb_1[] = "\200A\360\014\000\t\n\340\014\r\210^\230=\250\013\2606\270\021\270!\330\014\032\230#\230U\240!\2401\340\014\025\220Y\230n\250A\250Q\330\014\023\2207\230!\2308\2401\330\010\020\220\r\320\035-\250_\270A\330\014\022\220+\230Q\230b\240\013\320+;\2701";
 static const char __pyx_k_ClassScanner__scan_module[] = "ClassScanner._scan_module";
 static const char __pyx_k_ClassScanner_find_classes[] = "ClassScanner.find_classes";
@@ -2404,6 +2433,7 @@ static const char __pyx_k_A_M_87_z_4t7_S_S_c_s_z_a_A[] = "\200A\360\006\000\025\
 static const char __pyx_k_Optional_Callable_Any_bool[] = "Optional[Callable[[Any], bool]]";
 static const char __pyx_k_Optional_Callable_Type_bool[] = "Optional[Callable[[Type], bool]]";
 static const char __pyx_k_A_q_i_Qa_a_6_J_6a_1_4way_9L_1_1[] = "\200A\360\006\000\033\034\330\014\030\230\001\330\014\027\220q\330\t\n\360\016\000\t\"\240\021\340\010\t\330\014\026\220i\230~\250Q\250a\330\010\017\320\017&\240a\330\014\023\2206\230\021\230\"\230J\320&6\260a\330\014\023\2201\340\010\013\2104\210w\220a\220y\240\001\330\014\017\320\017*\250!\2509\260L\300\013\3101\330\014\023\2201\340\010\014\210J\220i\230z\250\027\260\016\270a\330\020\025\220W\230A\330\020\027\220w\230j\250\002\250!\330\020\030\230\001\340\014\r\330\020\031\230\031\240.\260\001\260\021\330\020\023\320\023.\250a\250x\260|\300;\310a\330\014\023\220=\240\001\330\020\027\220v\230Q\230b\240\t\250\036\260q\330\020\021\340\010\013\320\013&\240a\240y\260\014\270K\300q\330\010\017\210q";
+static const char __pyx_k_ClassScanner_get_model_response[] = "ClassScanner.get_model_response_class";
 static const char __pyx_k_A_q_i_Qa_a_6_J_6a_1_4way_AYl_Q_1[] = "\200A\360\006\000\033\034\330\014\030\230\001\330\014\027\220q\330\t\n\360\020\000\t#\240!\330\010\t\330\014\026\220i\230~\250Q\250a\330\010\017\320\017&\240a\330\014\023\2206\230\021\230\"\230J\320&6\260a\330\014\023\2201\360\006\000\t\014\2104\210w\220a\220y\240\001\330\014\017\210}\230A\230Y\240l\260+\270Q\330\014\023\2201\360\006\000\t\r\210J\220i\230z\250\027\260\016\270a\330\020\025\220W\230A\330\020\027\220w\230j\250\002\250!\330\020\030\230\001\340\014\r\330\020\031\230\031\240.\260\001\260\021\330\020\023\220=\240\001\240\030\250\034\260[\300\001\330\014\023\220=\240\001\330\020\027\220v\230Q\230b\240\t\250\036\260q\330\020\021\340\010\017\210q";
 static const char __pyx_k_ClassScanner__scan_module_for_in[] = "ClassScanner._scan_module_for_instances";
 static const char __pyx_k_ClassScanner_find_classes_instan[] = "ClassScanner.find_classes_instances.<locals>.<lambda>";
@@ -2411,13 +2441,14 @@ static const char __pyx_k_ClassScanner_find_classes_locals[] = "ClassScanner.fin
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 static const char __pyx_k_ClassScanner_find_classes_instan_2[] = "ClassScanner.find_classes_instances";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dotted_path); /* proto */
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_get_model_response_class(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_original_class); /* proto */
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2import_class(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dotted_path); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate); /* proto */
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result); /* proto */
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4find_classes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate); /* proto */
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6_scan_module(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate); /* proto */
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instances(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result); /* proto */
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8find_classes_instances(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate); /* proto */
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_10_scan_module_for_instances(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2458,8 +2489,8 @@ typedef struct {
   #endif
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[2];
-  PyObject *__pyx_codeobj_tab[7];
-  PyObject *__pyx_string_tab[98];
+  PyObject *__pyx_codeobj_tab[8];
+  PyObject *__pyx_string_tab[106];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2508,93 +2539,101 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_ClassScanner_find_classes_instan __pyx_string_tab[8]
 #define __pyx_n_u_ClassScanner_find_classes_instan_2 __pyx_string_tab[9]
 #define __pyx_n_u_ClassScanner_find_classes_locals __pyx_string_tab[10]
-#define __pyx_n_u_ClassScanner_import_class __pyx_string_tab[11]
-#define __pyx_n_u_Dict __pyx_string_tab[12]
-#define __pyx_kp_u_Dict_str_Any __pyx_string_tab[13]
-#define __pyx_kp_u_Dict_str_Type __pyx_string_tab[14]
-#define __pyx_n_u_ImportError __pyx_string_tab[15]
-#define __pyx_n_u_ModuleNotFoundError __pyx_string_tab[16]
-#define __pyx_n_u_ModuleType __pyx_string_tab[17]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[18]
-#define __pyx_n_u_Optional __pyx_string_tab[19]
-#define __pyx_kp_u_Optional_Callable_Any_bool __pyx_string_tab[20]
-#define __pyx_kp_u_Optional_Callable_Type_bool __pyx_string_tab[21]
-#define __pyx_n_u_Type __pyx_string_tab[22]
-#define __pyx_n_u_ValueError __pyx_string_tab[23]
-#define __pyx_kp_u__10 __pyx_string_tab[24]
-#define __pyx_kp_u__2 __pyx_string_tab[25]
-#define __pyx_kp_u__3 __pyx_string_tab[26]
-#define __pyx_kp_u__4 __pyx_string_tab[27]
-#define __pyx_kp_u__5 __pyx_string_tab[28]
-#define __pyx_kp_u__6 __pyx_string_tab[29]
-#define __pyx_kp_u__7 __pyx_string_tab[30]
-#define __pyx_kp_u__8 __pyx_string_tab[31]
-#define __pyx_kp_u__9 __pyx_string_tab[32]
-#define __pyx_kp_u_add_note __pyx_string_tab[33]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[34]
-#define __pyx_n_u_base_class __pyx_string_tab[35]
-#define __pyx_n_u_class_name __pyx_string_tab[36]
-#define __pyx_n_u_class_scaner __pyx_string_tab[37]
-#define __pyx_kp_u_class_scaner_py __pyx_string_tab[38]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[39]
-#define __pyx_n_u_cls __pyx_string_tab[40]
-#define __pyx_n_u_doc __pyx_string_tab[41]
-#define __pyx_n_u_dotted_path __pyx_string_tab[42]
-#define __pyx_n_u_e __pyx_string_tab[43]
-#define __pyx_n_u_error __pyx_string_tab[44]
-#define __pyx_n_u_find_classes __pyx_string_tab[45]
-#define __pyx_n_u_find_classes_instances __pyx_string_tab[46]
-#define __pyx_n_u_full_name __pyx_string_tab[47]
-#define __pyx_n_u_func __pyx_string_tab[48]
-#define __pyx_n_u_getmembers __pyx_string_tab[49]
-#define __pyx_n_u_import_class __pyx_string_tab[50]
-#define __pyx_n_u_import_module __pyx_string_tab[51]
-#define __pyx_n_u_importer __pyx_string_tab[52]
-#define __pyx_n_u_importlib __pyx_string_tab[53]
-#define __pyx_n_u_initializing __pyx_string_tab[54]
-#define __pyx_n_u_inspect __pyx_string_tab[55]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[56]
-#define __pyx_n_u_is_pkg __pyx_string_tab[57]
-#define __pyx_n_u_isclass __pyx_string_tab[58]
-#define __pyx_n_u_lambda __pyx_string_tab[59]
-#define __pyx_n_u_logger_logging __pyx_string_tab[60]
-#define __pyx_n_u_logging __pyx_string_tab[61]
-#define __pyx_n_u_main __pyx_string_tab[62]
-#define __pyx_n_u_metaclass __pyx_string_tab[63]
-#define __pyx_n_u_modname __pyx_string_tab[64]
-#define __pyx_n_u_module __pyx_string_tab[65]
-#define __pyx_n_u_module_2 __pyx_string_tab[66]
-#define __pyx_n_u_module_name __pyx_string_tab[67]
-#define __pyx_n_u_module_parts __pyx_string_tab[68]
-#define __pyx_n_u_module_path __pyx_string_tab[69]
-#define __pyx_n_u_name __pyx_string_tab[70]
-#define __pyx_n_u_obj __pyx_string_tab[71]
-#define __pyx_n_u_object __pyx_string_tab[72]
-#define __pyx_n_u_onerror __pyx_string_tab[73]
-#define __pyx_n_u_package __pyx_string_tab[74]
-#define __pyx_n_u_package_name __pyx_string_tab[75]
-#define __pyx_n_u_path __pyx_string_tab[76]
-#define __pyx_n_u_path_2 __pyx_string_tab[77]
-#define __pyx_n_u_pkgutil __pyx_string_tab[78]
-#define __pyx_n_u_pop __pyx_string_tab[79]
-#define __pyx_n_u_predicate __pyx_string_tab[80]
-#define __pyx_n_u_prefix __pyx_string_tab[81]
-#define __pyx_n_u_prepare __pyx_string_tab[82]
-#define __pyx_n_u_qualname __pyx_string_tab[83]
-#define __pyx_n_u_result __pyx_string_tab[84]
-#define __pyx_n_u_return __pyx_string_tab[85]
-#define __pyx_n_u_scan_module __pyx_string_tab[86]
-#define __pyx_n_u_scan_module_for_instances __pyx_string_tab[87]
-#define __pyx_n_u_set_name __pyx_string_tab[88]
-#define __pyx_n_u_spec __pyx_string_tab[89]
-#define __pyx_n_u_split __pyx_string_tab[90]
-#define __pyx_n_u_staticmethod __pyx_string_tab[91]
-#define __pyx_n_u_str __pyx_string_tab[92]
-#define __pyx_n_u_test __pyx_string_tab[93]
-#define __pyx_n_u_types __pyx_string_tab[94]
-#define __pyx_n_u_typing __pyx_string_tab[95]
-#define __pyx_n_u_walk_packages __pyx_string_tab[96]
-#define __pyx_n_u_x __pyx_string_tab[97]
+#define __pyx_n_u_ClassScanner_get_model_response __pyx_string_tab[11]
+#define __pyx_n_u_ClassScanner_import_class __pyx_string_tab[12]
+#define __pyx_n_u_Dict __pyx_string_tab[13]
+#define __pyx_kp_u_Dict_str_Any __pyx_string_tab[14]
+#define __pyx_kp_u_Dict_str_Type __pyx_string_tab[15]
+#define __pyx_n_u_ImportError __pyx_string_tab[16]
+#define __pyx_n_u_ModuleNotFoundError __pyx_string_tab[17]
+#define __pyx_n_u_ModuleType __pyx_string_tab[18]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[19]
+#define __pyx_n_u_Optional __pyx_string_tab[20]
+#define __pyx_kp_u_Optional_Callable_Any_bool __pyx_string_tab[21]
+#define __pyx_kp_u_Optional_Callable_Type_bool __pyx_string_tab[22]
+#define __pyx_n_u_Response __pyx_string_tab[23]
+#define __pyx_n_u_Type __pyx_string_tab[24]
+#define __pyx_kp_u_Type_Any __pyx_string_tab[25]
+#define __pyx_n_u_ValueError __pyx_string_tab[26]
+#define __pyx_kp_u__10 __pyx_string_tab[27]
+#define __pyx_kp_u__2 __pyx_string_tab[28]
+#define __pyx_kp_u__3 __pyx_string_tab[29]
+#define __pyx_kp_u__4 __pyx_string_tab[30]
+#define __pyx_kp_u__5 __pyx_string_tab[31]
+#define __pyx_kp_u__6 __pyx_string_tab[32]
+#define __pyx_kp_u__7 __pyx_string_tab[33]
+#define __pyx_kp_u__8 __pyx_string_tab[34]
+#define __pyx_kp_u__9 __pyx_string_tab[35]
+#define __pyx_kp_u_add_note __pyx_string_tab[36]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[37]
+#define __pyx_n_u_base_class __pyx_string_tab[38]
+#define __pyx_n_u_class_name __pyx_string_tab[39]
+#define __pyx_n_u_class_scaner __pyx_string_tab[40]
+#define __pyx_kp_u_class_scaner_py __pyx_string_tab[41]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[42]
+#define __pyx_n_u_cls __pyx_string_tab[43]
+#define __pyx_n_u_doc __pyx_string_tab[44]
+#define __pyx_n_u_dotted_path __pyx_string_tab[45]
+#define __pyx_n_u_e __pyx_string_tab[46]
+#define __pyx_n_u_error __pyx_string_tab[47]
+#define __pyx_n_u_find_classes __pyx_string_tab[48]
+#define __pyx_n_u_find_classes_instances __pyx_string_tab[49]
+#define __pyx_n_u_full_name __pyx_string_tab[50]
+#define __pyx_n_u_func __pyx_string_tab[51]
+#define __pyx_n_u_get_model_response_class __pyx_string_tab[52]
+#define __pyx_n_u_getmembers __pyx_string_tab[53]
+#define __pyx_n_u_import_class __pyx_string_tab[54]
+#define __pyx_n_u_import_module __pyx_string_tab[55]
+#define __pyx_n_u_importer __pyx_string_tab[56]
+#define __pyx_n_u_importlib __pyx_string_tab[57]
+#define __pyx_n_u_initializing __pyx_string_tab[58]
+#define __pyx_n_u_inspect __pyx_string_tab[59]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[60]
+#define __pyx_n_u_is_pkg __pyx_string_tab[61]
+#define __pyx_n_u_isclass __pyx_string_tab[62]
+#define __pyx_n_u_lambda __pyx_string_tab[63]
+#define __pyx_n_u_logger_logging __pyx_string_tab[64]
+#define __pyx_n_u_logging __pyx_string_tab[65]
+#define __pyx_n_u_main __pyx_string_tab[66]
+#define __pyx_n_u_metaclass __pyx_string_tab[67]
+#define __pyx_n_u_modname __pyx_string_tab[68]
+#define __pyx_n_u_module __pyx_string_tab[69]
+#define __pyx_n_u_module_2 __pyx_string_tab[70]
+#define __pyx_n_u_module_name __pyx_string_tab[71]
+#define __pyx_n_u_module_obj __pyx_string_tab[72]
+#define __pyx_n_u_module_parts __pyx_string_tab[73]
+#define __pyx_n_u_module_path __pyx_string_tab[74]
+#define __pyx_n_u_name __pyx_string_tab[75]
+#define __pyx_n_u_obj __pyx_string_tab[76]
+#define __pyx_n_u_object __pyx_string_tab[77]
+#define __pyx_n_u_onerror __pyx_string_tab[78]
+#define __pyx_n_u_original_class __pyx_string_tab[79]
+#define __pyx_n_u_package __pyx_string_tab[80]
+#define __pyx_n_u_package_name __pyx_string_tab[81]
+#define __pyx_n_u_path __pyx_string_tab[82]
+#define __pyx_n_u_path_2 __pyx_string_tab[83]
+#define __pyx_n_u_pkgutil __pyx_string_tab[84]
+#define __pyx_n_u_pop __pyx_string_tab[85]
+#define __pyx_n_u_predicate __pyx_string_tab[86]
+#define __pyx_n_u_prefix __pyx_string_tab[87]
+#define __pyx_n_u_prepare __pyx_string_tab[88]
+#define __pyx_n_u_qualname __pyx_string_tab[89]
+#define __pyx_n_u_response_class __pyx_string_tab[90]
+#define __pyx_n_u_response_class_name __pyx_string_tab[91]
+#define __pyx_n_u_result __pyx_string_tab[92]
+#define __pyx_n_u_return __pyx_string_tab[93]
+#define __pyx_n_u_scan_module __pyx_string_tab[94]
+#define __pyx_n_u_scan_module_for_instances __pyx_string_tab[95]
+#define __pyx_n_u_set_name __pyx_string_tab[96]
+#define __pyx_n_u_spec __pyx_string_tab[97]
+#define __pyx_n_u_split __pyx_string_tab[98]
+#define __pyx_n_u_staticmethod __pyx_string_tab[99]
+#define __pyx_n_u_str __pyx_string_tab[100]
+#define __pyx_n_u_test __pyx_string_tab[101]
+#define __pyx_n_u_types __pyx_string_tab[102]
+#define __pyx_n_u_typing __pyx_string_tab[103]
+#define __pyx_n_u_walk_packages __pyx_string_tab[104]
+#define __pyx_n_u_x __pyx_string_tab[105]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2616,8 +2655,8 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   __Pyx_State_RemoveModule(NULL);
   #endif
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<7; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<98; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<8; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<106; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2639,32 +2678,280 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<7; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<98; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<8; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<106; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "class_scaner.py":22
- * 
+/* "class_scaner.py":23
  *     """
- *     @staticmethod             # <<<<<<<<<<<<<<
- *     def import_class(dotted_path):
- *         """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def get_model_response_class(cls, original_class: Any) -> Type[Any]:
+ *         #
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_1import_class(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_1get_model_response_class(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_import_class, "\n        \344\273\216\345\255\227\347\254\246\344\270\262\350\267\257\345\276\204\345\257\274\345\205\245\347\261\273\357\274\214\344\276\213\345\246\202\357\274\232\n        'mypackage.utils.helpers.MyClass'\n        ");
-static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_1import_class = {"import_class", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_1import_class, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_import_class};
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_1import_class(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_1get_model_response_class = {"get_model_response_class", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_1get_model_response_class, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_1get_model_response_class(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  CYTHON_UNUSED PyObject *__pyx_v_cls = 0;
+  PyObject *__pyx_v_original_class = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("get_model_response_class (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_original_class,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 23, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_model_response_class", 0) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_model_response_class", 1, 2, 2, i); __PYX_ERR(0, 23, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 2)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 23, __pyx_L3_error)
+    }
+    __pyx_v_cls = values[0];
+    __pyx_v_original_class = values[1];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("get_model_response_class", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("class_scaner.ClassScanner.get_model_response_class", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_get_model_response_class(__pyx_self, __pyx_v_cls, __pyx_v_original_class);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_get_model_response_class(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_original_class) {
+  PyObject *__pyx_v_module = NULL;
+  PyObject *__pyx_v_class_name = NULL;
+  PyObject *__pyx_v_response_class_name = NULL;
+  PyObject *__pyx_v_importlib = NULL;
+  PyObject *__pyx_v_module_obj = NULL;
+  PyObject *__pyx_v_response_class = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  size_t __pyx_t_3;
+  int __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("get_model_response_class", 0);
+
+  /* "class_scaner.py":27
+ *         #
+ *         # original_class = type(model_instance)
+ *         module = original_class.__module__             # <<<<<<<<<<<<<<
+ *         class_name = original_class.__name__
+ *         #  Response
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_original_class, __pyx_mstate_global->__pyx_n_u_module); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_module = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "class_scaner.py":28
+ *         # original_class = type(model_instance)
+ *         module = original_class.__module__
+ *         class_name = original_class.__name__             # <<<<<<<<<<<<<<
+ *         #  Response
+ *         response_class_name = f"{class_name}Response"
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_original_class, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_class_name = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "class_scaner.py":30
+ *         class_name = original_class.__name__
+ *         #  Response
+ *         response_class_name = f"{class_name}Response"             # <<<<<<<<<<<<<<
+ *         #
+ *         import importlib
+*/
+  __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_class_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_Response); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_response_class_name = ((PyObject*)__pyx_t_2);
+  __pyx_t_2 = 0;
+
+  /* "class_scaner.py":32
+ *         response_class_name = f"{class_name}Response"
+ *         #
+ *         import importlib             # <<<<<<<<<<<<<<
+ *         module_obj = importlib.import_module(module)
+ *         response_class = getattr(module_obj, response_class_name, None)
+*/
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_importlib, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_importlib = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "class_scaner.py":33
+ *         #
+ *         import importlib
+ *         module_obj = importlib.import_module(module)             # <<<<<<<<<<<<<<
+ *         response_class = getattr(module_obj, response_class_name, None)
+ *         #  response_class original_class
+*/
+  __pyx_t_1 = __pyx_v_importlib;
+  __Pyx_INCREF(__pyx_t_1);
+  __pyx_t_3 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_v_module};
+    __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_import_module, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+  }
+  __pyx_v_module_obj = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "class_scaner.py":34
+ *         import importlib
+ *         module_obj = importlib.import_module(module)
+ *         response_class = getattr(module_obj, response_class_name, None)             # <<<<<<<<<<<<<<
+ *         #  response_class original_class
+ *         return original_class if response_class is None else response_class
+*/
+  __pyx_t_2 = __Pyx_GetAttr3(__pyx_v_module_obj, __pyx_v_response_class_name, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_response_class = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "class_scaner.py":36
+ *         response_class = getattr(module_obj, response_class_name, None)
+ *         #  response_class original_class
+ *         return original_class if response_class is None else response_class             # <<<<<<<<<<<<<<
+ * 
+ *     @staticmethod
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_4 = (__pyx_v_response_class == Py_None);
+  if (__pyx_t_4) {
+    __Pyx_INCREF(__pyx_v_original_class);
+    __pyx_t_2 = __pyx_v_original_class;
+  } else {
+    __Pyx_INCREF(__pyx_v_response_class);
+    __pyx_t_2 = __pyx_v_response_class;
+  }
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* "class_scaner.py":23
+ *     """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def get_model_response_class(cls, original_class: Any) -> Type[Any]:
+ *         #
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("class_scaner.ClassScanner.get_model_response_class", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_module);
+  __Pyx_XDECREF(__pyx_v_class_name);
+  __Pyx_XDECREF(__pyx_v_response_class_name);
+  __Pyx_XDECREF(__pyx_v_importlib);
+  __Pyx_XDECREF(__pyx_v_module_obj);
+  __Pyx_XDECREF(__pyx_v_response_class);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "class_scaner.py":38
+ *         return original_class if response_class is None else response_class
+ * 
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def import_class(dotted_path):
+ *         """
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_3import_class(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_2import_class, "\n        \344\273\216\345\255\227\347\254\246\344\270\262\350\267\257\345\276\204\345\257\274\345\205\245\347\261\273\357\274\214\344\276\213\345\246\202\357\274\232\n        'mypackage.utils.helpers.MyClass'\n        ");
+static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_3import_class = {"import_class", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_3import_class, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_2import_class};
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_3import_class(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2694,32 +2981,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_dotted_path,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 22, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 38, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 38, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "import_class", 0) < 0) __PYX_ERR(0, 22, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "import_class", 0) < 0) __PYX_ERR(0, 38, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("import_class", 1, 1, 1, i); __PYX_ERR(0, 22, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("import_class", 1, 1, 1, i); __PYX_ERR(0, 38, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 22, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 38, __pyx_L3_error)
     }
     __pyx_v_dotted_path = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("import_class", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 22, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("import_class", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 38, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2730,7 +3017,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_import_class(__pyx_self, __pyx_v_dotted_path);
+  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_2import_class(__pyx_self, __pyx_v_dotted_path);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -2740,7 +3027,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dotted_path) {
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2import_class(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_dotted_path) {
   PyObject *__pyx_v_module_parts = NULL;
   PyObject *__pyx_v_class_name = NULL;
   PyObject *__pyx_v_module_path = NULL;
@@ -2777,7 +3064,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("import_class", 0);
 
-  /* "class_scaner.py":28
+  /* "class_scaner.py":44
  *         'mypackage.utils.helpers.MyClass'
  *         """
  *         try:             # <<<<<<<<<<<<<<
@@ -2793,7 +3080,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "class_scaner.py":30
+      /* "class_scaner.py":46
  *         try:
  *             #
  *             *module_parts, class_name = dotted_path.split('.')             # <<<<<<<<<<<<<<
@@ -2807,15 +3094,15 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
         PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_mstate_global->__pyx_kp_u_};
         __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_split, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L3_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
-      __pyx_t_5 = __Pyx_PySequence_ListKeepNew(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L3_error)
+      __pyx_t_5 = __Pyx_PySequence_ListKeepNew(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_7 = __Pyx_PyList_GET_SIZE(__pyx_t_5);
       if (unlikely(__pyx_t_7 < 1)) {
-        __Pyx_RaiseNeedMoreValuesError(0+__pyx_t_7); __PYX_ERR(0, 30, __pyx_L3_error)
+        __Pyx_RaiseNeedMoreValuesError(0+__pyx_t_7); __PYX_ERR(0, 46, __pyx_L3_error)
       }
       #if CYTHON_COMPILING_IN_CPYTHON
       __pyx_t_8 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_7-1); 
@@ -2825,7 +3112,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
       #endif
       __Pyx_GOTREF(__pyx_t_8);
       #if !CYTHON_COMPILING_IN_CPYTHON
-      __pyx_t_9 = PySequence_GetSlice(__pyx_t_5, 0, __pyx_t_7-1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 30, __pyx_L3_error)
+      __pyx_t_9 = PySequence_GetSlice(__pyx_t_5, 0, __pyx_t_7-1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 46, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_5);
       __pyx_t_5 = __pyx_t_9; __pyx_t_9 = NULL;
@@ -2837,19 +3124,19 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
       __pyx_v_class_name = __pyx_t_8;
       __pyx_t_8 = 0;
 
-      /* "class_scaner.py":31
+      /* "class_scaner.py":47
  *             #
  *             *module_parts, class_name = dotted_path.split('.')
  *             module_path = '.'.join(module_parts)             # <<<<<<<<<<<<<<
  * 
  *             module = importlib.import_module(module_path)
 */
-      __pyx_t_4 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u_, __pyx_v_module_parts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L3_error)
+      __pyx_t_4 = PyUnicode_Join(__pyx_mstate_global->__pyx_kp_u_, __pyx_v_module_parts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_v_module_path = ((PyObject*)__pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "class_scaner.py":33
+      /* "class_scaner.py":49
  *             module_path = '.'.join(module_parts)
  * 
  *             module = importlib.import_module(module_path)             # <<<<<<<<<<<<<<
@@ -2857,9 +3144,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
  *         except (ImportError, AttributeError, ValueError) as e:
 */
       __pyx_t_8 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L3_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 33, __pyx_L3_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 49, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_6 = 1;
@@ -2879,13 +3166,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L3_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __pyx_v_module = __pyx_t_4;
       __pyx_t_4 = 0;
 
-      /* "class_scaner.py":34
+      /* "class_scaner.py":50
  * 
  *             module = importlib.import_module(module_path)
  *             return getattr(module, class_name)             # <<<<<<<<<<<<<<
@@ -2893,13 +3180,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
  *             raise ImportError(f" '{dotted_path}': {e}")
 */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_GetAttr(__pyx_v_module, __pyx_v_class_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L3_error)
+      __pyx_t_4 = __Pyx_GetAttr(__pyx_v_module, __pyx_v_class_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_r = __pyx_t_4;
       __pyx_t_4 = 0;
       goto __pyx_L7_try_return;
 
-      /* "class_scaner.py":28
+      /* "class_scaner.py":44
  *         'mypackage.utils.helpers.MyClass'
  *         """
  *         try:             # <<<<<<<<<<<<<<
@@ -2913,7 +3200,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "class_scaner.py":35
+    /* "class_scaner.py":51
  *             module = importlib.import_module(module_path)
  *             return getattr(module, class_name)
  *         except (ImportError, AttributeError, ValueError) as e:             # <<<<<<<<<<<<<<
@@ -2923,7 +3210,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
     __pyx_t_10 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ImportError) || __Pyx_PyErr_ExceptionMatches(__pyx_builtin_AttributeError) || __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ValueError);
     if (__pyx_t_10) {
       __Pyx_AddTraceback("class_scaner.ClassScanner.import_class", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_9, &__pyx_t_8) < 0) __PYX_ERR(0, 35, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_9, &__pyx_t_8) < 0) __PYX_ERR(0, 51, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_4);
       __Pyx_XGOTREF(__pyx_t_9);
       __Pyx_XGOTREF(__pyx_t_8);
@@ -2931,7 +3218,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
       __pyx_v_e = __pyx_t_9;
       /*try:*/ {
 
-        /* "class_scaner.py":36
+        /* "class_scaner.py":52
  *             return getattr(module, class_name)
  *         except (ImportError, AttributeError, ValueError) as e:
  *             raise ImportError(f" '{dotted_path}': {e}")             # <<<<<<<<<<<<<<
@@ -2941,16 +3228,16 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
         __pyx_t_11 = NULL;
         __Pyx_INCREF(__pyx_builtin_ImportError);
         __pyx_t_12 = __pyx_builtin_ImportError; 
-        __pyx_t_13 = __Pyx_PyObject_FormatSimple(__pyx_v_dotted_path, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 36, __pyx_L14_error)
+        __pyx_t_13 = __Pyx_PyObject_FormatSimple(__pyx_v_dotted_path, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 52, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_13);
-        __pyx_t_14 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 36, __pyx_L14_error)
+        __pyx_t_14 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 52, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_14);
         __pyx_t_15[0] = __pyx_mstate_global->__pyx_kp_u__2;
         __pyx_t_15[1] = __pyx_t_13;
         __pyx_t_15[2] = __pyx_mstate_global->__pyx_kp_u__3;
         __pyx_t_15[3] = __pyx_t_14;
         __pyx_t_16 = __Pyx_PyUnicode_Join(__pyx_t_15, 4, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_13) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_14), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_13) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_14));
-        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 36, __pyx_L14_error)
+        if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 52, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_16);
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
         __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
@@ -2961,15 +3248,15 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
           __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L14_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L14_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __Pyx_Raise(__pyx_t_5, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __PYX_ERR(0, 36, __pyx_L14_error)
+        __PYX_ERR(0, 52, __pyx_L14_error)
       }
 
-      /* "class_scaner.py":35
+      /* "class_scaner.py":51
  *             module = importlib.import_module(module_path)
  *             return getattr(module, class_name)
  *         except (ImportError, AttributeError, ValueError) as e:             # <<<<<<<<<<<<<<
@@ -3016,7 +3303,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
     }
     goto __pyx_L5_except_error;
 
-    /* "class_scaner.py":28
+    /* "class_scaner.py":44
  *         'mypackage.utils.helpers.MyClass'
  *         """
  *         try:             # <<<<<<<<<<<<<<
@@ -3037,9 +3324,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
     goto __pyx_L0;
   }
 
-  /* "class_scaner.py":22
+  /* "class_scaner.py":38
+ *         return original_class if response_class is None else response_class
  * 
- *     """
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def import_class(dotted_path):
  *         """
@@ -3069,7 +3356,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "class_scaner.py":38
+/* "class_scaner.py":54
  *             raise ImportError(f" '{dotted_path}': {e}")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3078,16 +3365,16 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_import_class(CYTHON_UNUS
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_3find_classes(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_5find_classes(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_2find_classes, "\n        \346\211\253\346\217\217\346\214\207\345\256\232\345\214\205\357\274\214\346\211\276\345\207\272\346\211\200\346\234\211\347\273\247\346\211\277\350\207\252 base_class \344\270\224\346\273\241\350\266\263 predicate \346\235\241\344\273\266\347\232\204\347\261\273\n        :param package_name: \350\246\201\346\211\253\346\217\217\347\232\204\345\214\205\345\220\215\357\274\210\345\246\202 \"myapp.models\"\357\274\211\n        :param base_class: \345\237\272\347\261\273\357\274\210\351\273\230\350\256\244 object\357\274\214\345\215\263\346\211\200\346\234\211\347\261\273\357\274\211\n        :param predicate: \351\242\235\345\244\226\347\255\233\351\200\211\346\235\241\344\273\266\357\274\210\345\207\275\346\225\260\357\274\214\346\216\245\346\224\266\347\261\273\345\257\271\350\261\241\357\274\214\350\277\224\345\233\236 bool\357\274\211\n        :return: {\345\256\214\346\225\264\347\261\273\345\220\215: \347\261\273\345\257\271\350\261\241} \347\232\204\345\255\227\345\205\270\n        ");
-static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_3find_classes = {"find_classes", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_3find_classes, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_2find_classes};
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_3find_classes(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_4find_classes, "\n        \346\211\253\346\217\217\346\214\207\345\256\232\345\214\205\357\274\214\346\211\276\345\207\272\346\211\200\346\234\211\347\273\247\346\211\277\350\207\252 base_class \344\270\224\346\273\241\350\266\263 predicate \346\235\241\344\273\266\347\232\204\347\261\273\n        :param package_name: \350\246\201\346\211\253\346\217\217\347\232\204\345\214\205\345\220\215\357\274\210\345\246\202 \"myapp.models\"\357\274\211\n        :param base_class: \345\237\272\347\261\273\357\274\210\351\273\230\350\256\244 object\357\274\214\345\215\263\346\211\200\346\234\211\347\261\273\357\274\211\n        :param predicate: \351\242\235\345\244\226\347\255\233\351\200\211\346\235\241\344\273\266\357\274\210\345\207\275\346\225\260\357\274\214\346\216\245\346\224\266\347\261\273\345\257\271\350\261\241\357\274\214\350\277\224\345\233\236 bool\357\274\211\n        :return: {\345\256\214\346\225\264\347\261\273\345\220\215: \347\261\273\345\257\271\350\261\241} \347\232\204\345\255\227\345\205\270\n        ");
+static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_5find_classes = {"find_classes", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_5find_classes, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_4find_classes};
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_5find_classes(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3120,32 +3407,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_package_name,&__pyx_mstate_global->__pyx_n_u_base_class,&__pyx_mstate_global->__pyx_n_u_predicate,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 38, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 54, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 54, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 54, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 54, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 54, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "find_classes", 0) < 0) __PYX_ERR(0, 38, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "find_classes", 0) < 0) __PYX_ERR(0, 54, __pyx_L3_error)
 
-      /* "class_scaner.py":42
+      /* "class_scaner.py":58
  *             cls,
  *             package_name: str,
  *             base_class: Type = object,             # <<<<<<<<<<<<<<
@@ -3154,7 +3441,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject *)((PyObject *)__pyx_builtin_object)));
 
-      /* "class_scaner.py":43
+      /* "class_scaner.py":59
  *             package_name: str,
  *             base_class: Type = object,
  *             predicate: Optional[Callable[[Type], bool]] = None,             # <<<<<<<<<<<<<<
@@ -3163,23 +3450,23 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("find_classes", 0, 2, 4, i); __PYX_ERR(0, 38, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("find_classes", 0, 2, 4, i); __PYX_ERR(0, 54, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 54, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 54, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 54, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 54, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
@@ -3193,7 +3480,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_classes", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 38, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_classes", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 54, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3204,10 +3491,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_package_name), (&PyUnicode_Type), 0, "package_name", 2))) __PYX_ERR(0, 41, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_2find_classes(__pyx_self, __pyx_v_cls, __pyx_v_package_name, __pyx_v_base_class, __pyx_v_predicate);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_package_name), (&PyUnicode_Type), 0, "package_name", 2))) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_4find_classes(__pyx_self, __pyx_v_cls, __pyx_v_package_name, __pyx_v_base_class, __pyx_v_predicate);
 
-  /* "class_scaner.py":38
+  /* "class_scaner.py":54
  *             raise ImportError(f" '{dotted_path}': {e}")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3232,7 +3519,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "class_scaner.py":68
+/* "class_scaner.py":84
  *                 path=package.__path__,
  *                 prefix=package.__name__ + ".",
  *                 onerror=lambda x: logging.error(f": {x}")             # <<<<<<<<<<<<<<
@@ -3279,32 +3566,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 68, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 84, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 68, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 84, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda", 0) < 0) __PYX_ERR(0, 68, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda", 0) < 0) __PYX_ERR(0, 84, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, i); __PYX_ERR(0, 68, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, i); __PYX_ERR(0, 84, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 68, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 84, __pyx_L3_error)
     }
     __pyx_v_x = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 68, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 84, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3340,14 +3627,14 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
   __Pyx_RefNannySetupContext("lambda", 0);
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_x, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_x, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_6 = 1;
@@ -3368,7 +3655,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -3390,7 +3677,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
   return __pyx_r;
 }
 
-/* "class_scaner.py":38
+/* "class_scaner.py":54
  *             raise ImportError(f" '{dotted_path}': {e}")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3398,7 +3685,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
  *             cls,
 */
 
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate) {
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4find_classes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate) {
   PyObject *__pyx_v_result = 0;
   PyObject *__pyx_v_package = NULL;
   PyObject *__pyx_v_e = NULL;
@@ -3444,19 +3731,19 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("find_classes", 0);
 
-  /* "class_scaner.py":52
+  /* "class_scaner.py":68
  *         :return: {: }
  *         """
  *         result: Dict[str, Type] = {}             # <<<<<<<<<<<<<<
  *         try:
  *             package = importlib.import_module(package_name)
 */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_result = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "class_scaner.py":53
+  /* "class_scaner.py":69
  *         """
  *         result: Dict[str, Type] = {}
  *         try:             # <<<<<<<<<<<<<<
@@ -3472,7 +3759,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __Pyx_XGOTREF(__pyx_t_4);
     /*try:*/ {
 
-      /* "class_scaner.py":54
+      /* "class_scaner.py":70
  *         result: Dict[str, Type] = {}
  *         try:
  *             package = importlib.import_module(package_name)             # <<<<<<<<<<<<<<
@@ -3480,9 +3767,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
  *             logging.error(f" {package_name}: {e}")
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L3_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 54, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 70, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_8 = 1;
@@ -3502,13 +3789,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L3_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __pyx_v_package = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "class_scaner.py":53
+      /* "class_scaner.py":69
  *         """
  *         result: Dict[str, Type] = {}
  *         try:             # <<<<<<<<<<<<<<
@@ -3526,7 +3813,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "class_scaner.py":55
+    /* "class_scaner.py":71
  *         try:
  *             package = importlib.import_module(package_name)
  *         except ModuleNotFoundError as e:             # <<<<<<<<<<<<<<
@@ -3536,7 +3823,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __pyx_t_9 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ModuleNotFoundError);
     if (__pyx_t_9) {
       __Pyx_AddTraceback("class_scaner.ClassScanner.find_classes", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_7, &__pyx_t_5) < 0) __PYX_ERR(0, 55, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_7, &__pyx_t_5) < 0) __PYX_ERR(0, 71, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_1);
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_5);
@@ -3544,7 +3831,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       __pyx_v_e = __pyx_t_7;
       /*try:*/ {
 
-        /* "class_scaner.py":56
+        /* "class_scaner.py":72
  *             package = importlib.import_module(package_name)
  *         except ModuleNotFoundError as e:
  *             logging.error(f" {package_name}: {e}")             # <<<<<<<<<<<<<<
@@ -3552,19 +3839,19 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
  * 
 */
         __pyx_t_10 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L14_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 72, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 56, __pyx_L14_error)
+        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 72, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 56, __pyx_L14_error)
+        __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 72, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_13[0] = __pyx_mstate_global->__pyx_kp_u__5;
         __pyx_t_13[1] = __pyx_v_package_name;
         __pyx_t_13[2] = __pyx_mstate_global->__pyx_kp_u__6;
         __pyx_t_13[3] = __pyx_t_11;
         __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_13, 4, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_v_package_name) + 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_package_name) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11));
-        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 56, __pyx_L14_error)
+        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 72, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_14);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_t_8 = 1;
@@ -3585,12 +3872,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L14_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 72, __pyx_L14_error)
           __Pyx_GOTREF(__pyx_t_6);
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "class_scaner.py":57
+        /* "class_scaner.py":73
  *         except ModuleNotFoundError as e:
  *             logging.error(f" {package_name}: {e}")
  *             return result             # <<<<<<<<<<<<<<
@@ -3606,7 +3893,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
         goto __pyx_L13_return;
       }
 
-      /* "class_scaner.py":55
+      /* "class_scaner.py":71
  *         try:
  *             package = importlib.import_module(package_name)
  *         except ModuleNotFoundError as e:             # <<<<<<<<<<<<<<
@@ -3660,7 +3947,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     }
     goto __pyx_L5_except_error;
 
-    /* "class_scaner.py":53
+    /* "class_scaner.py":69
  *         """
  *         result: Dict[str, Type] = {}
  *         try:             # <<<<<<<<<<<<<<
@@ -3682,18 +3969,18 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __pyx_L8_try_end:;
   }
 
-  /* "class_scaner.py":60
+  /* "class_scaner.py":76
  * 
  *         #
  *         if not hasattr(package, "__path__"):             # <<<<<<<<<<<<<<
  *             cls._scan_module(package, base_class, predicate, result)
  *             return result
 */
-  __pyx_t_24 = __Pyx_HasAttr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(__pyx_t_24 == ((int)-1))) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_24 = __Pyx_HasAttr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(__pyx_t_24 == ((int)-1))) __PYX_ERR(0, 76, __pyx_L1_error)
   __pyx_t_25 = (!__pyx_t_24);
   if (__pyx_t_25) {
 
-    /* "class_scaner.py":61
+    /* "class_scaner.py":77
  *         #
  *         if not hasattr(package, "__path__"):
  *             cls._scan_module(package, base_class, predicate, result)             # <<<<<<<<<<<<<<
@@ -3707,12 +3994,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       PyObject *__pyx_callargs[5] = {__pyx_t_7, __pyx_v_package, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result};
       __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_scan_module, __pyx_callargs+__pyx_t_8, (5-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 77, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "class_scaner.py":62
+    /* "class_scaner.py":78
  *         if not hasattr(package, "__path__"):
  *             cls._scan_module(package, base_class, predicate, result)
  *             return result             # <<<<<<<<<<<<<<
@@ -3724,7 +4011,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __pyx_r = __pyx_v_result;
     goto __pyx_L0;
 
-    /* "class_scaner.py":60
+    /* "class_scaner.py":76
  * 
  *         #
  *         if not hasattr(package, "__path__"):             # <<<<<<<<<<<<<<
@@ -3733,7 +4020,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
 */
   }
 
-  /* "class_scaner.py":65
+  /* "class_scaner.py":81
  * 
  *         #
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -3741,43 +4028,43 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
  *                 prefix=package.__name__ + ".",
 */
   __pyx_t_7 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_pkgutil); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_pkgutil); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_walk_packages); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_walk_packages); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "class_scaner.py":66
+  /* "class_scaner.py":82
  *         #
  *         for importer, modname, is_pkg in pkgutil.walk_packages(
  *                 path=package.__path__,             # <<<<<<<<<<<<<<
  *                 prefix=package.__name__ + ".",
  *                 onerror=lambda x: logging.error(f": {x}")
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "class_scaner.py":67
+  /* "class_scaner.py":83
  *         for importer, modname, is_pkg in pkgutil.walk_packages(
  *                 path=package.__path__,
  *                 prefix=package.__name__ + ".",             # <<<<<<<<<<<<<<
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
 */
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_14 = PyNumber_Add(__pyx_t_12, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_14 = PyNumber_Add(__pyx_t_12, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_14);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-  /* "class_scaner.py":68
+  /* "class_scaner.py":84
  *                 path=package.__path__,
  *                 prefix=package.__name__ + ".",
  *                 onerror=lambda x: logging.error(f": {x}")             # <<<<<<<<<<<<<<
  *         ):
  *             try:
 */
-  __pyx_t_12 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_12find_classes_lambda, 0, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes_locals, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_12find_classes_lambda, 0, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes_locals, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __pyx_t_8 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3793,11 +4080,11 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_7, NULL};
-    __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path_2, __pyx_t_1, __pyx_t_10, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_14, __pyx_t_10, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_onerror, __pyx_t_12, __pyx_t_10, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path_2, __pyx_t_1, __pyx_t_10, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_14, __pyx_t_10, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_onerror, __pyx_t_12, __pyx_t_10, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
     __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_10);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3805,11 +4092,11 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   }
 
-  /* "class_scaner.py":65
+  /* "class_scaner.py":81
  * 
  *         #
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -3821,9 +4108,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __pyx_t_26 = 0;
     __pyx_t_27 = NULL;
   } else {
-    __pyx_t_26 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_26 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_27 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_27 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 81, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   for (;;) {
@@ -3832,7 +4119,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 81, __pyx_L1_error)
           #endif
           if (__pyx_t_26 >= __pyx_temp) break;
         }
@@ -3842,7 +4129,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 81, __pyx_L1_error)
           #endif
           if (__pyx_t_26 >= __pyx_temp) break;
         }
@@ -3853,13 +4140,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
         #endif
         ++__pyx_t_26;
       }
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 65, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 81, __pyx_L1_error)
     } else {
       __pyx_t_5 = __pyx_t_27(__pyx_t_6);
       if (unlikely(!__pyx_t_5)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 65, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 81, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -3872,7 +4159,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 65, __pyx_L1_error)
+        __PYX_ERR(0, 81, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -3884,27 +4171,27 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
         __Pyx_INCREF(__pyx_t_14);
       } else {
         __pyx_t_10 = __Pyx_PyList_GetItemRef(sequence, 0);
-        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 65, __pyx_L1_error)
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 81, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_10);
         __pyx_t_12 = __Pyx_PyList_GetItemRef(sequence, 1);
-        if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 65, __pyx_L1_error)
+        if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 81, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_12);
         __pyx_t_14 = __Pyx_PyList_GetItemRef(sequence, 2);
-        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 65, __pyx_L1_error)
+        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 81, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_14);
       }
       #else
-      __pyx_t_10 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_12 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_14 = __Pyx_PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_14 = __Pyx_PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_14);
       #endif
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_1 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __pyx_t_1 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_28 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1);
@@ -3914,7 +4201,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       __Pyx_GOTREF(__pyx_t_12);
       index = 2; __pyx_t_14 = __pyx_t_28(__pyx_t_1); if (unlikely(!__pyx_t_14)) goto __pyx_L23_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_14);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_28(__pyx_t_1), 3) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_28(__pyx_t_1), 3) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
       __pyx_t_28 = NULL;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       goto __pyx_L24_unpacking_done;
@@ -3922,7 +4209,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_28 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 65, __pyx_L1_error)
+      __PYX_ERR(0, 81, __pyx_L1_error)
       __pyx_L24_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_importer, __pyx_t_10);
@@ -3932,7 +4219,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
     __Pyx_XDECREF_SET(__pyx_v_is_pkg, __pyx_t_14);
     __pyx_t_14 = 0;
 
-    /* "class_scaner.py":70
+    /* "class_scaner.py":86
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
  *             try:             # <<<<<<<<<<<<<<
@@ -3948,7 +4235,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       __Pyx_XGOTREF(__pyx_t_2);
       /*try:*/ {
 
-        /* "class_scaner.py":71
+        /* "class_scaner.py":87
  *         ):
  *             try:
  *                 module = importlib.import_module(modname)             # <<<<<<<<<<<<<<
@@ -3956,9 +4243,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
  *             except Exception as e:
 */
         __pyx_t_14 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 71, __pyx_L25_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 87, __pyx_L25_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 71, __pyx_L25_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 87, __pyx_L25_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_t_8 = 1;
@@ -3978,13 +4265,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
           __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L25_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L25_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __Pyx_XDECREF_SET(__pyx_v_module, __pyx_t_5);
         __pyx_t_5 = 0;
 
-        /* "class_scaner.py":72
+        /* "class_scaner.py":88
  *             try:
  *                 module = importlib.import_module(modname)
  *                 cls._scan_module(module, base_class, predicate, result)             # <<<<<<<<<<<<<<
@@ -3998,12 +4285,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
           PyObject *__pyx_callargs[5] = {__pyx_t_10, __pyx_v_module, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result};
           __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_scan_module, __pyx_callargs+__pyx_t_8, (5-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L25_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L25_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "class_scaner.py":70
+        /* "class_scaner.py":86
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
  *             try:             # <<<<<<<<<<<<<<
@@ -4024,7 +4311,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "class_scaner.py":73
+      /* "class_scaner.py":89
  *                 module = importlib.import_module(modname)
  *                 cls._scan_module(module, base_class, predicate, result)
  *             except Exception as e:             # <<<<<<<<<<<<<<
@@ -4034,7 +4321,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       __pyx_t_15 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
       if (__pyx_t_15) {
         __Pyx_AddTraceback("class_scaner.ClassScanner.find_classes", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_10, &__pyx_t_14) < 0) __PYX_ERR(0, 73, __pyx_L27_except_error)
+        if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_10, &__pyx_t_14) < 0) __PYX_ERR(0, 89, __pyx_L27_except_error)
         __Pyx_XGOTREF(__pyx_t_5);
         __Pyx_XGOTREF(__pyx_t_10);
         __Pyx_XGOTREF(__pyx_t_14);
@@ -4042,7 +4329,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
         __pyx_v_e = __pyx_t_10;
         /*try:*/ {
 
-          /* "class_scaner.py":74
+          /* "class_scaner.py":90
  *                 cls._scan_module(module, base_class, predicate, result)
  *             except Exception as e:
  *                 logging.error(f" {modname} : {e}")             # <<<<<<<<<<<<<<
@@ -4050,21 +4337,21 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
  * 
 */
           __pyx_t_1 = NULL;
-          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 74, __pyx_L38_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 90, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 74, __pyx_L38_error)
+          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 90, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_modname, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 74, __pyx_L38_error)
+          __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_modname, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 90, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_29 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_29)) __PYX_ERR(0, 74, __pyx_L38_error)
+          __pyx_t_29 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_29)) __PYX_ERR(0, 90, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_29);
           __pyx_t_13[0] = __pyx_mstate_global->__pyx_kp_u__7;
           __pyx_t_13[1] = __pyx_t_7;
           __pyx_t_13[2] = __pyx_mstate_global->__pyx_kp_u__8;
           __pyx_t_13[3] = __pyx_t_29;
           __pyx_t_30 = __Pyx_PyUnicode_Join(__pyx_t_13, 4, 5 * 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_29), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_29));
-          if (unlikely(!__pyx_t_30)) __PYX_ERR(0, 74, __pyx_L38_error)
+          if (unlikely(!__pyx_t_30)) __PYX_ERR(0, 90, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_30);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_29); __pyx_t_29 = 0;
@@ -4086,12 +4373,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_30); __pyx_t_30 = 0;
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 74, __pyx_L38_error)
+            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 90, __pyx_L38_error)
             __Pyx_GOTREF(__pyx_t_12);
           }
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-          /* "class_scaner.py":75
+          /* "class_scaner.py":91
  *             except Exception as e:
  *                 logging.error(f" {modname} : {e}")
  *                 continue             # <<<<<<<<<<<<<<
@@ -4101,7 +4388,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
           goto __pyx_L35_continue;
         }
 
-        /* "class_scaner.py":73
+        /* "class_scaner.py":89
  *                 module = importlib.import_module(modname)
  *                 cls._scan_module(module, base_class, predicate, result)
  *             except Exception as e:             # <<<<<<<<<<<<<<
@@ -4157,7 +4444,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       }
       goto __pyx_L27_except_error;
 
-      /* "class_scaner.py":70
+      /* "class_scaner.py":86
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
  *             try:             # <<<<<<<<<<<<<<
@@ -4179,7 +4466,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
       __pyx_L32_try_end:;
     }
 
-    /* "class_scaner.py":65
+    /* "class_scaner.py":81
  * 
  *         #
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -4190,7 +4477,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "class_scaner.py":77
+  /* "class_scaner.py":93
  *                 continue
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -4202,7 +4489,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "class_scaner.py":38
+  /* "class_scaner.py":54
  *             raise ImportError(f" '{dotted_path}': {e}")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4237,7 +4524,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "class_scaner.py":79
+/* "class_scaner.py":95
  *         return result
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4246,16 +4533,16 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_2find_classes(CYTHON_UNU
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_5_scan_module(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_7_scan_module(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_4_scan_module, "\346\211\253\346\217\217\345\215\225\344\270\252\346\250\241\345\235\227\344\270\255\347\232\204\347\261\273");
-static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_5_scan_module = {"_scan_module", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_5_scan_module, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_4_scan_module};
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_5_scan_module(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_6_scan_module, "\346\211\253\346\217\217\345\215\225\344\270\252\346\250\241\345\235\227\344\270\255\347\232\204\347\261\273");
+static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_7_scan_module = {"_scan_module", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_7_scan_module, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_6_scan_module};
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_7_scan_module(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4287,52 +4574,52 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_module,&__pyx_mstate_global->__pyx_n_u_base_class,&__pyx_mstate_global->__pyx_n_u_predicate,&__pyx_mstate_global->__pyx_n_u_result,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_module_2,&__pyx_mstate_global->__pyx_n_u_base_class,&__pyx_mstate_global->__pyx_n_u_predicate,&__pyx_mstate_global->__pyx_n_u_result,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 79, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 95, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 79, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 95, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 79, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 95, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 79, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 95, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 79, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 95, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 79, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 95, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_scan_module", 0) < 0) __PYX_ERR(0, 79, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_scan_module", 0) < 0) __PYX_ERR(0, 95, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 5; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_scan_module", 1, 5, 5, i); __PYX_ERR(0, 79, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_scan_module", 1, 5, 5, i); __PYX_ERR(0, 95, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 5)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 79, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 95, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 79, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 95, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 79, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 95, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 79, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 95, __pyx_L3_error)
       values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 79, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 95, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_module = values[1];
@@ -4342,7 +4629,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_scan_module", 1, 5, 5, __pyx_nargs); __PYX_ERR(0, 79, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_scan_module", 1, 5, 5, __pyx_nargs); __PYX_ERR(0, 95, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4353,8 +4640,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_result), (&PyDict_Type), 0, "result", 2))) __PYX_ERR(0, 85, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_4_scan_module(__pyx_self, __pyx_v_cls, __pyx_v_module, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_result), (&PyDict_Type), 0, "result", 2))) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_6_scan_module(__pyx_self, __pyx_v_cls, __pyx_v_module, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4373,7 +4660,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result) {
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6_scan_module(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result) {
   CYTHON_UNUSED PyObject *__pyx_v_module_name = NULL;
   PyObject *__pyx_v_obj = NULL;
   PyObject *__pyx_v_full_name = NULL;
@@ -4396,7 +4683,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_scan_module", 0);
 
-  /* "class_scaner.py":88
+  /* "class_scaner.py":104
  *     ):
  *         """"""
  *         for module_name, obj in inspect.getmembers(module, inspect.isclass):             # <<<<<<<<<<<<<<
@@ -4404,14 +4691,14 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
  *             if issubclass(obj, base_class) and obj is not base_class:
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_getmembers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_getmembers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_isclass); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_isclass); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_6 = 1;
@@ -4432,7 +4719,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
@@ -4440,9 +4727,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
     __pyx_t_7 = 0;
     __pyx_t_8 = NULL;
   } else {
-    __pyx_t_7 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_7 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __pyx_t_8 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 104, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -4451,7 +4738,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 88, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 104, __pyx_L1_error)
           #endif
           if (__pyx_t_7 >= __pyx_temp) break;
         }
@@ -4461,7 +4748,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 88, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 104, __pyx_L1_error)
           #endif
           if (__pyx_t_7 >= __pyx_temp) break;
         }
@@ -4472,13 +4759,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
         #endif
         ++__pyx_t_7;
       }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
     } else {
       __pyx_t_1 = __pyx_t_8(__pyx_t_4);
       if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 88, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 104, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -4491,7 +4778,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 88, __pyx_L1_error)
+        __PYX_ERR(0, 104, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -4501,22 +4788,22 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
         __Pyx_INCREF(__pyx_t_2);
       } else {
         __pyx_t_5 = __Pyx_PyList_GetItemRef(sequence, 0);
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_5);
         __pyx_t_2 = __Pyx_PyList_GetItemRef(sequence, 1);
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_2);
       }
       #else
-      __pyx_t_5 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_2 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 88, __pyx_L1_error)
+      __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_9 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3);
@@ -4524,7 +4811,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
       __Pyx_GOTREF(__pyx_t_5);
       index = 1; __pyx_t_2 = __pyx_t_9(__pyx_t_3); if (unlikely(!__pyx_t_2)) goto __pyx_L5_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_2);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_3), 2) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_3), 2) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       goto __pyx_L6_unpacking_done;
@@ -4532,7 +4819,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 88, __pyx_L1_error)
+      __PYX_ERR(0, 104, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_module_name, __pyx_t_5);
@@ -4540,14 +4827,14 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
     __Pyx_XDECREF_SET(__pyx_v_obj, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "class_scaner.py":90
+    /* "class_scaner.py":106
  *         for module_name, obj in inspect.getmembers(module, inspect.isclass):
  *             #  +
  *             if issubclass(obj, base_class) and obj is not base_class:             # <<<<<<<<<<<<<<
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{obj.__module__}.{obj.__name__}"
 */
-    __pyx_t_11 = PyObject_IsSubclass(__pyx_v_obj, __pyx_v_base_class); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_11 = PyObject_IsSubclass(__pyx_v_obj, __pyx_v_base_class); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 106, __pyx_L1_error)
     if (__pyx_t_11) {
     } else {
       __pyx_t_10 = __pyx_t_11;
@@ -4558,7 +4845,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
     __pyx_L8_bool_binop_done:;
     if (__pyx_t_10) {
 
-      /* "class_scaner.py":91
+      /* "class_scaner.py":107
  *             #  +
  *             if issubclass(obj, base_class) and obj is not base_class:
  *                 if predicate is None or predicate(obj):             # <<<<<<<<<<<<<<
@@ -4591,63 +4878,63 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 107, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_10 = __pyx_t_11;
       __pyx_L11_bool_binop_done:;
       if (__pyx_t_10) {
 
-        /* "class_scaner.py":92
+        /* "class_scaner.py":108
  *             if issubclass(obj, base_class) and obj is not base_class:
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{obj.__module__}.{obj.__name__}"             # <<<<<<<<<<<<<<
  *                     if full_name not in result:
  *                         result[full_name] = obj
 */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_obj, __pyx_mstate_global->__pyx_n_u_module_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_obj, __pyx_mstate_global->__pyx_n_u_module); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_obj, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_obj, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_t_12[0] = __pyx_t_5;
         __pyx_t_12[1] = __pyx_mstate_global->__pyx_kp_u_;
         __pyx_t_12[2] = __pyx_t_2;
         __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5) + 1 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_2), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2));
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_XDECREF_SET(__pyx_v_full_name, ((PyObject*)__pyx_t_1));
         __pyx_t_1 = 0;
 
-        /* "class_scaner.py":93
+        /* "class_scaner.py":109
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{obj.__module__}.{obj.__name__}"
  *                     if full_name not in result:             # <<<<<<<<<<<<<<
  *                         result[full_name] = obj
  * 
 */
-        __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_v_full_name, __pyx_v_result, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+        __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_v_full_name, __pyx_v_result, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 109, __pyx_L1_error)
         if (__pyx_t_10) {
 
-          /* "class_scaner.py":94
+          /* "class_scaner.py":110
  *                     full_name = f"{obj.__module__}.{obj.__name__}"
  *                     if full_name not in result:
  *                         result[full_name] = obj             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
 */
-          if (unlikely((PyDict_SetItem(__pyx_v_result, __pyx_v_full_name, __pyx_v_obj) < 0))) __PYX_ERR(0, 94, __pyx_L1_error)
+          if (unlikely((PyDict_SetItem(__pyx_v_result, __pyx_v_full_name, __pyx_v_obj) < 0))) __PYX_ERR(0, 110, __pyx_L1_error)
 
-          /* "class_scaner.py":93
+          /* "class_scaner.py":109
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{obj.__module__}.{obj.__name__}"
  *                     if full_name not in result:             # <<<<<<<<<<<<<<
@@ -4656,7 +4943,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
 */
         }
 
-        /* "class_scaner.py":91
+        /* "class_scaner.py":107
  *             #  +
  *             if issubclass(obj, base_class) and obj is not base_class:
  *                 if predicate is None or predicate(obj):             # <<<<<<<<<<<<<<
@@ -4665,7 +4952,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
 */
       }
 
-      /* "class_scaner.py":90
+      /* "class_scaner.py":106
  *         for module_name, obj in inspect.getmembers(module, inspect.isclass):
  *             #  +
  *             if issubclass(obj, base_class) and obj is not base_class:             # <<<<<<<<<<<<<<
@@ -4674,7 +4961,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
 */
     }
 
-    /* "class_scaner.py":88
+    /* "class_scaner.py":104
  *     ):
  *         """"""
  *         for module_name, obj in inspect.getmembers(module, inspect.isclass):             # <<<<<<<<<<<<<<
@@ -4684,7 +4971,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "class_scaner.py":79
+  /* "class_scaner.py":95
  *         return result
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4712,7 +4999,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "class_scaner.py":96
+/* "class_scaner.py":112
  *                         result[full_name] = obj
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4721,16 +5008,16 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_4_scan_module(CYTHON_UNU
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_7find_classes_instances(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_9find_classes_instances(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_6find_classes_instances, "\n        \346\211\253\346\217\217\345\214\205\344\270\255\346\211\200\346\234\211\346\250\241\345\235\227\357\274\214\346\211\276\345\207\272\346\211\200\346\234\211\347\261\273\345\236\213\347\232\204\345\256\236\344\276\213\345\257\271\350\261\241\n        \345\217\257\351\200\211 predicate \347\224\250\344\272\216\350\277\233\344\270\200\346\255\245\347\255\233\351\200\211\345\256\236\344\276\213\357\274\210\345\246\202\346\240\271\346\215\256 .prefix \345\261\236\346\200\247\357\274\211\n        \350\277\224\345\233\236: {\345\217\230\351\207\217\345\220\215\357\274\210\345\256\214\346\225\264\350\267\257\345\276\204\357\274\211: \345\256\236\344\276\213\345\257\271\350\261\241}\n        ");
-static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_7find_classes_instances = {"find_classes_instances", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_7find_classes_instances, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_6find_classes_instances};
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_7find_classes_instances(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_8find_classes_instances, "\n        \346\211\253\346\217\217\345\214\205\344\270\255\346\211\200\346\234\211\346\250\241\345\235\227\357\274\214\346\211\276\345\207\272\346\211\200\346\234\211\347\261\273\345\236\213\347\232\204\345\256\236\344\276\213\345\257\271\350\261\241\n        \345\217\257\351\200\211 predicate \347\224\250\344\272\216\350\277\233\344\270\200\346\255\245\347\255\233\351\200\211\345\256\236\344\276\213\357\274\210\345\246\202\346\240\271\346\215\256 .prefix \345\261\236\346\200\247\357\274\211\n        \350\277\224\345\233\236: {\345\217\230\351\207\217\345\220\215\357\274\210\345\256\214\346\225\264\350\267\257\345\276\204\357\274\211: \345\256\236\344\276\213\345\257\271\350\261\241}\n        ");
+static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_9find_classes_instances = {"find_classes_instances", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_9find_classes_instances, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_8find_classes_instances};
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_9find_classes_instances(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4763,32 +5050,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_package_name,&__pyx_mstate_global->__pyx_n_u_base_class,&__pyx_mstate_global->__pyx_n_u_predicate,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 96, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "find_classes_instances", 0) < 0) __PYX_ERR(0, 96, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "find_classes_instances", 0) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
 
-      /* "class_scaner.py":100
+      /* "class_scaner.py":116
  *             cls,
  *             package_name: str,
  *             base_class: Type = object,             # <<<<<<<<<<<<<<
@@ -4797,7 +5084,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject *)((PyObject *)__pyx_builtin_object)));
 
-      /* "class_scaner.py":101
+      /* "class_scaner.py":117
  *             package_name: str,
  *             base_class: Type = object,
  *             predicate: Optional[Callable[[Any], bool]] = None,             # <<<<<<<<<<<<<<
@@ -4806,23 +5093,23 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("find_classes_instances", 0, 2, 4, i); __PYX_ERR(0, 96, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("find_classes_instances", 0, 2, 4, i); __PYX_ERR(0, 112, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 112, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 112, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
@@ -4836,7 +5123,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("find_classes_instances", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 96, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("find_classes_instances", 0, 2, 4, __pyx_nargs); __PYX_ERR(0, 112, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4847,10 +5134,10 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_package_name), (&PyUnicode_Type), 0, "package_name", 2))) __PYX_ERR(0, 99, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(__pyx_self, __pyx_v_cls, __pyx_v_package_name, __pyx_v_base_class, __pyx_v_predicate);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_package_name), (&PyUnicode_Type), 0, "package_name", 2))) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_8find_classes_instances(__pyx_self, __pyx_v_cls, __pyx_v_package_name, __pyx_v_base_class, __pyx_v_predicate);
 
-  /* "class_scaner.py":96
+  /* "class_scaner.py":112
  *                         result[full_name] = obj
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4875,7 +5162,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "class_scaner.py":124
+/* "class_scaner.py":140
  *                 path=package.__path__,
  *                 prefix=package.__name__ + ".",
  *                 onerror=lambda x: logging.error(f": {x}")             # <<<<<<<<<<<<<<
@@ -4922,32 +5209,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 140, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 140, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda1", 0) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda1", 0) < 0) __PYX_ERR(0, 140, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, i); __PYX_ERR(0, 124, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, i); __PYX_ERR(0, 140, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 140, __pyx_L3_error)
     }
     __pyx_v_x = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 124, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 140, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4983,14 +5270,14 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
   __Pyx_RefNannySetupContext("lambda1", 0);
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_x, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_x, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_6 = 1;
@@ -5011,7 +5298,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -5033,7 +5320,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "class_scaner.py":96
+/* "class_scaner.py":112
  *                         result[full_name] = obj
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5041,7 +5328,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
  *             cls,
 */
 
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate) {
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8find_classes_instances(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_package_name, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate) {
   PyObject *__pyx_v_result = 0;
   PyObject *__pyx_v_package = NULL;
   PyObject *__pyx_v_e = NULL;
@@ -5087,19 +5374,19 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("find_classes_instances", 0);
 
-  /* "class_scaner.py":109
+  /* "class_scaner.py":125
  *         """
  * 
  *         result: Dict[str, Any] = {}             # <<<<<<<<<<<<<<
  * 
  *         try:
 */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_result = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "class_scaner.py":111
+  /* "class_scaner.py":127
  *         result: Dict[str, Any] = {}
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -5115,7 +5402,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __Pyx_XGOTREF(__pyx_t_4);
     /*try:*/ {
 
-      /* "class_scaner.py":112
+      /* "class_scaner.py":128
  * 
  *         try:
  *             package = importlib.import_module(package_name)             # <<<<<<<<<<<<<<
@@ -5123,9 +5410,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
  *             logging.error(f" {package_name}: {e}")
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 112, __pyx_L3_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 128, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 112, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_8 = 1;
@@ -5145,13 +5432,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L3_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __pyx_v_package = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "class_scaner.py":111
+      /* "class_scaner.py":127
  *         result: Dict[str, Any] = {}
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -5169,7 +5456,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "class_scaner.py":113
+    /* "class_scaner.py":129
  *         try:
  *             package = importlib.import_module(package_name)
  *         except ModuleNotFoundError as e:             # <<<<<<<<<<<<<<
@@ -5179,7 +5466,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __pyx_t_9 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ModuleNotFoundError);
     if (__pyx_t_9) {
       __Pyx_AddTraceback("class_scaner.ClassScanner.find_classes_instances", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_7, &__pyx_t_5) < 0) __PYX_ERR(0, 113, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_7, &__pyx_t_5) < 0) __PYX_ERR(0, 129, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_1);
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_5);
@@ -5187,7 +5474,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       __pyx_v_e = __pyx_t_7;
       /*try:*/ {
 
-        /* "class_scaner.py":114
+        /* "class_scaner.py":130
  *             package = importlib.import_module(package_name)
  *         except ModuleNotFoundError as e:
  *             logging.error(f" {package_name}: {e}")             # <<<<<<<<<<<<<<
@@ -5195,19 +5482,19 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
  * 
 */
         __pyx_t_10 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 114, __pyx_L14_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 130, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 114, __pyx_L14_error)
+        __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 130, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 114, __pyx_L14_error)
+        __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 130, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_13[0] = __pyx_mstate_global->__pyx_kp_u__5;
         __pyx_t_13[1] = __pyx_v_package_name;
         __pyx_t_13[2] = __pyx_mstate_global->__pyx_kp_u__6;
         __pyx_t_13[3] = __pyx_t_11;
         __pyx_t_14 = __Pyx_PyUnicode_Join(__pyx_t_13, 4, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_v_package_name) + 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_package_name) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11));
-        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 114, __pyx_L14_error)
+        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 130, __pyx_L14_error)
         __Pyx_GOTREF(__pyx_t_14);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_t_8 = 1;
@@ -5228,12 +5515,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 114, __pyx_L14_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 130, __pyx_L14_error)
           __Pyx_GOTREF(__pyx_t_6);
         }
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-        /* "class_scaner.py":115
+        /* "class_scaner.py":131
  *         except ModuleNotFoundError as e:
  *             logging.error(f" {package_name}: {e}")
  *             return result             # <<<<<<<<<<<<<<
@@ -5249,7 +5536,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
         goto __pyx_L13_return;
       }
 
-      /* "class_scaner.py":113
+      /* "class_scaner.py":129
  *         try:
  *             package = importlib.import_module(package_name)
  *         except ModuleNotFoundError as e:             # <<<<<<<<<<<<<<
@@ -5303,7 +5590,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     }
     goto __pyx_L5_except_error;
 
-    /* "class_scaner.py":111
+    /* "class_scaner.py":127
  *         result: Dict[str, Any] = {}
  * 
  *         try:             # <<<<<<<<<<<<<<
@@ -5325,18 +5612,18 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __pyx_L8_try_end:;
   }
 
-  /* "class_scaner.py":117
+  /* "class_scaner.py":133
  *             return result
  * 
  *         if not hasattr(package, "__path__"):             # <<<<<<<<<<<<<<
  *             cls._scan_module_for_instances(package, base_class, predicate, result)
  *             return result
 */
-  __pyx_t_24 = __Pyx_HasAttr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(__pyx_t_24 == ((int)-1))) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_24 = __Pyx_HasAttr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(__pyx_t_24 == ((int)-1))) __PYX_ERR(0, 133, __pyx_L1_error)
   __pyx_t_25 = (!__pyx_t_24);
   if (__pyx_t_25) {
 
-    /* "class_scaner.py":118
+    /* "class_scaner.py":134
  * 
  *         if not hasattr(package, "__path__"):
  *             cls._scan_module_for_instances(package, base_class, predicate, result)             # <<<<<<<<<<<<<<
@@ -5350,12 +5637,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       PyObject *__pyx_callargs[5] = {__pyx_t_7, __pyx_v_package, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result};
       __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_scan_module_for_instances, __pyx_callargs+__pyx_t_8, (5-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "class_scaner.py":119
+    /* "class_scaner.py":135
  *         if not hasattr(package, "__path__"):
  *             cls._scan_module_for_instances(package, base_class, predicate, result)
  *             return result             # <<<<<<<<<<<<<<
@@ -5367,7 +5654,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __pyx_r = __pyx_v_result;
     goto __pyx_L0;
 
-    /* "class_scaner.py":117
+    /* "class_scaner.py":133
  *             return result
  * 
  *         if not hasattr(package, "__path__"):             # <<<<<<<<<<<<<<
@@ -5376,7 +5663,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
 */
   }
 
-  /* "class_scaner.py":121
+  /* "class_scaner.py":137
  *             return result
  * 
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -5384,43 +5671,43 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
  *                 prefix=package.__name__ + ".",
 */
   __pyx_t_7 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_pkgutil); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_pkgutil); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_walk_packages); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_walk_packages); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "class_scaner.py":122
+  /* "class_scaner.py":138
  * 
  *         for importer, modname, is_pkg in pkgutil.walk_packages(
  *                 path=package.__path__,             # <<<<<<<<<<<<<<
  *                 prefix=package.__name__ + ".",
  *                 onerror=lambda x: logging.error(f": {x}")
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 138, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "class_scaner.py":123
+  /* "class_scaner.py":139
  *         for importer, modname, is_pkg in pkgutil.walk_packages(
  *                 path=package.__path__,
  *                 prefix=package.__name__ + ".",             # <<<<<<<<<<<<<<
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
 */
-  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
-  __pyx_t_14 = PyNumber_Add(__pyx_t_12, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_14 = PyNumber_Add(__pyx_t_12, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_14);
   __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-  /* "class_scaner.py":124
+  /* "class_scaner.py":140
  *                 path=package.__path__,
  *                 prefix=package.__name__ + ".",
  *                 onerror=lambda x: logging.error(f": {x}")             # <<<<<<<<<<<<<<
  *         ):
  *             try:
 */
-  __pyx_t_12 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_22find_classes_instances_lambda1, 0, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes_instan, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_22find_classes_instances_lambda1, 0, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes_instan, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   __pyx_t_8 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -5436,11 +5723,11 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_7, NULL};
-    __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 137, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path_2, __pyx_t_1, __pyx_t_10, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_14, __pyx_t_10, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_onerror, __pyx_t_12, __pyx_t_10, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path_2, __pyx_t_1, __pyx_t_10, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_14, __pyx_t_10, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_onerror, __pyx_t_12, __pyx_t_10, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
     __pyx_t_5 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_10);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5448,11 +5735,11 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   }
 
-  /* "class_scaner.py":121
+  /* "class_scaner.py":137
  *             return result
  * 
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -5464,9 +5751,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __pyx_t_26 = 0;
     __pyx_t_27 = NULL;
   } else {
-    __pyx_t_26 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_26 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_27 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_t_27 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 137, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   for (;;) {
@@ -5475,7 +5762,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 121, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 137, __pyx_L1_error)
           #endif
           if (__pyx_t_26 >= __pyx_temp) break;
         }
@@ -5485,7 +5772,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 121, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 137, __pyx_L1_error)
           #endif
           if (__pyx_t_26 >= __pyx_temp) break;
         }
@@ -5496,13 +5783,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
         #endif
         ++__pyx_t_26;
       }
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
     } else {
       __pyx_t_5 = __pyx_t_27(__pyx_t_6);
       if (unlikely(!__pyx_t_5)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 121, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 137, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -5515,7 +5802,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 121, __pyx_L1_error)
+        __PYX_ERR(0, 137, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -5527,27 +5814,27 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
         __Pyx_INCREF(__pyx_t_14);
       } else {
         __pyx_t_10 = __Pyx_PyList_GetItemRef(sequence, 0);
-        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 121, __pyx_L1_error)
+        if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_10);
         __pyx_t_12 = __Pyx_PyList_GetItemRef(sequence, 1);
-        if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 121, __pyx_L1_error)
+        if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_12);
         __pyx_t_14 = __Pyx_PyList_GetItemRef(sequence, 2);
-        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 121, __pyx_L1_error)
+        if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_14);
       }
       #else
-      __pyx_t_10 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      __pyx_t_12 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
-      __pyx_t_14 = __Pyx_PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_14 = __Pyx_PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_14);
       #endif
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_1 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+      __pyx_t_1 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_28 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1);
@@ -5557,7 +5844,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       __Pyx_GOTREF(__pyx_t_12);
       index = 2; __pyx_t_14 = __pyx_t_28(__pyx_t_1); if (unlikely(!__pyx_t_14)) goto __pyx_L23_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_14);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_28(__pyx_t_1), 3) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_28(__pyx_t_1), 3) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
       __pyx_t_28 = NULL;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       goto __pyx_L24_unpacking_done;
@@ -5565,7 +5852,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_28 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 121, __pyx_L1_error)
+      __PYX_ERR(0, 137, __pyx_L1_error)
       __pyx_L24_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_importer, __pyx_t_10);
@@ -5575,7 +5862,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     __Pyx_XDECREF_SET(__pyx_v_is_pkg, __pyx_t_14);
     __pyx_t_14 = 0;
 
-    /* "class_scaner.py":126
+    /* "class_scaner.py":142
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
  *             try:             # <<<<<<<<<<<<<<
@@ -5591,7 +5878,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       __Pyx_XGOTREF(__pyx_t_2);
       /*try:*/ {
 
-        /* "class_scaner.py":127
+        /* "class_scaner.py":143
  *         ):
  *             try:
  *                 module = importlib.import_module(modname)             # <<<<<<<<<<<<<<
@@ -5599,9 +5886,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
  *             except Exception as e:
 */
         __pyx_t_14 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 127, __pyx_L25_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 143, __pyx_L25_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 127, __pyx_L25_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 143, __pyx_L25_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_t_8 = 1;
@@ -5621,13 +5908,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
           __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 127, __pyx_L25_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L25_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __Pyx_XDECREF_SET(__pyx_v_module, __pyx_t_5);
         __pyx_t_5 = 0;
 
-        /* "class_scaner.py":128
+        /* "class_scaner.py":144
  *             try:
  *                 module = importlib.import_module(modname)
  *                 cls._scan_module_for_instances(module, base_class, predicate, result)             # <<<<<<<<<<<<<<
@@ -5641,12 +5928,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
           PyObject *__pyx_callargs[5] = {__pyx_t_10, __pyx_v_module, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result};
           __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_scan_module_for_instances, __pyx_callargs+__pyx_t_8, (5-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 128, __pyx_L25_error)
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 144, __pyx_L25_error)
           __Pyx_GOTREF(__pyx_t_5);
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "class_scaner.py":126
+        /* "class_scaner.py":142
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
  *             try:             # <<<<<<<<<<<<<<
@@ -5667,7 +5954,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "class_scaner.py":129
+      /* "class_scaner.py":145
  *                 module = importlib.import_module(modname)
  *                 cls._scan_module_for_instances(module, base_class, predicate, result)
  *             except Exception as e:             # <<<<<<<<<<<<<<
@@ -5677,7 +5964,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       __pyx_t_15 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
       if (__pyx_t_15) {
         __Pyx_AddTraceback("class_scaner.ClassScanner.find_classes_instances", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_10, &__pyx_t_14) < 0) __PYX_ERR(0, 129, __pyx_L27_except_error)
+        if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_10, &__pyx_t_14) < 0) __PYX_ERR(0, 145, __pyx_L27_except_error)
         __Pyx_XGOTREF(__pyx_t_5);
         __Pyx_XGOTREF(__pyx_t_10);
         __Pyx_XGOTREF(__pyx_t_14);
@@ -5685,7 +5972,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
         __pyx_v_e = __pyx_t_10;
         /*try:*/ {
 
-          /* "class_scaner.py":130
+          /* "class_scaner.py":146
  *                 cls._scan_module_for_instances(module, base_class, predicate, result)
  *             except Exception as e:
  *                 logging.error(f" {modname} : {e}")             # <<<<<<<<<<<<<<
@@ -5693,21 +5980,21 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
  * 
 */
           __pyx_t_1 = NULL;
-          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 130, __pyx_L38_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 146, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 130, __pyx_L38_error)
+          __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 146, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_modname, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 130, __pyx_L38_error)
+          __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_modname, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 146, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_29 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_29)) __PYX_ERR(0, 130, __pyx_L38_error)
+          __pyx_t_29 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_29)) __PYX_ERR(0, 146, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_29);
           __pyx_t_13[0] = __pyx_mstate_global->__pyx_kp_u__7;
           __pyx_t_13[1] = __pyx_t_7;
           __pyx_t_13[2] = __pyx_mstate_global->__pyx_kp_u__8;
           __pyx_t_13[3] = __pyx_t_29;
           __pyx_t_30 = __Pyx_PyUnicode_Join(__pyx_t_13, 4, 5 * 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_29), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_29));
-          if (unlikely(!__pyx_t_30)) __PYX_ERR(0, 130, __pyx_L38_error)
+          if (unlikely(!__pyx_t_30)) __PYX_ERR(0, 146, __pyx_L38_error)
           __Pyx_GOTREF(__pyx_t_30);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_29); __pyx_t_29 = 0;
@@ -5729,12 +6016,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_30); __pyx_t_30 = 0;
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 130, __pyx_L38_error)
+            if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 146, __pyx_L38_error)
             __Pyx_GOTREF(__pyx_t_12);
           }
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-          /* "class_scaner.py":131
+          /* "class_scaner.py":147
  *             except Exception as e:
  *                 logging.error(f" {modname} : {e}")
  *                 continue             # <<<<<<<<<<<<<<
@@ -5744,7 +6031,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
           goto __pyx_L35_continue;
         }
 
-        /* "class_scaner.py":129
+        /* "class_scaner.py":145
  *                 module = importlib.import_module(modname)
  *                 cls._scan_module_for_instances(module, base_class, predicate, result)
  *             except Exception as e:             # <<<<<<<<<<<<<<
@@ -5800,7 +6087,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       }
       goto __pyx_L27_except_error;
 
-      /* "class_scaner.py":126
+      /* "class_scaner.py":142
  *                 onerror=lambda x: logging.error(f": {x}")
  *         ):
  *             try:             # <<<<<<<<<<<<<<
@@ -5822,7 +6109,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
       __pyx_L32_try_end:;
     }
 
-    /* "class_scaner.py":121
+    /* "class_scaner.py":137
  *             return result
  * 
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -5833,7 +6120,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "class_scaner.py":133
+  /* "class_scaner.py":149
  *                 continue
  * 
  *         cls._scan_module_for_instances(package, base_class, predicate, result)             # <<<<<<<<<<<<<<
@@ -5847,12 +6134,12 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
     PyObject *__pyx_callargs[5] = {__pyx_t_14, __pyx_v_package, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result};
     __pyx_t_6 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_scan_module_for_instances, __pyx_callargs+__pyx_t_8, (5-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 149, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "class_scaner.py":134
+  /* "class_scaner.py":150
  * 
  *         cls._scan_module_for_instances(package, base_class, predicate, result)
  *         return result             # <<<<<<<<<<<<<<
@@ -5864,7 +6151,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  /* "class_scaner.py":96
+  /* "class_scaner.py":112
  *                         result[full_name] = obj
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5899,7 +6186,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
   return __pyx_r;
 }
 
-/* "class_scaner.py":136
+/* "class_scaner.py":152
  *         return result
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5908,16 +6195,16 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_6find_classes_instances(
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_9_scan_module_for_instances(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_11_scan_module_for_instances(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_8_scan_module_for_instances, "\346\211\253\346\217\217\346\250\241\345\235\227\344\270\255\346\211\200\346\234\211\345\205\250\345\261\200\345\217\230\351\207\217\357\274\214\346\211\276\345\207\272\346\230\257 base_class \345\256\236\344\276\213\347\232\204\345\257\271\350\261\241");
-static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_9_scan_module_for_instances = {"_scan_module_for_instances", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_9_scan_module_for_instances, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_8_scan_module_for_instances};
-static PyObject *__pyx_pw_12class_scaner_12ClassScanner_9_scan_module_for_instances(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_12class_scaner_12ClassScanner_10_scan_module_for_instances, "\346\211\253\346\217\217\346\250\241\345\235\227\344\270\255\346\211\200\346\234\211\345\205\250\345\261\200\345\217\230\351\207\217\357\274\214\346\211\276\345\207\272\346\230\257 base_class \345\256\236\344\276\213\347\232\204\345\257\271\350\261\241");
+static PyMethodDef __pyx_mdef_12class_scaner_12ClassScanner_11_scan_module_for_instances = {"_scan_module_for_instances", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12class_scaner_12ClassScanner_11_scan_module_for_instances, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12class_scaner_12ClassScanner_10_scan_module_for_instances};
+static PyObject *__pyx_pw_12class_scaner_12ClassScanner_11_scan_module_for_instances(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5949,52 +6236,52 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_module,&__pyx_mstate_global->__pyx_n_u_base_class,&__pyx_mstate_global->__pyx_n_u_predicate,&__pyx_mstate_global->__pyx_n_u_result,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_module_2,&__pyx_mstate_global->__pyx_n_u_base_class,&__pyx_mstate_global->__pyx_n_u_predicate,&__pyx_mstate_global->__pyx_n_u_result,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 136, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 152, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  5:
         values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 136, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 152, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 136, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 152, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 136, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 152, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 136, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 152, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 136, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 152, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_scan_module_for_instances", 0) < 0) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_scan_module_for_instances", 0) < 0) __PYX_ERR(0, 152, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 5; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_scan_module_for_instances", 1, 5, 5, i); __PYX_ERR(0, 136, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_scan_module_for_instances", 1, 5, 5, i); __PYX_ERR(0, 152, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 5)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 152, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 152, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 152, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 152, __pyx_L3_error)
       values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 152, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_module = values[1];
@@ -6004,7 +6291,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_scan_module_for_instances", 1, 5, 5, __pyx_nargs); __PYX_ERR(0, 136, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_scan_module_for_instances", 1, 5, 5, __pyx_nargs); __PYX_ERR(0, 152, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6015,8 +6302,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_result), (&PyDict_Type), 0, "result", 2))) __PYX_ERR(0, 142, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instances(__pyx_self, __pyx_v_cls, __pyx_v_module, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_result), (&PyDict_Type), 0, "result", 2))) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_r = __pyx_pf_12class_scaner_12ClassScanner_10_scan_module_for_instances(__pyx_self, __pyx_v_cls, __pyx_v_module, __pyx_v_base_class, __pyx_v_predicate, __pyx_v_result);
 
   /* function exit code */
   goto __pyx_L0;
@@ -6035,7 +6322,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instances(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result) {
+static PyObject *__pyx_pf_12class_scaner_12ClassScanner_10_scan_module_for_instances(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_module, PyObject *__pyx_v_base_class, PyObject *__pyx_v_predicate, PyObject *__pyx_v_result) {
   PyObject *__pyx_v_module_name = NULL;
   PyObject *__pyx_v_obj = NULL;
   PyObject *__pyx_v_full_name = NULL;
@@ -6059,7 +6346,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_scan_module_for_instances", 0);
 
-  /* "class_scaner.py":145
+  /* "class_scaner.py":161
  *     ):
  *         """ base_class """
  *         for module_name, obj in inspect.getmembers(module):             # <<<<<<<<<<<<<<
@@ -6067,9 +6354,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
  *                 if predicate is None or predicate(obj):
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_getmembers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_getmembers); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -6089,7 +6376,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 161, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
@@ -6097,9 +6384,9 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
     __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 161, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 161, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -6108,7 +6395,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 145, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 161, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
@@ -6118,7 +6405,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_4);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 145, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 161, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
@@ -6129,13 +6416,13 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
         #endif
         ++__pyx_t_6;
       }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 161, __pyx_L1_error)
     } else {
       __pyx_t_1 = __pyx_t_7(__pyx_t_4);
       if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 145, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 161, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -6148,7 +6435,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 145, __pyx_L1_error)
+        __PYX_ERR(0, 161, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -6158,22 +6445,22 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
         __Pyx_INCREF(__pyx_t_3);
       } else {
         __pyx_t_2 = __Pyx_PyList_GetItemRef(sequence, 0);
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_2);
         __pyx_t_3 = __Pyx_PyList_GetItemRef(sequence, 1);
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
         __Pyx_XGOTREF(__pyx_t_3);
       }
       #else
-      __pyx_t_2 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_8 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 145, __pyx_L1_error)
+      __pyx_t_8 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 161, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_9 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_8);
@@ -6181,7 +6468,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
       __Pyx_GOTREF(__pyx_t_2);
       index = 1; __pyx_t_3 = __pyx_t_9(__pyx_t_8); if (unlikely(!__pyx_t_3)) goto __pyx_L5_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 2) < 0) __PYX_ERR(0, 161, __pyx_L1_error)
       __pyx_t_9 = NULL;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       goto __pyx_L6_unpacking_done;
@@ -6189,7 +6476,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 145, __pyx_L1_error)
+      __PYX_ERR(0, 161, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_module_name, __pyx_t_2);
@@ -6197,23 +6484,23 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
     __Pyx_XDECREF_SET(__pyx_v_obj, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "class_scaner.py":146
+    /* "class_scaner.py":162
  *         """ base_class """
  *         for module_name, obj in inspect.getmembers(module):
  *             if isinstance(obj, base_class) and not inspect.isclass(obj):             # <<<<<<<<<<<<<<
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{module.__name__}.{module_name}"
 */
-    __pyx_t_11 = PyObject_IsInstance(__pyx_v_obj, __pyx_v_base_class); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 146, __pyx_L1_error)
+    __pyx_t_11 = PyObject_IsInstance(__pyx_v_obj, __pyx_v_base_class); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 162, __pyx_L1_error)
     if (__pyx_t_11) {
     } else {
       __pyx_t_10 = __pyx_t_11;
       goto __pyx_L8_bool_binop_done;
     }
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 146, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_isclass); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 146, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_isclass); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_5 = 1;
@@ -6233,17 +6520,17 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 146, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_12 = (!__pyx_t_11);
     __pyx_t_10 = __pyx_t_12;
     __pyx_L8_bool_binop_done:;
     if (__pyx_t_10) {
 
-      /* "class_scaner.py":147
+      /* "class_scaner.py":163
  *         for module_name, obj in inspect.getmembers(module):
  *             if isinstance(obj, base_class) and not inspect.isclass(obj):
  *                 if predicate is None or predicate(obj):             # <<<<<<<<<<<<<<
@@ -6276,57 +6563,57 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
-      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 147, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_12 < 0))) __PYX_ERR(0, 163, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_10 = __pyx_t_12;
       __pyx_L11_bool_binop_done:;
       if (__pyx_t_10) {
 
-        /* "class_scaner.py":148
+        /* "class_scaner.py":164
  *             if isinstance(obj, base_class) and not inspect.isclass(obj):
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{module.__name__}.{module_name}"             # <<<<<<<<<<<<<<
  *                     if full_name not in result:
  *                         result[full_name] = obj
 */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_module, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_module, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_module_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_module_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_13[0] = __pyx_t_3;
         __pyx_t_13[1] = __pyx_mstate_global->__pyx_kp_u_;
         __pyx_t_13[2] = __pyx_t_1;
         __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_13, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3) + 1 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1));
-        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 148, __pyx_L1_error)
+        if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 164, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_XDECREF_SET(__pyx_v_full_name, ((PyObject*)__pyx_t_8));
         __pyx_t_8 = 0;
 
-        /* "class_scaner.py":149
+        /* "class_scaner.py":165
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{module.__name__}.{module_name}"
  *                     if full_name not in result:             # <<<<<<<<<<<<<<
  *                         result[full_name] = obj
 */
-        __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_v_full_name, __pyx_v_result, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 149, __pyx_L1_error)
+        __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_v_full_name, __pyx_v_result, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 165, __pyx_L1_error)
         if (__pyx_t_10) {
 
-          /* "class_scaner.py":150
+          /* "class_scaner.py":166
  *                     full_name = f"{module.__name__}.{module_name}"
  *                     if full_name not in result:
  *                         result[full_name] = obj             # <<<<<<<<<<<<<<
 */
-          if (unlikely((PyDict_SetItem(__pyx_v_result, __pyx_v_full_name, __pyx_v_obj) < 0))) __PYX_ERR(0, 150, __pyx_L1_error)
+          if (unlikely((PyDict_SetItem(__pyx_v_result, __pyx_v_full_name, __pyx_v_obj) < 0))) __PYX_ERR(0, 166, __pyx_L1_error)
 
-          /* "class_scaner.py":149
+          /* "class_scaner.py":165
  *                 if predicate is None or predicate(obj):
  *                     full_name = f"{module.__name__}.{module_name}"
  *                     if full_name not in result:             # <<<<<<<<<<<<<<
@@ -6334,7 +6621,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
 */
         }
 
-        /* "class_scaner.py":147
+        /* "class_scaner.py":163
  *         for module_name, obj in inspect.getmembers(module):
  *             if isinstance(obj, base_class) and not inspect.isclass(obj):
  *                 if predicate is None or predicate(obj):             # <<<<<<<<<<<<<<
@@ -6343,7 +6630,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
 */
       }
 
-      /* "class_scaner.py":146
+      /* "class_scaner.py":162
  *         """ base_class """
  *         for module_name, obj in inspect.getmembers(module):
  *             if isinstance(obj, base_class) and not inspect.isclass(obj):             # <<<<<<<<<<<<<<
@@ -6352,7 +6639,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
 */
     }
 
-    /* "class_scaner.py":145
+    /* "class_scaner.py":161
  *     ):
  *         """ base_class """
  *         for module_name, obj in inspect.getmembers(module):             # <<<<<<<<<<<<<<
@@ -6362,7 +6649,7 @@ static PyObject *__pyx_pf_12class_scaner_12ClassScanner_8_scan_module_for_instan
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "class_scaner.py":136
+  /* "class_scaner.py":152
  *         return result
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -6875,9 +7162,30 @@ __Pyx_RefNannySetupContext("PyInit_class_scaner", 0);
   __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_ClassScanner, __pyx_mstate_global->__pyx_n_u_ClassScanner, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_kp_u__9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "class_scaner.py":22
- * 
+  /* "class_scaner.py":23
  *     """
+ * 
+ *     @classmethod             # <<<<<<<<<<<<<<
+ *     def get_model_response_class(cls, original_class: Any) -> Type[Any]:
+ *         #
+*/
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_original_class, __pyx_mstate_global->__pyx_n_u_Any) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Type_Any) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_1get_model_response_class, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner_get_model_response, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_model_response_class, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "class_scaner.py":38
+ *         return original_class if response_class is None else response_class
+ * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def import_class(dotted_path):
  *         """
@@ -6885,7 +7193,7 @@ __Pyx_RefNannySetupContext("PyInit_class_scaner", 0);
   __pyx_t_4 = NULL;
   __Pyx_INCREF(__pyx_builtin_staticmethod);
   __pyx_t_5 = __pyx_builtin_staticmethod; 
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_1import_class, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner_import_class, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_3import_class, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner_import_class, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = 1;
   {
@@ -6894,104 +7202,104 @@ __Pyx_RefNannySetupContext("PyInit_class_scaner", 0);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_import_class, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_import_class, __pyx_t_2) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "class_scaner.py":38
+  /* "class_scaner.py":54
  *             raise ImportError(f" '{dotted_path}': {e}")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def find_classes(
  *             cls,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_package_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Type_bool) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Dict_str_Type) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_3find_classes, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_package_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Type_bool) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Dict_str_Type) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_5find_classes, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_find_classes, __pyx_t_2) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_find_classes, __pyx_t_2) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "class_scaner.py":79
+  /* "class_scaner.py":95
  *         return result
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _scan_module(
  *             cls,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_module, __pyx_mstate_global->__pyx_n_u_ModuleType) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Type_bool) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_result, __pyx_mstate_global->__pyx_kp_u_Dict_str_Type) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_5_scan_module, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner__scan_module, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_module_2, __pyx_mstate_global->__pyx_n_u_ModuleType) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Type_bool) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_result, __pyx_mstate_global->__pyx_kp_u_Dict_str_Type) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_7_scan_module, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner__scan_module, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_scan_module, __pyx_t_2) < 0) __PYX_ERR(0, 79, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_scan_module, __pyx_t_2) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "class_scaner.py":96
+  /* "class_scaner.py":112
  *                         result[full_name] = obj
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def find_classes_instances(
  *             cls,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_package_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Any_bool) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Dict_str_Any) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_7find_classes_instances, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes_instan_2, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_package_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Any_bool) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Dict_str_Any) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_9find_classes_instances, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner_find_classes_instan_2, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_find_classes_instances, __pyx_t_2) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_find_classes_instances, __pyx_t_2) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "class_scaner.py":136
+  /* "class_scaner.py":152
  *         return result
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _scan_module_for_instances(
  *             cls,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_module, __pyx_mstate_global->__pyx_n_u_ModuleType) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Any_bool) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_result, __pyx_mstate_global->__pyx_kp_u_Dict_str_Any) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_9_scan_module_for_instances, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner__scan_module_for_in, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_module_2, __pyx_mstate_global->__pyx_n_u_ModuleType) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_base_class, __pyx_mstate_global->__pyx_n_u_Type) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_predicate, __pyx_mstate_global->__pyx_kp_u_Optional_Callable_Any_bool) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_result, __pyx_mstate_global->__pyx_kp_u_Dict_str_Any) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12class_scaner_12ClassScanner_11_scan_module_for_instances, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_ClassScanner__scan_module_for_in, NULL, __pyx_mstate_global->__pyx_n_u_class_scaner, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_scan_module_for_instances, __pyx_t_2) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_scan_module_for_instances, __pyx_t_2) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "class_scaner.py":18
@@ -7090,6 +7398,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_ClassScanner_find_classes_instan, sizeof(__pyx_k_ClassScanner_find_classes_instan), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ClassScanner_find_classes_instan */
   {__pyx_k_ClassScanner_find_classes_instan_2, sizeof(__pyx_k_ClassScanner_find_classes_instan_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ClassScanner_find_classes_instan_2 */
   {__pyx_k_ClassScanner_find_classes_locals, sizeof(__pyx_k_ClassScanner_find_classes_locals), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ClassScanner_find_classes_locals */
+  {__pyx_k_ClassScanner_get_model_response, sizeof(__pyx_k_ClassScanner_get_model_response), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ClassScanner_get_model_response */
   {__pyx_k_ClassScanner_import_class, sizeof(__pyx_k_ClassScanner_import_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ClassScanner_import_class */
   {__pyx_k_Dict, sizeof(__pyx_k_Dict), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Dict */
   {__pyx_k_Dict_str_Any, sizeof(__pyx_k_Dict_str_Any), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Dict_str_Any */
@@ -7101,7 +7410,9 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Optional, sizeof(__pyx_k_Optional), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Optional */
   {__pyx_k_Optional_Callable_Any_bool, sizeof(__pyx_k_Optional_Callable_Any_bool), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_Callable_Any_bool */
   {__pyx_k_Optional_Callable_Type_bool, sizeof(__pyx_k_Optional_Callable_Type_bool), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_Callable_Type_bool */
+  {__pyx_k_Response, sizeof(__pyx_k_Response), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Response */
   {__pyx_k_Type, sizeof(__pyx_k_Type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Type */
+  {__pyx_k_Type_Any, sizeof(__pyx_k_Type_Any), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Type_Any */
   {__pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ValueError */
   {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__10 */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
@@ -7128,6 +7439,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_find_classes_instances, sizeof(__pyx_k_find_classes_instances), 0, 1, 1}, /* PyObject cname: __pyx_n_u_find_classes_instances */
   {__pyx_k_full_name, sizeof(__pyx_k_full_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_full_name */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
+  {__pyx_k_get_model_response_class, sizeof(__pyx_k_get_model_response_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_model_response_class */
   {__pyx_k_getmembers, sizeof(__pyx_k_getmembers), 0, 1, 1}, /* PyObject cname: __pyx_n_u_getmembers */
   {__pyx_k_import_class, sizeof(__pyx_k_import_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_import_class */
   {__pyx_k_import_module, sizeof(__pyx_k_import_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_import_module */
@@ -7147,12 +7459,14 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_module_2, sizeof(__pyx_k_module_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module_2 */
   {__pyx_k_module_name, sizeof(__pyx_k_module_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module_name */
+  {__pyx_k_module_obj, sizeof(__pyx_k_module_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module_obj */
   {__pyx_k_module_parts, sizeof(__pyx_k_module_parts), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module_parts */
   {__pyx_k_module_path, sizeof(__pyx_k_module_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module_path */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_obj, sizeof(__pyx_k_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_obj */
   {__pyx_k_object, sizeof(__pyx_k_object), 0, 1, 1}, /* PyObject cname: __pyx_n_u_object */
   {__pyx_k_onerror, sizeof(__pyx_k_onerror), 0, 1, 1}, /* PyObject cname: __pyx_n_u_onerror */
+  {__pyx_k_original_class, sizeof(__pyx_k_original_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_original_class */
   {__pyx_k_package, sizeof(__pyx_k_package), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package */
   {__pyx_k_package_name, sizeof(__pyx_k_package_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package_name */
   {__pyx_k_path, sizeof(__pyx_k_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_path */
@@ -7163,6 +7477,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_prefix, sizeof(__pyx_k_prefix), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_response_class, sizeof(__pyx_k_response_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_class */
+  {__pyx_k_response_class_name, sizeof(__pyx_k_response_class_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_class_name */
   {__pyx_k_result, sizeof(__pyx_k_result), 0, 1, 1}, /* PyObject cname: __pyx_n_u_result */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_scan_module, sizeof(__pyx_k_scan_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_scan_module */
@@ -7186,12 +7502,12 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 22, __pyx_L1_error)
-  __pyx_builtin_object = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_object); if (!__pyx_builtin_object) __PYX_ERR(0, 42, __pyx_L1_error)
-  __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_builtin_AttributeError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_AttributeError); if (!__pyx_builtin_AttributeError) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_builtin_ModuleNotFoundError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ModuleNotFoundError); if (!__pyx_builtin_ModuleNotFoundError) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_builtin_object = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_object); if (!__pyx_builtin_object) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_builtin_AttributeError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_AttributeError); if (!__pyx_builtin_AttributeError) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_builtin_ModuleNotFoundError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ModuleNotFoundError); if (!__pyx_builtin_ModuleNotFoundError) __PYX_ERR(0, 71, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -7203,25 +7519,25 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "class_scaner.py":38
+  /* "class_scaner.py":54
  *             raise ImportError(f" '{dotted_path}': {e}")
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def find_classes(
  *             cls,
 */
-  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(2, ((PyObject *)__pyx_builtin_object), Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(2, ((PyObject *)__pyx_builtin_object), Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
 
-  /* "class_scaner.py":96
+  /* "class_scaner.py":112
  *                         result[full_name] = obj
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def find_classes_instances(
  *             cls,
 */
-  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(2, ((PyObject *)__pyx_builtin_object), Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(2, ((PyObject *)__pyx_builtin_object), Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_RefNannyFinishContext();
@@ -7267,39 +7583,44 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 68, 14};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 84, 14};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_x};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 124, 14};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 140, 14};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_x};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 22, 83};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_dotted_path, __pyx_mstate->__pyx_n_u_module_parts, __pyx_mstate->__pyx_n_u_class_name, __pyx_mstate->__pyx_n_u_module_path, __pyx_mstate->__pyx_n_u_module, __pyx_mstate->__pyx_n_u_e};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_import_class, __pyx_k_A_6_U_1_YnAQ_7_81__A_Qb_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 23, 74};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_original_class, __pyx_mstate->__pyx_n_u_module_2, __pyx_mstate->__pyx_n_u_class_name, __pyx_mstate->__pyx_n_u_response_class_name, __pyx_mstate->__pyx_n_u_importlib, __pyx_mstate->__pyx_n_u_module_obj, __pyx_mstate->__pyx_n_u_response_class};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_get_model_response_class, __pyx_k_A6_a_q_1_b_A_YnAQ_B_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 11, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 38, 204};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_package_name, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_e, __pyx_mstate->__pyx_n_u_importer, __pyx_mstate->__pyx_n_u_modname, __pyx_mstate->__pyx_n_u_is_pkg, __pyx_mstate->__pyx_n_u_module};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_find_classes, __pyx_k_A_q_i_Qa_a_6_J_6a_1_4way_AYl_Q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 38, 83};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_dotted_path, __pyx_mstate->__pyx_n_u_module_parts, __pyx_mstate->__pyx_n_u_class_name, __pyx_mstate->__pyx_n_u_module_path, __pyx_mstate->__pyx_n_u_module_2, __pyx_mstate->__pyx_n_u_e};
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_import_class, __pyx_k_A_6_U_1_YnAQ_7_81__A_Qb_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 79, 106};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_module, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_module_name, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_full_name};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_scan_module, __pyx_k_A_M_87_z_4t7_S_S_c_s_z_a_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 11, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 54, 204};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_package_name, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_e, __pyx_mstate->__pyx_n_u_importer, __pyx_mstate->__pyx_n_u_modname, __pyx_mstate->__pyx_n_u_is_pkg, __pyx_mstate->__pyx_n_u_module_2};
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_find_classes, __pyx_k_A_q_i_Qa_a_6_J_6a_1_4way_AYl_Q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 11, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 96, 218};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_package_name, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_e, __pyx_mstate->__pyx_n_u_importer, __pyx_mstate->__pyx_n_u_modname, __pyx_mstate->__pyx_n_u_is_pkg, __pyx_mstate->__pyx_n_u_module};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_find_classes_instances, __pyx_k_A_q_i_Qa_a_6_J_6a_1_4way_9L_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 95, 106};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_module_2, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_module_name, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_full_name};
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_scan_module, __pyx_k_A_M_87_z_4t7_S_S_c_s_z_a_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 136, 104};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_module, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_module_name, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_full_name};
-    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_scan_module_for_instances, __pyx_k_A_M_1_z_4t7_1_S_S_fL_z_a_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 11, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 112, 218};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_package_name, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_e, __pyx_mstate->__pyx_n_u_importer, __pyx_mstate->__pyx_n_u_modname, __pyx_mstate->__pyx_n_u_is_pkg, __pyx_mstate->__pyx_n_u_module_2};
+    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_find_classes_instances, __pyx_k_A_q_i_Qa_a_6_J_6a_1_4way_9L_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {5, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 152, 104};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_module_2, __pyx_mstate->__pyx_n_u_base_class, __pyx_mstate->__pyx_n_u_predicate, __pyx_mstate->__pyx_n_u_result, __pyx_mstate->__pyx_n_u_module_name, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_full_name};
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_class_scaner_py, __pyx_mstate->__pyx_n_u_scan_module_for_instances, __pyx_k_A_M_1_z_4t7_1_S_S_fL_z_a_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -8548,6 +8869,215 @@ static void __Pyx_RaiseArgtupleInvalid(
                  (num_expected == 1) ? "" : "s", num_found);
 }
 
+/* UnicodeConcatInPlace */
+# if CYTHON_COMPILING_IN_CPYTHON
+static int
+__Pyx_unicode_modifiable(PyObject *unicode)
+{
+    if (Py_REFCNT(unicode) != 1)
+        return 0;
+    if (!PyUnicode_CheckExact(unicode))
+        return 0;
+    if (PyUnicode_CHECK_INTERNED(unicode))
+        return 0;
+    return 1;
+}
+static CYTHON_INLINE PyObject *__Pyx_PyUnicode_ConcatInPlaceImpl(PyObject **p_left, PyObject *right
+        #if CYTHON_REFNANNY
+        , void* __pyx_refnanny
+        #endif
+    ) {
+    PyObject *left = *p_left;
+    Py_ssize_t left_len, right_len, new_len;
+    if (unlikely(__Pyx_PyUnicode_READY(left) == -1))
+        return NULL;
+    if (unlikely(__Pyx_PyUnicode_READY(right) == -1))
+        return NULL;
+    left_len = PyUnicode_GET_LENGTH(left);
+    if (left_len == 0) {
+        Py_INCREF(right);
+        return right;
+    }
+    right_len = PyUnicode_GET_LENGTH(right);
+    if (right_len == 0) {
+        Py_INCREF(left);
+        return left;
+    }
+    if (unlikely(left_len > PY_SSIZE_T_MAX - right_len)) {
+        PyErr_SetString(PyExc_OverflowError,
+                        "strings are too large to concat");
+        return NULL;
+    }
+    new_len = left_len + right_len;
+    if (__Pyx_unicode_modifiable(left)
+            && PyUnicode_CheckExact(right)
+            && PyUnicode_KIND(right) <= PyUnicode_KIND(left)
+            && !(PyUnicode_IS_ASCII(left) && !PyUnicode_IS_ASCII(right))) {
+        int ret;
+        __Pyx_GIVEREF(*p_left);
+        ret = PyUnicode_Resize(p_left, new_len);
+        __Pyx_GOTREF(*p_left);
+        if (unlikely(ret != 0))
+            return NULL;
+        #if PY_VERSION_HEX >= 0x030d0000
+        if (unlikely(PyUnicode_CopyCharacters(*p_left, left_len, right, 0, right_len) < 0)) return NULL;
+        #else
+        _PyUnicode_FastCopyCharacters(*p_left, left_len, right, 0, right_len);
+        #endif
+        __Pyx_INCREF(*p_left);
+        __Pyx_GIVEREF(*p_left);
+        return *p_left;
+    } else {
+        return __Pyx_PyUnicode_Concat(left, right);
+    }
+  }
+#endif
+
+/* Import */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
+    PyObject *module = 0;
+    PyObject *empty_dict = 0;
+    PyObject *empty_list = 0;
+    empty_dict = PyDict_New();
+    if (unlikely(!empty_dict))
+        goto bad;
+    if (level == -1) {
+        const char* package_sep = strchr(__Pyx_MODULE_NAME, '.');
+        if (package_sep != (0)) {
+            module = PyImport_ImportModuleLevelObject(
+                name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, 1);
+            if (unlikely(!module)) {
+                if (unlikely(!PyErr_ExceptionMatches(PyExc_ImportError)))
+                    goto bad;
+                PyErr_Clear();
+            }
+        }
+        level = 0;
+    }
+    if (!module) {
+        module = PyImport_ImportModuleLevelObject(
+            name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, level);
+    }
+bad:
+    Py_XDECREF(empty_dict);
+    Py_XDECREF(empty_list);
+    return module;
+}
+
+/* ImportDottedModule */
+static PyObject *__Pyx__ImportDottedModule_Error(PyObject *name, PyObject *parts_tuple, Py_ssize_t count) {
+    PyObject *partial_name = NULL, *slice = NULL, *sep = NULL;
+    Py_ssize_t size;
+    if (unlikely(PyErr_Occurred())) {
+        PyErr_Clear();
+    }
+#if CYTHON_ASSUME_SAFE_SIZE
+    size = PyTuple_GET_SIZE(parts_tuple);
+#else
+    size = PyTuple_Size(parts_tuple);
+    if (size < 0) goto bad;
+#endif
+    if (likely(size == count)) {
+        partial_name = name;
+    } else {
+        slice = PySequence_GetSlice(parts_tuple, 0, count);
+        if (unlikely(!slice))
+            goto bad;
+        sep = PyUnicode_FromStringAndSize(".", 1);
+        if (unlikely(!sep))
+            goto bad;
+        partial_name = PyUnicode_Join(sep, slice);
+    }
+    PyErr_Format(
+        PyExc_ModuleNotFoundError,
+        "No module named '%U'", partial_name);
+bad:
+    Py_XDECREF(sep);
+    Py_XDECREF(slice);
+    Py_XDECREF(partial_name);
+    return NULL;
+}
+static PyObject *__Pyx__ImportDottedModule_Lookup(PyObject *name) {
+    PyObject *imported_module;
+#if (CYTHON_COMPILING_IN_PYPY && PYPY_VERSION_NUM  < 0x07030400) ||\
+        CYTHON_COMPILING_IN_GRAAL
+    PyObject *modules = PyImport_GetModuleDict();
+    if (unlikely(!modules))
+        return NULL;
+    imported_module = __Pyx_PyDict_GetItemStr(modules, name);
+    Py_XINCREF(imported_module);
+#else
+    imported_module = PyImport_GetModule(name);
+#endif
+    return imported_module;
+}
+static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *name, PyObject *parts_tuple) {
+    Py_ssize_t i, nparts;
+#if CYTHON_ASSUME_SAFE_SIZE
+    nparts = PyTuple_GET_SIZE(parts_tuple);
+#else
+    nparts = PyTuple_Size(parts_tuple);
+    if (nparts < 0) return NULL;
+#endif
+    for (i=1; i < nparts && module; i++) {
+        PyObject *part, *submodule;
+#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        part = PyTuple_GET_ITEM(parts_tuple, i);
+#else
+        part = __Pyx_PySequence_ITEM(parts_tuple, i);
+        if (!part) return NULL;
+#endif
+        submodule = __Pyx_PyObject_GetAttrStrNoError(module, part);
+#if !(CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS)
+        Py_DECREF(part);
+#endif
+        Py_DECREF(module);
+        module = submodule;
+    }
+    if (unlikely(!module)) {
+        return __Pyx__ImportDottedModule_Error(name, parts_tuple, i);
+    }
+    return module;
+}
+static PyObject *__Pyx__ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
+    PyObject *imported_module;
+    PyObject *module = __Pyx_Import(name, NULL, 0);
+    if (!parts_tuple || unlikely(!module))
+        return module;
+    imported_module = __Pyx__ImportDottedModule_Lookup(name);
+    if (likely(imported_module)) {
+        Py_DECREF(module);
+        return imported_module;
+    }
+    PyErr_Clear();
+    return __Pyx_ImportDottedModule_WalkParts(module, name, parts_tuple);
+}
+static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
+#if CYTHON_COMPILING_IN_CPYTHON
+    PyObject *module = __Pyx__ImportDottedModule_Lookup(name);
+    if (likely(module)) {
+        PyObject *spec = __Pyx_PyObject_GetAttrStrNoError(module, __pyx_mstate_global->__pyx_n_u_spec);
+        if (likely(spec)) {
+            PyObject *unsafe = __Pyx_PyObject_GetAttrStrNoError(spec, __pyx_mstate_global->__pyx_n_u_initializing);
+            if (likely(!unsafe || !__Pyx_PyObject_IsTrue(unsafe))) {
+                Py_DECREF(spec);
+                spec = NULL;
+            }
+            Py_XDECREF(unsafe);
+        }
+        if (likely(!spec)) {
+            PyErr_Clear();
+            return module;
+        }
+        Py_DECREF(spec);
+        Py_DECREF(module);
+    } else if (PyErr_Occurred()) {
+        PyErr_Clear();
+    }
+#endif
+    return __Pyx__ImportDottedModule(name, parts_tuple);
+}
+
 /* PyObjectFastCallMethod */
 #if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000
 static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *args, size_t nargsf) {
@@ -8560,6 +9090,38 @@ static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *
     return result;
 }
 #endif
+
+/* GetAttr3 */
+#if __PYX_LIMITED_VERSION_HEX < 0x030d0000
+static PyObject *__Pyx_GetAttr3Default(PyObject *d) {
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    if (unlikely(!__Pyx_PyErr_ExceptionMatches(PyExc_AttributeError)))
+        return NULL;
+    __Pyx_PyErr_Clear();
+    Py_INCREF(d);
+    return d;
+}
+#endif
+static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *o, PyObject *n, PyObject *d) {
+    PyObject *r;
+#if __PYX_LIMITED_VERSION_HEX >= 0x030d0000
+    int res = PyObject_GetOptionalAttr(o, n, &r);
+    return (res != 0) ? r : __Pyx_NewRef(d);
+#else
+  #if CYTHON_USE_TYPE_SLOTS
+    if (likely(PyUnicode_Check(n))) {
+        r = __Pyx_PyObject_GetAttrStrNoError(o, n);
+        if (unlikely(!r) && likely(!PyErr_Occurred())) {
+            r = __Pyx_NewRef(d);
+        }
+        return r;
+    }
+  #endif
+    r = PyObject_GetAttr(o, n);
+    return (likely(r)) ? r : __Pyx_GetAttr3Default(d);
+#endif
+}
 
 /* RaiseNeedMoreValuesToUnpack */
 static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
@@ -10676,151 +11238,6 @@ static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
     return __Pyx_IterFinish();
 }
 
-/* Import */
-static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
-    PyObject *module = 0;
-    PyObject *empty_dict = 0;
-    PyObject *empty_list = 0;
-    empty_dict = PyDict_New();
-    if (unlikely(!empty_dict))
-        goto bad;
-    if (level == -1) {
-        const char* package_sep = strchr(__Pyx_MODULE_NAME, '.');
-        if (package_sep != (0)) {
-            module = PyImport_ImportModuleLevelObject(
-                name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, 1);
-            if (unlikely(!module)) {
-                if (unlikely(!PyErr_ExceptionMatches(PyExc_ImportError)))
-                    goto bad;
-                PyErr_Clear();
-            }
-        }
-        level = 0;
-    }
-    if (!module) {
-        module = PyImport_ImportModuleLevelObject(
-            name, __pyx_mstate_global->__pyx_d, empty_dict, from_list, level);
-    }
-bad:
-    Py_XDECREF(empty_dict);
-    Py_XDECREF(empty_list);
-    return module;
-}
-
-/* ImportDottedModule */
-static PyObject *__Pyx__ImportDottedModule_Error(PyObject *name, PyObject *parts_tuple, Py_ssize_t count) {
-    PyObject *partial_name = NULL, *slice = NULL, *sep = NULL;
-    Py_ssize_t size;
-    if (unlikely(PyErr_Occurred())) {
-        PyErr_Clear();
-    }
-#if CYTHON_ASSUME_SAFE_SIZE
-    size = PyTuple_GET_SIZE(parts_tuple);
-#else
-    size = PyTuple_Size(parts_tuple);
-    if (size < 0) goto bad;
-#endif
-    if (likely(size == count)) {
-        partial_name = name;
-    } else {
-        slice = PySequence_GetSlice(parts_tuple, 0, count);
-        if (unlikely(!slice))
-            goto bad;
-        sep = PyUnicode_FromStringAndSize(".", 1);
-        if (unlikely(!sep))
-            goto bad;
-        partial_name = PyUnicode_Join(sep, slice);
-    }
-    PyErr_Format(
-        PyExc_ModuleNotFoundError,
-        "No module named '%U'", partial_name);
-bad:
-    Py_XDECREF(sep);
-    Py_XDECREF(slice);
-    Py_XDECREF(partial_name);
-    return NULL;
-}
-static PyObject *__Pyx__ImportDottedModule_Lookup(PyObject *name) {
-    PyObject *imported_module;
-#if (CYTHON_COMPILING_IN_PYPY && PYPY_VERSION_NUM  < 0x07030400) ||\
-        CYTHON_COMPILING_IN_GRAAL
-    PyObject *modules = PyImport_GetModuleDict();
-    if (unlikely(!modules))
-        return NULL;
-    imported_module = __Pyx_PyDict_GetItemStr(modules, name);
-    Py_XINCREF(imported_module);
-#else
-    imported_module = PyImport_GetModule(name);
-#endif
-    return imported_module;
-}
-static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *name, PyObject *parts_tuple) {
-    Py_ssize_t i, nparts;
-#if CYTHON_ASSUME_SAFE_SIZE
-    nparts = PyTuple_GET_SIZE(parts_tuple);
-#else
-    nparts = PyTuple_Size(parts_tuple);
-    if (nparts < 0) return NULL;
-#endif
-    for (i=1; i < nparts && module; i++) {
-        PyObject *part, *submodule;
-#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        part = PyTuple_GET_ITEM(parts_tuple, i);
-#else
-        part = __Pyx_PySequence_ITEM(parts_tuple, i);
-        if (!part) return NULL;
-#endif
-        submodule = __Pyx_PyObject_GetAttrStrNoError(module, part);
-#if !(CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS)
-        Py_DECREF(part);
-#endif
-        Py_DECREF(module);
-        module = submodule;
-    }
-    if (unlikely(!module)) {
-        return __Pyx__ImportDottedModule_Error(name, parts_tuple, i);
-    }
-    return module;
-}
-static PyObject *__Pyx__ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
-    PyObject *imported_module;
-    PyObject *module = __Pyx_Import(name, NULL, 0);
-    if (!parts_tuple || unlikely(!module))
-        return module;
-    imported_module = __Pyx__ImportDottedModule_Lookup(name);
-    if (likely(imported_module)) {
-        Py_DECREF(module);
-        return imported_module;
-    }
-    PyErr_Clear();
-    return __Pyx_ImportDottedModule_WalkParts(module, name, parts_tuple);
-}
-static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
-#if CYTHON_COMPILING_IN_CPYTHON
-    PyObject *module = __Pyx__ImportDottedModule_Lookup(name);
-    if (likely(module)) {
-        PyObject *spec = __Pyx_PyObject_GetAttrStrNoError(module, __pyx_mstate_global->__pyx_n_u_spec);
-        if (likely(spec)) {
-            PyObject *unsafe = __Pyx_PyObject_GetAttrStrNoError(spec, __pyx_mstate_global->__pyx_n_u_initializing);
-            if (likely(!unsafe || !__Pyx_PyObject_IsTrue(unsafe))) {
-                Py_DECREF(spec);
-                spec = NULL;
-            }
-            Py_XDECREF(unsafe);
-        }
-        if (likely(!spec)) {
-            PyErr_Clear();
-            return module;
-        }
-        Py_DECREF(spec);
-        Py_DECREF(module);
-    } else if (PyErr_Occurred()) {
-        PyErr_Clear();
-    }
-#endif
-    return __Pyx__ImportDottedModule(name, parts_tuple);
-}
-
 /* ListPack */
 static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...) {
     va_list va;
@@ -11031,7 +11448,7 @@ static PyObject *__Pyx_Py3MetaclassPrepare(PyObject *metaclass, PyObject *bases,
     }
     if (unlikely(!ns))
         return NULL;
-    if (unlikely(PyObject_SetItem(ns, __pyx_mstate_global->__pyx_n_u_module_2, modname) < 0)) goto bad;
+    if (unlikely(PyObject_SetItem(ns, __pyx_mstate_global->__pyx_n_u_module, modname) < 0)) goto bad;
     if (unlikely(PyObject_SetItem(ns, __pyx_mstate_global->__pyx_n_u_qualname, qualname) < 0)) goto bad;
     if (unlikely(doc && PyObject_SetItem(ns, __pyx_mstate_global->__pyx_n_u_doc, doc) < 0)) goto bad;
     return ns;
@@ -11383,7 +11800,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
     #endif
     if (unlikely(name == NULL) || unlikely(!PyUnicode_Check(name))) goto bad;
     module = __Pyx_PyObject_GetAttrStr((PyObject *)tp,
-                                               __pyx_mstate_global->__pyx_n_u_module_2);
+                                               __pyx_mstate_global->__pyx_n_u_module);
     if (unlikely(module == NULL) || unlikely(!PyUnicode_Check(module))) goto bad;
     if (PyUnicode_CompareWithASCIIString(module, "builtins") == 0) {
         result = name;

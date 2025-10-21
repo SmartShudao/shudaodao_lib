@@ -87,7 +87,9 @@ class QueryService:
         cls,
         obj: Any,
         *,
-        query_format,
+        model_class: type[SQLModelDB],
         relation_fields: dict | None = None,
-        with_tag: bool = False,
+        relation_class: dict | None = None,
+        response_class: Any = None,
+        query_request: QueryRequest = None,
     ) -> Any: ...

@@ -112,8 +112,8 @@ class AuthUserResponse(BaseResponse):
     department: Optional[str] = Field(default=None, description="所在部门")
     job_title: Optional[str] = Field(default=None, description="职务职称")
 
-    @computed_field
-    def module_type_label(self) -> str:
-        return EnumService.resolve_field(
-            schema="shudaodao_acm", field="module_type", value=self.module_type
-        )
+    # @computed_field
+    # def module_type_label(self) -> str:
+    #     return EnumService.resolve_field(
+    #         schema="shudaodao_acm", field="module_type", value=self.module_type
+    #     )

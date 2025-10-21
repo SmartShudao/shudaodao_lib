@@ -5,6 +5,8 @@ class ClassScanner:
     """
     通用类扫描器：递归扫描包，找出满足条件的类
     """
+    @classmethod
+    def get_model_response_class(cls, original_class: Any) -> type[Any]: ...
     @staticmethod
     def import_class(dotted_path):
         """

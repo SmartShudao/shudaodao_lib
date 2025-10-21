@@ -4,8 +4,10 @@ from ..schemas.query_request import (
     Condition as Condition,
     Filter as Filter,
     FilterGroup as FilterGroup,
+    QueryRequest as QueryRequest,
 )
 from ..services.enum_service import EnumService as EnumService
+from .class_scaner import ClassScanner as ClassScanner
 from .query_field import (
     convert_datetime_iso_to_standard as convert_datetime_iso_to_standard,
     format_enum as format_enum,
@@ -38,20 +40,27 @@ class QueryBuilder:
         """主表的查询条件"""
     @classmethod
     async def get_query_relation(
-        cls, model_class, model_name, include_path, query_format, query_tags
+        cls, model_class, model_name, include_path, query_tags
     ): ...
     @classmethod
     async def deep_serialize_sqlmodel(
         cls,
         obj: Any,
         *,
-        query_format,
+        response_fields: dict,
+        is_tree_node,
         relation_fields: dict | None = None,
         tag_name=None,
     ) -> Any: ...
+    @classmethod
+    def build_children_tree(cls, flat_list): ...
     @classmethod
     def sqlmodel_format_datetime(cls, value): ...
     @classmethod
     def format_enum(
         cls, enum_fields, field_value, item_dict, key, model_class
     ) -> None: ...
+    @classmethod
+    def get_fields(
+        cls, *, model_class, relation_class, response_class, query_request: QueryRequest
+    ): ...
