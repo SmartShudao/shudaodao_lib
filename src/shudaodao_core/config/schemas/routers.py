@@ -21,5 +21,6 @@ from pydantic import BaseModel, Field
 class RouterConfigSetting(BaseModel):
     name: str = Field(..., description="包名")
     enabled: bool = Field(True, description="是否启用")
+    check_database: bool = Field(True, description="检查数据库")
     prefix: str = Field("", description="url前缀")
     tags: List[str] = Field(None, description="文档分类标签")
