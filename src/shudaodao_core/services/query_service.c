@@ -2326,34 +2326,15 @@ static CYTHON_INLINE PyObject* __Pyx_PyLong_SubtractObjC(PyObject *op1, PyObject
     (inplace ? PyNumber_InPlaceSubtract(op1, op2) : PyNumber_Subtract(op1, op2))
 #endif
 
-/* BuildPyUnicode.proto */
-static PyObject* __Pyx_PyUnicode_BuildFromAscii(Py_ssize_t ulength, const char* chars, int clength,
-                                                int prepend_sign, char padding_char);
-
-/* COrdinalToPyUnicode.proto */
-static CYTHON_INLINE int __Pyx_CheckUnicodeValue(int value);
-static CYTHON_INLINE PyObject* __Pyx_PyUnicode_FromOrdinal_Padded(int value, Py_ssize_t width, char padding_char);
-
-/* GCCDiagnostics.proto */
-#if !defined(__INTEL_COMPILER) && defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6))
-#define __Pyx_HAS_GCC_DIAGNOSTIC
-#endif
-
-/* IncludeStdlibH.proto */
-#include <stdlib.h>
-
-/* CIntToPyUnicode.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyUnicode_From_Py_ssize_t(Py_ssize_t value, Py_ssize_t width, char padding_char, char format_char);
-
-/* JoinPyUnicode.proto */
-static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
-                                      Py_UCS4 max_char);
-
 /* PySequenceContains.proto */
 static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
     int result = PySequence_Contains(seq, item);
     return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
 }
+
+/* JoinPyUnicode.proto */
+static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char);
 
 /* GetAttr3.proto */
 static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *, PyObject *, PyObject *);
@@ -2618,6 +2599,11 @@ static void __pyx_insert_code_object(int code_line, __Pyx_CachedCodeObjectType* 
 static void __Pyx_AddTraceback(const char *funcname, int c_line,
                                int py_line, const char *filename);
 
+/* GCCDiagnostics.proto */
+#if !defined(__INTEL_COMPILER) && defined(__GNUC__) && (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 6))
+#define __Pyx_HAS_GCC_DIAGNOSTIC
+#endif
+
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyLong_From_long(long value);
 
@@ -2738,23 +2724,21 @@ static const char __pyx_k_A[] = "\200A\360\006\000\021\022\330\033\034\330\031\0
 static const char __pyx_k__2[] = " ";
 static const char __pyx_k__3[] = "\351\224\231\350\257\257\347\232\204\346\237\245\350\257\242\346\235\241\344\273\266:";
 static const char __pyx_k__4[] = "\351\224\231\350\257\257\347\232\204\346\237\245\350\257\242\346\235\241\344\273\266";
-static const char __pyx_k__5[] = ",\350\277\224\345\233\236";
-static const char __pyx_k__6[] = "\346\235\241\350\256\260\345\275\225";
-static const char __pyx_k__7[] = ",";
-static const char __pyx_k__8[] = ":";
-static const char __pyx_k__9[] = ".";
+static const char __pyx_k__5[] = ",";
+static const char __pyx_k__6[] = ":";
+static const char __pyx_k__7[] = ".";
+static const char __pyx_k__8[] = "\344\270\215\346\224\257\346\214\201\345\205\263\347\263\273\350\241\250\345\255\227\346\256\265 ";
+static const char __pyx_k__9[] = " \347\232\204\346\216\222\345\272\217";
 static const char __pyx_k_db[] = "db";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_A_2[] = "\200A\360\006\000%&\330+,\330\t\n";
 static const char __pyx_k_A_3[] = "\200A\340-.";
 static const char __pyx_k_Any[] = "Any";
-static const char __pyx_k__10[] = "\344\270\215\346\224\257\346\214\201\345\205\263\347\263\273\350\241\250\345\255\227\346\256\265 ";
-static const char __pyx_k__11[] = " \347\232\204\346\216\222\345\272\217";
-static const char __pyx_k__12[] = "\346\216\222\345\272\217\345\255\227\346\256\265 ";
-static const char __pyx_k__13[] = " \344\270\215\345\255\230\345\234\250 ";
-static const char __pyx_k__14[] = "";
-static const char __pyx_k__15[] = "?";
-static const char __pyx_k__16[] = "_";
+static const char __pyx_k__10[] = "\346\216\222\345\272\217\345\255\227\346\256\265 ";
+static const char __pyx_k__11[] = " \344\270\215\345\255\230\345\234\250 ";
+static const char __pyx_k__12[] = "";
+static const char __pyx_k__13[] = "?";
+static const char __pyx_k__14[] = "_";
 static const char __pyx_k_all[] = "all";
 static const char __pyx_k_and[] = "and_";
 static const char __pyx_k_asc[] = "asc";
@@ -3017,7 +3001,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type__update;
   PyObject *__pyx_slice[1];
   PyObject *__pyx_codeobj_tab[10];
-  PyObject *__pyx_string_tab[200];
+  PyObject *__pyx_string_tab[198];
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_1;
   PyObject *__pyx_int_3;
@@ -3142,169 +3126,167 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u__11 __pyx_string_tab[34]
 #define __pyx_kp_u__12 __pyx_string_tab[35]
 #define __pyx_kp_u__13 __pyx_string_tab[36]
-#define __pyx_kp_u__14 __pyx_string_tab[37]
-#define __pyx_kp_u__15 __pyx_string_tab[38]
-#define __pyx_n_u__16 __pyx_string_tab[39]
-#define __pyx_kp_u__2 __pyx_string_tab[40]
-#define __pyx_kp_u__3 __pyx_string_tab[41]
-#define __pyx_n_u__4 __pyx_string_tab[42]
-#define __pyx_kp_u__5 __pyx_string_tab[43]
-#define __pyx_n_u__6 __pyx_string_tab[44]
-#define __pyx_kp_u__7 __pyx_string_tab[45]
-#define __pyx_kp_u__8 __pyx_string_tab[46]
-#define __pyx_kp_u__9 __pyx_string_tab[47]
-#define __pyx_kp_u_add_note __pyx_string_tab[48]
-#define __pyx_n_u_all __pyx_string_tab[49]
-#define __pyx_n_u_and __pyx_string_tab[50]
-#define __pyx_n_u_apply_tenant_condition __pyx_string_tab[51]
-#define __pyx_n_u_asc __pyx_string_tab[52]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[53]
-#define __pyx_n_u_await __pyx_string_tab[54]
-#define __pyx_n_u_check_query_request __pyx_string_tab[55]
-#define __pyx_n_u_child_class __pyx_string_tab[56]
-#define __pyx_n_u_child_column __pyx_string_tab[57]
-#define __pyx_n_u_child_field __pyx_string_tab[58]
-#define __pyx_n_u_child_tag __pyx_string_tab[59]
-#define __pyx_n_u_class __pyx_string_tab[60]
-#define __pyx_n_u_class_getitem __pyx_string_tab[61]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[62]
-#define __pyx_n_u_close __pyx_string_tab[63]
-#define __pyx_n_u_cls __pyx_string_tab[64]
-#define __pyx_n_u_condition __pyx_string_tab[65]
-#define __pyx_n_u_condition_splits __pyx_string_tab[66]
-#define __pyx_n_u_conditions __pyx_string_tab[67]
-#define __pyx_n_u_count __pyx_string_tab[68]
-#define __pyx_n_u_count_statement __pyx_string_tab[69]
-#define __pyx_n_u_curr_tag __pyx_string_tab[70]
-#define __pyx_n_u_data_service __pyx_string_tab[71]
-#define __pyx_n_u_db __pyx_string_tab[72]
-#define __pyx_n_u_db_model __pyx_string_tab[73]
-#define __pyx_n_u_deep_serialize_sqlmodel __pyx_string_tab[74]
-#define __pyx_n_u_desc __pyx_string_tab[75]
-#define __pyx_kp_u_disable __pyx_string_tab[76]
-#define __pyx_n_u_doc __pyx_string_tab[77]
-#define __pyx_kp_u_enable __pyx_string_tab[78]
-#define __pyx_n_u_enumerate __pyx_string_tab[79]
-#define __pyx_n_u_errors __pyx_string_tab[80]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[81]
-#define __pyx_n_u_exec __pyx_string_tab[82]
-#define __pyx_n_u_field __pyx_string_tab[83]
-#define __pyx_n_u_field_name __pyx_string_tab[84]
-#define __pyx_n_u_field_op __pyx_string_tab[85]
-#define __pyx_n_u_field_val __pyx_string_tab[86]
-#define __pyx_n_u_field_value __pyx_string_tab[87]
-#define __pyx_n_u_filter __pyx_string_tab[88]
-#define __pyx_n_u_filter_obj __pyx_string_tab[89]
-#define __pyx_n_u_filter_relation __pyx_string_tab[90]
-#define __pyx_n_u_first __pyx_string_tab[91]
-#define __pyx_n_u_format __pyx_string_tab[92]
-#define __pyx_n_u_func __pyx_string_tab[93]
-#define __pyx_n_u_func_2 __pyx_string_tab[94]
-#define __pyx_kp_u_gc __pyx_string_tab[95]
-#define __pyx_n_u_get_condition __pyx_string_tab[96]
-#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[97]
-#define __pyx_n_u_get_count_where __pyx_string_tab[98]
-#define __pyx_n_u_get_fields __pyx_string_tab[99]
-#define __pyx_n_u_get_order_by __pyx_string_tab[100]
-#define __pyx_n_u_get_query_relation __pyx_string_tab[101]
-#define __pyx_n_u_get_relation_where __pyx_string_tab[102]
-#define __pyx_n_u_get_select __pyx_string_tab[103]
-#define __pyx_n_u_get_table_where __pyx_string_tab[104]
-#define __pyx_n_u_get_where __pyx_string_tab[105]
-#define __pyx_n_u_include_path __pyx_string_tab[106]
-#define __pyx_kp_u_includetag __pyx_string_tab[107]
-#define __pyx_kp_u_includetag_2 __pyx_string_tab[108]
-#define __pyx_n_u_index __pyx_string_tab[109]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[110]
-#define __pyx_n_u_is_relation __pyx_string_tab[111]
-#define __pyx_n_u_is_tree_node __pyx_string_tab[112]
-#define __pyx_kp_u_isenabled __pyx_string_tab[113]
-#define __pyx_n_u_items __pyx_string_tab[114]
-#define __pyx_n_u_key __pyx_string_tab[115]
-#define __pyx_n_u_len __pyx_string_tab[116]
-#define __pyx_n_u_limit __pyx_string_tab[117]
-#define __pyx_n_u_list __pyx_string_tab[118]
-#define __pyx_n_u_loader __pyx_string_tab[119]
-#define __pyx_n_u_loc_type __pyx_string_tab[120]
-#define __pyx_n_u_lower __pyx_string_tab[121]
-#define __pyx_n_u_main __pyx_string_tab[122]
-#define __pyx_n_u_message __pyx_string_tab[123]
-#define __pyx_n_u_metaclass __pyx_string_tab[124]
-#define __pyx_n_u_model_class __pyx_string_tab[125]
-#define __pyx_n_u_model_name __pyx_string_tab[126]
-#define __pyx_n_u_module __pyx_string_tab[127]
-#define __pyx_n_u_msg __pyx_string_tab[128]
-#define __pyx_n_u_name __pyx_string_tab[129]
-#define __pyx_n_u_next __pyx_string_tab[130]
-#define __pyx_n_u_obj __pyx_string_tab[131]
-#define __pyx_n_u_offset __pyx_string_tab[132]
-#define __pyx_n_u_options __pyx_string_tab[133]
-#define __pyx_n_u_order __pyx_string_tab[134]
-#define __pyx_n_u_order_by __pyx_string_tab[135]
-#define __pyx_n_u_page __pyx_string_tab[136]
-#define __pyx_n_u_paging __pyx_string_tab[137]
-#define __pyx_n_u_partition __pyx_string_tab[138]
-#define __pyx_n_u_pop __pyx_string_tab[139]
-#define __pyx_n_u_prepare __pyx_string_tab[140]
-#define __pyx_n_u_qualname __pyx_string_tab[141]
-#define __pyx_n_u_query __pyx_string_tab[142]
-#define __pyx_n_u_query_columns __pyx_string_tab[143]
-#define __pyx_n_u_query_columns_first __pyx_string_tab[144]
-#define __pyx_n_u_query_format __pyx_string_tab[145]
-#define __pyx_n_u_query_relation __pyx_string_tab[146]
-#define __pyx_n_u_query_request __pyx_string_tab[147]
-#define __pyx_n_u_query_service __pyx_string_tab[148]
-#define __pyx_kp_u_query_service_py __pyx_string_tab[149]
-#define __pyx_n_u_query_sort __pyx_string_tab[150]
-#define __pyx_n_u_query_tags __pyx_string_tab[151]
-#define __pyx_n_u_raise_request_validation_error __pyx_string_tab[152]
-#define __pyx_n_u_rel __pyx_string_tab[153]
-#define __pyx_n_u_relation __pyx_string_tab[154]
-#define __pyx_n_u_relation_class __pyx_string_tab[155]
-#define __pyx_n_u_relation_condition __pyx_string_tab[156]
-#define __pyx_n_u_relation_field_tag __pyx_string_tab[157]
-#define __pyx_n_u_relation_fields __pyx_string_tab[158]
-#define __pyx_n_u_reset_schema __pyx_string_tab[159]
-#define __pyx_n_u_response_class __pyx_string_tab[160]
-#define __pyx_n_u_response_fields __pyx_string_tab[161]
-#define __pyx_n_u_return __pyx_string_tab[162]
-#define __pyx_n_u_rows __pyx_string_tab[163]
-#define __pyx_n_u_rpartition __pyx_string_tab[164]
-#define __pyx_n_u_schemas_element __pyx_string_tab[165]
-#define __pyx_n_u_schemas_query_request __pyx_string_tab[166]
-#define __pyx_n_u_select __pyx_string_tab[167]
-#define __pyx_n_u_selectinload __pyx_string_tab[168]
-#define __pyx_n_u_send __pyx_string_tab[169]
-#define __pyx_n_u_serialize_nested __pyx_string_tab[170]
-#define __pyx_n_u_set_name __pyx_string_tab[171]
-#define __pyx_n_u_set_total __pyx_string_tab[172]
-#define __pyx_n_u_size __pyx_string_tab[173]
-#define __pyx_n_u_sort __pyx_string_tab[174]
-#define __pyx_n_u_sort_field __pyx_string_tab[175]
-#define __pyx_n_u_sort_row __pyx_string_tab[176]
-#define __pyx_n_u_split __pyx_string_tab[177]
-#define __pyx_n_u_sqlalchemy __pyx_string_tab[178]
-#define __pyx_n_u_sqlalchemy_orm __pyx_string_tab[179]
-#define __pyx_n_u_sqlmodel __pyx_string_tab[180]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[181]
-#define __pyx_n_u_statement __pyx_string_tab[182]
-#define __pyx_n_u_strip __pyx_string_tab[183]
-#define __pyx_n_u_tag __pyx_string_tab[184]
-#define __pyx_kp_u_tag_2 __pyx_string_tab[185]
-#define __pyx_n_u_tag_name __pyx_string_tab[186]
-#define __pyx_n_u_test __pyx_string_tab[187]
-#define __pyx_n_u_throw __pyx_string_tab[188]
-#define __pyx_n_u_tools_query_builder __pyx_string_tab[189]
-#define __pyx_n_u_tools_tenant_manager __pyx_string_tab[190]
-#define __pyx_n_u_tree __pyx_string_tab[191]
-#define __pyx_n_u_type_var __pyx_string_tab[192]
-#define __pyx_n_u_typing __pyx_string_tab[193]
-#define __pyx_n_u_update __pyx_string_tab[194]
-#define __pyx_n_u_val __pyx_string_tab[195]
-#define __pyx_n_u_value __pyx_string_tab[196]
-#define __pyx_n_u_where __pyx_string_tab[197]
-#define __pyx_n_u_where_condition __pyx_string_tab[198]
-#define __pyx_n_u_with_loader_criteria __pyx_string_tab[199]
+#define __pyx_n_u__14 __pyx_string_tab[37]
+#define __pyx_kp_u__2 __pyx_string_tab[38]
+#define __pyx_kp_u__3 __pyx_string_tab[39]
+#define __pyx_n_u__4 __pyx_string_tab[40]
+#define __pyx_kp_u__5 __pyx_string_tab[41]
+#define __pyx_kp_u__6 __pyx_string_tab[42]
+#define __pyx_kp_u__7 __pyx_string_tab[43]
+#define __pyx_kp_u__8 __pyx_string_tab[44]
+#define __pyx_kp_u__9 __pyx_string_tab[45]
+#define __pyx_kp_u_add_note __pyx_string_tab[46]
+#define __pyx_n_u_all __pyx_string_tab[47]
+#define __pyx_n_u_and __pyx_string_tab[48]
+#define __pyx_n_u_apply_tenant_condition __pyx_string_tab[49]
+#define __pyx_n_u_asc __pyx_string_tab[50]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[51]
+#define __pyx_n_u_await __pyx_string_tab[52]
+#define __pyx_n_u_check_query_request __pyx_string_tab[53]
+#define __pyx_n_u_child_class __pyx_string_tab[54]
+#define __pyx_n_u_child_column __pyx_string_tab[55]
+#define __pyx_n_u_child_field __pyx_string_tab[56]
+#define __pyx_n_u_child_tag __pyx_string_tab[57]
+#define __pyx_n_u_class __pyx_string_tab[58]
+#define __pyx_n_u_class_getitem __pyx_string_tab[59]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[60]
+#define __pyx_n_u_close __pyx_string_tab[61]
+#define __pyx_n_u_cls __pyx_string_tab[62]
+#define __pyx_n_u_condition __pyx_string_tab[63]
+#define __pyx_n_u_condition_splits __pyx_string_tab[64]
+#define __pyx_n_u_conditions __pyx_string_tab[65]
+#define __pyx_n_u_count __pyx_string_tab[66]
+#define __pyx_n_u_count_statement __pyx_string_tab[67]
+#define __pyx_n_u_curr_tag __pyx_string_tab[68]
+#define __pyx_n_u_data_service __pyx_string_tab[69]
+#define __pyx_n_u_db __pyx_string_tab[70]
+#define __pyx_n_u_db_model __pyx_string_tab[71]
+#define __pyx_n_u_deep_serialize_sqlmodel __pyx_string_tab[72]
+#define __pyx_n_u_desc __pyx_string_tab[73]
+#define __pyx_kp_u_disable __pyx_string_tab[74]
+#define __pyx_n_u_doc __pyx_string_tab[75]
+#define __pyx_kp_u_enable __pyx_string_tab[76]
+#define __pyx_n_u_enumerate __pyx_string_tab[77]
+#define __pyx_n_u_errors __pyx_string_tab[78]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[79]
+#define __pyx_n_u_exec __pyx_string_tab[80]
+#define __pyx_n_u_field __pyx_string_tab[81]
+#define __pyx_n_u_field_name __pyx_string_tab[82]
+#define __pyx_n_u_field_op __pyx_string_tab[83]
+#define __pyx_n_u_field_val __pyx_string_tab[84]
+#define __pyx_n_u_field_value __pyx_string_tab[85]
+#define __pyx_n_u_filter __pyx_string_tab[86]
+#define __pyx_n_u_filter_obj __pyx_string_tab[87]
+#define __pyx_n_u_filter_relation __pyx_string_tab[88]
+#define __pyx_n_u_first __pyx_string_tab[89]
+#define __pyx_n_u_format __pyx_string_tab[90]
+#define __pyx_n_u_func __pyx_string_tab[91]
+#define __pyx_n_u_func_2 __pyx_string_tab[92]
+#define __pyx_kp_u_gc __pyx_string_tab[93]
+#define __pyx_n_u_get_condition __pyx_string_tab[94]
+#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[95]
+#define __pyx_n_u_get_count_where __pyx_string_tab[96]
+#define __pyx_n_u_get_fields __pyx_string_tab[97]
+#define __pyx_n_u_get_order_by __pyx_string_tab[98]
+#define __pyx_n_u_get_query_relation __pyx_string_tab[99]
+#define __pyx_n_u_get_relation_where __pyx_string_tab[100]
+#define __pyx_n_u_get_select __pyx_string_tab[101]
+#define __pyx_n_u_get_table_where __pyx_string_tab[102]
+#define __pyx_n_u_get_where __pyx_string_tab[103]
+#define __pyx_n_u_include_path __pyx_string_tab[104]
+#define __pyx_kp_u_includetag __pyx_string_tab[105]
+#define __pyx_kp_u_includetag_2 __pyx_string_tab[106]
+#define __pyx_n_u_index __pyx_string_tab[107]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[108]
+#define __pyx_n_u_is_relation __pyx_string_tab[109]
+#define __pyx_n_u_is_tree_node __pyx_string_tab[110]
+#define __pyx_kp_u_isenabled __pyx_string_tab[111]
+#define __pyx_n_u_items __pyx_string_tab[112]
+#define __pyx_n_u_key __pyx_string_tab[113]
+#define __pyx_n_u_len __pyx_string_tab[114]
+#define __pyx_n_u_limit __pyx_string_tab[115]
+#define __pyx_n_u_list __pyx_string_tab[116]
+#define __pyx_n_u_loader __pyx_string_tab[117]
+#define __pyx_n_u_loc_type __pyx_string_tab[118]
+#define __pyx_n_u_lower __pyx_string_tab[119]
+#define __pyx_n_u_main __pyx_string_tab[120]
+#define __pyx_n_u_message __pyx_string_tab[121]
+#define __pyx_n_u_metaclass __pyx_string_tab[122]
+#define __pyx_n_u_model_class __pyx_string_tab[123]
+#define __pyx_n_u_model_name __pyx_string_tab[124]
+#define __pyx_n_u_module __pyx_string_tab[125]
+#define __pyx_n_u_msg __pyx_string_tab[126]
+#define __pyx_n_u_name __pyx_string_tab[127]
+#define __pyx_n_u_next __pyx_string_tab[128]
+#define __pyx_n_u_obj __pyx_string_tab[129]
+#define __pyx_n_u_offset __pyx_string_tab[130]
+#define __pyx_n_u_options __pyx_string_tab[131]
+#define __pyx_n_u_order __pyx_string_tab[132]
+#define __pyx_n_u_order_by __pyx_string_tab[133]
+#define __pyx_n_u_page __pyx_string_tab[134]
+#define __pyx_n_u_paging __pyx_string_tab[135]
+#define __pyx_n_u_partition __pyx_string_tab[136]
+#define __pyx_n_u_pop __pyx_string_tab[137]
+#define __pyx_n_u_prepare __pyx_string_tab[138]
+#define __pyx_n_u_qualname __pyx_string_tab[139]
+#define __pyx_n_u_query __pyx_string_tab[140]
+#define __pyx_n_u_query_columns __pyx_string_tab[141]
+#define __pyx_n_u_query_columns_first __pyx_string_tab[142]
+#define __pyx_n_u_query_format __pyx_string_tab[143]
+#define __pyx_n_u_query_relation __pyx_string_tab[144]
+#define __pyx_n_u_query_request __pyx_string_tab[145]
+#define __pyx_n_u_query_service __pyx_string_tab[146]
+#define __pyx_kp_u_query_service_py __pyx_string_tab[147]
+#define __pyx_n_u_query_sort __pyx_string_tab[148]
+#define __pyx_n_u_query_tags __pyx_string_tab[149]
+#define __pyx_n_u_raise_request_validation_error __pyx_string_tab[150]
+#define __pyx_n_u_rel __pyx_string_tab[151]
+#define __pyx_n_u_relation __pyx_string_tab[152]
+#define __pyx_n_u_relation_class __pyx_string_tab[153]
+#define __pyx_n_u_relation_condition __pyx_string_tab[154]
+#define __pyx_n_u_relation_field_tag __pyx_string_tab[155]
+#define __pyx_n_u_relation_fields __pyx_string_tab[156]
+#define __pyx_n_u_reset_schema __pyx_string_tab[157]
+#define __pyx_n_u_response_class __pyx_string_tab[158]
+#define __pyx_n_u_response_fields __pyx_string_tab[159]
+#define __pyx_n_u_return __pyx_string_tab[160]
+#define __pyx_n_u_rows __pyx_string_tab[161]
+#define __pyx_n_u_rpartition __pyx_string_tab[162]
+#define __pyx_n_u_schemas_element __pyx_string_tab[163]
+#define __pyx_n_u_schemas_query_request __pyx_string_tab[164]
+#define __pyx_n_u_select __pyx_string_tab[165]
+#define __pyx_n_u_selectinload __pyx_string_tab[166]
+#define __pyx_n_u_send __pyx_string_tab[167]
+#define __pyx_n_u_serialize_nested __pyx_string_tab[168]
+#define __pyx_n_u_set_name __pyx_string_tab[169]
+#define __pyx_n_u_set_total __pyx_string_tab[170]
+#define __pyx_n_u_size __pyx_string_tab[171]
+#define __pyx_n_u_sort __pyx_string_tab[172]
+#define __pyx_n_u_sort_field __pyx_string_tab[173]
+#define __pyx_n_u_sort_row __pyx_string_tab[174]
+#define __pyx_n_u_split __pyx_string_tab[175]
+#define __pyx_n_u_sqlalchemy __pyx_string_tab[176]
+#define __pyx_n_u_sqlalchemy_orm __pyx_string_tab[177]
+#define __pyx_n_u_sqlmodel __pyx_string_tab[178]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[179]
+#define __pyx_n_u_statement __pyx_string_tab[180]
+#define __pyx_n_u_strip __pyx_string_tab[181]
+#define __pyx_n_u_tag __pyx_string_tab[182]
+#define __pyx_kp_u_tag_2 __pyx_string_tab[183]
+#define __pyx_n_u_tag_name __pyx_string_tab[184]
+#define __pyx_n_u_test __pyx_string_tab[185]
+#define __pyx_n_u_throw __pyx_string_tab[186]
+#define __pyx_n_u_tools_query_builder __pyx_string_tab[187]
+#define __pyx_n_u_tools_tenant_manager __pyx_string_tab[188]
+#define __pyx_n_u_tree __pyx_string_tab[189]
+#define __pyx_n_u_type_var __pyx_string_tab[190]
+#define __pyx_n_u_typing __pyx_string_tab[191]
+#define __pyx_n_u_update __pyx_string_tab[192]
+#define __pyx_n_u_val __pyx_string_tab[193]
+#define __pyx_n_u_value __pyx_string_tab[194]
+#define __pyx_n_u_where __pyx_string_tab[195]
+#define __pyx_n_u_where_condition __pyx_string_tab[196]
+#define __pyx_n_u_with_loader_criteria __pyx_string_tab[197]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3341,7 +3323,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_13query_service___pyx_scope_struct_6_serialize_nested);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<10; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<200; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<198; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_1);
   Py_CLEAR(clear_module_state->__pyx_int_3);
@@ -3383,7 +3365,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_13query_service___pyx_scope_struct_6_serialize_nested);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<10; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<200; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<198; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_1);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_3);
@@ -5526,8 +5508,6 @@ static PyObject *__pyx_gb_13query_service_12QueryService_12generator2(__pyx_Coro
   int __pyx_t_9;
   PyObject *__pyx_t_10 = NULL;
   PyObject *__pyx_t_11 = NULL;
-  Py_ssize_t __pyx_t_12;
-  PyObject *__pyx_t_13[3];
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -6241,7 +6221,7 @@ static PyObject *__pyx_gb_13query_service_12QueryService_12generator2(__pyx_Coro
  *             )
  *             paging.set_total((await db.exec(count_statement)).first())             # <<<<<<<<<<<<<<
  *             return paging
- *         return rows, f",{len(rows)}"
+ *         return rows  # , f",{len(rows)}"
 */
     __pyx_t_3 = __pyx_cur_scope->__pyx_v_paging;
     __Pyx_INCREF(__pyx_t_3);
@@ -6321,7 +6301,7 @@ static PyObject *__pyx_gb_13query_service_12QueryService_12generator2(__pyx_Coro
  *             )
  *             paging.set_total((await db.exec(count_statement)).first())
  *             return paging             # <<<<<<<<<<<<<<
- *         return rows, f",{len(rows)}"
+ *         return rows  # , f",{len(rows)}"
  * 
 */
     __Pyx_XDECREF(__pyx_r);
@@ -6341,31 +6321,13 @@ static PyObject *__pyx_gb_13query_service_12QueryService_12generator2(__pyx_Coro
   /* "query_service.py":203
  *             paging.set_total((await db.exec(count_statement)).first())
  *             return paging
- *         return rows, f",{len(rows)}"             # <<<<<<<<<<<<<<
+ *         return rows  # , f",{len(rows)}"             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_12 = PyObject_Length(__pyx_cur_scope->__pyx_v_rows); if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 203, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyUnicode_From_Py_ssize_t(__pyx_t_12, 0, ' ', 'd'); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_13[0] = __pyx_mstate_global->__pyx_kp_u__5;
-  __pyx_t_13[1] = __pyx_t_1;
-  __pyx_t_13[2] = __pyx_mstate_global->__pyx_n_u__6;
-  __pyx_t_10 = __Pyx_PyUnicode_Join(__pyx_t_13, 3, 3 * 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1), 65535);
-  if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_rows);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_rows);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_cur_scope->__pyx_v_rows) != (0)) __PYX_ERR(0, 203, __pyx_L1_error);
-  __Pyx_GIVEREF(__pyx_t_10);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 203, __pyx_L1_error);
-  __pyx_t_10 = 0;
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __pyx_r = __pyx_cur_scope->__pyx_v_rows;
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
@@ -6402,7 +6364,7 @@ static PyObject *__pyx_gb_13query_service_12QueryService_12generator2(__pyx_Coro
 }
 
 /* "query_service.py":205
- *         return rows, f",{len(rows)}"
+ *         return rows  # , f",{len(rows)}"
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_order_by(cls, statement, model_class, query_sort):
@@ -6684,7 +6646,7 @@ static PyObject *__pyx_pf_13query_service_12QueryService_13get_order_by(CYTHON_U
     __Pyx_INCREF(__pyx_t_6);
     __pyx_t_7 = 0;
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u__7};
+      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u__5};
       __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_split, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 212, __pyx_L1_error)
@@ -6764,7 +6726,7 @@ static PyObject *__pyx_pf_13query_service_12QueryService_13get_order_by(CYTHON_U
       __Pyx_INCREF(__pyx_t_10);
       __pyx_t_7 = 0;
       {
-        PyObject *__pyx_callargs[2] = {__pyx_t_10, __pyx_mstate_global->__pyx_kp_u__8};
+        PyObject *__pyx_callargs[2] = {__pyx_t_10, __pyx_mstate_global->__pyx_kp_u__6};
         __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_rpartition, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
@@ -6844,7 +6806,7 @@ static PyObject *__pyx_pf_13query_service_12QueryService_13get_order_by(CYTHON_U
  *                     raise ValueException(
  *                         message="", field="sort",
 */
-      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_mstate_global->__pyx_kp_u__9, __pyx_v_sort_field, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 214, __pyx_L1_error)
+      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_mstate_global->__pyx_kp_u__7, __pyx_v_sort_field, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 214, __pyx_L1_error)
       if (unlikely(__pyx_t_1)) {
 
         /* "query_service.py":215
@@ -6867,9 +6829,9 @@ static PyObject *__pyx_pf_13query_service_12QueryService_13get_order_by(CYTHON_U
 */
         __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_v_sort_field, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 217, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_15[0] = __pyx_mstate_global->__pyx_kp_u__10;
+        __pyx_t_15[0] = __pyx_mstate_global->__pyx_kp_u__8;
         __pyx_t_15[1] = __pyx_t_11;
-        __pyx_t_15[2] = __pyx_mstate_global->__pyx_kp_u__11;
+        __pyx_t_15[2] = __pyx_mstate_global->__pyx_kp_u__9;
         __pyx_t_13 = __Pyx_PyUnicode_Join(__pyx_t_15, 3, 9 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 4, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11));
         if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 217, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
@@ -6956,9 +6918,9 @@ static PyObject *__pyx_pf_13query_service_12QueryService_13get_order_by(CYTHON_U
 */
         __pyx_t_13 = __Pyx_PyObject_FormatSimple(__pyx_v_sort_field, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 223, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
-        __pyx_t_15[0] = __pyx_mstate_global->__pyx_kp_u__12;
+        __pyx_t_15[0] = __pyx_mstate_global->__pyx_kp_u__10;
         __pyx_t_15[1] = __pyx_t_13;
-        __pyx_t_15[2] = __pyx_mstate_global->__pyx_kp_u__13;
+        __pyx_t_15[2] = __pyx_mstate_global->__pyx_kp_u__11;
         __pyx_t_12 = __Pyx_PyUnicode_Join(__pyx_t_15, 3, 5 * 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_13), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_13));
         if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 223, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
@@ -7132,7 +7094,7 @@ static PyObject *__pyx_pf_13query_service_12QueryService_13get_order_by(CYTHON_U
   goto __pyx_L0;
 
   /* "query_service.py":205
- *         return rows, f",{len(rows)}"
+ *         return rows  # , f",{len(rows)}"
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_order_by(cls, statement, model_class, query_sort):
@@ -8474,7 +8436,7 @@ static PyObject *__pyx_gb_13query_service_12QueryService_23generator5(__pyx_Coro
       __Pyx_INCREF(__pyx_t_8);
       __pyx_t_5 = 0;
       {
-        PyObject *__pyx_callargs[2] = {__pyx_t_8, __pyx_mstate_global->__pyx_kp_u__7};
+        PyObject *__pyx_callargs[2] = {__pyx_t_8, __pyx_mstate_global->__pyx_kp_u__5};
         __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_partition, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -8586,10 +8548,10 @@ static PyObject *__pyx_gb_13query_service_12QueryService_23generator5(__pyx_Coro
  * 
 */
     /*else*/ {
-      __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__14);
+      __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__12);
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_child_tag);
-      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_child_tag, __pyx_mstate_global->__pyx_kp_u__14);
-      __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__14);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_child_tag, __pyx_mstate_global->__pyx_kp_u__12);
+      __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__12);
 
       /* "query_service.py":291
  *             else:
@@ -8603,7 +8565,7 @@ static PyObject *__pyx_gb_13query_service_12QueryService_23generator5(__pyx_Coro
       __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_t_10, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      if (unlikely((PyDict_SetItem(__pyx_cur_scope->__pyx_v_relation_field_tag, __pyx_t_2, __pyx_mstate_global->__pyx_kp_u__14) < 0))) __PYX_ERR(0, 291, __pyx_L1_error)
+      if (unlikely((PyDict_SetItem(__pyx_cur_scope->__pyx_v_relation_field_tag, __pyx_t_2, __pyx_mstate_global->__pyx_kp_u__12) < 0))) __PYX_ERR(0, 291, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __pyx_L8:;
@@ -8648,7 +8610,7 @@ static PyObject *__pyx_gb_13query_service_12QueryService_23generator5(__pyx_Coro
       __pyx_t_11 = __Pyx_MakeVectorcallBuilderKwds(5); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_11, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_name, __pyx_mstate_global->__pyx_kp_u__14, __pyx_t_11, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_name, __pyx_mstate_global->__pyx_kp_u__12, __pyx_t_11, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
       if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_include_path, __pyx_cur_scope->__pyx_v_include_path, __pyx_t_11, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
       if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_query_tags, __pyx_cur_scope->__pyx_v_child_tag, __pyx_t_11, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
       if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_query_format, __pyx_t_8, __pyx_t_11, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
@@ -11986,7 +11948,7 @@ __Pyx_RefNannySetupContext("PyInit_query_service", 0);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "query_service.py":205
- *         return rows, f",{len(rows)}"
+ *         return rows  # , f",{len(rows)}"
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_order_by(cls, statement, model_class, query_sort):
@@ -12259,14 +12221,12 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__11, sizeof(__pyx_k__11), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__11 */
   {__pyx_k__12, sizeof(__pyx_k__12), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__12 */
   {__pyx_k__13, sizeof(__pyx_k__13), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__13 */
-  {__pyx_k__14, sizeof(__pyx_k__14), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__14 */
-  {__pyx_k__15, sizeof(__pyx_k__15), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__15 */
-  {__pyx_k__16, sizeof(__pyx_k__16), 0, 1, 1}, /* PyObject cname: __pyx_n_u__16 */
+  {__pyx_k__14, sizeof(__pyx_k__14), 0, 1, 1}, /* PyObject cname: __pyx_n_u__14 */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 1}, /* PyObject cname: __pyx_n_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
-  {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 1}, /* PyObject cname: __pyx_n_u__6 */
+  {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
   {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__7 */
   {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__8 */
   {__pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__9 */
@@ -12529,7 +12489,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 18, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 273, 5};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_query_request, __pyx_mstate->__pyx_n_u_query_relation, __pyx_mstate->__pyx_n_u_query_tags, __pyx_mstate->__pyx_n_u_relation_class, __pyx_mstate->__pyx_n_u_relation_field_tag, __pyx_mstate->__pyx_n_u_statement, __pyx_mstate->__pyx_n_u_index, __pyx_mstate->__pyx_n_u_include_path, __pyx_mstate->__pyx_n_u_curr_tag, __pyx_mstate->__pyx_n_u__16, __pyx_mstate->__pyx_n_u_child_tag, __pyx_mstate->__pyx_n_u_child_class, __pyx_mstate->__pyx_n_u_child_field, __pyx_mstate->__pyx_n_u_child_column, __pyx_mstate->__pyx_n_u_loader, __pyx_mstate->__pyx_n_u_rel};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_query_request, __pyx_mstate->__pyx_n_u_query_relation, __pyx_mstate->__pyx_n_u_query_tags, __pyx_mstate->__pyx_n_u_relation_class, __pyx_mstate->__pyx_n_u_relation_field_tag, __pyx_mstate->__pyx_n_u_statement, __pyx_mstate->__pyx_n_u_index, __pyx_mstate->__pyx_n_u_include_path, __pyx_mstate->__pyx_n_u_curr_tag, __pyx_mstate->__pyx_n_u__14, __pyx_mstate->__pyx_n_u_child_tag, __pyx_mstate->__pyx_n_u_child_class, __pyx_mstate->__pyx_n_u_child_field, __pyx_mstate->__pyx_n_u_child_column, __pyx_mstate->__pyx_n_u_loader, __pyx_mstate->__pyx_n_u_rel};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_service_py, __pyx_mstate->__pyx_n_u_get_select, __pyx_k_A_3, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
@@ -12549,7 +12509,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   }
   {
     const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 205, 202};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_statement, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_query_sort, __pyx_mstate->__pyx_n_u_sort_row, __pyx_mstate->__pyx_n_u_sort, __pyx_mstate->__pyx_n_u_sort_field, __pyx_mstate->__pyx_n_u__16, __pyx_mstate->__pyx_n_u_order, __pyx_mstate->__pyx_n_u_field};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_statement, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_query_sort, __pyx_mstate->__pyx_n_u_sort_row, __pyx_mstate->__pyx_n_u_sort, __pyx_mstate->__pyx_n_u_sort_field, __pyx_mstate->__pyx_n_u__14, __pyx_mstate->__pyx_n_u_order, __pyx_mstate->__pyx_n_u_field};
     __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_query_service_py, __pyx_mstate->__pyx_n_u_get_order_by, __pyx_k_A_c_1_Ql_L_aq_Cxt6_aq_4s_r_a_q_6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
@@ -16539,240 +16499,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyLong_SubtractObjC(PyObject *op1, PyObject
 }
 #endif
 
-/* CIntToDigits */
-  static const char DIGIT_PAIRS_10[2*10*10+1] = {
-    "00010203040506070809"
-    "10111213141516171819"
-    "20212223242526272829"
-    "30313233343536373839"
-    "40414243444546474849"
-    "50515253545556575859"
-    "60616263646566676869"
-    "70717273747576777879"
-    "80818283848586878889"
-    "90919293949596979899"
-};
-static const char DIGIT_PAIRS_8[2*8*8+1] = {
-    "0001020304050607"
-    "1011121314151617"
-    "2021222324252627"
-    "3031323334353637"
-    "4041424344454647"
-    "5051525354555657"
-    "6061626364656667"
-    "7071727374757677"
-};
-static const char DIGITS_HEX[2*16+1] = {
-    "0123456789abcdef"
-    "0123456789ABCDEF"
-};
-
-/* BuildPyUnicode */
-  static PyObject* __Pyx_PyUnicode_BuildFromAscii(Py_ssize_t ulength, const char* chars, int clength,
-                                                int prepend_sign, char padding_char) {
-    PyObject *uval;
-    Py_ssize_t uoffset = ulength - clength;
-#if CYTHON_USE_UNICODE_INTERNALS
-    Py_ssize_t i;
-    void *udata;
-    uval = PyUnicode_New(ulength, 127);
-    if (unlikely(!uval)) return NULL;
-    udata = PyUnicode_DATA(uval);
-    if (uoffset > 0) {
-        i = 0;
-        if (prepend_sign) {
-            __Pyx_PyUnicode_WRITE(PyUnicode_1BYTE_KIND, udata, 0, '-');
-            i++;
-        }
-        for (; i < uoffset; i++) {
-            __Pyx_PyUnicode_WRITE(PyUnicode_1BYTE_KIND, udata, i, padding_char);
-        }
-    }
-    for (i=0; i < clength; i++) {
-        __Pyx_PyUnicode_WRITE(PyUnicode_1BYTE_KIND, udata, uoffset+i, chars[i]);
-    }
-#else
-    {
-        PyObject *sign = NULL, *padding = NULL;
-        uval = NULL;
-        if (uoffset > 0) {
-            prepend_sign = !!prepend_sign;
-            if (uoffset > prepend_sign) {
-                padding = PyUnicode_FromOrdinal(padding_char);
-                if (likely(padding) && uoffset > prepend_sign + 1) {
-                    PyObject *tmp = PySequence_Repeat(padding, uoffset - prepend_sign);
-                    Py_DECREF(padding);
-                    padding = tmp;
-                }
-                if (unlikely(!padding)) goto done_or_error;
-            }
-            if (prepend_sign) {
-                sign = PyUnicode_FromOrdinal('-');
-                if (unlikely(!sign)) goto done_or_error;
-            }
-        }
-        uval = PyUnicode_DecodeASCII(chars, clength, NULL);
-        if (likely(uval) && padding) {
-            PyObject *tmp = PyUnicode_Concat(padding, uval);
-            Py_DECREF(uval);
-            uval = tmp;
-        }
-        if (likely(uval) && sign) {
-            PyObject *tmp = PyUnicode_Concat(sign, uval);
-            Py_DECREF(uval);
-            uval = tmp;
-        }
-done_or_error:
-        Py_XDECREF(padding);
-        Py_XDECREF(sign);
-    }
-#endif
-    return uval;
-}
-
-/* COrdinalToPyUnicode */
-  static CYTHON_INLINE int __Pyx_CheckUnicodeValue(int value) {
-    return value <= 1114111;
-}
-static PyObject* __Pyx_PyUnicode_FromOrdinal_Padded(int value, Py_ssize_t ulength, char padding_char) {
-    if (likely(ulength <= 250)) {
-        char chars[256];
-        if (value <= 255) {
-            memset(chars, padding_char, (size_t) (ulength - 1));
-            chars[ulength-1] = (char) value;
-            return PyUnicode_DecodeLatin1(chars, ulength, NULL);
-        }
-        char *cpos = chars + sizeof(chars);
-        if (value < 0x800) {
-            *--cpos = (char) (0x80 | (value & 0x3f));
-            value >>= 6;
-            *--cpos = (char) (0xc0 | (value & 0x1f));
-        } else if (value < 0x10000) {
-            *--cpos = (char) (0x80 | (value & 0x3f));
-            value >>= 6;
-            *--cpos = (char) (0x80 | (value & 0x3f));
-            value >>= 6;
-            *--cpos = (char) (0xe0 | (value & 0x0f));
-        } else {
-            *--cpos = (char) (0x80 | (value & 0x3f));
-            value >>= 6;
-            *--cpos = (char) (0x80 | (value & 0x3f));
-            value >>= 6;
-            *--cpos = (char) (0x80 | (value & 0x3f));
-            value >>= 6;
-            *--cpos = (char) (0xf0 | (value & 0x07));
-        }
-        cpos -= ulength;
-        memset(cpos, padding_char, (size_t) (ulength - 1));
-        return PyUnicode_DecodeUTF8(cpos, chars + sizeof(chars) - cpos, NULL);
-    }
-    if (value <= 127 && CYTHON_USE_UNICODE_INTERNALS) {
-        const char chars[1] = {(char) value};
-        return __Pyx_PyUnicode_BuildFromAscii(ulength, chars, 1, 0, padding_char);
-    }
-    {
-        PyObject *uchar, *padding_uchar, *padding, *result;
-        padding_uchar = PyUnicode_FromOrdinal(padding_char);
-        if (unlikely(!padding_uchar)) return NULL;
-        padding = PySequence_Repeat(padding_uchar, ulength - 1);
-        Py_DECREF(padding_uchar);
-        if (unlikely(!padding)) return NULL;
-        uchar = PyUnicode_FromOrdinal(value);
-        if (unlikely(!uchar)) {
-            Py_DECREF(padding);
-            return NULL;
-        }
-        result = PyUnicode_Concat(padding, uchar);
-        Py_DECREF(padding);
-        Py_DECREF(uchar);
-        return result;
-    }
-}
-
-/* CIntToPyUnicode */
-  static CYTHON_INLINE PyObject* __Pyx_PyUnicode_From_Py_ssize_t(Py_ssize_t value, Py_ssize_t width, char padding_char, char format_char) {
-    char digits[sizeof(Py_ssize_t)*3+2];
-    char *dpos, *end = digits + sizeof(Py_ssize_t)*3+2;
-    const char *hex_digits = DIGITS_HEX;
-    Py_ssize_t length, ulength;
-    int prepend_sign, last_one_off;
-    Py_ssize_t remaining;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wconversion"
-#endif
-    const Py_ssize_t neg_one = (Py_ssize_t) -1, const_zero = (Py_ssize_t) 0;
-#ifdef __Pyx_HAS_GCC_DIAGNOSTIC
-#pragma GCC diagnostic pop
-#endif
-    const int is_unsigned = neg_one > const_zero;
-    if (format_char == 'c') {
-        if (unlikely(!(is_unsigned || value == 0 || value > 0) ||
-                     !(sizeof(value) <= 2 || value & ~ (Py_ssize_t) 0x01fffff || __Pyx_CheckUnicodeValue((int) value)))) {
-            PyErr_SetString(PyExc_OverflowError, "%c arg not in range(0x110000)");
-            return NULL;
-        }
-        if (width <= 1) {
-            return PyUnicode_FromOrdinal((int) value);
-        }
-        return __Pyx_PyUnicode_FromOrdinal_Padded((int) value, width, padding_char);
-    }
-    if (format_char == 'X') {
-        hex_digits += 16;
-        format_char = 'x';
-    }
-    remaining = value;
-    last_one_off = 0;
-    dpos = end;
-    do {
-        int digit_pos;
-        switch (format_char) {
-        case 'o':
-            digit_pos = abs((int)(remaining % (8*8)));
-            remaining = (Py_ssize_t) (remaining / (8*8));
-            dpos -= 2;
-            memcpy(dpos, DIGIT_PAIRS_8 + digit_pos * 2, 2);
-            last_one_off = (digit_pos < 8);
-            break;
-        case 'd':
-            digit_pos = abs((int)(remaining % (10*10)));
-            remaining = (Py_ssize_t) (remaining / (10*10));
-            dpos -= 2;
-            memcpy(dpos, DIGIT_PAIRS_10 + digit_pos * 2, 2);
-            last_one_off = (digit_pos < 10);
-            break;
-        case 'x':
-            *(--dpos) = hex_digits[abs((int)(remaining % 16))];
-            remaining = (Py_ssize_t) (remaining / 16);
-            break;
-        default:
-            assert(0);
-            break;
-        }
-    } while (unlikely(remaining != 0));
-    assert(!last_one_off || *dpos == '0');
-    dpos += last_one_off;
-    length = end - dpos;
-    ulength = length;
-    prepend_sign = 0;
-    if (!is_unsigned && value <= neg_one) {
-        if (padding_char == ' ' || width <= length + 1) {
-            *(--dpos) = '-';
-            ++length;
-        } else {
-            prepend_sign = 1;
-        }
-        ++ulength;
-    }
-    if (width > ulength) {
-        ulength = width;
-    }
-    if (ulength == 1) {
-        return PyUnicode_FromOrdinal(*dpos);
-    }
-    return __Pyx_PyUnicode_BuildFromAscii(ulength, dpos, (int) length, prepend_sign, padding_char);
-}
-
 /* JoinPyUnicode */
   static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
                                       Py_UCS4 max_char) {
@@ -17759,7 +17485,7 @@ bad:
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__9);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__7);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -19513,7 +19239,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__15);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__13);
     }
     goto done;
 }
