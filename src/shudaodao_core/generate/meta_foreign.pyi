@@ -5,6 +5,7 @@ class MetaForeignColumn:
     schema_name: str
     alias_index: str
     sort_order: bool
+    unique: bool
     constrained_table: str
     constrained_class: str
     constrained_column: str

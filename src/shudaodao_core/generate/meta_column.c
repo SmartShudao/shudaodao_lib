@@ -1952,6 +1952,7 @@ static const char __pyx_k_scale[] = "scale";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_name_2[] = "name";
 static const char __pyx_k_typing[] = "typing";
+static const char __pyx_k_unique[] = "unique";
 static const char __pyx_k_comment[] = "comment";
 static const char __pyx_k_default[] = "default";
 static const char __pyx_k_prepare[] = "__prepare__";
@@ -1972,6 +1973,7 @@ static const char __pyx_k_meta_column[] = "meta_column";
 static const char __pyx_k_Optional_int[] = "Optional[int]";
 static const char __pyx_k_Optional_str[] = "Optional[str]";
 static const char __pyx_k_meta_foreign[] = "meta_foreign";
+static const char __pyx_k_Optional_bool[] = "Optional[bool]";
 static const char __pyx_k_MetaForeignColumn[] = "MetaForeignColumn";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Optional_MetaForeignColumn[] = "Optional[MetaForeignColumn]";
@@ -2014,7 +2016,7 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_string_tab[39];
+  PyObject *__pyx_string_tab[41];
 /* #### Code section: module_state_contents ### */
 /* CodeObjectCache.module_state_decls */
 struct __Pyx_CodeObjectCache __pyx_code_cache;
@@ -2050,39 +2052,41 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_MetaForeignColumn __pyx_string_tab[3]
 #define __pyx_n_u_Optional __pyx_string_tab[4]
 #define __pyx_kp_u_Optional_MetaForeignColumn __pyx_string_tab[5]
-#define __pyx_kp_u_Optional_int __pyx_string_tab[6]
-#define __pyx_kp_u_Optional_str __pyx_string_tab[7]
-#define __pyx_kp_u__2 __pyx_string_tab[8]
-#define __pyx_kp_u__3 __pyx_string_tab[9]
-#define __pyx_kp_u__4 __pyx_string_tab[10]
-#define __pyx_n_u_annotations __pyx_string_tab[11]
-#define __pyx_n_u_bool __pyx_string_tab[12]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[13]
-#define __pyx_n_u_comment __pyx_string_tab[14]
-#define __pyx_n_u_dataclass __pyx_string_tab[15]
-#define __pyx_n_u_dataclasses __pyx_string_tab[16]
-#define __pyx_n_u_default __pyx_string_tab[17]
-#define __pyx_n_u_doc __pyx_string_tab[18]
-#define __pyx_n_u_foreign_key __pyx_string_tab[19]
-#define __pyx_n_u_is_primary __pyx_string_tab[20]
-#define __pyx_n_u_main __pyx_string_tab[21]
-#define __pyx_n_u_max_length __pyx_string_tab[22]
-#define __pyx_n_u_meta_column __pyx_string_tab[23]
-#define __pyx_n_u_meta_foreign __pyx_string_tab[24]
-#define __pyx_n_u_metaclass __pyx_string_tab[25]
-#define __pyx_n_u_module __pyx_string_tab[26]
-#define __pyx_n_u_name __pyx_string_tab[27]
-#define __pyx_n_u_name_2 __pyx_string_tab[28]
-#define __pyx_n_u_nullable __pyx_string_tab[29]
-#define __pyx_n_u_precision __pyx_string_tab[30]
-#define __pyx_n_u_prepare __pyx_string_tab[31]
-#define __pyx_n_u_qualname __pyx_string_tab[32]
-#define __pyx_n_u_sa_type __pyx_string_tab[33]
-#define __pyx_n_u_scale __pyx_string_tab[34]
-#define __pyx_n_u_str __pyx_string_tab[35]
-#define __pyx_n_u_test __pyx_string_tab[36]
-#define __pyx_n_u_type __pyx_string_tab[37]
-#define __pyx_n_u_typing __pyx_string_tab[38]
+#define __pyx_kp_u_Optional_bool __pyx_string_tab[6]
+#define __pyx_kp_u_Optional_int __pyx_string_tab[7]
+#define __pyx_kp_u_Optional_str __pyx_string_tab[8]
+#define __pyx_kp_u__2 __pyx_string_tab[9]
+#define __pyx_kp_u__3 __pyx_string_tab[10]
+#define __pyx_kp_u__4 __pyx_string_tab[11]
+#define __pyx_n_u_annotations __pyx_string_tab[12]
+#define __pyx_n_u_bool __pyx_string_tab[13]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[14]
+#define __pyx_n_u_comment __pyx_string_tab[15]
+#define __pyx_n_u_dataclass __pyx_string_tab[16]
+#define __pyx_n_u_dataclasses __pyx_string_tab[17]
+#define __pyx_n_u_default __pyx_string_tab[18]
+#define __pyx_n_u_doc __pyx_string_tab[19]
+#define __pyx_n_u_foreign_key __pyx_string_tab[20]
+#define __pyx_n_u_is_primary __pyx_string_tab[21]
+#define __pyx_n_u_main __pyx_string_tab[22]
+#define __pyx_n_u_max_length __pyx_string_tab[23]
+#define __pyx_n_u_meta_column __pyx_string_tab[24]
+#define __pyx_n_u_meta_foreign __pyx_string_tab[25]
+#define __pyx_n_u_metaclass __pyx_string_tab[26]
+#define __pyx_n_u_module __pyx_string_tab[27]
+#define __pyx_n_u_name __pyx_string_tab[28]
+#define __pyx_n_u_name_2 __pyx_string_tab[29]
+#define __pyx_n_u_nullable __pyx_string_tab[30]
+#define __pyx_n_u_precision __pyx_string_tab[31]
+#define __pyx_n_u_prepare __pyx_string_tab[32]
+#define __pyx_n_u_qualname __pyx_string_tab[33]
+#define __pyx_n_u_sa_type __pyx_string_tab[34]
+#define __pyx_n_u_scale __pyx_string_tab[35]
+#define __pyx_n_u_str __pyx_string_tab[36]
+#define __pyx_n_u_test __pyx_string_tab[37]
+#define __pyx_n_u_type __pyx_string_tab[38]
+#define __pyx_n_u_typing __pyx_string_tab[39]
+#define __pyx_n_u_unique __pyx_string_tab[40]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2103,7 +2107,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<39; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<41; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2124,7 +2128,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<39; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<41; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2566,7 +2570,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_column", 0);
 */
   __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_MetaColumn, __pyx_mstate_global->__pyx_n_u_MetaColumn, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_meta_column, __pyx_mstate_global->__pyx_kp_u__2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(12); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_name_2, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_type, __pyx_mstate_global->__pyx_n_u_Any) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
@@ -2578,6 +2582,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_column", 0);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_max_length, __pyx_mstate_global->__pyx_kp_u_Optional_int) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_precision, __pyx_mstate_global->__pyx_kp_u_Optional_int) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_scale, __pyx_mstate_global->__pyx_kp_u_Optional_int) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_unique, __pyx_mstate_global->__pyx_kp_u_Optional_bool) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_foreign_key, __pyx_mstate_global->__pyx_kp_u_Optional_MetaForeignColumn) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -2605,7 +2610,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_column", 0);
  *     max_length: Optional[int] = None
  *     precision: Optional[int] = None             # <<<<<<<<<<<<<<
  *     scale: Optional[int] = None
- *     #
+ *     unique: Optional[bool] = None
 */
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_precision, Py_None) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
 
@@ -2613,19 +2618,28 @@ __Pyx_RefNannySetupContext("PyInit_meta_column", 0);
  *     max_length: Optional[int] = None
  *     precision: Optional[int] = None
  *     scale: Optional[int] = None             # <<<<<<<<<<<<<<
+ *     unique: Optional[bool] = None
  *     #
- *     foreign_key: Optional[MetaForeignColumn] = None
 */
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_scale, Py_None) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
 
-  /* "meta_column.py":29
+  /* "meta_column.py":28
+ *     precision: Optional[int] = None
  *     scale: Optional[int] = None
+ *     unique: Optional[bool] = None             # <<<<<<<<<<<<<<
+ *     #
+ *     foreign_key: Optional[MetaForeignColumn] = None
+*/
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_unique, Py_None) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+
+  /* "meta_column.py":30
+ *     unique: Optional[bool] = None
  *     #
  *     foreign_key: Optional[MetaForeignColumn] = None             # <<<<<<<<<<<<<<
  * 
  *     # @property
 */
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_foreign_key, Py_None) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_foreign_key, Py_None) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
 
   /* "meta_column.py":15
  * 
@@ -2739,6 +2753,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_MetaForeignColumn, sizeof(__pyx_k_MetaForeignColumn), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaForeignColumn */
   {__pyx_k_Optional, sizeof(__pyx_k_Optional), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Optional */
   {__pyx_k_Optional_MetaForeignColumn, sizeof(__pyx_k_Optional_MetaForeignColumn), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_MetaForeignColumn */
+  {__pyx_k_Optional_bool, sizeof(__pyx_k_Optional_bool), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_bool */
   {__pyx_k_Optional_int, sizeof(__pyx_k_Optional_int), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_int */
   {__pyx_k_Optional_str, sizeof(__pyx_k_Optional_str), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Optional_str */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
@@ -2772,6 +2787,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_type, sizeof(__pyx_k_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
+  {__pyx_k_unique, sizeof(__pyx_k_unique), 0, 1, 1}, /* PyObject cname: __pyx_n_u_unique */
   {0, 0, 0, 0, 0}
 };
 /* InitStrings.proto */
