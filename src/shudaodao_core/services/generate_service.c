@@ -2414,7 +2414,6 @@ static const char __pyx_k_meta_model[] = "meta_model";
 static const char __pyx_k_row_schema[] = "row_schema";
 static const char __pyx_k_table_name[] = "table_name";
 static const char __pyx_k_view_names[] = "view_names";
-static const char __pyx_k_DataService[] = "DataService";
 static const char __pyx_k_entity_view[] = "entity_view";
 static const char __pyx_k_enum_fields[] = "enum_fields";
 static const char __pyx_k_is_active_1[] = "is_active = 1";
@@ -2423,7 +2422,7 @@ static const char __pyx_k_mro_entries[] = "__mro_entries__";
 static const char __pyx_k_rows_fields[] = "rows_fields";
 static const char __pyx_k_schema_name[] = "schema_name";
 static const char __pyx_k_table_names[] = "table_names";
-static const char __pyx_k_data_service[] = "data_service";
+static const char __pyx_k_QueryService[] = "QueryService";
 static const char __pyx_k_entity_table[] = "entity_table";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_rows_schemas[] = "rows_schemas";
@@ -2431,6 +2430,7 @@ static const char __pyx_k_schema_names[] = "schema_names";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_generator_all[] = "generator_all";
 static const char __pyx_k_get_view_meta[] = "get_view_meta";
+static const char __pyx_k_query_service[] = "query_service";
 static const char __pyx_k_schema_name_2[] = "_schema_name";
 static const char __pyx_k_template_name[] = "template_name";
 static const char __pyx_k_generator_view[] = "generator_view";
@@ -2476,7 +2476,7 @@ static const char __pyx_k_GeneratorService_generator_all[] = "GeneratorService.g
 static const char __pyx_k_LH_o_6d_AQ_T_T_0Fa_H_A_q_q_H_A[] = "\320\004*\320*<\270L\320H]\320]^\360\022\000\t\027\220o\320%6\260d\270*\300A\300Q\340\010\025\220T\230\030\240\037\260\001\330\014\030\230\r\240T\250\027\3200F\300a\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\340\010\017\210u\220A\220R\220t\230:\320%6\260j\300\001";
 static const char __pyx_k_GeneratorService_generator_view[] = "GeneratorService.generator_view";
 static const char __pyx_k_TTU_z_o_6d_AQ_d_2_q_1_5_4_0_14K[] = "\320\004\037\230}\320,?\320?T\320TU\360\016\000\t\020\210z\230\021\340\010\026\220o\320%6\260d\270*\300A\300Q\340\010\026\220d\230(\320\"2\260!\260<\270q\330\010\013\2101\330\014\023\2205\230\001\230\022\2304\320\0370\260\003\2601\3204K\3101\340\014\023\2205\230\001\230\022\320\033+\2503\250a\320/F\300a\360\006\000\t\r\210N\230!\330\014\020\320\020 \240\001\240\034\250]\270!\360\006\000\t\026\220T\230\030\240\037\260\001\260\034\270Q\330\010\013\2101\330\014\023\2205\230\001\230\022\2304\320\0370\260\003\2601\3204I\310\021\340\014\023\2205\230\001\230\022\320\033+\2503\250a\320/D\300A\360\006\000\t\r\210M\230\021\330\014\020\220\017\230q\240\013\250=\270\001";
-static const char __pyx_k_q_Ja_K_awa_Q_1D_q_86_k_DA_t7_at[] = "\320\004\037\230q\360\n\000\t\r\210J\220a\340\010\014\210K\220\177\240a\240w\250a\330\010\014\320\014-\250Q\360\006\000\t\022\220\037\240\013\2501\250D\260\007\260q\330\r\023\2208\2306\240\021\330\014\030\230\001\330\014\036\230k\320)D\300A\330\020\033\230<\240t\2507\260!\340\014\030\230\006\230a\230t\2407\320*=\270V\3001\300A\330\014\033\2302\230X\240Q\240j\260\004\260A\330\014\036\230k\320)D\300A\330\020\033\230<\240t\2507\260!\340\014\030\230\006\230a\230t\2407\320*<\270F\300!\3001\330\014\032\230\"\230H\240A\240Z\250t\2601\340\014\020\220\016\230a\330\020\031\230\021\330\020\024\220M\240\021\330\024\027\220z\240\033\250C\250y\270\001\330\030\036\230g\240Q\240i\250q\330\020\024\220F\230!\230:\320%5\260Q";
+static const char __pyx_k_q_Ja_K_awa_Q_1D_q_86_l_EQ_t7_at[] = "\320\004\037\230q\360\n\000\t\r\210J\220a\340\010\014\210K\220\177\240a\240w\250a\330\010\014\320\014-\250Q\360\006\000\t\022\220\037\240\013\2501\250D\260\007\260q\330\r\023\2208\2306\240\021\330\014\030\230\001\330\014\036\230l\320*E\300Q\330\020\033\230<\240t\2507\260!\340\014\030\230\006\230a\230t\2407\320*=\270V\3001\300A\330\014\033\2302\230X\240Q\240j\260\004\260A\330\014\036\230l\320*E\300Q\330\020\033\230<\240t\2507\260!\340\014\030\230\006\230a\230t\2407\320*<\270F\300!\3001\330\014\032\230\"\230H\240A\240Z\250t\2601\340\014\020\220\016\230a\330\020\031\230\021\330\020\024\220M\240\021\330\024\027\220z\240\033\250C\250y\270\001\330\030\036\230g\240Q\240i\250q\330\020\024\220F\230!\230:\320%5\260Q";
 static const char __pyx_k_GeneratorService_generator_schem[] = "GeneratorService.generator_schema";
 static const char __pyx_k_GeneratorService_generator_table[] = "GeneratorService.generator_table";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
@@ -2568,18 +2568,18 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_DBEngineService __pyx_string_tab[1]
-#define __pyx_n_u_DataService __pyx_string_tab[2]
-#define __pyx_n_u_GeneratorConfig __pyx_string_tab[3]
-#define __pyx_n_u_GeneratorService __pyx_string_tab[4]
-#define __pyx_n_u_GeneratorService___init __pyx_string_tab[5]
-#define __pyx_n_u_GeneratorService_generator_all __pyx_string_tab[6]
-#define __pyx_n_u_GeneratorService_generator_schem __pyx_string_tab[7]
-#define __pyx_n_u_GeneratorService_generator_table __pyx_string_tab[8]
-#define __pyx_n_u_GeneratorService_generator_view __pyx_string_tab[9]
-#define __pyx_n_u_GeneratorService_get_enums __pyx_string_tab[10]
-#define __pyx_n_u_None __pyx_string_tab[11]
-#define __pyx_kp_u_None __pyx_string_tab[12]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[13]
+#define __pyx_n_u_GeneratorConfig __pyx_string_tab[2]
+#define __pyx_n_u_GeneratorService __pyx_string_tab[3]
+#define __pyx_n_u_GeneratorService___init __pyx_string_tab[4]
+#define __pyx_n_u_GeneratorService_generator_all __pyx_string_tab[5]
+#define __pyx_n_u_GeneratorService_generator_schem __pyx_string_tab[6]
+#define __pyx_n_u_GeneratorService_generator_table __pyx_string_tab[7]
+#define __pyx_n_u_GeneratorService_generator_view __pyx_string_tab[8]
+#define __pyx_n_u_GeneratorService_get_enums __pyx_string_tab[9]
+#define __pyx_n_u_None __pyx_string_tab[10]
+#define __pyx_kp_u_None __pyx_string_tab[11]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[12]
+#define __pyx_n_u_QueryService __pyx_string_tab[13]
 #define __pyx_kp_u_SQLModel_schema __pyx_string_tab[14]
 #define __pyx_n_u_TemplateBuilder __pyx_string_tab[15]
 #define __pyx_kp_u__2 __pyx_string_tab[16]
@@ -2597,61 +2597,61 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_connect __pyx_string_tab[28]
 #define __pyx_n_u_controller_table __pyx_string_tab[29]
 #define __pyx_n_u_controller_view __pyx_string_tab[30]
-#define __pyx_n_u_data_service __pyx_string_tab[31]
-#define __pyx_kp_u_database __pyx_string_tab[32]
-#define __pyx_n_u_db __pyx_string_tab[33]
-#define __pyx_n_u_db_engine_service __pyx_string_tab[34]
-#define __pyx_n_u_default_schema_name __pyx_string_tab[35]
-#define __pyx_n_u_doc __pyx_string_tab[36]
-#define __pyx_n_u_engine __pyx_string_tab[37]
-#define __pyx_n_u_enter __pyx_string_tab[38]
-#define __pyx_n_u_entity_table __pyx_string_tab[39]
-#define __pyx_n_u_entity_view __pyx_string_tab[40]
-#define __pyx_n_u_enum_engine_name __pyx_string_tab[41]
-#define __pyx_n_u_enum_field_table __pyx_string_tab[42]
-#define __pyx_n_u_enum_fields __pyx_string_tab[43]
-#define __pyx_n_u_enum_schema_table __pyx_string_tab[44]
-#define __pyx_n_u_enums __pyx_string_tab[45]
-#define __pyx_n_u_execute __pyx_string_tab[46]
-#define __pyx_n_u_exit __pyx_string_tab[47]
-#define __pyx_n_u_field_name __pyx_string_tab[48]
-#define __pyx_n_u_fields __pyx_string_tab[49]
-#define __pyx_n_u_func __pyx_string_tab[50]
-#define __pyx_n_u_generate_config __pyx_string_tab[51]
-#define __pyx_n_u_generate_service __pyx_string_tab[52]
-#define __pyx_kp_u_generate_service_py __pyx_string_tab[53]
-#define __pyx_n_u_generate_template_builder __pyx_string_tab[54]
-#define __pyx_n_u_generator_all __pyx_string_tab[55]
-#define __pyx_n_u_generator_schema __pyx_string_tab[56]
-#define __pyx_n_u_generator_table __pyx_string_tab[57]
-#define __pyx_n_u_generator_view __pyx_string_tab[58]
-#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[59]
-#define __pyx_n_u_get_engine __pyx_string_tab[60]
-#define __pyx_n_u_get_enums __pyx_string_tab[61]
-#define __pyx_n_u_get_schema_names __pyx_string_tab[62]
-#define __pyx_n_u_get_table_meta __pyx_string_tab[63]
-#define __pyx_n_u_get_table_names __pyx_string_tab[64]
-#define __pyx_n_u_get_view_meta __pyx_string_tab[65]
-#define __pyx_n_u_get_view_names __pyx_string_tab[66]
-#define __pyx_n_u_info __pyx_string_tab[67]
-#define __pyx_n_u_info_line __pyx_string_tab[68]
-#define __pyx_n_u_init __pyx_string_tab[69]
-#define __pyx_kp_u_is_active_1 __pyx_string_tab[70]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[71]
-#define __pyx_n_u_list __pyx_string_tab[72]
-#define __pyx_n_u_logger_logging __pyx_string_tab[73]
-#define __pyx_n_u_logging __pyx_string_tab[74]
-#define __pyx_n_u_main __pyx_string_tab[75]
-#define __pyx_n_u_meta_model __pyx_string_tab[76]
-#define __pyx_n_u_metaclass __pyx_string_tab[77]
-#define __pyx_n_u_model_class __pyx_string_tab[78]
-#define __pyx_n_u_module __pyx_string_tab[79]
-#define __pyx_n_u_mro_entries __pyx_string_tab[80]
-#define __pyx_n_u_name __pyx_string_tab[81]
-#define __pyx_n_u_object __pyx_string_tab[82]
-#define __pyx_n_u_pop __pyx_string_tab[83]
-#define __pyx_n_u_prepare __pyx_string_tab[84]
-#define __pyx_n_u_qualname __pyx_string_tab[85]
+#define __pyx_kp_u_database __pyx_string_tab[31]
+#define __pyx_n_u_db __pyx_string_tab[32]
+#define __pyx_n_u_db_engine_service __pyx_string_tab[33]
+#define __pyx_n_u_default_schema_name __pyx_string_tab[34]
+#define __pyx_n_u_doc __pyx_string_tab[35]
+#define __pyx_n_u_engine __pyx_string_tab[36]
+#define __pyx_n_u_enter __pyx_string_tab[37]
+#define __pyx_n_u_entity_table __pyx_string_tab[38]
+#define __pyx_n_u_entity_view __pyx_string_tab[39]
+#define __pyx_n_u_enum_engine_name __pyx_string_tab[40]
+#define __pyx_n_u_enum_field_table __pyx_string_tab[41]
+#define __pyx_n_u_enum_fields __pyx_string_tab[42]
+#define __pyx_n_u_enum_schema_table __pyx_string_tab[43]
+#define __pyx_n_u_enums __pyx_string_tab[44]
+#define __pyx_n_u_execute __pyx_string_tab[45]
+#define __pyx_n_u_exit __pyx_string_tab[46]
+#define __pyx_n_u_field_name __pyx_string_tab[47]
+#define __pyx_n_u_fields __pyx_string_tab[48]
+#define __pyx_n_u_func __pyx_string_tab[49]
+#define __pyx_n_u_generate_config __pyx_string_tab[50]
+#define __pyx_n_u_generate_service __pyx_string_tab[51]
+#define __pyx_kp_u_generate_service_py __pyx_string_tab[52]
+#define __pyx_n_u_generate_template_builder __pyx_string_tab[53]
+#define __pyx_n_u_generator_all __pyx_string_tab[54]
+#define __pyx_n_u_generator_schema __pyx_string_tab[55]
+#define __pyx_n_u_generator_table __pyx_string_tab[56]
+#define __pyx_n_u_generator_view __pyx_string_tab[57]
+#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[58]
+#define __pyx_n_u_get_engine __pyx_string_tab[59]
+#define __pyx_n_u_get_enums __pyx_string_tab[60]
+#define __pyx_n_u_get_schema_names __pyx_string_tab[61]
+#define __pyx_n_u_get_table_meta __pyx_string_tab[62]
+#define __pyx_n_u_get_table_names __pyx_string_tab[63]
+#define __pyx_n_u_get_view_meta __pyx_string_tab[64]
+#define __pyx_n_u_get_view_names __pyx_string_tab[65]
+#define __pyx_n_u_info __pyx_string_tab[66]
+#define __pyx_n_u_info_line __pyx_string_tab[67]
+#define __pyx_n_u_init __pyx_string_tab[68]
+#define __pyx_kp_u_is_active_1 __pyx_string_tab[69]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[70]
+#define __pyx_n_u_list __pyx_string_tab[71]
+#define __pyx_n_u_logger_logging __pyx_string_tab[72]
+#define __pyx_n_u_logging __pyx_string_tab[73]
+#define __pyx_n_u_main __pyx_string_tab[74]
+#define __pyx_n_u_meta_model __pyx_string_tab[75]
+#define __pyx_n_u_metaclass __pyx_string_tab[76]
+#define __pyx_n_u_model_class __pyx_string_tab[77]
+#define __pyx_n_u_module __pyx_string_tab[78]
+#define __pyx_n_u_mro_entries __pyx_string_tab[79]
+#define __pyx_n_u_name __pyx_string_tab[80]
+#define __pyx_n_u_object __pyx_string_tab[81]
+#define __pyx_n_u_pop __pyx_string_tab[82]
+#define __pyx_n_u_prepare __pyx_string_tab[83]
+#define __pyx_n_u_qualname __pyx_string_tab[84]
+#define __pyx_n_u_query_service __pyx_string_tab[85]
 #define __pyx_n_u_render_template __pyx_string_tab[86]
 #define __pyx_n_u_return __pyx_string_tab[87]
 #define __pyx_n_u_row_field __pyx_string_tab[88]
@@ -2980,7 +2980,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
  *         engine = DBEngineService.get_engine(self.config.enum_engine_name)
  *         with engine.connect() as db:             # <<<<<<<<<<<<<<
  *             condition = "is_active = 1"
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
 */
   /*with:*/ {
     __pyx_t_2 = __pyx_v_engine;
@@ -3037,7 +3037,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
  *         engine = DBEngineService.get_engine(self.config.enum_engine_name)
  *         with engine.connect() as db:
  *             condition = "is_active = 1"             # <<<<<<<<<<<<<<
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
  *                 condition, model_class=self.config.enum_schema_table,
 */
           __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_is_active_1);
@@ -3046,12 +3046,12 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
           /* "generate_service.py":39
  *         with engine.connect() as db:
  *             condition = "is_active = 1"
- *             where_condition = DataService.get_condition_from_columns(             # <<<<<<<<<<<<<<
+ *             where_condition = QueryService.get_condition_from_columns(             # <<<<<<<<<<<<<<
  *                 condition, model_class=self.config.enum_schema_table,
  *             )
 */
           __pyx_t_1 = NULL;
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L7_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_condition_from_columns); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_6);
@@ -3059,7 +3059,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
 
           /* "generate_service.py":40
  *             condition = "is_active = 1"
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
  *                 condition, model_class=self.config.enum_schema_table,             # <<<<<<<<<<<<<<
  *             )
  *             statement = select(self.config.enum_schema_table).where(where_condition)
@@ -3102,7 +3102,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
  *             )
  *             statement = select(self.config.enum_schema_table).where(where_condition)             # <<<<<<<<<<<<<<
  *             rows_schemas = db.execute(statement).all()
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
 */
           __pyx_t_5 = NULL;
           __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L7_error)
@@ -3151,7 +3151,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
  *             )
  *             statement = select(self.config.enum_schema_table).where(where_condition)
  *             rows_schemas = db.execute(statement).all()             # <<<<<<<<<<<<<<
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
  *                 condition, model_class=self.config.enum_field_table,
 */
           __pyx_t_1 = __pyx_v_db;
@@ -3181,12 +3181,12 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
           /* "generate_service.py":44
  *             statement = select(self.config.enum_schema_table).where(where_condition)
  *             rows_schemas = db.execute(statement).all()
- *             where_condition = DataService.get_condition_from_columns(             # <<<<<<<<<<<<<<
+ *             where_condition = QueryService.get_condition_from_columns(             # <<<<<<<<<<<<<<
  *                 condition, model_class=self.config.enum_field_table,
  *             )
 */
           __pyx_t_6 = NULL;
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L7_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_condition_from_columns); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L7_error)
           __Pyx_GOTREF(__pyx_t_1);
@@ -3194,7 +3194,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
 
           /* "generate_service.py":45
  *             rows_schemas = db.execute(statement).all()
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
  *                 condition, model_class=self.config.enum_field_table,             # <<<<<<<<<<<<<<
  *             )
  *             statement = select(self.config.enum_field_table).where(where_condition)
@@ -3522,7 +3522,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService___init__(CYTHON_
  *         engine = DBEngineService.get_engine(self.config.enum_engine_name)
  *         with engine.connect() as db:             # <<<<<<<<<<<<<<
  *             condition = "is_active = 1"
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
 */
         }
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -6092,7 +6092,7 @@ __Pyx_RefNannySetupContext("PyInit_generate_service", 0);
  * 
  * from sqlmodel import select             # <<<<<<<<<<<<<<
  * 
- * from .data_service import DataService
+ * from .db_engine_service import DBEngineService
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_select); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -6108,42 +6108,42 @@ __Pyx_RefNannySetupContext("PyInit_generate_service", 0);
   /* "generate_service.py":11
  * from sqlmodel import select
  * 
- * from .data_service import DataService             # <<<<<<<<<<<<<<
- * from .db_engine_service import DBEngineService
+ * from .db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
+ * from .query_service import QueryService
  * from ..generate.config import GeneratorConfig
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_data_service, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_db_engine_service, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DBEngineService, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "generate_service.py":12
  * 
- * from .data_service import DataService
- * from .db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
+ * from .db_engine_service import DBEngineService
+ * from .query_service import QueryService             # <<<<<<<<<<<<<<
  * from ..generate.config import GeneratorConfig
  * from ..generate.template_builder import TemplateBuilder
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_db_engine_service, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_query_service, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DBEngineService, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_QueryService, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "generate_service.py":13
- * from .data_service import DataService
  * from .db_engine_service import DBEngineService
+ * from .query_service import QueryService
  * from ..generate.config import GeneratorConfig             # <<<<<<<<<<<<<<
  * from ..generate.template_builder import TemplateBuilder
  * from ..logger.logging_ import logging
@@ -6160,7 +6160,7 @@ __Pyx_RefNannySetupContext("PyInit_generate_service", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "generate_service.py":14
- * from .db_engine_service import DBEngineService
+ * from .query_service import QueryService
  * from ..generate.config import GeneratorConfig
  * from ..generate.template_builder import TemplateBuilder             # <<<<<<<<<<<<<<
  * from ..logger.logging_ import logging
@@ -6412,7 +6412,6 @@ static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_DBEngineService, sizeof(__pyx_k_DBEngineService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DBEngineService */
-  {__pyx_k_DataService, sizeof(__pyx_k_DataService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataService */
   {__pyx_k_GeneratorConfig, sizeof(__pyx_k_GeneratorConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_GeneratorConfig */
   {__pyx_k_GeneratorService, sizeof(__pyx_k_GeneratorService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_GeneratorService */
   {__pyx_k_GeneratorService___init, sizeof(__pyx_k_GeneratorService___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_GeneratorService___init */
@@ -6424,6 +6423,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_None, sizeof(__pyx_k_None), 0, 1, 1}, /* PyObject cname: __pyx_n_u_None */
   {__pyx_k_None, sizeof(__pyx_k_None), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_None */
   {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
+  {__pyx_k_QueryService, sizeof(__pyx_k_QueryService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryService */
   {__pyx_k_SQLModel_schema, sizeof(__pyx_k_SQLModel_schema), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_SQLModel_schema */
   {__pyx_k_TemplateBuilder, sizeof(__pyx_k_TemplateBuilder), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TemplateBuilder */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
@@ -6441,7 +6441,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_connect, sizeof(__pyx_k_connect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_connect */
   {__pyx_k_controller_table, sizeof(__pyx_k_controller_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_controller_table */
   {__pyx_k_controller_view, sizeof(__pyx_k_controller_view), 0, 1, 1}, /* PyObject cname: __pyx_n_u_controller_view */
-  {__pyx_k_data_service, sizeof(__pyx_k_data_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_service */
   {__pyx_k_database, sizeof(__pyx_k_database), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_database */
   {__pyx_k_db, sizeof(__pyx_k_db), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db */
   {__pyx_k_db_engine_service, sizeof(__pyx_k_db_engine_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_engine_service */
@@ -6496,6 +6495,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_query_service, sizeof(__pyx_k_query_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_service */
   {__pyx_k_render_template, sizeof(__pyx_k_render_template), 0, 1, 1}, /* PyObject cname: __pyx_n_u_render_template */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_row_field, sizeof(__pyx_k_row_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_row_field */
@@ -6554,7 +6554,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
  *         engine = DBEngineService.get_engine(self.config.enum_engine_name)
  *         with engine.connect() as db:             # <<<<<<<<<<<<<<
  *             condition = "is_active = 1"
- *             where_condition = DataService.get_condition_from_columns(
+ *             where_condition = QueryService.get_condition_from_columns(
 */
   __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
@@ -6640,7 +6640,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 12, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 25, 235};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_config, __pyx_mstate->__pyx_n_u_engine, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_condition, __pyx_mstate->__pyx_n_u_where_condition, __pyx_mstate->__pyx_n_u_statement, __pyx_mstate->__pyx_n_u_rows_schemas, __pyx_mstate->__pyx_n_u_rows_fields, __pyx_mstate->__pyx_n_u_row_schema, __pyx_mstate->__pyx_n_u_fields, __pyx_mstate->__pyx_n_u_row_field};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_generate_service_py, __pyx_mstate->__pyx_n_u_init, __pyx_k_q_Ja_K_awa_Q_1D_q_86_k_DA_t7_at, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_generate_service_py, __pyx_mstate->__pyx_n_u_init, __pyx_k_q_Ja_K_awa_Q_1D_q_86_l_EQ_t7_at, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 57, 61};

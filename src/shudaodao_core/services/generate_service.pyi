@@ -1,8 +1,8 @@
 from ..generate.config import GeneratorConfig as GeneratorConfig
 from ..generate.template_builder import TemplateBuilder as TemplateBuilder
 from ..logger.logging_ import logging as logging
-from .data_service import DataService as DataService
 from .db_engine_service import DBEngineService as DBEngineService
+from .query_service import QueryService as QueryService
 from _typeshed import Incomplete
 
 class GeneratorService:
