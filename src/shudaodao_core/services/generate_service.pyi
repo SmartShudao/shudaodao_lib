@@ -1,8 +1,8 @@
 from ..generate.config import GeneratorConfig as GeneratorConfig
 from ..generate.template_builder import TemplateBuilder as TemplateBuilder
 from ..logger.logging_ import logging as logging
-from .db_engine_service import DBEngineService as DBEngineService
 from .query_service import QueryService as QueryService
+from .session_service import AsyncSessionService as AsyncSessionService
 from _typeshed import Incomplete
 
 class GeneratorService:
@@ -20,6 +20,7 @@ class GeneratorService:
         Args:
             config (GeneratorConfig): 代码生成的配置对象，包含输出路径、模板目录、数据库连接等信息。
         """
+    async def async_load_enums(self) -> None: ...
     def get_enums(self, schema_name: str) -> list: ...
     def generator_all(self) -> None:
         """生成所有 schema 下的表和视图对应的代码。

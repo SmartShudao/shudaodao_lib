@@ -1,10 +1,10 @@
 from ..exception.service_exception import ServiceErrorException as ServiceErrorException
 from ..services.auth_service import AuthService as AuthService
-from ..services.db_engine_service import DBEngineService as DBEngineService
+from ..services.session_service import AsyncSessionService as AsyncSessionService
 from .auth_data_rule import AuthDataRule as AuthDataRule
 from _typeshed import Incomplete
 from fastapi import APIRouter, Request as Request
-from sqlmodel.ext.asyncio.session import AsyncSession
+from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
 
 class AuthRouter(APIRouter):
     """增强版 APIRouter，支持自动注入权限校验依赖。

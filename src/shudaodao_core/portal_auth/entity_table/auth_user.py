@@ -9,13 +9,12 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import EmailStr, computed_field
+from pydantic import EmailStr
 from sqlalchemy import BigInteger, Boolean
 from sqlmodel import SQLModel
 
 from .. import get_table_schema, RegistryModel
 from ...schemas.response import BaseResponse
-from ...services.enum_service import EnumService
 from ...sqlmodel_ext.field import Field
 from ...utils.generate_unique_id import get_primary_id
 

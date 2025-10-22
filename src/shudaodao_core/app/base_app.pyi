@@ -13,9 +13,9 @@ from ..logger.logging_ import logging as logging
 from ..services.auth_service import AuthService as AuthService
 from ..services.casbin_service import PermissionService as PermissionService
 from ..services.data_service import DataService as DataService
-from ..services.db_engine_service import DBEngineService as DBEngineService
 from ..services.enum_service import EnumService as EnumService
 from ..services.query_service import QueryService as QueryService
+from ..services.session_service import AsyncSessionService as AsyncSessionService
 from ..tools.class_scaner import ClassScanner as ClassScanner
 from ..tools.database_checker import DatabaseChecker as DatabaseChecker
 from ..tools.tenant_manager import TenantManager as TenantManager

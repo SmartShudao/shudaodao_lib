@@ -1495,7 +1495,7 @@ static const char* const __pyx_f[] = {
 struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table;
 struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists;
 
-/* "casbin_engine.py":108
+/* "casbin_engine.py":109
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
@@ -1508,7 +1508,7 @@ struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table {
 };
 
 
-/* "casbin_engine.py":126
+/* "casbin_engine.py":127
  *             await self._enforcer.save_policy()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
@@ -2476,6 +2476,7 @@ static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_url[] = "url";
+static const char __pyx_k_Auth[] = "Auth";
 static const char __pyx_k_Lock[] = "Lock";
 static const char __pyx_k_auth[] = "auth";
 static const char __pyx_k_bool[] = "bool";
@@ -2485,7 +2486,7 @@ static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_load[] = "_load";
 static const char __pyx_k_lock[] = "_lock";
 static const char __pyx_k_main[] = "__main__";
-static const char __pyx_k_name[] = "name";
+static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_next[] = "next";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_send[] = "send";
@@ -2508,14 +2509,11 @@ static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_engine[] = "engine";
 static const char __pyx_k_lambda[] = "<lambda>";
 static const char __pyx_k_module[] = "__module__";
-static const char __pyx_k_name_2[] = "__name__";
 static const char __pyx_k_return[] = "return";
 static const char __pyx_k_schema[] = "schema";
-static const char __pyx_k_sqlite[] = "sqlite";
 static const char __pyx_k_Adapter[] = "Adapter";
 static const char __pyx_k_adapter[] = "adapter";
 static const char __pyx_k_connect[] = "connect";
-static const char __pyx_k_dialect[] = "dialect";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_inspect[] = "inspect";
 static const char __pyx_k_logging[] = "logging";
@@ -2553,12 +2551,15 @@ static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_AsyncEnforcer[] = "AsyncEnforcer";
 static const char __pyx_k_casbin_engine[] = "casbin_engine";
+static const char __pyx_k_DatabaseEngine[] = "DatabaseEngine";
 static const char __pyx_k_logger_logging[] = "logger.logging_";
-static const char __pyx_k_DBEngineService[] = "DBEngineService";
+static const char __pyx_k_support_schema[] = "support_schema";
+static const char __pyx_k_database_engine[] = "database_engine";
 static const char __pyx_k_get_config_path[] = "get_config_path";
 static const char __pyx_k_PermissionEngine[] = "PermissionEngine";
 static const char __pyx_k_casbin_engine_py[] = "casbin_engine.py";
 static const char __pyx_k_enable_auto_save[] = "enable_auto_save";
+static const char __pyx_k_get_async_engine[] = "get_async_engine";
 static const char __pyx_k_utils_core_utils[] = "utils.core_utils";
 static const char __pyx_k_SQLAlchemyAdapter[] = "SQLAlchemyAdapter";
 static const char __pyx_k_casbin_model_conf[] = "casbin/model.conf";
@@ -2569,15 +2570,13 @@ static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_check_table_exists[] = "_check_table_exists";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_get_async_enforcer[] = "get_async_enforcer";
-static const char __pyx_k_get_auth_async_engine[] = "get_auth_async_engine";
 static const char __pyx_k_PermissionEngine___new[] = "PermissionEngine.__new__";
 static const char __pyx_k_PermissionEngine__load[] = "PermissionEngine._load";
 static const char __pyx_k_A_3k_A_A_3k_A_E_D_z_q_s[] = "\200A\360\014\000\t\014\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\320*<\270D\300\010\310\001\310\021\330\024\027\220z\240\026\240q\330\010\017\210s\220!";
-static const char __pyx_k_services_db_engine_service[] = "services.db_engine_service";
 static const char __pyx_k_PermissionEngine_check_table[] = "PermissionEngine.check_table";
 static const char __pyx_k_enable_auto_build_role_links[] = "enable_auto_build_role_links";
 static const char __pyx_k_casbin_async_sqlalchemy_adapter[] = "casbin_async_sqlalchemy_adapter";
-static const char __pyx_k_A_M_vQa_vQa_Jo_1_4whfD_Jj_vQb_t7[] = "\200A\360\024\000\t\r\210M\230\021\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\340\010\014\210J\220o\320%;\2701\340\010\013\2104\210w\220h\230f\240D\250\001\330\014\024\220J\230j\250\001\330\010\017\210v\220Q\220b\320\030/\250t\2607\270!\360\006\000\t\r\210K\320\027(\250\001\330\014\023\2204\220q\330\014\025\220Q\360\006\000\t\026\220X\320\035-\250S\260\002\260!\330\010\017\210v\220Q\220b\230\n\240!\340\010\014\210M\230\035\240a\330\014\022\220#\220Q\220a\330\014\024\220D\230\001\360\010\000\t\r\210J\320\026'\240q\250\001\340\010\014\210J\320\0263\2601\260A";
+static const char __pyx_k_A_M_vQa_vQa_Jo_6aq_Jj_vQb_t7_K_4[] = "\200A\360\024\000\t\r\210M\230\021\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\340\010\032\230.\250\001\330\010\014\210J\220o\320%6\260a\260q\340\010\013\210?\230/\250\021\250!\330\014\024\220J\230j\250\001\330\010\017\210v\220Q\220b\320\030/\250t\2607\270!\360\006\000\t\r\210K\320\027(\250\001\330\014\023\2204\220q\330\014\025\220Q\360\006\000\t\026\220X\320\035-\250S\260\002\260!\330\010\017\210v\220Q\220b\230\n\240!\340\010\014\210M\230\035\240a\330\014\022\220#\220Q\220a\330\014\024\220D\230\001\360\010\000\t\r\210J\320\026'\240q\250\001\340\010\014\210J\320\0263\2601\260A";
 static const char __pyx_k_Casbin_Casbin_AsyncEnforcer_SQLA[] = "Casbin \345\274\202\346\255\245\346\235\203\351\231\220\345\274\225\346\223\216\347\232\204\347\272\277\347\250\213\345\256\211\345\205\250\345\215\225\344\276\213\347\256\241\347\220\206\345\231\250\343\200\202\n\n    \350\264\237\350\264\243\357\274\232\n        - \345\210\235\345\247\213\345\214\226 Casbin \347\232\204 AsyncEnforcer\357\274\233\n        - \347\273\221\345\256\232 SQLAlchemy \345\274\202\346\255\245\351\200\202\351\205\215\345\231\250\357\274\210\346\214\201\344\271\205\345\214\226\347\255\226\347\225\245\345\210\260 `AuthRule` \350\241\250\357\274\211\357\274\233\n        - \346\224\257\346\214\201\350\207\252\345\212\250\344\277\235\345\255\230\347\255\226\347\225\245\343\200\201\350\207\252\345\212\250\346\236\204\345\273\272\350\247\222\350\211\262\347\273\247\346\211\277\345\205\263\347\263\273\357\274\233\n        - \346\217\220\344\276\233\350\241\250\347\273\223\346\236\204\346\243\200\346\237\245\344\270\216\351\207\215\345\273\272\350\203\275\345\212\233\357\274\210\347\224\250\344\272\216\345\274\200\345\217\221/\346\265\213\350\257\225\347\216\257\345\242\203\357\274\211\343\200\202\n\n    \346\263\250\346\204\217\357\274\232\n        - \346\234\254\347\261\273\344\275\277\347\224\250 **\345\217\214\351\207\215\346\243\200\346\237\245\351\224\201\357\274\210DCL\357\274\211** \345\256\236\347\216\260\347\272\277\347\250\213\345\256\211\345\205\250\347\232\204\345\215\225\344\276\213\346\250\241\345\274\217\357\274\233\n        - `_load()` \345\234\250\351\246\226\346\254\241\345\256\236\344\276\213\345\214\226\346\227\266\345\220\214\346\255\245\346\211\247\350\241\214\357\274\214\345\233\240\346\255\244\345\272\224\351\201\277\345\205\215\345\234\250\345\274\202\346\255\245\344\270\212\344\270\213\346\226\207\344\270\255\351\246\226\346\254\241\350\247\246\345\217\221\357\274\233\n\n    \345\205\270\345\236\213\347\224\250\346\263\225\357\274\232\n        enforcer = PermissionEngine().get_async_enforcer()\n        allowed = await enfor""cer.enforce(\"admin\", \"user\", \"read\")\n    ";
 static const char __pyx_k_PermissionEngine__check_table_ex[] = "PermissionEngine._check_table_exists";
 static const char __pyx_k_PermissionEngine_get_async_enfor[] = "PermissionEngine.get_async_enforcer";
@@ -2638,7 +2637,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[7];
-  PyObject *__pyx_string_tab[114];
+  PyObject *__pyx_string_tab[113];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2700,85 +2699,85 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_Adapter __pyx_string_tab[1]
 #define __pyx_n_u_AppConfig __pyx_string_tab[2]
 #define __pyx_n_u_AsyncEnforcer __pyx_string_tab[3]
-#define __pyx_n_u_AuthRule __pyx_string_tab[4]
-#define __pyx_kp_u_Casbin_Casbin_AsyncEnforcer_SQLA __pyx_string_tab[5]
-#define __pyx_n_u_CoreUtil __pyx_string_tab[6]
-#define __pyx_n_u_DBEngineService __pyx_string_tab[7]
-#define __pyx_n_u_Lock __pyx_string_tab[8]
-#define __pyx_n_u_PermissionEngine __pyx_string_tab[9]
-#define __pyx_kp_u_PermissionEngine_2 __pyx_string_tab[10]
-#define __pyx_n_u_PermissionEngine___new __pyx_string_tab[11]
-#define __pyx_n_u_PermissionEngine__check_table_ex __pyx_string_tab[12]
-#define __pyx_n_u_PermissionEngine__check_table_ex_2 __pyx_string_tab[13]
-#define __pyx_n_u_PermissionEngine__load __pyx_string_tab[14]
-#define __pyx_n_u_PermissionEngine_check_table __pyx_string_tab[15]
-#define __pyx_n_u_PermissionEngine_get_async_enfor __pyx_string_tab[16]
-#define __pyx_n_u_RuntimeError __pyx_string_tab[17]
-#define __pyx_n_u_SQLAlchemyAdapter __pyx_string_tab[18]
-#define __pyx_kp_u__2 __pyx_string_tab[19]
-#define __pyx_kp_u__3 __pyx_string_tab[20]
-#define __pyx_kp_u__4 __pyx_string_tab[21]
-#define __pyx_kp_u__5 __pyx_string_tab[22]
-#define __pyx_kp_u__6 __pyx_string_tab[23]
-#define __pyx_n_u_adapter __pyx_string_tab[24]
-#define __pyx_n_u_aenter __pyx_string_tab[25]
-#define __pyx_n_u_aexit __pyx_string_tab[26]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[27]
-#define __pyx_n_u_auth __pyx_string_tab[28]
-#define __pyx_n_u_await __pyx_string_tab[29]
-#define __pyx_n_u_bool __pyx_string_tab[30]
-#define __pyx_kp_u_casbin __pyx_string_tab[31]
-#define __pyx_n_u_casbin_2 __pyx_string_tab[32]
-#define __pyx_n_u_casbin_async_sqlalchemy_adapter __pyx_string_tab[33]
-#define __pyx_n_u_casbin_engine __pyx_string_tab[34]
-#define __pyx_kp_u_casbin_engine_py __pyx_string_tab[35]
-#define __pyx_kp_u_casbin_model_conf __pyx_string_tab[36]
-#define __pyx_n_u_check_table __pyx_string_tab[37]
-#define __pyx_n_u_check_table_exists __pyx_string_tab[38]
-#define __pyx_n_u_clear_policy __pyx_string_tab[39]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[40]
-#define __pyx_n_u_close __pyx_string_tab[41]
-#define __pyx_n_u_cls __pyx_string_tab[42]
-#define __pyx_n_u_config_app_config __pyx_string_tab[43]
-#define __pyx_n_u_conn __pyx_string_tab[44]
-#define __pyx_n_u_connect __pyx_string_tab[45]
-#define __pyx_n_u_create_table __pyx_string_tab[46]
-#define __pyx_n_u_db_class __pyx_string_tab[47]
-#define __pyx_n_u_debug __pyx_string_tab[48]
-#define __pyx_n_u_debug_line __pyx_string_tab[49]
-#define __pyx_n_u_dialect __pyx_string_tab[50]
-#define __pyx_kp_u_disable __pyx_string_tab[51]
-#define __pyx_n_u_doc __pyx_string_tab[52]
-#define __pyx_kp_u_enable __pyx_string_tab[53]
-#define __pyx_n_u_enable_auto_build_role_links __pyx_string_tab[54]
-#define __pyx_n_u_enable_auto_save __pyx_string_tab[55]
-#define __pyx_n_u_enforcer __pyx_string_tab[56]
-#define __pyx_n_u_engine __pyx_string_tab[57]
-#define __pyx_n_u_enter __pyx_string_tab[58]
-#define __pyx_n_u_exit __pyx_string_tab[59]
-#define __pyx_n_u_func __pyx_string_tab[60]
-#define __pyx_kp_u_gc __pyx_string_tab[61]
-#define __pyx_n_u_get_async_enforcer __pyx_string_tab[62]
-#define __pyx_n_u_get_auth_async_engine __pyx_string_tab[63]
-#define __pyx_n_u_get_config_path __pyx_string_tab[64]
-#define __pyx_n_u_has_table __pyx_string_tab[65]
-#define __pyx_n_u_initializing __pyx_string_tab[66]
-#define __pyx_n_u_inspect __pyx_string_tab[67]
-#define __pyx_n_u_instance __pyx_string_tab[68]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[69]
-#define __pyx_kp_u_isenabled __pyx_string_tab[70]
-#define __pyx_n_u_lambda __pyx_string_tab[71]
-#define __pyx_n_u_load __pyx_string_tab[72]
-#define __pyx_n_u_lock __pyx_string_tab[73]
-#define __pyx_n_u_logger_logging __pyx_string_tab[74]
-#define __pyx_n_u_logging __pyx_string_tab[75]
-#define __pyx_n_u_main __pyx_string_tab[76]
-#define __pyx_n_u_metaclass __pyx_string_tab[77]
-#define __pyx_n_u_model __pyx_string_tab[78]
-#define __pyx_n_u_model_path __pyx_string_tab[79]
-#define __pyx_n_u_module __pyx_string_tab[80]
-#define __pyx_n_u_name __pyx_string_tab[81]
-#define __pyx_n_u_name_2 __pyx_string_tab[82]
+#define __pyx_n_u_Auth __pyx_string_tab[4]
+#define __pyx_n_u_AuthRule __pyx_string_tab[5]
+#define __pyx_kp_u_Casbin_Casbin_AsyncEnforcer_SQLA __pyx_string_tab[6]
+#define __pyx_n_u_CoreUtil __pyx_string_tab[7]
+#define __pyx_n_u_DatabaseEngine __pyx_string_tab[8]
+#define __pyx_n_u_Lock __pyx_string_tab[9]
+#define __pyx_n_u_PermissionEngine __pyx_string_tab[10]
+#define __pyx_kp_u_PermissionEngine_2 __pyx_string_tab[11]
+#define __pyx_n_u_PermissionEngine___new __pyx_string_tab[12]
+#define __pyx_n_u_PermissionEngine__check_table_ex __pyx_string_tab[13]
+#define __pyx_n_u_PermissionEngine__check_table_ex_2 __pyx_string_tab[14]
+#define __pyx_n_u_PermissionEngine__load __pyx_string_tab[15]
+#define __pyx_n_u_PermissionEngine_check_table __pyx_string_tab[16]
+#define __pyx_n_u_PermissionEngine_get_async_enfor __pyx_string_tab[17]
+#define __pyx_n_u_RuntimeError __pyx_string_tab[18]
+#define __pyx_n_u_SQLAlchemyAdapter __pyx_string_tab[19]
+#define __pyx_kp_u__2 __pyx_string_tab[20]
+#define __pyx_kp_u__3 __pyx_string_tab[21]
+#define __pyx_kp_u__4 __pyx_string_tab[22]
+#define __pyx_kp_u__5 __pyx_string_tab[23]
+#define __pyx_kp_u__6 __pyx_string_tab[24]
+#define __pyx_n_u_adapter __pyx_string_tab[25]
+#define __pyx_n_u_aenter __pyx_string_tab[26]
+#define __pyx_n_u_aexit __pyx_string_tab[27]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[28]
+#define __pyx_n_u_auth __pyx_string_tab[29]
+#define __pyx_n_u_await __pyx_string_tab[30]
+#define __pyx_n_u_bool __pyx_string_tab[31]
+#define __pyx_kp_u_casbin __pyx_string_tab[32]
+#define __pyx_n_u_casbin_2 __pyx_string_tab[33]
+#define __pyx_n_u_casbin_async_sqlalchemy_adapter __pyx_string_tab[34]
+#define __pyx_n_u_casbin_engine __pyx_string_tab[35]
+#define __pyx_kp_u_casbin_engine_py __pyx_string_tab[36]
+#define __pyx_kp_u_casbin_model_conf __pyx_string_tab[37]
+#define __pyx_n_u_check_table __pyx_string_tab[38]
+#define __pyx_n_u_check_table_exists __pyx_string_tab[39]
+#define __pyx_n_u_clear_policy __pyx_string_tab[40]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[41]
+#define __pyx_n_u_close __pyx_string_tab[42]
+#define __pyx_n_u_cls __pyx_string_tab[43]
+#define __pyx_n_u_config_app_config __pyx_string_tab[44]
+#define __pyx_n_u_conn __pyx_string_tab[45]
+#define __pyx_n_u_connect __pyx_string_tab[46]
+#define __pyx_n_u_create_table __pyx_string_tab[47]
+#define __pyx_n_u_database_engine __pyx_string_tab[48]
+#define __pyx_n_u_db_class __pyx_string_tab[49]
+#define __pyx_n_u_debug __pyx_string_tab[50]
+#define __pyx_n_u_debug_line __pyx_string_tab[51]
+#define __pyx_kp_u_disable __pyx_string_tab[52]
+#define __pyx_n_u_doc __pyx_string_tab[53]
+#define __pyx_kp_u_enable __pyx_string_tab[54]
+#define __pyx_n_u_enable_auto_build_role_links __pyx_string_tab[55]
+#define __pyx_n_u_enable_auto_save __pyx_string_tab[56]
+#define __pyx_n_u_enforcer __pyx_string_tab[57]
+#define __pyx_n_u_engine __pyx_string_tab[58]
+#define __pyx_n_u_enter __pyx_string_tab[59]
+#define __pyx_n_u_exit __pyx_string_tab[60]
+#define __pyx_n_u_func __pyx_string_tab[61]
+#define __pyx_kp_u_gc __pyx_string_tab[62]
+#define __pyx_n_u_get_async_enforcer __pyx_string_tab[63]
+#define __pyx_n_u_get_async_engine __pyx_string_tab[64]
+#define __pyx_n_u_get_config_path __pyx_string_tab[65]
+#define __pyx_n_u_has_table __pyx_string_tab[66]
+#define __pyx_n_u_initializing __pyx_string_tab[67]
+#define __pyx_n_u_inspect __pyx_string_tab[68]
+#define __pyx_n_u_instance __pyx_string_tab[69]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[70]
+#define __pyx_kp_u_isenabled __pyx_string_tab[71]
+#define __pyx_n_u_lambda __pyx_string_tab[72]
+#define __pyx_n_u_load __pyx_string_tab[73]
+#define __pyx_n_u_lock __pyx_string_tab[74]
+#define __pyx_n_u_logger_logging __pyx_string_tab[75]
+#define __pyx_n_u_logging __pyx_string_tab[76]
+#define __pyx_n_u_main __pyx_string_tab[77]
+#define __pyx_n_u_metaclass __pyx_string_tab[78]
+#define __pyx_n_u_model __pyx_string_tab[79]
+#define __pyx_n_u_model_path __pyx_string_tab[80]
+#define __pyx_n_u_module __pyx_string_tab[81]
+#define __pyx_n_u_name __pyx_string_tab[82]
 #define __pyx_kp_u_name_Auth __pyx_string_tab[83]
 #define __pyx_n_u_new __pyx_string_tab[84]
 #define __pyx_n_u_next __pyx_string_tab[85]
@@ -2793,23 +2792,22 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_schema __pyx_string_tab[94]
 #define __pyx_n_u_self __pyx_string_tab[95]
 #define __pyx_n_u_send __pyx_string_tab[96]
-#define __pyx_n_u_services_db_engine_service __pyx_string_tab[97]
-#define __pyx_n_u_set_name __pyx_string_tab[98]
-#define __pyx_n_u_spec __pyx_string_tab[99]
-#define __pyx_n_u_sqlalchemy __pyx_string_tab[100]
-#define __pyx_n_u_sqlite __pyx_string_tab[101]
-#define __pyx_n_u_super __pyx_string_tab[102]
-#define __pyx_n_u_sync_conn __pyx_string_tab[103]
-#define __pyx_n_u_table __pyx_string_tab[104]
-#define __pyx_n_u_table_name __pyx_string_tab[105]
-#define __pyx_n_u_tablename __pyx_string_tab[106]
-#define __pyx_n_u_test __pyx_string_tab[107]
-#define __pyx_n_u_threading __pyx_string_tab[108]
-#define __pyx_n_u_throw __pyx_string_tab[109]
-#define __pyx_n_u_url __pyx_string_tab[110]
-#define __pyx_n_u_utils_core_utils __pyx_string_tab[111]
-#define __pyx_n_u_value __pyx_string_tab[112]
-#define __pyx_kp_u_yaml_auth __pyx_string_tab[113]
+#define __pyx_n_u_set_name __pyx_string_tab[97]
+#define __pyx_n_u_spec __pyx_string_tab[98]
+#define __pyx_n_u_sqlalchemy __pyx_string_tab[99]
+#define __pyx_n_u_super __pyx_string_tab[100]
+#define __pyx_n_u_support_schema __pyx_string_tab[101]
+#define __pyx_n_u_sync_conn __pyx_string_tab[102]
+#define __pyx_n_u_table __pyx_string_tab[103]
+#define __pyx_n_u_table_name __pyx_string_tab[104]
+#define __pyx_n_u_tablename __pyx_string_tab[105]
+#define __pyx_n_u_test __pyx_string_tab[106]
+#define __pyx_n_u_threading __pyx_string_tab[107]
+#define __pyx_n_u_throw __pyx_string_tab[108]
+#define __pyx_n_u_url __pyx_string_tab[109]
+#define __pyx_n_u_utils_core_utils __pyx_string_tab[110]
+#define __pyx_n_u_value __pyx_string_tab[111]
+#define __pyx_kp_u_yaml_auth __pyx_string_tab[112]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2836,7 +2834,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<7; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<114; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<113; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2863,7 +2861,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<7; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<114; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<113; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3350,6 +3348,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_v_database_engine = NULL;
   PyObject *__pyx_v_model_path = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3359,9 +3358,8 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   PyObject *__pyx_t_4 = NULL;
   size_t __pyx_t_5;
   int __pyx_t_6;
-  int __pyx_t_7;
+  PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
-  PyObject *__pyx_t_9 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3486,7 +3484,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
  *         logging.debug_line()
  *         logging.debug(": casbin ")             # <<<<<<<<<<<<<<
  * 
- *         self.engine = DBEngineService.get_auth_async_engine()
+ *         database_engine = DatabaseEngine()
 */
   __pyx_t_2 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
@@ -3519,160 +3517,273 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   /* "casbin_engine.py":73
  *         logging.debug(": casbin ")
  * 
- *         self.engine = DBEngineService.get_auth_async_engine()             # <<<<<<<<<<<<<<
+ *         database_engine = DatabaseEngine()             # <<<<<<<<<<<<<<
+ *         self.engine = database_engine.get_async_engine("Auth")
  *         # SQLite  schema
- *         if self.engine.dialect.name in ['sqlite']:
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DatabaseEngine); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_auth_async_engine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
-    assert(__pyx_t_4);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
-    __Pyx_INCREF(__pyx_t_4);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "casbin_engine.py":75
- *         self.engine = DBEngineService.get_auth_async_engine()
- *         # SQLite  schema
- *         if self.engine.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
- *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Auth - {self.engine.url}")
-*/
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_dialect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_sqlite, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_7 = __pyx_t_6;
-  if (__pyx_t_7) {
-
-    /* "casbin_engine.py":76
- *         # SQLite  schema
- *         if self.engine.dialect.name in ['sqlite']:
- *             AuthRule.__table__.schema = ""             # <<<<<<<<<<<<<<
- *         logging.debug(f": name: Auth - {self.engine.url}")
- * 
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_schema, __pyx_mstate_global->__pyx_kp_u_) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-    /* "casbin_engine.py":75
- *         self.engine = DBEngineService.get_auth_async_engine()
- *         # SQLite  schema
- *         if self.engine.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
- *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Auth - {self.engine.url}")
-*/
-  }
-
-  /* "casbin_engine.py":77
- *         if self.engine.dialect.name in ['sqlite']:
- *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Auth - {self.engine.url}")             # <<<<<<<<<<<<<<
- * 
- *         #
-*/
-  __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_url); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_8, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_name_Auth, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 77, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
-    assert(__pyx_t_1);
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+    assert(__pyx_t_4);
     PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_2);
-    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx_t_4);
     __Pyx_INCREF(__pyx__function);
     __Pyx_DECREF_SET(__pyx_t_2, __pyx__function);
     __pyx_t_5 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_t_8};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
   }
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_database_engine = __pyx_t_1;
+  __pyx_t_1 = 0;
 
-  /* "casbin_engine.py":80
+  /* "casbin_engine.py":74
+ * 
+ *         database_engine = DatabaseEngine()
+ *         self.engine = database_engine.get_async_engine("Auth")             # <<<<<<<<<<<<<<
+ *         # SQLite  schema
+ *         if database_engine.support_schema("Auth"):
+*/
+  __pyx_t_2 = __pyx_v_database_engine;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_5 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Auth};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_async_engine, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":76
+ *         self.engine = database_engine.get_async_engine("Auth")
+ *         # SQLite  schema
+ *         if database_engine.support_schema("Auth"):             # <<<<<<<<<<<<<<
+ *             AuthRule.__table__.schema = ""
+ *         logging.debug(f": name: Auth - {self.engine.url}")
+*/
+  __pyx_t_2 = __pyx_v_database_engine;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_5 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Auth};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_support_schema, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_6) {
+
+    /* "casbin_engine.py":77
+ *         # SQLite  schema
+ *         if database_engine.support_schema("Auth"):
+ *             AuthRule.__table__.schema = ""             # <<<<<<<<<<<<<<
+ *         logging.debug(f": name: Auth - {self.engine.url}")
+ * 
+*/
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema, __pyx_mstate_global->__pyx_kp_u_) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "casbin_engine.py":76
+ *         self.engine = database_engine.get_async_engine("Auth")
+ *         # SQLite  schema
+ *         if database_engine.support_schema("Auth"):             # <<<<<<<<<<<<<<
+ *             AuthRule.__table__.schema = ""
+ *         logging.debug(f": name: Auth - {self.engine.url}")
+*/
+  }
+
+  /* "casbin_engine.py":78
+ *         if database_engine.support_schema("Auth"):
+ *             AuthRule.__table__.schema = ""
+ *         logging.debug(f": name: Auth - {self.engine.url}")             # <<<<<<<<<<<<<<
+ * 
+ *         #
+*/
+  __pyx_t_1 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_url); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_name_Auth, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+    assert(__pyx_t_1);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_t_7};
+    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":81
  * 
  *         #
  *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
  *             engine=self.engine,
  *             db_class=AuthRule
 */
-  __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_SQLAlchemyAdapter); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_3 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_SQLAlchemyAdapter); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
 
-  /* "casbin_engine.py":81
+  /* "casbin_engine.py":82
  *         #
  *         self.adapter = SQLAlchemyAdapter(
  *             engine=self.engine,             # <<<<<<<<<<<<<<
  *             db_class=AuthRule
  *         )
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "casbin_engine.py":82
+  /* "casbin_engine.py":83
  *         self.adapter = SQLAlchemyAdapter(
  *             engine=self.engine,
  *             db_class=AuthRule             # <<<<<<<<<<<<<<
  *         )
  * 
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_7);
+    assert(__pyx_t_3);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
+    __Pyx_INCREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, NULL};
+    __pyx_t_8 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1, __pyx_t_8, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_class, __pyx_t_4, __pyx_t_8, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_7, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_8);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+  }
+
+  /* "casbin_engine.py":81
+ * 
+ *         #
+ *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
+ *             engine=self.engine,
+ *             db_class=AuthRule
+*/
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_2) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":86
+ *         )
+ * 
+ *         model_path = CoreUtil.get_config_path() / "casbin/model.conf"             # <<<<<<<<<<<<<<
+ *         logging.debug(f': {model_path}')
+ *         #  Enforcer
+*/
+  __pyx_t_7 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_get_config_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_7);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_7);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
+    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+  }
+  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_casbin_model_conf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_model_path = __pyx_t_4;
+  __pyx_t_4 = 0;
+
+  /* "casbin_engine.py":87
+ * 
+ *         model_path = CoreUtil.get_config_path() / "casbin/model.conf"
+ *         logging.debug(f': {model_path}')             # <<<<<<<<<<<<<<
+ *         #  Enforcer
+ *         self._enforcer = AsyncEnforcer(
+*/
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_v_model_path, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__2, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_8))) {
@@ -3686,219 +3797,124 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   }
   #endif
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_class, __pyx_t_4, __pyx_t_9, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_1};
+    __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-  }
-
-  /* "casbin_engine.py":80
- * 
- *         #
- *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
- *             engine=self.engine,
- *             db_class=AuthRule
-*/
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_3) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "casbin_engine.py":85
- *         )
- * 
- *         model_path = CoreUtil.get_config_path() / "casbin/model.conf"             # <<<<<<<<<<<<<<
- *         logging.debug(f': {model_path}')
- *         #  Enforcer
-*/
-  __pyx_t_8 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 85, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_get_config_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_8);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_8);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_8, NULL};
-    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-  }
-  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_casbin_model_conf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_v_model_path = __pyx_t_4;
-  __pyx_t_4 = 0;
-
-  /* "casbin_engine.py":86
- * 
- *         model_path = CoreUtil.get_config_path() / "casbin/model.conf"
- *         logging.debug(f': {model_path}')             # <<<<<<<<<<<<<<
- *         #  Enforcer
- *         self._enforcer = AsyncEnforcer(
-*/
-  __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_v_model_path, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__2, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_9))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_9);
-    assert(__pyx_t_3);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_9);
-    __Pyx_INCREF(__pyx_t_3);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_9, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_1};
-    __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "casbin_engine.py":88
+  /* "casbin_engine.py":89
  *         logging.debug(f': {model_path}')
  *         #  Enforcer
  *         self._enforcer = AsyncEnforcer(             # <<<<<<<<<<<<<<
  *             model=str(model_path),
  *             adapter=self.adapter
 */
-  __pyx_t_9 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_8 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "casbin_engine.py":89
+  /* "casbin_engine.py":90
  *         #  Enforcer
  *         self._enforcer = AsyncEnforcer(
  *             model=str(model_path),             # <<<<<<<<<<<<<<
  *             adapter=self.adapter
  *         )
 */
-  __pyx_t_3 = __Pyx_PyObject_Unicode(__pyx_v_model_path); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_v_model_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
 
-  /* "casbin_engine.py":90
+  /* "casbin_engine.py":91
  *         self._enforcer = AsyncEnforcer(
  *             model=str(model_path),
  *             adapter=self.adapter             # <<<<<<<<<<<<<<
  *         )
  * 
 */
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 90, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_1);
-    assert(__pyx_t_9);
+    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_1);
+    assert(__pyx_t_8);
     PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_1);
-    __Pyx_INCREF(__pyx_t_9);
+    __Pyx_INCREF(__pyx_t_8);
     __Pyx_INCREF(__pyx__function);
     __Pyx_DECREF_SET(__pyx_t_1, __pyx__function);
     __pyx_t_5 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_9, NULL};
-    __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model, __pyx_t_3, __pyx_t_2, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_8, __pyx_t_2, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_1, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_8, NULL};
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model, __pyx_t_2, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_7, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_1, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
 
-  /* "casbin_engine.py":88
+  /* "casbin_engine.py":89
  *         logging.debug(f': {model_path}')
  *         #  Enforcer
  *         self._enforcer = AsyncEnforcer(             # <<<<<<<<<<<<<<
  *             model=str(model_path),
  *             adapter=self.adapter
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, __pyx_t_4) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, __pyx_t_4) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "casbin_engine.py":94
+  /* "casbin_engine.py":95
  * 
  *         # /
  *         self._enforcer.enable_auto_save(True)             # <<<<<<<<<<<<<<
  *         #
  *         self._enforcer.enable_auto_build_role_links(True)
 */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __pyx_t_2;
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_1);
   __pyx_t_5 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_1, Py_True};
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_enable_auto_save, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "casbin_engine.py":96
+  /* "casbin_engine.py":97
  *         self._enforcer.enable_auto_save(True)
  *         #
  *         self._enforcer.enable_auto_build_role_links(True)             # <<<<<<<<<<<<<<
  * 
  *     def get_async_enforcer(self) -> AsyncEnforcer:
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_t_1;
-  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_3 = __pyx_t_1;
+  __Pyx_INCREF(__pyx_t_3);
   __pyx_t_5 = 0;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, Py_True};
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, Py_True};
     __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_enable_auto_build_role_links, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -3919,18 +3935,19 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_9);
   __Pyx_AddTraceback("casbin_engine.PermissionEngine._load", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_database_engine);
   __Pyx_XDECREF(__pyx_v_model_path);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "casbin_engine.py":98
+/* "casbin_engine.py":99
  *         self._enforcer.enable_auto_build_role_links(True)
  * 
  *     def get_async_enforcer(self) -> AsyncEnforcer:             # <<<<<<<<<<<<<<
@@ -3978,32 +3995,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 98, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 99, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 98, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 99, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_async_enforcer", 0) < 0) __PYX_ERR(0, 98, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_async_enforcer", 0) < 0) __PYX_ERR(0, 99, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_async_enforcer", 1, 1, 1, i); __PYX_ERR(0, 98, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_async_enforcer", 1, 1, 1, i); __PYX_ERR(0, 99, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 98, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 99, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_async_enforcer", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 98, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_async_enforcer", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 99, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4037,20 +4054,20 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_async_enforcer", 0);
 
-  /* "casbin_engine.py":104
+  /* "casbin_engine.py":105
  *             AsyncEnforcer:  `await enforcer.enforce(...)`
  *         """
  *         if self._enforcer is None:             # <<<<<<<<<<<<<<
  *             raise RuntimeError("PermissionEngine ")
  *         return self._enforcer
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = (__pyx_t_1 == Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (unlikely(__pyx_t_2)) {
 
-    /* "casbin_engine.py":105
+    /* "casbin_engine.py":106
  *         """
  *         if self._enforcer is None:
  *             raise RuntimeError("PermissionEngine ")             # <<<<<<<<<<<<<<
@@ -4066,14 +4083,14 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 105, __pyx_L1_error)
+    __PYX_ERR(0, 106, __pyx_L1_error)
 
-    /* "casbin_engine.py":104
+    /* "casbin_engine.py":105
  *             AsyncEnforcer:  `await enforcer.enforce(...)`
  *         """
  *         if self._enforcer is None:             # <<<<<<<<<<<<<<
@@ -4082,7 +4099,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer
 */
   }
 
-  /* "casbin_engine.py":106
+  /* "casbin_engine.py":107
  *         if self._enforcer is None:
  *             raise RuntimeError("PermissionEngine ")
  *         return self._enforcer             # <<<<<<<<<<<<<<
@@ -4090,13 +4107,13 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer
  *     async def check_table(self):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "casbin_engine.py":98
+  /* "casbin_engine.py":99
  *         self._enforcer.enable_auto_build_role_links(True)
  * 
  *     def get_async_enforcer(self) -> AsyncEnforcer:             # <<<<<<<<<<<<<<
@@ -4118,7 +4135,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer
 }
 static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "casbin_engine.py":108
+/* "casbin_engine.py":109
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
@@ -4166,32 +4183,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 109, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 108, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 109, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "check_table", 0) < 0) __PYX_ERR(0, 108, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "check_table", 0) < 0) __PYX_ERR(0, 109, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, i); __PYX_ERR(0, 108, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, i); __PYX_ERR(0, 109, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 108, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 109, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 108, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 109, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4224,7 +4241,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_6check_table(CYTHON
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 108, __pyx_L1_error)
+    __PYX_ERR(0, 109, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -4232,7 +4249,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_6check_table(CYTHON
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_8generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 108, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_8generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 109, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4277,29 +4294,29 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 108, __pyx_L1_error)
+    __PYX_ERR(0, 109, __pyx_L1_error)
   }
 
-  /* "casbin_engine.py":117
+  /* "casbin_engine.py":118
  *         /
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:             # <<<<<<<<<<<<<<
  *             if not await self._check_table_exists():
  *                 logging.debug("...")
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_rebuild_auth_rule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_rebuild_auth_rule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "casbin_engine.py":118
+    /* "casbin_engine.py":119
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():             # <<<<<<<<<<<<<<
@@ -4313,7 +4330,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4327,21 +4344,21 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L6_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 118, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 119, __pyx_L1_error)
       __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
     } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __pyx_t_1 = __pyx_r; __pyx_r = NULL;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 118, __pyx_L1_error)
+      __PYX_ERR(0, 119, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 118, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 119, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = (!__pyx_t_3);
     if (__pyx_t_6) {
 
-      /* "casbin_engine.py":119
+      /* "casbin_engine.py":120
  *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():
  *                 logging.debug("...")             # <<<<<<<<<<<<<<
@@ -4349,9 +4366,9 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
  *             else:
 */
       __pyx_t_2 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 119, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 120, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 119, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 120, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_4 = 1;
@@ -4371,19 +4388,19 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "casbin_engine.py":120
+      /* "casbin_engine.py":121
  *             if not await self._check_table_exists():
  *                 logging.debug("...")
  *                 await self.adapter.create_table()             # <<<<<<<<<<<<<<
  *             else:
  *                 logging.debug("...")
 */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_8 = __pyx_t_2;
       __Pyx_INCREF(__pyx_t_8);
@@ -4393,7 +4410,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
         __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_create_table, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4407,16 +4424,16 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
         __pyx_generator->resume_label = 2;
         return __pyx_r;
         __pyx_L7_resume_from_await:;
-        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 120, __pyx_L1_error)
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 121, __pyx_L1_error)
       } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
         __Pyx_GOTREF(__pyx_r);
         __Pyx_DECREF(__pyx_r); __pyx_r = 0;
       } else {
         __Pyx_XGOTREF(__pyx_r);
-        __PYX_ERR(0, 120, __pyx_L1_error)
+        __PYX_ERR(0, 121, __pyx_L1_error)
       }
 
-      /* "casbin_engine.py":118
+      /* "casbin_engine.py":119
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():             # <<<<<<<<<<<<<<
@@ -4426,7 +4443,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       goto __pyx_L5;
     }
 
-    /* "casbin_engine.py":122
+    /* "casbin_engine.py":123
  *                 await self.adapter.create_table()
  *             else:
  *                 logging.debug("...")             # <<<<<<<<<<<<<<
@@ -4435,9 +4452,9 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
 */
     /*else*/ {
       __pyx_t_2 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 122, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 123, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 122, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 123, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_t_4 = 1;
@@ -4457,21 +4474,21 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     }
     __pyx_L5:;
 
-    /* "casbin_engine.py":123
+    /* "casbin_engine.py":124
  *             else:
  *                 logging.debug("...")
  *             self._enforcer.clear_policy()             # <<<<<<<<<<<<<<
  *             await self._enforcer.save_policy()
  * 
 */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 123, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_7 = __pyx_t_2;
     __Pyx_INCREF(__pyx_t_7);
@@ -4481,19 +4498,19 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_clear_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "casbin_engine.py":124
+    /* "casbin_engine.py":125
  *                 logging.debug("...")
  *             self._enforcer.clear_policy()
  *             await self._enforcer.save_policy()             # <<<<<<<<<<<<<<
  * 
  *     async def _check_table_exists(self) -> bool:
 */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_2 = __pyx_t_7;
     __Pyx_INCREF(__pyx_t_2);
@@ -4503,7 +4520,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4517,16 +4534,16 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       __pyx_generator->resume_label = 3;
       return __pyx_r;
       __pyx_L8_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 124, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 125, __pyx_L1_error)
     } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_DECREF(__pyx_r); __pyx_r = 0;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 124, __pyx_L1_error)
+      __PYX_ERR(0, 125, __pyx_L1_error)
     }
 
-    /* "casbin_engine.py":117
+    /* "casbin_engine.py":118
  *         /
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:             # <<<<<<<<<<<<<<
@@ -4536,7 +4553,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "casbin_engine.py":108
+  /* "casbin_engine.py":109
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
@@ -4568,7 +4585,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
 }
 static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "casbin_engine.py":126
+/* "casbin_engine.py":127
  *             await self._enforcer.save_policy()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
@@ -4616,32 +4633,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 126, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 127, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 126, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 127, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_check_table_exists", 0) < 0) __PYX_ERR(0, 126, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_check_table_exists", 0) < 0) __PYX_ERR(0, 127, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, i); __PYX_ERR(0, 126, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, i); __PYX_ERR(0, 127, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 126, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 127, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 126, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 127, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4662,7 +4679,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "casbin_engine.py":139
+/* "casbin_engine.py":140
  *             if AuthRule.__table__.schema:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name, AuthRule.__table__.schema)             # <<<<<<<<<<<<<<
@@ -4709,32 +4726,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_sync_conn,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 139, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 140, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 139, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 140, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda", 0) < 0) __PYX_ERR(0, 139, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda", 0) < 0) __PYX_ERR(0, 140, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, i); __PYX_ERR(0, 139, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, i); __PYX_ERR(0, 140, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 139, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 140, __pyx_L3_error)
     }
     __pyx_v_sync_conn = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 139, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 140, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4774,7 +4791,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4793,18 +4810,18 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_t_2 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 139, __pyx_L1_error) }
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 140, __pyx_L1_error) }
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_6 = 0;
@@ -4814,7 +4831,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -4836,7 +4853,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   return __pyx_r;
 }
 
-/* "casbin_engine.py":143
+/* "casbin_engine.py":144
  *             else:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name)             # <<<<<<<<<<<<<<
@@ -4882,32 +4899,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_sync_conn,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 143, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 144, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 143, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 144, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda1", 0) < 0) __PYX_ERR(0, 143, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda1", 0) < 0) __PYX_ERR(0, 144, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, i); __PYX_ERR(0, 143, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, i); __PYX_ERR(0, 144, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 143, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 144, __pyx_L3_error)
     }
     __pyx_v_sync_conn = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 143, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 144, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4947,7 +4964,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4966,19 +4983,19 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 144, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_t_2 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 143, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 144, __pyx_L1_error) }
   __pyx_t_6 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_table_name};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_has_table, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 143, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 144, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -5000,7 +5017,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-/* "casbin_engine.py":126
+/* "casbin_engine.py":127
  *             await self._enforcer.save_policy()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
@@ -5020,7 +5037,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9_check_table_exist
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 126, __pyx_L1_error)
+    __PYX_ERR(0, 127, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -5028,7 +5045,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9_check_table_exist
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_11generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_11generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 127, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5081,26 +5098,26 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 126, __pyx_L1_error)
+    __PYX_ERR(0, 127, __pyx_L1_error)
   }
 
-  /* "casbin_engine.py":135
+  /* "casbin_engine.py":136
  *             bool:  True False
  *         """
  *         table_name = AuthRule.__tablename__             # <<<<<<<<<<<<<<
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_tablename); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_tablename); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_cur_scope->__pyx_v_table_name = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "casbin_engine.py":136
+  /* "casbin_engine.py":137
  *         """
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:             # <<<<<<<<<<<<<<
@@ -5108,7 +5125,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
  *                 return await conn.run_sync(
 */
   /*with:*/ {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __Pyx_INCREF(__pyx_t_1);
@@ -5118,13 +5135,13 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
       __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_connect, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
-    __pyx_t_5 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aexit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 136, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aexit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_1 = NULL;
-    __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aenter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 136, __pyx_L4_error)
+    __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aenter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L4_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_4 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -5143,7 +5160,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L4_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
@@ -5167,14 +5184,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
       __pyx_t_5 = __pyx_cur_scope->__pyx_t_1;
       __pyx_cur_scope->__pyx_t_1 = 0;
       __Pyx_XGOTREF(__pyx_t_5);
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 136, __pyx_L4_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 137, __pyx_L4_error)
       __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
     } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __pyx_t_3 = __pyx_r; __pyx_r = NULL;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 136, __pyx_L4_error)
+      __PYX_ERR(0, 137, __pyx_L4_error)
     }
     __pyx_t_6 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -5190,26 +5207,26 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
           __pyx_cur_scope->__pyx_v_conn = __pyx_t_6;
           __pyx_t_6 = 0;
 
-          /* "casbin_engine.py":137
+          /* "casbin_engine.py":138
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:             # <<<<<<<<<<<<<<
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name, AuthRule.__table__.schema)
 */
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L9_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 138, __pyx_L9_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L9_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L9_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 137, __pyx_L9_error)
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 138, __pyx_L9_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 137, __pyx_L9_error)
+          __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 138, __pyx_L9_error)
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           if (__pyx_t_11) {
 
-            /* "casbin_engine.py":138
+            /* "casbin_engine.py":139
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:
  *                 return await conn.run_sync(             # <<<<<<<<<<<<<<
@@ -5220,14 +5237,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_2 = __pyx_cur_scope->__pyx_v_conn;
             __Pyx_INCREF(__pyx_t_2);
 
-            /* "casbin_engine.py":139
+            /* "casbin_engine.py":140
  *             if AuthRule.__table__.schema:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name, AuthRule.__table__.schema)             # <<<<<<<<<<<<<<
  *                 )
  *             else:
 */
-            __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_lambda, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L9_error)
+            __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_lambda, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L9_error)
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_t_4 = 0;
             {
@@ -5235,7 +5252,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_6 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_run_sync, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 138, __pyx_L9_error)
+              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 139, __pyx_L9_error)
               __Pyx_GOTREF(__pyx_t_6);
             }
             __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6, &__pyx_r);
@@ -5269,20 +5286,20 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_10 = __pyx_cur_scope->__pyx_t_3;
               __pyx_cur_scope->__pyx_t_3 = 0;
               __Pyx_XGOTREF(__pyx_t_10);
-              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 138, __pyx_L9_error)
+              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 139, __pyx_L9_error)
               __pyx_t_6 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_6);
             } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
               __Pyx_GOTREF(__pyx_r);
               __pyx_t_6 = __pyx_r; __pyx_r = NULL;
             } else {
               __Pyx_XGOTREF(__pyx_r);
-              __PYX_ERR(0, 138, __pyx_L9_error)
+              __PYX_ERR(0, 139, __pyx_L9_error)
             }
             __pyx_r = __pyx_t_6;
             __pyx_t_6 = 0;
             goto __pyx_L13_try_return;
 
-            /* "casbin_engine.py":137
+            /* "casbin_engine.py":138
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:             # <<<<<<<<<<<<<<
@@ -5291,7 +5308,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
 */
           }
 
-          /* "casbin_engine.py":142
+          /* "casbin_engine.py":143
  *                 )
  *             else:
  *                 return await conn.run_sync(             # <<<<<<<<<<<<<<
@@ -5303,13 +5320,13 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_3 = __pyx_cur_scope->__pyx_v_conn;
             __Pyx_INCREF(__pyx_t_3);
 
-            /* "casbin_engine.py":143
+            /* "casbin_engine.py":144
  *             else:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name)             # <<<<<<<<<<<<<<
  *                 )
 */
-            __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_1lambda1, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 143, __pyx_L9_error)
+            __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_1lambda1, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 144, __pyx_L9_error)
             __Pyx_GOTREF(__pyx_t_2);
             __pyx_t_4 = 0;
             {
@@ -5317,7 +5334,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_6 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_run_sync, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L9_error)
+              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 143, __pyx_L9_error)
               __Pyx_GOTREF(__pyx_t_6);
             }
             __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6, &__pyx_r);
@@ -5351,21 +5368,21 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_10 = __pyx_cur_scope->__pyx_t_3;
               __pyx_cur_scope->__pyx_t_3 = 0;
               __Pyx_XGOTREF(__pyx_t_10);
-              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 142, __pyx_L9_error)
+              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 143, __pyx_L9_error)
               __pyx_t_6 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_6);
             } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
               __Pyx_GOTREF(__pyx_r);
               __pyx_t_6 = __pyx_r; __pyx_r = NULL;
             } else {
               __Pyx_XGOTREF(__pyx_r);
-              __PYX_ERR(0, 142, __pyx_L9_error)
+              __PYX_ERR(0, 143, __pyx_L9_error)
             }
             __pyx_r = __pyx_t_6;
             __pyx_t_6 = 0;
             goto __pyx_L13_try_return;
           }
 
-          /* "casbin_engine.py":136
+          /* "casbin_engine.py":137
  *         """
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:             # <<<<<<<<<<<<<<
@@ -5380,16 +5397,16 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("casbin_engine.PermissionEngine._check_table_exists", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_2, &__pyx_t_3) < 0) __PYX_ERR(0, 136, __pyx_L11_except_error)
+          if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_2, &__pyx_t_3) < 0) __PYX_ERR(0, 137, __pyx_L11_except_error)
           __Pyx_XGOTREF(__pyx_t_6);
           __Pyx_XGOTREF(__pyx_t_2);
           __Pyx_XGOTREF(__pyx_t_3);
-          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_6, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L11_except_error)
+          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_6, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L11_except_error)
           __Pyx_GOTREF(__pyx_t_1);
           __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 136, __pyx_L11_except_error)
+          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 137, __pyx_L11_except_error)
           __Pyx_GOTREF(__pyx_t_12);
           __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_12, &__pyx_r);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
@@ -5442,20 +5459,20 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_12 = __pyx_cur_scope->__pyx_t_7;
             __pyx_cur_scope->__pyx_t_7 = 0;
             __Pyx_XGOTREF(__pyx_t_12);
-            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 136, __pyx_L11_except_error)
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 137, __pyx_L11_except_error)
             __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
           } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
             __Pyx_GOTREF(__pyx_r);
             __pyx_t_1 = __pyx_r; __pyx_r = NULL;
           } else {
             __Pyx_XGOTREF(__pyx_r);
-            __PYX_ERR(0, 136, __pyx_L11_except_error)
+            __PYX_ERR(0, 137, __pyx_L11_except_error)
           }
           __pyx_t_12 = __pyx_t_1;
           __pyx_t_1 = 0;
           __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_12);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (__pyx_t_11 < 0) __PYX_ERR(0, 136, __pyx_L11_except_error)
+          if (__pyx_t_11 < 0) __PYX_ERR(0, 137, __pyx_L11_except_error)
           __pyx_t_13 = (!__pyx_t_11);
           if (unlikely(__pyx_t_13)) {
             __Pyx_GIVEREF(__pyx_t_6);
@@ -5463,7 +5480,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __Pyx_XGIVEREF(__pyx_t_3);
             __Pyx_ErrRestoreWithState(__pyx_t_6, __pyx_t_2, __pyx_t_3);
             __pyx_t_6 = 0;  __pyx_t_2 = 0;  __pyx_t_3 = 0; 
-            __PYX_ERR(0, 136, __pyx_L11_except_error)
+            __PYX_ERR(0, 137, __pyx_L11_except_error)
           }
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5494,7 +5511,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
         if (__pyx_t_5) {
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[0], NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 136, __pyx_L1_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 137, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_10, &__pyx_r);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -5517,14 +5534,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_10 = __pyx_cur_scope->__pyx_t_1;
             __pyx_cur_scope->__pyx_t_1 = 0;
             __Pyx_XGOTREF(__pyx_t_10);
-            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 136, __pyx_L1_error)
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 137, __pyx_L1_error)
             __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
           } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
             __Pyx_GOTREF(__pyx_r);
             __pyx_t_3 = __pyx_r; __pyx_r = NULL;
           } else {
             __Pyx_XGOTREF(__pyx_r);
-            __PYX_ERR(0, 136, __pyx_L1_error)
+            __PYX_ERR(0, 137, __pyx_L1_error)
           }
           __pyx_t_10 = __pyx_t_3;
           __pyx_t_3 = 0;
@@ -5538,7 +5555,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
         if (__pyx_t_5) {
           __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[0], NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 136, __pyx_L1_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 137, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_9, &__pyx_r);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -5566,14 +5583,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_10 = __pyx_cur_scope->__pyx_t_2;
             __pyx_cur_scope->__pyx_t_2 = 0;
             __Pyx_XGOTREF(__pyx_t_10);
-            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 136, __pyx_L1_error)
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 137, __pyx_L1_error)
             __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
           } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
             __Pyx_GOTREF(__pyx_r);
             __pyx_t_3 = __pyx_r; __pyx_r = NULL;
           } else {
             __Pyx_XGOTREF(__pyx_r);
-            __PYX_ERR(0, 136, __pyx_L1_error)
+            __PYX_ERR(0, 137, __pyx_L1_error)
           }
           __pyx_t_9 = __pyx_t_3;
           __pyx_t_3 = 0;
@@ -5593,7 +5610,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "casbin_engine.py":126
+  /* "casbin_engine.py":127
  *             await self._enforcer.save_policy()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
@@ -6031,15 +6048,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct__check_table_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table)) __PYX_ERR(0, 108, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct__check_table_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct__check_table_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table)) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct__check_table_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table = &__pyx_type_13casbin_engine___pyx_scope_struct__check_table;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table->tp_getattro == PyObject_GenericGetAttr)) {
@@ -6047,15 +6064,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists)) __PYX_ERR(0, 126, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists)) __PYX_ERR(0, 127, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists = &__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists->tp_getattro == PyObject_GenericGetAttr)) {
@@ -6360,7 +6377,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   #endif
   /*--- Library function declarations ---*/
   if (__pyx_module_is_main_casbin_engine) {
-    if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name_2, __pyx_mstate_global->__pyx_n_u_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -6436,7 +6453,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
  * from casbin_async_sqlalchemy_adapter import Adapter as SQLAlchemyAdapter
  * from sqlalchemy import inspect             # <<<<<<<<<<<<<<
  * 
- * from ..config.app_config import AppConfig
+ * from .database_engine import DatabaseEngine
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -6452,44 +6469,44 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   /* "casbin_engine.py":16
  * from sqlalchemy import inspect
  * 
- * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
- * from ..portal_auth.entity_table.auth_rule import AuthRule
+ * from .database_engine import DatabaseEngine             # <<<<<<<<<<<<<<
+ * from ..config.app_config import AppConfig
  * from ..logger.logging_ import logging
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DatabaseEngine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_config_app_config, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_database_engine, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DatabaseEngine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DatabaseEngine, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "casbin_engine.py":17
  * 
- * from ..config.app_config import AppConfig
- * from ..portal_auth.entity_table.auth_rule import AuthRule             # <<<<<<<<<<<<<<
+ * from .database_engine import DatabaseEngine
+ * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
  * from ..logger.logging_ import logging
- * from ..services.db_engine_service import DBEngineService
+ * from ..portal_auth.entity_table.auth_rule import AuthRule
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_portal_auth_entity_table_auth_ru, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_config_app_config, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthRule, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "casbin_engine.py":18
+ * from .database_engine import DatabaseEngine
  * from ..config.app_config import AppConfig
- * from ..portal_auth.entity_table.auth_rule import AuthRule
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
- * from ..services.db_engine_service import DBEngineService
+ * from ..portal_auth.entity_table.auth_rule import AuthRule
  * from ..utils.core_utils import CoreUtil
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
@@ -6504,26 +6521,26 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "casbin_engine.py":19
- * from ..portal_auth.entity_table.auth_rule import AuthRule
+ * from ..config.app_config import AppConfig
  * from ..logger.logging_ import logging
- * from ..services.db_engine_service import DBEngineService             # <<<<<<<<<<<<<<
+ * from ..portal_auth.entity_table.auth_rule import AuthRule             # <<<<<<<<<<<<<<
  * from ..utils.core_utils import CoreUtil
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_services_db_engine_service, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_portal_auth_entity_table_auth_ru, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DBEngineService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DBEngineService, __pyx_t_2) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthRule, __pyx_t_2) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "casbin_engine.py":20
  * from ..logger.logging_ import logging
- * from ..services.db_engine_service import DBEngineService
+ * from ..portal_auth.entity_table.auth_rule import AuthRule
  * from ..utils.core_utils import CoreUtil             # <<<<<<<<<<<<<<
  * 
  * 
@@ -6607,50 +6624,50 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_3) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "casbin_engine.py":98
+  /* "casbin_engine.py":99
  *         self._enforcer.enable_auto_build_role_links(True)
  * 
  *     def get_async_enforcer(self) -> AsyncEnforcer:             # <<<<<<<<<<<<<<
  *         """ Casbin Enforcer
  * 
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_5get_async_enforcer, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine_get_async_enfor, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 98, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_5get_async_enforcer, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine_get_async_enfor, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_6, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_async_enforcer, __pyx_t_6) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_async_enforcer, __pyx_t_6) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "casbin_engine.py":108
+  /* "casbin_engine.py":109
  *         return self._enforcer
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
  *         """
  * 
 */
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_7check_table, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_7check_table, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_t_6) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_t_6) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "casbin_engine.py":126
+  /* "casbin_engine.py":127
  *             await self._enforcer.save_policy()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
  *         """ `AuthRule`
  * 
 */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_10_check_table_exists, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_10_check_table_exists, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_t_3) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_t_3) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "casbin_engine.py":23
@@ -6742,10 +6759,11 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Adapter, sizeof(__pyx_k_Adapter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Adapter */
   {__pyx_k_AppConfig, sizeof(__pyx_k_AppConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AppConfig */
   {__pyx_k_AsyncEnforcer, sizeof(__pyx_k_AsyncEnforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncEnforcer */
+  {__pyx_k_Auth, sizeof(__pyx_k_Auth), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Auth */
   {__pyx_k_AuthRule, sizeof(__pyx_k_AuthRule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthRule */
   {__pyx_k_Casbin_Casbin_AsyncEnforcer_SQLA, sizeof(__pyx_k_Casbin_Casbin_AsyncEnforcer_SQLA), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Casbin_Casbin_AsyncEnforcer_SQLA */
   {__pyx_k_CoreUtil, sizeof(__pyx_k_CoreUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil */
-  {__pyx_k_DBEngineService, sizeof(__pyx_k_DBEngineService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DBEngineService */
+  {__pyx_k_DatabaseEngine, sizeof(__pyx_k_DatabaseEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DatabaseEngine */
   {__pyx_k_Lock, sizeof(__pyx_k_Lock), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Lock */
   {__pyx_k_PermissionEngine, sizeof(__pyx_k_PermissionEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine */
   {__pyx_k_PermissionEngine_2, sizeof(__pyx_k_PermissionEngine_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_PermissionEngine_2 */
@@ -6785,10 +6803,10 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_conn, sizeof(__pyx_k_conn), 0, 1, 1}, /* PyObject cname: __pyx_n_u_conn */
   {__pyx_k_connect, sizeof(__pyx_k_connect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_connect */
   {__pyx_k_create_table, sizeof(__pyx_k_create_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_table */
+  {__pyx_k_database_engine, sizeof(__pyx_k_database_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_database_engine */
   {__pyx_k_db_class, sizeof(__pyx_k_db_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_class */
   {__pyx_k_debug, sizeof(__pyx_k_debug), 0, 1, 1}, /* PyObject cname: __pyx_n_u_debug */
   {__pyx_k_debug_line, sizeof(__pyx_k_debug_line), 0, 1, 1}, /* PyObject cname: __pyx_n_u_debug_line */
-  {__pyx_k_dialect, sizeof(__pyx_k_dialect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dialect */
   {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disable */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enable */
@@ -6801,7 +6819,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
   {__pyx_k_get_async_enforcer, sizeof(__pyx_k_get_async_enforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_async_enforcer */
-  {__pyx_k_get_auth_async_engine, sizeof(__pyx_k_get_auth_async_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_auth_async_engine */
+  {__pyx_k_get_async_engine, sizeof(__pyx_k_get_async_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_async_engine */
   {__pyx_k_get_config_path, sizeof(__pyx_k_get_config_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_config_path */
   {__pyx_k_has_table, sizeof(__pyx_k_has_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_has_table */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
@@ -6820,7 +6838,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_model_path, sizeof(__pyx_k_model_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_path */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
-  {__pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name_2 */
   {__pyx_k_name_Auth, sizeof(__pyx_k_name_Auth), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_name_Auth */
   {__pyx_k_new, sizeof(__pyx_k_new), 0, 1, 1}, /* PyObject cname: __pyx_n_u_new */
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
@@ -6835,12 +6852,11 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_schema, sizeof(__pyx_k_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema */
   {__pyx_k_self, sizeof(__pyx_k_self), 0, 1, 1}, /* PyObject cname: __pyx_n_u_self */
   {__pyx_k_send, sizeof(__pyx_k_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_send */
-  {__pyx_k_services_db_engine_service, sizeof(__pyx_k_services_db_engine_service), 0, 1, 1}, /* PyObject cname: __pyx_n_u_services_db_engine_service */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
   {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_sqlalchemy, sizeof(__pyx_k_sqlalchemy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sqlalchemy */
-  {__pyx_k_sqlite, sizeof(__pyx_k_sqlite), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sqlite */
   {__pyx_k_super, sizeof(__pyx_k_super), 0, 1, 1}, /* PyObject cname: __pyx_n_u_super */
+  {__pyx_k_support_schema, sizeof(__pyx_k_support_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_support_schema */
   {__pyx_k_sync_conn, sizeof(__pyx_k_sync_conn), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sync_conn */
   {__pyx_k_table, sizeof(__pyx_k_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table */
   {__pyx_k_table_name, sizeof(__pyx_k_table_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_name */
@@ -6862,7 +6878,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_super); if (!__pyx_builtin_super) __PYX_ERR(0, 53, __pyx_L1_error)
-  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(0, 106, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -6927,22 +6943,22 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 108, 2};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 109, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table, __pyx_k__7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 126, 5};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 127, 5};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_table_name, __pyx_mstate->__pyx_n_u_conn};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table_exists, __pyx_k_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 139, 23};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 140, 23};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_sync_conn};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_gQj_xWaab, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 143, 15};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 144, 15};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_sync_conn};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_gQj_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
@@ -6952,12 +6968,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_new, __pyx_k_A_3k_A_A_3k_A_E_D_z_q_s, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 57, 201};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_model_path};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_M_vQa_vQa_Jo_1_4whfD_Jj_vQb_t7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 57, 206};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_database_engine, __pyx_mstate->__pyx_n_u_model_path};
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_M_vQa_vQa_Jo_6aq_Jj_vQb_t7_K_4, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 98, 34};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 99, 34};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_get_async_enforcer, __pyx_k_A_4_Q_aq_t1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }

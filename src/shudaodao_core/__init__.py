@@ -41,7 +41,7 @@ from .schemas.response import BaseResponse
 from .services.auth_service import AuthService
 from .services.data_service import DataService
 from .services.query_service import QueryService
-from .services.db_engine_service import DBEngineService
+from .services.session_service import AsyncSessionService
 from .services.enum_service import EnumService
 from .services.generate_service import GeneratorService
 from .sqlmodel_ext.field import Field
