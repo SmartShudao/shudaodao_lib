@@ -2906,7 +2906,7 @@ static const char __pyx_k_TemplateBuilder_get_table_names[] = "TemplateBuilder.g
 static const char __pyx_k_TemplateBuilder_render_template[] = "TemplateBuilder.render_template";
 static const char __pyx_k_a_Kt_Kq_a_N_a_d_3_6_A_fA_a_Q_HI[] = "\320\004\"\240!\330\010\014\320\014 \240\016\250a\330\010\014\210K\220t\320\033,\250K\260q\270\006\270a\330\010\014\210N\230'\240\021\240$\240a\340\010\014\320\014\036\230d\320\"3\260?\300!\3006\310\021\340\010\014\320\014\034\230A\330\010\014\320\014&\240f\250A\330\010\014\320\014(\250\006\250a\330\010\014\320\014\035\230Q\330\010\014\320\014\034\230H\240I\250Q\330\014\022\320\022\"\240&\320(:\270!\360\010\000\t\r\210H\220F\230,\240a\330\014\023\2206\320\031*\250!\2501\330\014\030\230\001\330\014\032\230!\330\014\"\240!\340\010\014\210E\220\030\230\021\320\0322\260$\260a\330\010\014\210E\220\030\230\021\320\0326\260d\270!\330\010\014\210E\220\030\230\021\320\0326\260d\270!\330\010\014\210E\220\030\230\021\320\0324\260D\270\001\330\010\014\210E\220\030\230\021\320\0323\2604\260q";
 static const char __pyx_k_bbjjnnp_q_I_I_W_W_a_a_____c_c_J[] = "\320\004)\250\021\360\006\000\t\023\220$\320\026b\320bj\320jn\320np\360\000\000q\001\177\003\360\000\000\177\003I\004\360\000\000I\004W\005\360\000\000W\005a\005\360\000\000a\005_\007\360\000\000_\007c\007\360\000\000c\007@\010\360\000\000@\010J\010\360\000\000J\010G\t\360\000\000G\tQ\t\360\000\000Q\t`\013\360\000\000`\013j\013\360\000\000j\013~\017\360\000\000~\017H\020\360\000\000H\020I\020\360^\001\000\t\025\220D\230\010\240\002\240*\250A\360\014\000\t\014\2105\220\n\230\"\230N\250'\260\021\330\014\020\220\016\230a\330\020\021\330\020\032\230!\330\020\032\230!\340\010\022\220$\320\026b\320bj\320jn\320np\320pq\360\016\000\t\025\220J\230b\240\001\330\010\014\210N\230!\330\014\r\330\014\026\220a\330\014\026\220a\360\006\000\t\025\220A\320\025)\320)<\320<L\310A\330\010\014\210H\220A\330\014\020\220\n\230\"\230E\240\027\250\001\330\020\024\220N\240!\330\024\025\330\024\036\230j\250\002\250!\330\024\036\230a";
-static const char __pyx_k_default_factory_lambda_datetime[] = "default_factory=lambda: datetime.now()";
+static const char __pyx_k_default_factory_lambda_datetime[] = "default_factory=lambda: datetime.now().replace(microsecond=0)";
 static const char __pyx_k_from_sqlalchemy_orm_import_regi[] = ", \346\225\260\351\201\223\346\231\272\350\236\215\347\247\221\346\212\200\n\nfrom sqlalchemy.orm import registry\nfrom sqlmodel import SQLModel\n\nfrom shudaodao_core import DatabaseEngine, RunningConfig\n\n";
 static const char __pyx_k_noinspection_DuplicatedCode_set[] = "\")\n    \n\n# noinspection DuplicatedCode\nsetattr(";
 static const char __pyx_k_registry_Controller_def_get_eng[] = "_registry):\n    ...\n    \n    \n# \347\224\250\344\272\216 Controller \ndef get_engine_name():\n    return RunningConfig.get_engine_name(\"";
@@ -2928,8 +2928,8 @@ static const char __pyx_k_TemplateBuilder_format_column_ta[] = "TemplateBuilder.
 static const char __pyx_k_TemplateBuilder_get_schema_names[] = "TemplateBuilder.get_schema_names";
 static const char __pyx_k_foreign_key_f_get_foreign_schema[] = "foreign_key=f\"{get_foreign_schema()}";
 static const char __pyx_k_TemplateBuilder__set_sort_order_2[] = "TemplateBuilder._set_sort_order_table";
-static const char __pyx_k_default_factory_lambda_datetime_2[] = "default_factory=lambda: datetime.now().date()";
-static const char __pyx_k_default_factory_lambda_datetime_3[] = "default_factory=lambda: datetime.now().time()";
+static const char __pyx_k_default_factory_lambda_datetime_2[] = "default_factory=lambda: datetime.now().date().replace(microsecond=0)";
+static const char __pyx_k_default_factory_lambda_datetime_3[] = "default_factory=lambda: datetime.now().time().replace(microsecond=0)";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_16template_builder_15TemplateBuilder___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_config); /* proto */
 static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_2format_column_child(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_column); /* proto */
@@ -6259,7 +6259,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
  *                     field_options.remove("default=None")
  *             field_options.append("primary_key=True")             # <<<<<<<<<<<<<<
  *         if column.type == "datetime":
- *             field_options.append("default_factory=lambda: datetime.now()")  # lambda: datetime.now(timezone.utc)
+ *             field_options.append("default_factory=lambda: datetime.now().replace(microsecond=0)")
 */
     __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_field_options, __pyx_mstate_global->__pyx_kp_u_primary_key_True); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 170, __pyx_L1_error)
 
@@ -6276,7 +6276,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
  *                     field_options.remove("default=None")
  *             field_options.append("primary_key=True")
  *         if column.type == "datetime":             # <<<<<<<<<<<<<<
- *             field_options.append("default_factory=lambda: datetime.now()")  # lambda: datetime.now(timezone.utc)
+ *             field_options.append("default_factory=lambda: datetime.now().replace(microsecond=0)")
  *             if column.nullable:
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_column, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 171, __pyx_L1_error)
@@ -6288,7 +6288,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
     /* "template_builder.py":172
  *             field_options.append("primary_key=True")
  *         if column.type == "datetime":
- *             field_options.append("default_factory=lambda: datetime.now()")  # lambda: datetime.now(timezone.utc)             # <<<<<<<<<<<<<<
+ *             field_options.append("default_factory=lambda: datetime.now().replace(microsecond=0)")             # <<<<<<<<<<<<<<
  *             if column.nullable:
  *                 field_options.remove("default=None")
 */
@@ -6296,7 +6296,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
 
     /* "template_builder.py":173
  *         if column.type == "datetime":
- *             field_options.append("default_factory=lambda: datetime.now()")  # lambda: datetime.now(timezone.utc)
+ *             field_options.append("default_factory=lambda: datetime.now().replace(microsecond=0)")
  *             if column.nullable:             # <<<<<<<<<<<<<<
  *                 field_options.remove("default=None")
  *         elif column.type == "date":
@@ -6308,11 +6308,11 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
     if (__pyx_t_4) {
 
       /* "template_builder.py":174
- *             field_options.append("default_factory=lambda: datetime.now()")  # lambda: datetime.now(timezone.utc)
+ *             field_options.append("default_factory=lambda: datetime.now().replace(microsecond=0)")
  *             if column.nullable:
  *                 field_options.remove("default=None")             # <<<<<<<<<<<<<<
  *         elif column.type == "date":
- *             field_options.append("default_factory=lambda: datetime.now().date()")
+ *             field_options.append("default_factory=lambda: datetime.now().date().replace(microsecond=0)")
 */
       __pyx_t_3 = __Pyx_CallUnboundCMethod1(&__pyx_mstate_global->__pyx_umethod_PyList_Type__remove, __pyx_v_field_options, __pyx_mstate_global->__pyx_kp_u_default_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
@@ -6320,7 +6320,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
 
       /* "template_builder.py":173
  *         if column.type == "datetime":
- *             field_options.append("default_factory=lambda: datetime.now()")  # lambda: datetime.now(timezone.utc)
+ *             field_options.append("default_factory=lambda: datetime.now().replace(microsecond=0)")
  *             if column.nullable:             # <<<<<<<<<<<<<<
  *                 field_options.remove("default=None")
  *         elif column.type == "date":
@@ -6331,7 +6331,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
  *                     field_options.remove("default=None")
  *             field_options.append("primary_key=True")
  *         if column.type == "datetime":             # <<<<<<<<<<<<<<
- *             field_options.append("default_factory=lambda: datetime.now()")  # lambda: datetime.now(timezone.utc)
+ *             field_options.append("default_factory=lambda: datetime.now().replace(microsecond=0)")
  *             if column.nullable:
 */
     goto __pyx_L9;
@@ -6341,7 +6341,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
  *             if column.nullable:
  *                 field_options.remove("default=None")
  *         elif column.type == "date":             # <<<<<<<<<<<<<<
- *             field_options.append("default_factory=lambda: datetime.now().date()")
+ *             field_options.append("default_factory=lambda: datetime.now().date().replace(microsecond=0)")
  *             if column.nullable:
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_column, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 175, __pyx_L1_error)
@@ -6353,7 +6353,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
     /* "template_builder.py":176
  *                 field_options.remove("default=None")
  *         elif column.type == "date":
- *             field_options.append("default_factory=lambda: datetime.now().date()")             # <<<<<<<<<<<<<<
+ *             field_options.append("default_factory=lambda: datetime.now().date().replace(microsecond=0)")             # <<<<<<<<<<<<<<
  *             if column.nullable:
  *                 field_options.remove("default=None")
 */
@@ -6361,7 +6361,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
 
     /* "template_builder.py":177
  *         elif column.type == "date":
- *             field_options.append("default_factory=lambda: datetime.now().date()")
+ *             field_options.append("default_factory=lambda: datetime.now().date().replace(microsecond=0)")
  *             if column.nullable:             # <<<<<<<<<<<<<<
  *                 field_options.remove("default=None")
  *         elif column.type == "time":
@@ -6373,11 +6373,11 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
     if (__pyx_t_4) {
 
       /* "template_builder.py":178
- *             field_options.append("default_factory=lambda: datetime.now().date()")
+ *             field_options.append("default_factory=lambda: datetime.now().date().replace(microsecond=0)")
  *             if column.nullable:
  *                 field_options.remove("default=None")             # <<<<<<<<<<<<<<
  *         elif column.type == "time":
- *             field_options.append("default_factory=lambda: datetime.now().time()")
+ *             field_options.append("default_factory=lambda: datetime.now().time().replace(microsecond=0)")
 */
       __pyx_t_3 = __Pyx_CallUnboundCMethod1(&__pyx_mstate_global->__pyx_umethod_PyList_Type__remove, __pyx_v_field_options, __pyx_mstate_global->__pyx_kp_u_default_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
@@ -6385,7 +6385,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
 
       /* "template_builder.py":177
  *         elif column.type == "date":
- *             field_options.append("default_factory=lambda: datetime.now().date()")
+ *             field_options.append("default_factory=lambda: datetime.now().date().replace(microsecond=0)")
  *             if column.nullable:             # <<<<<<<<<<<<<<
  *                 field_options.remove("default=None")
  *         elif column.type == "time":
@@ -6396,7 +6396,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
  *             if column.nullable:
  *                 field_options.remove("default=None")
  *         elif column.type == "date":             # <<<<<<<<<<<<<<
- *             field_options.append("default_factory=lambda: datetime.now().date()")
+ *             field_options.append("default_factory=lambda: datetime.now().date().replace(microsecond=0)")
  *             if column.nullable:
 */
     goto __pyx_L9;
@@ -6406,7 +6406,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
  *             if column.nullable:
  *                 field_options.remove("default=None")
  *         elif column.type == "time":             # <<<<<<<<<<<<<<
- *             field_options.append("default_factory=lambda: datetime.now().time()")
+ *             field_options.append("default_factory=lambda: datetime.now().time().replace(microsecond=0)")
  *             if column.nullable:
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_column, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 179, __pyx_L1_error)
@@ -6418,7 +6418,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
     /* "template_builder.py":180
  *                 field_options.remove("default=None")
  *         elif column.type == "time":
- *             field_options.append("default_factory=lambda: datetime.now().time()")             # <<<<<<<<<<<<<<
+ *             field_options.append("default_factory=lambda: datetime.now().time().replace(microsecond=0)")             # <<<<<<<<<<<<<<
  *             if column.nullable:
  *                 field_options.remove("default=None")
 */
@@ -6426,7 +6426,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
 
     /* "template_builder.py":181
  *         elif column.type == "time":
- *             field_options.append("default_factory=lambda: datetime.now().time()")
+ *             field_options.append("default_factory=lambda: datetime.now().time().replace(microsecond=0)")
  *             if column.nullable:             # <<<<<<<<<<<<<<
  *                 field_options.remove("default=None")
  *             ...
@@ -6438,7 +6438,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
     if (__pyx_t_4) {
 
       /* "template_builder.py":182
- *             field_options.append("default_factory=lambda: datetime.now().time()")
+ *             field_options.append("default_factory=lambda: datetime.now().time().replace(microsecond=0)")
  *             if column.nullable:
  *                 field_options.remove("default=None")             # <<<<<<<<<<<<<<
  *             ...
@@ -6450,7 +6450,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
 
       /* "template_builder.py":181
  *         elif column.type == "time":
- *             field_options.append("default_factory=lambda: datetime.now().time()")
+ *             field_options.append("default_factory=lambda: datetime.now().time().replace(microsecond=0)")
  *             if column.nullable:             # <<<<<<<<<<<<<<
  *                 field_options.remove("default=None")
  *             ...
@@ -6461,7 +6461,7 @@ static PyObject *__pyx_pf_16template_builder_15TemplateBuilder_12format_column(C
  *             if column.nullable:
  *                 field_options.remove("default=None")
  *         elif column.type == "time":             # <<<<<<<<<<<<<<
- *             field_options.append("default_factory=lambda: datetime.now().time()")
+ *             field_options.append("default_factory=lambda: datetime.now().time().replace(microsecond=0)")
  *             if column.nullable:
 */
   }

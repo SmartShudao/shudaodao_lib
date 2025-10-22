@@ -23,7 +23,7 @@ Filter = Union[Condition, FilterGroup]
 
 
 class QueryRequest(BaseModel):
-    fields: Optional[List[str]] = Field(None, description="指定要返回的字段 select fields")
+    fields: Optional[Union[List[str], str]] = Field(None, description="指定要返回的字段 select fields")
     filter: Optional[Union[Filter, List]] = Field(None, description="过滤条件 - where")
     sort: Optional[Union[List[str], str]] = Field(None, description="排序条件列表")
     relation: Optional[List[str]] = Field(None, description="包含父子关系")

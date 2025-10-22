@@ -40,7 +40,7 @@ class QueryBuilder:
         """主表的查询条件"""
     @classmethod
     async def get_query_relation(
-        cls, model_class, model_name, include_path, query_tags
+        cls, *, model_class, model_name, include_path, query_tags, query_format
     ): ...
     @classmethod
     async def deep_serialize_sqlmodel(
