@@ -2562,6 +2562,7 @@ static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_await[] = "__await__";
 static const char __pyx_k_close[] = "close";
 static const char __pyx_k_enums[] = "enums";
+static const char __pyx_k_table[] = "table";
 static const char __pyx_k_throw[] = "throw";
 static const char __pyx_k_value[] = "value";
 static const char __pyx_k_views[] = " views: ";
@@ -2581,6 +2582,7 @@ static const char __pyx_k_logging[] = "logging";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_database[] = "database -> ";
+static const char __pyx_k_frontend[] = "frontend";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_sqlmodel[] = "sqlmodel";
@@ -2649,6 +2651,7 @@ static const char __pyx_k_table_entity_txt[] = "table_entity.txt";
 static const char __pyx_k_enum_schema_table[] = "enum_schema_table";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_frontend_table_txt[] = "frontend_table.txt";
 static const char __pyx_k_table_or_view_name[] = "table_or_view_name";
 static const char __pyx_k_AsyncSessionService[] = "AsyncSessionService";
 static const char __pyx_k_default_schema_name[] = "default_schema_name";
@@ -2661,9 +2664,9 @@ static const char __pyx_k_q_t8_4A_Cq_b_q_d_AQ_Qm1[] = "\320\004\037\230q\360\014
 static const char __pyx_k_generate_template_builder[] = "generate.template_builder";
 static const char __pyx_k_GeneratorService_get_enums[] = "GeneratorService.get_enums";
 static const char __pyx_k_get_condition_from_columns[] = "get_condition_from_columns";
-static const char __pyx_k_F_o_6d_AQ_T_q_D_EQ_H_A_q_q_H_A[] = "\320\004(\320(:\270,\320F[\320[\\\360\022\000\t\027\220o\320%6\260d\270*\300A\300Q\340\010\025\220T\230\030\240\036\250q\330\014\027\220}\240D\250\007\320/E\300Q\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\340\010\017\210u\220A\220R\220t\230:\320%6\260j\300\001";
+static const char __pyx_k_F_o_6d_AQ_T_q_D_EQ_H_A_q_q_H_A[] = "\320\004(\320(:\270,\320F[\320[\\\360\022\000\t\027\220o\320%6\260d\270*\300A\300Q\340\010\025\220T\230\030\240\036\250q\330\014\027\220}\240D\250\007\320/E\300Q\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\330\014\025\220Q\340\010\017\210u\220A\220R\220t\230:\320%6\260j\300\001";
 static const char __pyx_k_GeneratorService_generator_all[] = "GeneratorService.generator_all";
-static const char __pyx_k_LH_o_6d_AQ_T_T_0Fa_H_A_q_q_H_A[] = "\320\004*\320*<\270L\320H]\320]^\360\022\000\t\027\220o\320%6\260d\270*\300A\300Q\340\010\025\220T\230\030\240\037\260\001\330\014\030\230\r\240T\250\027\3200F\300a\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\340\010\017\210u\220A\220R\220t\230:\320%6\260j\300\001";
+static const char __pyx_k_LH_o_6d_AQ_T_T_0Fa_H_A_q_q_H_A[] = "\320\004*\320*<\270L\320H]\320]^\360\022\000\t\027\220o\320%6\260d\270*\300A\300Q\340\010\025\220T\230\030\240\037\260\001\330\014\030\230\r\240T\250\027\3200F\300a\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\360\006\000\t\r\210H\320\024$\240A\330\014\027\220q\330\014\027\220q\330\014\032\230!\330\014\025\220Q\360\006\000\t\020\210u\220A\220R\220t\230:\320%6\260j\300\001";
 static const char __pyx_k_GeneratorService_generator_view[] = "GeneratorService.generator_view";
 static const char __pyx_k_TTU_z_o_6d_AQ_d_2_q_1_5_4_0_14K[] = "\320\004\037\230}\320,?\320?T\320TU\360\016\000\t\020\210z\230\021\340\010\026\220o\320%6\260d\270*\300A\300Q\340\010\026\220d\230(\320\"2\260!\260<\270q\330\010\013\2101\330\014\023\2205\230\001\230\022\2304\320\0370\260\003\2601\3204K\3101\340\014\023\2205\230\001\230\022\320\033+\2503\250a\320/F\300a\360\006\000\t\r\210N\230!\330\014\020\320\020 \240\001\240\034\250]\270!\360\006\000\t\026\220T\230\030\240\037\260\001\260\034\270Q\330\010\013\2101\330\014\023\2205\230\001\230\022\2304\320\0370\260\003\2601\3204I\310\021\340\014\023\2205\230\001\230\022\320\033+\2503\250a\320/D\300A\360\006\000\t\r\210M\230\021\330\014\020\220\017\230q\240\013\250=\270\001";
 static const char __pyx_k_GeneratorService_async_load_enum[] = "GeneratorService.async_load_enums";
@@ -2722,7 +2725,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[4];
   PyObject *__pyx_codeobj_tab[7];
-  PyObject *__pyx_string_tab[130];
+  PyObject *__pyx_string_tab[133];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2826,85 +2829,88 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_exec __pyx_string_tab[48]
 #define __pyx_n_u_field_name __pyx_string_tab[49]
 #define __pyx_n_u_fields __pyx_string_tab[50]
-#define __pyx_n_u_func __pyx_string_tab[51]
-#define __pyx_kp_u_gc __pyx_string_tab[52]
-#define __pyx_n_u_generate_config __pyx_string_tab[53]
-#define __pyx_n_u_generate_service __pyx_string_tab[54]
-#define __pyx_kp_u_generate_service_py __pyx_string_tab[55]
-#define __pyx_n_u_generate_template_builder __pyx_string_tab[56]
-#define __pyx_n_u_generator_all __pyx_string_tab[57]
-#define __pyx_n_u_generator_schema __pyx_string_tab[58]
-#define __pyx_n_u_generator_table __pyx_string_tab[59]
-#define __pyx_n_u_generator_view __pyx_string_tab[60]
-#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[61]
-#define __pyx_n_u_get_enums __pyx_string_tab[62]
-#define __pyx_n_u_get_raw_session __pyx_string_tab[63]
-#define __pyx_n_u_get_schema_names __pyx_string_tab[64]
-#define __pyx_n_u_get_table_meta __pyx_string_tab[65]
-#define __pyx_n_u_get_table_names __pyx_string_tab[66]
-#define __pyx_n_u_get_view_meta __pyx_string_tab[67]
-#define __pyx_n_u_get_view_names __pyx_string_tab[68]
-#define __pyx_n_u_info __pyx_string_tab[69]
-#define __pyx_n_u_info_line __pyx_string_tab[70]
-#define __pyx_n_u_init __pyx_string_tab[71]
-#define __pyx_n_u_initializing __pyx_string_tab[72]
-#define __pyx_kp_u_is_active_1 __pyx_string_tab[73]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[74]
-#define __pyx_kp_u_isenabled __pyx_string_tab[75]
-#define __pyx_n_u_list __pyx_string_tab[76]
-#define __pyx_n_u_logger_logging __pyx_string_tab[77]
-#define __pyx_n_u_logging __pyx_string_tab[78]
-#define __pyx_n_u_main __pyx_string_tab[79]
-#define __pyx_n_u_meta_model __pyx_string_tab[80]
-#define __pyx_n_u_metaclass __pyx_string_tab[81]
-#define __pyx_n_u_model_class __pyx_string_tab[82]
-#define __pyx_n_u_module __pyx_string_tab[83]
-#define __pyx_n_u_mro_entries __pyx_string_tab[84]
-#define __pyx_n_u_name __pyx_string_tab[85]
-#define __pyx_n_u_next __pyx_string_tab[86]
-#define __pyx_n_u_object __pyx_string_tab[87]
-#define __pyx_n_u_pop __pyx_string_tab[88]
-#define __pyx_n_u_prepare __pyx_string_tab[89]
-#define __pyx_n_u_qualname __pyx_string_tab[90]
-#define __pyx_n_u_query_service __pyx_string_tab[91]
-#define __pyx_n_u_render_template __pyx_string_tab[92]
-#define __pyx_n_u_return __pyx_string_tab[93]
-#define __pyx_n_u_row_field __pyx_string_tab[94]
-#define __pyx_n_u_row_schema __pyx_string_tab[95]
-#define __pyx_n_u_rows_fields __pyx_string_tab[96]
-#define __pyx_n_u_rows_schemas __pyx_string_tab[97]
-#define __pyx_n_u_run __pyx_string_tab[98]
-#define __pyx_n_u_schema_id __pyx_string_tab[99]
-#define __pyx_n_u_schema_name __pyx_string_tab[100]
-#define __pyx_n_u_schema_name_2 __pyx_string_tab[101]
-#define __pyx_n_u_schema_names __pyx_string_tab[102]
-#define __pyx_n_u_select __pyx_string_tab[103]
-#define __pyx_n_u_self __pyx_string_tab[104]
-#define __pyx_n_u_send __pyx_string_tab[105]
-#define __pyx_n_u_session_service __pyx_string_tab[106]
-#define __pyx_n_u_set_name __pyx_string_tab[107]
-#define __pyx_n_u_spec __pyx_string_tab[108]
-#define __pyx_n_u_sqlmodel __pyx_string_tab[109]
-#define __pyx_n_u_statement __pyx_string_tab[110]
-#define __pyx_n_u_str __pyx_string_tab[111]
-#define __pyx_kp_u_str_None __pyx_string_tab[112]
-#define __pyx_kp_u_table_controller_txt __pyx_string_tab[113]
-#define __pyx_kp_u_table_entity_txt __pyx_string_tab[114]
-#define __pyx_n_u_table_name __pyx_string_tab[115]
-#define __pyx_n_u_table_names __pyx_string_tab[116]
-#define __pyx_n_u_table_or_view_name __pyx_string_tab[117]
-#define __pyx_kp_u_tables __pyx_string_tab[118]
-#define __pyx_n_u_template_name __pyx_string_tab[119]
-#define __pyx_n_u_test __pyx_string_tab[120]
-#define __pyx_n_u_throw __pyx_string_tab[121]
-#define __pyx_n_u_value __pyx_string_tab[122]
-#define __pyx_kp_u_view_controller_txt __pyx_string_tab[123]
-#define __pyx_kp_u_view_entity_txt __pyx_string_tab[124]
-#define __pyx_n_u_view_name __pyx_string_tab[125]
-#define __pyx_n_u_view_names __pyx_string_tab[126]
-#define __pyx_kp_u_views __pyx_string_tab[127]
-#define __pyx_n_u_where __pyx_string_tab[128]
-#define __pyx_n_u_where_condition __pyx_string_tab[129]
+#define __pyx_n_u_frontend __pyx_string_tab[51]
+#define __pyx_kp_u_frontend_table_txt __pyx_string_tab[52]
+#define __pyx_n_u_func __pyx_string_tab[53]
+#define __pyx_kp_u_gc __pyx_string_tab[54]
+#define __pyx_n_u_generate_config __pyx_string_tab[55]
+#define __pyx_n_u_generate_service __pyx_string_tab[56]
+#define __pyx_kp_u_generate_service_py __pyx_string_tab[57]
+#define __pyx_n_u_generate_template_builder __pyx_string_tab[58]
+#define __pyx_n_u_generator_all __pyx_string_tab[59]
+#define __pyx_n_u_generator_schema __pyx_string_tab[60]
+#define __pyx_n_u_generator_table __pyx_string_tab[61]
+#define __pyx_n_u_generator_view __pyx_string_tab[62]
+#define __pyx_n_u_get_condition_from_columns __pyx_string_tab[63]
+#define __pyx_n_u_get_enums __pyx_string_tab[64]
+#define __pyx_n_u_get_raw_session __pyx_string_tab[65]
+#define __pyx_n_u_get_schema_names __pyx_string_tab[66]
+#define __pyx_n_u_get_table_meta __pyx_string_tab[67]
+#define __pyx_n_u_get_table_names __pyx_string_tab[68]
+#define __pyx_n_u_get_view_meta __pyx_string_tab[69]
+#define __pyx_n_u_get_view_names __pyx_string_tab[70]
+#define __pyx_n_u_info __pyx_string_tab[71]
+#define __pyx_n_u_info_line __pyx_string_tab[72]
+#define __pyx_n_u_init __pyx_string_tab[73]
+#define __pyx_n_u_initializing __pyx_string_tab[74]
+#define __pyx_kp_u_is_active_1 __pyx_string_tab[75]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[76]
+#define __pyx_kp_u_isenabled __pyx_string_tab[77]
+#define __pyx_n_u_list __pyx_string_tab[78]
+#define __pyx_n_u_logger_logging __pyx_string_tab[79]
+#define __pyx_n_u_logging __pyx_string_tab[80]
+#define __pyx_n_u_main __pyx_string_tab[81]
+#define __pyx_n_u_meta_model __pyx_string_tab[82]
+#define __pyx_n_u_metaclass __pyx_string_tab[83]
+#define __pyx_n_u_model_class __pyx_string_tab[84]
+#define __pyx_n_u_module __pyx_string_tab[85]
+#define __pyx_n_u_mro_entries __pyx_string_tab[86]
+#define __pyx_n_u_name __pyx_string_tab[87]
+#define __pyx_n_u_next __pyx_string_tab[88]
+#define __pyx_n_u_object __pyx_string_tab[89]
+#define __pyx_n_u_pop __pyx_string_tab[90]
+#define __pyx_n_u_prepare __pyx_string_tab[91]
+#define __pyx_n_u_qualname __pyx_string_tab[92]
+#define __pyx_n_u_query_service __pyx_string_tab[93]
+#define __pyx_n_u_render_template __pyx_string_tab[94]
+#define __pyx_n_u_return __pyx_string_tab[95]
+#define __pyx_n_u_row_field __pyx_string_tab[96]
+#define __pyx_n_u_row_schema __pyx_string_tab[97]
+#define __pyx_n_u_rows_fields __pyx_string_tab[98]
+#define __pyx_n_u_rows_schemas __pyx_string_tab[99]
+#define __pyx_n_u_run __pyx_string_tab[100]
+#define __pyx_n_u_schema_id __pyx_string_tab[101]
+#define __pyx_n_u_schema_name __pyx_string_tab[102]
+#define __pyx_n_u_schema_name_2 __pyx_string_tab[103]
+#define __pyx_n_u_schema_names __pyx_string_tab[104]
+#define __pyx_n_u_select __pyx_string_tab[105]
+#define __pyx_n_u_self __pyx_string_tab[106]
+#define __pyx_n_u_send __pyx_string_tab[107]
+#define __pyx_n_u_session_service __pyx_string_tab[108]
+#define __pyx_n_u_set_name __pyx_string_tab[109]
+#define __pyx_n_u_spec __pyx_string_tab[110]
+#define __pyx_n_u_sqlmodel __pyx_string_tab[111]
+#define __pyx_n_u_statement __pyx_string_tab[112]
+#define __pyx_n_u_str __pyx_string_tab[113]
+#define __pyx_kp_u_str_None __pyx_string_tab[114]
+#define __pyx_n_u_table __pyx_string_tab[115]
+#define __pyx_kp_u_table_controller_txt __pyx_string_tab[116]
+#define __pyx_kp_u_table_entity_txt __pyx_string_tab[117]
+#define __pyx_n_u_table_name __pyx_string_tab[118]
+#define __pyx_n_u_table_names __pyx_string_tab[119]
+#define __pyx_n_u_table_or_view_name __pyx_string_tab[120]
+#define __pyx_kp_u_tables __pyx_string_tab[121]
+#define __pyx_n_u_template_name __pyx_string_tab[122]
+#define __pyx_n_u_test __pyx_string_tab[123]
+#define __pyx_n_u_throw __pyx_string_tab[124]
+#define __pyx_n_u_value __pyx_string_tab[125]
+#define __pyx_kp_u_view_controller_txt __pyx_string_tab[126]
+#define __pyx_kp_u_view_entity_txt __pyx_string_tab[127]
+#define __pyx_n_u_view_name __pyx_string_tab[128]
+#define __pyx_n_u_view_names __pyx_string_tab[129]
+#define __pyx_kp_u_views __pyx_string_tab[130]
+#define __pyx_n_u_where __pyx_string_tab[131]
+#define __pyx_n_u_where_condition __pyx_string_tab[132]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2929,7 +2935,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_16generate_service___pyx_scope_struct__async_load_enums);
   for (int i=0; i<4; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<7; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<130; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<133; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2954,7 +2960,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_16generate_service___pyx_scope_struct__async_load_enums);
   for (int i=0; i<4; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<7; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<130; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<133; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -5670,7 +5676,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_11generator_tabl
 
   /* "generate_service.py":140
  *         )
- *         #
+ *         #  Controller
  *         self.builder.render_template(             # <<<<<<<<<<<<<<
  *             child_path="controller_table",
  *             meta_model=meta_model,
@@ -5704,56 +5710,93 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_11generator_tabl
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "generate_service.py":145
- *             template_name='table_controller.txt'
+  /* "generate_service.py":146
  *         )
+ *         #  Vue
+ *         self.builder.render_template(             # <<<<<<<<<<<<<<
+ *             child_path="table",
+ *             meta_model=meta_model,
+*/
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __pyx_t_4;
+  __Pyx_INCREF(__pyx_t_3);
+
+  /* "generate_service.py":150
+ *             meta_model=meta_model,
+ *             template_name='frontend_table.txt',
+ *             frontend=True             # <<<<<<<<<<<<<<
+ *         )
+ * 
+*/
+  __pyx_t_5 = 0;
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_3, NULL};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 146, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_table, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_meta_model, __pyx_v_meta_model, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_template_name, __pyx_mstate_global->__pyx_kp_u_frontend_table_txt, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_frontend, Py_True, __pyx_t_7, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_render_template, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "generate_service.py":153
+ *         )
+ * 
  *         logging.info(f"{meta_model.schema_name} - {meta_model.table_or_view_name}")             # <<<<<<<<<<<<<<
  * 
  *     def generator_view(self, view_name: str, schema_name: str | None, enum_fields=None) -> None:
 */
-  __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_table_or_view_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_table_or_view_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_9[0] = __pyx_t_6;
   __pyx_t_9[1] = __pyx_mstate_global->__pyx_kp_u__2;
   __pyx_t_9[2] = __pyx_t_8;
-  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_9, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8));
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_9, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8));
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_7))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_7);
-    assert(__pyx_t_3);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-    __Pyx_INCREF(__pyx_t_3);
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_4);
     __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
     __pyx_t_5 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_4};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_7};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5786,7 +5829,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_11generator_tabl
   return __pyx_r;
 }
 
-/* "generate_service.py":147
+/* "generate_service.py":155
  *         logging.info(f"{meta_model.schema_name} - {meta_model.table_or_view_name}")
  * 
  *     def generator_view(self, view_name: str, schema_name: str | None, enum_fields=None) -> None:             # <<<<<<<<<<<<<<
@@ -5837,47 +5880,47 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_view_name,&__pyx_mstate_global->__pyx_n_u_schema_name,&__pyx_mstate_global->__pyx_n_u_enum_fields,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 147, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 155, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 155, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 155, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 155, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 155, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "generator_view", 0) < 0) __PYX_ERR(0, 147, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "generator_view", 0) < 0) __PYX_ERR(0, 155, __pyx_L3_error)
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("generator_view", 0, 3, 4, i); __PYX_ERR(0, 147, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("generator_view", 0, 3, 4, i); __PYX_ERR(0, 155, __pyx_L3_error) }
       }
     } else {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 155, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 155, __pyx_L3_error)
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 155, __pyx_L3_error)
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 147, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 155, __pyx_L3_error)
         break;
         default: goto __pyx_L5_argtuple_error;
       }
@@ -5890,7 +5933,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("generator_view", 0, 3, 4, __pyx_nargs); __PYX_ERR(0, 147, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("generator_view", 0, 3, 4, __pyx_nargs); __PYX_ERR(0, 155, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5901,8 +5944,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_view_name), (&PyUnicode_Type), 0, "view_name", 2))) __PYX_ERR(0, 147, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 147, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_view_name), (&PyUnicode_Type), 0, "view_name", 2))) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 155, __pyx_L1_error)
   __pyx_r = __pyx_pf_16generate_service_16GeneratorService_13generator_view(__pyx_self, __pyx_v_self, __pyx_v_view_name, __pyx_v_schema_name, __pyx_v_enum_fields);
 
   /* function exit code */
@@ -5941,14 +5984,14 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_13generator_view
   __Pyx_RefNannySetupContext("generator_view", 0);
   __Pyx_INCREF(__pyx_v_enum_fields);
 
-  /* "generate_service.py":156
+  /* "generate_service.py":164
  *         """
  *         # schema
  *         enum_fields = enum_fields if enum_fields else self.get_enums(schema_name)             # <<<<<<<<<<<<<<
  *         #
  *         meta_model = self.builder.get_view_meta(
 */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_enum_fields); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_enum_fields); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 164, __pyx_L1_error)
   if (__pyx_t_2) {
     __Pyx_INCREF(__pyx_v_enum_fields);
     __pyx_t_1 = __pyx_v_enum_fields;
@@ -5960,7 +6003,7 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_13generator_view
       PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_v_schema_name};
       __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_enums, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     __pyx_t_1 = __pyx_t_3;
@@ -5969,28 +6012,28 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_13generator_view
   __Pyx_DECREF_SET(__pyx_v_enum_fields, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "generate_service.py":158
+  /* "generate_service.py":166
  *         enum_fields = enum_fields if enum_fields else self.get_enums(schema_name)
  *         #
  *         meta_model = self.builder.get_view_meta(             # <<<<<<<<<<<<<<
  *             view_name, schema_name, self.config.default_schema_name, enum_fields
  *         )
 */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __pyx_t_4;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "generate_service.py":159
+  /* "generate_service.py":167
  *         #
  *         meta_model = self.builder.get_view_meta(
  *             view_name, schema_name, self.config.default_schema_name, enum_fields             # <<<<<<<<<<<<<<
  *         )
  *         #  SQLModel
 */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_config); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_config); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_default_schema_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_default_schema_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_5 = 0;
@@ -6000,25 +6043,25 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_13generator_view
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_meta_model = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "generate_service.py":162
+  /* "generate_service.py":170
  *         )
  *         #  SQLModel
  *         self.builder.render_template(             # <<<<<<<<<<<<<<
  *             child_path="entity_view",
  *             meta_model=meta_model,
 */
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_4 = __pyx_t_7;
   __Pyx_INCREF(__pyx_t_4);
 
-  /* "generate_service.py":164
+  /* "generate_service.py":172
  *         self.builder.render_template(
  *             child_path="entity_view",
  *             meta_model=meta_model,             # <<<<<<<<<<<<<<
@@ -6028,33 +6071,33 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_13generator_view
   __pyx_t_5 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_4, NULL};
-    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_entity_view, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_meta_model, __pyx_v_meta_model, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_template_name, __pyx_mstate_global->__pyx_kp_u_view_entity_txt, __pyx_t_3, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_entity_view, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 170, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_meta_model, __pyx_v_meta_model, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 170, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_template_name, __pyx_mstate_global->__pyx_kp_u_view_entity_txt, __pyx_t_3, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 170, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_render_template, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "generate_service.py":168
+  /* "generate_service.py":176
  *         )
  *         #
  *         self.builder.render_template(             # <<<<<<<<<<<<<<
  *             child_path="controller_view",
  *             meta_model=meta_model,
 */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_7 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_7);
 
-  /* "generate_service.py":170
+  /* "generate_service.py":178
  *         self.builder.render_template(
  *             child_path="controller_view",
  *             meta_model=meta_model,             # <<<<<<<<<<<<<<
@@ -6064,73 +6107,110 @@ static PyObject *__pyx_pf_16generate_service_16GeneratorService_13generator_view
   __pyx_t_5 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_7, NULL};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_controller_view, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_meta_model, __pyx_v_meta_model, __pyx_t_4, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_template_name, __pyx_mstate_global->__pyx_kp_u_view_controller_txt, __pyx_t_4, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_controller_view, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_meta_model, __pyx_v_meta_model, __pyx_t_4, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_template_name, __pyx_mstate_global->__pyx_kp_u_view_controller_txt, __pyx_t_4, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_render_template, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "generate_service.py":173
- *             template_name='view_controller.txt'
+  /* "generate_service.py":182
+ *         )
+ *         #  Vue
+ *         self.builder.render_template(             # <<<<<<<<<<<<<<
+ *             child_path="table",
+ *             meta_model=meta_model,
+*/
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_builder); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __pyx_t_4;
+  __Pyx_INCREF(__pyx_t_3);
+
+  /* "generate_service.py":186
+ *             meta_model=meta_model,
+ *             template_name='frontend_table.txt',
+ *             frontend=True             # <<<<<<<<<<<<<<
+ *         )
+ *         logging.info(f"{meta_model.schema_name} - {meta_model.table_or_view_name}")
+*/
+  __pyx_t_5 = 0;
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_3, NULL};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_child_path, __pyx_mstate_global->__pyx_n_u_table, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_meta_model, __pyx_v_meta_model, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_template_name, __pyx_mstate_global->__pyx_kp_u_frontend_table_txt, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_frontend, Py_True, __pyx_t_7, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_render_template, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "generate_service.py":188
+ *             frontend=True
  *         )
  *         logging.info(f"{meta_model.schema_name} - {meta_model.table_or_view_name}")             # <<<<<<<<<<<<<<
 */
-  __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_table_or_view_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_table_or_view_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_9[0] = __pyx_t_6;
   __pyx_t_9[1] = __pyx_mstate_global->__pyx_kp_u__2;
   __pyx_t_9[2] = __pyx_t_8;
-  __pyx_t_4 = __Pyx_PyUnicode_Join(__pyx_t_9, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8));
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_9, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8));
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_7))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_7);
-    assert(__pyx_t_3);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-    __Pyx_INCREF(__pyx_t_3);
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_4);
     __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
     __pyx_t_5 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_4};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_7};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "generate_service.py":147
+  /* "generate_service.py":155
  *         logging.info(f"{meta_model.schema_name} - {meta_model.table_or_view_name}")
  * 
  *     def generator_view(self, view_name: str, schema_name: str | None, enum_fields=None) -> None:             # <<<<<<<<<<<<<<
@@ -6985,24 +7065,24 @@ __Pyx_RefNannySetupContext("PyInit_generate_service", 0);
   if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_generator_table, __pyx_t_6) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "generate_service.py":147
+  /* "generate_service.py":155
  *         logging.info(f"{meta_model.schema_name} - {meta_model.table_or_view_name}")
  * 
  *     def generator_view(self, view_name: str, schema_name: str | None, enum_fields=None) -> None:             # <<<<<<<<<<<<<<
  *         """
  * 
 */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_view_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_kp_u_str_None) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_16generate_service_16GeneratorService_14generator_view, 0, __pyx_mstate_global->__pyx_n_u_GeneratorService_generator_view, NULL, __pyx_mstate_global->__pyx_n_u_generate_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_view_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_kp_u_str_None) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_16generate_service_16GeneratorService_14generator_view, 0, __pyx_mstate_global->__pyx_n_u_GeneratorService_generator_view, NULL, __pyx_mstate_global->__pyx_n_u_generate_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[3]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_generator_view, __pyx_t_5) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_generator_view, __pyx_t_5) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "generate_service.py":20
@@ -7143,6 +7223,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_exec, sizeof(__pyx_k_exec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exec */
   {__pyx_k_field_name, sizeof(__pyx_k_field_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field_name */
   {__pyx_k_fields, sizeof(__pyx_k_fields), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fields */
+  {__pyx_k_frontend, sizeof(__pyx_k_frontend), 0, 1, 1}, /* PyObject cname: __pyx_n_u_frontend */
+  {__pyx_k_frontend_table_txt, sizeof(__pyx_k_frontend_table_txt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_frontend_table_txt */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
   {__pyx_k_generate_config, sizeof(__pyx_k_generate_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_generate_config */
@@ -7205,6 +7287,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_statement, sizeof(__pyx_k_statement), 0, 1, 1}, /* PyObject cname: __pyx_n_u_statement */
   {__pyx_k_str, sizeof(__pyx_k_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_str */
   {__pyx_k_str_None, sizeof(__pyx_k_str_None), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_str_None */
+  {__pyx_k_table, sizeof(__pyx_k_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table */
   {__pyx_k_table_controller_txt, sizeof(__pyx_k_table_controller_txt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_table_controller_txt */
   {__pyx_k_table_entity_txt, sizeof(__pyx_k_table_entity_txt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_table_entity_txt */
   {__pyx_k_table_name, sizeof(__pyx_k_table_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_name */
@@ -7346,12 +7429,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_generate_service_py, __pyx_mstate->__pyx_n_u_generator_schema, __pyx_k_TTU_z_o_6d_AQ_d_2_q_1_5_4_0_14K, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 119, 131};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 119, 165};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_table_name, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_enum_fields, __pyx_mstate->__pyx_n_u_meta_model};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_generate_service_py, __pyx_mstate->__pyx_n_u_generator_table, __pyx_k_LH_o_6d_AQ_T_T_0Fa_H_A_q_q_H_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 147, 131};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 155, 163};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_view_name, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_enum_fields, __pyx_mstate->__pyx_n_u_meta_model};
     __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_generate_service_py, __pyx_mstate->__pyx_n_u_generator_view, __pyx_k_F_o_6d_AQ_T_q_D_EQ_H_A_q_q_H_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }

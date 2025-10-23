@@ -44,13 +44,13 @@ class AuthUser(RegistryModel, table=True):
     # --- 用户验证增强 ---
     totp_verified: bool = Field(default=True, nullable=True, description="启用身份验证器")
     # --- 内容源自业务 ---
-    role: Optional[str] = Field(default=None, nullable=True, description="用户角色")
-    roles: Optional[str] = Field(default=None, nullable=True, description="角色列表")
-    groups: Optional[str] = Field(default=None, nullable=True, description="部门列表")
-    permissions: Optional[str] = Field(default=None, nullable=True, description="权限列表")
-    organization: Optional[str] = Field(default=None, nullable=True, description="所属组织")
-    department: Optional[str] = Field(default=None, nullable=True, description="所在部门")
-    job_title: Optional[str] = Field(default=None, nullable=True, description="职务职称")
+    # role: Optional[str] = Field(default=None, nullable=True, description="用户角色")
+    # roles: Optional[str] = Field(default=None, nullable=True, description="角色列表")
+    # groups: Optional[str] = Field(default=None, nullable=True, description="部门列表")
+    # permissions: Optional[str] = Field(default=None, nullable=True, description="权限列表")
+    # organization: Optional[str] = Field(default=None, nullable=True, description="所属组织")
+    # department: Optional[str] = Field(default=None, nullable=True, description="所在部门")
+    # job_title: Optional[str] = Field(default=None, nullable=True, description="职务职称")
     # --- 内部管理字段 ---
     create_by: Optional[str] = Field(default=None, nullable=True, description="创建人")
     create_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), nullable=True, description="创建日期")
@@ -101,15 +101,15 @@ class AuthUserResponse(BaseResponse):
     email_verified: Optional[bool] = Field(default=None, description="邮箱是否已验证")
     # totp_verified: Optional[bool] = Field(default=None, description="启用身份验证器")
     picture: Optional[str] = Field(default=None, description="头像URL地址")
-    last_login_at: Optional[datetime] = Field(default=None, description="最后登录时间")
+    # last_login_at: Optional[datetime] = Field(default=None, description="最后登录时间")
     # --- 内容源自业务 ---
-    role: Optional[str] = Field(default=None, description="用户角色")
-    roles: Optional[str] = Field(default=None, description="角色列表")
-    groups: Optional[str] = Field(default=None, description="部门列表")
-    permissions: Optional[str] = Field(default=None, description="权限列表")
-    organization: Optional[str] = Field(default=None, description="所属组织")
-    department: Optional[str] = Field(default=None, description="所在部门")
-    job_title: Optional[str] = Field(default=None, description="职务职称")
+    # role: Optional[str] = Field(default=None, description="用户角色")
+    # roles: Optional[str] = Field(default=None, description="角色列表")
+    # groups: Optional[str] = Field(default=None, description="部门列表")
+    # permissions: Optional[str] = Field(default=None, description="权限列表")
+    # organization: Optional[str] = Field(default=None, description="所属组织")
+    # department: Optional[str] = Field(default=None, description="所在部门")
+    # job_title: Optional[str] = Field(default=None, description="职务职称")
 
     # @computed_field
     # def module_type_label(self) -> str:

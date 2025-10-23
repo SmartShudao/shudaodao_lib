@@ -15,8 +15,11 @@ class TemplateBuilder:
     default_factory: bool
     support_schema: Incomplete
     sort_columns: Incomplete
-    output: Path
+    output_backend: Path
+    output_frontend: Incomplete
     def __init__(self, *, config: GeneratorConfig) -> None: ...
+    @staticmethod
+    def format_vue_table(column: MetaColumn) -> str: ...
     @staticmethod
     def format_column_child(column: MetaForeignColumn) -> str: ...
     @staticmethod
@@ -33,7 +36,12 @@ class TemplateBuilder:
     def format_column(cls, column: MetaColumn) -> str:
         """格式化列定义"""
     def render_template(
-        self, *, meta_model: MetaTable, template_name: str, child_path: str
+        self,
+        *,
+        meta_model: MetaTable,
+        template_name: str,
+        child_path: str,
+        frontend: bool = False,
     ):
         """生成单个表的代码"""
     def save_init_file(self, meta_model: MetaTable): ...

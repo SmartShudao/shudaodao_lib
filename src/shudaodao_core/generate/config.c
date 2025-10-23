@@ -1997,7 +1997,6 @@ static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_annotations[] = "__annotations__";
 static const char __pyx_k_dataclasses[] = "dataclasses";
 static const char __pyx_k_mro_entries[] = "__mro_entries__";
-static const char __pyx_k_output_path[] = "output_path";
 static const char __pyx_k_Optional_str[] = "Optional[str]";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_SQLModel_Field[] = "SQLModel_Field";
@@ -2014,7 +2013,9 @@ static const char __pyx_k_target_engine_name[] = "target_engine_name";
 static const char __pyx_k_Type_SQLModel_Field[] = "Type[SQLModel_Field]";
 static const char __pyx_k_Type_SQLModel_Value[] = "Type[SQLModel_Value]";
 static const char __pyx_k_default_schema_name[] = "default_schema_name";
+static const char __pyx_k_output_backend_path[] = "output_backend_path";
 static const char __pyx_k_Type_SQLModel_Schema[] = "Type[SQLModel_Schema]";
+static const char __pyx_k_output_frontend_path[] = "output_frontend_path";
 /* #### Code section: decls ### */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
@@ -2054,7 +2055,7 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_string_tab[44];
+  PyObject *__pyx_string_tab[45];
 /* #### Code section: module_state_contents ### */
 /* CodeObjectCache.module_state_decls */
 struct __Pyx_CodeObjectCache __pyx_code_cache;
@@ -2119,15 +2120,16 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_module __pyx_string_tab[32]
 #define __pyx_n_u_mro_entries __pyx_string_tab[33]
 #define __pyx_n_u_name __pyx_string_tab[34]
-#define __pyx_n_u_output_path __pyx_string_tab[35]
-#define __pyx_n_u_prepare __pyx_string_tab[36]
-#define __pyx_n_u_qualname __pyx_string_tab[37]
-#define __pyx_n_u_shudaodao_generate __pyx_string_tab[38]
-#define __pyx_n_u_sqlmodel __pyx_string_tab[39]
-#define __pyx_n_u_str __pyx_string_tab[40]
-#define __pyx_n_u_target_engine_name __pyx_string_tab[41]
-#define __pyx_n_u_test __pyx_string_tab[42]
-#define __pyx_n_u_typing __pyx_string_tab[43]
+#define __pyx_n_u_output_backend_path __pyx_string_tab[35]
+#define __pyx_n_u_output_frontend_path __pyx_string_tab[36]
+#define __pyx_n_u_prepare __pyx_string_tab[37]
+#define __pyx_n_u_qualname __pyx_string_tab[38]
+#define __pyx_n_u_shudaodao_generate __pyx_string_tab[39]
+#define __pyx_n_u_sqlmodel __pyx_string_tab[40]
+#define __pyx_n_u_str __pyx_string_tab[41]
+#define __pyx_n_u_target_engine_name __pyx_string_tab[42]
+#define __pyx_n_u_test __pyx_string_tab[43]
+#define __pyx_n_u_typing __pyx_string_tab[44]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2148,7 +2150,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<44; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<45; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2169,7 +2171,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<44; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<45; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2736,7 +2738,7 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
     if (unlikely((PyDict_SetItemString(__pyx_t_4, "__orig_bases__", __pyx_t_7) < 0))) __PYX_ERR(0, 20, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_enum_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_enum_schema_table, __pyx_mstate_global->__pyx_kp_u_Type_SQLModel_Schema) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
@@ -2744,7 +2746,8 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_enum_value_table, __pyx_mstate_global->__pyx_kp_u_Type_SQLModel_Value) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_target_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_output_path, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_output_backend_path, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_output_frontend_path, __pyx_mstate_global->__pyx_kp_u_Optional_str) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_7) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
@@ -2797,16 +2800,25 @@ __Pyx_RefNannySetupContext("PyInit_config", 0);
  *     target_engine_name: str = "Generate"
  *     #  schema  schema = None ,
  *     default_schema_name: Optional[str] = "shudaodao_generate"             # <<<<<<<<<<<<<<
- *     output_path: Optional[str] = None
+ *     output_backend_path: Optional[str] = None
+ *     output_frontend_path: Optional[str] = None
 */
   if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_default_schema_name, __pyx_mstate_global->__pyx_n_u_shudaodao_generate) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
 
   /* "config.py":30
  *     #  schema  schema = None ,
  *     default_schema_name: Optional[str] = "shudaodao_generate"
- *     output_path: Optional[str] = None             # <<<<<<<<<<<<<<
+ *     output_backend_path: Optional[str] = None             # <<<<<<<<<<<<<<
+ *     output_frontend_path: Optional[str] = None
 */
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_output_path, Py_None) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_output_backend_path, Py_None) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+
+  /* "config.py":31
+ *     default_schema_name: Optional[str] = "shudaodao_generate"
+ *     output_backend_path: Optional[str] = None
+ *     output_frontend_path: Optional[str] = None             # <<<<<<<<<<<<<<
+*/
+  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_output_frontend_path, Py_None) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
 
   /* "config.py":19
  * 
@@ -2953,7 +2965,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_mro_entries, sizeof(__pyx_k_mro_entries), 0, 1, 1}, /* PyObject cname: __pyx_n_u_mro_entries */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
-  {__pyx_k_output_path, sizeof(__pyx_k_output_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_path */
+  {__pyx_k_output_backend_path, sizeof(__pyx_k_output_backend_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_backend_path */
+  {__pyx_k_output_frontend_path, sizeof(__pyx_k_output_frontend_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_frontend_path */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_shudaodao_generate, sizeof(__pyx_k_shudaodao_generate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_generate */
