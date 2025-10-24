@@ -1,6 +1,7 @@
 from ..engine.database_engine import DatabaseEngine as DatabaseEngine
 from ..logger.logging_ import logging as logging
 from ..utils.core_utils import CoreUtil as CoreUtil
+from .commet_vue_file import comment_vue_file as comment_vue_file
 from .config import GeneratorConfig as GeneratorConfig
 from .meta_column import MetaColumn as MetaColumn
 from .meta_foreign import MetaForeignColumn as MetaForeignColumn
