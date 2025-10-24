@@ -2512,7 +2512,7 @@ static const char __pyx_k_7_3[] = "\200\001\340\027\030\330\014\033\2307\240!\24
 static const char __pyx_k_7_A[] = "\200\001\340\030\031\330\014\033\2307\240!\240?\260!\330\026)\250\027\260\001\260\033\270A";
 static const char __pyx_k__10[] = ".";
 static const char __pyx_k__11[] = "";
-static const char __pyx_k__12[] = "\346\240\270\345\277\203\346\216\245\345\217\243: \351\211\264\346\235\203 - \347\231\273\345\275\225\343\200\201\346\263\250\345\206\214";
+static const char __pyx_k__12[] = "\346\240\270\345\277\203\346\216\245\345\217\243 - \351\211\264\346\235\203 - \347\231\273\345\275\225\343\200\201\346\263\250\345\206\214";
 static const char __pyx_k__13[] = "\346\263\250\345\206\214\347\224\250\346\210\267";
 static const char __pyx_k__14[] = "\347\224\250\346\210\267\351\200\200\345\207\272";
 static const char __pyx_k__15[] = "\344\277\256\346\224\271\345\257\206\347\240\201";
@@ -7354,7 +7354,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
  * 
  * Auth_Controller = AuthRouter(             # <<<<<<<<<<<<<<
  *     prefix="/auth",
- *     tags=[":  - "],
+ *     tags=[" -  - "],
 */
   __pyx_t_3 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthRouter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
@@ -7363,7 +7363,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   /* "shudaodao_core/portal_auth/controller_table/auth.py":31
  * Auth_Controller = AuthRouter(
  *     prefix="/auth",
- *     tags=[":  - "],             # <<<<<<<<<<<<<<
+ *     tags=[" -  - "],             # <<<<<<<<<<<<<<
  *     db_config_name=get_engine_name(),
  * )
 */
@@ -7372,7 +7372,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
 
   /* "shudaodao_core/portal_auth/controller_table/auth.py":32
  *     prefix="/auth",
- *     tags=[":  - "],
+ *     tags=[" -  - "],
  *     db_config_name=get_engine_name(),             # <<<<<<<<<<<<<<
  * )
  * 
@@ -7957,11 +7957,11 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
 
 typedef struct {
     const char *s;
-#if 137 <= 65535
+#if 138 <= 65535
     const unsigned short n;
-#elif 137 / 2 < INT_MAX
+#elif 138 / 2 < INT_MAX
     const unsigned int n;
-#elif 137 / 2 < LONG_MAX
+#elif 138 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
