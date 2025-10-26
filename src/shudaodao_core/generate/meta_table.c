@@ -2849,7 +2849,7 @@ static const char __pyx_k_MetaTable_get_response_columns[] = "MetaTable.get_resp
 static const char __pyx_k_a_Jd_vQ_waq_Jd_vQ_waq_Jd_v_F_7[] = "\320\004&\240a\330\010\022\220!\340\010\014\210J\220d\230!\330\014\017\210v\220Q\330\020\027\220w\230a\230q\330\020\021\340\010\014\210J\220d\230!\330\014\017\210v\220Q\330\020\027\220w\230a\230q\330\020\021\340\010\014\210J\220d\230!\330\014\017\210v\220\\\240\023\240F\250!\330\020\021\330\014\023\2207\230!\2301\330\010\017\210q";
 static const char __pyx_k_Jd_q_6_s_Q_9_Q_0_3aq_31_D_Qa_as[] = "\320\004:\270!\330\010\031\230\021\330\010\014\210J\220d\230!\330\014\020\220\007\220q\330\020\023\2206\230\026\230s\240#\240Q\320&9\270\021\270#\270Q\330\030\034\320\0340\260\003\2603\260a\260q\330\024\"\320\"3\2601\330\030$\240D\250\001\330\030*\250#\250Q\250a\330\030*\250$\320.>\270a\270s\300!\3001\330\030+\2503\250a\320/E\300Q\300a\330\030)\250\024\250_\270A\270S\300\001\300\021\330\030'\240s\250!\2501\330\030'\240t\320+;\2701\270C\270q\300\001\330\030(\250\003\2501\320,?\270q\300\001\330\030&\240d\250/\270\021\270#\270Q\270a\330\030$\240C\240q\250\001\330\030#\2403\240a\240~\260S\270\001\330\030\037\230s\240!\240:\250S\260\001\340\024\"\240'\250\021\250!\330\010\017\210q";
 static const char __pyx_k_Q_G4q_s_gQ_gQa_s_3l_2_T_7_gQa_4[] = "\320\004\"\240!\330\010\025\220Q\330\010\014\210G\2204\220q\330\014\017\210s\220!\330\020\023\220;\230g\240Q\330\024\036\230g\240Q\240a\340\014\017\210s\220!\330\020\023\2203\220l\320\"2\260#\260T\270\021\330\024\025\330\020\023\320\023#\2407\250!\330\024\036\230g\240Q\240a\330\010\013\2104\210q\330\014\033\2301\330\014\020\220\017\230t\2401\330\020\023\220;\320\0361\260\023\260D\270\001\330\024\025\330\020\037\230q\330\020\021\330\014\017\210}\230D\320 0\260\007\260q\330\020\032\230'\240\021\240!\330\010\013\2101\330\014\023\320\023)\250\022\2504\250u\260A\260Q\340\014\023\2201";
-static const char __pyx_k_Q_J_8_RRVVW_G4z_Qd2Gt1_AXS_T_QQ[] = "\320\004\035\230Q\340\010\022\220!\330\010\032\230!\340\010\030\230\004\230J\320&8\270\001\270\024\320=R\320RV\320VW\330\010\014\210G\2204\220z\240\034\250Q\250d\3202G\300t\3101\330\014\031\230\023\230A\230X\240S\250\r\260T\270\021\320:Q\320QR\330\014\032\230!\330\014\031\230\021\330\014\017\210t\2201\330\020\024\220G\2304\230q\330\024\027\220s\230!\2308\2403\240c\250\021\320*@\300\001\300\021\330\030&\320&7\260q\330\034(\250\004\250A\330\034.\250d\260!\330\034.\250d\260!\330\034/\250s\260!\2601\330\034-\250T\260\037\300\001\300\024\300Q\330\034+\2503\250a\250q\330\034+\2504\320/?\270q\300\003\3001\300A\330\034,\250C\250q\3200C\3001\300A\330\034*\250$\250o\270Q\270c\300\021\300!\330\034(\250\003\2501\250A\330\034'\240s\250!\250>\270\023\270A\330\034#\2403\240a\240z\260\023\260A\340\030%\240S\250\001\250\032\2603\260a\330\030\034\320\034/\250q\260\001\330\014\024\220D\230\017\240q\250\003\2501\250I\260S\270\001\270\027\300\014\310A\330\014\030\230\003\2301\230A\330\014\017\210{\230#\230Q\330\020\034\230A\330\014\023\2207\230!\230:\240Q\330\020\025\220S\230\001\230\021\330\020\030\230\004\230L\250\001\250\023\250A\250Y\260a\330\020\025\220Q\340\020\031\230\021\330\020\033\2301\330\020\034\230A\330\020\030\230\003\2301\230C\230t\2401\240K\250t\2608\2701\270H\300C\300x\310q\320PU\320UV\330\020\033\2307\240!\2403\240a\240y\260\n\270!\330\020\032\230'\240\021\240#\240Q\240i\250}\270A\330\020\026\220g\230Q\230c\240\021\240)\2509\260A\330\020\030\230\001\330\020\027\220q\340\014\017\210q\330\020\037\230w\240a\240s\250!\2501\340\010\013\210?\230(\240#\240S\250\001\330\014\017\210s\220!\2209\230B\230a\330\020\026\220g\230Q\230a\330\020\023\220>\240\021\330\020\023\2203\220a\330\024\027\220|\2401\340\024\027\220{\240!\330\010\014\320\014\034\230A\340\014\020\220\n\230!\330\020\023\2206\230\026\230s\240,\250h\260a\260w\270a\330\024\032\230+\240Q\330\025\033\2306\240\023\240A\330\024\032\230+\240Q\340\010\017\210q";
+static const char __pyx_k_Q_J_8_RRVVW_G4z_Qd2Gt1_AXS_T_QQ[] = "\320\004\035\230Q\340\010\022\220!\330\010\032\230!\340\010\030\230\004\230J\320&8\270\001\270\024\320=R\320RV\320VW\330\010\014\210G\2204\220z\240\034\250Q\250d\3202G\300t\3101\330\014\031\230\023\230A\230X\240S\250\r\260T\270\021\320:Q\320QR\330\014\032\230!\330\014\031\230\021\330\014\017\210t\2201\330\020\024\220G\2304\230q\330\024\027\220s\230!\2308\2403\240c\250\021\320*@\300\001\300\021\330\030&\320&7\260q\330\034(\250\004\250A\330\034.\250d\260!\330\034.\250d\260!\330\034/\250s\260!\2601\330\034-\250T\260\037\300\001\300\024\300Q\330\034+\2503\250a\250q\330\034+\2504\320/?\270q\300\003\3001\300A\330\034,\250C\250q\3200C\3001\300A\330\034*\250$\250o\270Q\270c\300\021\300!\330\034(\250\003\2501\250A\330\034'\240s\250!\250>\270\023\270A\330\034#\2403\240a\240z\260\023\260A\340\030%\240S\250\001\250\032\2603\260a\330\030\034\320\034/\250q\260\001\330\014\024\220D\230\017\240q\250\003\2501\250I\260S\270\001\270\027\300\014\310A\330\014\030\230\003\2301\230A\330\014\017\210q\330\020\034\230A\330\014\023\2207\230!\230:\240Q\330\020\025\220S\230\001\230\021\330\020\030\230\004\230L\250\001\250\023\250A\250Y\260a\330\020\025\220Q\340\020\031\230\021\330\020\033\2301\330\020\034\230A\330\020\030\230\003\2301\230C\230t\2401\240K\250t\2608\2701\270H\300C\300x\310q\320PU\320UV\330\020\033\2307\240!\2403\240a\240y\260\n\270!\330\020\032\230'\240\021\240#\240Q\240i\250}\270A\330\020\026\220g\230Q\230c\240\021\240)\2509\260A\330\020\030\230\001\330\020\027\220q\340\014\017\210q\330\020\037\230w\240a\240s\250!\2501\340\010\013\210?\230(\240#\240S\250\001\330\014\017\210s\220!\2209\230B\230a\330\020\026\220g\230Q\230a\330\020\023\220>\240\021\330\020\023\2203\220a\330\024\027\220|\2401\340\024\027\220{\240!\330\010\014\320\014\034\230A\340\014\020\220\n\230!\330\020\023\2206\230\026\230s\240,\250h\260a\260w\270a\330\024\032\230+\240Q\330\025\033\2306\240\023\240A\330\024\032\230+\240Q\340\010\017\210q";
 static const char __pyx_k_Q_O1_M_O1_a_M__AQ_N_aq_4_q_6a_l[] = "\320\004%\240Q\340\010\014\210O\2301\330\010\014\210M\230\021\330\010\014\210O\2301\330\010\014\320\014\036\230a\330\010\014\320\014\"\240!\330\010\014\210M\230\024\230_\250A\250Q\330\010\014\210N\230$\320\036.\250a\250q\330\010\014\320\014#\2404\320'?\270q\300\001\330\010\014\320\0146\260a\330\010\014\320\014*\250$\250l\270!\330\010\014\320\0147\260t\320;O\310q\320PQ\330\010\014\320\014.\250d\3202C\3001\330\010\014\320\0142\260$\3206K\3101\330\010\014\320\0142\260$\3206K\3101\340\010\014\320\014\034\230D\240\014\250A\330\010\014\320\014#\2408\2504\250r\260\031\270!\2701\330\010\014\320\014)\250\024\320-A\300\021\330\010\014\210M\230\034\240Q\330\010\014\320\014\037\230t\320#3\2601\330\010\014\210O\230<\240s\250!";
 static const char __pyx_k_Q_T_a_1_7_1_T_Q_1_7_1_T_1_7_1_3[] = "\320\004%\240Q\330\010\022\220!\340\010\025\220T\320\031.\250a\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031-\250Q\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031*\250!\330\010\013\2101\330\014\023\2207\230!\2301\330\010\013\2103\210a\210y\230\002\230!\330\014\023\2207\230!\2301\360\014\000\t\026\220T\320\0310\260\001\330\010\013\2101\330\014\023\2207\230!\2301\330\014\023\2207\230!\2301\340\010\025\220T\320\031-\250Q\330\010\013\2101\330\014\023\2207\230!\2301\340\010\017\210w\220a\220t\320\0335\260Q\340\010\025\220T\320\0311\260\021\330\010\013\2101\330\014\023\2207\230!\2301\340\010\025\220T\320\031*\250!\330\010\013\2101\330\014\023\2207\230!\2301\330\010\017\210q";
 static const char __pyx_k_a_Q_G4q_s_1_s_1_F_Q_F_Q_1_2T_aq[] = "\320\004&\240a\330\010\025\220Q\330\010\014\210G\2204\220q\330\014\017\210s\220&\230\003\2301\330\020\021\330\014\017\210s\220&\230\003\2301\330\020\032\230'\240\021\240!\330\021\024\220F\230#\230Q\330\020\032\230'\240\021\240!\330\021\024\220F\230#\230Q\330\020\032\230'\240\021\240!\330\010\013\2101\330\014\023\320\023+\2502\250T\260\025\260a\260q\340\014\023\2201";
@@ -5032,7 +5032,6 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
   PyObject *__pyx_t_23 = NULL;
   PyObject *__pyx_t_24 = NULL;
   int __pyx_t_25;
-  int __pyx_t_26;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5602,7 +5601,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
  *                         self._add_child_columns(foreign_key)
  *             _type = self._get_enum_type(col['name'], col["type"].python_type.__name__)             # <<<<<<<<<<<<<<
  *             _nullable = col['nullable']
- *             if is_primary or foreign_key:
+ *             if is_primary:  # or foreign_key:
 */
     __pyx_t_2 = __pyx_v_self;
     __Pyx_INCREF(__pyx_t_2);
@@ -5633,7 +5632,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
  *                         self._add_child_columns(foreign_key)
  *             _type = self._get_enum_type(col['name'], col["type"].python_type.__name__)
  *             _nullable = col['nullable']             # <<<<<<<<<<<<<<
- *             if is_primary or foreign_key:
+ *             if is_primary:  # or foreign_key:
  *                 _nullable = False
 */
     __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_col, __pyx_mstate_global->__pyx_n_u_nullable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
@@ -5644,24 +5643,16 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
     /* "meta_table.py":141
  *             _type = self._get_enum_type(col['name'], col["type"].python_type.__name__)
  *             _nullable = col['nullable']
- *             if is_primary or foreign_key:             # <<<<<<<<<<<<<<
+ *             if is_primary:  # or foreign_key:             # <<<<<<<<<<<<<<
  *                 _nullable = False
  *             columns.append(MetaColumn(
 */
-    __pyx_t_25 = __Pyx_PyObject_IsTrue(__pyx_v_is_primary); if (unlikely((__pyx_t_25 < 0))) __PYX_ERR(0, 141, __pyx_L1_error)
-    if (!__pyx_t_25) {
-    } else {
-      __pyx_t_9 = __pyx_t_25;
-      goto __pyx_L11_bool_binop_done;
-    }
-    __pyx_t_25 = __Pyx_PyObject_IsTrue(__pyx_v_foreign_key); if (unlikely((__pyx_t_25 < 0))) __PYX_ERR(0, 141, __pyx_L1_error)
-    __pyx_t_9 = __pyx_t_25;
-    __pyx_L11_bool_binop_done:;
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_v_is_primary); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 141, __pyx_L1_error)
     if (__pyx_t_9) {
 
       /* "meta_table.py":142
  *             _nullable = col['nullable']
- *             if is_primary or foreign_key:
+ *             if is_primary:  # or foreign_key:
  *                 _nullable = False             # <<<<<<<<<<<<<<
  *             columns.append(MetaColumn(
  *                 name=col['name'],
@@ -5672,14 +5663,14 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
       /* "meta_table.py":141
  *             _type = self._get_enum_type(col['name'], col["type"].python_type.__name__)
  *             _nullable = col['nullable']
- *             if is_primary or foreign_key:             # <<<<<<<<<<<<<<
+ *             if is_primary:  # or foreign_key:             # <<<<<<<<<<<<<<
  *                 _nullable = False
  *             columns.append(MetaColumn(
 */
     }
 
     /* "meta_table.py":143
- *             if is_primary or foreign_key:
+ *             if is_primary:  # or foreign_key:
  *                 _nullable = False
  *             columns.append(MetaColumn(             # <<<<<<<<<<<<<<
  *                 name=col['name'],
@@ -5831,13 +5822,13 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
     }
 
     /* "meta_table.py":143
- *             if is_primary or foreign_key:
+ *             if is_primary:  # or foreign_key:
  *                 _nullable = False
  *             columns.append(MetaColumn(             # <<<<<<<<<<<<<<
  *                 name=col['name'],
  *                 sa_type=self.get_sa_type(col["type"], is_primary),
 */
-    __pyx_t_26 = __Pyx_PyList_Append(__pyx_v_columns, __pyx_t_1); if (unlikely(__pyx_t_26 == ((int)-1))) __PYX_ERR(0, 143, __pyx_L1_error)
+    __pyx_t_25 = __Pyx_PyList_Append(__pyx_v_columns, __pyx_t_1); if (unlikely(__pyx_t_25 == ((int)-1))) __PYX_ERR(0, 143, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "meta_table.py":158
@@ -5859,7 +5850,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
 */
       __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_col, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_26 = __Pyx_PyList_Append(__pyx_v_primary_columns, __pyx_t_1); if (unlikely(__pyx_t_26 == ((int)-1))) __PYX_ERR(0, 159, __pyx_L1_error)
+      __pyx_t_25 = __Pyx_PyList_Append(__pyx_v_primary_columns, __pyx_t_1); if (unlikely(__pyx_t_25 == ((int)-1))) __PYX_ERR(0, 159, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
       /* "meta_table.py":158
@@ -5961,7 +5952,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
  *                     col.comment += " - -"
  *                 else:
 */
-        goto __pyx_L17;
+        goto __pyx_L15;
       }
 
       /* "meta_table.py":168
@@ -5974,7 +5965,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
       /*else*/ {
         if (__Pyx_PyObject_SetAttrStr(__pyx_v_col, __pyx_mstate_global->__pyx_n_u_comment, __pyx_mstate_global->__pyx_kp_u__5) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
       }
-      __pyx_L17:;
+      __pyx_L15:;
 
       /* "meta_table.py":162
  * 
@@ -6079,7 +6070,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
  *                     column.default = "-1"
  *                 elif column.name == "sort_order":
 */
-        goto __pyx_L22;
+        goto __pyx_L20;
       }
 
       /* "meta_table.py":174
@@ -6112,7 +6103,7 @@ static PyObject *__pyx_pf_10meta_table_9MetaTable_8get_columns(CYTHON_UNUSED PyO
  *             ...
 */
       }
-      __pyx_L22:;
+      __pyx_L20:;
 
       /* "meta_table.py":171
  *         for primary_name in primary_columns:
@@ -14328,7 +14319,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_table_py, __pyx_mstate->__pyx_n_u_get_response_columns, __pyx_k_a_Jd_vV3d_7_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 13, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 110, 638};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 13, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 110, 634};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_columns_2, __pyx_mstate->__pyx_n_u_primary_columns, __pyx_mstate->__pyx_n_u_pk_constraint, __pyx_mstate->__pyx_n_u_col, __pyx_mstate->__pyx_n_u_is_primary, __pyx_mstate->__pyx_n_u_foreign_key, __pyx_mstate->__pyx_n_u_unique_key, __pyx_mstate->__pyx_n_u_key, __pyx_mstate->__pyx_n_u_type_2, __pyx_mstate->__pyx_n_u_nullable_2, __pyx_mstate->__pyx_n_u_primary_name, __pyx_mstate->__pyx_n_u_column};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_table_py, __pyx_mstate->__pyx_n_u_get_columns, __pyx_k_Q_J_8_RRVVW_G4z_Qd2Gt1_AXS_T_QQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }

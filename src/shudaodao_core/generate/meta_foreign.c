@@ -2608,7 +2608,7 @@ static const char __pyx_k_unique[] = "unique";
 static const char __pyx_k_vertex[] = "vertex";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_genexpr[] = "genexpr";
-static const char __pyx_k_indices[] = "indices";
+static const char __pyx_k_indexes[] = "indexes";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_analyses[] = "analyses";
@@ -2831,7 +2831,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_id __pyx_string_tab[60]
 #define __pyx_n_u_ies __pyx_string_tab[61]
 #define __pyx_n_u_index __pyx_string_tab[62]
-#define __pyx_n_u_indices __pyx_string_tab[63]
+#define __pyx_n_u_indexes __pyx_string_tab[63]
 #define __pyx_n_u_irregular_plurals __pyx_string_tab[64]
 #define __pyx_n_u_is_coroutine __pyx_string_tab[65]
 #define __pyx_n_u_is_plural __pyx_string_tab[66]
@@ -3817,7 +3817,7 @@ static PyObject *__pyx_pf_12meta_foreign_17MetaForeignColumn_4_make_plural_entit
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_analysis, __pyx_mstate_global->__pyx_n_u_analyses) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_thesis, __pyx_mstate_global->__pyx_n_u_theses) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_crisis, __pyx_mstate_global->__pyx_n_u_crises) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_index, __pyx_mstate_global->__pyx_n_u_indices) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_index, __pyx_mstate_global->__pyx_n_u_indexes) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_matrix, __pyx_mstate_global->__pyx_n_u_matrices) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_vertex, __pyx_mstate_global->__pyx_n_u_vertices) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_focus, __pyx_mstate_global->__pyx_n_u_foci) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
@@ -5137,7 +5137,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_id, sizeof(__pyx_k_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_id */
   {__pyx_k_ies, sizeof(__pyx_k_ies), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ies */
   {__pyx_k_index, sizeof(__pyx_k_index), 0, 1, 1}, /* PyObject cname: __pyx_n_u_index */
-  {__pyx_k_indices, sizeof(__pyx_k_indices), 0, 1, 1}, /* PyObject cname: __pyx_n_u_indices */
+  {__pyx_k_indexes, sizeof(__pyx_k_indexes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_indexes */
   {__pyx_k_irregular_plurals, sizeof(__pyx_k_irregular_plurals), 0, 1, 1}, /* PyObject cname: __pyx_n_u_irregular_plurals */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_is_plural, sizeof(__pyx_k_is_plural), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_plural */
