@@ -4,6 +4,7 @@ from .format_valid_error import (
     format_request_validation_error as format_request_validation_error,
 )
 from .service_exception import ShudaodaoException as ShudaodaoException
+from .sqlalchemy_error import format_sqlalchemy_error as format_sqlalchemy_error
 from fastapi import FastAPI as FastAPI, Request as Request
 
 def register_exception_handlers(app: FastAPI):

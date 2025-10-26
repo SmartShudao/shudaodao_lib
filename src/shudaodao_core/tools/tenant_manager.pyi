@@ -4,8 +4,8 @@ from ..app.base_context import (
     set_current_user_info as set_current_user_info,
 )
 from ..exception.service_exception import (
-    raise_permission_exception as raise_permission_exception,
-    raise_request_validation_error as raise_request_validation_error,
+    PermError as PermError,
+    ValidError as ValidError,
 )
 
 class TenantManager:

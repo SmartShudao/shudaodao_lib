@@ -24,12 +24,11 @@ from .engine.disk_engine import DiskEngine
 from .engine.redis_engine import RedisEngine
 from .enums.str_int import EnumStr, EnumInt
 from .exception.service_exception import (
-    AuthException,
-    LoginException,
-    PermissionException,
-    ServiceErrorException,
+    AuthError,
+    ValidError,
+    PermError,
+    ServiceError,
     DataNotFoundException,
-    ValueException
 )
 from .generate.config import GeneratorConfig
 from .logger.logging_ import logging
@@ -78,12 +77,11 @@ __all__ = [
     "EnumInt",
 
     # 异常
-    "AuthException",
-    "LoginException",
-    "PermissionException",
-    "ServiceErrorException",
+    "AuthError",
+    "ValidError",
+    "PermError",
+    "ServiceError",
     "DataNotFoundException",
-    "ValueException",
 
     # 生成器相关
     "GeneratorConfig",

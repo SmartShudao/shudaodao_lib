@@ -1498,7 +1498,7 @@ struct __pyx_obj_11auth_router___pyx_scope_struct_1__role_checker;
 struct __pyx_obj_11auth_router___pyx_scope_struct_2__permission_checker;
 
 /* "auth_router.py":80
- *             raise ServiceErrorException(message="AuthRouter.get_async_session, db_config_name")
+ *             raise ServiceError(message="AuthRouter.get_async_session, db_config_name")
  * 
  *     async def _role_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -1534,7 +1534,7 @@ struct __pyx_obj_11auth_router___pyx_scope_struct__get_async_session {
 
 
 /* "auth_router.py":80
- *             raise ServiceErrorException(message="AuthRouter.get_async_session, db_config_name")
+ *             raise ServiceError(message="AuthRouter.get_async_session, db_config_name")
  * 
  *     async def _role_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -1551,7 +1551,7 @@ struct __pyx_obj_11auth_router___pyx_scope_struct_1__role_checker {
 
 
 /* "auth_router.py":102
- *         return permission_service.has_role(user.name, rule.data_role)
+ *         return await permission_service.has_role(user.name, rule.data_role)
  * 
  *     async def _permission_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -2708,6 +2708,7 @@ static const char __pyx_k_mro_entries[] = "__mro_entries__";
 static const char __pyx_k_AsyncSession[] = "AsyncSession";
 static const char __pyx_k_AuthDataRule[] = "AuthDataRule";
 static const char __pyx_k_Optional_str[] = "Optional[str]";
+static const char __pyx_k_ServiceError[] = "ServiceError";
 static const char __pyx_k_default_role[] = "default_role";
 static const char __pyx_k_dependencies[] = "dependencies";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
@@ -2740,7 +2741,6 @@ static const char __pyx_k_AsyncSessionService[] = "AsyncSessionService";
 static const char __pyx_k_AuthRouter_api_route[] = "AuthRouter.api_route";
 static const char __pyx_k_Kq_Zq_t_Q_vZ_9IZW_llm[] = "\320\004\031\230\030\240\026\240}\260K\270q\330\r\027\320\027-\250Z\260q\360\034\000\t\020\210t\220:\230Q\330\014\022\220%\220v\230Z\240{\260(\270!\2709\300I\310Z\320W`\320`l\320lm";
 static const char __pyx_k_Optional_AuthDataRule[] = "Optional[AuthDataRule]";
-static const char __pyx_k_ServiceErrorException[] = "ServiceErrorException";
 static const char __pyx_k_convert_path_to_regex[] = "convert_path_to_regex";
 static const char __pyx_k_services_auth_service[] = "services.auth_service";
 static const char __pyx_k_86_k_z_t_Q_vZ_izYbbnno[] = "\320\004\033\2308\2406\250\035\260k\300\021\330\017\031\320\031/\250z\270\021\360\034\000\t\020\210t\220:\230Q\330\014\022\220%\220v\230Z\240{\260(\270!\270;\300i\310z\320Yb\320bn\320no";
@@ -2935,7 +2935,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_POST __pyx_string_tab[28]
 #define __pyx_n_u_PUT __pyx_string_tab[29]
 #define __pyx_n_u_Request __pyx_string_tab[30]
-#define __pyx_n_u_ServiceErrorException __pyx_string_tab[31]
+#define __pyx_n_u_ServiceError __pyx_string_tab[31]
 #define __pyx_kp_u__2 __pyx_string_tab[32]
 #define __pyx_n_u_act __pyx_string_tab[33]
 #define __pyx_n_u_add_auth_data_rule __pyx_string_tab[34]
@@ -3525,7 +3525,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_11auth_router_10AuthRouter_2get_async_session, "\346\217\220\344\276\233\344\276\235\350\265\226\346\263\250\345\205\245\347\224\250\347\232\204\345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n\n        \350\257\245\346\226\271\346\263\225\350\256\276\350\256\241\344\270\272\351\205\215\345\220\210 FastAPI \347\232\204 Depends \344\275\277\347\224\250\357\274\214\351\234\200\345\234\250\346\236\204\351\200\240\346\227\266\346\214\207\345\256\232 db_config_name\343\200\202\n\n        Yields:\n            AsyncSession: \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\345\257\271\350\261\241\343\200\202\n\n        Raises:\n            ServiceErrorException: \350\213\245\346\234\252\350\256\276\347\275\256 db_config_name\357\274\214\345\210\231\346\212\233\345\207\272\346\234\215\345\212\241\345\274\202\345\270\270\343\200\202\n        ");
+PyDoc_STRVAR(__pyx_doc_11auth_router_10AuthRouter_2get_async_session, "\346\217\220\344\276\233\344\276\235\350\265\226\346\263\250\345\205\245\347\224\250\347\232\204\345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n\n        \350\257\245\346\226\271\346\263\225\350\256\276\350\256\241\344\270\272\351\205\215\345\220\210 FastAPI \347\232\204 Depends \344\275\277\347\224\250\357\274\214\351\234\200\345\234\250\346\236\204\351\200\240\346\227\266\346\214\207\345\256\232 db_config_name\343\200\202\n\n        Yields:\n            AsyncSession: \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\345\257\271\350\261\241\343\200\202\n\n        Raises:\n            ServiceError: \350\213\245\346\234\252\350\256\276\347\275\256 db_config_name\357\274\214\345\210\231\346\212\233\345\207\272\346\234\215\345\212\241\345\274\202\345\270\270\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_11auth_router_10AuthRouter_3get_async_session = {"get_async_session", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_11auth_router_10AuthRouter_3get_async_session, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_11auth_router_10AuthRouter_2get_async_session};
 static PyObject *__pyx_pw_11auth_router_10AuthRouter_3get_async_session(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -3679,7 +3679,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_4generator(__pyx_CoroutineO
   }
 
   /* "auth_router.py":74
- *             ServiceErrorException:  db_config_name
+ *             ServiceError:  db_config_name
  *         """
  *         if self.db_config:             # <<<<<<<<<<<<<<
  *             async with AsyncSessionService().get_session(self.db_config) as session:
@@ -3810,7 +3810,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_4generator(__pyx_CoroutineO
  *             async with AsyncSessionService().get_session(self.db_config) as session:
  *                 yield session             # <<<<<<<<<<<<<<
  *         else:
- *             raise ServiceErrorException(message="AuthRouter.get_async_session, db_config_name")
+ *             raise ServiceError(message="AuthRouter.get_async_session, db_config_name")
 */
             __Pyx_INCREF(__pyx_cur_scope->__pyx_v_session);
             __pyx_r = __pyx_cur_scope->__pyx_v_session;
@@ -4020,7 +4020,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_4generator(__pyx_CoroutineO
     }
 
     /* "auth_router.py":74
- *             ServiceErrorException:  db_config_name
+ *             ServiceError:  db_config_name
  *         """
  *         if self.db_config:             # <<<<<<<<<<<<<<
  *             async with AsyncSessionService().get_session(self.db_config) as session:
@@ -4032,13 +4032,13 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_4generator(__pyx_CoroutineO
   /* "auth_router.py":78
  *                 yield session
  *         else:
- *             raise ServiceErrorException(message="AuthRouter.get_async_session, db_config_name")             # <<<<<<<<<<<<<<
+ *             raise ServiceError(message="AuthRouter.get_async_session, db_config_name")             # <<<<<<<<<<<<<<
  * 
  *     async def _role_checker(
 */
   /*else*/ {
     __pyx_t_1 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ServiceError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_7 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -4105,7 +4105,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_4generator(__pyx_CoroutineO
 static PyObject *__pyx_gb_11auth_router_10AuthRouter_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
 /* "auth_router.py":80
- *             raise ServiceErrorException(message="AuthRouter.get_async_session, db_config_name")
+ *             raise ServiceError(message="AuthRouter.get_async_session, db_config_name")
  * 
  *     async def _role_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -4331,6 +4331,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_7generator1(__pyx_Coroutine
   PyObject *__pyx_t_4 = NULL;
   size_t __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
+  __Pyx_PySendResult __pyx_t_7;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4338,6 +4339,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_7generator1(__pyx_Coroutine
   __Pyx_RefNannySetupContext("_role_checker", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -4352,7 +4354,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_7generator1(__pyx_Coroutine
  *             bool:  True
  *         """
  *         rule = get_data_rule_from_request(request=request, data_rules=self.data_rules)             # <<<<<<<<<<<<<<
- *         return permission_service.has_role(user.name, rule.data_role)
+ *         return await permission_service.has_role(user.name, rule.data_role)
  * 
 */
   __pyx_t_2 = NULL;
@@ -4393,7 +4395,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_7generator1(__pyx_Coroutine
   /* "auth_router.py":100
  *         """
  *         rule = get_data_rule_from_request(request=request, data_rules=self.data_rules)
- *         return permission_service.has_role(user.name, rule.data_role)             # <<<<<<<<<<<<<<
+ *         return await permission_service.has_role(user.name, rule.data_role)             # <<<<<<<<<<<<<<
  * 
  *     async def _permission_checker(
 */
@@ -4414,13 +4416,33 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_7generator1(__pyx_Coroutine
     if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
+  __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_7 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 100, __pyx_L1_error)
+  }
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
   /* "auth_router.py":80
- *             raise ServiceErrorException(message="AuthRouter.get_async_session, db_config_name")
+ *             raise ServiceError(message="AuthRouter.get_async_session, db_config_name")
  * 
  *     async def _role_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -4451,7 +4473,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_7generator1(__pyx_Coroutine
 static PyObject *__pyx_gb_11auth_router_10AuthRouter_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
 /* "auth_router.py":102
- *         return permission_service.has_role(user.name, rule.data_role)
+ *         return await permission_service.has_role(user.name, rule.data_role)
  * 
  *     async def _permission_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -4769,7 +4791,7 @@ static PyObject *__pyx_gb_11auth_router_10AuthRouter_10generator2(__pyx_Coroutin
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
   /* "auth_router.py":102
- *         return permission_service.has_role(user.name, rule.data_role)
+ *         return await permission_service.has_role(user.name, rule.data_role)
  * 
  *     async def _permission_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -8791,7 +8813,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
  * from sqlmodel.ext.asyncio.session import AsyncSession
  * 
  * from .auth_data_rule import AuthDataRule             # <<<<<<<<<<<<<<
- * from ..exception.service_exception import ServiceErrorException
+ * from ..exception.service_exception import ServiceError
  * from ..services.auth_service import AuthService
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthDataRule); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
@@ -8808,24 +8830,24 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   /* "auth_router.py":15
  * 
  * from .auth_data_rule import AuthDataRule
- * from ..exception.service_exception import ServiceErrorException             # <<<<<<<<<<<<<<
+ * from ..exception.service_exception import ServiceError             # <<<<<<<<<<<<<<
  * from ..services.auth_service import AuthService
  * from ..services.session_service import AsyncSessionService
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_ServiceError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_exception_service_exception, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_ServiceError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ServiceErrorException, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ServiceError, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "auth_router.py":16
  * from .auth_data_rule import AuthDataRule
- * from ..exception.service_exception import ServiceErrorException
+ * from ..exception.service_exception import ServiceError
  * from ..services.auth_service import AuthService             # <<<<<<<<<<<<<<
  * from ..services.session_service import AsyncSessionService
  * 
@@ -8842,7 +8864,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "auth_router.py":17
- * from ..exception.service_exception import ServiceErrorException
+ * from ..exception.service_exception import ServiceError
  * from ..services.auth_service import AuthService
  * from ..services.session_service import AsyncSessionService             # <<<<<<<<<<<<<<
  * 
@@ -8937,7 +8959,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
   /* "auth_router.py":80
- *             raise ServiceErrorException(message="AuthRouter.get_async_session, db_config_name")
+ *             raise ServiceError(message="AuthRouter.get_async_session, db_config_name")
  * 
  *     async def _role_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -9014,7 +9036,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_router", 0);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "auth_router.py":102
- *         return permission_service.has_role(user.name, rule.data_role)
+ *         return await permission_service.has_role(user.name, rule.data_role)
  * 
  *     async def _permission_checker(             # <<<<<<<<<<<<<<
  *             self,
@@ -9539,7 +9561,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_POST, sizeof(__pyx_k_POST), 0, 1, 1}, /* PyObject cname: __pyx_n_u_POST */
   {__pyx_k_PUT, sizeof(__pyx_k_PUT), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PUT */
   {__pyx_k_Request, sizeof(__pyx_k_Request), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Request */
-  {__pyx_k_ServiceErrorException, sizeof(__pyx_k_ServiceErrorException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ServiceErrorException */
+  {__pyx_k_ServiceError, sizeof(__pyx_k_ServiceError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ServiceError */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k_act, sizeof(__pyx_k_act), 0, 1, 1}, /* PyObject cname: __pyx_n_u_act */
   {__pyx_k_add_auth_data_rule, sizeof(__pyx_k_add_auth_data_rule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add_auth_data_rule */

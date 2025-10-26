@@ -1,6 +1,6 @@
 from ..config.app_config import AppConfig as AppConfig
 from ..engine.casbin_engine import PermissionEngine as PermissionEngine
-from ..exception.service_exception import PermissionException as PermissionException
+from ..exception.service_exception import PermError as PermError
 from ..logger.logging_ import logging as logging
 from _typeshed import Incomplete
 
@@ -48,7 +48,7 @@ class PermissionService:
             bool: 若用户拥有该角色（直接或间接），返回 True。
 
         Raises:
-            PermissionException: 若用户不具有该角色，抛出权限异常。
+            PermError: 若用户不具有该角色，抛出权限异常。
         """
     def has_permission(self, user, obj, act):
         """同步检查用户是否对指定对象拥有指定操作权限。
@@ -64,7 +64,7 @@ class PermissionService:
             bool: 若有权限，返回 True。
 
         Raises:
-            PermissionException: 若无权限，抛出权限异常。
+            PermError: 若无权限，抛出权限异常。
         """
     async def add_permission(self, *, role, obj, act) -> None:
         """异步为角色添加对象-操作权限。

@@ -1,7 +1,4 @@
-from ..exception.service_exception import (
-    ValueException as ValueException,
-    raise_request_validation_error as raise_request_validation_error,
-)
+from ..exception.service_exception import ValidError as ValidError
 from ..schemas.element import Paging as Paging
 from ..schemas.query_request import QueryRequest as QueryRequest
 from ..tools.query_builder import QueryBuilder as QueryBuilder

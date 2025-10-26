@@ -1,9 +1,7 @@
 from .. import get_engine_name as get_engine_name
 from ...auth.auth_router import AuthRouter as AuthRouter
 from ...config.app_config import AppConfig as AppConfig
-from ...exception.service_exception import (
-    ServiceErrorException as ServiceErrorException,
-)
+from ...exception.service_exception import AuthError as AuthError
 from ...schemas.response import TokenRefreshModel as TokenRefreshModel
 from ...services.auth_service import AuthService as AuthService
 from ...services.data_service import DataService as DataService

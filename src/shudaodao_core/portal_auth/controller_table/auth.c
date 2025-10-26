@@ -2564,6 +2564,7 @@ static const char __pyx_k_register[] = "/register";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_username[] = "username";
 static const char __pyx_k_AppConfig[] = "AppConfig";
+static const char __pyx_k_AuthError[] = "AuthError";
 static const char __pyx_k_AuthLogin[] = "AuthLogin";
 static const char __pyx_k_auth_user[] = "auth_user";
 static const char __pyx_k_condition[] = "condition";
@@ -2615,7 +2616,6 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_query_columns_first[] = "query_columns_first";
 static const char __pyx_k_tools_tenant_manager[] = "tools.tenant_manager";
 static const char __pyx_k_utils_response_utils[] = "utils.response_utils";
-static const char __pyx_k_ServiceErrorException[] = "ServiceErrorException";
 static const char __pyx_k_get_default_tenant_id[] = "get_default_tenant_id";
 static const char __pyx_k_services_auth_service[] = "services.auth_service";
 static const char __pyx_k_services_data_service[] = "services.data_service";
@@ -2784,21 +2784,21 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_ __pyx_string_tab[0]
 #define __pyx_n_u_AppConfig __pyx_string_tab[1]
 #define __pyx_n_u_AsyncSession __pyx_string_tab[2]
-#define __pyx_n_u_AuthLogin __pyx_string_tab[3]
-#define __pyx_n_u_AuthPassword __pyx_string_tab[4]
-#define __pyx_n_u_AuthRouter __pyx_string_tab[5]
-#define __pyx_n_u_AuthService __pyx_string_tab[6]
-#define __pyx_n_u_AuthUser __pyx_string_tab[7]
-#define __pyx_n_u_AuthUserRegister __pyx_string_tab[8]
-#define __pyx_n_u_AuthUserResponse __pyx_string_tab[9]
-#define __pyx_n_u_Auth_Controller __pyx_string_tab[10]
-#define __pyx_n_u_DataService __pyx_string_tab[11]
-#define __pyx_n_u_Depends __pyx_string_tab[12]
-#define __pyx_n_u_OAuth2PasswordRequestForm __pyx_string_tab[13]
-#define __pyx_kp_u_OAuth2PasswordRequestForm_2 __pyx_string_tab[14]
-#define __pyx_n_u_QueryService __pyx_string_tab[15]
-#define __pyx_n_u_ResponseUtil __pyx_string_tab[16]
-#define __pyx_n_u_ServiceErrorException __pyx_string_tab[17]
+#define __pyx_n_u_AuthError __pyx_string_tab[3]
+#define __pyx_n_u_AuthLogin __pyx_string_tab[4]
+#define __pyx_n_u_AuthPassword __pyx_string_tab[5]
+#define __pyx_n_u_AuthRouter __pyx_string_tab[6]
+#define __pyx_n_u_AuthService __pyx_string_tab[7]
+#define __pyx_n_u_AuthUser __pyx_string_tab[8]
+#define __pyx_n_u_AuthUserRegister __pyx_string_tab[9]
+#define __pyx_n_u_AuthUserResponse __pyx_string_tab[10]
+#define __pyx_n_u_Auth_Controller __pyx_string_tab[11]
+#define __pyx_n_u_DataService __pyx_string_tab[12]
+#define __pyx_n_u_Depends __pyx_string_tab[13]
+#define __pyx_n_u_OAuth2PasswordRequestForm __pyx_string_tab[14]
+#define __pyx_kp_u_OAuth2PasswordRequestForm_2 __pyx_string_tab[15]
+#define __pyx_n_u_QueryService __pyx_string_tab[16]
+#define __pyx_n_u_ResponseUtil __pyx_string_tab[17]
 #define __pyx_n_u_TenantManager __pyx_string_tab[18]
 #define __pyx_n_u_Token __pyx_string_tab[19]
 #define __pyx_n_u_TokenRefreshModel __pyx_string_tab[20]
@@ -3420,7 +3420,7 @@ static PyObject *__pyx_gb_14shudaodao_core_11portal_auth_16controller_table_4aut
  *     )
  *     #
  *     if auth_user:             # <<<<<<<<<<<<<<
- *         raise ServiceErrorException(message="", errors=f"'{register_model.username}'")
+ *         raise AuthError(message="", errors=f"'{register_model.username}'")
  * 
 */
   __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auth_user); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 51, __pyx_L1_error)
@@ -3429,12 +3429,12 @@ static PyObject *__pyx_gb_14shudaodao_core_11portal_auth_16controller_table_4aut
     /* "shudaodao_core/portal_auth/controller_table/auth.py":52
  *     #
  *     if auth_user:
- *         raise ServiceErrorException(message="", errors=f"'{register_model.username}'")             # <<<<<<<<<<<<<<
+ *         raise AuthError(message="", errors=f"'{register_model.username}'")             # <<<<<<<<<<<<<<
  * 
  *     #
 */
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_register_model, __pyx_mstate_global->__pyx_n_u_username); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
@@ -3482,7 +3482,7 @@ static PyObject *__pyx_gb_14shudaodao_core_11portal_auth_16controller_table_4aut
  *     )
  *     #
  *     if auth_user:             # <<<<<<<<<<<<<<
- *         raise ServiceErrorException(message="", errors=f"'{register_model.username}'")
+ *         raise AuthError(message="", errors=f"'{register_model.username}'")
  * 
 */
   }
@@ -7192,7 +7192,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
  * )
  * from ...auth.auth_router import AuthRouter             # <<<<<<<<<<<<<<
  * from ...config.app_config import AppConfig
- * from ...exception.service_exception import ServiceErrorException
+ * from ...exception.service_exception import AuthError
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthRouter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7209,7 +7209,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
  * )
  * from ...auth.auth_router import AuthRouter
  * from ...config.app_config import AppConfig             # <<<<<<<<<<<<<<
- * from ...exception.service_exception import ServiceErrorException
+ * from ...exception.service_exception import AuthError
  * from ...schemas.response import TokenRefreshModel
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
@@ -7226,24 +7226,24 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   /* "shudaodao_core/portal_auth/controller_table/auth.py":21
  * from ...auth.auth_router import AuthRouter
  * from ...config.app_config import AppConfig
- * from ...exception.service_exception import ServiceErrorException             # <<<<<<<<<<<<<<
+ * from ...exception.service_exception import AuthError             # <<<<<<<<<<<<<<
  * from ...schemas.response import TokenRefreshModel
  * from ...services.auth_service import AuthService
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_exception_service_exception, __pyx_t_3, 3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_ServiceErrorException); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ServiceErrorException, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthError, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "shudaodao_core/portal_auth/controller_table/auth.py":22
  * from ...config.app_config import AppConfig
- * from ...exception.service_exception import ServiceErrorException
+ * from ...exception.service_exception import AuthError
  * from ...schemas.response import TokenRefreshModel             # <<<<<<<<<<<<<<
  * from ...services.auth_service import AuthService
  * from ...services.data_service import DataService
@@ -7260,7 +7260,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_core/portal_auth/controller_table/auth.py":23
- * from ...exception.service_exception import ServiceErrorException
+ * from ...exception.service_exception import AuthError
  * from ...schemas.response import TokenRefreshModel
  * from ...services.auth_service import AuthService             # <<<<<<<<<<<<<<
  * from ...services.data_service import DataService
@@ -7983,6 +7983,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ */
   {__pyx_k_AppConfig, sizeof(__pyx_k_AppConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AppConfig */
   {__pyx_k_AsyncSession, sizeof(__pyx_k_AsyncSession), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncSession */
+  {__pyx_k_AuthError, sizeof(__pyx_k_AuthError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthError */
   {__pyx_k_AuthLogin, sizeof(__pyx_k_AuthLogin), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthLogin */
   {__pyx_k_AuthPassword, sizeof(__pyx_k_AuthPassword), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthPassword */
   {__pyx_k_AuthRouter, sizeof(__pyx_k_AuthRouter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthRouter */
@@ -7997,7 +7998,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_OAuth2PasswordRequestForm_2, sizeof(__pyx_k_OAuth2PasswordRequestForm_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_OAuth2PasswordRequestForm_2 */
   {__pyx_k_QueryService, sizeof(__pyx_k_QueryService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryService */
   {__pyx_k_ResponseUtil, sizeof(__pyx_k_ResponseUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ResponseUtil */
-  {__pyx_k_ServiceErrorException, sizeof(__pyx_k_ServiceErrorException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ServiceErrorException */
   {__pyx_k_TenantManager, sizeof(__pyx_k_TenantManager), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager */
   {__pyx_k_Token, sizeof(__pyx_k_Token), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Token */
   {__pyx_k_TokenRefreshModel, sizeof(__pyx_k_TokenRefreshModel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TokenRefreshModel */

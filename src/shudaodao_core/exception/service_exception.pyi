@@ -1,35 +1,31 @@
 from _typeshed import Incomplete
 from typing import Any
 
-def raise_request_validation_error(*, loc_type: str, msg: str): ...
-def raise_permission_exception(*, message: str, errors: str = None): ...
-
 class ShudaodaoException(Exception):
     code: Incomplete
     errors: Incomplete
     message: Incomplete
     def __init__(self, *, code: int, message: str, errors: Any = None) -> None: ...
 
-class ValueException(ShudaodaoException):
+class ValidError(ShudaodaoException):
     def __init__(
-        self, *, field: str, message: str = None, errors: str = None
+        self,
+        *,
+        message: str = None,
+        fields: list[str] | str = None,
+        errors: list[str] | str = None,
     ) -> None: ...
 
-class LoginException(ShudaodaoException):
-    """自定义 登录异常"""
+class AuthError(ShudaodaoException):
     def __init__(self, message: str, errors: Any = None) -> None: ...
 
-class AuthException(ShudaodaoException):
-    """自定义 令牌异常"""
-    def __init__(self, message: str, errors: str = None) -> None: ...
-
-class PermissionException(ShudaodaoException):
+class PermError(ShudaodaoException):
     """自定义 权限异常"""
-    def __init__(self, message: str, errors: str = None) -> None: ...
+    def __init__(self, message: str, errors: Any = None) -> None: ...
 
-class ServiceErrorException(ShudaodaoException):
+class ServiceError(ShudaodaoException):
     """自定义 服务异常"""
-    def __init__(self, *, message: str, errors: str = None) -> None: ...
+    def __init__(self, *, message: str, errors: Any = None) -> None: ...
 
 class DataNotFoundException(ShudaodaoException):
     """自定义项目未找到异常"""

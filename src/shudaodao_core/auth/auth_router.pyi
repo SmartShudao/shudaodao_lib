@@ -1,4 +1,4 @@
-from ..exception.service_exception import ServiceErrorException as ServiceErrorException
+from ..exception.service_exception import ServiceError as ServiceError
 from ..services.auth_service import AuthService as AuthService
 from ..services.session_service import AsyncSessionService as AsyncSessionService
 from .auth_data_rule import AuthDataRule as AuthDataRule
@@ -54,7 +54,7 @@ class AuthRouter(APIRouter):
             AsyncSession: 异步数据库会话对象。
 
         Raises:
-            ServiceErrorException: 若未设置 db_config_name，则抛出服务异常。
+            ServiceError: 若未设置 db_config_name，则抛出服务异常。
         """
     def api_route(
         self,

@@ -2707,6 +2707,7 @@ static const char __pyx_k_has_role[] = "has_role";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_AppConfig[] = "AppConfig";
+static const char __pyx_k_PermError[] = "PermError";
 static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_add_policy[] = "add_policy";
@@ -2741,7 +2742,6 @@ static const char __pyx_k_rebuild_auth_rule[] = "rebuild_auth_rule";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_get_async_enforcer[] = "get_async_enforcer";
-static const char __pyx_k_PermissionException[] = "PermissionException";
 static const char __pyx_k_add_grouping_policy[] = "_add_grouping_policy";
 static const char __pyx_k_default_admin_roles[] = "default_admin_roles";
 static const char __pyx_k_default_admin_users[] = "default_admin_users";
@@ -2749,7 +2749,7 @@ static const char __pyx_k_get_grouping_policy[] = "get_grouping_policy";
 static const char __pyx_k_engine_casbin_engine[] = "engine.casbin_engine";
 static const char __pyx_k_add_grouping_policy_2[] = "add_grouping_policy";
 static const char __pyx_k_admin_user_admin_role[] = "\347\224\250\346\210\267\346\216\210\346\235\203: admin_user  <- admin_role  ";
-static const char __pyx_k_A_Zxq_E_a_4q_Q_r_9HA_q[] = "\200A\360 \000\t\022\220\024\220Z\230x\240q\250\002\250*\260E\270\025\270a\330\010\013\2104\210q\330\014\022\320\022%\240Q\330\020\030\230\001\330\020\027\220r\230\032\2409\250H\260A\340\010\017\210q";
+static const char __pyx_k_A_Zxq_E_a_4q_1_r_9HA_q[] = "\200A\360 \000\t\022\220\024\220Z\230x\240q\250\002\250*\260E\270\025\270a\330\010\013\2104\210q\330\014\022\220)\2301\330\020\030\230\001\330\020\027\220r\230\032\2409\250H\260A\340\010\017\210q";
 static const char __pyx_k_PermissionService___init[] = "PermissionService.__init__";
 static const char __pyx_k_PermissionService_has_role[] = "PermissionService.has_role";
 static const char __pyx_k_exception_service_exception[] = "exception.service_exception";
@@ -2918,8 +2918,8 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_AppConfig __pyx_string_tab[1]
 #define __pyx_kp_u_Casbin_RBAC __pyx_string_tab[2]
-#define __pyx_n_u_PermissionEngine __pyx_string_tab[3]
-#define __pyx_n_u_PermissionException __pyx_string_tab[4]
+#define __pyx_n_u_PermError __pyx_string_tab[3]
+#define __pyx_n_u_PermissionEngine __pyx_string_tab[4]
 #define __pyx_n_u_PermissionService __pyx_string_tab[5]
 #define __pyx_n_u_PermissionService___init __pyx_string_tab[6]
 #define __pyx_n_u_PermissionService__add_grouping __pyx_string_tab[7]
@@ -4669,7 +4669,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14casbin_service_17PermissionService_5has_role, "\346\243\200\346\237\245\347\224\250\346\210\267\346\230\257\345\220\246\346\213\245\346\234\211\346\214\207\345\256\232\350\247\222\350\211\262\357\274\210\345\214\205\346\213\254\351\232\220\345\274\217\347\273\247\346\211\277\347\232\204\350\247\222\350\211\262\357\274\211\343\200\202\n\n        Args:\n            user (str): \347\224\250\346\210\267\346\240\207\350\257\206\343\200\202\n            role (str): \350\247\222\350\211\262\345\220\215\347\247\260\343\200\202\n\n        Returns:\n            bool: \350\213\245\347\224\250\346\210\267\346\213\245\346\234\211\350\257\245\350\247\222\350\211\262\357\274\210\347\233\264\346\216\245\346\210\226\351\227\264\346\216\245\357\274\211\357\274\214\350\277\224\345\233\236 True\343\200\202\n\n        Raises:\n            PermissionException: \350\213\245\347\224\250\346\210\267\344\270\215\345\205\267\346\234\211\350\257\245\350\247\222\350\211\262\357\274\214\346\212\233\345\207\272\346\235\203\351\231\220\345\274\202\345\270\270\343\200\202\n        ");
+PyDoc_STRVAR(__pyx_doc_14casbin_service_17PermissionService_5has_role, "\346\243\200\346\237\245\347\224\250\346\210\267\346\230\257\345\220\246\346\213\245\346\234\211\346\214\207\345\256\232\350\247\222\350\211\262\357\274\210\345\214\205\346\213\254\351\232\220\345\274\217\347\273\247\346\211\277\347\232\204\350\247\222\350\211\262\357\274\211\343\200\202\n\n        Args:\n            user (str): \347\224\250\346\210\267\346\240\207\350\257\206\343\200\202\n            role (str): \350\247\222\350\211\262\345\220\215\347\247\260\343\200\202\n\n        Returns:\n            bool: \350\213\245\347\224\250\346\210\267\346\213\245\346\234\211\350\257\245\350\247\222\350\211\262\357\274\210\347\233\264\346\216\245\346\210\226\351\227\264\346\216\245\357\274\211\357\274\214\350\277\224\345\233\236 True\343\200\202\n\n        Raises:\n            PermError: \350\213\245\347\224\250\346\210\267\344\270\215\345\205\267\346\234\211\350\257\245\350\247\222\350\211\262\357\274\214\346\212\233\345\207\272\346\235\203\351\231\220\345\274\202\345\270\270\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_14casbin_service_17PermissionService_6has_role = {"has_role", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14casbin_service_17PermissionService_6has_role, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14casbin_service_17PermissionService_5has_role};
 static PyObject *__pyx_pw_14casbin_service_17PermissionService_6has_role(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -4838,10 +4838,10 @@ static PyObject *__pyx_gb_14casbin_service_17PermissionService_7generator1(__pyx
   }
 
   /* "casbin_service.py":104
- *             PermissionException:
+ *             PermError:
  *         """
  *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):             # <<<<<<<<<<<<<<
- *             raise PermissionException(
+ *             raise PermError(
  *                 message="",
 */
   __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_role, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
@@ -4901,16 +4901,16 @@ static PyObject *__pyx_gb_14casbin_service_17PermissionService_7generator1(__pyx
     /* "casbin_service.py":105
  *         """
  *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):
- *             raise PermissionException(             # <<<<<<<<<<<<<<
+ *             raise PermError(             # <<<<<<<<<<<<<<
  *                 message="",
  *                 errors=f" {user} - {role} "
 */
     __pyx_t_2 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_PermissionException); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_PermError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
 
     /* "casbin_service.py":107
- *             raise PermissionException(
+ *             raise PermError(
  *                 message="",
  *                 errors=f" {user} - {role} "             # <<<<<<<<<<<<<<
  *             )
@@ -4961,10 +4961,10 @@ static PyObject *__pyx_gb_14casbin_service_17PermissionService_7generator1(__pyx
     __PYX_ERR(0, 105, __pyx_L1_error)
 
     /* "casbin_service.py":104
- *             PermissionException:
+ *             PermError:
  *         """
  *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):             # <<<<<<<<<<<<<<
- *             raise PermissionException(
+ *             raise PermError(
  *                 message="",
 */
   }
@@ -5029,7 +5029,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14casbin_service_17PermissionService_8has_permission, "\345\220\214\346\255\245\346\243\200\346\237\245\347\224\250\346\210\267\346\230\257\345\220\246\345\257\271\346\214\207\345\256\232\345\257\271\350\261\241\346\213\245\346\234\211\346\214\207\345\256\232\346\223\215\344\275\234\346\235\203\351\231\220\343\200\202\n\n        \345\237\272\344\272\216 Casbin enforce \346\234\272\345\210\266\357\274\214\350\207\252\345\212\250\350\247\243\346\236\220\347\224\250\346\210\267\350\247\222\350\211\262\345\217\212\347\273\247\346\211\277\345\205\263\347\263\273\343\200\202\n\n        Args:\n            user (str): \347\224\250\346\210\267\346\240\207\350\257\206\343\200\202\n            obj (str): \350\265\204\346\272\220\345\257\271\350\261\241\357\274\210\345\246\202 API \350\267\257\345\276\204\343\200\201\346\225\260\346\215\256\350\241\250\345\220\215\347\255\211\357\274\211\343\200\202\n            act (str): \346\223\215\344\275\234\347\261\273\345\236\213\357\274\210\345\246\202 \"read\", \"write\", \"delete\" \347\255\211\357\274\211\343\200\202\n\n        Returns:\n            bool: \350\213\245\346\234\211\346\235\203\351\231\220\357\274\214\350\277\224\345\233\236 True\343\200\202\n\n        Raises:\n            PermissionException: \350\213\245\346\227\240\346\235\203\351\231\220\357\274\214\346\212\233\345\207\272\346\235\203\351\231\220\345\274\202\345\270\270\343\200\202\n        ");
+PyDoc_STRVAR(__pyx_doc_14casbin_service_17PermissionService_8has_permission, "\345\220\214\346\255\245\346\243\200\346\237\245\347\224\250\346\210\267\346\230\257\345\220\246\345\257\271\346\214\207\345\256\232\345\257\271\350\261\241\346\213\245\346\234\211\346\214\207\345\256\232\346\223\215\344\275\234\346\235\203\351\231\220\343\200\202\n\n        \345\237\272\344\272\216 Casbin enforce \346\234\272\345\210\266\357\274\214\350\207\252\345\212\250\350\247\243\346\236\220\347\224\250\346\210\267\350\247\222\350\211\262\345\217\212\347\273\247\346\211\277\345\205\263\347\263\273\343\200\202\n\n        Args:\n            user (str): \347\224\250\346\210\267\346\240\207\350\257\206\343\200\202\n            obj (str): \350\265\204\346\272\220\345\257\271\350\261\241\357\274\210\345\246\202 API \350\267\257\345\276\204\343\200\201\346\225\260\346\215\256\350\241\250\345\220\215\347\255\211\357\274\211\343\200\202\n            act (str): \346\223\215\344\275\234\347\261\273\345\236\213\357\274\210\345\246\202 \"read\", \"write\", \"delete\" \347\255\211\357\274\211\343\200\202\n\n        Returns:\n            bool: \350\213\245\346\234\211\346\235\203\351\231\220\357\274\214\350\277\224\345\233\236 True\343\200\202\n\n        Raises:\n            PermError: \350\213\245\346\227\240\346\235\203\351\231\220\357\274\214\346\212\233\345\207\272\346\235\203\351\231\220\345\274\202\345\270\270\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_14casbin_service_17PermissionService_9has_permission = {"has_permission", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14casbin_service_17PermissionService_9has_permission, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14casbin_service_17PermissionService_8has_permission};
 static PyObject *__pyx_pw_14casbin_service_17PermissionService_9has_permission(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -5152,11 +5152,11 @@ static PyObject *__pyx_pf_14casbin_service_17PermissionService_8has_permission(C
   __Pyx_RefNannySetupContext("has_permission", 0);
 
   /* "casbin_service.py":127
- *             PermissionException:
+ *             PermError:
  *         """
  *         result = self._enforcer.enforce(f"user::{user}", obj, act)             # <<<<<<<<<<<<<<
  *         if not result:
- *             raise PermissionException(
+ *             raise PermError(
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 127, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -5184,7 +5184,7 @@ static PyObject *__pyx_pf_14casbin_service_17PermissionService_8has_permission(C
  *         """
  *         result = self._enforcer.enforce(f"user::{user}", obj, act)
  *         if not result:             # <<<<<<<<<<<<<<
- *             raise PermissionException(
+ *             raise PermError(
  *                 message="",
 */
   __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_result); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 128, __pyx_L1_error)
@@ -5194,16 +5194,16 @@ static PyObject *__pyx_pf_14casbin_service_17PermissionService_8has_permission(C
     /* "casbin_service.py":129
  *         result = self._enforcer.enforce(f"user::{user}", obj, act)
  *         if not result:
- *             raise PermissionException(             # <<<<<<<<<<<<<<
+ *             raise PermError(             # <<<<<<<<<<<<<<
  *                 message="",
  *                 errors=f" -> {user} - {obj} - {act}"
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_PermissionException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_PermError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
 
     /* "casbin_service.py":131
- *             raise PermissionException(
+ *             raise PermError(
  *                 message="",
  *                 errors=f" -> {user} - {obj} - {act}"             # <<<<<<<<<<<<<<
  *             )
@@ -5261,7 +5261,7 @@ static PyObject *__pyx_pf_14casbin_service_17PermissionService_8has_permission(C
  *         """
  *         result = self._enforcer.enforce(f"user::{user}", obj, act)
  *         if not result:             # <<<<<<<<<<<<<<
- *             raise PermissionException(
+ *             raise PermError(
  *                 message="",
 */
   }
@@ -8234,7 +8234,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_service", 0);
  * 
  * from ..config.app_config import AppConfig             # <<<<<<<<<<<<<<
  * from ..engine.casbin_engine import PermissionEngine
- * from ..exception.service_exception import PermissionException
+ * from ..exception.service_exception import PermError
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -8251,7 +8251,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_service", 0);
  * 
  * from ..config.app_config import AppConfig
  * from ..engine.casbin_engine import PermissionEngine             # <<<<<<<<<<<<<<
- * from ..exception.service_exception import PermissionException
+ * from ..exception.service_exception import PermError
  * from ..logger.logging_ import logging
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_PermissionEngine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
@@ -8268,24 +8268,24 @@ __Pyx_RefNannySetupContext("PyInit_casbin_service", 0);
   /* "casbin_service.py":11
  * from ..config.app_config import AppConfig
  * from ..engine.casbin_engine import PermissionEngine
- * from ..exception.service_exception import PermissionException             # <<<<<<<<<<<<<<
+ * from ..exception.service_exception import PermError             # <<<<<<<<<<<<<<
  * from ..logger.logging_ import logging
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_PermissionException); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_PermError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_exception_service_exception, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_PermissionException); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_PermError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PermissionException, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PermError, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "casbin_service.py":12
  * from ..engine.casbin_engine import PermissionEngine
- * from ..exception.service_exception import PermissionException
+ * from ..exception.service_exception import PermError
  * from ..logger.logging_ import logging             # <<<<<<<<<<<<<<
  * 
  * 
@@ -8504,8 +8504,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_AppConfig, sizeof(__pyx_k_AppConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AppConfig */
   {__pyx_k_Casbin_RBAC, sizeof(__pyx_k_Casbin_RBAC), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Casbin_RBAC */
+  {__pyx_k_PermError, sizeof(__pyx_k_PermError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermError */
   {__pyx_k_PermissionEngine, sizeof(__pyx_k_PermissionEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine */
-  {__pyx_k_PermissionException, sizeof(__pyx_k_PermissionException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionException */
   {__pyx_k_PermissionService, sizeof(__pyx_k_PermissionService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionService */
   {__pyx_k_PermissionService___init, sizeof(__pyx_k_PermissionService___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionService___init */
   {__pyx_k_PermissionService__add_grouping, sizeof(__pyx_k_PermissionService__add_grouping), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionService__add_grouping */
@@ -8704,9 +8704,9 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_service_py, __pyx_mstate->__pyx_n_u_init, __pyx_k_A_J_a_M_W_7q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 111, 63};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 111, 62};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_act, __pyx_mstate->__pyx_n_u_result};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_service_py, __pyx_mstate->__pyx_n_u_has_permission, __pyx_k_A_Zxq_E_a_4q_Q_r_9HA_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_service_py, __pyx_mstate->__pyx_n_u_has_permission, __pyx_k_A_Zxq_E_a_4q_1_r_9HA_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;

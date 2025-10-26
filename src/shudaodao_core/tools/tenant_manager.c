@@ -1883,6 +1883,9 @@ static PyObject *__Pyx_PyObject_FastCallMethod(PyObject *name, PyObject *const *
 /* GetAttr.proto */
 static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *, PyObject *);
 
+/* RaiseException.proto */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
+
 /* GetAttr3.proto */
 static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *, PyObject *, PyObject *);
 
@@ -2264,12 +2267,12 @@ int __pyx_module_is_main_tenant_manager = 0;
 static const char __pyx_k_[] = "\346\227\240\346\235\203\346\223\215\344\275\234\345\205\266\344\273\226\347\247\237\346\210\267\346\225\260\346\215\256";
 static const char __pyx_k_c[] = "c";
 static const char __pyx_k__2[] = "\345\275\223\345\211\215\347\224\250\346\210\267\347\232\204\347\247\237\346\210\267\344\270\216\346\225\260\346\215\256\347\232\204\347\247\237\346\210\267\344\277\241\346\201\257\344\270\215\344\270\200\350\207\264";
-static const char __pyx_k__3[] = ".";
-static const char __pyx_k__4[] = "?";
+static const char __pyx_k__3[] = "\345\244\232\347\247\237\346\210\267\346\250\241\345\274\217,\344\270\242\345\244\261\347\247\237\346\210\267\346\240\207\350\257\206";
+static const char __pyx_k__4[] = ".";
+static const char __pyx_k__5[] = "?";
 static const char __pyx_k_and[] = "and_";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
-static const char __pyx_k_msg[] = "msg";
 static const char __pyx_k_now[] = "now";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_set[] = "set";
@@ -2283,6 +2286,7 @@ static const char __pyx_k_type[] = "type";
 static const char __pyx_k_field[] = "field";
 static const char __pyx_k_table[] = "__table__";
 static const char __pyx_k_errors[] = "errors";
+static const char __pyx_k_fields[] = "fields";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_A_Qha_1[] = "\200A\360\006\000\t\036\230Q\230h\240a\330\014\033\2301";
 static const char __pyx_k_columns[] = "columns";
@@ -2293,11 +2297,11 @@ static const char __pyx_k_replace[] = "replace";
 static const char __pyx_k_UserInfo[] = "UserInfo";
 static const char __pyx_k_datetime[] = "datetime";
 static const char __pyx_k_db_model[] = "db_model";
-static const char __pyx_k_loc_type[] = "loc_type";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_sqlmodel[] = "sqlmodel";
 static const char __pyx_k_username[] = "username";
+static const char __pyx_k_PermError[] = "PermError";
 static const char __pyx_k_create_at[] = "create_at";
 static const char __pyx_k_create_by[] = "create_by";
 static const char __pyx_k_metaclass[] = "__metaclass__";
@@ -2305,6 +2309,7 @@ static const char __pyx_k_tenant_id[] = "tenant_id";
 static const char __pyx_k_update_at[] = "update_at";
 static const char __pyx_k_update_by[] = "update_by";
 static const char __pyx_k_user_info[] = "user_info";
+static const char __pyx_k_ValidError[] = "ValidError";
 static const char __pyx_k_conditions[] = "conditions";
 static const char __pyx_k_value_type[] = "value_type";
 static const char __pyx_k_A_Qha_1_Q_a[] = "\200A\360\006\000\t\036\230Q\230h\240a\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
@@ -2315,7 +2320,6 @@ static const char __pyx_k_update_date[] = "update_date";
 static const char __pyx_k_check_enable[] = "_check_enable";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_A45_Qha_1_Q_a[] = "\200A\33045\340\010\035\230Q\230h\240a\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
-static const char __pyx_k_A_4y_1_4y_A_q[] = "\200A\340\010\024\320\024)\250\021\340\010\013\2104\210y\230\001\330\014\023\2201\330\010\013\2104\210y\230\001\330\014*\250!\330\020\031\230\021\330\020\024\220A\340\010\017\210q";
 static const char __pyx_k_TenantManager[] = "TenantManager";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_create_person[] = "create_person";
@@ -2330,6 +2334,7 @@ static const char __pyx_k_check_permission[] = "check_permission";
 static const char __pyx_k_create_by_fields[] = "create_by_fields";
 static const char __pyx_k_tenant_condition[] = "tenant_condition";
 static const char __pyx_k_update_by_fields[] = "update_by_fields";
+static const char __pyx_k_A_4y_1_4y_A_q_q_q[] = "\200A\340\010\024\320\024)\250\021\340\010\013\2104\210y\230\001\330\014\023\2201\330\010\013\2104\210y\230\001\330\014\022\220*\230A\330\020\030\230\001\330\020\027\220q\330\020\027\220q\340\010\017\210q";
 static const char __pyx_k_TenantManager_set[] = "TenantManager.set";
 static const char __pyx_k_tenant_manager_py[] = "tenant_manager.py";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
@@ -2340,17 +2345,15 @@ static const char __pyx_k_TenantManager_disable[] = "TenantManager.disable";
 static const char __pyx_k_get_current_user_info[] = "get_current_user_info";
 static const char __pyx_k_set_current_user_info[] = "set_current_user_info";
 static const char __pyx_k_apply_tenant_condition[] = "apply_tenant_condition";
-static const char __pyx_k_A_C_Q_7_Q_gQj_Q_s_1_A_1[] = "\200A\340\010\024\220C\220~\240Q\340\010\013\2107\220!\220:\230Q\330\014\036\230g\240Q\240j\260\r\270Q\330\014\017\320\017\037\230s\240)\2501\330\020*\250!\330\024\034\230A\330\024\033\2301";
 static const char __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_1_1[] = "\200A\340\010\013\2104\210w\220a\220z\240\021\330\014\023\2201\340\010\024\220C\220~\240Q\330\010\013\2109\320\024$\240D\250\t\260\021\330\014\037\230x\240{\260#\260Y\270a\330\014\023\2201\340\014\023\2201";
-static const char __pyx_k_raise_permission_exception[] = "raise_permission_exception";
+static const char __pyx_k_A_C_Q_7_Q_gQj_Q_s_1_iq_A_1[] = "\200A\340\010\024\220C\220~\240Q\340\010\013\2107\220!\220:\230Q\330\014\036\230g\240Q\240j\260\r\270Q\330\014\017\320\017\037\230s\240)\2501\330\020\026\220i\230q\330\024\034\230A\330\024\033\2301";
 static const char __pyx_k_TenantManager__check_enable[] = "TenantManager._check_enable";
 static const char __pyx_k_exception_service_exception[] = "exception.service_exception";
 static const char __pyx_k_TenantManager_set_from_token[] = "TenantManager.set_from_token";
 static const char __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_t1_a_q_1[] = "\200A\340\010\013\2104\210w\220a\220z\240\021\330\014\023\2201\340\010\024\220C\220~\240Q\330\010\013\2109\320\024$\240D\250\t\260\021\330\014\037\230x\240{\260#\260Y\270a\330\014\017\210{\230'\240\021\330\020\027\220t\2301\320\034.\250a\340\020\027\220q\340\014\023\2201";
 static const char __pyx_k_TenantManager_check_permission[] = "TenantManager.check_permission";
-static const char __pyx_k_raise_request_validation_error[] = "raise_request_validation_error";
 static const char __pyx_k_set_field_with_user_and_tenant[] = "set_field_with_user_and_tenant";
-static const char __pyx_k_A_C_Q_7_Q_q_t1_q_y_9Kt9Ks_a_q_A[] = "\200A\340\010\024\220C\220~\240Q\340\010\013\2107\220!\220:\230Q\330\014\030\230\007\230q\240\n\250!\330\014\017\210t\2201\330\020\027\220q\230\n\240-\250y\270\001\360\010\000\021\024\2209\230K\240t\2509\260K\270s\300!\330\024.\250a\330\030 \240\001\330\030\037\230q\360\010\000\t\023\220(\230*\240A\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\017\210w\220a\220z\240\027\250\001\330\020\021\330\014\023\2201\220J\230g\240Y\250a\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\017\210w\220a\220z\240\027\250\001\330\020\021\330\014\017\320\017%\240Q\240i\250z\270\021\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\023\2201\220J\230g\240Y\250a\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\017\320\017%\240Q\240i\250z\270\021";
+static const char __pyx_k_A_C_Q_7_Q_q_t1_q_y_9Kt9Ks_1_q_A[] = "\200A\340\010\024\220C\220~\240Q\340\010\013\2107\220!\220:\230Q\330\014\030\230\007\230q\240\n\250!\330\014\017\210t\2201\330\020\027\220q\230\n\240-\250y\270\001\360\010\000\021\024\2209\230K\240t\2509\260K\270s\300!\330\024\032\230)\2401\330\030 \240\001\330\030\037\230q\360\010\000\t\023\220(\230*\240A\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\017\210w\220a\220z\240\027\250\001\330\020\021\330\014\023\2201\220J\230g\240Y\250a\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\017\210w\220a\220z\240\027\250\001\330\020\021\330\014\017\320\017%\240Q\240i\250z\270\021\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\023\2201\220J\230g\240Y\250a\360\006\000\t\034\2301\230M\250\021\330\010\014\210I\220Q\330\014\017\210t\2207\230!\230:\240Q\330\020\021\330\014\017\320\017%\240Q\240i\250z\270\021";
 static const char __pyx_k_A_WAV5_c_1JgXT_81L_81_1JgXT_5_81[] = "\200A\340\010\025\220W\230A\230V\2405\250\001\330\010\013\210;\220c\230\021\330\014\023\2201\220J\230g\240X\250T\260\022\2608\2701\270L\310\001\330\r\030\230\003\2308\2401\330\014\023\2201\220J\230g\240X\250T\260\022\2605\270\001\330\r\030\230\003\2308\2401\330\014\023\2201\220J\230g\240X\250T\260\022\2605\270\002\270(\300!\300<\310q";
 static const char __pyx_k_TenantManager__setattr_column_va[] = "TenantManager._setattr_column_value";
 static const char __pyx_k_TenantManager_apply_tenant_condi[] = "TenantManager.apply_tenant_condition";
@@ -2446,65 +2449,65 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #endif
 /* #### Code section: constant_name_defines ### */
 #define __pyx_n_u_ __pyx_string_tab[0]
-#define __pyx_n_u_TenantManager __pyx_string_tab[1]
-#define __pyx_n_u_TenantManager__check_enable __pyx_string_tab[2]
-#define __pyx_n_u_TenantManager__setattr_column_va __pyx_string_tab[3]
-#define __pyx_n_u_TenantManager_apply_tenant_condi __pyx_string_tab[4]
-#define __pyx_n_u_TenantManager_check_permission __pyx_string_tab[5]
-#define __pyx_n_u_TenantManager_disable __pyx_string_tab[6]
-#define __pyx_n_u_TenantManager_get_tenant_conditi __pyx_string_tab[7]
-#define __pyx_n_u_TenantManager_set __pyx_string_tab[8]
-#define __pyx_n_u_TenantManager_set_field_with_use __pyx_string_tab[9]
-#define __pyx_n_u_TenantManager_set_from_token __pyx_string_tab[10]
-#define __pyx_n_u_UserInfo __pyx_string_tab[11]
-#define __pyx_n_u__2 __pyx_string_tab[12]
-#define __pyx_kp_u__3 __pyx_string_tab[13]
-#define __pyx_kp_u__4 __pyx_string_tab[14]
-#define __pyx_n_u_and __pyx_string_tab[15]
-#define __pyx_n_u_app_base_context __pyx_string_tab[16]
-#define __pyx_n_u_apply_tenant_condition __pyx_string_tab[17]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[18]
-#define __pyx_n_u_c __pyx_string_tab[19]
-#define __pyx_n_u_check_enable __pyx_string_tab[20]
-#define __pyx_n_u_check_permission __pyx_string_tab[21]
-#define __pyx_n_u_class_getitem __pyx_string_tab[22]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[23]
-#define __pyx_n_u_cls __pyx_string_tab[24]
-#define __pyx_n_u_columns __pyx_string_tab[25]
-#define __pyx_n_u_conditions __pyx_string_tab[26]
-#define __pyx_n_u_create_at __pyx_string_tab[27]
-#define __pyx_n_u_create_by __pyx_string_tab[28]
-#define __pyx_n_u_create_by_fields __pyx_string_tab[29]
-#define __pyx_n_u_create_date __pyx_string_tab[30]
-#define __pyx_n_u_create_person __pyx_string_tab[31]
-#define __pyx_n_u_date __pyx_string_tab[32]
-#define __pyx_n_u_datetime __pyx_string_tab[33]
-#define __pyx_n_u_db_model __pyx_string_tab[34]
-#define __pyx_n_u_disable __pyx_string_tab[35]
-#define __pyx_n_u_doc __pyx_string_tab[36]
-#define __pyx_n_u_errors __pyx_string_tab[37]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[38]
-#define __pyx_n_u_field __pyx_string_tab[39]
-#define __pyx_n_u_func __pyx_string_tab[40]
-#define __pyx_n_u_get_current_user_info __pyx_string_tab[41]
-#define __pyx_n_u_get_tenant_condition __pyx_string_tab[42]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[43]
-#define __pyx_n_u_loc_type __pyx_string_tab[44]
-#define __pyx_n_u_main __pyx_string_tab[45]
-#define __pyx_n_u_message __pyx_string_tab[46]
-#define __pyx_n_u_metaclass __pyx_string_tab[47]
-#define __pyx_n_u_microsecond __pyx_string_tab[48]
-#define __pyx_n_u_model_tenant_id __pyx_string_tab[49]
-#define __pyx_n_u_module __pyx_string_tab[50]
-#define __pyx_n_u_msg __pyx_string_tab[51]
-#define __pyx_n_u_name __pyx_string_tab[52]
-#define __pyx_n_u_now __pyx_string_tab[53]
-#define __pyx_n_u_pop __pyx_string_tab[54]
-#define __pyx_n_u_prepare __pyx_string_tab[55]
-#define __pyx_n_u_python_type __pyx_string_tab[56]
-#define __pyx_n_u_qualname __pyx_string_tab[57]
-#define __pyx_n_u_raise_permission_exception __pyx_string_tab[58]
-#define __pyx_n_u_raise_request_validation_error __pyx_string_tab[59]
+#define __pyx_n_u_PermError __pyx_string_tab[1]
+#define __pyx_n_u_TenantManager __pyx_string_tab[2]
+#define __pyx_n_u_TenantManager__check_enable __pyx_string_tab[3]
+#define __pyx_n_u_TenantManager__setattr_column_va __pyx_string_tab[4]
+#define __pyx_n_u_TenantManager_apply_tenant_condi __pyx_string_tab[5]
+#define __pyx_n_u_TenantManager_check_permission __pyx_string_tab[6]
+#define __pyx_n_u_TenantManager_disable __pyx_string_tab[7]
+#define __pyx_n_u_TenantManager_get_tenant_conditi __pyx_string_tab[8]
+#define __pyx_n_u_TenantManager_set __pyx_string_tab[9]
+#define __pyx_n_u_TenantManager_set_field_with_use __pyx_string_tab[10]
+#define __pyx_n_u_TenantManager_set_from_token __pyx_string_tab[11]
+#define __pyx_n_u_UserInfo __pyx_string_tab[12]
+#define __pyx_n_u_ValidError __pyx_string_tab[13]
+#define __pyx_n_u__2 __pyx_string_tab[14]
+#define __pyx_kp_u__3 __pyx_string_tab[15]
+#define __pyx_kp_u__4 __pyx_string_tab[16]
+#define __pyx_kp_u__5 __pyx_string_tab[17]
+#define __pyx_n_u_and __pyx_string_tab[18]
+#define __pyx_n_u_app_base_context __pyx_string_tab[19]
+#define __pyx_n_u_apply_tenant_condition __pyx_string_tab[20]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[21]
+#define __pyx_n_u_c __pyx_string_tab[22]
+#define __pyx_n_u_check_enable __pyx_string_tab[23]
+#define __pyx_n_u_check_permission __pyx_string_tab[24]
+#define __pyx_n_u_class_getitem __pyx_string_tab[25]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[26]
+#define __pyx_n_u_cls __pyx_string_tab[27]
+#define __pyx_n_u_columns __pyx_string_tab[28]
+#define __pyx_n_u_conditions __pyx_string_tab[29]
+#define __pyx_n_u_create_at __pyx_string_tab[30]
+#define __pyx_n_u_create_by __pyx_string_tab[31]
+#define __pyx_n_u_create_by_fields __pyx_string_tab[32]
+#define __pyx_n_u_create_date __pyx_string_tab[33]
+#define __pyx_n_u_create_person __pyx_string_tab[34]
+#define __pyx_n_u_date __pyx_string_tab[35]
+#define __pyx_n_u_datetime __pyx_string_tab[36]
+#define __pyx_n_u_db_model __pyx_string_tab[37]
+#define __pyx_n_u_disable __pyx_string_tab[38]
+#define __pyx_n_u_doc __pyx_string_tab[39]
+#define __pyx_n_u_errors __pyx_string_tab[40]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[41]
+#define __pyx_n_u_field __pyx_string_tab[42]
+#define __pyx_n_u_fields __pyx_string_tab[43]
+#define __pyx_n_u_func __pyx_string_tab[44]
+#define __pyx_n_u_get_current_user_info __pyx_string_tab[45]
+#define __pyx_n_u_get_tenant_condition __pyx_string_tab[46]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[47]
+#define __pyx_n_u_main __pyx_string_tab[48]
+#define __pyx_n_u_message __pyx_string_tab[49]
+#define __pyx_n_u_metaclass __pyx_string_tab[50]
+#define __pyx_n_u_microsecond __pyx_string_tab[51]
+#define __pyx_n_u_model_tenant_id __pyx_string_tab[52]
+#define __pyx_n_u_module __pyx_string_tab[53]
+#define __pyx_n_u_name __pyx_string_tab[54]
+#define __pyx_n_u_now __pyx_string_tab[55]
+#define __pyx_n_u_pop __pyx_string_tab[56]
+#define __pyx_n_u_prepare __pyx_string_tab[57]
+#define __pyx_n_u_python_type __pyx_string_tab[58]
+#define __pyx_n_u_qualname __pyx_string_tab[59]
 #define __pyx_n_u_replace __pyx_string_tab[60]
 #define __pyx_n_u_set __pyx_string_tab[61]
 #define __pyx_n_u_set_current_user_info __pyx_string_tab[62]
@@ -4016,7 +4019,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
  *             else:
  *                 #  -   get
  *                 if user_info.tenant_id and user_info.tenant_id != tenant_id:             # <<<<<<<<<<<<<<
- *                     raise_permission_exception(
+ *                     raise PermError(
  *                         message="",
 */
     /*else*/ {
@@ -4037,17 +4040,17 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_5 = __pyx_t_4;
       __pyx_L6_bool_binop_done:;
-      if (__pyx_t_5) {
+      if (unlikely(__pyx_t_5)) {
 
         /* "tenant_manager.py":86
  *                 #  -   get
  *                 if user_info.tenant_id and user_info.tenant_id != tenant_id:
- *                     raise_permission_exception(             # <<<<<<<<<<<<<<
+ *                     raise PermError(             # <<<<<<<<<<<<<<
  *                         message="",
  *                         errors=""
 */
         __pyx_t_1 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_raise_permission_exception); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 86, __pyx_L1_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_PermError); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 86, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_3 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -4074,13 +4077,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
           if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
+        __Pyx_Raise(__pyx_t_2, 0, 0, 0);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __PYX_ERR(0, 86, __pyx_L1_error)
 
         /* "tenant_manager.py":85
  *             else:
  *                 #  -   get
  *                 if user_info.tenant_id and user_info.tenant_id != tenant_id:             # <<<<<<<<<<<<<<
- *                     raise_permission_exception(
+ *                     raise PermError(
  *                         message="",
 */
       }
@@ -5170,7 +5175,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
  *         if hasattr(db_model, "tenant_id"):
  *             model_tenant_id = getattr(db_model, "tenant_id", None)             # <<<<<<<<<<<<<<
  *             if model_tenant_id != user_info.tenant_id:
- *                 raise_permission_exception(
+ *                 raise PermError(
 */
     __pyx_t_1 = __Pyx_GetAttr3(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_tenant_id, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -5181,7 +5186,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
  *         if hasattr(db_model, "tenant_id"):
  *             model_tenant_id = getattr(db_model, "tenant_id", None)
  *             if model_tenant_id != user_info.tenant_id:             # <<<<<<<<<<<<<<
- *                 raise_permission_exception(
+ *                 raise PermError(
  *                     message="",
 */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_user_info, __pyx_mstate_global->__pyx_n_u_tenant_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
@@ -5190,17 +5195,17 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 142, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (__pyx_t_4) {
+    if (unlikely(__pyx_t_4)) {
 
       /* "tenant_manager.py":143
  *             model_tenant_id = getattr(db_model, "tenant_id", None)
  *             if model_tenant_id != user_info.tenant_id:
- *                 raise_permission_exception(             # <<<<<<<<<<<<<<
+ *                 raise PermError(             # <<<<<<<<<<<<<<
  *                     message="",
  *                     errors=""
 */
       __pyx_t_1 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_raise_permission_exception); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_PermError); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_3 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -5227,13 +5232,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
         if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 143, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
+      __Pyx_Raise(__pyx_t_2, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __PYX_ERR(0, 143, __pyx_L1_error)
 
       /* "tenant_manager.py":142
  *         if hasattr(db_model, "tenant_id"):
  *             model_tenant_id = getattr(db_model, "tenant_id", None)
  *             if model_tenant_id != user_info.tenant_id:             # <<<<<<<<<<<<<<
- *                 raise_permission_exception(
+ *                 raise PermError(
  *                     message="",
 */
     }
@@ -5434,7 +5441,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
  *         if not user_info.tenant_enabled:
  *             return user_info             # <<<<<<<<<<<<<<
  *         if not user_info.tenant_id:
- *             raise_request_validation_error(
+ *             raise ValidError(
 */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_INCREF(__pyx_v_user_info);
@@ -5454,25 +5461,25 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
  *         if not user_info.tenant_enabled:
  *             return user_info
  *         if not user_info.tenant_id:             # <<<<<<<<<<<<<<
- *             raise_request_validation_error(
- *                 loc_type="tenant_enabled",
+ *             raise ValidError(
+ *                 message=",",
 */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_user_info, __pyx_mstate_global->__pyx_n_u_tenant_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = (!__pyx_t_6);
-  if (__pyx_t_5) {
+  if (unlikely(__pyx_t_5)) {
 
     /* "tenant_manager.py":155
  *             return user_info
  *         if not user_info.tenant_id:
- *             raise_request_validation_error(             # <<<<<<<<<<<<<<
- *                 loc_type="tenant_enabled",
- *                 msg="tenant_id = null"
+ *             raise ValidError(             # <<<<<<<<<<<<<<
+ *                 message=",",
+ *                 fields="tenant_enabled",
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_raise_request_validation_error); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_ValidError); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_4 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -5487,11 +5494,12 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
     }
     #endif
     {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, NULL};
-      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 155, __pyx_L1_error)
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_3, NULL};
+      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 155, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_loc_type, __pyx_mstate_global->__pyx_n_u_tenant_enabled, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_msg, __pyx_mstate_global->__pyx_kp_u_tenant_id_null, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_kp_u__3, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_fields, __pyx_mstate_global->__pyx_n_u_tenant_enabled, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_errors, __pyx_mstate_global->__pyx_kp_u_tenant_id_null, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
       __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_2, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -5499,19 +5507,21 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
       if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
+    __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __PYX_ERR(0, 155, __pyx_L1_error)
 
     /* "tenant_manager.py":154
  *         if not user_info.tenant_enabled:
  *             return user_info
  *         if not user_info.tenant_id:             # <<<<<<<<<<<<<<
- *             raise_request_validation_error(
- *                 loc_type="tenant_enabled",
+ *             raise ValidError(
+ *                 message=",",
 */
   }
 
-  /* "tenant_manager.py":159
- *                 msg="tenant_id = null"
+  /* "tenant_manager.py":160
+ *                 errors="tenant_id = null"
  *             )
  *         return user_info             # <<<<<<<<<<<<<<
 */
@@ -5949,7 +5959,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
  * from sqlmodel import and_
  * 
  * from ..app.base_context import get_current_user_info, set_current_user_info, UserInfo             # <<<<<<<<<<<<<<
- * from ..exception.service_exception import raise_request_validation_error, raise_permission_exception
+ * from ..exception.service_exception import PermError, ValidError
  * 
 */
   __pyx_t_2 = __Pyx_PyList_Pack(3, __pyx_mstate_global->__pyx_n_u_get_current_user_info, __pyx_mstate_global->__pyx_n_u_set_current_user_info, __pyx_mstate_global->__pyx_n_u_UserInfo); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
@@ -5974,22 +5984,22 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   /* "tenant_manager.py":15
  * 
  * from ..app.base_context import get_current_user_info, set_current_user_info, UserInfo
- * from ..exception.service_exception import raise_request_validation_error, raise_permission_exception             # <<<<<<<<<<<<<<
+ * from ..exception.service_exception import PermError, ValidError             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_raise_request_validation_error, __pyx_mstate_global->__pyx_n_u_raise_permission_exception); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_PermError, __pyx_mstate_global->__pyx_n_u_ValidError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_exception_service_exception, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_raise_request_validation_error); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_PermError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_raise_request_validation_error, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PermError, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_raise_permission_exception); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_ValidError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_raise_permission_exception, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ValidError, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
@@ -6243,6 +6253,7 @@ typedef struct {
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ */
+  {__pyx_k_PermError, sizeof(__pyx_k_PermError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermError */
   {__pyx_k_TenantManager, sizeof(__pyx_k_TenantManager), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager */
   {__pyx_k_TenantManager__check_enable, sizeof(__pyx_k_TenantManager__check_enable), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager__check_enable */
   {__pyx_k_TenantManager__setattr_column_va, sizeof(__pyx_k_TenantManager__setattr_column_va), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager__setattr_column_va */
@@ -6254,9 +6265,11 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_TenantManager_set_field_with_use, sizeof(__pyx_k_TenantManager_set_field_with_use), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager_set_field_with_use */
   {__pyx_k_TenantManager_set_from_token, sizeof(__pyx_k_TenantManager_set_from_token), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager_set_from_token */
   {__pyx_k_UserInfo, sizeof(__pyx_k_UserInfo), 0, 1, 1}, /* PyObject cname: __pyx_n_u_UserInfo */
+  {__pyx_k_ValidError, sizeof(__pyx_k_ValidError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ValidError */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
+  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k_and, sizeof(__pyx_k_and), 0, 1, 1}, /* PyObject cname: __pyx_n_u_and */
   {__pyx_k_app_base_context, sizeof(__pyx_k_app_base_context), 0, 1, 1}, /* PyObject cname: __pyx_n_u_app_base_context */
   {__pyx_k_apply_tenant_condition, sizeof(__pyx_k_apply_tenant_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_apply_tenant_condition */
@@ -6282,26 +6295,23 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_errors, sizeof(__pyx_k_errors), 0, 1, 1}, /* PyObject cname: __pyx_n_u_errors */
   {__pyx_k_exception_service_exception, sizeof(__pyx_k_exception_service_exception), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exception_service_exception */
   {__pyx_k_field, sizeof(__pyx_k_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field */
+  {__pyx_k_fields, sizeof(__pyx_k_fields), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fields */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_get_current_user_info, sizeof(__pyx_k_get_current_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_current_user_info */
   {__pyx_k_get_tenant_condition, sizeof(__pyx_k_get_tenant_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_tenant_condition */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
-  {__pyx_k_loc_type, sizeof(__pyx_k_loc_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_loc_type */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_message, sizeof(__pyx_k_message), 0, 1, 1}, /* PyObject cname: __pyx_n_u_message */
   {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
   {__pyx_k_microsecond, sizeof(__pyx_k_microsecond), 0, 1, 1}, /* PyObject cname: __pyx_n_u_microsecond */
   {__pyx_k_model_tenant_id, sizeof(__pyx_k_model_tenant_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_tenant_id */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
-  {__pyx_k_msg, sizeof(__pyx_k_msg), 0, 1, 1}, /* PyObject cname: __pyx_n_u_msg */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_now, sizeof(__pyx_k_now), 0, 1, 1}, /* PyObject cname: __pyx_n_u_now */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_python_type, sizeof(__pyx_k_python_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_python_type */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
-  {__pyx_k_raise_permission_exception, sizeof(__pyx_k_raise_permission_exception), 0, 1, 1}, /* PyObject cname: __pyx_n_u_raise_permission_exception */
-  {__pyx_k_raise_request_validation_error, sizeof(__pyx_k_raise_request_validation_error), 0, 1, 1}, /* PyObject cname: __pyx_n_u_raise_request_validation_error */
   {__pyx_k_replace, sizeof(__pyx_k_replace), 0, 1, 1}, /* PyObject cname: __pyx_n_u_replace */
   {__pyx_k_set, sizeof(__pyx_k_set), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set */
   {__pyx_k_set_current_user_info, sizeof(__pyx_k_set_current_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_current_user_info */
@@ -6411,9 +6421,9 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_get_tenant_condition, __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 74, 320};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 74, 322};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db_model, __pyx_mstate->__pyx_n_u_user_info, __pyx_mstate->__pyx_n_u_tenant_id, __pyx_mstate->__pyx_n_u_columns, __pyx_mstate->__pyx_n_u_create_by_fields, __pyx_mstate->__pyx_n_u_field, __pyx_mstate->__pyx_n_u_update_by_fields};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_set_field_with_user_and_tenant, __pyx_k_A_C_Q_7_Q_q_t1_q_y_9Kt9Ks_a_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_set_field_with_user_and_tenant, __pyx_k_A_C_Q_7_Q_q_t1_q_y_9Kt9Ks_1_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 126, 111};
@@ -6421,14 +6431,14 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_setattr_column_value, __pyx_k_A_WAV5_c_1JgXT_81L_81_1JgXT_5_81, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 136, 62};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 136, 64};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db_model, __pyx_mstate->__pyx_n_u_user_info, __pyx_mstate->__pyx_n_u_model_tenant_id};
-    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_check_permission, __pyx_k_A_C_Q_7_Q_gQj_Q_s_1_A_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_check_permission, __pyx_k_A_C_Q_7_Q_gQj_Q_s_1_iq_A_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 148, 53};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 148, 60};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_user_info};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_check_enable, __pyx_k_A_4y_1_4y_A_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_check_enable, __pyx_k_A_4y_1_4y_A_q_q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -7818,6 +7828,114 @@ static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *o, PyObject *n) {
     return PyObject_GetAttr(o, n);
 }
 
+/* RaiseException */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause) {
+    PyObject* owned_instance = NULL;
+    if (tb == Py_None) {
+        tb = 0;
+    } else if (tb && !PyTraceBack_Check(tb)) {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: arg 3 must be a traceback or None");
+        goto bad;
+    }
+    if (value == Py_None)
+        value = 0;
+    if (PyExceptionInstance_Check(type)) {
+        if (value) {
+            PyErr_SetString(PyExc_TypeError,
+                "instance exception may not have a separate value");
+            goto bad;
+        }
+        value = type;
+        type = (PyObject*) Py_TYPE(value);
+    } else if (PyExceptionClass_Check(type)) {
+        PyObject *instance_class = NULL;
+        if (value && PyExceptionInstance_Check(value)) {
+            instance_class = (PyObject*) Py_TYPE(value);
+            if (instance_class != type) {
+                int is_subclass = PyObject_IsSubclass(instance_class, type);
+                if (!is_subclass) {
+                    instance_class = NULL;
+                } else if (unlikely(is_subclass == -1)) {
+                    goto bad;
+                } else {
+                    type = instance_class;
+                }
+            }
+        }
+        if (!instance_class) {
+            PyObject *args;
+            if (!value)
+                args = PyTuple_New(0);
+            else if (PyTuple_Check(value)) {
+                Py_INCREF(value);
+                args = value;
+            } else
+                args = PyTuple_Pack(1, value);
+            if (!args)
+                goto bad;
+            owned_instance = PyObject_Call(type, args, NULL);
+            Py_DECREF(args);
+            if (!owned_instance)
+                goto bad;
+            value = owned_instance;
+            if (!PyExceptionInstance_Check(value)) {
+                PyErr_Format(PyExc_TypeError,
+                             "calling %R should have returned an instance of "
+                             "BaseException, not %R",
+                             type, Py_TYPE(value));
+                goto bad;
+            }
+        }
+    } else {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: exception class must be a subclass of BaseException");
+        goto bad;
+    }
+    if (cause) {
+        PyObject *fixed_cause;
+        if (cause == Py_None) {
+            fixed_cause = NULL;
+        } else if (PyExceptionClass_Check(cause)) {
+            fixed_cause = PyObject_CallObject(cause, NULL);
+            if (fixed_cause == NULL)
+                goto bad;
+        } else if (PyExceptionInstance_Check(cause)) {
+            fixed_cause = cause;
+            Py_INCREF(fixed_cause);
+        } else {
+            PyErr_SetString(PyExc_TypeError,
+                            "exception causes must derive from "
+                            "BaseException");
+            goto bad;
+        }
+        PyException_SetCause(value, fixed_cause);
+    }
+    PyErr_SetObject(type, value);
+    if (tb) {
+#if PY_VERSION_HEX >= 0x030C00A6
+        PyException_SetTraceback(value, tb);
+#elif CYTHON_FAST_THREAD_STATE
+        PyThreadState *tstate = __Pyx_PyThreadState_Current;
+        PyObject* tmp_tb = tstate->curexc_traceback;
+        if (tb != tmp_tb) {
+            Py_INCREF(tb);
+            tstate->curexc_traceback = tb;
+            Py_XDECREF(tmp_tb);
+        }
+#else
+        PyObject *tmp_type, *tmp_value, *tmp_tb;
+        PyErr_Fetch(&tmp_type, &tmp_value, &tmp_tb);
+        Py_INCREF(tb);
+        PyErr_Restore(tmp_type, tmp_value, tb);
+        Py_XDECREF(tmp_tb);
+#endif
+    }
+bad:
+    Py_XDECREF(owned_instance);
+    return;
+}
+
 /* GetAttr3 */
 #if __PYX_LIMITED_VERSION_HEX < 0x030d0000
 static PyObject *__Pyx_GetAttr3Default(PyObject *d) {
@@ -8075,7 +8193,7 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__3);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__4);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -10106,7 +10224,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__4);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__5);
     }
     goto done;
 }

@@ -1,4 +1,4 @@
-from ..exception.service_exception import ValueException as ValueException
+from ..exception.service_exception import ValidError as ValidError
 from ..logger.logging_ import logging as logging
 from ..schemas.query_request import (
     Condition as Condition,

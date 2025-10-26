@@ -2023,15 +2023,11 @@ static int __Pyx_validate_bases_tuple(const char *type_name, Py_ssize_t dictoffs
 /* PyType_Ready.proto */
 CYTHON_UNUSED static int __Pyx_PyType_Ready(PyTypeObject *t);
 
-/* Import.proto */
-static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
-
-/* ImportDottedModule.proto */
-static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple);
-static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *name, PyObject *parts_tuple);
-
 /* ListPack.proto */
 static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...);
+
+/* Import.proto */
+static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
 /* ImportFrom.proto */
 static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name);
@@ -2574,7 +2570,6 @@ static const char __pyx_k_oxen[] = "oxen";
 static const char __pyx_k_part[] = "part";
 static const char __pyx_k_send[] = "send";
 static const char __pyx_k_shes[] = "shes";
-static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_aeiou[] = "aeiou";
 static const char __pyx_k_child[] = "child";
@@ -2614,7 +2609,6 @@ static const char __pyx_k_vertex[] = "vertex";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_genexpr[] = "genexpr";
 static const char __pyx_k_indices[] = "indices";
-static const char __pyx_k_logging[] = "logging";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_analyses[] = "analyses";
@@ -2644,7 +2638,6 @@ static const char __pyx_k_annotations[] = "__annotations__";
 static const char __pyx_k_dataclasses[] = "dataclasses";
 static const char __pyx_k_entity_name[] = "entity_name";
 static const char __pyx_k_schema_name[] = "schema_name";
-static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_lower_entity[] = "lower_entity";
 static const char __pyx_k_meta_foreign[] = "meta_foreign";
@@ -2724,7 +2717,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_slice[2];
   PyObject *__pyx_codeobj_tab[4];
-  PyObject *__pyx_string_tab[143];
+  PyObject *__pyx_string_tab[140];
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_neg_1;
   PyObject *__pyx_int_neg_2;
@@ -2839,85 +2832,82 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_ies __pyx_string_tab[61]
 #define __pyx_n_u_index __pyx_string_tab[62]
 #define __pyx_n_u_indices __pyx_string_tab[63]
-#define __pyx_n_u_initializing __pyx_string_tab[64]
-#define __pyx_n_u_irregular_plurals __pyx_string_tab[65]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[66]
-#define __pyx_n_u_is_plural __pyx_string_tab[67]
-#define __pyx_kp_u_isenabled __pyx_string_tab[68]
-#define __pyx_n_u_items __pyx_string_tab[69]
-#define __pyx_n_u_logging __pyx_string_tab[70]
-#define __pyx_n_u_lower __pyx_string_tab[71]
-#define __pyx_n_u_lower_entity __pyx_string_tab[72]
-#define __pyx_n_u_main __pyx_string_tab[73]
-#define __pyx_n_u_make_plural_entity __pyx_string_tab[74]
-#define __pyx_n_u_man __pyx_string_tab[75]
-#define __pyx_n_u_matrices __pyx_string_tab[76]
-#define __pyx_n_u_matrix __pyx_string_tab[77]
-#define __pyx_n_u_men __pyx_string_tab[78]
-#define __pyx_n_u_meta_foreign __pyx_string_tab[79]
-#define __pyx_kp_u_meta_foreign_py __pyx_string_tab[80]
-#define __pyx_n_u_metaclass __pyx_string_tab[81]
-#define __pyx_n_u_mice __pyx_string_tab[82]
-#define __pyx_n_u_module __pyx_string_tab[83]
-#define __pyx_n_u_mouse __pyx_string_tab[84]
-#define __pyx_n_u_name __pyx_string_tab[85]
-#define __pyx_n_u_next __pyx_string_tab[86]
-#define __pyx_n_u_ox __pyx_string_tab[87]
-#define __pyx_n_u_oxen __pyx_string_tab[88]
-#define __pyx_n_u_part __pyx_string_tab[89]
-#define __pyx_n_u_parts __pyx_string_tab[90]
-#define __pyx_n_u_people __pyx_string_tab[91]
-#define __pyx_n_u_person __pyx_string_tab[92]
-#define __pyx_n_u_phenomena __pyx_string_tab[93]
-#define __pyx_n_u_phenomenon __pyx_string_tab[94]
-#define __pyx_n_u_plural_ending __pyx_string_tab[95]
-#define __pyx_n_u_pop __pyx_string_tab[96]
-#define __pyx_n_u_prepare __pyx_string_tab[97]
-#define __pyx_n_u_qualname __pyx_string_tab[98]
-#define __pyx_n_u_referred_class __pyx_string_tab[99]
-#define __pyx_n_u_referred_column __pyx_string_tab[100]
-#define __pyx_n_u_referred_name __pyx_string_tab[101]
-#define __pyx_n_u_referred_table __pyx_string_tab[102]
-#define __pyx_n_u_return __pyx_string_tab[103]
-#define __pyx_n_u_rpartition __pyx_string_tab[104]
-#define __pyx_n_u_s __pyx_string_tab[105]
-#define __pyx_n_u_schema_name __pyx_string_tab[106]
-#define __pyx_n_u_send __pyx_string_tab[107]
-#define __pyx_n_u_ses __pyx_string_tab[108]
-#define __pyx_n_u_set_name __pyx_string_tab[109]
-#define __pyx_n_u_sh __pyx_string_tab[110]
-#define __pyx_n_u_shes __pyx_string_tab[111]
-#define __pyx_n_u_sort_order __pyx_string_tab[112]
-#define __pyx_n_u_source __pyx_string_tab[113]
-#define __pyx_n_u_source_2 __pyx_string_tab[114]
-#define __pyx_n_u_spec __pyx_string_tab[115]
-#define __pyx_n_u_special_endings __pyx_string_tab[116]
-#define __pyx_n_u_split __pyx_string_tab[117]
-#define __pyx_n_u_staff __pyx_string_tab[118]
-#define __pyx_n_u_staffs __pyx_string_tab[119]
-#define __pyx_n_u_staticmethod __pyx_string_tab[120]
-#define __pyx_n_u_str __pyx_string_tab[121]
-#define __pyx_n_u_sys __pyx_string_tab[122]
-#define __pyx_n_u_t __pyx_string_tab[123]
-#define __pyx_n_u_teeth __pyx_string_tab[124]
-#define __pyx_n_u_test __pyx_string_tab[125]
-#define __pyx_n_u_theses __pyx_string_tab[126]
-#define __pyx_n_u_thesis __pyx_string_tab[127]
-#define __pyx_n_u_throw __pyx_string_tab[128]
-#define __pyx_n_u_tooth __pyx_string_tab[129]
-#define __pyx_n_u_unique __pyx_string_tab[130]
-#define __pyx_n_u_v __pyx_string_tab[131]
-#define __pyx_n_u_value __pyx_string_tab[132]
-#define __pyx_n_u_vertex __pyx_string_tab[133]
-#define __pyx_n_u_vertices __pyx_string_tab[134]
-#define __pyx_n_u_ves __pyx_string_tab[135]
-#define __pyx_n_u_woman __pyx_string_tab[136]
-#define __pyx_n_u_women __pyx_string_tab[137]
-#define __pyx_n_u_x __pyx_string_tab[138]
-#define __pyx_n_u_xes __pyx_string_tab[139]
-#define __pyx_n_u_y __pyx_string_tab[140]
-#define __pyx_n_u_z __pyx_string_tab[141]
-#define __pyx_n_u_zes __pyx_string_tab[142]
+#define __pyx_n_u_irregular_plurals __pyx_string_tab[64]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[65]
+#define __pyx_n_u_is_plural __pyx_string_tab[66]
+#define __pyx_kp_u_isenabled __pyx_string_tab[67]
+#define __pyx_n_u_items __pyx_string_tab[68]
+#define __pyx_n_u_lower __pyx_string_tab[69]
+#define __pyx_n_u_lower_entity __pyx_string_tab[70]
+#define __pyx_n_u_main __pyx_string_tab[71]
+#define __pyx_n_u_make_plural_entity __pyx_string_tab[72]
+#define __pyx_n_u_man __pyx_string_tab[73]
+#define __pyx_n_u_matrices __pyx_string_tab[74]
+#define __pyx_n_u_matrix __pyx_string_tab[75]
+#define __pyx_n_u_men __pyx_string_tab[76]
+#define __pyx_n_u_meta_foreign __pyx_string_tab[77]
+#define __pyx_kp_u_meta_foreign_py __pyx_string_tab[78]
+#define __pyx_n_u_metaclass __pyx_string_tab[79]
+#define __pyx_n_u_mice __pyx_string_tab[80]
+#define __pyx_n_u_module __pyx_string_tab[81]
+#define __pyx_n_u_mouse __pyx_string_tab[82]
+#define __pyx_n_u_name __pyx_string_tab[83]
+#define __pyx_n_u_next __pyx_string_tab[84]
+#define __pyx_n_u_ox __pyx_string_tab[85]
+#define __pyx_n_u_oxen __pyx_string_tab[86]
+#define __pyx_n_u_part __pyx_string_tab[87]
+#define __pyx_n_u_parts __pyx_string_tab[88]
+#define __pyx_n_u_people __pyx_string_tab[89]
+#define __pyx_n_u_person __pyx_string_tab[90]
+#define __pyx_n_u_phenomena __pyx_string_tab[91]
+#define __pyx_n_u_phenomenon __pyx_string_tab[92]
+#define __pyx_n_u_plural_ending __pyx_string_tab[93]
+#define __pyx_n_u_pop __pyx_string_tab[94]
+#define __pyx_n_u_prepare __pyx_string_tab[95]
+#define __pyx_n_u_qualname __pyx_string_tab[96]
+#define __pyx_n_u_referred_class __pyx_string_tab[97]
+#define __pyx_n_u_referred_column __pyx_string_tab[98]
+#define __pyx_n_u_referred_name __pyx_string_tab[99]
+#define __pyx_n_u_referred_table __pyx_string_tab[100]
+#define __pyx_n_u_return __pyx_string_tab[101]
+#define __pyx_n_u_rpartition __pyx_string_tab[102]
+#define __pyx_n_u_s __pyx_string_tab[103]
+#define __pyx_n_u_schema_name __pyx_string_tab[104]
+#define __pyx_n_u_send __pyx_string_tab[105]
+#define __pyx_n_u_ses __pyx_string_tab[106]
+#define __pyx_n_u_set_name __pyx_string_tab[107]
+#define __pyx_n_u_sh __pyx_string_tab[108]
+#define __pyx_n_u_shes __pyx_string_tab[109]
+#define __pyx_n_u_sort_order __pyx_string_tab[110]
+#define __pyx_n_u_source __pyx_string_tab[111]
+#define __pyx_n_u_source_2 __pyx_string_tab[112]
+#define __pyx_n_u_special_endings __pyx_string_tab[113]
+#define __pyx_n_u_split __pyx_string_tab[114]
+#define __pyx_n_u_staff __pyx_string_tab[115]
+#define __pyx_n_u_staffs __pyx_string_tab[116]
+#define __pyx_n_u_staticmethod __pyx_string_tab[117]
+#define __pyx_n_u_str __pyx_string_tab[118]
+#define __pyx_n_u_sys __pyx_string_tab[119]
+#define __pyx_n_u_t __pyx_string_tab[120]
+#define __pyx_n_u_teeth __pyx_string_tab[121]
+#define __pyx_n_u_test __pyx_string_tab[122]
+#define __pyx_n_u_theses __pyx_string_tab[123]
+#define __pyx_n_u_thesis __pyx_string_tab[124]
+#define __pyx_n_u_throw __pyx_string_tab[125]
+#define __pyx_n_u_tooth __pyx_string_tab[126]
+#define __pyx_n_u_unique __pyx_string_tab[127]
+#define __pyx_n_u_v __pyx_string_tab[128]
+#define __pyx_n_u_value __pyx_string_tab[129]
+#define __pyx_n_u_vertex __pyx_string_tab[130]
+#define __pyx_n_u_vertices __pyx_string_tab[131]
+#define __pyx_n_u_ves __pyx_string_tab[132]
+#define __pyx_n_u_woman __pyx_string_tab[133]
+#define __pyx_n_u_women __pyx_string_tab[134]
+#define __pyx_n_u_x __pyx_string_tab[135]
+#define __pyx_n_u_xes __pyx_string_tab[136]
+#define __pyx_n_u_y __pyx_string_tab[137]
+#define __pyx_n_u_z __pyx_string_tab[138]
+#define __pyx_n_u_zes __pyx_string_tab[139]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2942,7 +2932,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_12meta_foreign___pyx_scope_struct__genexpr);
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<4; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<143; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<140; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_neg_1);
   Py_CLEAR(clear_module_state->__pyx_int_neg_2);
@@ -2970,7 +2960,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_12meta_foreign___pyx_scope_struct__genexpr);
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<4; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<143; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<140; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_neg_1);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_neg_2);
@@ -4862,21 +4852,9 @@ __Pyx_RefNannySetupContext("PyInit_meta_foreign", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "meta_foreign.py":8
- * # @Date     2025/9/24 5:55
- * # @Desc
- * import logging             # <<<<<<<<<<<<<<
- * from dataclasses import dataclass
- * 
-*/
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_logging, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
   /* "meta_foreign.py":9
  * # @Desc
- * import logging
+ * 
  * from dataclasses import dataclass             # <<<<<<<<<<<<<<
  * 
  * 
@@ -5160,13 +5138,11 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_ies, sizeof(__pyx_k_ies), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ies */
   {__pyx_k_index, sizeof(__pyx_k_index), 0, 1, 1}, /* PyObject cname: __pyx_n_u_index */
   {__pyx_k_indices, sizeof(__pyx_k_indices), 0, 1, 1}, /* PyObject cname: __pyx_n_u_indices */
-  {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_irregular_plurals, sizeof(__pyx_k_irregular_plurals), 0, 1, 1}, /* PyObject cname: __pyx_n_u_irregular_plurals */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_is_plural, sizeof(__pyx_k_is_plural), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_plural */
   {__pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_isenabled */
   {__pyx_k_items, sizeof(__pyx_k_items), 0, 1, 1}, /* PyObject cname: __pyx_n_u_items */
-  {__pyx_k_logging, sizeof(__pyx_k_logging), 0, 1, 1}, /* PyObject cname: __pyx_n_u_logging */
   {__pyx_k_lower, sizeof(__pyx_k_lower), 0, 1, 1}, /* PyObject cname: __pyx_n_u_lower */
   {__pyx_k_lower_entity, sizeof(__pyx_k_lower_entity), 0, 1, 1}, /* PyObject cname: __pyx_n_u_lower_entity */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
@@ -5211,7 +5187,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_sort_order, sizeof(__pyx_k_sort_order), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sort_order */
   {__pyx_k_source, sizeof(__pyx_k_source), 0, 1, 1}, /* PyObject cname: __pyx_n_u_source */
   {__pyx_k_source_2, sizeof(__pyx_k_source_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_source_2 */
-  {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_special_endings, sizeof(__pyx_k_special_endings), 0, 1, 1}, /* PyObject cname: __pyx_n_u_special_endings */
   {__pyx_k_split, sizeof(__pyx_k_split), 0, 1, 1}, /* PyObject cname: __pyx_n_u_split */
   {__pyx_k_staff, sizeof(__pyx_k_staff), 0, 1, 1}, /* PyObject cname: __pyx_n_u_staff */
@@ -7882,6 +7857,25 @@ static int __Pyx_PyType_Ready(PyTypeObject *t) {
 #endif
 }
 
+/* ListPack */
+static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...) {
+    va_list va;
+    PyObject *l = PyList_New(n);
+    va_start(va, n);
+    if (unlikely(!l)) goto end;
+    for (Py_ssize_t i=0; i<n; ++i) {
+        PyObject *arg = va_arg(va, PyObject*);
+        Py_INCREF(arg);
+        if (__Pyx_PyList_SET_ITEM(l, i, arg) != (0)) {
+            Py_CLEAR(l);
+            goto end;
+        }
+    }
+    end:
+    va_end(va);
+    return l;
+}
+
 /* Import */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
     PyObject *module = 0;
@@ -7911,139 +7905,6 @@ bad:
     Py_XDECREF(empty_dict);
     Py_XDECREF(empty_list);
     return module;
-}
-
-/* ImportDottedModule */
-static PyObject *__Pyx__ImportDottedModule_Error(PyObject *name, PyObject *parts_tuple, Py_ssize_t count) {
-    PyObject *partial_name = NULL, *slice = NULL, *sep = NULL;
-    Py_ssize_t size;
-    if (unlikely(PyErr_Occurred())) {
-        PyErr_Clear();
-    }
-#if CYTHON_ASSUME_SAFE_SIZE
-    size = PyTuple_GET_SIZE(parts_tuple);
-#else
-    size = PyTuple_Size(parts_tuple);
-    if (size < 0) goto bad;
-#endif
-    if (likely(size == count)) {
-        partial_name = name;
-    } else {
-        slice = PySequence_GetSlice(parts_tuple, 0, count);
-        if (unlikely(!slice))
-            goto bad;
-        sep = PyUnicode_FromStringAndSize(".", 1);
-        if (unlikely(!sep))
-            goto bad;
-        partial_name = PyUnicode_Join(sep, slice);
-    }
-    PyErr_Format(
-        PyExc_ModuleNotFoundError,
-        "No module named '%U'", partial_name);
-bad:
-    Py_XDECREF(sep);
-    Py_XDECREF(slice);
-    Py_XDECREF(partial_name);
-    return NULL;
-}
-static PyObject *__Pyx__ImportDottedModule_Lookup(PyObject *name) {
-    PyObject *imported_module;
-#if (CYTHON_COMPILING_IN_PYPY && PYPY_VERSION_NUM  < 0x07030400) ||\
-        CYTHON_COMPILING_IN_GRAAL
-    PyObject *modules = PyImport_GetModuleDict();
-    if (unlikely(!modules))
-        return NULL;
-    imported_module = __Pyx_PyDict_GetItemStr(modules, name);
-    Py_XINCREF(imported_module);
-#else
-    imported_module = PyImport_GetModule(name);
-#endif
-    return imported_module;
-}
-static PyObject *__Pyx_ImportDottedModule_WalkParts(PyObject *module, PyObject *name, PyObject *parts_tuple) {
-    Py_ssize_t i, nparts;
-#if CYTHON_ASSUME_SAFE_SIZE
-    nparts = PyTuple_GET_SIZE(parts_tuple);
-#else
-    nparts = PyTuple_Size(parts_tuple);
-    if (nparts < 0) return NULL;
-#endif
-    for (i=1; i < nparts && module; i++) {
-        PyObject *part, *submodule;
-#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        part = PyTuple_GET_ITEM(parts_tuple, i);
-#else
-        part = __Pyx_PySequence_ITEM(parts_tuple, i);
-        if (!part) return NULL;
-#endif
-        submodule = __Pyx_PyObject_GetAttrStrNoError(module, part);
-#if !(CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS)
-        Py_DECREF(part);
-#endif
-        Py_DECREF(module);
-        module = submodule;
-    }
-    if (unlikely(!module)) {
-        return __Pyx__ImportDottedModule_Error(name, parts_tuple, i);
-    }
-    return module;
-}
-static PyObject *__Pyx__ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
-    PyObject *imported_module;
-    PyObject *module = __Pyx_Import(name, NULL, 0);
-    if (!parts_tuple || unlikely(!module))
-        return module;
-    imported_module = __Pyx__ImportDottedModule_Lookup(name);
-    if (likely(imported_module)) {
-        Py_DECREF(module);
-        return imported_module;
-    }
-    PyErr_Clear();
-    return __Pyx_ImportDottedModule_WalkParts(module, name, parts_tuple);
-}
-static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple) {
-#if CYTHON_COMPILING_IN_CPYTHON
-    PyObject *module = __Pyx__ImportDottedModule_Lookup(name);
-    if (likely(module)) {
-        PyObject *spec = __Pyx_PyObject_GetAttrStrNoError(module, __pyx_mstate_global->__pyx_n_u_spec);
-        if (likely(spec)) {
-            PyObject *unsafe = __Pyx_PyObject_GetAttrStrNoError(spec, __pyx_mstate_global->__pyx_n_u_initializing);
-            if (likely(!unsafe || !__Pyx_PyObject_IsTrue(unsafe))) {
-                Py_DECREF(spec);
-                spec = NULL;
-            }
-            Py_XDECREF(unsafe);
-        }
-        if (likely(!spec)) {
-            PyErr_Clear();
-            return module;
-        }
-        Py_DECREF(spec);
-        Py_DECREF(module);
-    } else if (PyErr_Occurred()) {
-        PyErr_Clear();
-    }
-#endif
-    return __Pyx__ImportDottedModule(name, parts_tuple);
-}
-
-/* ListPack */
-static PyObject *__Pyx_PyList_Pack(Py_ssize_t n, ...) {
-    va_list va;
-    PyObject *l = PyList_New(n);
-    va_start(va, n);
-    if (unlikely(!l)) goto end;
-    for (Py_ssize_t i=0; i<n; ++i) {
-        PyObject *arg = va_arg(va, PyObject*);
-        Py_INCREF(arg);
-        if (__Pyx_PyList_SET_ITEM(l, i, arg) != (0)) {
-            Py_CLEAR(l);
-            goto end;
-        }
-    }
-    end:
-    va_end(va);
-    return l;
 }
 
 /* ImportFrom */

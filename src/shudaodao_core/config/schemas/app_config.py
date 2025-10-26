@@ -16,7 +16,7 @@ from .routers import RouterConfigSetting
 from .snowflake import SnowflakeConfigSetting
 from .storage import StorageConfigSetting
 from .webapp import FastAPIConfigSetting
-from ...exception.service_exception import ServiceErrorException
+from ...exception.service_exception import ServiceError
 
 
 class EnvironmentConfigSetting(BaseModel):
@@ -62,7 +62,7 @@ class AppConfigSetting(BaseModel):
     def get_default_tenant_id(self):
         if self.auth.tenant.enabled:
             if not self.auth.tenant.default_id:
-                raise ServiceErrorException(
+                raise ServiceError(
                     message="启用租户时，必须设置 default_id",
                 )
             return self.auth.tenant.default_id
