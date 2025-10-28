@@ -53,6 +53,14 @@ class QueryService:
     @classmethod
     def get_condition_from_columns(cls, condition, model_class): ...
     @classmethod
+    async def db_query(
+        cls,
+        db: AsyncSession,
+        *,
+        query_request: QueryRequest,
+        model_class: type[SQLModelDB],
+    ): ...
+    @classmethod
     async def query(
         cls,
         db: AsyncSession,

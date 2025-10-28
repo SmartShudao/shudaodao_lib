@@ -20,7 +20,7 @@ class DataService:
         cls,
         db: AsyncSession,
         *,
-        db_model_class: type[SQLModelDB],
+        model_class: type[SQLModelDB],
         create_model: SQLModelCreate | dict[str, Any],
     ) -> SQLModelDB:
         """在数据库会话中插入新记录（不提交事务）。
@@ -29,7 +29,7 @@ class DataService:
 
         Args:
             db (AsyncSession): 异步数据库会话。
-            db_model_class (Type[SQLModelDB]): 数据库模型类。
+            model_class (Type[SQLModelDB]): 数据库模型类。
             create_model (SQLModelCreate | dict[str, Any]): 创建数据，可为 Pydantic 模型或字典。
 
         Returns:
@@ -59,7 +59,7 @@ class DataService:
         """
     @classmethod
     async def db_get(
-        cls, db: AsyncSession, primary_id: int, *, db_model_class: type[SQLModelDB]
+        cls, db: AsyncSession, primary_id: int, *, model_class: type[SQLModelDB]
     ) -> SQLModelDB | None:
         """根据主键 ID 获取数据库记录（不抛异常）。
 
@@ -68,7 +68,7 @@ class DataService:
         Args:
             db (AsyncSession): 异步数据库会话。
             primary_id (int): 主键 ID。
-            db_model_class (Type[SQLModelDB]): 数据库模型类。
+            model_class (Type[SQLModelDB]): 数据库模型类。
 
         Returns:
             SQLModelDB | None: 若存在且权限允许，返回模型实例；否则返回 None。
@@ -145,14 +145,14 @@ class DataService:
         """
     @classmethod
     async def db_delete(
-        cls, db: AsyncSession, primary_id: int, *, db_model_class: type[SQLModelDB]
+        cls, db: AsyncSession, primary_id: int, *, model_class: type[SQLModelDB]
     ) -> bool:
         """删除指定 ID 的记录（不提交事务，不抛异常）。
 
         Args:
             db (AsyncSession): 异步数据库会话。
             primary_id (int): 主键 ID。
-            db_model_class (Type[SQLModelDB]): 数据库模型类。
+            model_class (Type[SQLModelDB]): 数据库模型类。
 
         Returns:
             bool: 若成功删除返回 True；若记录不存在或无权限，返回 False。
@@ -196,10 +196,10 @@ class DataService:
                 - 无主键时返回 None。
         """
     @staticmethod
-    def reset_schema(db: AsyncSession, db_model_class: type[SQLModelDB]):
+    def reset_schema(db: AsyncSession, model_class: type[SQLModelDB]):
         """重置模型的 schema，以兼容 SQLite 等不支持 schema 的数据库。
 
         Args:
             db (AsyncSession): 数据库会话。
-            db_model_class (Type[SQLModelDB]): 数据库模型类。
+            model_class (Type[SQLModelDB]): 数据库模型类。
         """

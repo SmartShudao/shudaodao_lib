@@ -38,38 +38,11 @@ class DatabaseEngine:
                 - 若 `name` 非 None：返回对应的 `AsyncEngine` 或 `Engine` 实例。
         """
     def get_async_engine(self, name: str) -> AsyncEngine:
-        """获取指定名称的异步数据库引擎。
-
-        Args:
-            name (str): 数据源名称（需在配置中启用）。
-
-        Returns:
-            AsyncEngine: SQLAlchemy 异步引擎实例。
-
-        Raises:
-            KeyError: 若指定名称的引擎未加载（如未启用或名称错误）。
-        """
+        """获取指定名称的异步数据库引擎"""
     def get_engine(self, name: str) -> Engine:
-        """获取指定名称的同步数据库引擎。
-
-        Args:
-            name (str): 数据源名称（需在配置中启用）。
-
-        Returns:
-            Engine: SQLAlchemy 同步引擎实例。
-
-        Raises:
-            KeyError: 若指定名称的引擎未加载。
-        """
+        """获取指定名称的同步数据库引擎。"""
     def support_schema(self, name: str) -> bool:
-        """判断指定数据源是否支持 schema（如 SQLite 不支持）。
-
-        Args:
-            name (str): 数据源名称。
-
-        Returns:
-            bool: 支持 schema 返回 True，否则 False（如 SQLite）。
-        """
+        """判断指定数据源是否支持 schema（如 SQLite 不支持）"""
     def close(self) -> None:
         """关闭所有同步数据库引擎连接池。
 
