@@ -2816,6 +2816,7 @@ static const char __pyx_k_foreign_keys_2[] = "foreign_keys";
 static const char __pyx_k_meta_schema_id[] = "meta_schema_id";
 static const char __pyx_k_referred_table[] = "referred_table";
 static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
+static const char __pyx_k_referred_schema[] = "referred_schema";
 static const char __pyx_k_save_meta_views[] = "_save_meta_views";
 static const char __pyx_k_MetaStore___init[] = "MetaStore.__init__";
 static const char __pyx_k_referred_columns[] = "referred_columns";
@@ -2827,6 +2828,7 @@ static const char __pyx_k_save_meta_columns[] = "_save_meta_columns";
 static const char __pyx_k_save_meta_indexes[] = "_save_meta_indexes";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
+static const char __pyx_k_constrained_schema[] = "constrained_schema";
 static const char __pyx_k_metadata_inspector[] = "metadata_inspector";
 static const char __pyx_k_unique_constraints[] = "- unique_constraints";
 static const char __pyx_k_MetaStore_save_meta[] = "MetaStore.save_meta";
@@ -2955,7 +2957,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[3];
   PyObject *__pyx_codeobj_tab[13];
-  PyObject *__pyx_string_tab[156];
+  PyObject *__pyx_string_tab[158];
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_10;
 /* #### Code section: module_state_contents ### */
@@ -3107,115 +3109,117 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_commit __pyx_string_tab[44]
 #define __pyx_n_u_condition __pyx_string_tab[45]
 #define __pyx_n_u_constrained_columns __pyx_string_tab[46]
-#define __pyx_n_u_constrained_table __pyx_string_tab[47]
-#define __pyx_n_u_copy __pyx_string_tab[48]
-#define __pyx_n_u_create_model __pyx_string_tab[49]
-#define __pyx_n_u_data_model __pyx_string_tab[50]
-#define __pyx_n_u_db __pyx_string_tab[51]
-#define __pyx_n_u_db_2 __pyx_string_tab[52]
-#define __pyx_n_u_db_insert __pyx_string_tab[53]
-#define __pyx_n_u_db_update __pyx_string_tab[54]
-#define __pyx_n_u_debug __pyx_string_tab[55]
-#define __pyx_n_u_debug_line __pyx_string_tab[56]
-#define __pyx_n_u_dict __pyx_string_tab[57]
-#define __pyx_kp_u_disable __pyx_string_tab[58]
-#define __pyx_n_u_doc __pyx_string_tab[59]
-#define __pyx_kp_u_enable __pyx_string_tab[60]
-#define __pyx_n_u_engine_name __pyx_string_tab[61]
-#define __pyx_n_u_engine_name_2 __pyx_string_tab[62]
-#define __pyx_n_u_first_field_value __pyx_string_tab[63]
-#define __pyx_n_u_fk __pyx_string_tab[64]
-#define __pyx_n_u_flush __pyx_string_tab[65]
-#define __pyx_kp_u_foreign_keys __pyx_string_tab[66]
-#define __pyx_n_u_foreign_keys_2 __pyx_string_tab[67]
-#define __pyx_n_u_func __pyx_string_tab[68]
-#define __pyx_kp_u_gc __pyx_string_tab[69]
-#define __pyx_n_u_gen_convert __pyx_string_tab[70]
-#define __pyx_n_u_get __pyx_string_tab[71]
-#define __pyx_n_u_get_schema __pyx_string_tab[72]
-#define __pyx_kp_u_indexes __pyx_string_tab[73]
-#define __pyx_n_u_indexes_2 __pyx_string_tab[74]
-#define __pyx_n_u_init __pyx_string_tab[75]
-#define __pyx_n_u_inspect __pyx_string_tab[76]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[77]
-#define __pyx_kp_u_isenabled __pyx_string_tab[78]
-#define __pyx_n_u_logging __pyx_string_tab[79]
-#define __pyx_n_u_main __pyx_string_tab[80]
-#define __pyx_n_u_meta_foreign_key_id __pyx_string_tab[81]
-#define __pyx_n_u_meta_inspect __pyx_string_tab[82]
-#define __pyx_n_u_meta_model __pyx_string_tab[83]
-#define __pyx_kp_u_meta_referencing_foreign_key __pyx_string_tab[84]
-#define __pyx_n_u_meta_schema_id __pyx_string_tab[85]
-#define __pyx_n_u_meta_table_id __pyx_string_tab[86]
-#define __pyx_n_u_meta_view_id __pyx_string_tab[87]
-#define __pyx_n_u_metaclass __pyx_string_tab[88]
-#define __pyx_n_u_metadata __pyx_string_tab[89]
-#define __pyx_n_u_metadata_inspector __pyx_string_tab[90]
-#define __pyx_n_u_metamodel_create_or_update __pyx_string_tab[91]
-#define __pyx_n_u_model_class __pyx_string_tab[92]
-#define __pyx_n_u_model_dump __pyx_string_tab[93]
-#define __pyx_n_u_module __pyx_string_tab[94]
-#define __pyx_n_u_name __pyx_string_tab[95]
-#define __pyx_n_u_name_2 __pyx_string_tab[96]
-#define __pyx_n_u_next __pyx_string_tab[97]
-#define __pyx_n_u_options __pyx_string_tab[98]
-#define __pyx_n_u_pop __pyx_string_tab[99]
-#define __pyx_n_u_prepare __pyx_string_tab[100]
-#define __pyx_n_u_primary_id __pyx_string_tab[101]
-#define __pyx_kp_u_primary_key __pyx_string_tab[102]
-#define __pyx_n_u_primary_key_2 __pyx_string_tab[103]
-#define __pyx_kp_u_primary_key_3 __pyx_string_tab[104]
-#define __pyx_n_u_print __pyx_string_tab[105]
-#define __pyx_n_u_qualname __pyx_string_tab[106]
-#define __pyx_n_u_query_columns_first __pyx_string_tab[107]
-#define __pyx_n_u_referencing_foreign_keys __pyx_string_tab[108]
-#define __pyx_n_u_referred_columns __pyx_string_tab[109]
-#define __pyx_n_u_referred_table __pyx_string_tab[110]
-#define __pyx_n_u_return __pyx_string_tab[111]
-#define __pyx_n_u_save_meta __pyx_string_tab[112]
-#define __pyx_n_u_save_meta_2 __pyx_string_tab[113]
-#define __pyx_n_u_save_meta_columns __pyx_string_tab[114]
-#define __pyx_n_u_save_meta_foreign_keys __pyx_string_tab[115]
-#define __pyx_n_u_save_meta_indexes __pyx_string_tab[116]
-#define __pyx_n_u_save_meta_primary_key __pyx_string_tab[117]
-#define __pyx_n_u_save_meta_referencing_foreign_k __pyx_string_tab[118]
-#define __pyx_n_u_save_meta_tables __pyx_string_tab[119]
-#define __pyx_n_u_save_meta_unique_constraints __pyx_string_tab[120]
-#define __pyx_n_u_save_meta_views __pyx_string_tab[121]
-#define __pyx_n_u_schema_name __pyx_string_tab[122]
-#define __pyx_n_u_schema_name_2 __pyx_string_tab[123]
-#define __pyx_n_u_self __pyx_string_tab[124]
-#define __pyx_n_u_send __pyx_string_tab[125]
-#define __pyx_n_u_set_name __pyx_string_tab[126]
-#define __pyx_n_u_set_update_property __pyx_string_tab[127]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[128]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t __pyx_string_tab[129]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_2 __pyx_string_tab[130]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_3 __pyx_string_tab[131]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_4 __pyx_string_tab[132]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_5 __pyx_string_tab[133]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_6 __pyx_string_tab[134]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_7 __pyx_string_tab[135]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_8 __pyx_string_tab[136]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_9 __pyx_string_tab[137]
-#define __pyx_n_u_shudaodao_meta_tools_meta_store __pyx_string_tab[138]
-#define __pyx_kp_u_shudaodao_meta_tools_meta_store_2 __pyx_string_tab[139]
-#define __pyx_n_u_sort_order __pyx_string_tab[140]
-#define __pyx_n_u_source_table __pyx_string_tab[141]
-#define __pyx_n_u_str __pyx_string_tab[142]
-#define __pyx_n_u_table __pyx_string_tab[143]
-#define __pyx_n_u_table_map __pyx_string_tab[144]
-#define __pyx_n_u_table_name __pyx_string_tab[145]
-#define __pyx_n_u_tables __pyx_string_tab[146]
-#define __pyx_n_u_target_table __pyx_string_tab[147]
-#define __pyx_n_u_test __pyx_string_tab[148]
-#define __pyx_n_u_throw __pyx_string_tab[149]
-#define __pyx_kp_u_unique_constraints __pyx_string_tab[150]
-#define __pyx_n_u_unique_constraints_2 __pyx_string_tab[151]
-#define __pyx_n_u_update_model __pyx_string_tab[152]
-#define __pyx_n_u_value __pyx_string_tab[153]
-#define __pyx_n_u_view_name __pyx_string_tab[154]
-#define __pyx_n_u_views __pyx_string_tab[155]
+#define __pyx_n_u_constrained_schema __pyx_string_tab[47]
+#define __pyx_n_u_constrained_table __pyx_string_tab[48]
+#define __pyx_n_u_copy __pyx_string_tab[49]
+#define __pyx_n_u_create_model __pyx_string_tab[50]
+#define __pyx_n_u_data_model __pyx_string_tab[51]
+#define __pyx_n_u_db __pyx_string_tab[52]
+#define __pyx_n_u_db_2 __pyx_string_tab[53]
+#define __pyx_n_u_db_insert __pyx_string_tab[54]
+#define __pyx_n_u_db_update __pyx_string_tab[55]
+#define __pyx_n_u_debug __pyx_string_tab[56]
+#define __pyx_n_u_debug_line __pyx_string_tab[57]
+#define __pyx_n_u_dict __pyx_string_tab[58]
+#define __pyx_kp_u_disable __pyx_string_tab[59]
+#define __pyx_n_u_doc __pyx_string_tab[60]
+#define __pyx_kp_u_enable __pyx_string_tab[61]
+#define __pyx_n_u_engine_name __pyx_string_tab[62]
+#define __pyx_n_u_engine_name_2 __pyx_string_tab[63]
+#define __pyx_n_u_first_field_value __pyx_string_tab[64]
+#define __pyx_n_u_fk __pyx_string_tab[65]
+#define __pyx_n_u_flush __pyx_string_tab[66]
+#define __pyx_kp_u_foreign_keys __pyx_string_tab[67]
+#define __pyx_n_u_foreign_keys_2 __pyx_string_tab[68]
+#define __pyx_n_u_func __pyx_string_tab[69]
+#define __pyx_kp_u_gc __pyx_string_tab[70]
+#define __pyx_n_u_gen_convert __pyx_string_tab[71]
+#define __pyx_n_u_get __pyx_string_tab[72]
+#define __pyx_n_u_get_schema __pyx_string_tab[73]
+#define __pyx_kp_u_indexes __pyx_string_tab[74]
+#define __pyx_n_u_indexes_2 __pyx_string_tab[75]
+#define __pyx_n_u_init __pyx_string_tab[76]
+#define __pyx_n_u_inspect __pyx_string_tab[77]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[78]
+#define __pyx_kp_u_isenabled __pyx_string_tab[79]
+#define __pyx_n_u_logging __pyx_string_tab[80]
+#define __pyx_n_u_main __pyx_string_tab[81]
+#define __pyx_n_u_meta_foreign_key_id __pyx_string_tab[82]
+#define __pyx_n_u_meta_inspect __pyx_string_tab[83]
+#define __pyx_n_u_meta_model __pyx_string_tab[84]
+#define __pyx_kp_u_meta_referencing_foreign_key __pyx_string_tab[85]
+#define __pyx_n_u_meta_schema_id __pyx_string_tab[86]
+#define __pyx_n_u_meta_table_id __pyx_string_tab[87]
+#define __pyx_n_u_meta_view_id __pyx_string_tab[88]
+#define __pyx_n_u_metaclass __pyx_string_tab[89]
+#define __pyx_n_u_metadata __pyx_string_tab[90]
+#define __pyx_n_u_metadata_inspector __pyx_string_tab[91]
+#define __pyx_n_u_metamodel_create_or_update __pyx_string_tab[92]
+#define __pyx_n_u_model_class __pyx_string_tab[93]
+#define __pyx_n_u_model_dump __pyx_string_tab[94]
+#define __pyx_n_u_module __pyx_string_tab[95]
+#define __pyx_n_u_name __pyx_string_tab[96]
+#define __pyx_n_u_name_2 __pyx_string_tab[97]
+#define __pyx_n_u_next __pyx_string_tab[98]
+#define __pyx_n_u_options __pyx_string_tab[99]
+#define __pyx_n_u_pop __pyx_string_tab[100]
+#define __pyx_n_u_prepare __pyx_string_tab[101]
+#define __pyx_n_u_primary_id __pyx_string_tab[102]
+#define __pyx_kp_u_primary_key __pyx_string_tab[103]
+#define __pyx_n_u_primary_key_2 __pyx_string_tab[104]
+#define __pyx_kp_u_primary_key_3 __pyx_string_tab[105]
+#define __pyx_n_u_print __pyx_string_tab[106]
+#define __pyx_n_u_qualname __pyx_string_tab[107]
+#define __pyx_n_u_query_columns_first __pyx_string_tab[108]
+#define __pyx_n_u_referencing_foreign_keys __pyx_string_tab[109]
+#define __pyx_n_u_referred_columns __pyx_string_tab[110]
+#define __pyx_n_u_referred_schema __pyx_string_tab[111]
+#define __pyx_n_u_referred_table __pyx_string_tab[112]
+#define __pyx_n_u_return __pyx_string_tab[113]
+#define __pyx_n_u_save_meta __pyx_string_tab[114]
+#define __pyx_n_u_save_meta_2 __pyx_string_tab[115]
+#define __pyx_n_u_save_meta_columns __pyx_string_tab[116]
+#define __pyx_n_u_save_meta_foreign_keys __pyx_string_tab[117]
+#define __pyx_n_u_save_meta_indexes __pyx_string_tab[118]
+#define __pyx_n_u_save_meta_primary_key __pyx_string_tab[119]
+#define __pyx_n_u_save_meta_referencing_foreign_k __pyx_string_tab[120]
+#define __pyx_n_u_save_meta_tables __pyx_string_tab[121]
+#define __pyx_n_u_save_meta_unique_constraints __pyx_string_tab[122]
+#define __pyx_n_u_save_meta_views __pyx_string_tab[123]
+#define __pyx_n_u_schema_name __pyx_string_tab[124]
+#define __pyx_n_u_schema_name_2 __pyx_string_tab[125]
+#define __pyx_n_u_self __pyx_string_tab[126]
+#define __pyx_n_u_send __pyx_string_tab[127]
+#define __pyx_n_u_set_name __pyx_string_tab[128]
+#define __pyx_n_u_set_update_property __pyx_string_tab[129]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[130]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t __pyx_string_tab[131]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_2 __pyx_string_tab[132]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_3 __pyx_string_tab[133]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_4 __pyx_string_tab[134]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_5 __pyx_string_tab[135]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_6 __pyx_string_tab[136]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_7 __pyx_string_tab[137]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_8 __pyx_string_tab[138]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_9 __pyx_string_tab[139]
+#define __pyx_n_u_shudaodao_meta_tools_meta_store __pyx_string_tab[140]
+#define __pyx_kp_u_shudaodao_meta_tools_meta_store_2 __pyx_string_tab[141]
+#define __pyx_n_u_sort_order __pyx_string_tab[142]
+#define __pyx_n_u_source_table __pyx_string_tab[143]
+#define __pyx_n_u_str __pyx_string_tab[144]
+#define __pyx_n_u_table __pyx_string_tab[145]
+#define __pyx_n_u_table_map __pyx_string_tab[146]
+#define __pyx_n_u_table_name __pyx_string_tab[147]
+#define __pyx_n_u_tables __pyx_string_tab[148]
+#define __pyx_n_u_target_table __pyx_string_tab[149]
+#define __pyx_n_u_test __pyx_string_tab[150]
+#define __pyx_n_u_throw __pyx_string_tab[151]
+#define __pyx_kp_u_unique_constraints __pyx_string_tab[152]
+#define __pyx_n_u_unique_constraints_2 __pyx_string_tab[153]
+#define __pyx_n_u_update_model __pyx_string_tab[154]
+#define __pyx_n_u_value __pyx_string_tab[155]
+#define __pyx_n_u_view_name __pyx_string_tab[156]
+#define __pyx_n_u_views __pyx_string_tab[157]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3260,7 +3264,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys);
   for (int i=0; i<3; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<13; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<156; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<158; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_10);
   return 0;
@@ -3307,7 +3311,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys);
   for (int i=0; i<3; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<13; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<156; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<158; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_10);
   return 0;
@@ -9716,7 +9720,7 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_36gene
  *                         "meta_table_id": source_table["meta_table_id"],
  *                         "name": fk.name,
 */
-        __pyx_t_8 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 243, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyDict_NewPresized(10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 243, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_meta_foreign_key_id); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
@@ -9728,7 +9732,7 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_36gene
  *                         "meta_foreign_key_id": fk.meta_foreign_key_id,
  *                         "meta_table_id": source_table["meta_table_id"],             # <<<<<<<<<<<<<<
  *                         "name": fk.name,
- *                         # "constrained_schema": fk.referred_schema,
+ *                         "constrained_schema": fk.referred_schema,
 */
         __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_source_table, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
@@ -9739,53 +9743,77 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_36gene
  *                         "meta_foreign_key_id": fk.meta_foreign_key_id,
  *                         "meta_table_id": source_table["meta_table_id"],
  *                         "name": fk.name,             # <<<<<<<<<<<<<<
- *                         # "constrained_schema": fk.referred_schema,
- *                         "constrained_table": source_table["table_name"],
+ *                         "constrained_schema": fk.referred_schema,
+ *                         "constrained_table": fk.referred_table,
 */
         __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_name, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
+        /* "shudaodao_meta/tools/meta_store.py":246
+ *                         "meta_table_id": source_table["meta_table_id"],
+ *                         "name": fk.name,
+ *                         "constrained_schema": fk.referred_schema,             # <<<<<<<<<<<<<<
+ *                         "constrained_table": fk.referred_table,
+ *                         "constrained_columns": fk.referred_columns,
+*/
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_referred_schema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_constrained_schema, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
         /* "shudaodao_meta/tools/meta_store.py":247
  *                         "name": fk.name,
- *                         # "constrained_schema": fk.referred_schema,
- *                         "constrained_table": source_table["table_name"],             # <<<<<<<<<<<<<<
+ *                         "constrained_schema": fk.referred_schema,
+ *                         "constrained_table": fk.referred_table,             # <<<<<<<<<<<<<<
  *                         "constrained_columns": fk.referred_columns,
- *                         # "referred_schema": self._schema_name,
+ *                         "referred_schema": self._schema_name,
 */
-        __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_source_table, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_referred_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_constrained_table, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
         /* "shudaodao_meta/tools/meta_store.py":248
- *                         # "constrained_schema": fk.referred_schema,
- *                         "constrained_table": source_table["table_name"],
+ *                         "constrained_schema": fk.referred_schema,
+ *                         "constrained_table": fk.referred_table,
  *                         "constrained_columns": fk.referred_columns,             # <<<<<<<<<<<<<<
- *                         # "referred_schema": self._schema_name,
- *                         "referred_table": target_table["table_name"],
+ *                         "referred_schema": self._schema_name,
+ *                         "referred_table": source_table["table_name"],
 */
         __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_referred_columns); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_constrained_columns, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
+        /* "shudaodao_meta/tools/meta_store.py":249
+ *                         "constrained_table": fk.referred_table,
+ *                         "constrained_columns": fk.referred_columns,
+ *                         "referred_schema": self._schema_name,             # <<<<<<<<<<<<<<
+ *                         "referred_table": source_table["table_name"],
+ *                         "referred_columns": fk.constrained_columns,
+*/
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_referred_schema, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
         /* "shudaodao_meta/tools/meta_store.py":250
  *                         "constrained_columns": fk.referred_columns,
- *                         # "referred_schema": self._schema_name,
- *                         "referred_table": target_table["table_name"],             # <<<<<<<<<<<<<<
+ *                         "referred_schema": self._schema_name,
+ *                         "referred_table": source_table["table_name"],             # <<<<<<<<<<<<<<
  *                         "referred_columns": fk.constrained_columns,
  *                         "options": fk.options
 */
-        __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_target_table, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_source_table, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_referred_table, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
         /* "shudaodao_meta/tools/meta_store.py":251
- *                         # "referred_schema": self._schema_name,
- *                         "referred_table": target_table["table_name"],
+ *                         "referred_schema": self._schema_name,
+ *                         "referred_table": source_table["table_name"],
  *                         "referred_columns": fk.constrained_columns,             # <<<<<<<<<<<<<<
  *                         "options": fk.options
  *                     }
@@ -9796,7 +9824,7 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_36gene
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
         /* "shudaodao_meta/tools/meta_store.py":252
- *                         "referred_table": target_table["table_name"],
+ *                         "referred_table": source_table["table_name"],
  *                         "referred_columns": fk.constrained_columns,
  *                         "options": fk.options             # <<<<<<<<<<<<<<
  *                     }
@@ -13091,6 +13119,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_commit, sizeof(__pyx_k_commit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_commit */
   {__pyx_k_condition, sizeof(__pyx_k_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_condition */
   {__pyx_k_constrained_columns, sizeof(__pyx_k_constrained_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_constrained_columns */
+  {__pyx_k_constrained_schema, sizeof(__pyx_k_constrained_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_constrained_schema */
   {__pyx_k_constrained_table, sizeof(__pyx_k_constrained_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_constrained_table */
   {__pyx_k_copy, sizeof(__pyx_k_copy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_copy */
   {__pyx_k_create_model, sizeof(__pyx_k_create_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_model */
@@ -13154,6 +13183,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_query_columns_first, sizeof(__pyx_k_query_columns_first), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_columns_first */
   {__pyx_k_referencing_foreign_keys, sizeof(__pyx_k_referencing_foreign_keys), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referencing_foreign_keys */
   {__pyx_k_referred_columns, sizeof(__pyx_k_referred_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referred_columns */
+  {__pyx_k_referred_schema, sizeof(__pyx_k_referred_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referred_schema */
   {__pyx_k_referred_table, sizeof(__pyx_k_referred_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referred_table */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
   {__pyx_k_save_meta, sizeof(__pyx_k_save_meta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta */

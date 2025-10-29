@@ -19,13 +19,5 @@ from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema as MetaS
 
 class GenStore:
     auto_commit: bool
-    def __init__(
-        self,
-        *,
-        db: AsyncSession = None,
-        engine_name: str = None,
-        schema_name: str = None,
-    ) -> None: ...
-    async def save_sqlmodel(
-        self, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
-    ): ...
+    def __init__(self, *, db: AsyncSession = None, schema_name: str = None) -> None: ...
+    async def save_sqlmodel(self, db: AsyncSession = None, schema_name: str = None): ...

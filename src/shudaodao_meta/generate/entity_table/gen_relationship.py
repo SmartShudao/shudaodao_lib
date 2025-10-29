@@ -34,13 +34,25 @@ class GenRelationship(RegistryModel, table=True):
     )
     direction: str = Field(max_length=255, description="正向关系(子)、反向关系(父)")
     unique: bool = Field(sa_type=Boolean, description="唯一约束-判断1对1关系")
-    class_name: str = Field(max_length=255, description="当前对象 - 类")
-    field_name: str = Field(max_length=255, description="当前对象 - 属性")
-    relationship_class: str = Field(max_length=255, description="关系对象 - 类")
-    relationship_name: str = Field(max_length=255, description="关系对象 - 属性")
-    relationship_options: Optional[str] = Field(default=None, max_length=255, nullable=True, description="行为选项")
-    relationship_order: Optional[str] = Field(default=None, max_length=255, nullable=True, description="排序字段")
+
+    constrained_schema: str = Field(max_length=255, description="当前对象 - 模式")
+    constrained_table: str = Field(max_length=255, description="当前对象 - 表")
+    constrained_column: str = Field(max_length=255, description="当前对象 - 列")
+    constrained_index: str = Field(max_length=255, description="当前对象 - 索引")
+    constrained_field: str = Field(max_length=255, description="当前对象 - 字段")
+    constrained_class: str = Field(max_length=255, description="当前对象 - 类")
+
+    referred_schema: str = Field(max_length=255, description="引用对象 - 模式")
+    referred_table: str = Field(max_length=255, description="引用对象 - 表")
+    referred_column: str = Field(max_length=255, description="引用对象 - 列")
+    referred_index: str = Field(max_length=255, description="引用对象 - 索引")
+    referred_field: str = Field(max_length=255, description="引用对象 - 字段")
+    referred_class: str = Field(max_length=255, description="引用对象 - 类")
+
+    options: Optional[str] = Field(default=None, max_length=255, nullable=True, description="行为选项")
+
     sort_order: int = Field(default=10, description="排序权重")
+    is_active: bool = Field(sa_type=Boolean, description="启用状态")
     description: Optional[str] = Field(default=None, max_length=500, nullable=True, description="描述")
     create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
     create_at: Optional[datetime] = Field(
