@@ -3,7 +3,7 @@
 # @License  ：(C)Copyright 2025, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
-# @Desc     ：SQLModel classes for shudaodao_meta.meta_primary_key
+# @Desc     ：SQLModel classes for shudaodao_meta.source_primary_key
 
 from datetime import datetime
 from typing import TYPE_CHECKING, Optional
@@ -15,22 +15,22 @@ from shudaodao_core import SQLModel, BaseResponse
 from ... import RegistryModel, get_table_schema, get_foreign_schema
 
 if TYPE_CHECKING:
-    from .meta_table import MetaTable
+    from .source_table import SourceTable
 
 
-class MetaPrimaryKey(RegistryModel, table=True):
+class SourcePrimaryKey(RegistryModel, table=True):
     """ 数据库对象模型 """
-    __tablename__ = "meta_primary_key"
+    __tablename__ = "source_primary_key"
     __table_args__ = {"schema": get_table_schema(), "comment": "主键表"}
     # 非数据库字段：仅用于内部处理
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
-    meta_primary_id: int = Field(
+    source_primary_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键内码"
     )
-    meta_table_id: int = Field(
+    source_table_id: int = Field(
         unique=True, sa_type=BigInteger, description="表内码",
-        foreign_key=f"{get_foreign_schema()}meta_table.meta_table_id"
+        foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
     )
     name: Optional[str] = Field(default=None, max_length=255, nullable=True, description="约束名字")
     constrained_columns: str = Field(sa_type=Text, description="字段集合")
@@ -45,36 +45,36 @@ class MetaPrimaryKey(RegistryModel, table=True):
     )
     # 反向关系 -> 父对象
     # noinspection SpellCheckingInspection
-    MetaTable: "MetaTable" = Relationship(
-        back_populates="MetaPrimaryKey", 
+    SourceTable: "SourceTable" = Relationship(
+        back_populates="SourcePrimaryKey", 
         sa_relationship_kwargs={"uselist": False}
     )
 
 
-class MetaPrimaryKeyBase(SQLModel):
+class SourcePrimaryKeyBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    meta_table_id: int = Field(sa_type=BigInteger, description="表内码")
+    source_table_id: int = Field(sa_type=BigInteger, description="表内码")
     name: Optional[str] = Field(default=None, max_length=255, description="约束名字")
     constrained_columns: str = Field(description="字段集合")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
-class MetaPrimaryKeyCreate(MetaPrimaryKeyBase):
+class SourcePrimaryKeyCreate(SourcePrimaryKeyBase):
     """ 前端创建模型 - 用于接口请求 """
     ...
 
 
-class MetaPrimaryKeyUpdate(MetaPrimaryKeyBase):
+class SourcePrimaryKeyUpdate(SourcePrimaryKeyBase):
     """ 前端更新模型 - 用于接口请求 """
     ...
 
 
-class MetaPrimaryKeyResponse(BaseResponse):
+class SourcePrimaryKeyResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    meta_primary_id: int = Field(description="主键内码", sa_type=BigInteger)
-    meta_table_id: int = Field(description="表内码", sa_type=BigInteger)
+    source_primary_id: int = Field(description="主键内码", sa_type=BigInteger)
+    source_table_id: int = Field(description="表内码", sa_type=BigInteger)
     name: Optional[str] = Field(description="约束名字", default=None)
     constrained_columns: str = Field(description="字段集合")
     description: Optional[str] = Field(description="描述", default=None)

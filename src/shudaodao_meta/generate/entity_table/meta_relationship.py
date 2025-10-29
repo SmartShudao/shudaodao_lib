@@ -3,7 +3,7 @@
 # @License  ：(C)Copyright 2025, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
-# @Desc     ：SQLModel classes for shudaodao_meta.gen_relationship
+# @Desc     ：SQLModel classes for shudaodao_meta.meta_relationship
 
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
@@ -15,12 +15,12 @@ from shudaodao_core import SQLModel, BaseResponse
 from ... import RegistryModel, get_table_schema, get_foreign_schema
 
 if TYPE_CHECKING:
-    from .gen_table import GenTable
+    from .meta_table import MetaTable
 
 
-class GenRelationship(RegistryModel, table=True):
+class MetaRelationship(RegistryModel, table=True):
     """ 数据库对象模型 """
-    __tablename__ = "gen_relationship"
+    __tablename__ = "meta_relationship"
     __table_args__ = {"schema": get_table_schema(), "comment": "SQLModel字段关系"}
     # 非数据库字段：仅用于内部处理
     __database_schema__ = "shudaodao_meta"
@@ -30,7 +30,7 @@ class GenRelationship(RegistryModel, table=True):
     )
     table_id: Optional[int] = Field(
         default=None, nullable=True, sa_type=BigInteger, description="表内码",
-        foreign_key=f"{get_foreign_schema()}gen_table.table_id"
+        foreign_key=f"{get_foreign_schema()}meta_table.table_id"
     )
     direction: str = Field(max_length=255, description="正向关系(子)、反向关系(父)")
     unique: bool = Field(sa_type=Boolean, description="唯一约束-判断1对1关系")
@@ -59,10 +59,10 @@ class GenRelationship(RegistryModel, table=True):
         default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
     )
     # 反向关系 -> 父对象
-    Table: "GenTable" = Relationship(back_populates="GenRelationships")
+    Table: "MetaTable" = Relationship(back_populates="MetaRelationships")
 
 
-class GenRelationshipBase(SQLModel):
+class MetaRelationshipBase(SQLModel):
     """ 创建、更新模型 共用字段 """
     table_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="表内码")
     direction: str = Field(max_length=255, description="正向关系(子)、反向关系(父)")
@@ -85,17 +85,17 @@ class GenRelationshipBase(SQLModel):
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
-class GenRelationshipCreate(GenRelationshipBase):
+class MetaRelationshipCreate(MetaRelationshipBase):
     """ 前端创建模型 - 用于接口请求 """
     ...
 
 
-class GenRelationshipUpdate(GenRelationshipBase):
+class MetaRelationshipUpdate(MetaRelationshipBase):
     """ 前端更新模型 - 用于接口请求 """
     ...
 
 
-class GenRelationshipResponse(BaseResponse):
+class MetaRelationshipResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 

@@ -1492,230 +1492,207 @@ static const char* const __pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel;
 struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes;
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema;
 
-/* "shudaodao_meta/tools/meta_store.py":42
- *         )
+/* "shudaodao_meta/tools/meta_store.py":27
+ *         self.auto_commit = False
  * 
- *     async def save_meta(             # <<<<<<<<<<<<<<
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
+ *     async def save_sqlmodel(             # <<<<<<<<<<<<<<
+ *             self, db: AsyncSession = None, schema_name: str = None
  *     ):
 */
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta {
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel {
   PyObject_HEAD
   PyObject *__pyx_v_db;
-  PyObject *__pyx_v_engine_name;
-  PyObject *__pyx_v_metadata;
   PyObject *__pyx_v_schema_name;
   PyObject *__pyx_v_self;
 };
 
 
-/* "shudaodao_meta/tools/meta_store.py":63
- *         return metadata
+/* "shudaodao_meta/tools/meta_store.py":41
+ *             await self._db.flush()
  * 
- *     async def _metamodel_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
+ *     async def _meta_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
  *         #
- *         meta_model = await QueryService.query_columns_first(
+ *         source_model = await QueryService.query_columns_first(
 */
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update {
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update {
   PyObject_HEAD
   PyObject *__pyx_v_condition;
   PyObject *__pyx_v_data_model;
   PyObject *__pyx_v_first_field_value;
-  PyObject *__pyx_v_meta_model;
   PyObject *__pyx_v_model_class;
   PyObject *__pyx_v_self;
+  PyObject *__pyx_v_source_model;
 };
 
 
-/* "shudaodao_meta/tools/meta_store.py":80
+/* "shudaodao_meta/tools/meta_store.py":57
  *             )
  * 
- *     async def _save_meta(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.copy()
- *         create_model["sort_order"] = 10
+ *     async def _save_sqlmodel(self):             # <<<<<<<<<<<<<<
+ *         logging.debug_line()
+ *         logging.debug(f": {self._schema_name}")
 */
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta {
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel {
   PyObject_HEAD
   PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_meta_model;
-  PyObject *__pyx_v_metadata;
   PyObject *__pyx_v_self;
 };
 
 
-/* "shudaodao_meta/tools/meta_store.py":95
- *         await self._save_meta_views(metadata=create_model)
+/* "shudaodao_meta/tools/meta_store.py":70
+ *         await self._save_meta_views(self._schema_name)
  * 
- *     async def _save_meta_tables(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         tables = []
+ *     async def _save_meta_tables(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")
 */
 struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables {
   PyObject_HEAD
+  PyObject *__pyx_8genexpr2__pyx_v_column;
+  PyObject *__pyx_v_column;
+  PyObject *__pyx_v_column_map;
   PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_meta_model;
-  PyObject *__pyx_v_metadata;
+  PyObject *__pyx_v_curr_model;
+  PyObject *__pyx_v_curr_schema;
+  PyObject *__pyx_v_curr_table;
+  PyObject *__pyx_v_meta_schema;
+  PyObject *__pyx_7genexpr__pyx_v_schema;
+  PyObject *__pyx_v_schema;
+  PyObject *__pyx_v_schema_map;
+  PyObject *__pyx_v_schema_name;
   PyObject *__pyx_v_self;
-  PyObject *__pyx_v_sort_order;
-  PyObject *__pyx_v_table_name;
-  PyObject *__pyx_v_tables;
-  PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  PyObject *(*__pyx_t_2)(PyObject *);
-};
-
-
-/* "shudaodao_meta/tools/meta_store.py":136
- *         await self._save_meta_referencing_foreign_keys(tables)
- * 
- *     async def _save_meta_views(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["views"]:
-*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views {
-  PyObject_HEAD
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_meta_model;
-  PyObject *__pyx_v_metadata;
-  PyObject *__pyx_v_self;
-  PyObject *__pyx_v_sort_order;
-  PyObject *__pyx_v_view_name;
-  PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  PyObject *(*__pyx_t_2)(PyObject *);
-};
-
-
-/* "shudaodao_meta/tools/meta_store.py":156
- *             await self._save_meta_columns(metadata=create_model)
- * 
- *     async def _save_meta_columns(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["columns"]:
-*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns {
-  PyObject_HEAD
-  PyObject *__pyx_v_condition;
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_metadata;
-  PyObject *__pyx_v_self;
-  PyObject *__pyx_v_sort_order;
-  PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  PyObject *(*__pyx_t_2)(PyObject *);
-};
-
-
-/* "shudaodao_meta/tools/meta_store.py":176
- *             )
- * 
- *     async def _save_meta_primary_key(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.get("primary_key", None)
- *         if create_model is None:
-*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key {
-  PyObject_HEAD
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_metadata;
-  PyObject *__pyx_v_self;
-};
-
-
-/* "shudaodao_meta/tools/meta_store.py":186
- *         )
- * 
- *     async def _save_meta_foreign_keys(self, metadata):             # <<<<<<<<<<<<<<
- *         foreign_keys = []
- *         sort_order = 0
-*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys {
-  PyObject_HEAD
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_foreign_keys;
-  PyObject *__pyx_v_metadata;
-  PyObject *__pyx_v_self;
-  PyObject *__pyx_v_sort_order;
-  PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  PyObject *(*__pyx_t_2)(PyObject *);
-};
-
-
-/* "shudaodao_meta/tools/meta_store.py":201
- *         return foreign_keys
- * 
- *     async def _save_meta_unique_constraints(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["unique_constraints"]:
-*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints {
-  PyObject_HEAD
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_metadata;
-  PyObject *__pyx_v_self;
-  PyObject *__pyx_v_sort_order;
-  PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  PyObject *(*__pyx_t_2)(PyObject *);
-};
-
-
-/* "shudaodao_meta/tools/meta_store.py":214
- *             )
- * 
- *     async def _save_meta_indexes(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["indexes"]:
-*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes {
-  PyObject_HEAD
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_metadata;
-  PyObject *__pyx_v_self;
-  PyObject *__pyx_v_sort_order;
-  PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  PyObject *(*__pyx_t_2)(PyObject *);
-};
-
-
-/* "shudaodao_meta/tools/meta_store.py":227
- *             )
- * 
- *     async def _save_meta_referencing_foreign_keys(self, tables):             # <<<<<<<<<<<<<<
- *         #
- *         table_map = {table["table_name"]: table for table in tables}
-*/
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys {
-  PyObject_HEAD
-  PyObject *__pyx_v_create_model;
-  PyObject *__pyx_v_fk;
-  PyObject *__pyx_v_self;
-  PyObject *__pyx_v_source_table;
-  PyObject *__pyx_7genexpr__pyx_v_table;
+  PyObject *__pyx_v_source_schema;
+  PyObject *__pyx_8genexpr1__pyx_v_table;
   PyObject *__pyx_v_table;
   PyObject *__pyx_v_table_map;
-  PyObject *__pyx_v_tables;
-  PyObject *__pyx_v_target_table;
   PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  PyObject *(*__pyx_t_2)(PyObject *);
-  PyObject *__pyx_t_3;
+  PyObject *__pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  PyObject *(*__pyx_t_3)(PyObject *);
   Py_ssize_t __pyx_t_4;
   PyObject *(*__pyx_t_5)(PyObject *);
-  PyObject *__pyx_t_6;
+};
+
+
+/* "shudaodao_meta/tools/meta_store.py":112
+ *                         ...
+ * 
+ *     async def _save_meta_table(self, curr_schema, table, table_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
+*/
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table {
+  PyObject_HEAD
+  PyObject *__pyx_v_curr_schema;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_v_table;
+  PyObject *__pyx_v_table_map;
+};
+
+
+/* "shudaodao_meta/tools/meta_store.py":124
+ *         )
+ * 
+ *     async def _save_meta_views(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "View")
+*/
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views {
+  PyObject_HEAD
+  PyObject *__pyx_8genexpr5__pyx_v_column;
+  PyObject *__pyx_v_column;
+  PyObject *__pyx_v_column_map;
+  PyObject *__pyx_v_create_model;
+  PyObject *__pyx_v_curr_model;
+  PyObject *__pyx_v_curr_schema;
+  PyObject *__pyx_v_curr_view;
+  PyObject *__pyx_v_meta_schema;
+  PyObject *__pyx_8genexpr3__pyx_v_schema;
+  PyObject *__pyx_v_schema;
+  PyObject *__pyx_v_schema_map;
+  PyObject *__pyx_v_schema_name;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_v_source_schema;
+  PyObject *__pyx_8genexpr4__pyx_v_view;
+  PyObject *__pyx_v_view;
+  PyObject *__pyx_v_view_map;
+  PyObject *__pyx_t_0;
+  PyObject *__pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  PyObject *(*__pyx_t_3)(PyObject *);
+  Py_ssize_t __pyx_t_4;
+  PyObject *(*__pyx_t_5)(PyObject *);
+};
+
+
+/* "shudaodao_meta/tools/meta_store.py":159
+ *                         ...
+ * 
+ *     async def _save_meta_view(self, curr_schema, view, view_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
+*/
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view {
+  PyObject_HEAD
+  PyObject *__pyx_v_curr_schema;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_v_view;
+  PyObject *__pyx_v_view_map;
+};
+
+
+/* "shudaodao_meta/tools/meta_store.py":171
+ *         )
+ * 
+ *     async def _save_meta_entity(             # <<<<<<<<<<<<<<
+ *             self,
+ *             curr_schema,
+*/
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity {
+  PyObject_HEAD
+  PyObject *__pyx_v_create_data;
+  PyObject *__pyx_v_create_model;
+  PyObject *__pyx_v_create_model_class;
+  PyObject *__pyx_v_curr_entity;
+  PyObject *__pyx_v_curr_model;
+  PyObject *__pyx_v_curr_schema;
+  PyObject *__pyx_v_entity;
+  PyObject *__pyx_v_entity_map;
+  PyObject *__pyx_v_entity_name;
+  PyObject *__pyx_v_id_attr;
+  PyObject *__pyx_v_model_class;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_v_update_model;
+  PyObject *__pyx_v_update_model_class;
+  PyObject *__pyx_v_validated_update;
+};
+
+
+/* "shudaodao_meta/tools/meta_store.py":220
+ *         return curr_entity, curr_model
+ * 
+ *     async def _get_schema(self, schema_name, type_name: Literal["Table", "View"]):             # <<<<<<<<<<<<<<
+ *         query_request = self._get_schema_query_request(
+ *             schema_name, "Source", type_name, type_name == "Table"
+*/
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema {
+  PyObject_HEAD
+  PyObject *__pyx_v_meta_schema;
+  PyObject *__pyx_v_query_request;
+  PyObject *__pyx_v_schema_name;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_v_source_schema;
+  PyObject *__pyx_v_type_name;
 };
 
 /* #### Code section: utility_code_proto ### */
@@ -2046,81 +2023,6 @@ static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr
 #define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
 #endif
 
-/* PyDictVersioning.proto */
-#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
-#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
-#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
-    (version_var) = __PYX_GET_DICT_VERSION(dict);\
-    (cache_var) = (value);
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
-    static PY_UINT64_T __pyx_dict_version = 0;\
-    static PyObject *__pyx_dict_cached_value = NULL;\
-    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
-        (VAR) = __pyx_dict_cached_value;\
-    } else {\
-        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
-        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
-    }\
-}
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
-static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
-#else
-#define __PYX_GET_DICT_VERSION(dict)  (0)
-#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
-#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
-#endif
-
-/* GetModuleGlobalName.proto */
-#if CYTHON_USE_DICT_VERSIONS
-#define __Pyx_GetModuleGlobalName(var, name)  do {\
-    static PY_UINT64_T __pyx_dict_version = 0;\
-    static PyObject *__pyx_dict_cached_value = NULL;\
-    (var) = (likely(__pyx_dict_version == __PYX_GET_DICT_VERSION(__pyx_mstate_global->__pyx_d))) ?\
-        (likely(__pyx_dict_cached_value) ? __Pyx_NewRef(__pyx_dict_cached_value) : __Pyx_GetBuiltinName(name)) :\
-        __Pyx__GetModuleGlobalName(name, &__pyx_dict_version, &__pyx_dict_cached_value);\
-} while(0)
-#define __Pyx_GetModuleGlobalNameUncached(var, name)  do {\
-    PY_UINT64_T __pyx_dict_version;\
-    PyObject *__pyx_dict_cached_value;\
-    (var) = __Pyx__GetModuleGlobalName(name, &__pyx_dict_version, &__pyx_dict_cached_value);\
-} while(0)
-static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_version, PyObject **dict_cached_value);
-#else
-#define __Pyx_GetModuleGlobalName(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
-#define __Pyx_GetModuleGlobalNameUncached(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
-static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
-#endif
-
-/* PyObjectVectorCallKwBuilder.proto */
-CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
-#if CYTHON_VECTORCALL
-#if PY_VERSION_HEX >= 0x03090000
-#define __Pyx_Object_Vectorcall_CallFromBuilder PyObject_Vectorcall
-#else
-#define __Pyx_Object_Vectorcall_CallFromBuilder _PyObject_Vectorcall
-#endif
-#define __Pyx_MakeVectorcallBuilderKwds(n) PyTuple_New(n)
-static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
-static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n);
-#else
-#define __Pyx_Object_Vectorcall_CallFromBuilder __Pyx_PyObject_FastCallDict
-#define __Pyx_MakeVectorcallBuilderKwds(n) __Pyx_PyDict_NewPresized(n)
-#define __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n) PyDict_SetItem(builder, key, value)
-#define __Pyx_VectorcallBuilder_AddArgStr(key, value, builder, args, n) PyDict_SetItemString(builder, key, value)
-#endif
-
-/* PyObjectVectorCallMethodKwBuilder.proto */
-#if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
-#define __Pyx_Object_VectorcallMethod_CallFromBuilder PyObject_VectorcallMethod
-#else
-static PyObject *__Pyx_Object_VectorcallMethod_CallFromBuilder(PyObject *name, PyObject *const *args, size_t nargsf, PyObject *kwnames);
-#endif
-
-/* RaiseUnexpectedTypeError.proto */
-static int __Pyx_RaiseUnexpectedTypeError(const char *expected, PyObject *obj);
-
 /* PyObjectFastCallMethod.proto */
 #if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
 #define __Pyx_PyObject_FastCallMethod(name, args, nargsf) PyObject_VectorcallMethod(name, args, nargsf, NULL)
@@ -2327,6 +2229,71 @@ static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb);
 /* pep479.proto */
 static void __Pyx_Generator_Replace_StopIteration(int in_async_gen);
 
+/* PyDictVersioning.proto */
+#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
+#define __PYX_DICT_VERSION_INIT  ((PY_UINT64_T) -1)
+#define __PYX_GET_DICT_VERSION(dict)  (((PyDictObject*)(dict))->ma_version_tag)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)\
+    (version_var) = __PYX_GET_DICT_VERSION(dict);\
+    (cache_var) = (value);
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP) {\
+    static PY_UINT64_T __pyx_dict_version = 0;\
+    static PyObject *__pyx_dict_cached_value = NULL;\
+    if (likely(__PYX_GET_DICT_VERSION(DICT) == __pyx_dict_version)) {\
+        (VAR) = __pyx_dict_cached_value;\
+    } else {\
+        (VAR) = __pyx_dict_cached_value = (LOOKUP);\
+        __pyx_dict_version = __PYX_GET_DICT_VERSION(DICT);\
+    }\
+}
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj);
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj);
+static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version);
+#else
+#define __PYX_GET_DICT_VERSION(dict)  (0)
+#define __PYX_UPDATE_DICT_CACHE(dict, value, cache_var, version_var)
+#define __PYX_PY_DICT_LOOKUP_IF_MODIFIED(VAR, DICT, LOOKUP)  (VAR) = (LOOKUP);
+#endif
+
+/* GetModuleGlobalName.proto */
+#if CYTHON_USE_DICT_VERSIONS
+#define __Pyx_GetModuleGlobalName(var, name)  do {\
+    static PY_UINT64_T __pyx_dict_version = 0;\
+    static PyObject *__pyx_dict_cached_value = NULL;\
+    (var) = (likely(__pyx_dict_version == __PYX_GET_DICT_VERSION(__pyx_mstate_global->__pyx_d))) ?\
+        (likely(__pyx_dict_cached_value) ? __Pyx_NewRef(__pyx_dict_cached_value) : __Pyx_GetBuiltinName(name)) :\
+        __Pyx__GetModuleGlobalName(name, &__pyx_dict_version, &__pyx_dict_cached_value);\
+} while(0)
+#define __Pyx_GetModuleGlobalNameUncached(var, name)  do {\
+    PY_UINT64_T __pyx_dict_version;\
+    PyObject *__pyx_dict_cached_value;\
+    (var) = __Pyx__GetModuleGlobalName(name, &__pyx_dict_version, &__pyx_dict_cached_value);\
+} while(0)
+static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_version, PyObject **dict_cached_value);
+#else
+#define __Pyx_GetModuleGlobalName(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
+#define __Pyx_GetModuleGlobalNameUncached(var, name)  (var) = __Pyx__GetModuleGlobalName(name)
+static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
+#endif
+
+/* PyObjectVectorCallKwBuilder.proto */
+CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
+#if CYTHON_VECTORCALL
+#if PY_VERSION_HEX >= 0x03090000
+#define __Pyx_Object_Vectorcall_CallFromBuilder PyObject_Vectorcall
+#else
+#define __Pyx_Object_Vectorcall_CallFromBuilder _PyObject_Vectorcall
+#endif
+#define __Pyx_MakeVectorcallBuilderKwds(n) PyTuple_New(n)
+static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n);
+static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n);
+#else
+#define __Pyx_Object_Vectorcall_CallFromBuilder __Pyx_PyObject_FastCallDict
+#define __Pyx_MakeVectorcallBuilderKwds(n) __Pyx_PyDict_NewPresized(n)
+#define __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n) PyDict_SetItem(builder, key, value)
+#define __Pyx_VectorcallBuilder_AddArgStr(key, value, builder, args, n) PyDict_SetItemString(builder, key, value)
+#endif
+
 /* PyObjectFormatSimple.proto */
 #if CYTHON_COMPILING_IN_PYPY
     #define __Pyx_PyObject_FormatSimple(s, f) (\
@@ -2344,6 +2311,24 @@ static void __Pyx_Generator_Replace_StopIteration(int in_async_gen);
         PyObject_Format(s, f))
 #endif
 
+/* RaiseTooManyValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected);
+
+/* RaiseNeedMoreValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
+
+/* IterFinish.proto */
+static CYTHON_INLINE int __Pyx_IterFinish(void);
+
+/* UnpackItemEndCheck.proto */
+static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected);
+
+/* PyDictContains.proto */
+static CYTHON_INLINE int __Pyx_PyDict_ContainsTF(PyObject* item, PyObject* dict, int eq) {
+    int result = PyDict_Contains(dict, item);
+    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
+}
+
 /* DictGetItem.proto */
 #if !CYTHON_COMPILING_IN_PYPY
 static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key);
@@ -2355,13 +2340,57 @@ static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key);
 #define __Pyx_PyObject_Dict_GetItem(obj, name)  PyObject_GetItem(obj, name)
 #endif
 
-/* PyLongBinop.proto */
-#if !CYTHON_COMPILING_IN_PYPY
-static CYTHON_INLINE PyObject* __Pyx_PyLong_AddObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check);
+/* PyObjectVectorCallMethodKwBuilder.proto */
+#if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
+#define __Pyx_Object_VectorcallMethod_CallFromBuilder PyObject_VectorcallMethod
 #else
-#define __Pyx_PyLong_AddObjC(op1, op2, intval, inplace, zerodivision_check)\
-    (inplace ? PyNumber_InPlaceAdd(op1, op2) : PyNumber_Add(op1, op2))
+static PyObject *__Pyx_Object_VectorcallMethod_CallFromBuilder(PyObject *name, PyObject *const *args, size_t nargsf, PyObject *kwnames);
 #endif
+
+/* PySequenceContains.proto */
+static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
+    int result = PySequence_Contains(seq, item);
+    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
+}
+
+/* GetItemInt.proto */
+#define __Pyx_GetItemInt(o, i, type, is_signed, to_py_func, is_list, wraparound, boundscheck, has_gil)\
+    (__Pyx_fits_Py_ssize_t(i, type, is_signed) ?\
+    __Pyx_GetItemInt_Fast(o, (Py_ssize_t)i, is_list, wraparound, boundscheck) :\
+    (is_list ? (PyErr_SetString(PyExc_IndexError, "list index out of range"), (PyObject*)NULL) :\
+               __Pyx_GetItemInt_Generic(o, to_py_func(i))))
+#define __Pyx_GetItemInt_List(o, i, type, is_signed, to_py_func, is_list, wraparound, boundscheck, has_gil)\
+    (__Pyx_fits_Py_ssize_t(i, type, is_signed) ?\
+    __Pyx_GetItemInt_List_Fast(o, (Py_ssize_t)i, wraparound, boundscheck) :\
+    (PyErr_SetString(PyExc_IndexError, "list index out of range"), (PyObject*)NULL))
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_List_Fast(PyObject *o, Py_ssize_t i,
+                                                              int wraparound, int boundscheck);
+#define __Pyx_GetItemInt_Tuple(o, i, type, is_signed, to_py_func, is_list, wraparound, boundscheck, has_gil)\
+    (__Pyx_fits_Py_ssize_t(i, type, is_signed) ?\
+    __Pyx_GetItemInt_Tuple_Fast(o, (Py_ssize_t)i, wraparound, boundscheck) :\
+    (PyErr_SetString(PyExc_IndexError, "tuple index out of range"), (PyObject*)NULL))
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Tuple_Fast(PyObject *o, Py_ssize_t i,
+                                                              int wraparound, int boundscheck);
+static PyObject *__Pyx_GetItemInt_Generic(PyObject *o, PyObject* j);
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i,
+                                                     int is_list, int wraparound, int boundscheck);
+
+/* ObjectGetItem.proto */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *key);
+#else
+#define __Pyx_PyObject_GetItem(obj, key)  PyObject_GetItem(obj, key)
+#endif
+
+/* GetAttr3.proto */
+static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *, PyObject *, PyObject *);
+
+/* GetAttr.proto */
+static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *, PyObject *);
+
+/* JoinPyUnicode.proto */
+static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char);
 
 /* ListAppend.proto */
 #if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
@@ -2382,18 +2411,6 @@ static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
 }
 #else
 #define __Pyx_PyList_Append(L,x) PyList_Append(L,x)
-#endif
-
-/* dict_getitem_default.proto */
-static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value);
-
-/* CallUnboundCMethod1.proto */
-CYTHON_UNUSED
-static PyObject* __Pyx__CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg);
-#if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg);
-#else
-#define __Pyx_CallUnboundCMethod1(cfunc, self, arg)  __Pyx__CallUnboundCMethod1(cfunc, self, arg)
 #endif
 
 /* append.proto */
@@ -2704,24 +2721,30 @@ int __pyx_module_is_main_shudaodao_meta__tools__meta_store = 0;
 
 /* Implementation of "shudaodao_meta.tools.meta_store" */
 /* #### Code section: global_var ### */
-static PyObject *__pyx_builtin_print;
+static PyObject *__pyx_builtin_staticmethod;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = "\346\255\243\345\234\250\345\244\204\347\220\206: ";
+static const char __pyx_k_8[] = "\320\n8\270\001";
+static const char __pyx_k_Q[] = "\210!\360\022\000\r\026\220Q";
+static const char __pyx_k_s[] = "s.";
 static const char __pyx_k__2[] = "\346\255\243\345\234\250\345\244\204\347\220\206\350\241\250: ";
 static const char __pyx_k__3[] = "\346\255\243\345\234\250\345\244\204\347\220\206\350\247\206\345\233\276: ";
-static const char __pyx_k__4[] = ".";
-static const char __pyx_k__5[] = "?";
-static const char __pyx_k__6[] = "\210!";
+static const char __pyx_k__4[] = "=";
+static const char __pyx_k__5[] = ".";
+static const char __pyx_k__6[] = "?";
+static const char __pyx_k__7[] = "\210!\330\022\026\320\026+\250=\270\001";
+static const char __pyx_k__8[] = "\210!";
 static const char __pyx_k_db[] = "db";
-static const char __pyx_k_fk[] = "fk";
 static const char __pyx_k_gc[] = "gc";
+static const char __pyx_k_op[] = "op";
 static const char __pyx_k_doc[] = "__doc__";
-static const char __pyx_k_get[] = "get";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_str[] = "str";
-static const char __pyx_k_copy[] = "copy";
+static const char __pyx_k_val[] = "val";
+static const char __pyx_k_Meta[] = "Meta";
+static const char __pyx_k_View[] = "View";
+static const char __pyx_k_bool[] = "bool";
 static const char __pyx_k_db_2[] = "_db";
-static const char __pyx_k_dict[] = "dict";
 static const char __pyx_k_func[] = "__func__";
 static const char __pyx_k_init[] = "__init__";
 static const char __pyx_k_main[] = "__main__";
@@ -2729,170 +2752,191 @@ static const char __pyx_k_name[] = "name";
 static const char __pyx_k_next[] = "next";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_send[] = "send";
+static const char __pyx_k_size[] = "size";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_type[] = "type";
+static const char __pyx_k_view[] = "view";
+static const char __pyx_k_Table[] = "Table";
 static const char __pyx_k_await[] = "__await__";
 static const char __pyx_k_close[] = "close";
 static const char __pyx_k_debug[] = "debug";
+static const char __pyx_k_field[] = "field";
 static const char __pyx_k_flush[] = "flush";
-static const char __pyx_k_print[] = "print";
+static const char __pyx_k_query[] = "query";
 static const char __pyx_k_table[] = "table";
 static const char __pyx_k_throw[] = "throw";
 static const char __pyx_k_value[] = "value";
-static const char __pyx_k_views[] = "views";
+static const char __pyx_k_3_A_O1[] = "\320\004\032\230$\320\0363\260=\300\001\330\010\014\320\014!\240\021\330\010\014\320\014\034\230A\330\010\014\210O\2301";
+static const char __pyx_k_Source[] = "Source";
 static const char __pyx_k_append[] = "append";
+static const char __pyx_k_column[] = "column";
 static const char __pyx_k_commit[] = "commit";
 static const char __pyx_k_enable[] = "enable";
+static const char __pyx_k_entity[] = "entity";
+static const char __pyx_k_fields[] = "fields";
+static const char __pyx_k_filter[] = "filter";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_name_2[] = "__name__";
-static const char __pyx_k_return[] = "return";
-static const char __pyx_k_tables[] = "tables";
-static const char __pyx_k_columns[] = "- columns";
+static const char __pyx_k_prefix[] = "prefix";
+static const char __pyx_k_schema[] = "schema";
+static const char __pyx_k_typing[] = "typing";
+static const char __pyx_k_Columns[] = "Columns";
+static const char __pyx_k_Literal[] = "Literal";
+static const char __pyx_k_columns[] = "columns";
+static const char __pyx_k_comment[] = "comment";
+static const char __pyx_k_db_type[] = "db_type";
 static const char __pyx_k_disable[] = "disable";
-static const char __pyx_k_indexes[] = "- indexes";
-static const char __pyx_k_inspect[] = "inspect";
+static const char __pyx_k_exclude[] = "exclude";
+static const char __pyx_k_id_attr[] = "id_attr";
 static const char __pyx_k_logging[] = "logging";
-static const char __pyx_k_options[] = "options";
 static const char __pyx_k_prepare[] = "__prepare__";
+static const char __pyx_k_view_id[] = "view_id";
 static const char __pyx_k_MetaView[] = "MetaView";
 static const char __pyx_k_add_note[] = "add_note";
-static const char __pyx_k_metadata[] = "metadata";
+static const char __pyx_k_db_query[] = "db_query";
+static const char __pyx_k_expanded[] = "expanded";
 static const char __pyx_k_qualname[] = "__qualname__";
+static const char __pyx_k_relation[] = "relation";
 static const char __pyx_k_set_name[] = "__set_name__";
-static const char __pyx_k_D0E_R_kkl[] = "\210!\330\025\037\230}\250D\3200E\300]\320R^\320^k\320kl";
-static const char __pyx_k_MetaIndex[] = "MetaIndex";
+static const char __pyx_k_table_id[] = "table_id";
+static const char __pyx_k_view_map[] = "view_map";
 static const char __pyx_k_MetaStore[] = "MetaStore";
 static const char __pyx_k_MetaTable[] = "MetaTable";
-static const char __pyx_k_columns_2[] = "columns";
+static const char __pyx_k_MetaViews[] = "MetaViews";
 static const char __pyx_k_condition[] = "condition";
+static const char __pyx_k_curr_view[] = "curr_view";
 static const char __pyx_k_db_insert[] = "db_insert";
 static const char __pyx_k_db_update[] = "db_update";
-static const char __pyx_k_indexes_2[] = "indexes";
+static const char __pyx_k_is_active[] = "is_active";
+static const char __pyx_k_is_unique[] = "is_unique";
 static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_save_meta[] = "save_meta";
+static const char __pyx_k_schema_id[] = "schema_id";
 static const char __pyx_k_table_map[] = "table_map";
+static const char __pyx_k_type_name[] = "type_name";
 static const char __pyx_k_view_name[] = "view_name";
 static const char __pyx_k_MetaColumn[] = "MetaColumn";
 static const char __pyx_k_MetaSchema[] = "MetaSchema";
+static const char __pyx_k_MetaTables[] = "MetaTables";
+static const char __pyx_k_column_map[] = "column_map";
+static const char __pyx_k_curr_model[] = "curr_model";
+static const char __pyx_k_curr_table[] = "curr_table";
 static const char __pyx_k_data_model[] = "data_model";
 static const char __pyx_k_debug_line[] = "debug_line";
-static const char __pyx_k_get_schema[] = "get_schema";
-static const char __pyx_k_meta_model[] = "meta_model";
+static const char __pyx_k_entity_map[] = "entity_map";
+static const char __pyx_k_get_schema[] = "_get_schema";
+static const char __pyx_k_is_foreign[] = "is_foreign";
+static const char __pyx_k_is_primary[] = "is_primary";
+static const char __pyx_k_is_private[] = "is_private";
 static const char __pyx_k_model_dump[] = "model_dump";
 static const char __pyx_k_primary_id[] = "primary_id";
+static const char __pyx_k_schema_map[] = "schema_map";
 static const char __pyx_k_sort_order[] = "sort_order";
 static const char __pyx_k_table_name[] = "table_name";
 static const char __pyx_k_DataService[] = "DataService";
-static const char __pyx_k_MetaInspect[] = "MetaInspect";
+static const char __pyx_k_SourceViews[] = "SourceViews";
 static const char __pyx_k_auto_commit[] = "auto_commit";
-static const char __pyx_k_engine_name[] = "engine_name";
-static const char __pyx_k_gen_convert[] = "gen_convert";
+static const char __pyx_k_create_data[] = "create_data";
+static const char __pyx_k_curr_entity[] = "curr_entity";
+static const char __pyx_k_curr_schema[] = "curr_schema";
+static const char __pyx_k_entity_name[] = "entity_name";
+static const char __pyx_k_meta_schema[] = "meta_schema";
 static const char __pyx_k_model_class[] = "model_class";
-static const char __pyx_k_primary_key[] = "- primary_key";
-static const char __pyx_k_save_meta_2[] = "_save_meta";
+static const char __pyx_k_primary_key[] = "primary_key";
 static const char __pyx_k_schema_name[] = "schema_name";
-static const char __pyx_k_3_MYZ_A_A_O1[] = "\320\004\032\230$\320\0363\260=\300\014\310M\320YZ\330\010\014\320\014!\240\021\330\010\014\320\014\034\230A\330\010\014\320\014\034\230A\330\010\014\210O\2301";
 static const char __pyx_k_AsyncSession[] = "AsyncSession";
-static const char __pyx_k_GenConverter[] = "GenConverter";
+static const char __pyx_k_QueryRequest[] = "QueryRequest";
 static const char __pyx_k_QueryService[] = "QueryService";
-static const char __pyx_k_column_names[] = "column_names";
+static const char __pyx_k_SourceSchema[] = "SourceSchema";
+static const char __pyx_k_SourceTables[] = "SourceTables";
 static const char __pyx_k_create_model[] = "create_model";
-static const char __pyx_k_foreign_keys[] = "- foreign_keys";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_meta_inspect[] = "meta_inspect";
-static const char __pyx_k_meta_view_id[] = "meta_view_id";
-static const char __pyx_k_source_table[] = "source_table";
-static const char __pyx_k_target_table[] = "target_table";
+static const char __pyx_k_is_increment[] = "is_increment";
+static const char __pyx_k_meta_convert[] = "meta_convert";
+static const char __pyx_k_source_model[] = "source_model";
+static const char __pyx_k_staticmethod[] = "staticmethod";
 static const char __pyx_k_update_model[] = "update_model";
-static const char __pyx_k_engine_name_2[] = "_engine_name";
-static const char __pyx_k_l_a_1_1_T_A_A[] = "\320\004\031\230\035\240l\260-\270\177\310a\330\010\013\2101\330\014\020\320\020 \240\001\330\010\013\2101\330\014\020\320\020 \240\001\340\010\035\230[\250\001\250\034\260T\270\021\340\010\017\320\017!\240\033\250A\330\014\030\230\004\230A";
-static const char __pyx_k_meta_table_id[] = "meta_table_id";
-static const char __pyx_k_primary_key_2[] = "primary_key";
-static const char __pyx_k_primary_key_3[] = "primary_key:";
+static const char __pyx_k_MetaConverter[] = "MetaConverter";
+static const char __pyx_k_SourceColumns[] = "SourceColumns";
+static const char __pyx_k_SourceIndexes[] = "SourceIndexes";
+static const char __pyx_k_autoincrement[] = "autoincrement";
+static const char __pyx_k_class_getitem[] = "__class_getitem__";
+static const char __pyx_k_query_request[] = "query_request";
+static const char __pyx_k_save_sqlmodel[] = "save_sqlmodel";
 static const char __pyx_k_schema_name_2[] = "_schema_name";
-static const char __pyx_k_MetaForeignKey[] = "MetaForeignKey";
-static const char __pyx_k_MetaPrimaryKey[] = "MetaPrimaryKey";
-static const char __pyx_k_foreign_keys_2[] = "foreign_keys";
-static const char __pyx_k_meta_schema_id[] = "meta_schema_id";
-static const char __pyx_k_referred_table[] = "referred_table";
+static const char __pyx_k_source_schema[] = "source_schema";
+static const char __pyx_k_MetaViewCreate[] = "MetaViewCreate";
+static const char __pyx_k_MetaViewUpdate[] = "MetaViewUpdate";
+static const char __pyx_k_model_validate[] = "model_validate";
+static const char __pyx_k_save_meta_view[] = "_save_meta_view";
 static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
-static const char __pyx_k_referred_schema[] = "referred_schema";
+static const char __pyx_k_MetaTableCreate[] = "MetaTableCreate";
+static const char __pyx_k_MetaTableUpdate[] = "MetaTableUpdate";
+static const char __pyx_k_s_SourceIndexes[] = "s.SourceIndexes";
+static const char __pyx_k_save_meta_table[] = "_save_meta_table";
 static const char __pyx_k_save_meta_views[] = "_save_meta_views";
+static const char __pyx_k_save_sqlmodel_2[] = "_save_sqlmodel";
+static const char __pyx_k_MetaColumnCreate[] = "MetaColumnCreate";
 static const char __pyx_k_MetaStore___init[] = "MetaStore.__init__";
-static const char __pyx_k_referred_columns[] = "referred_columns";
+static const char __pyx_k_SourcePrimaryKey[] = "SourcePrimaryKey";
+static const char __pyx_k_save_meta_entity[] = "_save_meta_entity";
 static const char __pyx_k_save_meta_tables[] = "_save_meta_tables";
-static const char __pyx_k_MetaStore_inspect[] = "MetaStore.inspect";
-static const char __pyx_k_constrained_table[] = "constrained_table";
+static const char __pyx_k_validated_update[] = "validated_update";
+static const char __pyx_k_SourceForeignKeys[] = "SourceForeignKeys";
 static const char __pyx_k_first_field_value[] = "first_field_value";
-static const char __pyx_k_save_meta_columns[] = "_save_meta_columns";
-static const char __pyx_k_save_meta_indexes[] = "_save_meta_indexes";
+static const char __pyx_k_Literal_Table_View[] = "Literal['Table', 'View']";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_constrained_schema[] = "constrained_schema";
-static const char __pyx_k_metadata_inspector[] = "metadata_inspector";
-static const char __pyx_k_unique_constraints[] = "- unique_constraints";
-static const char __pyx_k_MetaStore_save_meta[] = "MetaStore.save_meta";
+static const char __pyx_k_create_model_class[] = "create_model_class";
+static const char __pyx_k_s_SourcePrimaryKey[] = "s.SourcePrimaryKey";
+static const char __pyx_k_update_model_class[] = "update_model_class";
 static const char __pyx_k_constrained_columns[] = "constrained_columns";
-static const char __pyx_k_meta_foreign_key_id[] = "meta_foreign_key_id";
 static const char __pyx_k_query_columns_first[] = "query_columns_first";
+static const char __pyx_k_s_SourceForeignKeys[] = "s.SourceForeignKeys";
 static const char __pyx_k_set_update_property[] = "set_update_property";
-static const char __pyx_k_MetaStore__save_meta[] = "MetaStore._save_meta";
-static const char __pyx_k_MetaUniqueConstraint[] = "MetaUniqueConstraint";
-static const char __pyx_k_unique_constraints_2[] = "unique_constraints";
-static const char __pyx_k_save_meta_primary_key[] = "_save_meta_primary_key";
-static const char __pyx_k_save_meta_foreign_keys[] = "_save_meta_foreign_keys";
-static const char __pyx_k_referencing_foreign_keys[] = "referencing_foreign_keys";
-static const char __pyx_k_MetaReferencingForeignKey[] = "MetaReferencingForeignKey";
+static const char __pyx_k_MetaStore__get_schema[] = "MetaStore._get_schema";
+static const char __pyx_k_meta_create_or_update[] = "_meta_create_or_update";
+static const char __pyx_k_MetaStore_save_sqlmodel[] = "MetaStore.save_sqlmodel";
+static const char __pyx_k_MetaStore__save_sqlmodel[] = "MetaStore._save_sqlmodel";
+static const char __pyx_k_get_schema_query_request[] = "_get_schema_query_request";
+static const char __pyx_k_MetaStore__save_meta_view[] = "MetaStore._save_meta_view";
+static const char __pyx_k_MetaStore__save_meta_table[] = "MetaStore._save_meta_table";
 static const char __pyx_k_MetaStore__save_meta_views[] = "MetaStore._save_meta_views";
-static const char __pyx_k_metamodel_create_or_update[] = "_metamodel_create_or_update";
+static const char __pyx_k_MetaStore__save_meta_entity[] = "MetaStore._save_meta_entity";
 static const char __pyx_k_MetaStore__save_meta_tables[] = "MetaStore._save_meta_tables";
-static const char __pyx_k_MetaStore__save_meta_columns[] = "MetaStore._save_meta_columns";
-static const char __pyx_k_MetaStore__save_meta_indexes[] = "MetaStore._save_meta_indexes";
-static const char __pyx_k_meta_referencing_foreign_key[] = "\346\255\243\345\234\250\344\277\235\345\255\230\350\241\250: meta_referencing_foreign_key";
-static const char __pyx_k_save_meta_unique_constraints[] = "_save_meta_unique_constraints";
-static const char __pyx_k_save_meta_referencing_foreign_k[] = "_save_meta_referencing_foreign_keys";
 static const char __pyx_k_shudaodao_meta_tools_meta_store[] = "shudaodao_meta.tools.meta_store";
-static const char __pyx_k_MetaStore__metamodel_create_or_u[] = "MetaStore._metamodel_create_or_update";
-static const char __pyx_k_MetaStore__save_meta_foreign_key[] = "MetaStore._save_meta_foreign_keys";
-static const char __pyx_k_MetaStore__save_meta_primary_key[] = "MetaStore._save_meta_primary_key";
-static const char __pyx_k_MetaStore__save_meta_referencing[] = "MetaStore._save_meta_referencing_foreign_keys";
-static const char __pyx_k_MetaStore__save_meta_unique_cons[] = "MetaStore._save_meta_unique_constraints";
+static const char __pyx_k_A_11K_UV_a_a_uG1_hm1_A_S_A_WARt8[] = "\200A\340!1\3201K\310:\320UV\340\010\t\330\014\026\220a\360\016\000\r\027\220a\330\021\032\230/\250\026\250u\260G\2701\340\014\030\230\001\330\020\022\220$\220h\230m\2501\340\014\024\220A\340\010\013\210:\220S\230\010\240\004\240A\330\014\021\220\021\220+\230W\240A\240R\240t\2508\2601\330\014\021\220\021\220+\230W\240A\240R\240t\2508\2601\330\014\021\220\021\220+\230W\240A\240R\240t\2508\2601\340\010\017\210|\2303\230a";
+static const char __pyx_k_MetaStore__get_schema_query_requ[] = "MetaStore._get_schema_query_request";
+static const char __pyx_k_MetaStore__meta_create_or_update[] = "MetaStore._meta_create_or_update";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
+static const char __pyx_k_shudaodao_core_schemas_query_req[] = "shudaodao_core.schemas.query_request";
 static const char __pyx_k_shudaodao_meta_generate_entity_t[] = "shudaodao_meta.generate.entity_table.meta_column";
 static const char __pyx_k_shudaodao_meta_tools_meta_store_2[] = "shudaodao_meta/tools/meta_store.py";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_2[] = "shudaodao_meta.generate.entity_table.meta_foreign_key";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_3[] = "shudaodao_meta.generate.entity_table.meta_index";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_4[] = "shudaodao_meta.generate.entity_table.meta_primary_key";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_5[] = "shudaodao_meta.generate.entity_table.meta_referencing_foreign_key";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_6[] = "shudaodao_meta.generate.entity_table.meta_schema";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_7[] = "shudaodao_meta.generate.entity_table.meta_table";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_8[] = "shudaodao_meta.generate.entity_table.meta_unique_constraint";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_9[] = "shudaodao_meta.generate.entity_table.meta_view";
+static const char __pyx_k_shudaodao_meta_generate_entity_t_2[] = "shudaodao_meta.generate.entity_table.meta_schema";
+static const char __pyx_k_shudaodao_meta_generate_entity_t_3[] = "shudaodao_meta.generate.entity_table.meta_table";
+static const char __pyx_k_shudaodao_meta_generate_entity_t_4[] = "shudaodao_meta.generate.entity_table.meta_view";
+static const char __pyx_k_shudaodao_meta_generate_entity_t_5[] = "shudaodao_meta.generate.entity_table.source_schema";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_db, PyObject *__pyx_v_engine_name, PyObject *__pyx_v_schema_name); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_2inspect(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_engine_name, PyObject *__pyx_v_schema_name); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_4save_meta(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata, PyObject *__pyx_v_db, PyObject *__pyx_v_engine_name, PyObject *__pyx_v_schema_name); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_7_metamodel_create_or_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_data_model, PyObject *__pyx_v_condition); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_10_save_meta(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_13_save_meta_tables(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_16_save_meta_views(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_19_save_meta_columns(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_22_save_meta_primary_key(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_25_save_meta_foreign_keys(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_28_save_meta_unique_constraints(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_31_save_meta_indexes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata); /* proto */
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_34_save_meta_referencing_foreign_keys(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_tables); /* proto */
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_db, PyObject *__pyx_v_schema_name); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_2save_sqlmodel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_db, PyObject *__pyx_v_schema_name); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_5_meta_create_or_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_data_model, PyObject *__pyx_v_condition); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_save_sqlmodel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta_tables(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_schema_name); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_table(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_curr_schema, PyObject *__pyx_v_table, PyObject *__pyx_v_table_map); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_schema_name); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_view(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_curr_schema, PyObject *__pyx_v_view, PyObject *__pyx_v_view_map); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_entity(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_curr_schema, PyObject *__pyx_v_entity, PyObject *__pyx_v_entity_map, PyObject *__pyx_v_entity_name, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_model_class, PyObject *__pyx_v_update_model_class, PyObject *__pyx_v_id_attr); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_get_schema(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_type_name); /* proto */
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_get_schema_query_request(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_prefix, PyObject *__pyx_v_type_name, PyObject *__pyx_v_expanded); /* proto */
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2931,35 +2975,31 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel;
   PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes;
-  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity;
+  PyObject *__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel;
   PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes;
-  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys;
-  __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_get;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity;
+  PyTypeObject *__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[3];
-  PyObject *__pyx_codeobj_tab[13];
-  PyObject *__pyx_string_tab[158];
+  PyObject *__pyx_codeobj_tab[11];
+  PyObject *__pyx_string_tab[187];
   PyObject *__pyx_int_0;
   PyObject *__pyx_int_10;
+  PyObject *__pyx_int_1000;
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2976,18 +3016,18 @@ PyObject *__Pyx_CachedCoroType;
 
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel;
 #endif
 
 #if CYTHON_USE_FREELISTS
@@ -2996,38 +3036,28 @@ int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__s
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints;
-#endif
-
-#if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes;
-#endif
-
-#if CYTHON_USE_FREELISTS
-struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys[8];
-int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys;
+struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema[8];
+int __pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema;
 #endif
 /* CachedMethodType.module_state_decls */
 #if CYTHON_COMPILING_IN_LIMITED_API
@@ -3064,162 +3094,191 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_AsyncSession __pyx_string_tab[1]
-#define __pyx_n_u_DataService __pyx_string_tab[2]
-#define __pyx_n_u_GenConverter __pyx_string_tab[3]
-#define __pyx_n_u_MetaColumn __pyx_string_tab[4]
-#define __pyx_n_u_MetaForeignKey __pyx_string_tab[5]
-#define __pyx_n_u_MetaIndex __pyx_string_tab[6]
-#define __pyx_n_u_MetaInspect __pyx_string_tab[7]
-#define __pyx_n_u_MetaPrimaryKey __pyx_string_tab[8]
-#define __pyx_n_u_MetaReferencingForeignKey __pyx_string_tab[9]
+#define __pyx_n_u_Columns __pyx_string_tab[2]
+#define __pyx_n_u_DataService __pyx_string_tab[3]
+#define __pyx_n_u_Literal __pyx_string_tab[4]
+#define __pyx_kp_u_Literal_Table_View __pyx_string_tab[5]
+#define __pyx_n_u_Meta __pyx_string_tab[6]
+#define __pyx_n_u_MetaColumn __pyx_string_tab[7]
+#define __pyx_n_u_MetaColumnCreate __pyx_string_tab[8]
+#define __pyx_n_u_MetaConverter __pyx_string_tab[9]
 #define __pyx_n_u_MetaSchema __pyx_string_tab[10]
 #define __pyx_n_u_MetaStore __pyx_string_tab[11]
 #define __pyx_n_u_MetaStore___init __pyx_string_tab[12]
-#define __pyx_n_u_MetaStore__metamodel_create_or_u __pyx_string_tab[13]
-#define __pyx_n_u_MetaStore__save_meta __pyx_string_tab[14]
-#define __pyx_n_u_MetaStore__save_meta_columns __pyx_string_tab[15]
-#define __pyx_n_u_MetaStore__save_meta_foreign_key __pyx_string_tab[16]
-#define __pyx_n_u_MetaStore__save_meta_indexes __pyx_string_tab[17]
-#define __pyx_n_u_MetaStore__save_meta_primary_key __pyx_string_tab[18]
-#define __pyx_n_u_MetaStore__save_meta_referencing __pyx_string_tab[19]
-#define __pyx_n_u_MetaStore__save_meta_tables __pyx_string_tab[20]
-#define __pyx_n_u_MetaStore__save_meta_unique_cons __pyx_string_tab[21]
-#define __pyx_n_u_MetaStore__save_meta_views __pyx_string_tab[22]
-#define __pyx_n_u_MetaStore_inspect __pyx_string_tab[23]
-#define __pyx_n_u_MetaStore_save_meta __pyx_string_tab[24]
-#define __pyx_n_u_MetaTable __pyx_string_tab[25]
-#define __pyx_n_u_MetaUniqueConstraint __pyx_string_tab[26]
+#define __pyx_n_u_MetaStore__get_schema __pyx_string_tab[13]
+#define __pyx_n_u_MetaStore__get_schema_query_requ __pyx_string_tab[14]
+#define __pyx_n_u_MetaStore__meta_create_or_update __pyx_string_tab[15]
+#define __pyx_n_u_MetaStore__save_meta_entity __pyx_string_tab[16]
+#define __pyx_n_u_MetaStore__save_meta_table __pyx_string_tab[17]
+#define __pyx_n_u_MetaStore__save_meta_tables __pyx_string_tab[18]
+#define __pyx_n_u_MetaStore__save_meta_view __pyx_string_tab[19]
+#define __pyx_n_u_MetaStore__save_meta_views __pyx_string_tab[20]
+#define __pyx_n_u_MetaStore__save_sqlmodel __pyx_string_tab[21]
+#define __pyx_n_u_MetaStore_save_sqlmodel __pyx_string_tab[22]
+#define __pyx_n_u_MetaTable __pyx_string_tab[23]
+#define __pyx_n_u_MetaTableCreate __pyx_string_tab[24]
+#define __pyx_n_u_MetaTableUpdate __pyx_string_tab[25]
+#define __pyx_n_u_MetaTables __pyx_string_tab[26]
 #define __pyx_n_u_MetaView __pyx_string_tab[27]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[28]
-#define __pyx_n_u_QueryService __pyx_string_tab[29]
-#define __pyx_kp_u__2 __pyx_string_tab[30]
-#define __pyx_kp_u__3 __pyx_string_tab[31]
-#define __pyx_kp_u__4 __pyx_string_tab[32]
-#define __pyx_kp_u__5 __pyx_string_tab[33]
-#define __pyx_kp_u_add_note __pyx_string_tab[34]
-#define __pyx_n_u_append __pyx_string_tab[35]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[36]
-#define __pyx_n_u_auto_commit __pyx_string_tab[37]
-#define __pyx_n_u_await __pyx_string_tab[38]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[39]
-#define __pyx_n_u_close __pyx_string_tab[40]
-#define __pyx_n_u_column_names __pyx_string_tab[41]
-#define __pyx_kp_u_columns __pyx_string_tab[42]
-#define __pyx_n_u_columns_2 __pyx_string_tab[43]
-#define __pyx_n_u_commit __pyx_string_tab[44]
-#define __pyx_n_u_condition __pyx_string_tab[45]
-#define __pyx_n_u_constrained_columns __pyx_string_tab[46]
-#define __pyx_n_u_constrained_schema __pyx_string_tab[47]
-#define __pyx_n_u_constrained_table __pyx_string_tab[48]
-#define __pyx_n_u_copy __pyx_string_tab[49]
-#define __pyx_n_u_create_model __pyx_string_tab[50]
-#define __pyx_n_u_data_model __pyx_string_tab[51]
-#define __pyx_n_u_db __pyx_string_tab[52]
-#define __pyx_n_u_db_2 __pyx_string_tab[53]
-#define __pyx_n_u_db_insert __pyx_string_tab[54]
-#define __pyx_n_u_db_update __pyx_string_tab[55]
-#define __pyx_n_u_debug __pyx_string_tab[56]
-#define __pyx_n_u_debug_line __pyx_string_tab[57]
-#define __pyx_n_u_dict __pyx_string_tab[58]
-#define __pyx_kp_u_disable __pyx_string_tab[59]
-#define __pyx_n_u_doc __pyx_string_tab[60]
-#define __pyx_kp_u_enable __pyx_string_tab[61]
-#define __pyx_n_u_engine_name __pyx_string_tab[62]
-#define __pyx_n_u_engine_name_2 __pyx_string_tab[63]
-#define __pyx_n_u_first_field_value __pyx_string_tab[64]
-#define __pyx_n_u_fk __pyx_string_tab[65]
-#define __pyx_n_u_flush __pyx_string_tab[66]
-#define __pyx_kp_u_foreign_keys __pyx_string_tab[67]
-#define __pyx_n_u_foreign_keys_2 __pyx_string_tab[68]
-#define __pyx_n_u_func __pyx_string_tab[69]
-#define __pyx_kp_u_gc __pyx_string_tab[70]
-#define __pyx_n_u_gen_convert __pyx_string_tab[71]
-#define __pyx_n_u_get __pyx_string_tab[72]
-#define __pyx_n_u_get_schema __pyx_string_tab[73]
-#define __pyx_kp_u_indexes __pyx_string_tab[74]
-#define __pyx_n_u_indexes_2 __pyx_string_tab[75]
-#define __pyx_n_u_init __pyx_string_tab[76]
-#define __pyx_n_u_inspect __pyx_string_tab[77]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[78]
-#define __pyx_kp_u_isenabled __pyx_string_tab[79]
-#define __pyx_n_u_logging __pyx_string_tab[80]
-#define __pyx_n_u_main __pyx_string_tab[81]
-#define __pyx_n_u_meta_foreign_key_id __pyx_string_tab[82]
-#define __pyx_n_u_meta_inspect __pyx_string_tab[83]
-#define __pyx_n_u_meta_model __pyx_string_tab[84]
-#define __pyx_kp_u_meta_referencing_foreign_key __pyx_string_tab[85]
-#define __pyx_n_u_meta_schema_id __pyx_string_tab[86]
-#define __pyx_n_u_meta_table_id __pyx_string_tab[87]
-#define __pyx_n_u_meta_view_id __pyx_string_tab[88]
-#define __pyx_n_u_metaclass __pyx_string_tab[89]
-#define __pyx_n_u_metadata __pyx_string_tab[90]
-#define __pyx_n_u_metadata_inspector __pyx_string_tab[91]
-#define __pyx_n_u_metamodel_create_or_update __pyx_string_tab[92]
-#define __pyx_n_u_model_class __pyx_string_tab[93]
-#define __pyx_n_u_model_dump __pyx_string_tab[94]
-#define __pyx_n_u_module __pyx_string_tab[95]
-#define __pyx_n_u_name __pyx_string_tab[96]
-#define __pyx_n_u_name_2 __pyx_string_tab[97]
-#define __pyx_n_u_next __pyx_string_tab[98]
-#define __pyx_n_u_options __pyx_string_tab[99]
-#define __pyx_n_u_pop __pyx_string_tab[100]
-#define __pyx_n_u_prepare __pyx_string_tab[101]
-#define __pyx_n_u_primary_id __pyx_string_tab[102]
-#define __pyx_kp_u_primary_key __pyx_string_tab[103]
-#define __pyx_n_u_primary_key_2 __pyx_string_tab[104]
-#define __pyx_kp_u_primary_key_3 __pyx_string_tab[105]
-#define __pyx_n_u_print __pyx_string_tab[106]
-#define __pyx_n_u_qualname __pyx_string_tab[107]
-#define __pyx_n_u_query_columns_first __pyx_string_tab[108]
-#define __pyx_n_u_referencing_foreign_keys __pyx_string_tab[109]
-#define __pyx_n_u_referred_columns __pyx_string_tab[110]
-#define __pyx_n_u_referred_schema __pyx_string_tab[111]
-#define __pyx_n_u_referred_table __pyx_string_tab[112]
-#define __pyx_n_u_return __pyx_string_tab[113]
-#define __pyx_n_u_save_meta __pyx_string_tab[114]
-#define __pyx_n_u_save_meta_2 __pyx_string_tab[115]
-#define __pyx_n_u_save_meta_columns __pyx_string_tab[116]
-#define __pyx_n_u_save_meta_foreign_keys __pyx_string_tab[117]
-#define __pyx_n_u_save_meta_indexes __pyx_string_tab[118]
-#define __pyx_n_u_save_meta_primary_key __pyx_string_tab[119]
-#define __pyx_n_u_save_meta_referencing_foreign_k __pyx_string_tab[120]
-#define __pyx_n_u_save_meta_tables __pyx_string_tab[121]
-#define __pyx_n_u_save_meta_unique_constraints __pyx_string_tab[122]
-#define __pyx_n_u_save_meta_views __pyx_string_tab[123]
-#define __pyx_n_u_schema_name __pyx_string_tab[124]
-#define __pyx_n_u_schema_name_2 __pyx_string_tab[125]
-#define __pyx_n_u_self __pyx_string_tab[126]
-#define __pyx_n_u_send __pyx_string_tab[127]
-#define __pyx_n_u_set_name __pyx_string_tab[128]
-#define __pyx_n_u_set_update_property __pyx_string_tab[129]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[130]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t __pyx_string_tab[131]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_2 __pyx_string_tab[132]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_3 __pyx_string_tab[133]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_4 __pyx_string_tab[134]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_5 __pyx_string_tab[135]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_6 __pyx_string_tab[136]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_7 __pyx_string_tab[137]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_8 __pyx_string_tab[138]
-#define __pyx_n_u_shudaodao_meta_generate_entity_t_9 __pyx_string_tab[139]
-#define __pyx_n_u_shudaodao_meta_tools_meta_store __pyx_string_tab[140]
-#define __pyx_kp_u_shudaodao_meta_tools_meta_store_2 __pyx_string_tab[141]
-#define __pyx_n_u_sort_order __pyx_string_tab[142]
-#define __pyx_n_u_source_table __pyx_string_tab[143]
-#define __pyx_n_u_str __pyx_string_tab[144]
-#define __pyx_n_u_table __pyx_string_tab[145]
-#define __pyx_n_u_table_map __pyx_string_tab[146]
-#define __pyx_n_u_table_name __pyx_string_tab[147]
-#define __pyx_n_u_tables __pyx_string_tab[148]
-#define __pyx_n_u_target_table __pyx_string_tab[149]
-#define __pyx_n_u_test __pyx_string_tab[150]
-#define __pyx_n_u_throw __pyx_string_tab[151]
-#define __pyx_kp_u_unique_constraints __pyx_string_tab[152]
-#define __pyx_n_u_unique_constraints_2 __pyx_string_tab[153]
-#define __pyx_n_u_update_model __pyx_string_tab[154]
-#define __pyx_n_u_value __pyx_string_tab[155]
-#define __pyx_n_u_view_name __pyx_string_tab[156]
-#define __pyx_n_u_views __pyx_string_tab[157]
+#define __pyx_n_u_MetaViewCreate __pyx_string_tab[28]
+#define __pyx_n_u_MetaViewUpdate __pyx_string_tab[29]
+#define __pyx_n_u_MetaViews __pyx_string_tab[30]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[31]
+#define __pyx_n_u_QueryRequest __pyx_string_tab[32]
+#define __pyx_n_u_QueryService __pyx_string_tab[33]
+#define __pyx_n_u_Source __pyx_string_tab[34]
+#define __pyx_n_u_SourceColumns __pyx_string_tab[35]
+#define __pyx_n_u_SourceForeignKeys __pyx_string_tab[36]
+#define __pyx_n_u_SourceIndexes __pyx_string_tab[37]
+#define __pyx_n_u_SourcePrimaryKey __pyx_string_tab[38]
+#define __pyx_n_u_SourceSchema __pyx_string_tab[39]
+#define __pyx_n_u_SourceTables __pyx_string_tab[40]
+#define __pyx_n_u_SourceViews __pyx_string_tab[41]
+#define __pyx_n_u_Table __pyx_string_tab[42]
+#define __pyx_n_u_View __pyx_string_tab[43]
+#define __pyx_kp_u__2 __pyx_string_tab[44]
+#define __pyx_kp_u__3 __pyx_string_tab[45]
+#define __pyx_kp_u__4 __pyx_string_tab[46]
+#define __pyx_kp_u__5 __pyx_string_tab[47]
+#define __pyx_kp_u__6 __pyx_string_tab[48]
+#define __pyx_kp_u_add_note __pyx_string_tab[49]
+#define __pyx_n_u_append __pyx_string_tab[50]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[51]
+#define __pyx_n_u_auto_commit __pyx_string_tab[52]
+#define __pyx_n_u_autoincrement __pyx_string_tab[53]
+#define __pyx_n_u_await __pyx_string_tab[54]
+#define __pyx_n_u_bool __pyx_string_tab[55]
+#define __pyx_n_u_class_getitem __pyx_string_tab[56]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[57]
+#define __pyx_n_u_close __pyx_string_tab[58]
+#define __pyx_n_u_column __pyx_string_tab[59]
+#define __pyx_n_u_column_map __pyx_string_tab[60]
+#define __pyx_n_u_columns __pyx_string_tab[61]
+#define __pyx_n_u_comment __pyx_string_tab[62]
+#define __pyx_n_u_commit __pyx_string_tab[63]
+#define __pyx_n_u_condition __pyx_string_tab[64]
+#define __pyx_n_u_constrained_columns __pyx_string_tab[65]
+#define __pyx_n_u_create_data __pyx_string_tab[66]
+#define __pyx_n_u_create_model __pyx_string_tab[67]
+#define __pyx_n_u_create_model_class __pyx_string_tab[68]
+#define __pyx_n_u_curr_entity __pyx_string_tab[69]
+#define __pyx_n_u_curr_model __pyx_string_tab[70]
+#define __pyx_n_u_curr_schema __pyx_string_tab[71]
+#define __pyx_n_u_curr_table __pyx_string_tab[72]
+#define __pyx_n_u_curr_view __pyx_string_tab[73]
+#define __pyx_n_u_data_model __pyx_string_tab[74]
+#define __pyx_n_u_db __pyx_string_tab[75]
+#define __pyx_n_u_db_2 __pyx_string_tab[76]
+#define __pyx_n_u_db_insert __pyx_string_tab[77]
+#define __pyx_n_u_db_query __pyx_string_tab[78]
+#define __pyx_n_u_db_type __pyx_string_tab[79]
+#define __pyx_n_u_db_update __pyx_string_tab[80]
+#define __pyx_n_u_debug __pyx_string_tab[81]
+#define __pyx_n_u_debug_line __pyx_string_tab[82]
+#define __pyx_kp_u_disable __pyx_string_tab[83]
+#define __pyx_n_u_doc __pyx_string_tab[84]
+#define __pyx_kp_u_enable __pyx_string_tab[85]
+#define __pyx_n_u_entity __pyx_string_tab[86]
+#define __pyx_n_u_entity_map __pyx_string_tab[87]
+#define __pyx_n_u_entity_name __pyx_string_tab[88]
+#define __pyx_n_u_exclude __pyx_string_tab[89]
+#define __pyx_n_u_expanded __pyx_string_tab[90]
+#define __pyx_n_u_field __pyx_string_tab[91]
+#define __pyx_n_u_fields __pyx_string_tab[92]
+#define __pyx_n_u_filter __pyx_string_tab[93]
+#define __pyx_n_u_first_field_value __pyx_string_tab[94]
+#define __pyx_n_u_flush __pyx_string_tab[95]
+#define __pyx_n_u_func __pyx_string_tab[96]
+#define __pyx_kp_u_gc __pyx_string_tab[97]
+#define __pyx_n_u_get_schema __pyx_string_tab[98]
+#define __pyx_n_u_get_schema_query_request __pyx_string_tab[99]
+#define __pyx_n_u_id_attr __pyx_string_tab[100]
+#define __pyx_n_u_init __pyx_string_tab[101]
+#define __pyx_n_u_is_active __pyx_string_tab[102]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[103]
+#define __pyx_n_u_is_foreign __pyx_string_tab[104]
+#define __pyx_n_u_is_increment __pyx_string_tab[105]
+#define __pyx_n_u_is_primary __pyx_string_tab[106]
+#define __pyx_n_u_is_private __pyx_string_tab[107]
+#define __pyx_n_u_is_unique __pyx_string_tab[108]
+#define __pyx_kp_u_isenabled __pyx_string_tab[109]
+#define __pyx_n_u_logging __pyx_string_tab[110]
+#define __pyx_n_u_main __pyx_string_tab[111]
+#define __pyx_n_u_meta_convert __pyx_string_tab[112]
+#define __pyx_n_u_meta_create_or_update __pyx_string_tab[113]
+#define __pyx_n_u_meta_schema __pyx_string_tab[114]
+#define __pyx_n_u_metaclass __pyx_string_tab[115]
+#define __pyx_n_u_model_class __pyx_string_tab[116]
+#define __pyx_n_u_model_dump __pyx_string_tab[117]
+#define __pyx_n_u_model_validate __pyx_string_tab[118]
+#define __pyx_n_u_module __pyx_string_tab[119]
+#define __pyx_n_u_name __pyx_string_tab[120]
+#define __pyx_n_u_name_2 __pyx_string_tab[121]
+#define __pyx_n_u_next __pyx_string_tab[122]
+#define __pyx_n_u_op __pyx_string_tab[123]
+#define __pyx_n_u_pop __pyx_string_tab[124]
+#define __pyx_n_u_prefix __pyx_string_tab[125]
+#define __pyx_n_u_prepare __pyx_string_tab[126]
+#define __pyx_n_u_primary_id __pyx_string_tab[127]
+#define __pyx_n_u_primary_key __pyx_string_tab[128]
+#define __pyx_n_u_qualname __pyx_string_tab[129]
+#define __pyx_n_u_query __pyx_string_tab[130]
+#define __pyx_n_u_query_columns_first __pyx_string_tab[131]
+#define __pyx_n_u_query_request __pyx_string_tab[132]
+#define __pyx_n_u_relation __pyx_string_tab[133]
+#define __pyx_kp_u_s __pyx_string_tab[134]
+#define __pyx_kp_u_s_SourceForeignKeys __pyx_string_tab[135]
+#define __pyx_kp_u_s_SourceIndexes __pyx_string_tab[136]
+#define __pyx_kp_u_s_SourcePrimaryKey __pyx_string_tab[137]
+#define __pyx_n_u_save_meta_entity __pyx_string_tab[138]
+#define __pyx_n_u_save_meta_table __pyx_string_tab[139]
+#define __pyx_n_u_save_meta_tables __pyx_string_tab[140]
+#define __pyx_n_u_save_meta_view __pyx_string_tab[141]
+#define __pyx_n_u_save_meta_views __pyx_string_tab[142]
+#define __pyx_n_u_save_sqlmodel __pyx_string_tab[143]
+#define __pyx_n_u_save_sqlmodel_2 __pyx_string_tab[144]
+#define __pyx_n_u_schema __pyx_string_tab[145]
+#define __pyx_n_u_schema_id __pyx_string_tab[146]
+#define __pyx_n_u_schema_map __pyx_string_tab[147]
+#define __pyx_n_u_schema_name __pyx_string_tab[148]
+#define __pyx_n_u_schema_name_2 __pyx_string_tab[149]
+#define __pyx_n_u_self __pyx_string_tab[150]
+#define __pyx_n_u_send __pyx_string_tab[151]
+#define __pyx_n_u_set_name __pyx_string_tab[152]
+#define __pyx_n_u_set_update_property __pyx_string_tab[153]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[154]
+#define __pyx_n_u_shudaodao_core_schemas_query_req __pyx_string_tab[155]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t __pyx_string_tab[156]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_2 __pyx_string_tab[157]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_3 __pyx_string_tab[158]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_4 __pyx_string_tab[159]
+#define __pyx_n_u_shudaodao_meta_generate_entity_t_5 __pyx_string_tab[160]
+#define __pyx_n_u_shudaodao_meta_tools_meta_store __pyx_string_tab[161]
+#define __pyx_kp_u_shudaodao_meta_tools_meta_store_2 __pyx_string_tab[162]
+#define __pyx_n_u_size __pyx_string_tab[163]
+#define __pyx_n_u_sort_order __pyx_string_tab[164]
+#define __pyx_n_u_source_model __pyx_string_tab[165]
+#define __pyx_n_u_source_schema __pyx_string_tab[166]
+#define __pyx_n_u_staticmethod __pyx_string_tab[167]
+#define __pyx_n_u_str __pyx_string_tab[168]
+#define __pyx_n_u_table __pyx_string_tab[169]
+#define __pyx_n_u_table_id __pyx_string_tab[170]
+#define __pyx_n_u_table_map __pyx_string_tab[171]
+#define __pyx_n_u_table_name __pyx_string_tab[172]
+#define __pyx_n_u_test __pyx_string_tab[173]
+#define __pyx_n_u_throw __pyx_string_tab[174]
+#define __pyx_n_u_type __pyx_string_tab[175]
+#define __pyx_n_u_type_name __pyx_string_tab[176]
+#define __pyx_n_u_typing __pyx_string_tab[177]
+#define __pyx_n_u_update_model __pyx_string_tab[178]
+#define __pyx_n_u_update_model_class __pyx_string_tab[179]
+#define __pyx_n_u_val __pyx_string_tab[180]
+#define __pyx_n_u_validated_update __pyx_string_tab[181]
+#define __pyx_n_u_value __pyx_string_tab[182]
+#define __pyx_n_u_view __pyx_string_tab[183]
+#define __pyx_n_u_view_id __pyx_string_tab[184]
+#define __pyx_n_u_view_map __pyx_string_tab[185]
+#define __pyx_n_u_view_name __pyx_string_tab[186]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3240,33 +3299,30 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel);
   Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables);
   Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes);
-  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys);
-  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity);
+  Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema);
+  Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema);
   for (int i=0; i<3; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<13; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<158; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<11; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<187; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_0);
   Py_CLEAR(clear_module_state->__pyx_int_10);
+  Py_CLEAR(clear_module_state->__pyx_int_1000);
   return 0;
 }
 #endif
@@ -3287,44 +3343,41 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel);
   Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables);
   Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes);
-  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys);
-  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity);
+  Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema);
+  Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema);
   for (int i=0; i<3; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<13; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<158; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<11; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<187; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_0);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_10);
+  __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_1000);
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "shudaodao_meta/tools/meta_store.py":24
+/* "shudaodao_meta/tools/meta_store.py":22
  * 
  * class MetaStore:
- *     def __init__(self, *, db: AsyncSession = None, engine_name: str = None, schema_name: str = None):             # <<<<<<<<<<<<<<
+ *     def __init__(self, *, db: AsyncSession = None, schema_name: str = None):             # <<<<<<<<<<<<<<
  *         self._db: AsyncSession = db
- *         self._engine_name = engine_name
+ *         self._schema_name = schema_name
 */
 
 /* Python wrapper */
@@ -3345,13 +3398,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 ) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_db = 0;
-  PyObject *__pyx_v_engine_name = 0;
   PyObject *__pyx_v_schema_name = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[4] = {0,0,0,0};
+  PyObject* values[3] = {0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3367,43 +3419,40 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_engine_name,&__pyx_mstate_global->__pyx_n_u_schema_name,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_schema_name,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 24, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 22, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 24, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 22, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < 0) __PYX_ERR(0, 24, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < 0) __PYX_ERR(0, 22, __pyx_L3_error)
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_None));
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
-      if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, i); __PYX_ERR(0, 24, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, i); __PYX_ERR(0, 22, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 24, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 22, __pyx_L3_error)
       if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_None));
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
-      if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
     }
     __pyx_v_self = values[0];
     __pyx_v_db = values[1];
-    __pyx_v_engine_name = ((PyObject*)values[2]);
-    __pyx_v_schema_name = ((PyObject*)values[3]);
+    __pyx_v_schema_name = ((PyObject*)values[2]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 24, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 22, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3414,9 +3463,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_engine_name), (&PyUnicode_Type), 1, "engine_name", 2))) __PYX_ERR(0, 24, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 24, __pyx_L1_error)
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init__(__pyx_self, __pyx_v_self, __pyx_v_db, __pyx_v_engine_name, __pyx_v_schema_name);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init__(__pyx_self, __pyx_v_self, __pyx_v_db, __pyx_v_schema_name);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3435,7 +3483,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_db, PyObject *__pyx_v_engine_name, PyObject *__pyx_v_schema_name) {
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_db, PyObject *__pyx_v_schema_name) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -3443,48 +3491,39 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "shudaodao_meta/tools/meta_store.py":25
+  /* "shudaodao_meta/tools/meta_store.py":23
  * class MetaStore:
- *     def __init__(self, *, db: AsyncSession = None, engine_name: str = None, schema_name: str = None):
+ *     def __init__(self, *, db: AsyncSession = None, schema_name: str = None):
  *         self._db: AsyncSession = db             # <<<<<<<<<<<<<<
- *         self._engine_name = engine_name
- *         self._schema_name = schema_name
-*/
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2, __pyx_v_db) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-
-  /* "shudaodao_meta/tools/meta_store.py":26
- *     def __init__(self, *, db: AsyncSession = None, engine_name: str = None, schema_name: str = None):
- *         self._db: AsyncSession = db
- *         self._engine_name = engine_name             # <<<<<<<<<<<<<<
  *         self._schema_name = schema_name
  *         self.auto_commit = False
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine_name_2, __pyx_v_engine_name) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2, __pyx_v_db) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
 
-  /* "shudaodao_meta/tools/meta_store.py":27
+  /* "shudaodao_meta/tools/meta_store.py":24
+ *     def __init__(self, *, db: AsyncSession = None, schema_name: str = None):
  *         self._db: AsyncSession = db
- *         self._engine_name = engine_name
  *         self._schema_name = schema_name             # <<<<<<<<<<<<<<
  *         self.auto_commit = False
  * 
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2, __pyx_v_schema_name) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2, __pyx_v_schema_name) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "shudaodao_meta/tools/meta_store.py":28
- *         self._engine_name = engine_name
+  /* "shudaodao_meta/tools/meta_store.py":25
+ *         self._db: AsyncSession = db
  *         self._schema_name = schema_name
  *         self.auto_commit = False             # <<<<<<<<<<<<<<
  * 
- *     def inspect(self, *, engine_name: str = None, schema_name: str = None) -> dict:
+ *     async def save_sqlmodel(
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auto_commit, Py_False) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auto_commit, Py_False) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
 
-  /* "shudaodao_meta/tools/meta_store.py":24
+  /* "shudaodao_meta/tools/meta_store.py":22
  * 
  * class MetaStore:
- *     def __init__(self, *, db: AsyncSession = None, engine_name: str = None, schema_name: str = None):             # <<<<<<<<<<<<<<
+ *     def __init__(self, *, db: AsyncSession = None, schema_name: str = None):             # <<<<<<<<<<<<<<
  *         self._db: AsyncSession = db
- *         self._engine_name = engine_name
+ *         self._schema_name = schema_name
 */
 
   /* function exit code */
@@ -3498,25 +3537,26 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore___init
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":30
+/* "shudaodao_meta/tools/meta_store.py":27
  *         self.auto_commit = False
  * 
- *     def inspect(self, *, engine_name: str = None, schema_name: str = None) -> dict:             # <<<<<<<<<<<<<<
- *         if engine_name:
- *             self._engine_name = engine_name
+ *     async def save_sqlmodel(             # <<<<<<<<<<<<<<
+ *             self, db: AsyncSession = None, schema_name: str = None
+ *     ):
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_3inspect(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_3save_sqlmodel(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_3inspect = {"inspect", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_3inspect, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_3inspect(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_3save_sqlmodel = {"save_sqlmodel", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_3save_sqlmodel, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_3save_sqlmodel(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3524,7 +3564,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_engine_name = 0;
+  PyObject *__pyx_v_db = 0;
   PyObject *__pyx_v_schema_name = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
@@ -3536,7 +3576,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("inspect (wrapper)", 0);
+  __Pyx_RefNannySetupContext("save_sqlmodel (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -3546,385 +3586,85 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_engine_name,&__pyx_mstate_global->__pyx_n_u_schema_name,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_schema_name,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 30, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 27, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 27, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 27, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 30, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 27, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "inspect", 0) < 0) __PYX_ERR(0, 30, __pyx_L3_error)
-      if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "save_sqlmodel", 0) < 0) __PYX_ERR(0, 27, __pyx_L3_error)
+
+      /* "shudaodao_meta/tools/meta_store.py":28
+ * 
+ *     async def save_sqlmodel(
+ *             self, db: AsyncSession = None, schema_name: str = None             # <<<<<<<<<<<<<<
+ *     ):
+ *         if schema_name:
+*/
+      if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_None));
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("inspect", 1, 1, 1, i); __PYX_ERR(0, 30, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("save_sqlmodel", 0, 1, 3, i); __PYX_ERR(0, 27, __pyx_L3_error) }
       }
-    } else if (unlikely(__pyx_nargs != 1)) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 30, __pyx_L3_error)
-      if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
+      switch (__pyx_nargs) {
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 27, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 27, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 27, __pyx_L3_error)
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      if (!values[1]) values[1] = __Pyx_NewRef(((PyObject *)Py_None));
       if (!values[2]) values[2] = __Pyx_NewRef(((PyObject*)Py_None));
     }
     __pyx_v_self = values[0];
-    __pyx_v_engine_name = ((PyObject*)values[1]);
+    __pyx_v_db = values[1];
     __pyx_v_schema_name = ((PyObject*)values[2]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("inspect", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 30, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("save_sqlmodel", 0, 1, 3, __pyx_nargs); __PYX_ERR(0, 27, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore.inspect", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore.save_sqlmodel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_engine_name), (&PyUnicode_Type), 1, "engine_name", 2))) __PYX_ERR(0, 30, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 30, __pyx_L1_error)
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_2inspect(__pyx_self, __pyx_v_self, __pyx_v_engine_name, __pyx_v_schema_name);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_2save_sqlmodel(__pyx_self, __pyx_v_self, __pyx_v_db, __pyx_v_schema_name);
 
-  /* function exit code */
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __pyx_r = NULL;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  goto __pyx_L7_cleaned_up;
-  __pyx_L0:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __pyx_L7_cleaned_up:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_2inspect(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_engine_name, PyObject *__pyx_v_schema_name) {
-  PyObject *__pyx_v_metadata_inspector = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  size_t __pyx_t_6;
-  PyObject *__pyx_t_7 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("inspect", 0);
-
-  /* "shudaodao_meta/tools/meta_store.py":31
- * 
- *     def inspect(self, *, engine_name: str = None, schema_name: str = None) -> dict:
- *         if engine_name:             # <<<<<<<<<<<<<<
- *             self._engine_name = engine_name
- *         if schema_name:
-*/
-  if (__pyx_v_engine_name == Py_None) __pyx_t_1 = 0;
-  else
-  {
-    Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_v_engine_name);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
-    __pyx_t_1 = (__pyx_temp != 0);
-  }
-
-  if (__pyx_t_1) {
-
-    /* "shudaodao_meta/tools/meta_store.py":32
- *     def inspect(self, *, engine_name: str = None, schema_name: str = None) -> dict:
- *         if engine_name:
- *             self._engine_name = engine_name             # <<<<<<<<<<<<<<
- *         if schema_name:
- *             self._schema_name = schema_name
-*/
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine_name_2, __pyx_v_engine_name) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":31
- * 
- *     def inspect(self, *, engine_name: str = None, schema_name: str = None) -> dict:
- *         if engine_name:             # <<<<<<<<<<<<<<
- *             self._engine_name = engine_name
- *         if schema_name:
-*/
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":33
- *         if engine_name:
- *             self._engine_name = engine_name
- *         if schema_name:             # <<<<<<<<<<<<<<
- *             self._schema_name = schema_name
- *         #  inspector
-*/
-  if (__pyx_v_schema_name == Py_None) __pyx_t_1 = 0;
-  else
-  {
-    Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_v_schema_name);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
-    __pyx_t_1 = (__pyx_temp != 0);
-  }
-
-  if (__pyx_t_1) {
-
-    /* "shudaodao_meta/tools/meta_store.py":34
- *             self._engine_name = engine_name
- *         if schema_name:
- *             self._schema_name = schema_name             # <<<<<<<<<<<<<<
- *         #  inspector
- *         metadata_inspector = MetaInspect(engine_name=self._engine_name)
-*/
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2, __pyx_v_schema_name) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":33
- *         if engine_name:
- *             self._engine_name = engine_name
- *         if schema_name:             # <<<<<<<<<<<<<<
- *             self._schema_name = schema_name
- *         #  inspector
-*/
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":36
- *             self._schema_name = schema_name
- *         #  inspector
- *         metadata_inspector = MetaInspect(engine_name=self._engine_name)             # <<<<<<<<<<<<<<
- *         #   dict
- *         return metadata_inspector.get_schema(
-*/
-  __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_MetaInspect); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine_name_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_3);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_3);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_6 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_3, NULL};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 36, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_engine_name, __pyx_t_5, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 36, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-  }
-  __pyx_v_metadata_inspector = __pyx_t_2;
-  __pyx_t_2 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":38
- *         metadata_inspector = MetaInspect(engine_name=self._engine_name)
- *         #   dict
- *         return metadata_inspector.get_schema(             # <<<<<<<<<<<<<<
- *             schema_name=self._schema_name
- *         )
-*/
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __pyx_v_metadata_inspector;
-  __Pyx_INCREF(__pyx_t_4);
-
-  /* "shudaodao_meta/tools/meta_store.py":39
- *         #   dict
- *         return metadata_inspector.get_schema(
- *             schema_name=self._schema_name             # <<<<<<<<<<<<<<
- *         )
- * 
-*/
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 39, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_6 = 0;
-  {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, NULL};
-    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 38, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_schema_name, __pyx_t_7, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_get_schema, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":38
- *         metadata_inspector = MetaInspect(engine_name=self._engine_name)
- *         #   dict
- *         return metadata_inspector.get_schema(             # <<<<<<<<<<<<<<
- *             schema_name=self._schema_name
- *         )
-*/
-  if (!(likely(PyDict_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None) || __Pyx_RaiseUnexpectedTypeError("dict", __pyx_t_2))) __PYX_ERR(0, 38, __pyx_L1_error)
-  __pyx_r = ((PyObject*)__pyx_t_2);
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* "shudaodao_meta/tools/meta_store.py":30
+  /* "shudaodao_meta/tools/meta_store.py":27
  *         self.auto_commit = False
  * 
- *     def inspect(self, *, engine_name: str = None, schema_name: str = None) -> dict:             # <<<<<<<<<<<<<<
- *         if engine_name:
- *             self._engine_name = engine_name
-*/
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore.inspect", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_metadata_inspector);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
-
-/* "shudaodao_meta/tools/meta_store.py":42
- *         )
- * 
- *     async def save_meta(             # <<<<<<<<<<<<<<
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
- *     ):
-*/
-
-/* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_5save_meta(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_5save_meta = {"save_meta", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_5save_meta, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_5save_meta(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
-  PyObject *__pyx_v_db = 0;
-  PyObject *__pyx_v_engine_name = 0;
-  PyObject *__pyx_v_schema_name = 0;
-  #if !CYTHON_METH_FASTCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[5] = {0,0,0,0,0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("save_meta (wrapper)", 0);
-  #if !CYTHON_METH_FASTCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_engine_name,&__pyx_mstate_global->__pyx_n_u_schema_name,0};
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 42, __pyx_L3_error)
-    if (__pyx_kwds_len > 0) {
-      switch (__pyx_nargs) {
-        case  1:
-        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 42, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "save_meta", 0) < 0) __PYX_ERR(0, 42, __pyx_L3_error)
-
-      /* "shudaodao_meta/tools/meta_store.py":43
- * 
- *     async def save_meta(
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None             # <<<<<<<<<<<<<<
- *     ):
- *         if engine_name:
-*/
-      if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
-      if (!values[2]) values[2] = __Pyx_NewRef(((PyObject *)Py_None));
-      if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
-      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject*)Py_None));
-      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("save_meta", 1, 1, 1, i); __PYX_ERR(0, 42, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 1)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 42, __pyx_L3_error)
-      if (!values[1]) values[1] = __Pyx_NewRef(((PyObject*)Py_None));
-      if (!values[2]) values[2] = __Pyx_NewRef(((PyObject *)Py_None));
-      if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)Py_None));
-      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject*)Py_None));
-    }
-    __pyx_v_self = values[0];
-    __pyx_v_metadata = ((PyObject*)values[1]);
-    __pyx_v_db = values[2];
-    __pyx_v_engine_name = ((PyObject*)values[3]);
-    __pyx_v_schema_name = ((PyObject*)values[4]);
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("save_meta", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 42, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore.save_meta", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_metadata), (&PyDict_Type), 1, "metadata", 2))) __PYX_ERR(0, 43, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_engine_name), (&PyUnicode_Type), 1, "engine_name", 2))) __PYX_ERR(0, 43, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_schema_name), (&PyUnicode_Type), 1, "schema_name", 2))) __PYX_ERR(0, 43, __pyx_L1_error)
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_4save_meta(__pyx_self, __pyx_v_self, __pyx_v_metadata, __pyx_v_db, __pyx_v_engine_name, __pyx_v_schema_name);
-
-  /* "shudaodao_meta/tools/meta_store.py":42
- *         )
- * 
- *     async def save_meta(             # <<<<<<<<<<<<<<
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
+ *     async def save_sqlmodel(             # <<<<<<<<<<<<<<
+ *             self, db: AsyncSession = None, schema_name: str = None
  *     ):
 */
 
@@ -3945,39 +3685,33 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_4save_meta(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata, PyObject *__pyx_v_db, PyObject *__pyx_v_engine_name, PyObject *__pyx_v_schema_name) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_2save_sqlmodel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_db, PyObject *__pyx_v_schema_name) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("save_meta", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("save_sqlmodel", 0);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 42, __pyx_L1_error)
+    __PYX_ERR(0, 27, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
   __pyx_cur_scope->__pyx_v_db = __pyx_v_db;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_db);
-  __pyx_cur_scope->__pyx_v_engine_name = __pyx_v_engine_name;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_engine_name);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_engine_name);
   __pyx_cur_scope->__pyx_v_schema_name = __pyx_v_schema_name;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_schema_name);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_schema_name);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta, __pyx_mstate_global->__pyx_n_u_MetaStore_save_meta, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_sqlmodel, __pyx_mstate_global->__pyx_n_u_MetaStore_save_sqlmodel, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 27, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3985,7 +3719,7 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_4save_
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore.save_meta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore.save_sqlmodel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -3993,27 +3727,26 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_4save_
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *)__pyx_generator->closure);
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   int __pyx_t_1;
-  int __pyx_t_2;
+  PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  size_t __pyx_t_5;
-  __Pyx_PySendResult __pyx_t_6;
-  PyObject *__pyx_t_7 = NULL;
+  size_t __pyx_t_4;
+  __Pyx_PySendResult __pyx_t_5;
+  PyObject *__pyx_t_6 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("save_meta", 0);
+  __Pyx_RefNannySetupContext("save_sqlmodel", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L8_resume_from_await;
-    case 2: goto __pyx_L10_resume_from_await;
-    case 3: goto __pyx_L11_resume_from_await;
+    case 1: goto __pyx_L6_resume_from_await;
+    case 2: goto __pyx_L8_resume_from_await;
+    case 3: goto __pyx_L9_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -4021,47 +3754,12 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6gener
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 42, __pyx_L1_error)
+    __PYX_ERR(0, 27, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":45
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
+  /* "shudaodao_meta/tools/meta_store.py":30
+ *             self, db: AsyncSession = None, schema_name: str = None
  *     ):
- *         if engine_name:             # <<<<<<<<<<<<<<
- *             self._engine_name = engine_name
- *         if schema_name:
-*/
-  if (__pyx_cur_scope->__pyx_v_engine_name == Py_None) __pyx_t_1 = 0;
-  else
-  {
-    Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_cur_scope->__pyx_v_engine_name);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 45, __pyx_L1_error)
-    __pyx_t_1 = (__pyx_temp != 0);
-  }
-
-  if (__pyx_t_1) {
-
-    /* "shudaodao_meta/tools/meta_store.py":46
- *     ):
- *         if engine_name:
- *             self._engine_name = engine_name             # <<<<<<<<<<<<<<
- *         if schema_name:
- *             self._schema_name = schema_name
-*/
-    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine_name_2, __pyx_cur_scope->__pyx_v_engine_name) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":45
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
- *     ):
- *         if engine_name:             # <<<<<<<<<<<<<<
- *             self._engine_name = engine_name
- *         if schema_name:
-*/
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":47
- *         if engine_name:
- *             self._engine_name = engine_name
  *         if schema_name:             # <<<<<<<<<<<<<<
  *             self._schema_name = schema_name
  *         if db:
@@ -4070,50 +3768,50 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6gener
   else
   {
     Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_cur_scope->__pyx_v_schema_name);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 47, __pyx_L1_error)
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 30, __pyx_L1_error)
     __pyx_t_1 = (__pyx_temp != 0);
   }
 
   if (__pyx_t_1) {
 
-    /* "shudaodao_meta/tools/meta_store.py":48
- *             self._engine_name = engine_name
+    /* "shudaodao_meta/tools/meta_store.py":31
+ *     ):
  *         if schema_name:
  *             self._schema_name = schema_name             # <<<<<<<<<<<<<<
  *         if db:
  *             self._db = db
 */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2, __pyx_cur_scope->__pyx_v_schema_name) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2, __pyx_cur_scope->__pyx_v_schema_name) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
 
-    /* "shudaodao_meta/tools/meta_store.py":47
- *         if engine_name:
- *             self._engine_name = engine_name
+    /* "shudaodao_meta/tools/meta_store.py":30
+ *             self, db: AsyncSession = None, schema_name: str = None
+ *     ):
  *         if schema_name:             # <<<<<<<<<<<<<<
  *             self._schema_name = schema_name
  *         if db:
 */
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":49
+  /* "shudaodao_meta/tools/meta_store.py":32
  *         if schema_name:
  *             self._schema_name = schema_name
  *         if db:             # <<<<<<<<<<<<<<
  *             self._db = db
  * 
 */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 32, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "shudaodao_meta/tools/meta_store.py":50
+    /* "shudaodao_meta/tools/meta_store.py":33
  *             self._schema_name = schema_name
  *         if db:
  *             self._db = db             # <<<<<<<<<<<<<<
  * 
- *         if not metadata:
+ *         await self._save_sqlmodel()
 */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2, __pyx_cur_scope->__pyx_v_db) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2, __pyx_cur_scope->__pyx_v_db) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
 
-    /* "shudaodao_meta/tools/meta_store.py":49
+    /* "shudaodao_meta/tools/meta_store.py":32
  *         if schema_name:
  *             self._schema_name = schema_name
  *         if db:             # <<<<<<<<<<<<<<
@@ -4122,69 +3820,26 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6gener
 */
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":52
+  /* "shudaodao_meta/tools/meta_store.py":35
  *             self._db = db
  * 
- *         if not metadata:             # <<<<<<<<<<<<<<
- *             metadata = self.inspect()
- * 
-*/
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_metadata); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 52, __pyx_L1_error)
-  __pyx_t_2 = (!__pyx_t_1);
-  if (__pyx_t_2) {
-
-    /* "shudaodao_meta/tools/meta_store.py":53
- * 
- *         if not metadata:
- *             metadata = self.inspect()             # <<<<<<<<<<<<<<
- * 
- *         #
-*/
-    __pyx_t_4 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_5 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
-      __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_inspect, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-    }
-    if (!(likely(PyDict_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("dict", __pyx_t_3))) __PYX_ERR(0, 53, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_metadata);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_metadata, ((PyObject*)__pyx_t_3));
-    __Pyx_GIVEREF(__pyx_t_3);
-    __pyx_t_3 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":52
- *             self._db = db
- * 
- *         if not metadata:             # <<<<<<<<<<<<<<
- *             metadata = self.inspect()
- * 
-*/
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":56
- * 
- *         #
- *         await self._save_meta(metadata)             # <<<<<<<<<<<<<<
+ *         await self._save_sqlmodel()             # <<<<<<<<<<<<<<
  *         if self.auto_commit:
  *             await self._db.commit()
 */
-  __pyx_t_4 = __pyx_cur_scope->__pyx_v_self;
-  __Pyx_INCREF(__pyx_t_4);
-  __pyx_t_5 = 0;
+  __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_4 = 0;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_metadata};
-    __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_meta_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+    __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_sqlmodel_2, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_6 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (likely(__pyx_t_6 == PYGEN_NEXT)) {
+  __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (likely(__pyx_t_5 == PYGEN_NEXT)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_XGIVEREF(__pyx_r);
     __Pyx_RefNannyFinishContext();
@@ -4192,52 +3847,52 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6gener
     /* return from generator, awaiting value */
     __pyx_generator->resume_label = 1;
     return __pyx_r;
-    __pyx_L8_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 56, __pyx_L1_error)
-  } else if (likely(__pyx_t_6 == PYGEN_RETURN)) {
+    __pyx_L6_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 35, __pyx_L1_error)
+  } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_DECREF(__pyx_r); __pyx_r = 0;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 56, __pyx_L1_error)
+    __PYX_ERR(0, 35, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":57
- *         #
- *         await self._save_meta(metadata)
+  /* "shudaodao_meta/tools/meta_store.py":36
+ * 
+ *         await self._save_sqlmodel()
  *         if self.auto_commit:             # <<<<<<<<<<<<<<
  *             await self._db.commit()
  *         else:
 */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auto_commit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 57, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__pyx_t_2) {
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auto_commit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_1) {
 
-    /* "shudaodao_meta/tools/meta_store.py":58
- *         await self._save_meta(metadata)
+    /* "shudaodao_meta/tools/meta_store.py":37
+ *         await self._save_sqlmodel()
  *         if self.auto_commit:
  *             await self._db.commit()             # <<<<<<<<<<<<<<
  *         else:
  *             await self._db.flush()
 */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 58, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_4 = __pyx_t_7;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_5 = 0;
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_3 = __pyx_t_6;
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_4 = 0;
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
-      __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_commit, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
+      PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+      __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_commit, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
     }
-    __pyx_t_6 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (likely(__pyx_t_6 == PYGEN_NEXT)) {
+    __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (likely(__pyx_t_5 == PYGEN_NEXT)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_XGIVEREF(__pyx_r);
       __Pyx_RefNannyFinishContext();
@@ -4245,50 +3900,50 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6gener
       /* return from generator, awaiting value */
       __pyx_generator->resume_label = 2;
       return __pyx_r;
-      __pyx_L10_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 58, __pyx_L1_error)
-    } else if (likely(__pyx_t_6 == PYGEN_RETURN)) {
+      __pyx_L8_resume_from_await:;
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 37, __pyx_L1_error)
+    } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_DECREF(__pyx_r); __pyx_r = 0;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 58, __pyx_L1_error)
+      __PYX_ERR(0, 37, __pyx_L1_error)
     }
 
-    /* "shudaodao_meta/tools/meta_store.py":57
- *         #
- *         await self._save_meta(metadata)
+    /* "shudaodao_meta/tools/meta_store.py":36
+ * 
+ *         await self._save_sqlmodel()
  *         if self.auto_commit:             # <<<<<<<<<<<<<<
  *             await self._db.commit()
  *         else:
 */
-    goto __pyx_L9;
+    goto __pyx_L7;
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":60
+  /* "shudaodao_meta/tools/meta_store.py":39
  *             await self._db.commit()
  *         else:
  *             await self._db.flush()             # <<<<<<<<<<<<<<
- *         return metadata
  * 
+ *     async def _meta_create_or_update(self, model_class, data_model, condition):
 */
   /*else*/ {
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 60, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = __pyx_t_4;
-    __Pyx_INCREF(__pyx_t_7);
-    __pyx_t_5 = 0;
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_6 = __pyx_t_3;
+    __Pyx_INCREF(__pyx_t_6);
+    __pyx_t_4 = 0;
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
-      __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_flush, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
+      PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
+      __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_flush, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
     }
-    __pyx_t_6 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (likely(__pyx_t_6 == PYGEN_NEXT)) {
+    __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (likely(__pyx_t_5 == PYGEN_NEXT)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_XGIVEREF(__pyx_r);
       __Pyx_RefNannyFinishContext();
@@ -4296,47 +3951,37 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6gener
       /* return from generator, awaiting value */
       __pyx_generator->resume_label = 3;
       return __pyx_r;
-      __pyx_L11_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 60, __pyx_L1_error)
-    } else if (likely(__pyx_t_6 == PYGEN_RETURN)) {
+      __pyx_L9_resume_from_await:;
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 39, __pyx_L1_error)
+    } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __Pyx_DECREF(__pyx_r); __pyx_r = 0;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 60, __pyx_L1_error)
+      __PYX_ERR(0, 39, __pyx_L1_error)
     }
   }
-  __pyx_L9:;
-
-  /* "shudaodao_meta/tools/meta_store.py":61
- *         else:
- *             await self._db.flush()
- *         return metadata             # <<<<<<<<<<<<<<
- * 
- *     async def _metamodel_create_or_update(self, model_class, data_model, condition):
-*/
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __pyx_r = __pyx_cur_scope->__pyx_v_metadata;
-  goto __pyx_L0;
+  __pyx_L7:;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":42
- *         )
+  /* "shudaodao_meta/tools/meta_store.py":27
+ *         self.auto_commit = False
  * 
- *     async def save_meta(             # <<<<<<<<<<<<<<
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
+ *     async def save_sqlmodel(             # <<<<<<<<<<<<<<
+ *             self, db: AsyncSession = None, schema_name: str = None
  *     ):
 */
 
   /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_6);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("save_meta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("save_sqlmodel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4348,26 +3993,26 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_6gener
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":63
- *         return metadata
+/* "shudaodao_meta/tools/meta_store.py":41
+ *             await self._db.flush()
  * 
- *     async def _metamodel_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
+ *     async def _meta_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
  *         #
- *         meta_model = await QueryService.query_columns_first(
+ *         source_model = await QueryService.query_columns_first(
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_metamodel_create_or_update(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_6_meta_create_or_update(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_metamodel_create_or_update = {"_metamodel_create_or_update", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_metamodel_create_or_update, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_metamodel_create_or_update(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_6_meta_create_or_update = {"_meta_create_or_update", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_6_meta_create_or_update, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_6_meta_create_or_update(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4388,7 +4033,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_metamodel_create_or_update (wrapper)", 0);
+  __Pyx_RefNannySetupContext("_meta_create_or_update (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -4400,44 +4045,44 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_data_model,&__pyx_mstate_global->__pyx_n_u_condition,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 63, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 63, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 63, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 63, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 63, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_metamodel_create_or_update", 0) < 0) __PYX_ERR(0, 63, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_meta_create_or_update", 0) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_metamodel_create_or_update", 1, 4, 4, i); __PYX_ERR(0, 63, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_meta_create_or_update", 1, 4, 4, i); __PYX_ERR(0, 41, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 4)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 63, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 63, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 41, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 63, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 41, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 63, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 41, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
     __pyx_v_model_class = values[1];
@@ -4446,18 +4091,18 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_metamodel_create_or_update", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 63, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_meta_create_or_update", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 41, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._metamodel_create_or_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._meta_create_or_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_7_metamodel_create_or_update(__pyx_self, __pyx_v_self, __pyx_v_model_class, __pyx_v_data_model, __pyx_v_condition);
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_5_meta_create_or_update(__pyx_self, __pyx_v_self, __pyx_v_model_class, __pyx_v_data_model, __pyx_v_condition);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -4467,19 +4112,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_7_metamodel_create_or_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_data_model, PyObject *__pyx_v_condition) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_5_meta_create_or_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_model_class, PyObject *__pyx_v_data_model, PyObject *__pyx_v_condition) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_metamodel_create_or_update", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("_meta_create_or_update", 0);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 63, __pyx_L1_error)
+    __PYX_ERR(0, 41, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -4496,7 +4141,7 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_7_meta
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_condition);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_condition);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_mstate_global->__pyx_n_u_MetaStore__metamodel_create_or_u, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 63, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_7generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_meta_create_or_update, __pyx_mstate_global->__pyx_n_u_MetaStore__meta_create_or_update, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4504,7 +4149,7 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_7_meta
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._metamodel_create_or_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._meta_create_or_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -4512,9 +4157,9 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_7_meta
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *)__pyx_generator->closure);
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -4524,11 +4169,12 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
   PyObject *__pyx_t_6 = NULL;
   __Pyx_PySendResult __pyx_t_7;
   int __pyx_t_8;
+  int __pyx_t_9;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_metamodel_create_or_update", 0);
+  __Pyx_RefNannySetupContext("_meta_create_or_update", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L4_resume_from_await;
@@ -4540,31 +4186,31 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 63, __pyx_L1_error)
+    __PYX_ERR(0, 41, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":65
- *     async def _metamodel_create_or_update(self, model_class, data_model, condition):
+  /* "shudaodao_meta/tools/meta_store.py":43
+ *     async def _meta_create_or_update(self, model_class, data_model, condition):
  *         #
- *         meta_model = await QueryService.query_columns_first(             # <<<<<<<<<<<<<<
+ *         source_model = await QueryService.query_columns_first(             # <<<<<<<<<<<<<<
  *             db=self._db, model_class=model_class, condition=condition
  *         )
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_query_columns_first); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_query_columns_first); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":66
+  /* "shudaodao_meta/tools/meta_store.py":44
  *         #
- *         meta_model = await QueryService.query_columns_first(
+ *         source_model = await QueryService.query_columns_first(
  *             db=self._db, model_class=model_class, condition=condition             # <<<<<<<<<<<<<<
  *         )
- *         if meta_model:
+ *         if not source_model:
 */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4580,17 +4226,17 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 43, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db, __pyx_t_3, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_condition, __pyx_cur_scope->__pyx_v_condition, __pyx_t_6, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db, __pyx_t_3, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_condition, __pyx_cur_scope->__pyx_v_condition, __pyx_t_6, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4604,42 +4250,54 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 43, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 65, __pyx_L1_error)
+    __PYX_ERR(0, 43, __pyx_L1_error)
   }
   __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_meta_model = __pyx_t_1;
+  __pyx_cur_scope->__pyx_v_source_model = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":68
+  /* "shudaodao_meta/tools/meta_store.py":46
  *             db=self._db, model_class=model_class, condition=condition
  *         )
- *         if meta_model:             # <<<<<<<<<<<<<<
- *             #  model_fields
- *             first_field_value = GenConverter.set_update_property(data_model, meta_model)
+ *         if not source_model:             # <<<<<<<<<<<<<<
+ *             return DataService.db_insert(
+ *                 db=self._db, model_class=model_class, create_model=data_model
 */
-  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_meta_model); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 68, __pyx_L1_error)
-  if (__pyx_t_8) {
+  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_source_model); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_9 = (!__pyx_t_8);
+  if (__pyx_t_9) {
 
-    /* "shudaodao_meta/tools/meta_store.py":70
- *         if meta_model:
- *             #  model_fields
- *             first_field_value = GenConverter.set_update_property(data_model, meta_model)             # <<<<<<<<<<<<<<
- *             return await DataService.db_update(
- *                 db=self._db, primary_id=first_field_value,
+    /* "shudaodao_meta/tools/meta_store.py":47
+ *         )
+ *         if not source_model:
+ *             return DataService.db_insert(             # <<<<<<<<<<<<<<
+ *                 db=self._db, model_class=model_class, create_model=data_model
+ *             )
 */
+    __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_GenConverter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_set_update_property); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_db_insert); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":48
+ *         if not source_model:
+ *             return DataService.db_insert(
+ *                 db=self._db, model_class=model_class, create_model=data_model             # <<<<<<<<<<<<<<
+ *             )
+ *         else:
+*/
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
     if (unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -4653,49 +4311,47 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
     }
     #endif
     {
-      PyObject *__pyx_callargs[3] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_data_model, __pyx_cur_scope->__pyx_v_meta_model};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_4, NULL};
+      __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db, __pyx_t_6, __pyx_t_2, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_2, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_data_model, __pyx_t_2, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_cur_scope->__pyx_v_first_field_value = __pyx_t_1;
+    __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
+    goto __pyx_L0;
 
-    /* "shudaodao_meta/tools/meta_store.py":71
- *             #  model_fields
- *             first_field_value = GenConverter.set_update_property(data_model, meta_model)
- *             return await DataService.db_update(             # <<<<<<<<<<<<<<
- *                 db=self._db, primary_id=first_field_value,
- *                 model_class=model_class, update_model=data_model
+    /* "shudaodao_meta/tools/meta_store.py":46
+ *             db=self._db, model_class=model_class, condition=condition
+ *         )
+ *         if not source_model:             # <<<<<<<<<<<<<<
+ *             return DataService.db_insert(
+ *                 db=self._db, model_class=model_class, create_model=data_model
 */
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db_update); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 71, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  }
 
-    /* "shudaodao_meta/tools/meta_store.py":72
- *             first_field_value = GenConverter.set_update_property(data_model, meta_model)
- *             return await DataService.db_update(
- *                 db=self._db, primary_id=first_field_value,             # <<<<<<<<<<<<<<
- *                 model_class=model_class, update_model=data_model
- *             )
-*/
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-
-    /* "shudaodao_meta/tools/meta_store.py":73
- *             return await DataService.db_update(
- *                 db=self._db, primary_id=first_field_value,
- *                 model_class=model_class, update_model=data_model             # <<<<<<<<<<<<<<
+  /* "shudaodao_meta/tools/meta_store.py":51
  *             )
  *         else:
+ *             first_field_value = MetaConverter.set_update_property(data_model, source_model)             # <<<<<<<<<<<<<<
+ *             return await DataService.db_update(
+ *                 db=self._db, primary_id=first_field_value,
 */
+  /*else*/ {
+    __pyx_t_3 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaConverter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_set_update_property); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_5 = 1;
     #if CYTHON_UNPACK_METHODS
     if (unlikely(PyMethod_Check(__pyx_t_6))) {
@@ -4709,19 +4365,75 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
     }
     #endif
     {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_3, NULL};
-      __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db, __pyx_t_4, __pyx_t_2, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_first_field_value, __pyx_t_2, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_2, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_data_model, __pyx_t_2, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
+      PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_cur_scope->__pyx_v_data_model, __pyx_cur_scope->__pyx_v_source_model};
+      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+    }
+    __Pyx_GIVEREF(__pyx_t_1);
+    __pyx_cur_scope->__pyx_v_first_field_value = __pyx_t_1;
+    __pyx_t_1 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":52
+ *         else:
+ *             first_field_value = MetaConverter.set_update_property(data_model, source_model)
+ *             return await DataService.db_update(             # <<<<<<<<<<<<<<
+ *                 db=self._db, primary_id=first_field_value,
+ *                 model_class=model_class, update_model=data_model
+*/
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_6 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_update); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":53
+ *             first_field_value = MetaConverter.set_update_property(data_model, source_model)
+ *             return await DataService.db_update(
+ *                 db=self._db, primary_id=first_field_value,             # <<<<<<<<<<<<<<
+ *                 model_class=model_class, update_model=data_model
+ *             )
+*/
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+
+    /* "shudaodao_meta/tools/meta_store.py":54
+ *             return await DataService.db_update(
+ *                 db=self._db, primary_id=first_field_value,
+ *                 model_class=model_class, update_model=data_model             # <<<<<<<<<<<<<<
+ *             )
+ * 
+*/
+    __pyx_t_5 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+      assert(__pyx_t_6);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_6);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_2, __pyx__function);
+      __pyx_t_5 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_6, NULL};
+      __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db, __pyx_t_3, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_first_field_value, __pyx_t_4, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_data_model, __pyx_t_4, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_2, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4735,79 +4447,14 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
       __pyx_generator->resume_label = 2;
       return __pyx_r;
       __pyx_L6_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 71, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 52, __pyx_L1_error)
       __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
     } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __pyx_t_1 = __pyx_r; __pyx_r = NULL;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 71, __pyx_L1_error)
-    }
-    __pyx_r = __pyx_t_1;
-    __pyx_t_1 = 0;
-    goto __pyx_L0;
-
-    /* "shudaodao_meta/tools/meta_store.py":68
- *             db=self._db, model_class=model_class, condition=condition
- *         )
- *         if meta_model:             # <<<<<<<<<<<<<<
- *             #  model_fields
- *             first_field_value = GenConverter.set_update_property(data_model, meta_model)
-*/
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":76
- *             )
- *         else:
- *             return DataService.db_insert(             # <<<<<<<<<<<<<<
- *                 db=self._db, model_class=model_class, create_model=data_model
- *             )
-*/
-  /*else*/ {
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db_insert); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":77
- *         else:
- *             return DataService.db_insert(
- *                 db=self._db, model_class=model_class, create_model=data_model             # <<<<<<<<<<<<<<
- *             )
- * 
-*/
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
-      assert(__pyx_t_6);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_6);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-      __pyx_t_5 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_6, NULL};
-      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db, __pyx_t_2, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_data_model, __pyx_t_3, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
+      __PYX_ERR(0, 52, __pyx_L1_error)
     }
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
@@ -4815,12 +4462,12 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":63
- *         return metadata
+  /* "shudaodao_meta/tools/meta_store.py":41
+ *             await self._db.flush()
  * 
- *     async def _metamodel_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
+ *     async def _meta_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
  *         #
- *         meta_model = await QueryService.query_columns_first(
+ *         source_model = await QueryService.query_columns_first(
 */
 
   /* function exit code */
@@ -4832,7 +4479,7 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
   __Pyx_XDECREF(__pyx_t_6);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_metamodel_create_or_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("_meta_create_or_update", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4844,26 +4491,26 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_9gener
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":80
+/* "shudaodao_meta/tools/meta_store.py":57
  *             )
  * 
- *     async def _save_meta(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.copy()
- *         create_model["sort_order"] = 10
+ *     async def _save_sqlmodel(self):             # <<<<<<<<<<<<<<
+ *         logging.debug_line()
+ *         logging.debug(f": {self._schema_name}")
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_9_save_sqlmodel(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta = {"_save_meta", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_9_save_sqlmodel = {"_save_sqlmodel", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_9_save_sqlmodel, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_9_save_sqlmodel(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4871,18 +4518,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
+  PyObject* values[1] = {0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta (wrapper)", 0);
+  __Pyx_RefNannySetupContext("_save_sqlmodel (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -4892,52 +4538,45 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 80, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 57, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
-        case  2:
-        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 80, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 80, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 57, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta", 0) < 0) __PYX_ERR(0, 80, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta", 1, 2, 2, i); __PYX_ERR(0, 80, __pyx_L3_error) }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_sqlmodel", 0) < 0) __PYX_ERR(0, 57, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_sqlmodel", 1, 1, 1, i); __PYX_ERR(0, 57, __pyx_L3_error) }
       }
-    } else if (unlikely(__pyx_nargs != 2)) {
+    } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 80, __pyx_L3_error)
-      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 80, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 57, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 80, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_save_sqlmodel", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 57, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_sqlmodel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_10_save_meta(__pyx_self, __pyx_v_self, __pyx_v_metadata);
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_save_sqlmodel(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -4947,30 +4586,27 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_10_save_meta(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_save_sqlmodel(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_save_meta", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("_save_sqlmodel", 0);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 80, __pyx_L1_error)
+    __PYX_ERR(0, 57, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_2, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_10generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_sqlmodel_2, __pyx_mstate_global->__pyx_n_u_MetaStore__save_sqlmodel, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4978,7 +4614,7 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_10_sav
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_sqlmodel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -4986,15 +4622,15 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_10_sav
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *)__pyx_generator->closure);
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  size_t __pyx_t_3;
+  PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
   __Pyx_PySendResult __pyx_t_8;
@@ -5002,7 +4638,7 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12gene
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta", 0);
+  __Pyx_RefNannySetupContext("_save_sqlmodel", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L4_resume_from_await;
@@ -5015,155 +4651,143 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12gene
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 80, __pyx_L1_error)
+    __PYX_ERR(0, 57, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":81
+  /* "shudaodao_meta/tools/meta_store.py":58
  * 
- *     async def _save_meta(self, metadata):
- *         create_model = metadata.copy()             # <<<<<<<<<<<<<<
- *         create_model["sort_order"] = 10
- *         logging.debug_line()
-*/
-  __pyx_t_2 = __pyx_cur_scope->__pyx_v_metadata;
-  __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_3 = 0;
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_copy, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-  }
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_create_model = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":82
- *     async def _save_meta(self, metadata):
- *         create_model = metadata.copy()
- *         create_model["sort_order"] = 10             # <<<<<<<<<<<<<<
- *         logging.debug_line()
- *         logging.debug(f": {self._schema_name}")
-*/
-  if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_mstate_global->__pyx_int_10) < 0))) __PYX_ERR(0, 82, __pyx_L1_error)
-
-  /* "shudaodao_meta/tools/meta_store.py":83
- *         create_model = metadata.copy()
- *         create_model["sort_order"] = 10
+ *     async def _save_sqlmodel(self):
  *         logging.debug_line()             # <<<<<<<<<<<<<<
  *         logging.debug(f": {self._schema_name}")
- *         #
+ *         create_model = {"sort_order": 10, "schema_name": self._schema_name}
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 83, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_3 = 1;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_5))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_5);
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
     assert(__pyx_t_2);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
-    __pyx_t_3 = 0;
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_5 = 0;
   }
   #endif
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":84
- *         create_model["sort_order"] = 10
+  /* "shudaodao_meta/tools/meta_store.py":59
+ *     async def _save_sqlmodel(self):
  *         logging.debug_line()
  *         logging.debug(f": {self._schema_name}")             # <<<<<<<<<<<<<<
- *         #
- *         meta_model = await self._metamodel_create_or_update(
+ *         create_model = {"sort_order": 10, "schema_name": self._schema_name}
+ *         #  schema
 */
-  __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_2, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_3 = 1;
+  __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_5);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_5);
+  if (unlikely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_3);
+    __Pyx_INCREF(__pyx_t_4);
     __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-    __pyx_t_3 = 0;
+    __Pyx_DECREF_SET(__pyx_t_3, __pyx__function);
+    __pyx_t_5 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_2};
-    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_2};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":86
+  /* "shudaodao_meta/tools/meta_store.py":60
+ *         logging.debug_line()
  *         logging.debug(f": {self._schema_name}")
- *         #
- *         meta_model = await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
+ *         create_model = {"sort_order": 10, "schema_name": self._schema_name}             # <<<<<<<<<<<<<<
+ *         #  schema
+ *         await self._meta_create_or_update(
+*/
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_mstate_global->__pyx_int_10) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_t_3) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_create_model = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":62
+ *         create_model = {"sort_order": 10, "schema_name": self._schema_name}
+ *         #  schema
+ *         await self._meta_create_or_update(             # <<<<<<<<<<<<<<
  *             MetaSchema, create_model, MetaSchema.schema_name == self._schema_name
  *         )
 */
-  __pyx_t_4 = __pyx_cur_scope->__pyx_v_self;
-  __Pyx_INCREF(__pyx_t_4);
+  __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_3);
 
-  /* "shudaodao_meta/tools/meta_store.py":87
- *         #
- *         meta_model = await self._metamodel_create_or_update(
+  /* "shudaodao_meta/tools/meta_store.py":63
+ *         #  schema
+ *         await self._meta_create_or_update(
  *             MetaSchema, create_model, MetaSchema.schema_name == self._schema_name             # <<<<<<<<<<<<<<
  *         )
- *         create_model["meta_schema_id"] = meta_model.meta_schema_id
+ *         #  tables
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_7 = PyObject_RichCompare(__pyx_t_6, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = PyObject_RichCompare(__pyx_t_6, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = 0;
   {
-    PyObject *__pyx_callargs[4] = {__pyx_t_4, __pyx_t_2, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7};
-    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_3, (4-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    PyObject *__pyx_callargs[4] = {__pyx_t_3, __pyx_t_2, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_meta_create_or_update, __pyx_callargs+__pyx_t_5, (4-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -5177,50 +4801,33 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12gene
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 86, __pyx_L1_error)
-    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 62, __pyx_L1_error)
   } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
-    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 86, __pyx_L1_error)
+    __PYX_ERR(0, 62, __pyx_L1_error)
   }
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_meta_model = __pyx_t_1;
-  __pyx_t_1 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":89
- *             MetaSchema, create_model, MetaSchema.schema_name == self._schema_name
+  /* "shudaodao_meta/tools/meta_store.py":66
  *         )
- *         create_model["meta_schema_id"] = meta_model.meta_schema_id             # <<<<<<<<<<<<<<
- *         # tables
- *         await self._save_meta_tables(metadata=create_model)
-*/
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_schema_id, __pyx_t_1) < 0))) __PYX_ERR(0, 89, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":91
- *         create_model["meta_schema_id"] = meta_model.meta_schema_id
- *         # tables
- *         await self._save_meta_tables(metadata=create_model)             # <<<<<<<<<<<<<<
- *         # views
- *         await self._save_meta_views(metadata=create_model)
+ *         #  tables
+ *         await self._save_meta_tables(self._schema_name)             # <<<<<<<<<<<<<<
+ *         #  views
+ *         await self._save_meta_views(self._schema_name)
 */
   __pyx_t_7 = __pyx_cur_scope->__pyx_v_self;
   __Pyx_INCREF(__pyx_t_7);
-  __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = 0;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
-    __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_2, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_tables, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
+    PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_t_2};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_meta_tables, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -5234,34 +4841,33 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12gene
     __pyx_generator->resume_label = 2;
     return __pyx_r;
     __pyx_L5_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 91, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 66, __pyx_L1_error)
   } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_DECREF(__pyx_r); __pyx_r = 0;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 91, __pyx_L1_error)
+    __PYX_ERR(0, 66, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":93
- *         await self._save_meta_tables(metadata=create_model)
- *         # views
- *         await self._save_meta_views(metadata=create_model)             # <<<<<<<<<<<<<<
+  /* "shudaodao_meta/tools/meta_store.py":68
+ *         await self._save_meta_tables(self._schema_name)
+ *         #  views
+ *         await self._save_meta_views(self._schema_name)             # <<<<<<<<<<<<<<
  * 
- *     async def _save_meta_tables(self, metadata):
+ *     async def _save_meta_tables(self, schema_name):
 */
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
   __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_3 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_5 = 0;
   {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 93, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_views, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_7};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_meta_views, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -5275,22 +4881,22 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12gene
     __pyx_generator->resume_label = 3;
     return __pyx_r;
     __pyx_L6_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 93, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 68, __pyx_L1_error)
   } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_DECREF(__pyx_r); __pyx_r = 0;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 93, __pyx_L1_error)
+    __PYX_ERR(0, 68, __pyx_L1_error)
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":80
+  /* "shudaodao_meta/tools/meta_store.py":57
  *             )
  * 
- *     async def _save_meta(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.copy()
- *         create_model["sort_order"] = 10
+ *     async def _save_sqlmodel(self):             # <<<<<<<<<<<<<<
+ *         logging.debug_line()
+ *         logging.debug(f": {self._schema_name}")
 */
 
   /* function exit code */
@@ -5299,13 +4905,13 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12gene
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_save_meta", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("_save_sqlmodel", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5317,26 +4923,26 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_12gene
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_15generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_13generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":95
- *         await self._save_meta_views(metadata=create_model)
+/* "shudaodao_meta/tools/meta_store.py":70
+ *         await self._save_meta_views(self._schema_name)
  * 
- *     async def _save_meta_tables(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         tables = []
+ *     async def _save_meta_tables(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_tables(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_12_save_meta_tables(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_tables = {"_save_meta_tables", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_tables, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_tables(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_12_save_meta_tables = {"_save_meta_tables", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_12_save_meta_tables, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_12_save_meta_tables(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5344,7 +4950,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
+  PyObject *__pyx_v_schema_name = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
@@ -5365,41 +4971,41 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_schema_name,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 95, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 70, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 95, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 70, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 95, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 70, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_tables", 0) < 0) __PYX_ERR(0, 95, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_tables", 0) < 0) __PYX_ERR(0, 70, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_tables", 1, 2, 2, i); __PYX_ERR(0, 95, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_tables", 1, 2, 2, i); __PYX_ERR(0, 70, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 95, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 70, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 95, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 70, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
+    __pyx_v_schema_name = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_tables", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 95, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_save_meta_tables", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 70, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5410,7 +5016,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_13_save_meta_tables(__pyx_self, __pyx_v_self, __pyx_v_metadata);
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta_tables(__pyx_self, __pyx_v_self, __pyx_v_schema_name);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -5420,7 +5026,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_13_save_meta_tables(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta_tables(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_schema_name) {
   struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5432,18 +5038,18 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_13_sav
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 95, __pyx_L1_error)
+    __PYX_ERR(0, 70, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
+  __pyx_cur_scope->__pyx_v_schema_name = __pyx_v_schema_name;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_schema_name);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_schema_name);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_15generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_tables, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_tables, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_13generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_tables, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_tables, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5459,22 +5065,31 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_13_sav
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_15generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_13generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
   struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *(*__pyx_t_4)(PyObject *);
+  size_t __pyx_t_3;
+  __Pyx_PySendResult __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
-  PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  size_t __pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  __Pyx_PySendResult __pyx_t_11;
-  int __pyx_t_12;
+  PyObject *(*__pyx_t_7)(PyObject *);
+  Py_ssize_t __pyx_t_8;
+  PyObject *(*__pyx_t_9)(PyObject *);
+  int __pyx_t_10;
+  Py_ssize_t __pyx_t_11;
+  PyObject *(*__pyx_t_12)(PyObject *);
+  PyObject *__pyx_t_13 = NULL;
+  PyObject *__pyx_t_14 = NULL;
+  PyObject *__pyx_t_15 = NULL;
+  Py_ssize_t __pyx_t_16;
+  PyObject *(*__pyx_t_17)(PyObject *);
+  PyObject *__pyx_t_18 = NULL;
+  PyObject *__pyx_t_19 = NULL;
+  PyObject *__pyx_t_20 = NULL;
+  PyObject *__pyx_t_21 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5482,13 +5097,8 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_15gene
   __Pyx_RefNannySetupContext("_save_meta_tables", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L6_resume_from_await;
-    case 2: goto __pyx_L7_resume_from_await;
-    case 3: goto __pyx_L8_resume_from_await;
-    case 4: goto __pyx_L9_resume_from_await;
-    case 5: goto __pyx_L10_resume_from_await;
-    case 6: goto __pyx_L11_resume_from_await;
-    case 7: goto __pyx_L13_resume_from_await;
+    case 1: goto __pyx_L4_resume_from_await;
+    case 2: goto __pyx_L18_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -5496,859 +5106,1213 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_15gene
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 95, __pyx_L1_error)
+    __PYX_ERR(0, 70, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":96
- * 
- *     async def _save_meta_tables(self, metadata):
- *         sort_order = 0             # <<<<<<<<<<<<<<
- *         tables = []
- *         for create_model in metadata["tables"]:
+  /* "shudaodao_meta/tools/meta_store.py":72
+ *     async def _save_meta_tables(self, schema_name):
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")             # <<<<<<<<<<<<<<
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
+ *         for schema in source_schema:
 */
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_0);
-  __pyx_cur_scope->__pyx_v_sort_order = __pyx_mstate_global->__pyx_int_0;
-
-  /* "shudaodao_meta/tools/meta_store.py":97
- *     async def _save_meta_tables(self, metadata):
- *         sort_order = 0
- *         tables = []             # <<<<<<<<<<<<<<
- *         for create_model in metadata["tables"]:
- *             sort_order = sort_order + 10
-*/
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_tables = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":98
- *         sort_order = 0
- *         tables = []
- *         for create_model in metadata["tables"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             table_name = create_model["table_name"]
-*/
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_tables); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
-  } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_3 = 0;
+  {
+    PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_schema_name, __pyx_mstate_global->__pyx_n_u_Table};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_schema, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
   }
+  __pyx_t_4 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 98, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-        ++__pyx_t_3;
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 98, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3));
-        #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_3);
-        #endif
-        ++__pyx_t_3;
-      }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
-    } else {
-      __pyx_t_1 = __pyx_t_4(__pyx_t_2);
-      if (unlikely(!__pyx_t_1)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 98, __pyx_L1_error)
-          PyErr_Clear();
-        }
-        break;
-      }
-    }
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":99
- *         tables = []
- *         for create_model in metadata["tables"]:
- *             sort_order = sort_order + 10             # <<<<<<<<<<<<<<
- *             table_name = create_model["table_name"]
- *             logging.debug(f": {table_name}")
-*/
-    __pyx_t_1 = __Pyx_PyLong_AddObjC(__pyx_cur_scope->__pyx_v_sort_order, __pyx_mstate_global->__pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_sort_order);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_sort_order, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":100
- *         for create_model in metadata["tables"]:
- *             sort_order = sort_order + 10
- *             table_name = create_model["table_name"]             # <<<<<<<<<<<<<<
- *             logging.debug(f": {table_name}")
- *             create_model["sort_order"] = sort_order
-*/
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_table_name);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_table_name, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":101
- *             sort_order = sort_order + 10
- *             table_name = create_model["table_name"]
- *             logging.debug(f": {table_name}")             # <<<<<<<<<<<<<<
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_schema_id"] = metadata["meta_schema_id"]
-*/
-    __pyx_t_5 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 101, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 101, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_table_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 101, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__2, __pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 101, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_9 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_7);
-      assert(__pyx_t_5);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-      __pyx_t_9 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_8};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":102
- *             table_name = create_model["table_name"]
- *             logging.debug(f": {table_name}")
- *             create_model["sort_order"] = sort_order             # <<<<<<<<<<<<<<
- *             create_model["meta_schema_id"] = metadata["meta_schema_id"]
- *             create_model["class_name"]: GenConverter.get_class_name(table_name)
-*/
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_cur_scope->__pyx_v_sort_order) < 0))) __PYX_ERR(0, 102, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":103
- *             logging.debug(f": {table_name}")
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_schema_id"] = metadata["meta_schema_id"]             # <<<<<<<<<<<<<<
- *             create_model["class_name"]: GenConverter.get_class_name(table_name)
- *             create_model["file_name"]: GenConverter.get_file_name(table_name)
-*/
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_schema_id, __pyx_t_1) < 0))) __PYX_ERR(0, 103, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":106
- *             create_model["class_name"]: GenConverter.get_class_name(table_name)
- *             create_model["file_name"]: GenConverter.get_file_name(table_name)
- *             meta_model = await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                 MetaTable, create_model, [
- *                     MetaTable.meta_schema_id == create_model["meta_schema_id"],
-*/
-    __pyx_t_7 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_7);
-
-    /* "shudaodao_meta/tools/meta_store.py":107
- *             create_model["file_name"]: GenConverter.get_file_name(table_name)
- *             meta_model = await self._metamodel_create_or_update(
- *                 MetaTable, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaTable.meta_schema_id == create_model["meta_schema_id"],
- *                     MetaTable.table_name == table_name,
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_MetaTable); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 107, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-
-    /* "shudaodao_meta/tools/meta_store.py":108
- *             meta_model = await self._metamodel_create_or_update(
- *                 MetaTable, create_model, [
- *                     MetaTable.meta_schema_id == create_model["meta_schema_id"],             # <<<<<<<<<<<<<<
- *                     MetaTable.table_name == table_name,
- *                 ]
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaTable); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 108, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_10 = PyObject_RichCompare(__pyx_t_6, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 108, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":109
- *                 MetaTable, create_model, [
- *                     MetaTable.meta_schema_id == create_model["meta_schema_id"],
- *                     MetaTable.table_name == table_name,             # <<<<<<<<<<<<<<
- *                 ]
- *             )
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaTable); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_cur_scope->__pyx_v_table_name, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":107
- *             create_model["file_name"]: GenConverter.get_file_name(table_name)
- *             meta_model = await self._metamodel_create_or_update(
- *                 MetaTable, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaTable.meta_schema_id == create_model["meta_schema_id"],
- *                     MetaTable.table_name == table_name,
-*/
-    __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 107, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_GIVEREF(__pyx_t_10);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_10) != (0)) __PYX_ERR(0, 107, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_5);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_5) != (0)) __PYX_ERR(0, 107, __pyx_L1_error);
-    __pyx_t_10 = 0;
-    __pyx_t_5 = 0;
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[4] = {__pyx_t_7, __pyx_t_8, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_6};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_9, (4-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 1;
-      return __pyx_r;
-      __pyx_L6_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 106, __pyx_L1_error)
-      __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __pyx_t_1 = __pyx_r; __pyx_r = NULL;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 106, __pyx_L1_error)
-    }
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_meta_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_meta_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":112
- *                 ]
- *             )
- *             create_model["meta_table_id"] = meta_model.meta_table_id             # <<<<<<<<<<<<<<
- *             #
- *             meta_model = meta_model.model_dump()
-*/
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id, __pyx_t_1) < 0))) __PYX_ERR(0, 112, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":114
- *             create_model["meta_table_id"] = meta_model.meta_table_id
- *             #
- *             meta_model = meta_model.model_dump()             # <<<<<<<<<<<<<<
- *             #
- *             logging.debug(f"- columns")
-*/
-    __pyx_t_6 = __pyx_cur_scope->__pyx_v_meta_model;
-    __Pyx_INCREF(__pyx_t_6);
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_model_dump, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_meta_model);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_meta_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":116
- *             meta_model = meta_model.model_dump()
- *             #
- *             logging.debug(f"- columns")             # <<<<<<<<<<<<<<
- *             await self._save_meta_columns(metadata=create_model)
- *             #  primary_key
-*/
-    __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 116, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 116, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
-      assert(__pyx_t_6);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-      __Pyx_INCREF(__pyx_t_6);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-      __pyx_t_9 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_columns};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":117
- *             #
- *             logging.debug(f"- columns")
- *             await self._save_meta_columns(metadata=create_model)             # <<<<<<<<<<<<<<
- *             #  primary_key
- *             logging.debug(f"- primary_key")
-*/
-    __pyx_t_7 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_7);
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
-      __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 117, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_columns, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 2;
-      return __pyx_r;
-      __pyx_L7_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 117, __pyx_L1_error)
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 117, __pyx_L1_error)
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":119
- *             await self._save_meta_columns(metadata=create_model)
- *             #  primary_key
- *             logging.debug(f"- primary_key")             # <<<<<<<<<<<<<<
- *             await self._save_meta_primary_key(metadata=create_model)
- *             #  foreign_keys
-*/
-    __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 119, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 119, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_9 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_8))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_8);
-      assert(__pyx_t_6);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
-      __Pyx_INCREF(__pyx_t_6);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
-      __pyx_t_9 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_primary_key};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":120
- *             #  primary_key
- *             logging.debug(f"- primary_key")
- *             await self._save_meta_primary_key(metadata=create_model)             # <<<<<<<<<<<<<<
- *             #  foreign_keys
- *             logging.debug(f"- foreign_keys")
-*/
-    __pyx_t_8 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_8);
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_8, NULL};
-      __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 120, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 120, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_primary_key, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 3;
-      return __pyx_r;
-      __pyx_L8_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 120, __pyx_L1_error)
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 120, __pyx_L1_error)
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":122
- *             await self._save_meta_primary_key(metadata=create_model)
- *             #  foreign_keys
- *             logging.debug(f"- foreign_keys")             # <<<<<<<<<<<<<<
- *             meta_model["foreign_keys"] = await self._save_meta_foreign_keys(metadata=create_model)
- *             #  constraints
-*/
-    __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 122, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 122, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
-      assert(__pyx_t_6);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-      __Pyx_INCREF(__pyx_t_6);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-      __pyx_t_9 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_foreign_keys};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":123
- *             #  foreign_keys
- *             logging.debug(f"- foreign_keys")
- *             meta_model["foreign_keys"] = await self._save_meta_foreign_keys(metadata=create_model)             # <<<<<<<<<<<<<<
- *             #  constraints
- *             logging.debug(f"- unique_constraints")
-*/
-    __pyx_t_7 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_7);
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
-      __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 123, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_foreign_keys, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 4;
-      return __pyx_r;
-      __pyx_L9_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 123, __pyx_L1_error)
-      __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __pyx_t_1 = __pyx_r; __pyx_r = NULL;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 123, __pyx_L1_error)
-    }
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_foreign_keys_2, __pyx_t_1) < 0))) __PYX_ERR(0, 123, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":125
- *             meta_model["foreign_keys"] = await self._save_meta_foreign_keys(metadata=create_model)
- *             #  constraints
- *             logging.debug(f"- unique_constraints")             # <<<<<<<<<<<<<<
- *             await self._save_meta_unique_constraints(metadata=create_model)
- *             #  indexes
-*/
-    __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 125, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_9 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_8))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_8);
-      assert(__pyx_t_6);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
-      __Pyx_INCREF(__pyx_t_6);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
-      __pyx_t_9 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_unique_constraints};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":126
- *             #  constraints
- *             logging.debug(f"- unique_constraints")
- *             await self._save_meta_unique_constraints(metadata=create_model)             # <<<<<<<<<<<<<<
- *             #  indexes
- *             logging.debug(f"- indexes")
-*/
-    __pyx_t_8 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_8);
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_8, NULL};
-      __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 126, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_unique_constraints, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 5;
-      return __pyx_r;
-      __pyx_L10_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 126, __pyx_L1_error)
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 126, __pyx_L1_error)
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":128
- *             await self._save_meta_unique_constraints(metadata=create_model)
- *             #  indexes
- *             logging.debug(f"- indexes")             # <<<<<<<<<<<<<<
- *             await self._save_meta_indexes(metadata=create_model)
- *             tables.append(meta_model)
-*/
-    __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 128, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 128, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_9 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
-      assert(__pyx_t_6);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-      __Pyx_INCREF(__pyx_t_6);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-      __pyx_t_9 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_indexes};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":129
- *             #  indexes
- *             logging.debug(f"- indexes")
- *             await self._save_meta_indexes(metadata=create_model)             # <<<<<<<<<<<<<<
- *             tables.append(meta_model)
- * 
-*/
-    __pyx_t_7 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_7);
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_7, NULL};
-      __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 129, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_indexes, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 6;
-      return __pyx_r;
-      __pyx_L11_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 129, __pyx_L1_error)
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 129, __pyx_L1_error)
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":130
- *             logging.debug(f"- indexes")
- *             await self._save_meta_indexes(metadata=create_model)
- *             tables.append(meta_model)             # <<<<<<<<<<<<<<
- * 
- *         #  referencing_foreign_keys
-*/
-    __pyx_t_12 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_tables, __pyx_cur_scope->__pyx_v_meta_model); if (unlikely(__pyx_t_12 == ((int)-1))) __PYX_ERR(0, 130, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":98
- *         sort_order = 0
- *         tables = []
- *         for create_model in metadata["tables"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             table_name = create_model["table_name"]
-*/
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":133
- * 
- *         #  referencing_foreign_keys
- *         logging.debug(f": meta_referencing_foreign_key")             # <<<<<<<<<<<<<<
- *         await self._save_meta_referencing_foreign_keys(tables)
- * 
-*/
-  __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 133, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 133, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_9 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_7))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
-    assert(__pyx_t_1);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-    __Pyx_INCREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-    __pyx_t_9 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_kp_u_meta_referencing_foreign_key};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":134
- *         #  referencing_foreign_keys
- *         logging.debug(f": meta_referencing_foreign_key")
- *         await self._save_meta_referencing_foreign_keys(tables)             # <<<<<<<<<<<<<<
- * 
- *     async def _save_meta_views(self, metadata):
-*/
-  __pyx_t_7 = __pyx_cur_scope->__pyx_v_self;
-  __Pyx_INCREF(__pyx_t_7);
-  __pyx_t_9 = 0;
-  {
-    PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_cur_scope->__pyx_v_tables};
-    __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_meta_referencing_foreign_k, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-  }
-  __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (likely(__pyx_t_11 == PYGEN_NEXT)) {
+  if (likely(__pyx_t_4 == PYGEN_NEXT)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_XGIVEREF(__pyx_r);
     __Pyx_RefNannyFinishContext();
     __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
     /* return from generator, awaiting value */
-    __pyx_generator->resume_label = 7;
+    __pyx_generator->resume_label = 1;
     return __pyx_r;
-    __pyx_L13_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 134, __pyx_L1_error)
-  } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 72, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_4 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
-    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 134, __pyx_L1_error)
+    __PYX_ERR(0, 72, __pyx_L1_error)
   }
+  if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
+    PyObject* sequence = __pyx_t_1;
+    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
+    if (unlikely(size != 2)) {
+      if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+      __PYX_ERR(0, 72, __pyx_L1_error)
+    }
+    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    if (likely(PyTuple_CheckExact(sequence))) {
+      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0);
+      __Pyx_INCREF(__pyx_t_2);
+      __pyx_t_5 = PyTuple_GET_ITEM(sequence, 1);
+      __Pyx_INCREF(__pyx_t_5);
+    } else {
+      __pyx_t_2 = __Pyx_PyList_GetItemRef(sequence, 0);
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+      __Pyx_XGOTREF(__pyx_t_2);
+      __pyx_t_5 = __Pyx_PyList_GetItemRef(sequence, 1);
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
+      __Pyx_XGOTREF(__pyx_t_5);
+    }
+    #else
+    __pyx_t_2 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_5 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    #endif
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  } else {
+    Py_ssize_t index = -1;
+    __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 72, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6);
+    index = 0; __pyx_t_2 = __pyx_t_7(__pyx_t_6); if (unlikely(!__pyx_t_2)) goto __pyx_L5_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_2);
+    index = 1; __pyx_t_5 = __pyx_t_7(__pyx_t_6); if (unlikely(!__pyx_t_5)) goto __pyx_L5_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_6), 2) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
+    __pyx_t_7 = NULL;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    goto __pyx_L6_unpacking_done;
+    __pyx_L5_unpacking_failed:;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_7 = NULL;
+    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+    __PYX_ERR(0, 72, __pyx_L1_error)
+    __pyx_L6_unpacking_done:;
+  }
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_cur_scope->__pyx_v_source_schema = __pyx_t_2;
+  __pyx_t_2 = 0;
+  __Pyx_GIVEREF(__pyx_t_5);
+  __pyx_cur_scope->__pyx_v_meta_schema = __pyx_t_5;
+  __pyx_t_5 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":73
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}             # <<<<<<<<<<<<<<
+ *         for schema in source_schema:
+ *             if schema.schema_name not in schema_map:
+*/
+  { /* enter inner scope */
+    __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_meta_schema)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_meta_schema)) {
+      __pyx_t_5 = __pyx_cur_scope->__pyx_v_meta_schema; __Pyx_INCREF(__pyx_t_5);
+      __pyx_t_8 = 0;
+      __pyx_t_9 = NULL;
+    } else {
+      __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_meta_schema); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_9 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
+    }
+    for (;;) {
+      if (likely(!__pyx_t_9)) {
+        if (likely(PyList_CheckExact(__pyx_t_5))) {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
+            #endif
+            if (__pyx_t_8 >= __pyx_temp) break;
+          }
+          __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_5, __pyx_t_8);
+          ++__pyx_t_8;
+        } else {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
+            #endif
+            if (__pyx_t_8 >= __pyx_temp) break;
+          }
+          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+          __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8));
+          #else
+          __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_8);
+          #endif
+          ++__pyx_t_8;
+        }
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+      } else {
+        __pyx_t_2 = __pyx_t_9(__pyx_t_5);
+        if (unlikely(!__pyx_t_2)) {
+          PyObject* exc_type = PyErr_Occurred();
+          if (exc_type) {
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 73, __pyx_L1_error)
+            PyErr_Clear();
+          }
+          break;
+        }
+      }
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_7genexpr__pyx_v_schema);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_7genexpr__pyx_v_schema, __pyx_t_2);
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_t_2 = 0;
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_7genexpr__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      if (unlikely(PyDict_SetItem(__pyx_t_1, (PyObject*)__pyx_t_2, (PyObject*)__pyx_cur_scope->__pyx_7genexpr__pyx_v_schema))) __PYX_ERR(0, 73, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  } /* exit inner scope */
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_schema_map = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":74
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
+ *         for schema in source_schema:             # <<<<<<<<<<<<<<
+ *             if schema.schema_name not in schema_map:
+ *                 continue
+*/
+  if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_source_schema)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_source_schema)) {
+    __pyx_t_1 = __pyx_cur_scope->__pyx_v_source_schema; __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_8 = 0;
+    __pyx_t_9 = NULL;
+  } else {
+    __pyx_t_8 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_source_schema); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_9 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 74, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_9)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
+          #endif
+          if (__pyx_t_8 >= __pyx_temp) break;
+        }
+        __pyx_t_5 = __Pyx_PyList_GetItemRef(__pyx_t_1, __pyx_t_8);
+        ++__pyx_t_8;
+      } else {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
+          #endif
+          if (__pyx_t_8 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_8));
+        #else
+        __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_8);
+        #endif
+        ++__pyx_t_8;
+      }
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 74, __pyx_L1_error)
+    } else {
+      __pyx_t_5 = __pyx_t_9(__pyx_t_1);
+      if (unlikely(!__pyx_t_5)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 74, __pyx_L1_error)
+          PyErr_Clear();
+        }
+        break;
+      }
+    }
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_schema);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_schema, __pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_5);
+    __pyx_t_5 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":75
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
+ *         for schema in source_schema:
+ *             if schema.schema_name not in schema_map:             # <<<<<<<<<<<<<<
+ *                 continue
+ *             curr_schema = schema_map[schema.schema_name]
+*/
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_t_5, __pyx_cur_scope->__pyx_v_schema_map, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (__pyx_t_10) {
+
+      /* "shudaodao_meta/tools/meta_store.py":76
+ *         for schema in source_schema:
+ *             if schema.schema_name not in schema_map:
+ *                 continue             # <<<<<<<<<<<<<<
+ *             curr_schema = schema_map[schema.schema_name]
+ *             table_map = {table.table_name: table for table in curr_schema.MetaTables}
+*/
+      goto __pyx_L10_continue;
+
+      /* "shudaodao_meta/tools/meta_store.py":75
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
+ *         for schema in source_schema:
+ *             if schema.schema_name not in schema_map:             # <<<<<<<<<<<<<<
+ *                 continue
+ *             curr_schema = schema_map[schema.schema_name]
+*/
+    }
+
+    /* "shudaodao_meta/tools/meta_store.py":77
+ *             if schema.schema_name not in schema_map:
+ *                 continue
+ *             curr_schema = schema_map[schema.schema_name]             # <<<<<<<<<<<<<<
+ *             table_map = {table.table_name: table for table in curr_schema.MetaTables}
+ *             for table in schema.SourceTables:
+*/
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_cur_scope->__pyx_v_schema_map, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curr_schema);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_curr_schema, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":78
+ *                 continue
+ *             curr_schema = schema_map[schema.schema_name]
+ *             table_map = {table.table_name: table for table in curr_schema.MetaTables}             # <<<<<<<<<<<<<<
+ *             for table in schema.SourceTables:
+ *                 logging.debug(f": {table.table_name}")
+*/
+    { /* enter inner scope */
+      __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_schema, __pyx_mstate_global->__pyx_n_u_MetaTables); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
+        __pyx_t_6 = __pyx_t_5; __Pyx_INCREF(__pyx_t_6);
+        __pyx_t_11 = 0;
+        __pyx_t_12 = NULL;
+      } else {
+        __pyx_t_11 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 78, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 78, __pyx_L1_error)
+      }
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      for (;;) {
+        if (likely(!__pyx_t_12)) {
+          if (likely(PyList_CheckExact(__pyx_t_6))) {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 78, __pyx_L1_error)
+              #endif
+              if (__pyx_t_11 >= __pyx_temp) break;
+            }
+            __pyx_t_5 = __Pyx_PyList_GetItemRef(__pyx_t_6, __pyx_t_11);
+            ++__pyx_t_11;
+          } else {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 78, __pyx_L1_error)
+              #endif
+              if (__pyx_t_11 >= __pyx_temp) break;
+            }
+            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+            __pyx_t_5 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_11));
+            #else
+            __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_11);
+            #endif
+            ++__pyx_t_11;
+          }
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
+        } else {
+          __pyx_t_5 = __pyx_t_12(__pyx_t_6);
+          if (unlikely(!__pyx_t_5)) {
+            PyObject* exc_type = PyErr_Occurred();
+            if (exc_type) {
+              if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 78, __pyx_L1_error)
+              PyErr_Clear();
+            }
+            break;
+          }
+        }
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_XGOTREF(__pyx_cur_scope->__pyx_8genexpr1__pyx_v_table);
+        __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_8genexpr1__pyx_v_table, __pyx_t_5);
+        __Pyx_GIVEREF(__pyx_t_5);
+        __pyx_t_5 = 0;
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr1__pyx_v_table, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        if (unlikely(PyDict_SetItem(__pyx_t_2, (PyObject*)__pyx_t_5, (PyObject*)__pyx_cur_scope->__pyx_8genexpr1__pyx_v_table))) __PYX_ERR(0, 78, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      }
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    } /* exit inner scope */
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_table_map);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_table_map, ((PyObject*)__pyx_t_2));
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":79
+ *             curr_schema = schema_map[schema.schema_name]
+ *             table_map = {table.table_name: table for table in curr_schema.MetaTables}
+ *             for table in schema.SourceTables:             # <<<<<<<<<<<<<<
+ *                 logging.debug(f": {table.table_name}")
+ *                 curr_table, curr_model = await self._save_meta_table(curr_schema, table, table_map)
+*/
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_SourceTables); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+      __pyx_t_6 = __pyx_t_2; __Pyx_INCREF(__pyx_t_6);
+      __pyx_t_11 = 0;
+      __pyx_t_12 = NULL;
+    } else {
+      __pyx_t_11 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 79, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 79, __pyx_L1_error)
+    }
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    for (;;) {
+      if (likely(!__pyx_t_12)) {
+        if (likely(PyList_CheckExact(__pyx_t_6))) {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+            #endif
+            if (__pyx_t_11 >= __pyx_temp) break;
+          }
+          __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_6, __pyx_t_11);
+          ++__pyx_t_11;
+        } else {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+            #endif
+            if (__pyx_t_11 >= __pyx_temp) break;
+          }
+          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+          __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_11));
+          #else
+          __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_11);
+          #endif
+          ++__pyx_t_11;
+        }
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+      } else {
+        __pyx_t_2 = __pyx_t_12(__pyx_t_6);
+        if (unlikely(!__pyx_t_2)) {
+          PyObject* exc_type = PyErr_Occurred();
+          if (exc_type) {
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 79, __pyx_L1_error)
+            PyErr_Clear();
+          }
+          break;
+        }
+      }
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_table);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_table, __pyx_t_2);
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_t_2 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":80
+ *             table_map = {table.table_name: table for table in curr_schema.MetaTables}
+ *             for table in schema.SourceTables:
+ *                 logging.debug(f": {table.table_name}")             # <<<<<<<<<<<<<<
+ *                 curr_table, curr_model = await self._save_meta_table(curr_schema, table, table_map)
+ *                 #
+*/
+      __pyx_t_5 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_13);
+      __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_14);
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_table, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_13);
+      __pyx_t_15 = __Pyx_PyObject_FormatSimple(__pyx_t_13, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_15);
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __pyx_t_13 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__2, __pyx_t_15); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_13);
+      __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+      __pyx_t_3 = 1;
+      #if CYTHON_UNPACK_METHODS
+      if (unlikely(PyMethod_Check(__pyx_t_14))) {
+        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_14);
+        assert(__pyx_t_5);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_14);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_14, __pyx__function);
+        __pyx_t_3 = 0;
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_13};
+        __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_14, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+      }
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":81
+ *             for table in schema.SourceTables:
+ *                 logging.debug(f": {table.table_name}")
+ *                 curr_table, curr_model = await self._save_meta_table(curr_schema, table, table_map)             # <<<<<<<<<<<<<<
+ *                 #
+ *                 column_map = {column.name: column for column in curr_table.columns} if curr_table else {}
+*/
+      __pyx_t_14 = __pyx_cur_scope->__pyx_v_self;
+      __Pyx_INCREF(__pyx_t_14);
+      __pyx_t_3 = 0;
+      {
+        PyObject *__pyx_callargs[4] = {__pyx_t_14, __pyx_cur_scope->__pyx_v_curr_schema, __pyx_cur_scope->__pyx_v_table, __pyx_cur_scope->__pyx_v_table_map};
+        __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_meta_table, __pyx_callargs+__pyx_t_3, (4-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+      }
+      __pyx_t_4 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      if (likely(__pyx_t_4 == PYGEN_NEXT)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_XGIVEREF(__pyx_t_1);
+        __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
+        __Pyx_XGIVEREF(__pyx_t_6);
+        __pyx_cur_scope->__pyx_t_1 = __pyx_t_6;
+        __pyx_cur_scope->__pyx_t_2 = __pyx_t_8;
+        __pyx_cur_scope->__pyx_t_3 = __pyx_t_9;
+        __pyx_cur_scope->__pyx_t_4 = __pyx_t_11;
+        __pyx_cur_scope->__pyx_t_5 = __pyx_t_12;
+        __Pyx_XGIVEREF(__pyx_r);
+        __Pyx_RefNannyFinishContext();
+        __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+        /* return from generator, awaiting value */
+        __pyx_generator->resume_label = 2;
+        return __pyx_r;
+        __pyx_L18_resume_from_await:;
+        __pyx_t_1 = __pyx_cur_scope->__pyx_t_0;
+        __pyx_cur_scope->__pyx_t_0 = 0;
+        __Pyx_XGOTREF(__pyx_t_1);
+        __pyx_t_6 = __pyx_cur_scope->__pyx_t_1;
+        __pyx_cur_scope->__pyx_t_1 = 0;
+        __Pyx_XGOTREF(__pyx_t_6);
+        __pyx_t_8 = __pyx_cur_scope->__pyx_t_2;
+        __pyx_t_9 = __pyx_cur_scope->__pyx_t_3;
+        __pyx_t_11 = __pyx_cur_scope->__pyx_t_4;
+        __pyx_t_12 = __pyx_cur_scope->__pyx_t_5;
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 81, __pyx_L1_error)
+        __pyx_t_2 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_2);
+      } else if (likely(__pyx_t_4 == PYGEN_RETURN)) {
+        __Pyx_GOTREF(__pyx_r);
+        __pyx_t_2 = __pyx_r; __pyx_r = NULL;
+      } else {
+        __Pyx_XGOTREF(__pyx_r);
+        __PYX_ERR(0, 81, __pyx_L1_error)
+      }
+      if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
+        PyObject* sequence = __pyx_t_2;
+        Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
+        if (unlikely(size != 2)) {
+          if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+          else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+          __PYX_ERR(0, 81, __pyx_L1_error)
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        if (likely(PyTuple_CheckExact(sequence))) {
+          __pyx_t_14 = PyTuple_GET_ITEM(sequence, 0);
+          __Pyx_INCREF(__pyx_t_14);
+          __pyx_t_13 = PyTuple_GET_ITEM(sequence, 1);
+          __Pyx_INCREF(__pyx_t_13);
+        } else {
+          __pyx_t_14 = __Pyx_PyList_GetItemRef(sequence, 0);
+          if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 81, __pyx_L1_error)
+          __Pyx_XGOTREF(__pyx_t_14);
+          __pyx_t_13 = __Pyx_PyList_GetItemRef(sequence, 1);
+          if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 81, __pyx_L1_error)
+          __Pyx_XGOTREF(__pyx_t_13);
+        }
+        #else
+        __pyx_t_14 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 81, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_14);
+        __pyx_t_13 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 81, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_13);
+        #endif
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      } else {
+        Py_ssize_t index = -1;
+        __pyx_t_5 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 81, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5);
+        index = 0; __pyx_t_14 = __pyx_t_7(__pyx_t_5); if (unlikely(!__pyx_t_14)) goto __pyx_L19_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_14);
+        index = 1; __pyx_t_13 = __pyx_t_7(__pyx_t_5); if (unlikely(!__pyx_t_13)) goto __pyx_L19_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_13);
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_5), 2) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+        __pyx_t_7 = NULL;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        goto __pyx_L20_unpacking_done;
+        __pyx_L19_unpacking_failed:;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_t_7 = NULL;
+        if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+        __PYX_ERR(0, 81, __pyx_L1_error)
+        __pyx_L20_unpacking_done:;
+      }
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curr_table);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_curr_table, __pyx_t_14);
+      __Pyx_GIVEREF(__pyx_t_14);
+      __pyx_t_14 = 0;
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curr_model);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_curr_model, __pyx_t_13);
+      __Pyx_GIVEREF(__pyx_t_13);
+      __pyx_t_13 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":83
+ *                 curr_table, curr_model = await self._save_meta_table(curr_schema, table, table_map)
+ *                 #
+ *                 column_map = {column.name: column for column in curr_table.columns} if curr_table else {}             # <<<<<<<<<<<<<<
+ *                 for column in table.SourceColumns:
+ *                     if column.name not in column_map:
+*/
+      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_curr_table); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
+      if (__pyx_t_10) {
+        { /* enter inner scope */
+          __pyx_t_13 = PyDict_New(); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 83, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_13);
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_table, __pyx_mstate_global->__pyx_n_u_columns); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 83, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (likely(PyList_CheckExact(__pyx_t_14)) || PyTuple_CheckExact(__pyx_t_14)) {
+            __pyx_t_5 = __pyx_t_14; __Pyx_INCREF(__pyx_t_5);
+            __pyx_t_16 = 0;
+            __pyx_t_17 = NULL;
+          } else {
+            __pyx_t_16 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 83, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_5);
+            __pyx_t_17 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 83, __pyx_L1_error)
+          }
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+          for (;;) {
+            if (likely(!__pyx_t_17)) {
+              if (likely(PyList_CheckExact(__pyx_t_5))) {
+                {
+                  Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
+                  #if !CYTHON_ASSUME_SAFE_SIZE
+                  if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
+                  #endif
+                  if (__pyx_t_16 >= __pyx_temp) break;
+                }
+                __pyx_t_14 = __Pyx_PyList_GetItemRef(__pyx_t_5, __pyx_t_16);
+                ++__pyx_t_16;
+              } else {
+                {
+                  Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
+                  #if !CYTHON_ASSUME_SAFE_SIZE
+                  if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
+                  #endif
+                  if (__pyx_t_16 >= __pyx_temp) break;
+                }
+                #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+                __pyx_t_14 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_16));
+                #else
+                __pyx_t_14 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_16);
+                #endif
+                ++__pyx_t_16;
+              }
+              if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 83, __pyx_L1_error)
+            } else {
+              __pyx_t_14 = __pyx_t_17(__pyx_t_5);
+              if (unlikely(!__pyx_t_14)) {
+                PyObject* exc_type = PyErr_Occurred();
+                if (exc_type) {
+                  if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 83, __pyx_L1_error)
+                  PyErr_Clear();
+                }
+                break;
+              }
+            }
+            __Pyx_GOTREF(__pyx_t_14);
+            __Pyx_XGOTREF(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_column);
+            __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_column, __pyx_t_14);
+            __Pyx_GIVEREF(__pyx_t_14);
+            __pyx_t_14 = 0;
+            __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 83, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+            if (unlikely(PyDict_SetItem(__pyx_t_13, (PyObject*)__pyx_t_14, (PyObject*)__pyx_cur_scope->__pyx_8genexpr2__pyx_v_column))) __PYX_ERR(0, 83, __pyx_L1_error)
+            __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+          }
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        } /* exit inner scope */
+        __pyx_t_2 = __pyx_t_13;
+        __pyx_t_13 = 0;
+      } else {
+        __pyx_t_13 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 83, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_13);
+        __pyx_t_2 = __pyx_t_13;
+        __pyx_t_13 = 0;
+      }
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_column_map);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_column_map, ((PyObject*)__pyx_t_2));
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_t_2 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":84
+ *                 #
+ *                 column_map = {column.name: column for column in curr_table.columns} if curr_table else {}
+ *                 for column in table.SourceColumns:             # <<<<<<<<<<<<<<
+ *                     if column.name not in column_map:
+ *                         #
+*/
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_table, __pyx_mstate_global->__pyx_n_u_SourceColumns); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+        __pyx_t_13 = __pyx_t_2; __Pyx_INCREF(__pyx_t_13);
+        __pyx_t_16 = 0;
+        __pyx_t_17 = NULL;
+      } else {
+        __pyx_t_16 = -1; __pyx_t_13 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 84, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_13);
+        __pyx_t_17 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_13); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 84, __pyx_L1_error)
+      }
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      for (;;) {
+        if (likely(!__pyx_t_17)) {
+          if (likely(PyList_CheckExact(__pyx_t_13))) {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_13);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 84, __pyx_L1_error)
+              #endif
+              if (__pyx_t_16 >= __pyx_temp) break;
+            }
+            __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_13, __pyx_t_16);
+            ++__pyx_t_16;
+          } else {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_13);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 84, __pyx_L1_error)
+              #endif
+              if (__pyx_t_16 >= __pyx_temp) break;
+            }
+            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+            __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_13, __pyx_t_16));
+            #else
+            __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_13, __pyx_t_16);
+            #endif
+            ++__pyx_t_16;
+          }
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+        } else {
+          __pyx_t_2 = __pyx_t_17(__pyx_t_13);
+          if (unlikely(!__pyx_t_2)) {
+            PyObject* exc_type = PyErr_Occurred();
+            if (exc_type) {
+              if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 84, __pyx_L1_error)
+              PyErr_Clear();
+            }
+            break;
+          }
+        }
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_column);
+        __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_column, __pyx_t_2);
+        __Pyx_GIVEREF(__pyx_t_2);
+        __pyx_t_2 = 0;
+
+        /* "shudaodao_meta/tools/meta_store.py":85
+ *                 column_map = {column.name: column for column in curr_table.columns} if curr_table else {}
+ *                 for column in table.SourceColumns:
+ *                     if column.name not in column_map:             # <<<<<<<<<<<<<<
+ *                         #
+ *                         create_model = MetaColumnCreate(
+*/
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        if (unlikely(__pyx_cur_scope->__pyx_v_column_map == Py_None)) {
+          PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
+          __PYX_ERR(0, 85, __pyx_L1_error)
+        }
+        __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_t_2, __pyx_cur_scope->__pyx_v_column_map, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 85, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        if (__pyx_t_10) {
+
+          /* "shudaodao_meta/tools/meta_store.py":87
+ *                     if column.name not in column_map:
+ *                         #
+ *                         create_model = MetaColumnCreate(             # <<<<<<<<<<<<<<
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             table_id=curr_model.table_id,
+*/
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaColumnCreate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+
+          /* "shudaodao_meta/tools/meta_store.py":88
+ *                         #
+ *                         create_model = MetaColumnCreate(
+ *                             **column.model_dump(exclude="sort_order"),             # <<<<<<<<<<<<<<
+ *                             table_id=curr_model.table_id,
+ *                             sort_order=column.sort_order,
+*/
+          __pyx_t_15 = __pyx_cur_scope->__pyx_v_column;
+          __Pyx_INCREF(__pyx_t_15);
+          __pyx_t_3 = 0;
+          {
+            PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_15, NULL};
+            __pyx_t_18 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 88, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_18);
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_exclude, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_t_18, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 88, __pyx_L1_error)
+            __pyx_t_14 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_model_dump, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_18);
+            __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
+            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 88, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          if (unlikely(__pyx_t_14 == Py_None)) {
+            PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
+            __PYX_ERR(0, 88, __pyx_L1_error)
+          }
+          if (likely(PyDict_CheckExact(__pyx_t_14))) {
+            #if CYTHON_COMPILING_IN_CPYTHON || CYTHON_COMPILING_IN_LIMITED_API
+            if (Py_REFCNT(__pyx_t_14) == 1) {
+              __pyx_t_5 = __pyx_t_14;
+              __pyx_t_14 = 0;
+            } else
+            #endif
+            {
+              __pyx_t_5 = PyDict_Copy(__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
+              __Pyx_GOTREF(__pyx_t_5);
+              __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+            }
+          } else {
+            __pyx_t_5 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_5);
+            __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+          }
+
+          /* "shudaodao_meta/tools/meta_store.py":89
+ *                         create_model = MetaColumnCreate(
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             table_id=curr_model.table_id,             # <<<<<<<<<<<<<<
+ *                             sort_order=column.sort_order,
+ *                             is_increment=column.autoincrement,
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_model, __pyx_mstate_global->__pyx_n_u_table_id); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 89, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_table_id))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_table_id); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_table_id, __pyx_t_14) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":90
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             table_id=curr_model.table_id,
+ *                             sort_order=column.sort_order,             # <<<<<<<<<<<<<<
+ *                             is_increment=column.autoincrement,
+ *                             is_active=True,
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_sort_order); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 90, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_sort_order))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_sort_order); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_t_14) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":91
+ *                             table_id=curr_model.table_id,
+ *                             sort_order=column.sort_order,
+ *                             is_increment=column.autoincrement,             # <<<<<<<<<<<<<<
+ *                             is_active=True,
+ *                             is_private=MetaConverter.is_private(column.name),
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_autoincrement); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 91, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_increment))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_increment); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_increment, __pyx_t_14) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":92
+ *                             sort_order=column.sort_order,
+ *                             is_increment=column.autoincrement,
+ *                             is_active=True,             # <<<<<<<<<<<<<<
+ *                             is_private=MetaConverter.is_private(column.name),
+ *                             db_type=column.type,
+*/
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_active))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_active); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_active, Py_True) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+
+          /* "shudaodao_meta/tools/meta_store.py":93
+ *                             is_increment=column.autoincrement,
+ *                             is_active=True,
+ *                             is_private=MetaConverter.is_private(column.name),             # <<<<<<<<<<<<<<
+ *                             db_type=column.type,
+ *                             is_unique=MetaConverter.is_unique(
+*/
+          __pyx_t_18 = NULL;
+          __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_MetaConverter); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_15);
+          __pyx_t_19 = __Pyx_PyObject_GetAttrStr(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_is_private); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_19);
+          __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+          __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_15);
+          __pyx_t_3 = 1;
+          #if CYTHON_UNPACK_METHODS
+          if (unlikely(PyMethod_Check(__pyx_t_19))) {
+            __pyx_t_18 = PyMethod_GET_SELF(__pyx_t_19);
+            assert(__pyx_t_18);
+            PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_19);
+            __Pyx_INCREF(__pyx_t_18);
+            __Pyx_INCREF(__pyx__function);
+            __Pyx_DECREF_SET(__pyx_t_19, __pyx__function);
+            __pyx_t_3 = 0;
+          }
+          #endif
+          {
+            PyObject *__pyx_callargs[2] = {__pyx_t_18, __pyx_t_15};
+            __pyx_t_14 = __Pyx_PyObject_FastCall(__pyx_t_19, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+            __Pyx_XDECREF(__pyx_t_18); __pyx_t_18 = 0;
+            __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+            __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 93, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_private))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_private); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_private, __pyx_t_14) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":94
+ *                             is_active=True,
+ *                             is_private=MetaConverter.is_private(column.name),
+ *                             db_type=column.type,             # <<<<<<<<<<<<<<
+ *                             is_unique=MetaConverter.is_unique(
+ *                                 column.name, table.SourceIndexes
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 94, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db_type))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_db_type); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db_type, __pyx_t_14) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":95
+ *                             is_private=MetaConverter.is_private(column.name),
+ *                             db_type=column.type,
+ *                             is_unique=MetaConverter.is_unique(             # <<<<<<<<<<<<<<
+ *                                 column.name, table.SourceIndexes
+ *                             ),
+*/
+          __pyx_t_19 = NULL;
+          __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_MetaConverter); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 95, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_15);
+          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_is_unique); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 95, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_18);
+          __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":96
+ *                             db_type=column.type,
+ *                             is_unique=MetaConverter.is_unique(
+ *                                 column.name, table.SourceIndexes             # <<<<<<<<<<<<<<
+ *                             ),
+ *                             is_primary=MetaConverter.is_primary(
+*/
+          __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 96, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_15);
+          __pyx_t_20 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_table, __pyx_mstate_global->__pyx_n_u_SourceIndexes); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 96, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_20);
+          __pyx_t_3 = 1;
+          #if CYTHON_UNPACK_METHODS
+          if (unlikely(PyMethod_Check(__pyx_t_18))) {
+            __pyx_t_19 = PyMethod_GET_SELF(__pyx_t_18);
+            assert(__pyx_t_19);
+            PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_18);
+            __Pyx_INCREF(__pyx_t_19);
+            __Pyx_INCREF(__pyx__function);
+            __Pyx_DECREF_SET(__pyx_t_18, __pyx__function);
+            __pyx_t_3 = 0;
+          }
+          #endif
+          {
+            PyObject *__pyx_callargs[3] = {__pyx_t_19, __pyx_t_15, __pyx_t_20};
+            __pyx_t_14 = __Pyx_PyObject_FastCall(__pyx_t_18, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+            __Pyx_XDECREF(__pyx_t_19); __pyx_t_19 = 0;
+            __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+            __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
+            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 95, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_unique))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_unique); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_unique, __pyx_t_14) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":98
+ *                                 column.name, table.SourceIndexes
+ *                             ),
+ *                             is_primary=MetaConverter.is_primary(             # <<<<<<<<<<<<<<
+ *                                 column.name, table.SourcePrimaryKey.constrained_columns
+ *                             ),
+*/
+          __pyx_t_18 = NULL;
+          __Pyx_GetModuleGlobalName(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_MetaConverter); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 98, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_20);
+          __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_is_primary); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 98, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_15);
+          __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":99
+ *                             ),
+ *                             is_primary=MetaConverter.is_primary(
+ *                                 column.name, table.SourcePrimaryKey.constrained_columns             # <<<<<<<<<<<<<<
+ *                             ),
+ *                             is_foreign=MetaConverter.is_foreign(
+*/
+          __pyx_t_20 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 99, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_20);
+          __pyx_t_19 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_table, __pyx_mstate_global->__pyx_n_u_SourcePrimaryKey); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 99, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_19);
+          __pyx_t_21 = __Pyx_PyObject_GetAttrStr(__pyx_t_19, __pyx_mstate_global->__pyx_n_u_constrained_columns); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 99, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_21);
+          __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
+          __pyx_t_3 = 1;
+          #if CYTHON_UNPACK_METHODS
+          if (unlikely(PyMethod_Check(__pyx_t_15))) {
+            __pyx_t_18 = PyMethod_GET_SELF(__pyx_t_15);
+            assert(__pyx_t_18);
+            PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_15);
+            __Pyx_INCREF(__pyx_t_18);
+            __Pyx_INCREF(__pyx__function);
+            __Pyx_DECREF_SET(__pyx_t_15, __pyx__function);
+            __pyx_t_3 = 0;
+          }
+          #endif
+          {
+            PyObject *__pyx_callargs[3] = {__pyx_t_18, __pyx_t_20, __pyx_t_21};
+            __pyx_t_14 = __Pyx_PyObject_FastCall(__pyx_t_15, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+            __Pyx_XDECREF(__pyx_t_18); __pyx_t_18 = 0;
+            __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
+            __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
+            __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 98, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_primary))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_primary); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_primary, __pyx_t_14) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":101
+ *                                 column.name, table.SourcePrimaryKey.constrained_columns
+ *                             ),
+ *                             is_foreign=MetaConverter.is_foreign(             # <<<<<<<<<<<<<<
+ *                                 column.name, table.SourceForeignKeys
+ *                             ),
+*/
+          __pyx_t_15 = NULL;
+          __Pyx_GetModuleGlobalName(__pyx_t_21, __pyx_mstate_global->__pyx_n_u_MetaConverter); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 101, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_21);
+          __pyx_t_20 = __Pyx_PyObject_GetAttrStr(__pyx_t_21, __pyx_mstate_global->__pyx_n_u_is_foreign); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 101, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_20);
+          __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":102
+ *                             ),
+ *                             is_foreign=MetaConverter.is_foreign(
+ *                                 column.name, table.SourceForeignKeys             # <<<<<<<<<<<<<<
+ *                             ),
+ *                         )
+*/
+          __pyx_t_21 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 102, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_21);
+          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_table, __pyx_mstate_global->__pyx_n_u_SourceForeignKeys); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 102, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_18);
+          __pyx_t_3 = 1;
+          #if CYTHON_UNPACK_METHODS
+          if (unlikely(PyMethod_Check(__pyx_t_20))) {
+            __pyx_t_15 = PyMethod_GET_SELF(__pyx_t_20);
+            assert(__pyx_t_15);
+            PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_20);
+            __Pyx_INCREF(__pyx_t_15);
+            __Pyx_INCREF(__pyx__function);
+            __Pyx_DECREF_SET(__pyx_t_20, __pyx__function);
+            __pyx_t_3 = 0;
+          }
+          #endif
+          {
+            PyObject *__pyx_callargs[3] = {__pyx_t_15, __pyx_t_21, __pyx_t_18};
+            __pyx_t_14 = __Pyx_PyObject_FastCall(__pyx_t_20, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+            __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
+            __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
+            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 101, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_foreign))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_foreign); __PYX_ERR(0, 87, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_foreign, __pyx_t_14) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":87
+ *                     if column.name not in column_map:
+ *                         #
+ *                         create_model = MetaColumnCreate(             # <<<<<<<<<<<<<<
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             table_id=curr_model.table_id,
+*/
+          __pyx_t_14 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 87, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
+          __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_14);
+          __Pyx_GIVEREF(__pyx_t_14);
+          __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":105
+ *                             ),
+ *                         )
+ *                         DataService.db_insert(             # <<<<<<<<<<<<<<
+ *                             self._db, model_class=MetaColumn, create_model=create_model
+ *                         )
+*/
+          __pyx_t_5 = NULL;
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __pyx_t_20 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db_insert); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 105, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_20);
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":106
+ *                         )
+ *                         DataService.db_insert(
+ *                             self._db, model_class=MetaColumn, create_model=create_model             # <<<<<<<<<<<<<<
+ *                         )
+ *                     else:
+*/
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 106, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_GetModuleGlobalName(__pyx_t_18, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 106, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_18);
+          __pyx_t_3 = 1;
+          #if CYTHON_UNPACK_METHODS
+          if (unlikely(PyMethod_Check(__pyx_t_20))) {
+            __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_20);
+            assert(__pyx_t_5);
+            PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_20);
+            __Pyx_INCREF(__pyx_t_5);
+            __Pyx_INCREF(__pyx__function);
+            __Pyx_DECREF_SET(__pyx_t_20, __pyx__function);
+            __pyx_t_3 = 0;
+          }
+          #endif
+          {
+            PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_5, __pyx_t_2};
+            __pyx_t_21 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 105, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_21);
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_18, __pyx_t_21, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_21, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+            __pyx_t_14 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_20, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_21);
+            __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+            __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            __Pyx_DECREF(__pyx_t_21); __pyx_t_21 = 0;
+            __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 105, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":85
+ *                 column_map = {column.name: column for column in curr_table.columns} if curr_table else {}
+ *                 for column in table.SourceColumns:
+ *                     if column.name not in column_map:             # <<<<<<<<<<<<<<
+ *                         #
+ *                         create_model = MetaColumnCreate(
+*/
+          goto __pyx_L26;
+        }
+
+        /* "shudaodao_meta/tools/meta_store.py":110
+ *                     else:
+ *                         # todo
+ *                         ...             # <<<<<<<<<<<<<<
+ * 
+ *     async def _save_meta_table(self, curr_schema, table, table_map):
+*/
+        /*else*/ {
+        }
+        __pyx_L26:;
+
+        /* "shudaodao_meta/tools/meta_store.py":84
+ *                 #
+ *                 column_map = {column.name: column for column in curr_table.columns} if curr_table else {}
+ *                 for column in table.SourceColumns:             # <<<<<<<<<<<<<<
+ *                     if column.name not in column_map:
+ *                         #
+*/
+      }
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":79
+ *             curr_schema = schema_map[schema.schema_name]
+ *             table_map = {table.table_name: table for table in curr_schema.MetaTables}
+ *             for table in schema.SourceTables:             # <<<<<<<<<<<<<<
+ *                 logging.debug(f": {table.table_name}")
+ *                 curr_table, curr_model = await self._save_meta_table(curr_schema, table, table_map)
+*/
+    }
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":74
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
+ *         for schema in source_schema:             # <<<<<<<<<<<<<<
+ *             if schema.schema_name not in schema_map:
+ *                 continue
+*/
+    __pyx_L10_continue:;
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":95
- *         await self._save_meta_views(metadata=create_model)
+  /* "shudaodao_meta/tools/meta_store.py":70
+ *         await self._save_meta_views(self._schema_name)
  * 
- *     async def _save_meta_tables(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         tables = []
+ *     async def _save_meta_tables(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")
 */
 
   /* function exit code */
@@ -6359,9 +6323,13 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_15gene
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_XDECREF(__pyx_t_13);
+  __Pyx_XDECREF(__pyx_t_14);
+  __Pyx_XDECREF(__pyx_t_15);
+  __Pyx_XDECREF(__pyx_t_18);
+  __Pyx_XDECREF(__pyx_t_19);
+  __Pyx_XDECREF(__pyx_t_20);
+  __Pyx_XDECREF(__pyx_t_21);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
     __Pyx_AddTraceback("_save_meta_tables", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -6376,26 +6344,26 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_15gene
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_18generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_16generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":136
- *         await self._save_meta_referencing_foreign_keys(tables)
+/* "shudaodao_meta/tools/meta_store.py":112
+ *                         ...
  * 
- *     async def _save_meta_views(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["views"]:
+ *     async def _save_meta_table(self, curr_schema, table, table_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_15_save_meta_table(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views = {"_save_meta_views", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_15_save_meta_table = {"_save_meta_table", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_15_save_meta_table, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_15_save_meta_table(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6403,7 +6371,318 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
+  PyObject *__pyx_v_curr_schema = 0;
+  PyObject *__pyx_v_table = 0;
+  PyObject *__pyx_v_table_map = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[4] = {0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_save_meta_table (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_curr_schema,&__pyx_mstate_global->__pyx_n_u_table,&__pyx_mstate_global->__pyx_n_u_table_map,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 112, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 112, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 112, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_table", 0) < 0) __PYX_ERR(0, 112, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_table", 1, 4, 4, i); __PYX_ERR(0, 112, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 4)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 112, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 112, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 112, __pyx_L3_error)
+      values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 112, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_curr_schema = values[1];
+    __pyx_v_table = values[2];
+    __pyx_v_table_map = values[3];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("_save_meta_table", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 112, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_table", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_table(__pyx_self, __pyx_v_self, __pyx_v_curr_schema, __pyx_v_table, __pyx_v_table_map);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_table(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_curr_schema, PyObject *__pyx_v_table, PyObject *__pyx_v_table_map) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("_save_meta_table", 0);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 112, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  __pyx_cur_scope->__pyx_v_curr_schema = __pyx_v_curr_schema;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_curr_schema);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_curr_schema);
+  __pyx_cur_scope->__pyx_v_table = __pyx_v_table;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_table);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_table);
+  __pyx_cur_scope->__pyx_v_table_map = __pyx_v_table_map;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_table_map);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_table_map);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_16generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_table, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_table, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 112, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_table", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_16generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
+  __Pyx_PySendResult __pyx_t_8;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_save_meta_table", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 112, __pyx_L1_error)
+  }
+
+  /* "shudaodao_meta/tools/meta_store.py":113
+ * 
+ *     async def _save_meta_table(self, curr_schema, table, table_map):
+ *         return await self._save_meta_entity(             # <<<<<<<<<<<<<<
+ *             curr_schema=curr_schema,
+ *             entity=table,
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+
+  /* "shudaodao_meta/tools/meta_store.py":118
+ *             entity_name="table_name",
+ *             entity_map=table_map,
+ *             model_class=MetaTable,             # <<<<<<<<<<<<<<
+ *             create_model_class=MetaTableCreate,
+ *             update_model_class=MetaTableUpdate,
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaTable); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+
+  /* "shudaodao_meta/tools/meta_store.py":119
+ *             entity_map=table_map,
+ *             model_class=MetaTable,
+ *             create_model_class=MetaTableCreate,             # <<<<<<<<<<<<<<
+ *             update_model_class=MetaTableUpdate,
+ *             id_attr="table_id",
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_MetaTableCreate); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+
+  /* "shudaodao_meta/tools/meta_store.py":120
+ *             model_class=MetaTable,
+ *             create_model_class=MetaTableCreate,
+ *             update_model_class=MetaTableUpdate,             # <<<<<<<<<<<<<<
+ *             id_attr="table_id",
+ *         )
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaTableUpdate); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 8 : 0)] = {__pyx_t_2, NULL};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 113, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_curr_schema, __pyx_cur_scope->__pyx_v_curr_schema, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_entity, __pyx_cur_scope->__pyx_v_table, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_entity_name, __pyx_mstate_global->__pyx_n_u_table_name, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_entity_map, __pyx_cur_scope->__pyx_v_table_map, __pyx_t_7, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_7, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model_class, __pyx_t_4, __pyx_t_7, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model_class, __pyx_t_5, __pyx_t_7, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_id_attr, __pyx_mstate_global->__pyx_n_u_table_id, __pyx_t_7, __pyx_callargs+1, 7) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_entity, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_8 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 113, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 113, __pyx_L1_error)
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "shudaodao_meta/tools/meta_store.py":112
+ *                         ...
+ * 
+ *     async def _save_meta_table(self, curr_schema, table, table_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_7);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("_save_meta_table", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_19generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "shudaodao_meta/tools/meta_store.py":124
+ *         )
+ * 
+ *     async def _save_meta_views(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "View")
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_18_save_meta_views(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_18_save_meta_views = {"_save_meta_views", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_18_save_meta_views, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_18_save_meta_views(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_schema_name = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
@@ -6424,41 +6703,41 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_schema_name,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 136, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 136, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 124, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 136, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_views", 0) < 0) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_views", 0) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_views", 1, 2, 2, i); __PYX_ERR(0, 136, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_views", 1, 2, 2, i); __PYX_ERR(0, 124, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 136, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 124, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
+    __pyx_v_schema_name = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_views", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 136, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_save_meta_views", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 124, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6469,7 +6748,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_16_save_meta_views(__pyx_self, __pyx_v_self, __pyx_v_metadata);
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views(__pyx_self, __pyx_v_self, __pyx_v_schema_name);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -6479,30 +6758,30 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_16_save_meta_views(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_schema_name) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_save_meta_views", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 136, __pyx_L1_error)
+    __PYX_ERR(0, 124, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
+  __pyx_cur_scope->__pyx_v_schema_name = __pyx_v_schema_name;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_schema_name);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_schema_name);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_18generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_views, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_views, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 136, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_19generator5, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_views, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_views, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 124, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6518,21 +6797,29 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_16_sav
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_18generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_19generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *)__pyx_generator->closure);
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *(*__pyx_t_4)(PyObject *);
+  size_t __pyx_t_3;
+  __Pyx_PySendResult __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
-  PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  size_t __pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  __Pyx_PySendResult __pyx_t_11;
+  PyObject *(*__pyx_t_7)(PyObject *);
+  Py_ssize_t __pyx_t_8;
+  PyObject *(*__pyx_t_9)(PyObject *);
+  int __pyx_t_10;
+  Py_ssize_t __pyx_t_11;
+  PyObject *(*__pyx_t_12)(PyObject *);
+  PyObject *__pyx_t_13 = NULL;
+  PyObject *__pyx_t_14 = NULL;
+  PyObject *__pyx_t_15 = NULL;
+  Py_ssize_t __pyx_t_16;
+  PyObject *(*__pyx_t_17)(PyObject *);
+  PyObject *__pyx_t_18 = NULL;
+  PyObject *__pyx_t_19 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -6540,8 +6827,8 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_18gene
   __Pyx_RefNannySetupContext("_save_meta_views", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L6_resume_from_await;
-    case 2: goto __pyx_L7_resume_from_await;
+    case 1: goto __pyx_L4_resume_from_await;
+    case 2: goto __pyx_L18_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -6549,365 +6836,1024 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_18gene
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 136, __pyx_L1_error)
+    __PYX_ERR(0, 124, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":137
+  /* "shudaodao_meta/tools/meta_store.py":126
+ *     async def _save_meta_views(self, schema_name):
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "View")             # <<<<<<<<<<<<<<
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
  * 
- *     async def _save_meta_views(self, metadata):
- *         sort_order = 0             # <<<<<<<<<<<<<<
- *         for create_model in metadata["views"]:
- *             sort_order = sort_order + 10
 */
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_0);
-  __pyx_cur_scope->__pyx_v_sort_order = __pyx_mstate_global->__pyx_int_0;
-
-  /* "shudaodao_meta/tools/meta_store.py":138
- *     async def _save_meta_views(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["views"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             view_name = create_model["view_name"]
-*/
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_views); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 138, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
-  } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_3 = 0;
+  {
+    PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_schema_name, __pyx_mstate_global->__pyx_n_u_View};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_schema, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
   }
+  __pyx_t_4 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 138, __pyx_L1_error)
+  if (likely(__pyx_t_4 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_4 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 126, __pyx_L1_error)
+  }
+  if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
+    PyObject* sequence = __pyx_t_1;
+    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
+    if (unlikely(size != 2)) {
+      if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+      __PYX_ERR(0, 126, __pyx_L1_error)
+    }
+    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    if (likely(PyTuple_CheckExact(sequence))) {
+      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0);
+      __Pyx_INCREF(__pyx_t_2);
+      __pyx_t_5 = PyTuple_GET_ITEM(sequence, 1);
+      __Pyx_INCREF(__pyx_t_5);
+    } else {
+      __pyx_t_2 = __Pyx_PyList_GetItemRef(sequence, 0);
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+      __Pyx_XGOTREF(__pyx_t_2);
+      __pyx_t_5 = __Pyx_PyList_GetItemRef(sequence, 1);
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L1_error)
+      __Pyx_XGOTREF(__pyx_t_5);
+    }
+    #else
+    __pyx_t_2 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_5 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    #endif
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  } else {
+    Py_ssize_t index = -1;
+    __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 126, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6);
+    index = 0; __pyx_t_2 = __pyx_t_7(__pyx_t_6); if (unlikely(!__pyx_t_2)) goto __pyx_L5_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_2);
+    index = 1; __pyx_t_5 = __pyx_t_7(__pyx_t_6); if (unlikely(!__pyx_t_5)) goto __pyx_L5_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_6), 2) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_t_7 = NULL;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    goto __pyx_L6_unpacking_done;
+    __pyx_L5_unpacking_failed:;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_7 = NULL;
+    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+    __PYX_ERR(0, 126, __pyx_L1_error)
+    __pyx_L6_unpacking_done:;
+  }
+  __Pyx_GIVEREF(__pyx_t_2);
+  __pyx_cur_scope->__pyx_v_source_schema = __pyx_t_2;
+  __pyx_t_2 = 0;
+  __Pyx_GIVEREF(__pyx_t_5);
+  __pyx_cur_scope->__pyx_v_meta_schema = __pyx_t_5;
+  __pyx_t_5 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":127
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "View")
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}             # <<<<<<<<<<<<<<
+ * 
+ *         for schema in source_schema:
+*/
+  { /* enter inner scope */
+    __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_meta_schema)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_meta_schema)) {
+      __pyx_t_5 = __pyx_cur_scope->__pyx_v_meta_schema; __Pyx_INCREF(__pyx_t_5);
+      __pyx_t_8 = 0;
+      __pyx_t_9 = NULL;
+    } else {
+      __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_meta_schema); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 127, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_9 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 127, __pyx_L1_error)
+    }
+    for (;;) {
+      if (likely(!__pyx_t_9)) {
+        if (likely(PyList_CheckExact(__pyx_t_5))) {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 127, __pyx_L1_error)
+            #endif
+            if (__pyx_t_8 >= __pyx_temp) break;
+          }
+          __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_5, __pyx_t_8);
+          ++__pyx_t_8;
+        } else {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 127, __pyx_L1_error)
+            #endif
+            if (__pyx_t_8 >= __pyx_temp) break;
+          }
+          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+          __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8));
+          #else
+          __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_8);
           #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
+          ++__pyx_t_8;
         }
-        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-        ++__pyx_t_3;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
+      } else {
+        __pyx_t_2 = __pyx_t_9(__pyx_t_5);
+        if (unlikely(!__pyx_t_2)) {
+          PyObject* exc_type = PyErr_Occurred();
+          if (exc_type) {
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 127, __pyx_L1_error)
+            PyErr_Clear();
+          }
+          break;
+        }
+      }
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_8genexpr3__pyx_v_schema);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_8genexpr3__pyx_v_schema, __pyx_t_2);
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_t_2 = 0;
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr3__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      if (unlikely(PyDict_SetItem(__pyx_t_1, (PyObject*)__pyx_t_2, (PyObject*)__pyx_cur_scope->__pyx_8genexpr3__pyx_v_schema))) __PYX_ERR(0, 127, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  } /* exit inner scope */
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_schema_map = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":129
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
+ * 
+ *         for schema in source_schema:             # <<<<<<<<<<<<<<
+ *             if schema.schema_name not in schema_map:
+ *                 continue
+*/
+  if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_source_schema)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_source_schema)) {
+    __pyx_t_1 = __pyx_cur_scope->__pyx_v_source_schema; __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_8 = 0;
+    __pyx_t_9 = NULL;
+  } else {
+    __pyx_t_8 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_source_schema); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_9 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_9)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 129, __pyx_L1_error)
+          #endif
+          if (__pyx_t_8 >= __pyx_temp) break;
+        }
+        __pyx_t_5 = __Pyx_PyList_GetItemRef(__pyx_t_1, __pyx_t_8);
+        ++__pyx_t_8;
       } else {
         {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 138, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 129, __pyx_L1_error)
           #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
+          if (__pyx_t_8 >= __pyx_temp) break;
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3));
+        __pyx_t_5 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_8));
         #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_3);
+        __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_8);
         #endif
-        ++__pyx_t_3;
+        ++__pyx_t_8;
       }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 138, __pyx_L1_error)
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L1_error)
     } else {
-      __pyx_t_1 = __pyx_t_4(__pyx_t_2);
-      if (unlikely(!__pyx_t_1)) {
+      __pyx_t_5 = __pyx_t_9(__pyx_t_1);
+      if (unlikely(!__pyx_t_5)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 138, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 129, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
       }
     }
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":139
- *         sort_order = 0
- *         for create_model in metadata["views"]:
- *             sort_order = sort_order + 10             # <<<<<<<<<<<<<<
- *             view_name = create_model["view_name"]
- *             logging.debug(f": {view_name}")
-*/
-    __pyx_t_1 = __Pyx_PyLong_AddObjC(__pyx_cur_scope->__pyx_v_sort_order, __pyx_mstate_global->__pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_sort_order);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_sort_order, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":140
- *         for create_model in metadata["views"]:
- *             sort_order = sort_order + 10
- *             view_name = create_model["view_name"]             # <<<<<<<<<<<<<<
- *             logging.debug(f": {view_name}")
- *             create_model["class_name"]: GenConverter.get_class_name(view_name)
-*/
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_view_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_view_name);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_view_name, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":141
- *             sort_order = sort_order + 10
- *             view_name = create_model["view_name"]
- *             logging.debug(f": {view_name}")             # <<<<<<<<<<<<<<
- *             create_model["class_name"]: GenConverter.get_class_name(view_name)
- *             create_model["file_name"]: GenConverter.get_file_name(view_name)
-*/
-    __pyx_t_5 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_view_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__3, __pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 141, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_9 = 1;
-    #if CYTHON_UNPACK_METHODS
-    if (unlikely(PyMethod_Check(__pyx_t_7))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_7);
-      assert(__pyx_t_5);
-      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(__pyx__function);
-      __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-      __pyx_t_9 = 0;
-    }
-    #endif
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_8};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_9, (2-__pyx_t_9) | (__pyx_t_9*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":144
- *             create_model["class_name"]: GenConverter.get_class_name(view_name)
- *             create_model["file_name"]: GenConverter.get_file_name(view_name)
- *             create_model["meta_schema_id"] = metadata["meta_schema_id"]             # <<<<<<<<<<<<<<
- *             create_model["sort_order"] = sort_order
- *             meta_model = await self._metamodel_create_or_update(
-*/
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 144, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_schema_id, __pyx_t_1) < 0))) __PYX_ERR(0, 144, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":145
- *             create_model["file_name"]: GenConverter.get_file_name(view_name)
- *             create_model["meta_schema_id"] = metadata["meta_schema_id"]
- *             create_model["sort_order"] = sort_order             # <<<<<<<<<<<<<<
- *             meta_model = await self._metamodel_create_or_update(
- *                 MetaView, create_model, [
-*/
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_cur_scope->__pyx_v_sort_order) < 0))) __PYX_ERR(0, 145, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":146
- *             create_model["meta_schema_id"] = metadata["meta_schema_id"]
- *             create_model["sort_order"] = sort_order
- *             meta_model = await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                 MetaView, create_model, [
- *                     MetaView.meta_schema_id == create_model["meta_schema_id"],
-*/
-    __pyx_t_7 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_7);
-
-    /* "shudaodao_meta/tools/meta_store.py":147
- *             create_model["sort_order"] = sort_order
- *             meta_model = await self._metamodel_create_or_update(
- *                 MetaView, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaView.meta_schema_id == create_model["meta_schema_id"],
- *                     MetaView.view_name == view_name,
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_MetaView); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 147, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-
-    /* "shudaodao_meta/tools/meta_store.py":148
- *             meta_model = await self._metamodel_create_or_update(
- *                 MetaView, create_model, [
- *                     MetaView.meta_schema_id == create_model["meta_schema_id"],             # <<<<<<<<<<<<<<
- *                     MetaView.view_name == view_name,
- *                 ]
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaView); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 148, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 148, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 148, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_10 = PyObject_RichCompare(__pyx_t_6, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 148, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":149
- *                 MetaView, create_model, [
- *                     MetaView.meta_schema_id == create_model["meta_schema_id"],
- *                     MetaView.view_name == view_name,             # <<<<<<<<<<<<<<
- *                 ]
- *             )
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaView); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 149, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_view_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 149, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_cur_scope->__pyx_v_view_name, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 149, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":147
- *             create_model["sort_order"] = sort_order
- *             meta_model = await self._metamodel_create_or_update(
- *                 MetaView, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaView.meta_schema_id == create_model["meta_schema_id"],
- *                     MetaView.view_name == view_name,
-*/
-    __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 147, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_GIVEREF(__pyx_t_10);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_10) != (0)) __PYX_ERR(0, 147, __pyx_L1_error);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_schema);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_schema, __pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_5);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_5) != (0)) __PYX_ERR(0, 147, __pyx_L1_error);
-    __pyx_t_10 = 0;
     __pyx_t_5 = 0;
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[4] = {__pyx_t_7, __pyx_t_8, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_6};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_9, (4-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 146, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 1;
-      return __pyx_r;
-      __pyx_L6_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 146, __pyx_L1_error)
-      __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __pyx_t_1 = __pyx_r; __pyx_r = NULL;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 146, __pyx_L1_error)
-    }
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_meta_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_meta_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
 
-    /* "shudaodao_meta/tools/meta_store.py":152
- *                 ]
- *             )
- *             create_model["meta_view_id"] = meta_model.meta_view_id             # <<<<<<<<<<<<<<
- *             #
- *             await self._save_meta_columns(metadata=create_model)
-*/
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_meta_model, __pyx_mstate_global->__pyx_n_u_meta_view_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_view_id, __pyx_t_1) < 0))) __PYX_ERR(0, 152, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":154
- *             create_model["meta_view_id"] = meta_model.meta_view_id
- *             #
- *             await self._save_meta_columns(metadata=create_model)             # <<<<<<<<<<<<<<
+    /* "shudaodao_meta/tools/meta_store.py":130
  * 
- *     async def _save_meta_columns(self, metadata):
+ *         for schema in source_schema:
+ *             if schema.schema_name not in schema_map:             # <<<<<<<<<<<<<<
+ *                 continue
+ * 
 */
-    __pyx_t_6 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_6);
-    __pyx_t_9 = 0;
-    {
-      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_6, NULL};
-      __pyx_t_8 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_metadata, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_8, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_columns, __pyx_callargs+__pyx_t_9, (1-__pyx_t_9) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_8);
-      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_11 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 2;
-      return __pyx_r;
-      __pyx_L7_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 154, __pyx_L1_error)
-    } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 154, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 130, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_t_5, __pyx_cur_scope->__pyx_v_schema_map, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 130, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (__pyx_t_10) {
+
+      /* "shudaodao_meta/tools/meta_store.py":131
+ *         for schema in source_schema:
+ *             if schema.schema_name not in schema_map:
+ *                 continue             # <<<<<<<<<<<<<<
+ * 
+ *             curr_schema = schema_map[schema.schema_name]
+*/
+      goto __pyx_L10_continue;
+
+      /* "shudaodao_meta/tools/meta_store.py":130
+ * 
+ *         for schema in source_schema:
+ *             if schema.schema_name not in schema_map:             # <<<<<<<<<<<<<<
+ *                 continue
+ * 
+*/
     }
 
-    /* "shudaodao_meta/tools/meta_store.py":138
- *     async def _save_meta_views(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["views"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             view_name = create_model["view_name"]
+    /* "shudaodao_meta/tools/meta_store.py":133
+ *                 continue
+ * 
+ *             curr_schema = schema_map[schema.schema_name]             # <<<<<<<<<<<<<<
+ *             view_map = {view.view_name: view for view in curr_schema.MetaViews}
+ *             for view in schema.SourceViews:
 */
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_schema_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 133, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_cur_scope->__pyx_v_schema_map, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curr_schema);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_curr_schema, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":134
+ * 
+ *             curr_schema = schema_map[schema.schema_name]
+ *             view_map = {view.view_name: view for view in curr_schema.MetaViews}             # <<<<<<<<<<<<<<
+ *             for view in schema.SourceViews:
+ *                 logging.debug(f": {view.view_name}")
+*/
+    { /* enter inner scope */
+      __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_schema, __pyx_mstate_global->__pyx_n_u_MetaViews); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
+        __pyx_t_6 = __pyx_t_5; __Pyx_INCREF(__pyx_t_6);
+        __pyx_t_11 = 0;
+        __pyx_t_12 = NULL;
+      } else {
+        __pyx_t_11 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 134, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 134, __pyx_L1_error)
+      }
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      for (;;) {
+        if (likely(!__pyx_t_12)) {
+          if (likely(PyList_CheckExact(__pyx_t_6))) {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 134, __pyx_L1_error)
+              #endif
+              if (__pyx_t_11 >= __pyx_temp) break;
+            }
+            __pyx_t_5 = __Pyx_PyList_GetItemRef(__pyx_t_6, __pyx_t_11);
+            ++__pyx_t_11;
+          } else {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 134, __pyx_L1_error)
+              #endif
+              if (__pyx_t_11 >= __pyx_temp) break;
+            }
+            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+            __pyx_t_5 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_11));
+            #else
+            __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_11);
+            #endif
+            ++__pyx_t_11;
+          }
+          if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
+        } else {
+          __pyx_t_5 = __pyx_t_12(__pyx_t_6);
+          if (unlikely(!__pyx_t_5)) {
+            PyObject* exc_type = PyErr_Occurred();
+            if (exc_type) {
+              if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 134, __pyx_L1_error)
+              PyErr_Clear();
+            }
+            break;
+          }
+        }
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_XGOTREF(__pyx_cur_scope->__pyx_8genexpr4__pyx_v_view);
+        __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_8genexpr4__pyx_v_view, __pyx_t_5);
+        __Pyx_GIVEREF(__pyx_t_5);
+        __pyx_t_5 = 0;
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr4__pyx_v_view, __pyx_mstate_global->__pyx_n_u_view_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        if (unlikely(PyDict_SetItem(__pyx_t_2, (PyObject*)__pyx_t_5, (PyObject*)__pyx_cur_scope->__pyx_8genexpr4__pyx_v_view))) __PYX_ERR(0, 134, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      }
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    } /* exit inner scope */
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_view_map);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_view_map, ((PyObject*)__pyx_t_2));
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":135
+ *             curr_schema = schema_map[schema.schema_name]
+ *             view_map = {view.view_name: view for view in curr_schema.MetaViews}
+ *             for view in schema.SourceViews:             # <<<<<<<<<<<<<<
+ *                 logging.debug(f": {view.view_name}")
+ *                 curr_view, curr_model = await self._save_meta_view(curr_schema, view, view_map)
+*/
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_schema, __pyx_mstate_global->__pyx_n_u_SourceViews); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+      __pyx_t_6 = __pyx_t_2; __Pyx_INCREF(__pyx_t_6);
+      __pyx_t_11 = 0;
+      __pyx_t_12 = NULL;
+    } else {
+      __pyx_t_11 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 135, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 135, __pyx_L1_error)
+    }
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    for (;;) {
+      if (likely(!__pyx_t_12)) {
+        if (likely(PyList_CheckExact(__pyx_t_6))) {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 135, __pyx_L1_error)
+            #endif
+            if (__pyx_t_11 >= __pyx_temp) break;
+          }
+          __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_6, __pyx_t_11);
+          ++__pyx_t_11;
+        } else {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 135, __pyx_L1_error)
+            #endif
+            if (__pyx_t_11 >= __pyx_temp) break;
+          }
+          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+          __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_11));
+          #else
+          __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_11);
+          #endif
+          ++__pyx_t_11;
+        }
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
+      } else {
+        __pyx_t_2 = __pyx_t_12(__pyx_t_6);
+        if (unlikely(!__pyx_t_2)) {
+          PyObject* exc_type = PyErr_Occurred();
+          if (exc_type) {
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 135, __pyx_L1_error)
+            PyErr_Clear();
+          }
+          break;
+        }
+      }
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_view);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_view, __pyx_t_2);
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_t_2 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":136
+ *             view_map = {view.view_name: view for view in curr_schema.MetaViews}
+ *             for view in schema.SourceViews:
+ *                 logging.debug(f": {view.view_name}")             # <<<<<<<<<<<<<<
+ *                 curr_view, curr_model = await self._save_meta_view(curr_schema, view, view_map)
+ *                 #
+*/
+      __pyx_t_5 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 136, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_13);
+      __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 136, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_14);
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_view, __pyx_mstate_global->__pyx_n_u_view_name); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 136, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_13);
+      __pyx_t_15 = __Pyx_PyObject_FormatSimple(__pyx_t_13, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 136, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_15);
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __pyx_t_13 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__3, __pyx_t_15); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 136, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_13);
+      __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+      __pyx_t_3 = 1;
+      #if CYTHON_UNPACK_METHODS
+      if (unlikely(PyMethod_Check(__pyx_t_14))) {
+        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_14);
+        assert(__pyx_t_5);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_14);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_14, __pyx__function);
+        __pyx_t_3 = 0;
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_13};
+        __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_14, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+      }
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":137
+ *             for view in schema.SourceViews:
+ *                 logging.debug(f": {view.view_name}")
+ *                 curr_view, curr_model = await self._save_meta_view(curr_schema, view, view_map)             # <<<<<<<<<<<<<<
+ *                 #
+ *                 column_map = {column.name: column for column in curr_view.columns} if curr_view else {}
+*/
+      __pyx_t_14 = __pyx_cur_scope->__pyx_v_self;
+      __Pyx_INCREF(__pyx_t_14);
+      __pyx_t_3 = 0;
+      {
+        PyObject *__pyx_callargs[4] = {__pyx_t_14, __pyx_cur_scope->__pyx_v_curr_schema, __pyx_cur_scope->__pyx_v_view, __pyx_cur_scope->__pyx_v_view_map};
+        __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_meta_view, __pyx_callargs+__pyx_t_3, (4-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+      }
+      __pyx_t_4 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      if (likely(__pyx_t_4 == PYGEN_NEXT)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_XGIVEREF(__pyx_t_1);
+        __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
+        __Pyx_XGIVEREF(__pyx_t_6);
+        __pyx_cur_scope->__pyx_t_1 = __pyx_t_6;
+        __pyx_cur_scope->__pyx_t_2 = __pyx_t_8;
+        __pyx_cur_scope->__pyx_t_3 = __pyx_t_9;
+        __pyx_cur_scope->__pyx_t_4 = __pyx_t_11;
+        __pyx_cur_scope->__pyx_t_5 = __pyx_t_12;
+        __Pyx_XGIVEREF(__pyx_r);
+        __Pyx_RefNannyFinishContext();
+        __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+        /* return from generator, awaiting value */
+        __pyx_generator->resume_label = 2;
+        return __pyx_r;
+        __pyx_L18_resume_from_await:;
+        __pyx_t_1 = __pyx_cur_scope->__pyx_t_0;
+        __pyx_cur_scope->__pyx_t_0 = 0;
+        __Pyx_XGOTREF(__pyx_t_1);
+        __pyx_t_6 = __pyx_cur_scope->__pyx_t_1;
+        __pyx_cur_scope->__pyx_t_1 = 0;
+        __Pyx_XGOTREF(__pyx_t_6);
+        __pyx_t_8 = __pyx_cur_scope->__pyx_t_2;
+        __pyx_t_9 = __pyx_cur_scope->__pyx_t_3;
+        __pyx_t_11 = __pyx_cur_scope->__pyx_t_4;
+        __pyx_t_12 = __pyx_cur_scope->__pyx_t_5;
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 137, __pyx_L1_error)
+        __pyx_t_2 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_2);
+      } else if (likely(__pyx_t_4 == PYGEN_RETURN)) {
+        __Pyx_GOTREF(__pyx_r);
+        __pyx_t_2 = __pyx_r; __pyx_r = NULL;
+      } else {
+        __Pyx_XGOTREF(__pyx_r);
+        __PYX_ERR(0, 137, __pyx_L1_error)
+      }
+      if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
+        PyObject* sequence = __pyx_t_2;
+        Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
+        if (unlikely(size != 2)) {
+          if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+          else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+          __PYX_ERR(0, 137, __pyx_L1_error)
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        if (likely(PyTuple_CheckExact(sequence))) {
+          __pyx_t_14 = PyTuple_GET_ITEM(sequence, 0);
+          __Pyx_INCREF(__pyx_t_14);
+          __pyx_t_13 = PyTuple_GET_ITEM(sequence, 1);
+          __Pyx_INCREF(__pyx_t_13);
+        } else {
+          __pyx_t_14 = __Pyx_PyList_GetItemRef(sequence, 0);
+          if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 137, __pyx_L1_error)
+          __Pyx_XGOTREF(__pyx_t_14);
+          __pyx_t_13 = __Pyx_PyList_GetItemRef(sequence, 1);
+          if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 137, __pyx_L1_error)
+          __Pyx_XGOTREF(__pyx_t_13);
+        }
+        #else
+        __pyx_t_14 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 137, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_14);
+        __pyx_t_13 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 137, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_13);
+        #endif
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      } else {
+        Py_ssize_t index = -1;
+        __pyx_t_5 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5);
+        index = 0; __pyx_t_14 = __pyx_t_7(__pyx_t_5); if (unlikely(!__pyx_t_14)) goto __pyx_L19_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_14);
+        index = 1; __pyx_t_13 = __pyx_t_7(__pyx_t_5); if (unlikely(!__pyx_t_13)) goto __pyx_L19_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_13);
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_5), 2) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+        __pyx_t_7 = NULL;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        goto __pyx_L20_unpacking_done;
+        __pyx_L19_unpacking_failed:;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __pyx_t_7 = NULL;
+        if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+        __PYX_ERR(0, 137, __pyx_L1_error)
+        __pyx_L20_unpacking_done:;
+      }
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curr_view);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_curr_view, __pyx_t_14);
+      __Pyx_GIVEREF(__pyx_t_14);
+      __pyx_t_14 = 0;
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_curr_model);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_curr_model, __pyx_t_13);
+      __Pyx_GIVEREF(__pyx_t_13);
+      __pyx_t_13 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":139
+ *                 curr_view, curr_model = await self._save_meta_view(curr_schema, view, view_map)
+ *                 #
+ *                 column_map = {column.name: column for column in curr_view.columns} if curr_view else {}             # <<<<<<<<<<<<<<
+ *                 for column in view.SourceColumns:
+ *                     if column.name not in column_map:
+*/
+      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_curr_view); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 139, __pyx_L1_error)
+      if (__pyx_t_10) {
+        { /* enter inner scope */
+          __pyx_t_13 = PyDict_New(); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 139, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_13);
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_view, __pyx_mstate_global->__pyx_n_u_columns); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 139, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (likely(PyList_CheckExact(__pyx_t_14)) || PyTuple_CheckExact(__pyx_t_14)) {
+            __pyx_t_5 = __pyx_t_14; __Pyx_INCREF(__pyx_t_5);
+            __pyx_t_16 = 0;
+            __pyx_t_17 = NULL;
+          } else {
+            __pyx_t_16 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 139, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_5);
+            __pyx_t_17 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 139, __pyx_L1_error)
+          }
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+          for (;;) {
+            if (likely(!__pyx_t_17)) {
+              if (likely(PyList_CheckExact(__pyx_t_5))) {
+                {
+                  Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
+                  #if !CYTHON_ASSUME_SAFE_SIZE
+                  if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 139, __pyx_L1_error)
+                  #endif
+                  if (__pyx_t_16 >= __pyx_temp) break;
+                }
+                __pyx_t_14 = __Pyx_PyList_GetItemRef(__pyx_t_5, __pyx_t_16);
+                ++__pyx_t_16;
+              } else {
+                {
+                  Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
+                  #if !CYTHON_ASSUME_SAFE_SIZE
+                  if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 139, __pyx_L1_error)
+                  #endif
+                  if (__pyx_t_16 >= __pyx_temp) break;
+                }
+                #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+                __pyx_t_14 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_16));
+                #else
+                __pyx_t_14 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_16);
+                #endif
+                ++__pyx_t_16;
+              }
+              if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 139, __pyx_L1_error)
+            } else {
+              __pyx_t_14 = __pyx_t_17(__pyx_t_5);
+              if (unlikely(!__pyx_t_14)) {
+                PyObject* exc_type = PyErr_Occurred();
+                if (exc_type) {
+                  if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 139, __pyx_L1_error)
+                  PyErr_Clear();
+                }
+                break;
+              }
+            }
+            __Pyx_GOTREF(__pyx_t_14);
+            __Pyx_XGOTREF(__pyx_cur_scope->__pyx_8genexpr5__pyx_v_column);
+            __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_8genexpr5__pyx_v_column, __pyx_t_14);
+            __Pyx_GIVEREF(__pyx_t_14);
+            __pyx_t_14 = 0;
+            __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr5__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 139, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+            if (unlikely(PyDict_SetItem(__pyx_t_13, (PyObject*)__pyx_t_14, (PyObject*)__pyx_cur_scope->__pyx_8genexpr5__pyx_v_column))) __PYX_ERR(0, 139, __pyx_L1_error)
+            __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+          }
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        } /* exit inner scope */
+        __pyx_t_2 = __pyx_t_13;
+        __pyx_t_13 = 0;
+      } else {
+        __pyx_t_13 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 139, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_13);
+        __pyx_t_2 = __pyx_t_13;
+        __pyx_t_13 = 0;
+      }
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_column_map);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_column_map, ((PyObject*)__pyx_t_2));
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_t_2 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":140
+ *                 #
+ *                 column_map = {column.name: column for column in curr_view.columns} if curr_view else {}
+ *                 for column in view.SourceColumns:             # <<<<<<<<<<<<<<
+ *                     if column.name not in column_map:
+ *                         #
+*/
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_view, __pyx_mstate_global->__pyx_n_u_SourceColumns); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+        __pyx_t_13 = __pyx_t_2; __Pyx_INCREF(__pyx_t_13);
+        __pyx_t_16 = 0;
+        __pyx_t_17 = NULL;
+      } else {
+        __pyx_t_16 = -1; __pyx_t_13 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 140, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_13);
+        __pyx_t_17 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_13); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 140, __pyx_L1_error)
+      }
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      for (;;) {
+        if (likely(!__pyx_t_17)) {
+          if (likely(PyList_CheckExact(__pyx_t_13))) {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_13);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 140, __pyx_L1_error)
+              #endif
+              if (__pyx_t_16 >= __pyx_temp) break;
+            }
+            __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_13, __pyx_t_16);
+            ++__pyx_t_16;
+          } else {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_13);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 140, __pyx_L1_error)
+              #endif
+              if (__pyx_t_16 >= __pyx_temp) break;
+            }
+            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+            __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_13, __pyx_t_16));
+            #else
+            __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_13, __pyx_t_16);
+            #endif
+            ++__pyx_t_16;
+          }
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
+        } else {
+          __pyx_t_2 = __pyx_t_17(__pyx_t_13);
+          if (unlikely(!__pyx_t_2)) {
+            PyObject* exc_type = PyErr_Occurred();
+            if (exc_type) {
+              if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 140, __pyx_L1_error)
+              PyErr_Clear();
+            }
+            break;
+          }
+        }
+        __Pyx_GOTREF(__pyx_t_2);
+        __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_column);
+        __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_column, __pyx_t_2);
+        __Pyx_GIVEREF(__pyx_t_2);
+        __pyx_t_2 = 0;
+
+        /* "shudaodao_meta/tools/meta_store.py":141
+ *                 column_map = {column.name: column for column in curr_view.columns} if curr_view else {}
+ *                 for column in view.SourceColumns:
+ *                     if column.name not in column_map:             # <<<<<<<<<<<<<<
+ *                         #
+ *                         create_model = MetaColumnCreate(
+*/
+        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        if (unlikely(__pyx_cur_scope->__pyx_v_column_map == Py_None)) {
+          PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
+          __PYX_ERR(0, 141, __pyx_L1_error)
+        }
+        __pyx_t_10 = (__Pyx_PyDict_ContainsTF(__pyx_t_2, __pyx_cur_scope->__pyx_v_column_map, Py_NE)); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 141, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        if (__pyx_t_10) {
+
+          /* "shudaodao_meta/tools/meta_store.py":143
+ *                     if column.name not in column_map:
+ *                         #
+ *                         create_model = MetaColumnCreate(             # <<<<<<<<<<<<<<
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             view_id=curr_model.view_id,
+*/
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaColumnCreate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 143, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+
+          /* "shudaodao_meta/tools/meta_store.py":144
+ *                         #
+ *                         create_model = MetaColumnCreate(
+ *                             **column.model_dump(exclude="sort_order"),             # <<<<<<<<<<<<<<
+ *                             view_id=curr_model.view_id,
+ *                             sort_order=column.sort_order,
+*/
+          __pyx_t_15 = __pyx_cur_scope->__pyx_v_column;
+          __Pyx_INCREF(__pyx_t_15);
+          __pyx_t_3 = 0;
+          {
+            PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_15, NULL};
+            __pyx_t_18 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 144, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_18);
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_exclude, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_t_18, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
+            __pyx_t_14 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_model_dump, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_18);
+            __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
+            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 144, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          if (unlikely(__pyx_t_14 == Py_None)) {
+            PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
+            __PYX_ERR(0, 144, __pyx_L1_error)
+          }
+          if (likely(PyDict_CheckExact(__pyx_t_14))) {
+            #if CYTHON_COMPILING_IN_CPYTHON || CYTHON_COMPILING_IN_LIMITED_API
+            if (Py_REFCNT(__pyx_t_14) == 1) {
+              __pyx_t_5 = __pyx_t_14;
+              __pyx_t_14 = 0;
+            } else
+            #endif
+            {
+              __pyx_t_5 = PyDict_Copy(__pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 144, __pyx_L1_error)
+              __Pyx_GOTREF(__pyx_t_5);
+              __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+            }
+          } else {
+            __pyx_t_5 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_t_14); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_5);
+            __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+          }
+
+          /* "shudaodao_meta/tools/meta_store.py":145
+ *                         create_model = MetaColumnCreate(
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             view_id=curr_model.view_id,             # <<<<<<<<<<<<<<
+ *                             sort_order=column.sort_order,
+ *                             is_increment=column.autoincrement,
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_model, __pyx_mstate_global->__pyx_n_u_view_id); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 145, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_view_id))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_view_id); __PYX_ERR(0, 143, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_view_id, __pyx_t_14) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":146
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             view_id=curr_model.view_id,
+ *                             sort_order=column.sort_order,             # <<<<<<<<<<<<<<
+ *                             is_increment=column.autoincrement,
+ *                             db_type=column.type,
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_sort_order); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 146, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_sort_order))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_sort_order); __PYX_ERR(0, 143, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_t_14) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":147
+ *                             view_id=curr_model.view_id,
+ *                             sort_order=column.sort_order,
+ *                             is_increment=column.autoincrement,             # <<<<<<<<<<<<<<
+ *                             db_type=column.type,
+ *                             is_active=True,
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_autoincrement); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 147, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_increment))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_increment); __PYX_ERR(0, 143, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_increment, __pyx_t_14) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":148
+ *                             sort_order=column.sort_order,
+ *                             is_increment=column.autoincrement,
+ *                             db_type=column.type,             # <<<<<<<<<<<<<<
+ *                             is_active=True,
+ *                             is_primary=column.primary_key,
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 148, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db_type))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_db_type); __PYX_ERR(0, 143, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db_type, __pyx_t_14) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":149
+ *                             is_increment=column.autoincrement,
+ *                             db_type=column.type,
+ *                             is_active=True,             # <<<<<<<<<<<<<<
+ *                             is_primary=column.primary_key,
+ *                         )
+*/
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_active))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_active); __PYX_ERR(0, 143, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_active, Py_True) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+
+          /* "shudaodao_meta/tools/meta_store.py":150
+ *                             db_type=column.type,
+ *                             is_active=True,
+ *                             is_primary=column.primary_key,             # <<<<<<<<<<<<<<
+ *                         )
+ *                         DataService.db_insert(
+*/
+          __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_column, __pyx_mstate_global->__pyx_n_u_primary_key); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 150, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          if (unlikely(PyDict_Contains(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_primary))) {
+            __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_primary); __PYX_ERR(0, 143, __pyx_L1_error)
+          }
+          if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_is_primary, __pyx_t_14) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":143
+ *                     if column.name not in column_map:
+ *                         #
+ *                         create_model = MetaColumnCreate(             # <<<<<<<<<<<<<<
+ *                             **column.model_dump(exclude="sort_order"),
+ *                             view_id=curr_model.view_id,
+*/
+          __pyx_t_14 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_5); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 143, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_14);
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
+          __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_14);
+          __Pyx_GIVEREF(__pyx_t_14);
+          __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":152
+ *                             is_primary=column.primary_key,
+ *                         )
+ *                         DataService.db_insert(             # <<<<<<<<<<<<<<
+ *                             self._db, model_class=MetaColumn, create_model=create_model
+ *                         )
+*/
+          __pyx_t_5 = NULL;
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 152, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db_insert); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 152, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_18);
+          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":153
+ *                         )
+ *                         DataService.db_insert(
+ *                             self._db, model_class=MetaColumn, create_model=create_model             # <<<<<<<<<<<<<<
+ *                         )
+ *                     else:
+*/
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_GetModuleGlobalName(__pyx_t_15, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_15);
+          __pyx_t_3 = 1;
+          #if CYTHON_UNPACK_METHODS
+          if (unlikely(PyMethod_Check(__pyx_t_18))) {
+            __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_18);
+            assert(__pyx_t_5);
+            PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_18);
+            __Pyx_INCREF(__pyx_t_5);
+            __Pyx_INCREF(__pyx__function);
+            __Pyx_DECREF_SET(__pyx_t_18, __pyx__function);
+            __pyx_t_3 = 0;
+          }
+          #endif
+          {
+            PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_5, __pyx_t_2};
+            __pyx_t_19 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 152, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_19);
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_15, __pyx_t_19, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+            if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_19, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+            __pyx_t_14 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_18, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_19);
+            __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+            __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+            __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+            __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
+            __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+            if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 152, __pyx_L1_error)
+            __Pyx_GOTREF(__pyx_t_14);
+          }
+          __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+
+          /* "shudaodao_meta/tools/meta_store.py":141
+ *                 column_map = {column.name: column for column in curr_view.columns} if curr_view else {}
+ *                 for column in view.SourceColumns:
+ *                     if column.name not in column_map:             # <<<<<<<<<<<<<<
+ *                         #
+ *                         create_model = MetaColumnCreate(
+*/
+          goto __pyx_L26;
+        }
+
+        /* "shudaodao_meta/tools/meta_store.py":157
+ *                     else:
+ *                         # todo
+ *                         ...             # <<<<<<<<<<<<<<
+ * 
+ *     async def _save_meta_view(self, curr_schema, view, view_map):
+*/
+        /*else*/ {
+        }
+        __pyx_L26:;
+
+        /* "shudaodao_meta/tools/meta_store.py":140
+ *                 #
+ *                 column_map = {column.name: column for column in curr_view.columns} if curr_view else {}
+ *                 for column in view.SourceColumns:             # <<<<<<<<<<<<<<
+ *                     if column.name not in column_map:
+ *                         #
+*/
+      }
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":135
+ *             curr_schema = schema_map[schema.schema_name]
+ *             view_map = {view.view_name: view for view in curr_schema.MetaViews}
+ *             for view in schema.SourceViews:             # <<<<<<<<<<<<<<
+ *                 logging.debug(f": {view.view_name}")
+ *                 curr_view, curr_model = await self._save_meta_view(curr_schema, view, view_map)
+*/
+    }
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":129
+ *         schema_map = {schema.schema_name: schema for schema in meta_schema}
+ * 
+ *         for schema in source_schema:             # <<<<<<<<<<<<<<
+ *             if schema.schema_name not in schema_map:
+ *                 continue
+*/
+    __pyx_L10_continue:;
   }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":136
- *         await self._save_meta_referencing_foreign_keys(tables)
+  /* "shudaodao_meta/tools/meta_store.py":124
+ *         )
  * 
- *     async def _save_meta_views(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["views"]:
+ *     async def _save_meta_views(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "View")
 */
 
   /* function exit code */
@@ -6918,9 +7864,11 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_18gene
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_XDECREF(__pyx_t_13);
+  __Pyx_XDECREF(__pyx_t_14);
+  __Pyx_XDECREF(__pyx_t_15);
+  __Pyx_XDECREF(__pyx_t_18);
+  __Pyx_XDECREF(__pyx_t_19);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
     __Pyx_AddTraceback("_save_meta_views", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -6935,26 +7883,26 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_18gene
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_21generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_22generator6(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":156
- *             await self._save_meta_columns(metadata=create_model)
+/* "shudaodao_meta/tools/meta_store.py":159
+ *                         ...
  * 
- *     async def _save_meta_columns(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["columns"]:
+ *     async def _save_meta_view(self, curr_schema, view, view_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_columns(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_21_save_meta_view(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_columns = {"_save_meta_columns", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_columns, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_columns(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_21_save_meta_view = {"_save_meta_view", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_21_save_meta_view, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_21_save_meta_view(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6962,18 +7910,20 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
+  PyObject *__pyx_v_curr_schema = 0;
+  PyObject *__pyx_v_view = 0;
+  PyObject *__pyx_v_view_map = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
+  PyObject* values[4] = {0,0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_columns (wrapper)", 0);
+  __Pyx_RefNannySetupContext("_save_meta_view (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -6983,52 +7933,66 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_curr_schema,&__pyx_mstate_global->__pyx_n_u_view,&__pyx_mstate_global->__pyx_n_u_view_map,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 156, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 159, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 159, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 159, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 156, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 159, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 156, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 159, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_columns", 0) < 0) __PYX_ERR(0, 156, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_columns", 1, 2, 2, i); __PYX_ERR(0, 156, __pyx_L3_error) }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_view", 0) < 0) __PYX_ERR(0, 159, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_view", 1, 4, 4, i); __PYX_ERR(0, 159, __pyx_L3_error) }
       }
-    } else if (unlikely(__pyx_nargs != 2)) {
+    } else if (unlikely(__pyx_nargs != 4)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 156, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 159, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 156, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 159, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 159, __pyx_L3_error)
+      values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 159, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
+    __pyx_v_curr_schema = values[1];
+    __pyx_v_view = values[2];
+    __pyx_v_view_map = values[3];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_columns", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 156, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_save_meta_view", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 159, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_columns", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_view", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_19_save_meta_columns(__pyx_self, __pyx_v_self, __pyx_v_metadata);
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_view(__pyx_self, __pyx_v_self, __pyx_v_curr_schema, __pyx_v_view, __pyx_v_view_map);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -7038,30 +8002,36 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_19_save_meta_columns(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_view(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_curr_schema, PyObject *__pyx_v_view, PyObject *__pyx_v_view_map) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_save_meta_columns", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("_save_meta_view", 0);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 156, __pyx_L1_error)
+    __PYX_ERR(0, 159, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
+  __pyx_cur_scope->__pyx_v_curr_schema = __pyx_v_curr_schema;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_curr_schema);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_curr_schema);
+  __pyx_cur_scope->__pyx_v_view = __pyx_v_view;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_view);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_view);
+  __pyx_cur_scope->__pyx_v_view_map = __pyx_v_view_map;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_view_map);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_view_map);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_21generator5, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_columns, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_columns, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_22generator6, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_view, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_view, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7069,7 +8039,7 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_19_sav
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_columns", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_view", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -7077,625 +8047,26 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_19_sav
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_21generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_22generator6(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *)__pyx_generator->closure);
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *(*__pyx_t_4)(PyObject *);
-  PyObject *__pyx_t_5 = NULL;
-  int __pyx_t_6;
-  PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  PyObject *__pyx_t_9 = NULL;
-  size_t __pyx_t_10;
-  PyObject *__pyx_t_11 = NULL;
-  __Pyx_PySendResult __pyx_t_12;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_columns", 0);
-  switch (__pyx_generator->resume_label) {
-    case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L9_resume_from_await;
-    default: /* CPython raises the right error here */
-    __Pyx_RefNannyFinishContext();
-    return NULL;
-  }
-  __pyx_L3_first_run:;
-  if (unlikely(__pyx_sent_value != Py_None)) {
-    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 156, __pyx_L1_error)
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":157
- * 
- *     async def _save_meta_columns(self, metadata):
- *         sort_order = 0             # <<<<<<<<<<<<<<
- *         for create_model in metadata["columns"]:
- *             sort_order = sort_order + 10
-*/
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_0);
-  __pyx_cur_scope->__pyx_v_sort_order = __pyx_mstate_global->__pyx_int_0;
-
-  /* "shudaodao_meta/tools/meta_store.py":158
- *     async def _save_meta_columns(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["columns"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
-*/
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_columns_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
-  } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 158, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 158, __pyx_L1_error)
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 158, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-        ++__pyx_t_3;
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 158, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3));
-        #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_3);
-        #endif
-        ++__pyx_t_3;
-      }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
-    } else {
-      __pyx_t_1 = __pyx_t_4(__pyx_t_2);
-      if (unlikely(!__pyx_t_1)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 158, __pyx_L1_error)
-          PyErr_Clear();
-        }
-        break;
-      }
-    }
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":159
- *         sort_order = 0
- *         for create_model in metadata["columns"]:
- *             sort_order = sort_order + 10             # <<<<<<<<<<<<<<
- *             create_model["sort_order"] = sort_order
- *             condition = None
-*/
-    __pyx_t_1 = __Pyx_PyLong_AddObjC(__pyx_cur_scope->__pyx_v_sort_order, __pyx_mstate_global->__pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_sort_order);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_sort_order, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":160
- *         for create_model in metadata["columns"]:
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order             # <<<<<<<<<<<<<<
- *             condition = None
- *             if metadata.get("meta_table_id", None):
-*/
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_cur_scope->__pyx_v_sort_order) < 0))) __PYX_ERR(0, 160, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":161
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
- *             condition = None             # <<<<<<<<<<<<<<
- *             if metadata.get("meta_table_id", None):
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
-*/
-    __Pyx_INCREF(Py_None);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_condition);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_condition, Py_None);
-    __Pyx_GIVEREF(Py_None);
-
-    /* "shudaodao_meta/tools/meta_store.py":162
- *             create_model["sort_order"] = sort_order
- *             condition = None
- *             if metadata.get("meta_table_id", None):             # <<<<<<<<<<<<<<
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
-*/
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_tuple[0], NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 162, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 162, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (__pyx_t_6) {
-
-      /* "shudaodao_meta/tools/meta_store.py":163
- *             condition = None
- *             if metadata.get("meta_table_id", None):
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)             # <<<<<<<<<<<<<<
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
- *             if metadata.get("meta_view_id", None):
-*/
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 163, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[0], NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id, __pyx_t_1) < 0))) __PYX_ERR(0, 163, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-      /* "shudaodao_meta/tools/meta_store.py":164
- *             if metadata.get("meta_table_id", None):
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]             # <<<<<<<<<<<<<<
- *             if metadata.get("meta_view_id", None):
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)
-*/
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 164, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 164, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_7 = PyObject_RichCompare(__pyx_t_5, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 164, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_condition);
-      __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_condition, __pyx_t_7);
-      __Pyx_GIVEREF(__pyx_t_7);
-      __pyx_t_7 = 0;
-
-      /* "shudaodao_meta/tools/meta_store.py":162
- *             create_model["sort_order"] = sort_order
- *             condition = None
- *             if metadata.get("meta_table_id", None):             # <<<<<<<<<<<<<<
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
-*/
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":165
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
- *             if metadata.get("meta_view_id", None):             # <<<<<<<<<<<<<<
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]
-*/
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 165, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_mstate_global->__pyx_tuple[1], NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 165, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__pyx_t_6) {
-
-      /* "shudaodao_meta/tools/meta_store.py":166
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
- *             if metadata.get("meta_view_id", None):
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)             # <<<<<<<<<<<<<<
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]
- *             if create_model['primary_key']:
-*/
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_tuple[1], NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 166, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_view_id, __pyx_t_7) < 0))) __PYX_ERR(0, 166, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-      /* "shudaodao_meta/tools/meta_store.py":167
- *             if metadata.get("meta_view_id", None):
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]             # <<<<<<<<<<<<<<
- *             if create_model['primary_key']:
- *                 print(f"primary_key:{create_model['primary_key']}")
-*/
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 167, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_meta_view_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_view_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 167, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_condition);
-      __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_condition, __pyx_t_5);
-      __Pyx_GIVEREF(__pyx_t_5);
-      __pyx_t_5 = 0;
-
-      /* "shudaodao_meta/tools/meta_store.py":165
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
- *             if metadata.get("meta_view_id", None):             # <<<<<<<<<<<<<<
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]
-*/
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":168
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]
- *             if create_model['primary_key']:             # <<<<<<<<<<<<<<
- *                 print(f"primary_key:{create_model['primary_key']}")
- *             await self._metamodel_create_or_update(
-*/
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_primary_key_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 168, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (__pyx_t_6) {
-
-      /* "shudaodao_meta/tools/meta_store.py":169
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]
- *             if create_model['primary_key']:
- *                 print(f"primary_key:{create_model['primary_key']}")             # <<<<<<<<<<<<<<
- *             await self._metamodel_create_or_update(
- *                 MetaColumn, create_model, [
-*/
-      __pyx_t_7 = NULL;
-      __Pyx_INCREF(__pyx_builtin_print);
-      __pyx_t_1 = __pyx_builtin_print; 
-      __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_primary_key_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 169, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_8, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 169, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_9);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_primary_key_3, __pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 169, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_10 = 1;
-      {
-        PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_t_8};
-        __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+__pyx_t_10, (2-__pyx_t_10) | (__pyx_t_10*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 169, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-      }
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-      /* "shudaodao_meta/tools/meta_store.py":168
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]
- *             if create_model['primary_key']:             # <<<<<<<<<<<<<<
- *                 print(f"primary_key:{create_model['primary_key']}")
- *             await self._metamodel_create_or_update(
-*/
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":170
- *             if create_model['primary_key']:
- *                 print(f"primary_key:{create_model['primary_key']}")
- *             await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                 MetaColumn, create_model, [
- *                     condition, MetaColumn.name == create_model["name"],
-*/
-    __pyx_t_1 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_1);
-
-    /* "shudaodao_meta/tools/meta_store.py":171
- *                 print(f"primary_key:{create_model['primary_key']}")
- *             await self._metamodel_create_or_update(
- *                 MetaColumn, create_model, [             # <<<<<<<<<<<<<<
- *                     condition, MetaColumn.name == create_model["name"],
- *                 ]
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 171, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-
-    /* "shudaodao_meta/tools/meta_store.py":172
- *             await self._metamodel_create_or_update(
- *                 MetaColumn, create_model, [
- *                     condition, MetaColumn.name == create_model["name"],             # <<<<<<<<<<<<<<
- *                 ]
- *             )
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 172, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 172, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 172, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_11 = PyObject_RichCompare(__pyx_t_9, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 172, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":171
- *                 print(f"primary_key:{create_model['primary_key']}")
- *             await self._metamodel_create_or_update(
- *                 MetaColumn, create_model, [             # <<<<<<<<<<<<<<
- *                     condition, MetaColumn.name == create_model["name"],
- *                 ]
-*/
-    __pyx_t_7 = PyList_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 171, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_INCREF(__pyx_cur_scope->__pyx_v_condition);
-    __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_condition);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_cur_scope->__pyx_v_condition) != (0)) __PYX_ERR(0, 171, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_11);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 1, __pyx_t_11) != (0)) __PYX_ERR(0, 171, __pyx_L1_error);
-    __pyx_t_11 = 0;
-    __pyx_t_10 = 0;
-    {
-      PyObject *__pyx_callargs[4] = {__pyx_t_1, __pyx_t_8, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7};
-      __pyx_t_5 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_10, (4-__pyx_t_10) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 170, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-    }
-    __pyx_t_12 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_5, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (likely(__pyx_t_12 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 1;
-      return __pyx_r;
-      __pyx_L9_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 170, __pyx_L1_error)
-    } else if (likely(__pyx_t_12 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 170, __pyx_L1_error)
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":158
- *     async def _save_meta_columns(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["columns"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
-*/
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
-
-  /* "shudaodao_meta/tools/meta_store.py":156
- *             await self._save_meta_columns(metadata=create_model)
- * 
- *     async def _save_meta_columns(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["columns"]:
-*/
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_11);
-  if (__Pyx_PyErr_Occurred()) {
-    __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_save_meta_columns", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  }
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  #if !CYTHON_USE_EXC_INFO_STACK
-  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-  #endif
-  __pyx_generator->resume_label = -1;
-  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_24generator6(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
-
-/* "shudaodao_meta/tools/meta_store.py":176
- *             )
- * 
- *     async def _save_meta_primary_key(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.get("primary_key", None)
- *         if create_model is None:
-*/
-
-/* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_primary_key(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_primary_key = {"_save_meta_primary_key", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_primary_key, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_primary_key(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
-  #if !CYTHON_METH_FASTCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_primary_key (wrapper)", 0);
-  #if !CYTHON_METH_FASTCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 176, __pyx_L3_error)
-    if (__pyx_kwds_len > 0) {
-      switch (__pyx_nargs) {
-        case  2:
-        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 176, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  1:
-        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 176, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_primary_key", 0) < 0) __PYX_ERR(0, 176, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_primary_key", 1, 2, 2, i); __PYX_ERR(0, 176, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 2)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 176, __pyx_L3_error)
-      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 176, __pyx_L3_error)
-    }
-    __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_primary_key", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 176, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_primary_key", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_22_save_meta_primary_key(__pyx_self, __pyx_v_self, __pyx_v_metadata);
-
-  /* function exit code */
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_22_save_meta_primary_key(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *__pyx_cur_scope;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_save_meta_primary_key", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key, __pyx_mstate_global->__pyx_empty_tuple, NULL);
-  if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *)Py_None);
-    __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 176, __pyx_L1_error)
-  } else {
-    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
-  }
-  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
-  {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_24generator6, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_primary_key, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_primary_key, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 176, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_cur_scope);
-    __Pyx_RefNannyFinishContext();
-    return (PyObject *) gen;
-  }
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_primary_key", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_24generator6(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
-{
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *)__pyx_generator->closure);
-  PyObject *__pyx_r = NULL;
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
+  PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
+  size_t __pyx_t_6;
   PyObject *__pyx_t_7 = NULL;
-  size_t __pyx_t_8;
-  __Pyx_PySendResult __pyx_t_9;
+  __Pyx_PySendResult __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_primary_key", 0);
+  __Pyx_RefNannySetupContext("_save_meta_view", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L5_resume_from_await;
+    case 1: goto __pyx_L4_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -7703,117 +8074,74 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_24gene
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 176, __pyx_L1_error)
+    __PYX_ERR(0, 159, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":177
+  /* "shudaodao_meta/tools/meta_store.py":160
  * 
- *     async def _save_meta_primary_key(self, metadata):
- *         create_model = metadata.get("primary_key", None)             # <<<<<<<<<<<<<<
- *         if create_model is None:
- *             return None
+ *     async def _save_meta_view(self, curr_schema, view, view_map):
+ *         return await self._save_meta_entity(             # <<<<<<<<<<<<<<
+ *             curr_schema=curr_schema,
+ *             entity=view,
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_tuple[2], NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 177, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_GIVEREF(__pyx_t_2);
-  __pyx_cur_scope->__pyx_v_create_model = __pyx_t_2;
-  __pyx_t_2 = 0;
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
 
-  /* "shudaodao_meta/tools/meta_store.py":178
- *     async def _save_meta_primary_key(self, metadata):
- *         create_model = metadata.get("primary_key", None)
- *         if create_model is None:             # <<<<<<<<<<<<<<
- *             return None
- *         create_model["meta_table_id"] = metadata["meta_table_id"]
+  /* "shudaodao_meta/tools/meta_store.py":165
+ *             entity_name="view_name",
+ *             entity_map=view_map,
+ *             model_class=MetaView,             # <<<<<<<<<<<<<<
+ *             create_model_class=MetaViewCreate,
+ *             update_model_class=MetaViewUpdate,
 */
-  __pyx_t_3 = (__pyx_cur_scope->__pyx_v_create_model == Py_None);
-  if (__pyx_t_3) {
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaView); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
 
-    /* "shudaodao_meta/tools/meta_store.py":179
- *         create_model = metadata.get("primary_key", None)
- *         if create_model is None:
- *             return None             # <<<<<<<<<<<<<<
- *         create_model["meta_table_id"] = metadata["meta_table_id"]
- *         await self._metamodel_create_or_update(
+  /* "shudaodao_meta/tools/meta_store.py":166
+ *             entity_map=view_map,
+ *             model_class=MetaView,
+ *             create_model_class=MetaViewCreate,             # <<<<<<<<<<<<<<
+ *             update_model_class=MetaViewUpdate,
+ *             id_attr="view_id",
 */
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-    goto __pyx_L0;
-
-    /* "shudaodao_meta/tools/meta_store.py":178
- *     async def _save_meta_primary_key(self, metadata):
- *         create_model = metadata.get("primary_key", None)
- *         if create_model is None:             # <<<<<<<<<<<<<<
- *             return None
- *         create_model["meta_table_id"] = metadata["meta_table_id"]
-*/
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":180
- *         if create_model is None:
- *             return None
- *         create_model["meta_table_id"] = metadata["meta_table_id"]             # <<<<<<<<<<<<<<
- *         await self._metamodel_create_or_update(
- *             MetaPrimaryKey, create_model,
-*/
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 180, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id, __pyx_t_2) < 0))) __PYX_ERR(0, 180, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":181
- *             return None
- *         create_model["meta_table_id"] = metadata["meta_table_id"]
- *         await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *             MetaPrimaryKey, create_model,
- *             MetaPrimaryKey.meta_table_id == create_model["meta_table_id"],
-*/
-  __pyx_t_1 = __pyx_cur_scope->__pyx_v_self;
-  __Pyx_INCREF(__pyx_t_1);
-
-  /* "shudaodao_meta/tools/meta_store.py":182
- *         create_model["meta_table_id"] = metadata["meta_table_id"]
- *         await self._metamodel_create_or_update(
- *             MetaPrimaryKey, create_model,             # <<<<<<<<<<<<<<
- *             MetaPrimaryKey.meta_table_id == create_model["meta_table_id"],
- *         )
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_MetaPrimaryKey); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_MetaViewCreate); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "shudaodao_meta/tools/meta_store.py":183
- *         await self._metamodel_create_or_update(
- *             MetaPrimaryKey, create_model,
- *             MetaPrimaryKey.meta_table_id == create_model["meta_table_id"],             # <<<<<<<<<<<<<<
+  /* "shudaodao_meta/tools/meta_store.py":167
+ *             model_class=MetaView,
+ *             create_model_class=MetaViewCreate,
+ *             update_model_class=MetaViewUpdate,             # <<<<<<<<<<<<<<
+ *             id_attr="view_id",
  *         )
- * 
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaPrimaryKey); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaViewUpdate); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 183, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 183, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_7 = PyObject_RichCompare(__pyx_t_6, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_7); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 183, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_8 = 0;
+  __pyx_t_6 = 0;
   {
-    PyObject *__pyx_callargs[4] = {__pyx_t_1, __pyx_t_4, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7};
-    __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_8, (4-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 8 : 0)] = {__pyx_t_2, NULL};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(8); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_curr_schema, __pyx_cur_scope->__pyx_v_curr_schema, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_entity, __pyx_cur_scope->__pyx_v_view, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_entity_name, __pyx_mstate_global->__pyx_n_u_view_name, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_entity_map, __pyx_cur_scope->__pyx_v_view_map, __pyx_t_7, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_3, __pyx_t_7, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model_class, __pyx_t_4, __pyx_t_7, __pyx_callargs+1, 5) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model_class, __pyx_t_5, __pyx_t_7, __pyx_callargs+1, 6) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_id_attr, __pyx_mstate_global->__pyx_n_u_view_id, __pyx_t_7, __pyx_callargs+1, 7) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_save_meta_entity, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_9 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (likely(__pyx_t_9 == PYGEN_NEXT)) {
+  __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_8 == PYGEN_NEXT)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_XGIVEREF(__pyx_r);
     __Pyx_RefNannyFinishContext();
@@ -7821,38 +8149,40 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_24gene
     /* return from generator, awaiting value */
     __pyx_generator->resume_label = 1;
     return __pyx_r;
-    __pyx_L5_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 181, __pyx_L1_error)
-  } else if (likely(__pyx_t_9 == PYGEN_RETURN)) {
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
-    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 181, __pyx_L1_error)
+    __PYX_ERR(0, 160, __pyx_L1_error)
   }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":176
- *             )
+  /* "shudaodao_meta/tools/meta_store.py":159
+ *                         ...
  * 
- *     async def _save_meta_primary_key(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.get("primary_key", None)
- *         if create_model is None:
+ *     async def _save_meta_view(self, curr_schema, view, view_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
 */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_save_meta_primary_key", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("_save_meta_view", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7864,26 +8194,27 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_24gene
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_27generator7(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_25generator7(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":186
+/* "shudaodao_meta/tools/meta_store.py":171
  *         )
  * 
- *     async def _save_meta_foreign_keys(self, metadata):             # <<<<<<<<<<<<<<
- *         foreign_keys = []
- *         sort_order = 0
+ *     async def _save_meta_entity(             # <<<<<<<<<<<<<<
+ *             self,
+ *             curr_schema,
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_save_meta_foreign_keys(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_24_save_meta_entity(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_save_meta_foreign_keys = {"_save_meta_foreign_keys", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_save_meta_foreign_keys, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_save_meta_foreign_keys(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_entity, "\n        \351\200\232\347\224\250\346\226\271\346\263\225\357\274\232\344\277\235\345\255\230\346\210\226\346\233\264\346\226\260\346\225\260\346\215\256\345\272\223\345\256\236\344\275\223\357\274\210\350\247\206\345\233\276\346\210\226\350\241\250\357\274\211\n        ");
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_24_save_meta_entity = {"_save_meta_entity", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_24_save_meta_entity, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_entity};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_24_save_meta_entity(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7891,18 +8222,25 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
+  PyObject *__pyx_v_curr_schema = 0;
+  PyObject *__pyx_v_entity = 0;
+  PyObject *__pyx_v_entity_map = 0;
+  PyObject *__pyx_v_entity_name = 0;
+  PyObject *__pyx_v_model_class = 0;
+  PyObject *__pyx_v_create_model_class = 0;
+  PyObject *__pyx_v_update_model_class = 0;
+  PyObject *__pyx_v_id_attr = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
+  PyObject* values[9] = {0,0,0,0,0,0,0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_foreign_keys (wrapper)", 0);
+  __Pyx_RefNannySetupContext("_save_meta_entity (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -7912,85 +8250,172 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_curr_schema,&__pyx_mstate_global->__pyx_n_u_entity,&__pyx_mstate_global->__pyx_n_u_entity_map,&__pyx_mstate_global->__pyx_n_u_entity_name,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_create_model_class,&__pyx_mstate_global->__pyx_n_u_update_model_class,&__pyx_mstate_global->__pyx_n_u_id_attr,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 186, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 171, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
+        case  9:
+        values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  8:
+        values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  7:
+        values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  6:
+        values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  5:
+        values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 186, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 171, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 186, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 171, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_foreign_keys", 0) < 0) __PYX_ERR(0, 186, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_foreign_keys", 1, 2, 2, i); __PYX_ERR(0, 186, __pyx_L3_error) }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_entity", 0) < 0) __PYX_ERR(0, 171, __pyx_L3_error)
+      if (!values[8]) values[8] = __Pyx_NewRef(((PyObject*)((PyObject*)__pyx_mstate_global->__pyx_n_u_view_id)));
+      for (Py_ssize_t i = __pyx_nargs; i < 8; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_entity", 0, 8, 9, i); __PYX_ERR(0, 171, __pyx_L3_error) }
       }
-    } else if (unlikely(__pyx_nargs != 2)) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 186, __pyx_L3_error)
-      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 186, __pyx_L3_error)
+      switch (__pyx_nargs) {
+        case  9:
+        values[8] = __Pyx_ArgRef_FASTCALL(__pyx_args, 8);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[8])) __PYX_ERR(0, 171, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  8:
+        values[7] = __Pyx_ArgRef_FASTCALL(__pyx_args, 7);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[7])) __PYX_ERR(0, 171, __pyx_L3_error)
+        values[6] = __Pyx_ArgRef_FASTCALL(__pyx_args, 6);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[6])) __PYX_ERR(0, 171, __pyx_L3_error)
+        values[5] = __Pyx_ArgRef_FASTCALL(__pyx_args, 5);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[5])) __PYX_ERR(0, 171, __pyx_L3_error)
+        values[4] = __Pyx_ArgRef_FASTCALL(__pyx_args, 4);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[4])) __PYX_ERR(0, 171, __pyx_L3_error)
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 171, __pyx_L3_error)
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 171, __pyx_L3_error)
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 171, __pyx_L3_error)
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 171, __pyx_L3_error)
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      if (!values[8]) values[8] = __Pyx_NewRef(((PyObject*)((PyObject*)__pyx_mstate_global->__pyx_n_u_view_id)));
     }
     __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
+    __pyx_v_curr_schema = values[1];
+    __pyx_v_entity = values[2];
+    __pyx_v_entity_map = values[3];
+    __pyx_v_entity_name = values[4];
+    __pyx_v_model_class = values[5];
+    __pyx_v_create_model_class = values[6];
+    __pyx_v_update_model_class = values[7];
+    __pyx_v_id_attr = ((PyObject*)values[8]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_foreign_keys", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 186, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_save_meta_entity", 0, 8, 9, __pyx_nargs); __PYX_ERR(0, 171, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_foreign_keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_entity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_25_save_meta_foreign_keys(__pyx_self, __pyx_v_self, __pyx_v_metadata);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_id_attr), (&PyUnicode_Type), 0, "id_attr", 2))) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_entity(__pyx_self, __pyx_v_self, __pyx_v_curr_schema, __pyx_v_entity, __pyx_v_entity_map, __pyx_v_entity_name, __pyx_v_model_class, __pyx_v_create_model_class, __pyx_v_update_model_class, __pyx_v_id_attr);
 
   /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
+  goto __pyx_L7_cleaned_up;
+  __pyx_L0:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __pyx_L7_cleaned_up:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_25_save_meta_foreign_keys(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_entity(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_curr_schema, PyObject *__pyx_v_entity, PyObject *__pyx_v_entity_map, PyObject *__pyx_v_entity_name, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_model_class, PyObject *__pyx_v_update_model_class, PyObject *__pyx_v_id_attr) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_save_meta_foreign_keys", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("_save_meta_entity", 0);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 186, __pyx_L1_error)
+    __PYX_ERR(0, 171, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
+  __pyx_cur_scope->__pyx_v_curr_schema = __pyx_v_curr_schema;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_curr_schema);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_curr_schema);
+  __pyx_cur_scope->__pyx_v_entity = __pyx_v_entity;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_entity);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_entity);
+  __pyx_cur_scope->__pyx_v_entity_map = __pyx_v_entity_map;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_entity_map);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_entity_map);
+  __pyx_cur_scope->__pyx_v_entity_name = __pyx_v_entity_name;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_entity_name);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_entity_name);
+  __pyx_cur_scope->__pyx_v_model_class = __pyx_v_model_class;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_model_class);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_model_class);
+  __pyx_cur_scope->__pyx_v_create_model_class = __pyx_v_create_model_class;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_create_model_class);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_create_model_class);
+  __pyx_cur_scope->__pyx_v_update_model_class = __pyx_v_update_model_class;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_update_model_class);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_update_model_class);
+  __pyx_cur_scope->__pyx_v_id_attr = __pyx_v_id_attr;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_id_attr);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_id_attr);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_27generator7, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_foreign_keys, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_foreign_key, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_25generator7, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_entity, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_entity, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 171, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7998,7 +8423,7 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_25_sav
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_foreign_keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_entity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -8006,31 +8431,29 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_25_sav
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_27generator7(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_25generator7(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *)__pyx_generator->closure);
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
-  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *(*__pyx_t_4)(PyObject *);
+  int __pyx_t_3;
+  int __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
+  size_t __pyx_t_6;
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
-  size_t __pyx_t_11;
-  __Pyx_PySendResult __pyx_t_12;
-  int __pyx_t_13;
+  __Pyx_PySendResult __pyx_t_11;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_foreign_keys", 0);
+  __Pyx_RefNannySetupContext("_save_meta_entity", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L6_resume_from_await;
+    case 1: goto __pyx_L8_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -8038,738 +8461,447 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_27gene
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 186, __pyx_L1_error)
+    __PYX_ERR(0, 171, __pyx_L1_error)
   }
+
+  /* "shudaodao_meta/tools/meta_store.py":185
+ * 
+ *         """
+ *         curr_entity = None             # <<<<<<<<<<<<<<
+ * 
+ *         if entity_name in entity_map:
+*/
+  __Pyx_INCREF(Py_None);
+  __Pyx_GIVEREF(Py_None);
+  __pyx_cur_scope->__pyx_v_curr_entity = Py_None;
 
   /* "shudaodao_meta/tools/meta_store.py":187
+ *         curr_entity = None
  * 
- *     async def _save_meta_foreign_keys(self, metadata):
- *         foreign_keys = []             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["foreign_keys"]:
+ *         if entity_name in entity_map:             # <<<<<<<<<<<<<<
+ *             curr_entity = entity_map[entity_name]
+ *             update_model = curr_entity
 */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_foreign_keys = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_cur_scope->__pyx_v_entity_name, __pyx_cur_scope->__pyx_v_entity_map, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 187, __pyx_L1_error)
+  if (__pyx_t_1) {
 
-  /* "shudaodao_meta/tools/meta_store.py":188
- *     async def _save_meta_foreign_keys(self, metadata):
- *         foreign_keys = []
- *         sort_order = 0             # <<<<<<<<<<<<<<
- *         for create_model in metadata["foreign_keys"]:
- *             sort_order = sort_order + 10
+    /* "shudaodao_meta/tools/meta_store.py":188
+ * 
+ *         if entity_name in entity_map:
+ *             curr_entity = entity_map[entity_name]             # <<<<<<<<<<<<<<
+ *             update_model = curr_entity
+ * 
 */
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_0);
-  __pyx_cur_scope->__pyx_v_sort_order = __pyx_mstate_global->__pyx_int_0;
-
-  /* "shudaodao_meta/tools/meta_store.py":189
- *         foreign_keys = []
- *         sort_order = 0
- *         for create_model in metadata["foreign_keys"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
-*/
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_foreign_keys_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
-  } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_cur_scope->__pyx_v_entity_map, __pyx_cur_scope->__pyx_v_entity_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 189, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-        ++__pyx_t_3;
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 189, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3));
-        #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_3);
-        #endif
-        ++__pyx_t_3;
-      }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
-    } else {
-      __pyx_t_1 = __pyx_t_4(__pyx_t_2);
-      if (unlikely(!__pyx_t_1)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 189, __pyx_L1_error)
-          PyErr_Clear();
-        }
-        break;
-      }
-    }
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":190
- *         sort_order = 0
- *         for create_model in metadata["foreign_keys"]:
- *             sort_order = sort_order + 10             # <<<<<<<<<<<<<<
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
-*/
-    __pyx_t_1 = __Pyx_PyLong_AddObjC(__pyx_cur_scope->__pyx_v_sort_order, __pyx_mstate_global->__pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_sort_order);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_sort_order, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":191
- *         for create_model in metadata["foreign_keys"]:
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order             # <<<<<<<<<<<<<<
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             foreign_keys.append(await self._metamodel_create_or_update(
-*/
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_cur_scope->__pyx_v_sort_order) < 0))) __PYX_ERR(0, 191, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":192
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]             # <<<<<<<<<<<<<<
- *             foreign_keys.append(await self._metamodel_create_or_update(
- *                 MetaForeignKey, create_model, [
-*/
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id, __pyx_t_1) < 0))) __PYX_ERR(0, 192, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":193
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             foreign_keys.append(await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                 MetaForeignKey, create_model, [
- *                     MetaForeignKey.meta_table_id == create_model["meta_table_id"],
-*/
-    __pyx_t_5 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_5);
-
-    /* "shudaodao_meta/tools/meta_store.py":194
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             foreign_keys.append(await self._metamodel_create_or_update(
- *                 MetaForeignKey, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaForeignKey.meta_table_id == create_model["meta_table_id"],
- *                     MetaForeignKey.constrained_columns == create_model["constrained_columns"],
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_MetaForeignKey); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 194, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-
-    /* "shudaodao_meta/tools/meta_store.py":195
- *             foreign_keys.append(await self._metamodel_create_or_update(
- *                 MetaForeignKey, create_model, [
- *                     MetaForeignKey.meta_table_id == create_model["meta_table_id"],             # <<<<<<<<<<<<<<
- *                     MetaForeignKey.constrained_columns == create_model["constrained_columns"],
- *                 ]
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaForeignKey); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 195, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 195, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 195, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_9 = PyObject_RichCompare(__pyx_t_8, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 195, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":196
- *                 MetaForeignKey, create_model, [
- *                     MetaForeignKey.meta_table_id == create_model["meta_table_id"],
- *                     MetaForeignKey.constrained_columns == create_model["constrained_columns"],             # <<<<<<<<<<<<<<
- *                 ]
- *             ))
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaForeignKey); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 196, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_constrained_columns); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 196, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_constrained_columns); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 196, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_10 = PyObject_RichCompare(__pyx_t_8, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 196, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":194
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             foreign_keys.append(await self._metamodel_create_or_update(
- *                 MetaForeignKey, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaForeignKey.meta_table_id == create_model["meta_table_id"],
- *                     MetaForeignKey.constrained_columns == create_model["constrained_columns"],
-*/
-    __pyx_t_7 = PyList_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 194, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_GIVEREF(__pyx_t_9);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_t_9) != (0)) __PYX_ERR(0, 194, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_10);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 194, __pyx_L1_error);
-    __pyx_t_9 = 0;
-    __pyx_t_10 = 0;
-    __pyx_t_11 = 0;
-    {
-      PyObject *__pyx_callargs[4] = {__pyx_t_5, __pyx_t_6, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_11, (4-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_12 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_12 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 1;
-      return __pyx_r;
-      __pyx_L6_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 193, __pyx_L1_error)
-      __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
-    } else if (likely(__pyx_t_12 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __pyx_t_1 = __pyx_r; __pyx_r = NULL;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 193, __pyx_L1_error)
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":193
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             foreign_keys.append(await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                 MetaForeignKey, create_model, [
- *                     MetaForeignKey.meta_table_id == create_model["meta_table_id"],
-*/
-    __pyx_t_13 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_foreign_keys, __pyx_t_1); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 193, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_curr_entity);
+    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_curr_entity, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
 
     /* "shudaodao_meta/tools/meta_store.py":189
- *         foreign_keys = []
- *         sort_order = 0
- *         for create_model in metadata["foreign_keys"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
-*/
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":199
- *                 ]
- *             ))
- *         return foreign_keys             # <<<<<<<<<<<<<<
+ *         if entity_name in entity_map:
+ *             curr_entity = entity_map[entity_name]
+ *             update_model = curr_entity             # <<<<<<<<<<<<<<
  * 
- *     async def _save_meta_unique_constraints(self, metadata):
+ *             #  comment  entity  comment
 */
-  __Pyx_XDECREF(__pyx_r);
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_foreign_keys);
-  __pyx_r = __pyx_cur_scope->__pyx_v_foreign_keys;
-  goto __pyx_L0;
-  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+    __Pyx_INCREF(__pyx_cur_scope->__pyx_v_curr_entity);
+    __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_curr_entity);
+    __pyx_cur_scope->__pyx_v_update_model = __pyx_cur_scope->__pyx_v_curr_entity;
 
-  /* "shudaodao_meta/tools/meta_store.py":186
- *         )
+    /* "shudaodao_meta/tools/meta_store.py":192
  * 
- *     async def _save_meta_foreign_keys(self, metadata):             # <<<<<<<<<<<<<<
- *         foreign_keys = []
- *         sort_order = 0
+ *             #  comment  entity  comment
+ *             if not update_model.comment and getattr(entity, "comment", None):             # <<<<<<<<<<<<<<
+ *                 update_model.comment = entity.comment
+ *                 #  update_model_class
 */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
-  if (__Pyx_PyErr_Occurred()) {
-    __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_save_meta_foreign_keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  }
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  #if !CYTHON_USE_EXC_INFO_STACK
-  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-  #endif
-  __pyx_generator->resume_label = -1;
-  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_30generator8(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
-
-/* "shudaodao_meta/tools/meta_store.py":201
- *         return foreign_keys
- * 
- *     async def _save_meta_unique_constraints(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["unique_constraints"]:
-*/
-
-/* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_save_meta_unique_constraints(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_save_meta_unique_constraints = {"_save_meta_unique_constraints", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_save_meta_unique_constraints, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_save_meta_unique_constraints(PyObject *__pyx_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
-  #if !CYTHON_METH_FASTCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_unique_constraints (wrapper)", 0);
-  #if !CYTHON_METH_FASTCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 201, __pyx_L3_error)
-    if (__pyx_kwds_len > 0) {
-      switch (__pyx_nargs) {
-        case  2:
-        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 201, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  1:
-        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 201, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_unique_constraints", 0) < 0) __PYX_ERR(0, 201, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_unique_constraints", 1, 2, 2, i); __PYX_ERR(0, 201, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 2)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 201, __pyx_L3_error)
-      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 201, __pyx_L3_error)
-    }
-    __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_unique_constraints", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 201, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_unique_constraints", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_28_save_meta_unique_constraints(__pyx_self, __pyx_v_self, __pyx_v_metadata);
-
-  /* function exit code */
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_28_save_meta_unique_constraints(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *__pyx_cur_scope;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_save_meta_unique_constraints", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints, __pyx_mstate_global->__pyx_empty_tuple, NULL);
-  if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *)Py_None);
-    __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 201, __pyx_L1_error)
-  } else {
-    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
-  }
-  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
-  {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_30generator8, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_unique_constraints, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_unique_cons, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 201, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_cur_scope);
-    __Pyx_RefNannyFinishContext();
-    return (PyObject *) gen;
-  }
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_unique_constraints", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_30generator8(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
-{
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *)__pyx_generator->closure);
-  PyObject *__pyx_r = NULL;
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *(*__pyx_t_4)(PyObject *);
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
-  size_t __pyx_t_11;
-  __Pyx_PySendResult __pyx_t_12;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_unique_constraints", 0);
-  switch (__pyx_generator->resume_label) {
-    case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L6_resume_from_await;
-    default: /* CPython raises the right error here */
-    __Pyx_RefNannyFinishContext();
-    return NULL;
-  }
-  __pyx_L3_first_run:;
-  if (unlikely(__pyx_sent_value != Py_None)) {
-    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 201, __pyx_L1_error)
-  }
-
-  /* "shudaodao_meta/tools/meta_store.py":202
- * 
- *     async def _save_meta_unique_constraints(self, metadata):
- *         sort_order = 0             # <<<<<<<<<<<<<<
- *         for create_model in metadata["unique_constraints"]:
- *             sort_order = sort_order + 10
-*/
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_0);
-  __pyx_cur_scope->__pyx_v_sort_order = __pyx_mstate_global->__pyx_int_0;
-
-  /* "shudaodao_meta/tools/meta_store.py":203
- *     async def _save_meta_unique_constraints(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["unique_constraints"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
-*/
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_unique_constraints_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
-  } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_update_model, __pyx_mstate_global->__pyx_n_u_comment); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 203, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-        ++__pyx_t_3;
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 203, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3));
-        #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_3);
-        #endif
-        ++__pyx_t_3;
-      }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_4 = (!__pyx_t_3);
+    if (__pyx_t_4) {
     } else {
-      __pyx_t_1 = __pyx_t_4(__pyx_t_2);
-      if (unlikely(!__pyx_t_1)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 203, __pyx_L1_error)
-          PyErr_Clear();
-        }
-        break;
-      }
+      __pyx_t_1 = __pyx_t_4;
+      goto __pyx_L6_bool_binop_done;
     }
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
+    __pyx_t_2 = __Pyx_GetAttr3(__pyx_cur_scope->__pyx_v_entity, __pyx_mstate_global->__pyx_n_u_comment, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_4 < 0))) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_1 = __pyx_t_4;
+    __pyx_L6_bool_binop_done:;
+    if (__pyx_t_1) {
 
-    /* "shudaodao_meta/tools/meta_store.py":204
- *         sort_order = 0
- *         for create_model in metadata["unique_constraints"]:
- *             sort_order = sort_order + 10             # <<<<<<<<<<<<<<
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
+      /* "shudaodao_meta/tools/meta_store.py":193
+ *             #  comment  entity  comment
+ *             if not update_model.comment and getattr(entity, "comment", None):
+ *                 update_model.comment = entity.comment             # <<<<<<<<<<<<<<
+ *                 #  update_model_class
+ *                 validated_update = update_model_class.model_validate(update_model)
 */
-    __pyx_t_1 = __Pyx_PyLong_AddObjC(__pyx_cur_scope->__pyx_v_sort_order, __pyx_mstate_global->__pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_sort_order);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_sort_order, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_entity, __pyx_mstate_global->__pyx_n_u_comment); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_update_model, __pyx_mstate_global->__pyx_n_u_comment, __pyx_t_2) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "shudaodao_meta/tools/meta_store.py":205
- *         for create_model in metadata["unique_constraints"]:
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order             # <<<<<<<<<<<<<<
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(
+      /* "shudaodao_meta/tools/meta_store.py":195
+ *                 update_model.comment = entity.comment
+ *                 #  update_model_class
+ *                 validated_update = update_model_class.model_validate(update_model)             # <<<<<<<<<<<<<<
+ *                 curr_model = await DataService.db_update(
+ *                     self._db,
 */
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_cur_scope->__pyx_v_sort_order) < 0))) __PYX_ERR(0, 205, __pyx_L1_error)
+      __pyx_t_5 = __pyx_cur_scope->__pyx_v_update_model_class;
+      __Pyx_INCREF(__pyx_t_5);
+      __pyx_t_6 = 0;
+      {
+        PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_cur_scope->__pyx_v_update_model};
+        __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_model_validate, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+      }
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_cur_scope->__pyx_v_validated_update = __pyx_t_2;
+      __pyx_t_2 = 0;
 
-    /* "shudaodao_meta/tools/meta_store.py":206
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]             # <<<<<<<<<<<<<<
- *             await self._metamodel_create_or_update(
- *                 MetaUniqueConstraint, create_model, [
+      /* "shudaodao_meta/tools/meta_store.py":196
+ *                 #  update_model_class
+ *                 validated_update = update_model_class.model_validate(update_model)
+ *                 curr_model = await DataService.db_update(             # <<<<<<<<<<<<<<
+ *                     self._db,
+ *                     getattr(curr_entity, id_attr),  #  ID
 */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id, __pyx_t_1) < 0))) __PYX_ERR(0, 206, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":207
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                 MetaUniqueConstraint, create_model, [
- *                     MetaUniqueConstraint.meta_table_id == create_model["meta_table_id"],
-*/
-    __pyx_t_5 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_5);
-
-    /* "shudaodao_meta/tools/meta_store.py":208
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(
- *                 MetaUniqueConstraint, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaUniqueConstraint.meta_table_id == create_model["meta_table_id"],
- *                     MetaUniqueConstraint.column_names == create_model["column_names"],
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_MetaUniqueConstraint); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 208, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-
-    /* "shudaodao_meta/tools/meta_store.py":209
- *             await self._metamodel_create_or_update(
- *                 MetaUniqueConstraint, create_model, [
- *                     MetaUniqueConstraint.meta_table_id == create_model["meta_table_id"],             # <<<<<<<<<<<<<<
- *                     MetaUniqueConstraint.column_names == create_model["column_names"],
- *                 ]
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaUniqueConstraint); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 209, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 209, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 209, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_9 = PyObject_RichCompare(__pyx_t_8, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 209, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":210
- *                 MetaUniqueConstraint, create_model, [
- *                     MetaUniqueConstraint.meta_table_id == create_model["meta_table_id"],
- *                     MetaUniqueConstraint.column_names == create_model["column_names"],             # <<<<<<<<<<<<<<
- *                 ]
- *             )
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaUniqueConstraint); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 210, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_column_names); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 210, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_column_names); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 210, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_10 = PyObject_RichCompare(__pyx_t_8, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 210, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":208
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(
- *                 MetaUniqueConstraint, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaUniqueConstraint.meta_table_id == create_model["meta_table_id"],
- *                     MetaUniqueConstraint.column_names == create_model["column_names"],
-*/
-    __pyx_t_7 = PyList_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 208, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_GIVEREF(__pyx_t_9);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_t_9) != (0)) __PYX_ERR(0, 208, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_10);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 208, __pyx_L1_error);
-    __pyx_t_9 = 0;
-    __pyx_t_10 = 0;
-    __pyx_t_11 = 0;
-    {
-      PyObject *__pyx_callargs[4] = {__pyx_t_5, __pyx_t_6, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_11, (4-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_5 = NULL;
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 196, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_db_update); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 196, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_12 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_12 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 1;
-      return __pyx_r;
-      __pyx_L6_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 207, __pyx_L1_error)
-    } else if (likely(__pyx_t_12 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 207, __pyx_L1_error)
+
+      /* "shudaodao_meta/tools/meta_store.py":197
+ *                 validated_update = update_model_class.model_validate(update_model)
+ *                 curr_model = await DataService.db_update(
+ *                     self._db,             # <<<<<<<<<<<<<<
+ *                     getattr(curr_entity, id_attr),  #  ID
+ *                     model_class=model_class,
+*/
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 197, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+
+      /* "shudaodao_meta/tools/meta_store.py":198
+ *                 curr_model = await DataService.db_update(
+ *                     self._db,
+ *                     getattr(curr_entity, id_attr),  #  ID             # <<<<<<<<<<<<<<
+ *                     model_class=model_class,
+ *                     update_model=validated_update,
+*/
+      __pyx_t_9 = __Pyx_GetAttr(__pyx_cur_scope->__pyx_v_curr_entity, __pyx_cur_scope->__pyx_v_id_attr); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 198, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_9);
+
+      /* "shudaodao_meta/tools/meta_store.py":200
+ *                     getattr(curr_entity, id_attr),  #  ID
+ *                     model_class=model_class,
+ *                     update_model=validated_update,             # <<<<<<<<<<<<<<
+ *                 )
+ *             else:
+*/
+      __pyx_t_6 = 1;
+      #if CYTHON_UNPACK_METHODS
+      if (unlikely(PyMethod_Check(__pyx_t_8))) {
+        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_8);
+        assert(__pyx_t_5);
+        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
+        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx__function);
+        __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
+        __pyx_t_6 = 0;
+      }
+      #endif
+      {
+        PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_5, __pyx_t_7, __pyx_t_9};
+        __pyx_t_10 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 196, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_10);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_10, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_validated_update, __pyx_t_10, __pyx_callargs+3, 1) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_6, (3-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_10);
+        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+        __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+      }
+      __pyx_t_11 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      if (likely(__pyx_t_11 == PYGEN_NEXT)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_XGIVEREF(__pyx_r);
+        __Pyx_RefNannyFinishContext();
+        __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+        /* return from generator, awaiting value */
+        __pyx_generator->resume_label = 1;
+        return __pyx_r;
+        __pyx_L8_resume_from_await:;
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 196, __pyx_L1_error)
+        __pyx_t_2 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_2);
+      } else if (likely(__pyx_t_11 == PYGEN_RETURN)) {
+        __Pyx_GOTREF(__pyx_r);
+        __pyx_t_2 = __pyx_r; __pyx_r = NULL;
+      } else {
+        __Pyx_XGOTREF(__pyx_r);
+        __PYX_ERR(0, 196, __pyx_L1_error)
+      }
+      __Pyx_GIVEREF(__pyx_t_2);
+      __pyx_cur_scope->__pyx_v_curr_model = __pyx_t_2;
+      __pyx_t_2 = 0;
+
+      /* "shudaodao_meta/tools/meta_store.py":192
+ * 
+ *             #  comment  entity  comment
+ *             if not update_model.comment and getattr(entity, "comment", None):             # <<<<<<<<<<<<<<
+ *                 update_model.comment = entity.comment
+ *                 #  update_model_class
+*/
+      goto __pyx_L5;
     }
 
     /* "shudaodao_meta/tools/meta_store.py":203
- *     async def _save_meta_unique_constraints(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["unique_constraints"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
+ *                 )
+ *             else:
+ *                 curr_model = update_model             # <<<<<<<<<<<<<<
+ *         else:
+ *             #
 */
+    /*else*/ {
+      __Pyx_INCREF(__pyx_cur_scope->__pyx_v_update_model);
+      __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_update_model);
+      __pyx_cur_scope->__pyx_v_curr_model = __pyx_cur_scope->__pyx_v_update_model;
+    }
+    __pyx_L5:;
+
+    /* "shudaodao_meta/tools/meta_store.py":187
+ *         curr_entity = None
+ * 
+ *         if entity_name in entity_map:             # <<<<<<<<<<<<<<
+ *             curr_entity = entity_map[entity_name]
+ *             update_model = curr_entity
+*/
+    goto __pyx_L4;
   }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":206
+ *         else:
+ *             #
+ *             create_data = entity.model_dump(exclude={"sort_order"})             # <<<<<<<<<<<<<<
+ *             create_model = create_model_class(
+ *                 **create_data,
+*/
+  /*else*/ {
+    __pyx_t_8 = __pyx_cur_scope->__pyx_v_entity;
+    __Pyx_INCREF(__pyx_t_8);
+    __pyx_t_10 = PySet_New(0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_10);
+    if (PySet_Add(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_sort_order) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_6 = 0;
+    {
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_8, NULL};
+      __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 206, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_exclude, __pyx_t_10, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_model_dump, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
+      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_cur_scope->__pyx_v_create_data = __pyx_t_2;
+    __pyx_t_2 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":208
+ *             create_data = entity.model_dump(exclude={"sort_order"})
+ *             create_model = create_model_class(
+ *                 **create_data,             # <<<<<<<<<<<<<<
+ *                 schema_id=curr_schema.schema_id,
+ *                 sort_order=getattr(entity, "sort_order", 0),
+*/
+    if (unlikely(__pyx_cur_scope->__pyx_v_create_data == Py_None)) {
+      PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
+      __PYX_ERR(0, 208, __pyx_L1_error)
+    }
+    if (likely(PyDict_CheckExact(__pyx_cur_scope->__pyx_v_create_data))) {
+      __pyx_t_2 = PyDict_Copy(__pyx_cur_scope->__pyx_v_create_data); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    } else {
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg((PyObject*)&PyDict_Type, __pyx_cur_scope->__pyx_v_create_data); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+
+    /* "shudaodao_meta/tools/meta_store.py":209
+ *             create_model = create_model_class(
+ *                 **create_data,
+ *                 schema_id=curr_schema.schema_id,             # <<<<<<<<<<<<<<
+ *                 sort_order=getattr(entity, "sort_order", 0),
+ *                 is_active=True,
+*/
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_schema, __pyx_mstate_global->__pyx_n_u_schema_id); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 209, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    if (unlikely(PyDict_Contains(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema_id))) {
+      __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_schema_id); __PYX_ERR(0, 207, __pyx_L1_error)
+    }
+    if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema_id, __pyx_t_9) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":210
+ *                 **create_data,
+ *                 schema_id=curr_schema.schema_id,
+ *                 sort_order=getattr(entity, "sort_order", 0),             # <<<<<<<<<<<<<<
+ *                 is_active=True,
+ *             )
+*/
+    __pyx_t_9 = __Pyx_GetAttr3(__pyx_cur_scope->__pyx_v_entity, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_mstate_global->__pyx_int_0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 210, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    if (unlikely(PyDict_Contains(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_sort_order))) {
+      __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_sort_order); __PYX_ERR(0, 207, __pyx_L1_error)
+    }
+    if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_t_9) < 0) __PYX_ERR(0, 210, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":211
+ *                 schema_id=curr_schema.schema_id,
+ *                 sort_order=getattr(entity, "sort_order", 0),
+ *                 is_active=True,             # <<<<<<<<<<<<<<
+ *             )
+ *             curr_model = DataService.db_insert(
+*/
+    if (unlikely(PyDict_Contains(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_is_active))) {
+      __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_is_active); __PYX_ERR(0, 207, __pyx_L1_error)
+    }
+    if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_is_active, Py_True) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
+
+    /* "shudaodao_meta/tools/meta_store.py":207
+ *             #
+ *             create_data = entity.model_dump(exclude={"sort_order"})
+ *             create_model = create_model_class(             # <<<<<<<<<<<<<<
+ *                 **create_data,
+ *                 schema_id=curr_schema.schema_id,
+*/
+    __pyx_t_9 = __Pyx_PyObject_Call(__pyx_cur_scope->__pyx_v_create_model_class, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 207, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_GIVEREF(__pyx_t_9);
+    __pyx_cur_scope->__pyx_v_create_model = __pyx_t_9;
+    __pyx_t_9 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":213
+ *                 is_active=True,
+ *             )
+ *             curr_model = DataService.db_insert(             # <<<<<<<<<<<<<<
+ *                 self._db,
+ *                 model_class=model_class,
+*/
+    __pyx_t_2 = NULL;
+    __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 213, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_10);
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_db_insert); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 213, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":214
+ *             )
+ *             curr_model = DataService.db_insert(
+ *                 self._db,             # <<<<<<<<<<<<<<
+ *                 model_class=model_class,
+ *                 create_model=create_model,
+*/
+    __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 214, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_10);
+
+    /* "shudaodao_meta/tools/meta_store.py":216
+ *                 self._db,
+ *                 model_class=model_class,
+ *                 create_model=create_model,             # <<<<<<<<<<<<<<
+ *             )
+ *         return curr_entity, curr_model
+*/
+    __pyx_t_6 = 1;
+    #if CYTHON_UNPACK_METHODS
+    if (unlikely(PyMethod_Check(__pyx_t_8))) {
+      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_8);
+      assert(__pyx_t_2);
+      PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(__pyx__function);
+      __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
+      __pyx_t_6 = 0;
+    }
+    #endif
+    {
+      PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, __pyx_t_10};
+      __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 213, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 213, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_9);
+    }
+    __Pyx_GIVEREF(__pyx_t_9);
+    __pyx_cur_scope->__pyx_v_curr_model = __pyx_t_9;
+    __pyx_t_9 = 0;
+  }
+  __pyx_L4:;
+
+  /* "shudaodao_meta/tools/meta_store.py":218
+ *                 create_model=create_model,
+ *             )
+ *         return curr_entity, curr_model             # <<<<<<<<<<<<<<
+ * 
+ *     async def _get_schema(self, schema_name, type_name: Literal["Table", "View"]):
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 218, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_9);
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_curr_entity);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_curr_entity);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_cur_scope->__pyx_v_curr_entity) != (0)) __PYX_ERR(0, 218, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_curr_model);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_curr_model);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_cur_scope->__pyx_v_curr_model) != (0)) __PYX_ERR(0, 218, __pyx_L1_error);
+  __pyx_r = __pyx_t_9;
+  __pyx_t_9 = 0;
+  goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":201
- *         return foreign_keys
+  /* "shudaodao_meta/tools/meta_store.py":171
+ *         )
  * 
- *     async def _save_meta_unique_constraints(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["unique_constraints"]:
+ *     async def _save_meta_entity(             # <<<<<<<<<<<<<<
+ *             self,
+ *             curr_schema,
 */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_save_meta_unique_constraints", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("_save_meta_entity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -8781,26 +8913,26 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_30gene
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_33generator9(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_28generator8(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":214
- *             )
+/* "shudaodao_meta/tools/meta_store.py":220
+ *         return curr_entity, curr_model
  * 
- *     async def _save_meta_indexes(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["indexes"]:
+ *     async def _get_schema(self, schema_name, type_name: Literal["Table", "View"]):             # <<<<<<<<<<<<<<
+ *         query_request = self._get_schema_query_request(
+ *             schema_name, "Source", type_name, type_name == "Table"
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_32_save_meta_indexes(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_27_get_schema(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_32_save_meta_indexes = {"_save_meta_indexes", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_32_save_meta_indexes, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_32_save_meta_indexes(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_27_get_schema = {"_get_schema", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_27_get_schema, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_27_get_schema(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -8808,18 +8940,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
   PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_metadata = 0;
+  PyObject *__pyx_v_schema_name = 0;
+  PyObject *__pyx_v_type_name = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
+  PyObject* values[3] = {0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_indexes (wrapper)", 0);
+  __Pyx_RefNannySetupContext("_get_schema (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -8829,52 +8962,59 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_metadata,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_schema_name,&__pyx_mstate_global->__pyx_n_u_type_name,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 214, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 220, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 220, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 214, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 220, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 214, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 220, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_indexes", 0) < 0) __PYX_ERR(0, 214, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_indexes", 1, 2, 2, i); __PYX_ERR(0, 214, __pyx_L3_error) }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_get_schema", 0) < 0) __PYX_ERR(0, 220, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_get_schema", 1, 3, 3, i); __PYX_ERR(0, 220, __pyx_L3_error) }
       }
-    } else if (unlikely(__pyx_nargs != 2)) {
+    } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 214, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 220, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 214, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 220, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 220, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
-    __pyx_v_metadata = values[1];
+    __pyx_v_schema_name = values[1];
+    __pyx_v_type_name = values[2];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_indexes", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 214, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_get_schema", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 220, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_indexes", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._get_schema", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_31_save_meta_indexes(__pyx_self, __pyx_v_self, __pyx_v_metadata);
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_get_schema(__pyx_self, __pyx_v_self, __pyx_v_schema_name, __pyx_v_type_name);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -8884,30 +9024,33 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_31_save_meta_indexes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_metadata) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_get_schema(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_type_name) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_save_meta_indexes", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("_get_schema", 0);
+  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 214, __pyx_L1_error)
+    __PYX_ERR(0, 220, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_metadata = __pyx_v_metadata;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_metadata);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_metadata);
+  __pyx_cur_scope->__pyx_v_schema_name = __pyx_v_schema_name;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_schema_name);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_schema_name);
+  __pyx_cur_scope->__pyx_v_type_name = __pyx_v_type_name;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_type_name);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_type_name);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_33generator9, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_indexes, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_indexes, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 214, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_28generator8, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_get_schema, __pyx_mstate_global->__pyx_n_u_MetaStore__get_schema, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -8915,7 +9058,7 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_31_sav
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_indexes", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._get_schema", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -8923,30 +9066,27 @@ static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_31_sav
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_33generator9(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_28generator8(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *)__pyx_generator->closure);
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *(*__pyx_t_4)(PyObject *);
+  PyObject *__pyx_t_3 = NULL;
+  size_t __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
-  size_t __pyx_t_11;
-  __Pyx_PySendResult __pyx_t_12;
+  __Pyx_PySendResult __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_indexes", 0);
+  __Pyx_RefNannySetupContext("_get_schema", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L6_resume_from_await;
+    case 1: goto __pyx_L4_resume_from_await;
+    case 2: goto __pyx_L5_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -8954,263 +9094,262 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_33gene
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 214, __pyx_L1_error)
+    __PYX_ERR(0, 220, __pyx_L1_error)
   }
 
-  /* "shudaodao_meta/tools/meta_store.py":215
+  /* "shudaodao_meta/tools/meta_store.py":221
  * 
- *     async def _save_meta_indexes(self, metadata):
- *         sort_order = 0             # <<<<<<<<<<<<<<
- *         for create_model in metadata["indexes"]:
- *             sort_order = sort_order + 10
+ *     async def _get_schema(self, schema_name, type_name: Literal["Table", "View"]):
+ *         query_request = self._get_schema_query_request(             # <<<<<<<<<<<<<<
+ *             schema_name, "Source", type_name, type_name == "Table"
+ *         )
 */
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_0);
-  __pyx_cur_scope->__pyx_v_sort_order = __pyx_mstate_global->__pyx_int_0;
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
 
-  /* "shudaodao_meta/tools/meta_store.py":216
- *     async def _save_meta_indexes(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["indexes"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
+  /* "shudaodao_meta/tools/meta_store.py":222
+ *     async def _get_schema(self, schema_name, type_name: Literal["Table", "View"]):
+ *         query_request = self._get_schema_query_request(
+ *             schema_name, "Source", type_name, type_name == "Table"             # <<<<<<<<<<<<<<
+ *         )
+ *         source_schema = await QueryService.db_query(
 */
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_indexes_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
-  } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_type_name, __pyx_mstate_global->__pyx_n_u_Table, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[5] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_schema_name, __pyx_mstate_global->__pyx_n_u_Source, __pyx_cur_scope->__pyx_v_type_name, __pyx_t_3};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_schema_query_request, __pyx_callargs+__pyx_t_4, (5-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
   }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_2))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 216, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-        ++__pyx_t_3;
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 216, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3));
-        #else
-        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_3);
-        #endif
-        ++__pyx_t_3;
-      }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
-    } else {
-      __pyx_t_1 = __pyx_t_4(__pyx_t_2);
-      if (unlikely(!__pyx_t_1)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 216, __pyx_L1_error)
-          PyErr_Clear();
-        }
-        break;
-      }
-    }
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_query_request = __pyx_t_1;
+  __pyx_t_1 = 0;
 
-    /* "shudaodao_meta/tools/meta_store.py":217
- *         sort_order = 0
- *         for create_model in metadata["indexes"]:
- *             sort_order = sort_order + 10             # <<<<<<<<<<<<<<
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
+  /* "shudaodao_meta/tools/meta_store.py":224
+ *             schema_name, "Source", type_name, type_name == "Table"
+ *         )
+ *         source_schema = await QueryService.db_query(             # <<<<<<<<<<<<<<
+ *             self._db, query_request=query_request, model_class=SourceSchema
+ *         )
 */
-    __pyx_t_1 = __Pyx_PyLong_AddObjC(__pyx_cur_scope->__pyx_v_sort_order, __pyx_mstate_global->__pyx_int_10, 10, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 217, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_sort_order);
-    __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_sort_order, __pyx_t_1);
-    __Pyx_GIVEREF(__pyx_t_1);
-    __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":218
- *         for create_model in metadata["indexes"]:
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order             # <<<<<<<<<<<<<<
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(
-*/
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_sort_order, __pyx_cur_scope->__pyx_v_sort_order) < 0))) __PYX_ERR(0, 218, __pyx_L1_error)
-
-    /* "shudaodao_meta/tools/meta_store.py":219
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]             # <<<<<<<<<<<<<<
- *             await self._metamodel_create_or_update(
- *                 MetaIndex, create_model, [
-*/
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_metadata, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id, __pyx_t_1) < 0))) __PYX_ERR(0, 219, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":220
- *             create_model["sort_order"] = sort_order
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                 MetaIndex, create_model, [
- *                     MetaIndex.meta_table_id == create_model["meta_table_id"],
-*/
-    __pyx_t_5 = __pyx_cur_scope->__pyx_v_self;
-    __Pyx_INCREF(__pyx_t_5);
-
-    /* "shudaodao_meta/tools/meta_store.py":221
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(
- *                 MetaIndex, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaIndex.meta_table_id == create_model["meta_table_id"],
- *                     MetaIndex.column_names == create_model["column_names"],
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_MetaIndex); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 221, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-
-    /* "shudaodao_meta/tools/meta_store.py":222
- *             await self._metamodel_create_or_update(
- *                 MetaIndex, create_model, [
- *                     MetaIndex.meta_table_id == create_model["meta_table_id"],             # <<<<<<<<<<<<<<
- *                     MetaIndex.column_names == create_model["column_names"],
- *                 ]
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaIndex); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 222, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 222, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 222, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_9 = PyObject_RichCompare(__pyx_t_8, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 222, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":223
- *                 MetaIndex, create_model, [
- *                     MetaIndex.meta_table_id == create_model["meta_table_id"],
- *                     MetaIndex.column_names == create_model["column_names"],             # <<<<<<<<<<<<<<
- *                 ]
- *             )
-*/
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaIndex); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 223, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_column_names); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 223, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_column_names); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 223, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_10 = PyObject_RichCompare(__pyx_t_8, __pyx_t_7, Py_EQ); __Pyx_XGOTREF(__pyx_t_10); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 223, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":221
- *             create_model["meta_table_id"] = metadata["meta_table_id"]
- *             await self._metamodel_create_or_update(
- *                 MetaIndex, create_model, [             # <<<<<<<<<<<<<<
- *                     MetaIndex.meta_table_id == create_model["meta_table_id"],
- *                     MetaIndex.column_names == create_model["column_names"],
-*/
-    __pyx_t_7 = PyList_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 221, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_GIVEREF(__pyx_t_9);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 0, __pyx_t_9) != (0)) __PYX_ERR(0, 221, __pyx_L1_error);
-    __Pyx_GIVEREF(__pyx_t_10);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_7, 1, __pyx_t_10) != (0)) __PYX_ERR(0, 221, __pyx_L1_error);
-    __pyx_t_9 = 0;
-    __pyx_t_10 = 0;
-    __pyx_t_11 = 0;
-    {
-      PyObject *__pyx_callargs[4] = {__pyx_t_5, __pyx_t_6, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_7};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_11, (4-__pyx_t_11) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_12 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_12 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_t_2);
-      __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
-      __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-      __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 1;
-      return __pyx_r;
-      __pyx_L6_resume_from_await:;
-      __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
-      __pyx_cur_scope->__pyx_t_0 = 0;
-      __Pyx_XGOTREF(__pyx_t_2);
-      __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-      __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 220, __pyx_L1_error)
-    } else if (likely(__pyx_t_12 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 220, __pyx_L1_error)
-    }
-
-    /* "shudaodao_meta/tools/meta_store.py":216
- *     async def _save_meta_indexes(self, metadata):
- *         sort_order = 0
- *         for create_model in metadata["indexes"]:             # <<<<<<<<<<<<<<
- *             sort_order = sort_order + 10
- *             create_model["sort_order"] = sort_order
-*/
-  }
+  __pyx_t_3 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db_query); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":225
+ *         )
+ *         source_schema = await QueryService.db_query(
+ *             self._db, query_request=query_request, model_class=SourceSchema             # <<<<<<<<<<<<<<
+ *         )
+ *         query_request = self._get_schema_query_request(
+*/
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_SourceSchema); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_4 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_5))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_5);
+    assert(__pyx_t_3);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_5);
+    __Pyx_INCREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_5, __pyx__function);
+    __pyx_t_4 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, __pyx_t_2};
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_query_request, __pyx_cur_scope->__pyx_v_query_request, __pyx_t_7, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 224, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_6, __pyx_t_7, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_5, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_8 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 224, __pyx_L1_error)
+  }
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_source_schema = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":227
+ *             self._db, query_request=query_request, model_class=SourceSchema
+ *         )
+ *         query_request = self._get_schema_query_request(             # <<<<<<<<<<<<<<
+ *             schema_name, "Meta", type_name
+ *         )
+*/
+  __pyx_t_5 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_5);
+
+  /* "shudaodao_meta/tools/meta_store.py":228
+ *         )
+ *         query_request = self._get_schema_query_request(
+ *             schema_name, "Meta", type_name             # <<<<<<<<<<<<<<
+ *         )
+ *         meta_schema = await QueryService.db_query(
+*/
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[4] = {__pyx_t_5, __pyx_cur_scope->__pyx_v_schema_name, __pyx_mstate_global->__pyx_n_u_Meta, __pyx_cur_scope->__pyx_v_type_name};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_schema_query_request, __pyx_callargs+__pyx_t_4, (4-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_query_request);
+  __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_query_request, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":230
+ *             schema_name, "Meta", type_name
+ *         )
+ *         meta_schema = await QueryService.db_query(             # <<<<<<<<<<<<<<
+ *             self._db, query_request=query_request, model_class=MetaSchema,
+ *         )
+*/
+  __pyx_t_5 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_db_query); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":231
+ *         )
+ *         meta_schema = await QueryService.db_query(
+ *             self._db, query_request=query_request, model_class=MetaSchema,             # <<<<<<<<<<<<<<
+ *         )
+ *         return source_schema, meta_schema
+*/
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_db_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_6);
+    assert(__pyx_t_5);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+    __Pyx_INCREF(__pyx_t_5);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+    __pyx_t_4 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_5, __pyx_t_7};
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_query_request, __pyx_cur_scope->__pyx_v_query_request, __pyx_t_3, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_2, __pyx_t_3, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_8 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 2;
+    return __pyx_r;
+    __pyx_L5_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 230, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 230, __pyx_L1_error)
+  }
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_meta_schema = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":233
+ *             self._db, query_request=query_request, model_class=MetaSchema,
+ *         )
+ *         return source_schema, meta_schema             # <<<<<<<<<<<<<<
+ * 
+ *     @staticmethod
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_source_schema);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_source_schema);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_cur_scope->__pyx_v_source_schema) != (0)) __PYX_ERR(0, 233, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_meta_schema);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_meta_schema);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_cur_scope->__pyx_v_meta_schema) != (0)) __PYX_ERR(0, 233, __pyx_L1_error);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_meta/tools/meta_store.py":214
- *             )
+  /* "shudaodao_meta/tools/meta_store.py":220
+ *         return curr_entity, curr_model
  * 
- *     async def _save_meta_indexes(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["indexes"]:
+ *     async def _get_schema(self, schema_name, type_name: Literal["Table", "View"]):             # <<<<<<<<<<<<<<
+ *         query_request = self._get_schema_query_request(
+ *             schema_name, "Source", type_name, type_name == "Table"
 */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_save_meta_indexes", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("_get_schema", __pyx_clineno, __pyx_lineno, __pyx_filename);
   }
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9222,45 +9361,46 @@ static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_33gene
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_36generator10(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_meta/tools/meta_store.py":227
- *             )
+/* "shudaodao_meta/tools/meta_store.py":235
+ *         return source_schema, meta_schema
  * 
- *     async def _save_meta_referencing_foreign_keys(self, tables):             # <<<<<<<<<<<<<<
- *         #
- *         table_map = {table["table_name"]: table for table in tables}
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def _get_schema_query_request(
+ *             schema_name, prefix: str, type_name: Literal["Table", "View"], expanded: bool = False,
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_35_save_meta_referencing_foreign_keys(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_30_get_schema_query_request(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_35_save_meta_referencing_foreign_keys = {"_save_meta_referencing_foreign_keys", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_35_save_meta_referencing_foreign_keys, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_35_save_meta_referencing_foreign_keys(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_30_get_schema_query_request = {"_get_schema_query_request", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_30_get_schema_query_request, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_meta_5tools_10meta_store_9MetaStore_30_get_schema_query_request(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ) {
-  PyObject *__pyx_v_self = 0;
-  PyObject *__pyx_v_tables = 0;
+  PyObject *__pyx_v_schema_name = 0;
+  PyObject *__pyx_v_prefix = 0;
+  PyObject *__pyx_v_type_name = 0;
+  PyObject *__pyx_v_expanded = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
+  PyObject* values[4] = {0,0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_referencing_foreign_keys (wrapper)", 0);
+  __Pyx_RefNannySetupContext("_get_schema_query_request (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -9270,799 +9410,348 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_tables,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_schema_name,&__pyx_mstate_global->__pyx_n_u_prefix,&__pyx_mstate_global->__pyx_n_u_type_name,&__pyx_mstate_global->__pyx_n_u_expanded,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 227, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 235, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 235, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 235, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 227, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 235, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 227, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 235, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_save_meta_referencing_foreign_keys", 0) < 0) __PYX_ERR(0, 227, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_save_meta_referencing_foreign_keys", 1, 2, 2, i); __PYX_ERR(0, 227, __pyx_L3_error) }
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_get_schema_query_request", 0) < 0) __PYX_ERR(0, 235, __pyx_L3_error)
+
+      /* "shudaodao_meta/tools/meta_store.py":237
+ *     @staticmethod
+ *     def _get_schema_query_request(
+ *             schema_name, prefix: str, type_name: Literal["Table", "View"], expanded: bool = False,             # <<<<<<<<<<<<<<
+ *     ):
+ *         query = {
+*/
+      if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)((PyObject*)Py_False)));
+      for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_get_schema_query_request", 0, 3, 4, i); __PYX_ERR(0, 235, __pyx_L3_error) }
       }
-    } else if (unlikely(__pyx_nargs != 2)) {
-      goto __pyx_L5_argtuple_error;
     } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 227, __pyx_L3_error)
-      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 227, __pyx_L3_error)
+      switch (__pyx_nargs) {
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 235, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 235, __pyx_L3_error)
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 235, __pyx_L3_error)
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 235, __pyx_L3_error)
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)((PyObject*)Py_False)));
     }
-    __pyx_v_self = values[0];
-    __pyx_v_tables = values[1];
+    __pyx_v_schema_name = values[0];
+    __pyx_v_prefix = ((PyObject*)values[1]);
+    __pyx_v_type_name = values[2];
+    __pyx_v_expanded = values[3];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_save_meta_referencing_foreign_keys", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 227, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_get_schema_query_request", 0, 3, 4, __pyx_nargs); __PYX_ERR(0, 235, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_referencing_foreign_keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._get_schema_query_request", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_34_save_meta_referencing_foreign_keys(__pyx_self, __pyx_v_self, __pyx_v_tables);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_prefix), (&PyUnicode_Type), 0, "prefix", 2))) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_r = __pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_get_schema_query_request(__pyx_self, __pyx_v_schema_name, __pyx_v_prefix, __pyx_v_type_name, __pyx_v_expanded);
+
+  /* "shudaodao_meta/tools/meta_store.py":235
+ *         return source_schema, meta_schema
+ * 
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def _get_schema_query_request(
+ *             schema_name, prefix: str, type_name: Literal["Table", "View"], expanded: bool = False,
+*/
 
   /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
+  goto __pyx_L7_cleaned_up;
+  __pyx_L0:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __pyx_L7_cleaned_up:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_34_save_meta_referencing_foreign_keys(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_tables) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *__pyx_cur_scope;
+static PyObject *__pyx_pf_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_get_schema_query_request(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_prefix, PyObject *__pyx_v_type_name, PyObject *__pyx_v_expanded) {
+  PyObject *__pyx_v_query = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("_save_meta_referencing_foreign_keys", 0);
-  __pyx_cur_scope = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys(__pyx_mstate_global->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys, __pyx_mstate_global->__pyx_empty_tuple, NULL);
-  if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *)Py_None);
-    __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 227, __pyx_L1_error)
-  } else {
-    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
-  }
-  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
-  __pyx_cur_scope->__pyx_v_tables = __pyx_v_tables;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_tables);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_tables);
-  {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_36generator10, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save_meta_referencing_foreign_k, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_referencing, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store); if (unlikely(!gen)) __PYX_ERR(0, 227, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_cur_scope);
-    __Pyx_RefNannyFinishContext();
-    return (PyObject *) gen;
-  }
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._save_meta_referencing_foreign_keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_gb_14shudaodao_meta_5tools_10meta_store_9MetaStore_36generator10(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
-{
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *__pyx_cur_scope = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *)__pyx_generator->closure);
-  PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *(*__pyx_t_4)(PyObject *);
-  PyObject *__pyx_t_5 = NULL;
-  Py_ssize_t __pyx_t_6;
-  PyObject *(*__pyx_t_7)(PyObject *);
-  PyObject *__pyx_t_8 = NULL;
-  int __pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  PyObject *__pyx_t_11 = NULL;
-  PyObject *__pyx_t_12 = NULL;
-  PyObject *__pyx_t_13 = NULL;
-  PyObject *__pyx_t_14 = NULL;
-  PyObject *__pyx_t_15 = NULL;
-  size_t __pyx_t_16;
-  __Pyx_PySendResult __pyx_t_17;
-  int __pyx_t_18;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4[5];
+  int __pyx_t_5;
+  int __pyx_t_6;
+  PyObject *__pyx_t_7[3];
+  int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_save_meta_referencing_foreign_keys", 0);
-  switch (__pyx_generator->resume_label) {
-    case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L15_resume_from_await;
-    default: /* CPython raises the right error here */
-    __Pyx_RefNannyFinishContext();
-    return NULL;
-  }
-  __pyx_L3_first_run:;
-  if (unlikely(__pyx_sent_value != Py_None)) {
-    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 227, __pyx_L1_error)
-  }
+  __Pyx_RefNannySetupContext("_get_schema_query_request", 0);
 
-  /* "shudaodao_meta/tools/meta_store.py":229
- *     async def _save_meta_referencing_foreign_keys(self, tables):
- *         #
- *         table_map = {table["table_name"]: table for table in tables}             # <<<<<<<<<<<<<<
- * 
- *         #  referencing_foreign_keys
+  /* "shudaodao_meta/tools/meta_store.py":240
+ *     ):
+ *         query = {
+ *             "fields": [             # <<<<<<<<<<<<<<
+ *                 # "schema_id,schema_name,schema_label",
+ *                 # f"{prefix}{type_name}s.{type_name.lower()}_name",
 */
-  { /* enter inner scope */
-    __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_tables)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_tables)) {
-      __pyx_t_2 = __pyx_cur_scope->__pyx_v_tables; __Pyx_INCREF(__pyx_t_2);
-      __pyx_t_3 = 0;
-      __pyx_t_4 = NULL;
-    } else {
-      __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_tables); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
-    }
-    for (;;) {
-      if (likely(!__pyx_t_4)) {
-        if (likely(PyList_CheckExact(__pyx_t_2))) {
-          {
-            Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
-            #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 229, __pyx_L1_error)
-            #endif
-            if (__pyx_t_3 >= __pyx_temp) break;
-          }
-          __pyx_t_5 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_3);
-          ++__pyx_t_3;
-        } else {
-          {
-            Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
-            #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 229, __pyx_L1_error)
-            #endif
-            if (__pyx_t_3 >= __pyx_temp) break;
-          }
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_5 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3));
-          #else
-          __pyx_t_5 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_3);
-          #endif
-          ++__pyx_t_3;
-        }
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 229, __pyx_L1_error)
-      } else {
-        __pyx_t_5 = __pyx_t_4(__pyx_t_2);
-        if (unlikely(!__pyx_t_5)) {
-          PyObject* exc_type = PyErr_Occurred();
-          if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 229, __pyx_L1_error)
-            PyErr_Clear();
-          }
-          break;
-        }
-      }
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_7genexpr__pyx_v_table);
-      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_7genexpr__pyx_v_table, __pyx_t_5);
-      __Pyx_GIVEREF(__pyx_t_5);
-      __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_7genexpr__pyx_v_table, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 229, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      if (unlikely(PyDict_SetItem(__pyx_t_1, (PyObject*)__pyx_t_5, (PyObject*)__pyx_cur_scope->__pyx_7genexpr__pyx_v_table))) __PYX_ERR(0, 229, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  } /* exit inner scope */
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_table_map = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_fields, __pyx_t_2) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":248
+ *             ],
+ *             "filter": [
+ *                 {"field": "schema_name", "op": "=", "val": schema_name}             # <<<<<<<<<<<<<<
+ *             ],
+ *             "relation": [
+*/
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_field, __pyx_mstate_global->__pyx_n_u_schema_name) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_op, __pyx_mstate_global->__pyx_kp_u__4) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_val, __pyx_v_schema_name) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
+
+  /* "shudaodao_meta/tools/meta_store.py":247
+ *                 # f"{prefix}{type_name}s.{prefix}Columns.*"
+ *             ],
+ *             "filter": [             # <<<<<<<<<<<<<<
+ *                 {"field": "schema_name", "op": "=", "val": schema_name}
+ *             ],
+*/
+  __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 247, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_2);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 247, __pyx_L1_error);
+  __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_filter, __pyx_t_3) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":251
+ *             ],
+ *             "relation": [
+ *                 f"{prefix}{type_name}s.{prefix}Columns"             # <<<<<<<<<<<<<<
+ *             ],
+ *             "size": 1000,
+*/
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_type_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4[0] = __pyx_v_prefix;
+  __pyx_t_4[1] = __pyx_t_3;
+  __pyx_t_4[2] = __pyx_mstate_global->__pyx_kp_u_s;
+  __pyx_t_4[3] = __pyx_v_prefix;
+  __pyx_t_4[4] = __pyx_mstate_global->__pyx_n_u_Columns;
+  __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_4, 5, __Pyx_PyUnicode_GET_LENGTH(__pyx_v_prefix) * 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3) + 2 + 7, 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_prefix) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_prefix));
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":250
+ *                 {"field": "schema_name", "op": "=", "val": schema_name}
+ *             ],
+ *             "relation": [             # <<<<<<<<<<<<<<
+ *                 f"{prefix}{type_name}s.{prefix}Columns"
+ *             ],
+*/
+  __pyx_t_3 = PyList_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_2);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_2) != (0)) __PYX_ERR(0, 250, __pyx_L1_error);
+  __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_relation, __pyx_t_3) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_size, __pyx_mstate_global->__pyx_int_1000) < 0) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_v_query = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":232
- * 
- *         #  referencing_foreign_keys
- *         for table in tables:             # <<<<<<<<<<<<<<
- *             table["referencing_foreign_keys"] = []
- *         #  foreign_keys
+  /* "shudaodao_meta/tools/meta_store.py":255
+ *             "size": 1000,
+ *         }
+ *         if type_name == "Table" and expanded:             # <<<<<<<<<<<<<<
+ *             query["relation"].append(f"{prefix}{type_name}s.SourcePrimaryKey")
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceIndexes")
 */
-  if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_tables)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_tables)) {
-    __pyx_t_1 = __pyx_cur_scope->__pyx_v_tables; __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
+  __pyx_t_6 = (__Pyx_PyUnicode_Equals(__pyx_v_type_name, __pyx_mstate_global->__pyx_n_u_Table, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 255, __pyx_L1_error)
+  if (__pyx_t_6) {
   } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_tables); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 232, __pyx_L1_error)
+    __pyx_t_5 = __pyx_t_6;
+    goto __pyx_L4_bool_binop_done;
   }
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_1))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 232, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_1, __pyx_t_3);
-        ++__pyx_t_3;
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 232, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3));
-        #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3);
-        #endif
-        ++__pyx_t_3;
-      }
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 232, __pyx_L1_error)
-    } else {
-      __pyx_t_2 = __pyx_t_4(__pyx_t_1);
-      if (unlikely(!__pyx_t_2)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 232, __pyx_L1_error)
-          PyErr_Clear();
-        }
-        break;
-      }
-    }
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_table);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_table, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_2);
-    __pyx_t_2 = 0;
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_expanded); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_5 = __pyx_t_6;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_5) {
 
-    /* "shudaodao_meta/tools/meta_store.py":233
- *         #  referencing_foreign_keys
- *         for table in tables:
- *             table["referencing_foreign_keys"] = []             # <<<<<<<<<<<<<<
- *         #  foreign_keys
- *         for source_table in tables:
+    /* "shudaodao_meta/tools/meta_store.py":256
+ *         }
+ *         if type_name == "Table" and expanded:
+ *             query["relation"].append(f"{prefix}{type_name}s.SourcePrimaryKey")             # <<<<<<<<<<<<<<
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceIndexes")
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceForeignKeys")
 */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 233, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_GetItem(__pyx_v_query, __pyx_mstate_global->__pyx_n_u_relation); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_v_type_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_7[0] = __pyx_v_prefix;
+    __pyx_t_7[1] = __pyx_t_3;
+    __pyx_t_7[2] = __pyx_mstate_global->__pyx_kp_u_s_SourcePrimaryKey;
+    __pyx_t_2 = __Pyx_PyUnicode_Join(__pyx_t_7, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_v_prefix) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_3) + 18, 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_prefix) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_3));
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely((PyObject_SetItem(__pyx_cur_scope->__pyx_v_table, __pyx_mstate_global->__pyx_n_u_referencing_foreign_keys, __pyx_t_2) < 0))) __PYX_ERR(0, 233, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_8 = __Pyx_PyObject_Append(__pyx_t_1, __pyx_t_2); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 256, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "shudaodao_meta/tools/meta_store.py":232
- * 
- *         #  referencing_foreign_keys
- *         for table in tables:             # <<<<<<<<<<<<<<
- *             table["referencing_foreign_keys"] = []
- *         #  foreign_keys
+    /* "shudaodao_meta/tools/meta_store.py":257
+ *         if type_name == "Table" and expanded:
+ *             query["relation"].append(f"{prefix}{type_name}s.SourcePrimaryKey")
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceIndexes")             # <<<<<<<<<<<<<<
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceForeignKeys")
+ *             # "SourceTables.SourceForeignKeys",
+*/
+    __pyx_t_2 = __Pyx_PyDict_GetItem(__pyx_v_query, __pyx_mstate_global->__pyx_n_u_relation); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_v_type_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_7[0] = __pyx_v_prefix;
+    __pyx_t_7[1] = __pyx_t_1;
+    __pyx_t_7[2] = __pyx_mstate_global->__pyx_kp_u_s_SourceIndexes;
+    __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_7, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_v_prefix) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + 15, 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_prefix) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1));
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_8 = __Pyx_PyObject_Append(__pyx_t_2, __pyx_t_3); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 257, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":258
+ *             query["relation"].append(f"{prefix}{type_name}s.SourcePrimaryKey")
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceIndexes")
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceForeignKeys")             # <<<<<<<<<<<<<<
+ *             # "SourceTables.SourceForeignKeys",
+ *         return QueryRequest(**query)
+*/
+    __pyx_t_3 = __Pyx_PyDict_GetItem(__pyx_v_query, __pyx_mstate_global->__pyx_n_u_relation); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_v_type_name, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_7[0] = __pyx_v_prefix;
+    __pyx_t_7[1] = __pyx_t_2;
+    __pyx_t_7[2] = __pyx_mstate_global->__pyx_kp_u_s_SourceForeignKeys;
+    __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_7, 3, __Pyx_PyUnicode_GET_LENGTH(__pyx_v_prefix) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_2) + 19, 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_prefix) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_2));
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_8 = __Pyx_PyObject_Append(__pyx_t_3, __pyx_t_1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 258, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "shudaodao_meta/tools/meta_store.py":255
+ *             "size": 1000,
+ *         }
+ *         if type_name == "Table" and expanded:             # <<<<<<<<<<<<<<
+ *             query["relation"].append(f"{prefix}{type_name}s.SourcePrimaryKey")
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceIndexes")
 */
   }
+
+  /* "shudaodao_meta/tools/meta_store.py":260
+ *             query["relation"].append(f"{prefix}{type_name}s.SourceForeignKeys")
+ *             # "SourceTables.SourceForeignKeys",
+ *         return QueryRequest(**query)             # <<<<<<<<<<<<<<
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_QueryRequest); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = PyDict_Copy(__pyx_v_query); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
 
   /* "shudaodao_meta/tools/meta_store.py":235
- *             table["referencing_foreign_keys"] = []
- *         #  foreign_keys
- *         for source_table in tables:             # <<<<<<<<<<<<<<
- *             for fk in source_table["foreign_keys"]:
- *                 #  schema
-*/
-  if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_tables)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_tables)) {
-    __pyx_t_1 = __pyx_cur_scope->__pyx_v_tables; __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_3 = 0;
-    __pyx_t_4 = NULL;
-  } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_tables); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 235, __pyx_L1_error)
-  }
-  for (;;) {
-    if (likely(!__pyx_t_4)) {
-      if (likely(PyList_CheckExact(__pyx_t_1))) {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_1);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 235, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_1, __pyx_t_3);
-        ++__pyx_t_3;
-      } else {
-        {
-          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_1);
-          #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 235, __pyx_L1_error)
-          #endif
-          if (__pyx_t_3 >= __pyx_temp) break;
-        }
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3));
-        #else
-        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_1, __pyx_t_3);
-        #endif
-        ++__pyx_t_3;
-      }
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 235, __pyx_L1_error)
-    } else {
-      __pyx_t_2 = __pyx_t_4(__pyx_t_1);
-      if (unlikely(!__pyx_t_2)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 235, __pyx_L1_error)
-          PyErr_Clear();
-        }
-        break;
-      }
-    }
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_source_table);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_source_table, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_2);
-    __pyx_t_2 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":236
- *         #  foreign_keys
- *         for source_table in tables:
- *             for fk in source_table["foreign_keys"]:             # <<<<<<<<<<<<<<
- *                 #  schema
- *                 # referred_schema = fk.referred_schema
-*/
-    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_source_table, __pyx_mstate_global->__pyx_n_u_foreign_keys_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
-      __pyx_t_5 = __pyx_t_2; __Pyx_INCREF(__pyx_t_5);
-      __pyx_t_6 = 0;
-      __pyx_t_7 = NULL;
-    } else {
-      __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 236, __pyx_L1_error)
-    }
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    for (;;) {
-      if (likely(!__pyx_t_7)) {
-        if (likely(PyList_CheckExact(__pyx_t_5))) {
-          {
-            Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_5);
-            #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 236, __pyx_L1_error)
-            #endif
-            if (__pyx_t_6 >= __pyx_temp) break;
-          }
-          __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_5, __pyx_t_6);
-          ++__pyx_t_6;
-        } else {
-          {
-            Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_5);
-            #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 236, __pyx_L1_error)
-            #endif
-            if (__pyx_t_6 >= __pyx_temp) break;
-          }
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6));
-          #else
-          __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_5, __pyx_t_6);
-          #endif
-          ++__pyx_t_6;
-        }
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
-      } else {
-        __pyx_t_2 = __pyx_t_7(__pyx_t_5);
-        if (unlikely(!__pyx_t_2)) {
-          PyObject* exc_type = PyErr_Occurred();
-          if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 236, __pyx_L1_error)
-            PyErr_Clear();
-          }
-          break;
-        }
-      }
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_fk);
-      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_fk, __pyx_t_2);
-      __Pyx_GIVEREF(__pyx_t_2);
-      __pyx_t_2 = 0;
-
-      /* "shudaodao_meta/tools/meta_store.py":240
- *                 # referred_schema = fk.referred_schema
- *                 # if referred_schema == self._schema_name or referred_schema is None:
- *                 target_table = table_map.get(fk.referred_table)             # <<<<<<<<<<<<<<
- *                 if target_table:
- *                     create_model = {
-*/
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_referred_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_8 = __Pyx_PyDict_GetItemDefault(__pyx_cur_scope->__pyx_v_table_map, __pyx_t_2, Py_None); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 240, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_target_table);
-      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_target_table, __pyx_t_8);
-      __Pyx_GIVEREF(__pyx_t_8);
-      __pyx_t_8 = 0;
-
-      /* "shudaodao_meta/tools/meta_store.py":241
- *                 # if referred_schema == self._schema_name or referred_schema is None:
- *                 target_table = table_map.get(fk.referred_table)
- *                 if target_table:             # <<<<<<<<<<<<<<
- *                     create_model = {
- *                         "meta_foreign_key_id": fk.meta_foreign_key_id,
-*/
-      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_target_table); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 241, __pyx_L1_error)
-      if (__pyx_t_9) {
-
-        /* "shudaodao_meta/tools/meta_store.py":243
- *                 if target_table:
- *                     create_model = {
- *                         "meta_foreign_key_id": fk.meta_foreign_key_id,             # <<<<<<<<<<<<<<
- *                         "meta_table_id": source_table["meta_table_id"],
- *                         "name": fk.name,
-*/
-        __pyx_t_8 = __Pyx_PyDict_NewPresized(10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_meta_foreign_key_id); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_meta_foreign_key_id, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":244
- *                     create_model = {
- *                         "meta_foreign_key_id": fk.meta_foreign_key_id,
- *                         "meta_table_id": source_table["meta_table_id"],             # <<<<<<<<<<<<<<
- *                         "name": fk.name,
- *                         "constrained_schema": fk.referred_schema,
-*/
-        __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_source_table, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_meta_table_id, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":245
- *                         "meta_foreign_key_id": fk.meta_foreign_key_id,
- *                         "meta_table_id": source_table["meta_table_id"],
- *                         "name": fk.name,             # <<<<<<<<<<<<<<
- *                         "constrained_schema": fk.referred_schema,
- *                         "constrained_table": fk.referred_table,
-*/
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_name, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":246
- *                         "meta_table_id": source_table["meta_table_id"],
- *                         "name": fk.name,
- *                         "constrained_schema": fk.referred_schema,             # <<<<<<<<<<<<<<
- *                         "constrained_table": fk.referred_table,
- *                         "constrained_columns": fk.referred_columns,
-*/
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_referred_schema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_constrained_schema, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":247
- *                         "name": fk.name,
- *                         "constrained_schema": fk.referred_schema,
- *                         "constrained_table": fk.referred_table,             # <<<<<<<<<<<<<<
- *                         "constrained_columns": fk.referred_columns,
- *                         "referred_schema": self._schema_name,
-*/
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_referred_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_constrained_table, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":248
- *                         "constrained_schema": fk.referred_schema,
- *                         "constrained_table": fk.referred_table,
- *                         "constrained_columns": fk.referred_columns,             # <<<<<<<<<<<<<<
- *                         "referred_schema": self._schema_name,
- *                         "referred_table": source_table["table_name"],
-*/
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_referred_columns); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_constrained_columns, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":249
- *                         "constrained_table": fk.referred_table,
- *                         "constrained_columns": fk.referred_columns,
- *                         "referred_schema": self._schema_name,             # <<<<<<<<<<<<<<
- *                         "referred_table": source_table["table_name"],
- *                         "referred_columns": fk.constrained_columns,
-*/
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_referred_schema, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":250
- *                         "constrained_columns": fk.referred_columns,
- *                         "referred_schema": self._schema_name,
- *                         "referred_table": source_table["table_name"],             # <<<<<<<<<<<<<<
- *                         "referred_columns": fk.constrained_columns,
- *                         "options": fk.options
-*/
-        __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_source_table, __pyx_mstate_global->__pyx_n_u_table_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_referred_table, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":251
- *                         "referred_schema": self._schema_name,
- *                         "referred_table": source_table["table_name"],
- *                         "referred_columns": fk.constrained_columns,             # <<<<<<<<<<<<<<
- *                         "options": fk.options
- *                     }
-*/
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_constrained_columns); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_referred_columns, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":252
- *                         "referred_table": source_table["table_name"],
- *                         "referred_columns": fk.constrained_columns,
- *                         "options": fk.options             # <<<<<<<<<<<<<<
- *                     }
- *                     target_table["referencing_foreign_keys"].append(
-*/
-        __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_fk, __pyx_mstate_global->__pyx_n_u_options); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_options, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_create_model);
-        __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_create_model, ((PyObject*)__pyx_t_8));
-        __Pyx_GIVEREF(__pyx_t_8);
-        __pyx_t_8 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":254
- *                         "options": fk.options
- *                     }
- *                     target_table["referencing_foreign_keys"].append(             # <<<<<<<<<<<<<<
- *                         await self._metamodel_create_or_update(
- *                             MetaReferencingForeignKey, create_model, [
-*/
-        __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_target_table, __pyx_mstate_global->__pyx_n_u_referencing_foreign_keys); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 254, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_8);
-
-        /* "shudaodao_meta/tools/meta_store.py":255
- *                     }
- *                     target_table["referencing_foreign_keys"].append(
- *                         await self._metamodel_create_or_update(             # <<<<<<<<<<<<<<
- *                             MetaReferencingForeignKey, create_model, [
- *                                 MetaReferencingForeignKey.meta_table_id == create_model["meta_table_id"],
-*/
-        __pyx_t_10 = __pyx_cur_scope->__pyx_v_self;
-        __Pyx_INCREF(__pyx_t_10);
-
-        /* "shudaodao_meta/tools/meta_store.py":256
- *                     target_table["referencing_foreign_keys"].append(
- *                         await self._metamodel_create_or_update(
- *                             MetaReferencingForeignKey, create_model, [             # <<<<<<<<<<<<<<
- *                                 MetaReferencingForeignKey.meta_table_id == create_model["meta_table_id"],
- *                                 MetaReferencingForeignKey.constrained_columns == create_model[
-*/
-        __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_MetaReferencingForeignKey); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 256, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_11);
-
-        /* "shudaodao_meta/tools/meta_store.py":257
- *                         await self._metamodel_create_or_update(
- *                             MetaReferencingForeignKey, create_model, [
- *                                 MetaReferencingForeignKey.meta_table_id == create_model["meta_table_id"],             # <<<<<<<<<<<<<<
- *                                 MetaReferencingForeignKey.constrained_columns == create_model[
- *                                     "constrained_columns"],
-*/
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_MetaReferencingForeignKey); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 257, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 257, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_13);
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        __pyx_t_12 = __Pyx_PyDict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_meta_table_id); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 257, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_14 = PyObject_RichCompare(__pyx_t_13, __pyx_t_12, Py_EQ); __Pyx_XGOTREF(__pyx_t_14); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 257, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":258
- *                             MetaReferencingForeignKey, create_model, [
- *                                 MetaReferencingForeignKey.meta_table_id == create_model["meta_table_id"],
- *                                 MetaReferencingForeignKey.constrained_columns == create_model[             # <<<<<<<<<<<<<<
- *                                     "constrained_columns"],
- *                             ]
-*/
-        __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_MetaReferencingForeignKey); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 258, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_constrained_columns); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 258, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_13);
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        __pyx_t_12 = __Pyx_PyDict_GetItem(__pyx_cur_scope->__pyx_v_create_model, __pyx_mstate_global->__pyx_n_u_constrained_columns); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 258, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_15 = PyObject_RichCompare(__pyx_t_13, __pyx_t_12, Py_EQ); __Pyx_XGOTREF(__pyx_t_15); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 258, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-        __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":256
- *                     target_table["referencing_foreign_keys"].append(
- *                         await self._metamodel_create_or_update(
- *                             MetaReferencingForeignKey, create_model, [             # <<<<<<<<<<<<<<
- *                                 MetaReferencingForeignKey.meta_table_id == create_model["meta_table_id"],
- *                                 MetaReferencingForeignKey.constrained_columns == create_model[
-*/
-        __pyx_t_12 = PyList_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 256, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_12);
-        __Pyx_GIVEREF(__pyx_t_14);
-        if (__Pyx_PyList_SET_ITEM(__pyx_t_12, 0, __pyx_t_14) != (0)) __PYX_ERR(0, 256, __pyx_L1_error);
-        __Pyx_GIVEREF(__pyx_t_15);
-        if (__Pyx_PyList_SET_ITEM(__pyx_t_12, 1, __pyx_t_15) != (0)) __PYX_ERR(0, 256, __pyx_L1_error);
-        __pyx_t_14 = 0;
-        __pyx_t_15 = 0;
-        __pyx_t_16 = 0;
-        {
-          PyObject *__pyx_callargs[4] = {__pyx_t_10, __pyx_t_11, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_12};
-          __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_callargs+__pyx_t_16, (4-__pyx_t_16) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-          __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-          __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-          __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-        }
-        __pyx_t_17 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_2, &__pyx_r);
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (likely(__pyx_t_17 == PYGEN_NEXT)) {
-          __Pyx_GOTREF(__pyx_r);
-          __Pyx_XGIVEREF(__pyx_t_1);
-          __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
-          __pyx_cur_scope->__pyx_t_1 = __pyx_t_3;
-          __pyx_cur_scope->__pyx_t_2 = __pyx_t_4;
-          __Pyx_XGIVEREF(__pyx_t_5);
-          __pyx_cur_scope->__pyx_t_3 = __pyx_t_5;
-          __pyx_cur_scope->__pyx_t_4 = __pyx_t_6;
-          __pyx_cur_scope->__pyx_t_5 = __pyx_t_7;
-          __Pyx_XGIVEREF(__pyx_t_8);
-          __pyx_cur_scope->__pyx_t_6 = __pyx_t_8;
-          __Pyx_XGIVEREF(__pyx_r);
-          __Pyx_RefNannyFinishContext();
-          __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-          /* return from generator, awaiting value */
-          __pyx_generator->resume_label = 1;
-          return __pyx_r;
-          __pyx_L15_resume_from_await:;
-          __pyx_t_1 = __pyx_cur_scope->__pyx_t_0;
-          __pyx_cur_scope->__pyx_t_0 = 0;
-          __Pyx_XGOTREF(__pyx_t_1);
-          __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
-          __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-          __pyx_t_5 = __pyx_cur_scope->__pyx_t_3;
-          __pyx_cur_scope->__pyx_t_3 = 0;
-          __Pyx_XGOTREF(__pyx_t_5);
-          __pyx_t_6 = __pyx_cur_scope->__pyx_t_4;
-          __pyx_t_7 = __pyx_cur_scope->__pyx_t_5;
-          __pyx_t_8 = __pyx_cur_scope->__pyx_t_6;
-          __pyx_cur_scope->__pyx_t_6 = 0;
-          __Pyx_XGOTREF(__pyx_t_8);
-          if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 255, __pyx_L1_error)
-          __pyx_t_2 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_2);
-        } else if (likely(__pyx_t_17 == PYGEN_RETURN)) {
-          __Pyx_GOTREF(__pyx_r);
-          __pyx_t_2 = __pyx_r; __pyx_r = NULL;
-        } else {
-          __Pyx_XGOTREF(__pyx_r);
-          __PYX_ERR(0, 255, __pyx_L1_error)
-        }
-
-        /* "shudaodao_meta/tools/meta_store.py":254
- *                         "options": fk.options
- *                     }
- *                     target_table["referencing_foreign_keys"].append(             # <<<<<<<<<<<<<<
- *                         await self._metamodel_create_or_update(
- *                             MetaReferencingForeignKey, create_model, [
-*/
-        __pyx_t_18 = __Pyx_PyObject_Append(__pyx_t_8, __pyx_t_2); if (unlikely(__pyx_t_18 == ((int)-1))) __PYX_ERR(0, 254, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "shudaodao_meta/tools/meta_store.py":241
- *                 # if referred_schema == self._schema_name or referred_schema is None:
- *                 target_table = table_map.get(fk.referred_table)
- *                 if target_table:             # <<<<<<<<<<<<<<
- *                     create_model = {
- *                         "meta_foreign_key_id": fk.meta_foreign_key_id,
-*/
-      }
-
-      /* "shudaodao_meta/tools/meta_store.py":236
- *         #  foreign_keys
- *         for source_table in tables:
- *             for fk in source_table["foreign_keys"]:             # <<<<<<<<<<<<<<
- *                 #  schema
- *                 # referred_schema = fk.referred_schema
-*/
-    }
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-    /* "shudaodao_meta/tools/meta_store.py":235
- *             table["referencing_foreign_keys"] = []
- *         #  foreign_keys
- *         for source_table in tables:             # <<<<<<<<<<<<<<
- *             for fk in source_table["foreign_keys"]:
- *                 #  schema
-*/
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
-
-  /* "shudaodao_meta/tools/meta_store.py":227
- *             )
+ *         return source_schema, meta_schema
  * 
- *     async def _save_meta_referencing_foreign_keys(self, tables):             # <<<<<<<<<<<<<<
- *         #
- *         table_map = {table["table_name"]: table for table in tables}
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def _get_schema_query_request(
+ *             schema_name, prefix: str, type_name: Literal["Table", "View"], expanded: bool = False,
 */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_XDECREF(__pyx_t_13);
-  __Pyx_XDECREF(__pyx_t_14);
-  __Pyx_XDECREF(__pyx_t_15);
-  if (__Pyx_PyErr_Occurred()) {
-    __Pyx_Generator_Replace_StopIteration(0);
-    __Pyx_AddTraceback("_save_meta_referencing_foreign_keys", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  }
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("shudaodao_meta.tools.meta_store.MetaStore._get_schema_query_request", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_query);
   __Pyx_XGIVEREF(__pyx_r);
-  #if !CYTHON_USE_EXC_INFO_STACK
-  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-  #endif
-  __pyx_generator->resume_label = -1;
-  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 /* #### Code section: module_exttypes ### */
 
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -10075,24 +9764,22 @@ static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_s
   return o;
 }
 
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *)o;
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
   #endif
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_db);
-  Py_CLEAR(p->__pyx_v_engine_name);
-  Py_CLEAR(p->__pyx_v_metadata);
   Py_CLEAR(p->__pyx_v_schema_name);
   Py_CLEAR(p->__pyx_v_self);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *)o);
   } else
   #endif
   {
@@ -10107,9 +9794,9 @@ static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   }
 }
 
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta *)o;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -10117,36 +9804,33 @@ static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   if (p->__pyx_v_db) {
     e = (*v)(p->__pyx_v_db, a); if (e) return e;
   }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
   if (p->__pyx_v_self) {
     e = (*v)(p->__pyx_v_self, a); if (e) return e;
   }
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta},
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel},
   {0, 0},
 };
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct__save_meta",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta),
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct__save_sqlmodel",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta_slots,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta = {
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel = {
   PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct__save_meta", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta), /*tp_basicsize*/
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct__save_sqlmodel", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta, /*tp_dealloc*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -10168,7 +9852,7 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta, /*tp_traverse*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -10186,7 +9870,7 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta, /*tp_new*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -10219,16 +9903,16 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
 };
 #endif
 
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -10241,11 +9925,11 @@ static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_s
   return o;
 }
 
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *)o;
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -10254,12 +9938,12 @@ static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   Py_CLEAR(p->__pyx_v_condition);
   Py_CLEAR(p->__pyx_v_data_model);
   Py_CLEAR(p->__pyx_v_first_field_value);
-  Py_CLEAR(p->__pyx_v_meta_model);
   Py_CLEAR(p->__pyx_v_model_class);
   Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_source_model);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *)o);
   } else
   #endif
   {
@@ -10274,9 +9958,9 @@ static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   }
 }
 
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update *)o;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -10290,39 +9974,39 @@ static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   if (p->__pyx_v_first_field_value) {
     e = (*v)(p->__pyx_v_first_field_value, a); if (e) return e;
   }
-  if (p->__pyx_v_meta_model) {
-    e = (*v)(p->__pyx_v_meta_model, a); if (e) return e;
-  }
   if (p->__pyx_v_model_class) {
     e = (*v)(p->__pyx_v_model_class, a); if (e) return e;
   }
   if (p->__pyx_v_self) {
     e = (*v)(p->__pyx_v_self, a); if (e) return e;
   }
+  if (p->__pyx_v_source_model) {
+    e = (*v)(p->__pyx_v_source_model, a); if (e) return e;
+  }
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update},
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update},
   {0, 0},
 };
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_1__metamodel_create_or_update",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update),
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_1__meta_create_or_update",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update_slots,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update = {
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update = {
   PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_1__metamodel_create_or_update", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update), /*tp_basicsize*/
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_1__meta_create_or_update", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update, /*tp_dealloc*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -10344,7 +10028,7 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update, /*tp_traverse*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -10362,7 +10046,7 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update, /*tp_new*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -10395,16 +10079,16 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
 };
 #endif
 
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -10417,23 +10101,21 @@ static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_s
   return o;
 }
 
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *)o;
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
   #endif
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_meta_model);
-  Py_CLEAR(p->__pyx_v_metadata);
   Py_CLEAR(p->__pyx_v_self);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *)o);
   } else
   #endif
   {
@@ -10448,9 +10130,9 @@ static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   }
 }
 
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta *)o;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -10458,39 +10140,33 @@ static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   if (p->__pyx_v_create_model) {
     e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
   }
-  if (p->__pyx_v_meta_model) {
-    e = (*v)(p->__pyx_v_meta_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
   if (p->__pyx_v_self) {
     e = (*v)(p->__pyx_v_self, a); if (e) return e;
   }
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta},
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel},
   {0, 0},
 };
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_2__save_meta",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta),
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_2__save_sqlmodel",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta_slots,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta = {
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel = {
   PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_2__save_meta", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta), /*tp_basicsize*/
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_2__save_sqlmodel", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta, /*tp_dealloc*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -10512,7 +10188,7 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta, /*tp_traverse*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -10530,7 +10206,7 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta, /*tp_new*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -10595,14 +10271,25 @@ static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   }
   #endif
   PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_8genexpr2__pyx_v_column);
+  Py_CLEAR(p->__pyx_v_column);
+  Py_CLEAR(p->__pyx_v_column_map);
   Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_meta_model);
-  Py_CLEAR(p->__pyx_v_metadata);
+  Py_CLEAR(p->__pyx_v_curr_model);
+  Py_CLEAR(p->__pyx_v_curr_schema);
+  Py_CLEAR(p->__pyx_v_curr_table);
+  Py_CLEAR(p->__pyx_v_meta_schema);
+  Py_CLEAR(p->__pyx_7genexpr__pyx_v_schema);
+  Py_CLEAR(p->__pyx_v_schema);
+  Py_CLEAR(p->__pyx_v_schema_map);
+  Py_CLEAR(p->__pyx_v_schema_name);
   Py_CLEAR(p->__pyx_v_self);
-  Py_CLEAR(p->__pyx_v_sort_order);
-  Py_CLEAR(p->__pyx_v_table_name);
-  Py_CLEAR(p->__pyx_v_tables);
+  Py_CLEAR(p->__pyx_v_source_schema);
+  Py_CLEAR(p->__pyx_8genexpr1__pyx_v_table);
+  Py_CLEAR(p->__pyx_v_table);
+  Py_CLEAR(p->__pyx_v_table_map);
   Py_CLEAR(p->__pyx_t_0);
+  Py_CLEAR(p->__pyx_t_1);
   #if CYTHON_USE_FREELISTS
   if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables)))) {
     __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables *)o);
@@ -10627,29 +10314,62 @@ static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
   }
+  if (p->__pyx_8genexpr2__pyx_v_column) {
+    e = (*v)(p->__pyx_8genexpr2__pyx_v_column, a); if (e) return e;
+  }
+  if (p->__pyx_v_column) {
+    e = (*v)(p->__pyx_v_column, a); if (e) return e;
+  }
+  if (p->__pyx_v_column_map) {
+    e = (*v)(p->__pyx_v_column_map, a); if (e) return e;
+  }
   if (p->__pyx_v_create_model) {
     e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
   }
-  if (p->__pyx_v_meta_model) {
-    e = (*v)(p->__pyx_v_meta_model, a); if (e) return e;
+  if (p->__pyx_v_curr_model) {
+    e = (*v)(p->__pyx_v_curr_model, a); if (e) return e;
   }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
+  if (p->__pyx_v_curr_schema) {
+    e = (*v)(p->__pyx_v_curr_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_curr_table) {
+    e = (*v)(p->__pyx_v_curr_table, a); if (e) return e;
+  }
+  if (p->__pyx_v_meta_schema) {
+    e = (*v)(p->__pyx_v_meta_schema, a); if (e) return e;
+  }
+  if (p->__pyx_7genexpr__pyx_v_schema) {
+    e = (*v)(p->__pyx_7genexpr__pyx_v_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_schema) {
+    e = (*v)(p->__pyx_v_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_schema_map) {
+    e = (*v)(p->__pyx_v_schema_map, a); if (e) return e;
+  }
+  if (p->__pyx_v_schema_name) {
+    e = (*v)(p->__pyx_v_schema_name, a); if (e) return e;
   }
   if (p->__pyx_v_self) {
     e = (*v)(p->__pyx_v_self, a); if (e) return e;
   }
-  if (p->__pyx_v_sort_order) {
-    e = (*v)(p->__pyx_v_sort_order, a); if (e) return e;
+  if (p->__pyx_v_source_schema) {
+    e = (*v)(p->__pyx_v_source_schema, a); if (e) return e;
   }
-  if (p->__pyx_v_table_name) {
-    e = (*v)(p->__pyx_v_table_name, a); if (e) return e;
+  if (p->__pyx_8genexpr1__pyx_v_table) {
+    e = (*v)(p->__pyx_8genexpr1__pyx_v_table, a); if (e) return e;
   }
-  if (p->__pyx_v_tables) {
-    e = (*v)(p->__pyx_v_tables, a); if (e) return e;
+  if (p->__pyx_v_table) {
+    e = (*v)(p->__pyx_v_table, a); if (e) return e;
+  }
+  if (p->__pyx_v_table_map) {
+    e = (*v)(p->__pyx_v_table_map, a); if (e) return e;
   }
   if (p->__pyx_t_0) {
     e = (*v)(p->__pyx_t_0, a); if (e) return e;
+  }
+  if (p->__pyx_t_1) {
+    e = (*v)(p->__pyx_t_1, a); if (e) return e;
   }
   return 0;
 }
@@ -10747,16 +10467,16 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
 };
 #endif
 
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -10769,1071 +10489,23 @@ static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_s
   return o;
 }
 
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *)o;
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_meta_model);
-  Py_CLEAR(p->__pyx_v_metadata);
+  Py_CLEAR(p->__pyx_v_curr_schema);
   Py_CLEAR(p->__pyx_v_self);
-  Py_CLEAR(p->__pyx_v_sort_order);
-  Py_CLEAR(p->__pyx_v_view_name);
-  Py_CLEAR(p->__pyx_t_0);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_meta_model) {
-    e = (*v)(p->__pyx_v_meta_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
-  if (p->__pyx_v_self) {
-    e = (*v)(p->__pyx_v_self, a); if (e) return e;
-  }
-  if (p->__pyx_v_sort_order) {
-    e = (*v)(p->__pyx_v_sort_order, a); if (e) return e;
-  }
-  if (p->__pyx_v_view_name) {
-    e = (*v)(p->__pyx_v_view_name, a); if (e) return e;
-  }
-  if (p->__pyx_t_0) {
-    e = (*v)(p->__pyx_t_0, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_4__save_meta_views",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_4__save_meta_views", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_condition);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_metadata);
-  Py_CLEAR(p->__pyx_v_self);
-  Py_CLEAR(p->__pyx_v_sort_order);
-  Py_CLEAR(p->__pyx_t_0);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_condition) {
-    e = (*v)(p->__pyx_v_condition, a); if (e) return e;
-  }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
-  if (p->__pyx_v_self) {
-    e = (*v)(p->__pyx_v_self, a); if (e) return e;
-  }
-  if (p->__pyx_v_sort_order) {
-    e = (*v)(p->__pyx_v_sort_order, a); if (e) return e;
-  }
-  if (p->__pyx_t_0) {
-    e = (*v)(p->__pyx_t_0, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_5__save_meta_columns",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_5__save_meta_columns", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_metadata);
-  Py_CLEAR(p->__pyx_v_self);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
-  if (p->__pyx_v_self) {
-    e = (*v)(p->__pyx_v_self, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_6__save_meta_primary_key",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_6__save_meta_primary_key", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_foreign_keys);
-  Py_CLEAR(p->__pyx_v_metadata);
-  Py_CLEAR(p->__pyx_v_self);
-  Py_CLEAR(p->__pyx_v_sort_order);
-  Py_CLEAR(p->__pyx_t_0);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_foreign_keys) {
-    e = (*v)(p->__pyx_v_foreign_keys, a); if (e) return e;
-  }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
-  if (p->__pyx_v_self) {
-    e = (*v)(p->__pyx_v_self, a); if (e) return e;
-  }
-  if (p->__pyx_v_sort_order) {
-    e = (*v)(p->__pyx_v_sort_order, a); if (e) return e;
-  }
-  if (p->__pyx_t_0) {
-    e = (*v)(p->__pyx_t_0, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_7__save_meta_foreign_keys",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_7__save_meta_foreign_keys", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_metadata);
-  Py_CLEAR(p->__pyx_v_self);
-  Py_CLEAR(p->__pyx_v_sort_order);
-  Py_CLEAR(p->__pyx_t_0);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
-  if (p->__pyx_v_self) {
-    e = (*v)(p->__pyx_v_self, a); if (e) return e;
-  }
-  if (p->__pyx_v_sort_order) {
-    e = (*v)(p->__pyx_v_sort_order, a); if (e) return e;
-  }
-  if (p->__pyx_t_0) {
-    e = (*v)(p->__pyx_t_0, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_8__save_meta_unique_constraints",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_8__save_meta_unique_constraints", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_metadata);
-  Py_CLEAR(p->__pyx_v_self);
-  Py_CLEAR(p->__pyx_v_sort_order);
-  Py_CLEAR(p->__pyx_t_0);
-  #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *)o);
-  } else
-  #endif
-  {
-    #if CYTHON_USE_TYPE_SLOTS
-    (*Py_TYPE(o)->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes *)o;
-  {
-    e = __Pyx_call_type_traverse(o, 1, v, a);
-    if (e) return e;
-  }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_metadata) {
-    e = (*v)(p->__pyx_v_metadata, a); if (e) return e;
-  }
-  if (p->__pyx_v_self) {
-    e = (*v)(p->__pyx_v_self, a); if (e) return e;
-  }
-  if (p->__pyx_v_sort_order) {
-    e = (*v)(p->__pyx_v_sort_order, a); if (e) return e;
-  }
-  if (p->__pyx_t_0) {
-    e = (*v)(p->__pyx_t_0, a); if (e) return e;
-  }
-  return 0;
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_9__save_meta_indexes",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_9__save_meta_indexes", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes, /*tp_dealloc*/
-  #if PY_VERSION_HEX < 0x030800b4
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b4
-  0, /*tp_vectorcall_offset*/
-  #endif
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_COMPILING_IN_LIMITED_API
-  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
-  o = alloc_func(t, 0);
-  #else
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys];
-    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  #endif
-  return o;
-}
-
-static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys(PyObject *o) {
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_create_model);
-  Py_CLEAR(p->__pyx_v_fk);
-  Py_CLEAR(p->__pyx_v_self);
-  Py_CLEAR(p->__pyx_v_source_table);
-  Py_CLEAR(p->__pyx_7genexpr__pyx_v_table);
   Py_CLEAR(p->__pyx_v_table);
   Py_CLEAR(p->__pyx_v_table_map);
-  Py_CLEAR(p->__pyx_v_tables);
-  Py_CLEAR(p->__pyx_v_target_table);
-  Py_CLEAR(p->__pyx_t_0);
-  Py_CLEAR(p->__pyx_t_3);
-  Py_CLEAR(p->__pyx_t_6);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys)))) {
-    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *)o);
   } else
   #endif
   {
@@ -11848,27 +10520,18 @@ static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   }
 }
 
-static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys *)o;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
   }
-  if (p->__pyx_v_create_model) {
-    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
-  }
-  if (p->__pyx_v_fk) {
-    e = (*v)(p->__pyx_v_fk, a); if (e) return e;
+  if (p->__pyx_v_curr_schema) {
+    e = (*v)(p->__pyx_v_curr_schema, a); if (e) return e;
   }
   if (p->__pyx_v_self) {
     e = (*v)(p->__pyx_v_self, a); if (e) return e;
-  }
-  if (p->__pyx_v_source_table) {
-    e = (*v)(p->__pyx_v_source_table, a); if (e) return e;
-  }
-  if (p->__pyx_7genexpr__pyx_v_table) {
-    e = (*v)(p->__pyx_7genexpr__pyx_v_table, a); if (e) return e;
   }
   if (p->__pyx_v_table) {
     e = (*v)(p->__pyx_v_table, a); if (e) return e;
@@ -11876,45 +10539,30 @@ static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_st
   if (p->__pyx_v_table_map) {
     e = (*v)(p->__pyx_v_table_map, a); if (e) return e;
   }
-  if (p->__pyx_v_tables) {
-    e = (*v)(p->__pyx_v_tables, a); if (e) return e;
-  }
-  if (p->__pyx_v_target_table) {
-    e = (*v)(p->__pyx_v_target_table, a); if (e) return e;
-  }
-  if (p->__pyx_t_0) {
-    e = (*v)(p->__pyx_t_0, a); if (e) return e;
-  }
-  if (p->__pyx_t_3) {
-    e = (*v)(p->__pyx_t_3, a); if (e) return e;
-  }
-  if (p->__pyx_t_6) {
-    e = (*v)(p->__pyx_t_6, a); if (e) return e;
-  }
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys},
-  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys},
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table},
   {0, 0},
 };
-static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys_spec = {
-  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_10__save_meta_referencing_foreign_keys",
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys),
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_4__save_meta_table",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys_slots,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys = {
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table = {
   PyVarObject_HEAD_INIT(0, 0)
-  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_10__save_meta_referencing_foreign_keys", /*tp_name*/
-  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys), /*tp_basicsize*/
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_4__save_meta_table", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys, /*tp_dealloc*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -11936,7 +10584,7 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys, /*tp_traverse*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -11954,7 +10602,788 @@ static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys, /*tp_new*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_8genexpr5__pyx_v_column);
+  Py_CLEAR(p->__pyx_v_column);
+  Py_CLEAR(p->__pyx_v_column_map);
+  Py_CLEAR(p->__pyx_v_create_model);
+  Py_CLEAR(p->__pyx_v_curr_model);
+  Py_CLEAR(p->__pyx_v_curr_schema);
+  Py_CLEAR(p->__pyx_v_curr_view);
+  Py_CLEAR(p->__pyx_v_meta_schema);
+  Py_CLEAR(p->__pyx_8genexpr3__pyx_v_schema);
+  Py_CLEAR(p->__pyx_v_schema);
+  Py_CLEAR(p->__pyx_v_schema_map);
+  Py_CLEAR(p->__pyx_v_schema_name);
+  Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_source_schema);
+  Py_CLEAR(p->__pyx_8genexpr4__pyx_v_view);
+  Py_CLEAR(p->__pyx_v_view);
+  Py_CLEAR(p->__pyx_v_view_map);
+  Py_CLEAR(p->__pyx_t_0);
+  Py_CLEAR(p->__pyx_t_1);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_8genexpr5__pyx_v_column) {
+    e = (*v)(p->__pyx_8genexpr5__pyx_v_column, a); if (e) return e;
+  }
+  if (p->__pyx_v_column) {
+    e = (*v)(p->__pyx_v_column, a); if (e) return e;
+  }
+  if (p->__pyx_v_column_map) {
+    e = (*v)(p->__pyx_v_column_map, a); if (e) return e;
+  }
+  if (p->__pyx_v_create_model) {
+    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
+  }
+  if (p->__pyx_v_curr_model) {
+    e = (*v)(p->__pyx_v_curr_model, a); if (e) return e;
+  }
+  if (p->__pyx_v_curr_schema) {
+    e = (*v)(p->__pyx_v_curr_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_curr_view) {
+    e = (*v)(p->__pyx_v_curr_view, a); if (e) return e;
+  }
+  if (p->__pyx_v_meta_schema) {
+    e = (*v)(p->__pyx_v_meta_schema, a); if (e) return e;
+  }
+  if (p->__pyx_8genexpr3__pyx_v_schema) {
+    e = (*v)(p->__pyx_8genexpr3__pyx_v_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_schema) {
+    e = (*v)(p->__pyx_v_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_schema_map) {
+    e = (*v)(p->__pyx_v_schema_map, a); if (e) return e;
+  }
+  if (p->__pyx_v_schema_name) {
+    e = (*v)(p->__pyx_v_schema_name, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  if (p->__pyx_v_source_schema) {
+    e = (*v)(p->__pyx_v_source_schema, a); if (e) return e;
+  }
+  if (p->__pyx_8genexpr4__pyx_v_view) {
+    e = (*v)(p->__pyx_8genexpr4__pyx_v_view, a); if (e) return e;
+  }
+  if (p->__pyx_v_view) {
+    e = (*v)(p->__pyx_v_view, a); if (e) return e;
+  }
+  if (p->__pyx_v_view_map) {
+    e = (*v)(p->__pyx_v_view_map, a); if (e) return e;
+  }
+  if (p->__pyx_t_0) {
+    e = (*v)(p->__pyx_t_0, a); if (e) return e;
+  }
+  if (p->__pyx_t_1) {
+    e = (*v)(p->__pyx_t_1, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_5__save_meta_views",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_5__save_meta_views", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_curr_schema);
+  Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_view);
+  Py_CLEAR(p->__pyx_v_view_map);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_curr_schema) {
+    e = (*v)(p->__pyx_v_curr_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  if (p->__pyx_v_view) {
+    e = (*v)(p->__pyx_v_view, a); if (e) return e;
+  }
+  if (p->__pyx_v_view_map) {
+    e = (*v)(p->__pyx_v_view_map, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_6__save_meta_view",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_6__save_meta_view", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_create_data);
+  Py_CLEAR(p->__pyx_v_create_model);
+  Py_CLEAR(p->__pyx_v_create_model_class);
+  Py_CLEAR(p->__pyx_v_curr_entity);
+  Py_CLEAR(p->__pyx_v_curr_model);
+  Py_CLEAR(p->__pyx_v_curr_schema);
+  Py_CLEAR(p->__pyx_v_entity);
+  Py_CLEAR(p->__pyx_v_entity_map);
+  Py_CLEAR(p->__pyx_v_entity_name);
+  Py_CLEAR(p->__pyx_v_id_attr);
+  Py_CLEAR(p->__pyx_v_model_class);
+  Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_update_model);
+  Py_CLEAR(p->__pyx_v_update_model_class);
+  Py_CLEAR(p->__pyx_v_validated_update);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_create_data) {
+    e = (*v)(p->__pyx_v_create_data, a); if (e) return e;
+  }
+  if (p->__pyx_v_create_model) {
+    e = (*v)(p->__pyx_v_create_model, a); if (e) return e;
+  }
+  if (p->__pyx_v_create_model_class) {
+    e = (*v)(p->__pyx_v_create_model_class, a); if (e) return e;
+  }
+  if (p->__pyx_v_curr_entity) {
+    e = (*v)(p->__pyx_v_curr_entity, a); if (e) return e;
+  }
+  if (p->__pyx_v_curr_model) {
+    e = (*v)(p->__pyx_v_curr_model, a); if (e) return e;
+  }
+  if (p->__pyx_v_curr_schema) {
+    e = (*v)(p->__pyx_v_curr_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_entity) {
+    e = (*v)(p->__pyx_v_entity, a); if (e) return e;
+  }
+  if (p->__pyx_v_entity_map) {
+    e = (*v)(p->__pyx_v_entity_map, a); if (e) return e;
+  }
+  if (p->__pyx_v_entity_name) {
+    e = (*v)(p->__pyx_v_entity_name, a); if (e) return e;
+  }
+  if (p->__pyx_v_model_class) {
+    e = (*v)(p->__pyx_v_model_class, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  if (p->__pyx_v_update_model) {
+    e = (*v)(p->__pyx_v_update_model, a); if (e) return e;
+  }
+  if (p->__pyx_v_update_model_class) {
+    e = (*v)(p->__pyx_v_update_model_class, a); if (e) return e;
+  }
+  if (p->__pyx_v_validated_update) {
+    e = (*v)(p->__pyx_v_validated_update, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_7__save_meta_entity",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_7__save_meta_entity", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema[--__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema];
+    memset(o, 0, sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema(PyObject *o) {
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_meta_schema);
+  Py_CLEAR(p->__pyx_v_query_request);
+  Py_CLEAR(p->__pyx_v_schema_name);
+  Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_source_schema);
+  Py_CLEAR(p->__pyx_v_type_name);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema)))) {
+    __pyx_mstate_global->__pyx_freelist_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema[__pyx_mstate_global->__pyx_freecount_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema++] = ((struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *p = (struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_meta_schema) {
+    e = (*v)(p->__pyx_v_meta_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_query_request) {
+    e = (*v)(p->__pyx_v_query_request, a); if (e) return e;
+  }
+  if (p->__pyx_v_schema_name) {
+    e = (*v)(p->__pyx_v_schema_name, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  if (p->__pyx_v_source_schema) {
+    e = (*v)(p->__pyx_v_source_schema, a); if (e) return e;
+  }
+  if (p->__pyx_v_type_name) {
+    e = (*v)(p->__pyx_v_type_name, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema},
+  {Py_tp_new, (void *)__pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema_spec = {
+  "shudaodao_meta.tools.meta_store.__pyx_scope_struct_8__get_schema",
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "shudaodao_meta.tools.meta_store.""__pyx_scope_struct_8__get_schema", /*tp_name*/
+  sizeof(struct __pyx_obj_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -12041,63 +11470,63 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta)) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel)) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_meta->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct__save_sqlmodel->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update)) __PYX_ERR(0, 63, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update)) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__metamodel_create_or_update->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_1__meta_create_or_update->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta)) __PYX_ERR(0, 80, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel)) __PYX_ERR(0, 57, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_meta->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_2__save_sqlmodel->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables)) __PYX_ERR(0, 95, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables)) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_3__save_meta_tables->tp_getattro == PyObject_GenericGetAttr)) {
@@ -12105,115 +11534,83 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views)) __PYX_ERR(0, 136, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table)) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_views->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_4__save_meta_table->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns)) __PYX_ERR(0, 156, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views)) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_columns->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_5__save_meta_views->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key)) __PYX_ERR(0, 176, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view)) __PYX_ERR(0, 159, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_primary_key->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_6__save_meta_view->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys)) __PYX_ERR(0, 186, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity)) __PYX_ERR(0, 171, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_foreign_keys->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_7__save_meta_entity->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints)) __PYX_ERR(0, 201, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints) < 0) __PYX_ERR(0, 201, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema)) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints;
+  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints) < 0) __PYX_ERR(0, 201, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__save_meta_unique_constraints->tp_getattro = PyObject_GenericGetAttr;
-  }
-  #endif
-  #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes)) __PYX_ERR(0, 214, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes;
-  #endif
-  #if !CYTHON_COMPILING_IN_LIMITED_API
-  #endif
-  #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  #endif
-  #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_9__save_meta_indexes->tp_getattro = PyObject_GenericGetAttr;
-  }
-  #endif
-  #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys)) __PYX_ERR(0, 227, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys_spec, __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys) < 0) __PYX_ERR(0, 227, __pyx_L1_error)
-  #else
-  __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys = &__pyx_type_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys;
-  #endif
-  #if !CYTHON_COMPILING_IN_LIMITED_API
-  #endif
-  #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys) < 0) __PYX_ERR(0, 227, __pyx_L1_error)
-  #endif
-  #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_10__save_meta_referencing_foreign_keys->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema->tp_dictoffset && __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_14shudaodao_meta_5tools_10meta_store___pyx_scope_struct_8__get_schema->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   __Pyx_RefNannyFinishContext();
@@ -12429,6 +11826,9 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_meta_store(PyObject *__pyx_pyinit_
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  size_t __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -12538,478 +11938,412 @@ __Pyx_RefNannySetupContext("PyInit_meta_store", 0);
   /* "shudaodao_meta/tools/meta_store.py":9
  * # @Desc
  * 
- * from shudaodao_core import AsyncSession, DataService, QueryService, logging             # <<<<<<<<<<<<<<
- * from .gen_convert import GenConverter
- * from .meta_inspect import MetaInspect
-*/
-  __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_AsyncSession, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_mstate_global->__pyx_n_u_QueryService, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AsyncSession); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AsyncSession, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_QueryService, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":10
+ * from typing import Literal             # <<<<<<<<<<<<<<
  * 
  * from shudaodao_core import AsyncSession, DataService, QueryService, logging
- * from .gen_convert import GenConverter             # <<<<<<<<<<<<<<
- * from .meta_inspect import MetaInspect
- * from shudaodao_meta.generate.entity_table.meta_column import MetaColumn
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_GenConverter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_gen_convert, __pyx_t_3, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_Literal); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_GenConverter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_typing, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_GenConverter, __pyx_t_3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_Literal); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_Literal, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":11
- * from shudaodao_core import AsyncSession, DataService, QueryService, logging
- * from .gen_convert import GenConverter
- * from .meta_inspect import MetaInspect             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_column import MetaColumn
- * from shudaodao_meta.generate.entity_table.meta_foreign_key import MetaForeignKey
+ * from typing import Literal
+ * 
+ * from shudaodao_core import AsyncSession, DataService, QueryService, logging             # <<<<<<<<<<<<<<
+ * from shudaodao_core.schemas.query_request import QueryRequest
+ * from shudaodao_meta.generate.entity_table.meta_column import MetaColumnCreate, MetaColumn
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaInspect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_meta_inspect, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_AsyncSession, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_mstate_global->__pyx_n_u_QueryService, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaInspect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaInspect, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AsyncSession); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AsyncSession, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DataService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_QueryService); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_QueryService, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":12
- * from .gen_convert import GenConverter
- * from .meta_inspect import MetaInspect
- * from shudaodao_meta.generate.entity_table.meta_column import MetaColumn             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_foreign_key import MetaForeignKey
- * from shudaodao_meta.generate.entity_table.meta_index import MetaIndex
+ * 
+ * from shudaodao_core import AsyncSession, DataService, QueryService, logging
+ * from shudaodao_core.schemas.query_request import QueryRequest             # <<<<<<<<<<<<<<
+ * from shudaodao_meta.generate.entity_table.meta_column import MetaColumnCreate, MetaColumn
+ * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_QueryRequest); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core_schemas_query_req, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaColumn, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_QueryRequest); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_QueryRequest, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":13
- * from .meta_inspect import MetaInspect
- * from shudaodao_meta.generate.entity_table.meta_column import MetaColumn
- * from shudaodao_meta.generate.entity_table.meta_foreign_key import MetaForeignKey             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_index import MetaIndex
- * from shudaodao_meta.generate.entity_table.meta_primary_key import MetaPrimaryKey
+ * from shudaodao_core import AsyncSession, DataService, QueryService, logging
+ * from shudaodao_core.schemas.query_request import QueryRequest
+ * from shudaodao_meta.generate.entity_table.meta_column import MetaColumnCreate, MetaColumn             # <<<<<<<<<<<<<<
+ * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
+ * from shudaodao_meta.generate.entity_table.meta_table import MetaTable, MetaTableUpdate, MetaTableCreate
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaForeignKey); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_2, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_MetaColumnCreate, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaForeignKey); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaForeignKey, __pyx_t_2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaColumnCreate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaColumnCreate, __pyx_t_3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaColumn); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaColumn, __pyx_t_3) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":14
- * from shudaodao_meta.generate.entity_table.meta_column import MetaColumn
- * from shudaodao_meta.generate.entity_table.meta_foreign_key import MetaForeignKey
- * from shudaodao_meta.generate.entity_table.meta_index import MetaIndex             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_primary_key import MetaPrimaryKey
- * from shudaodao_meta.generate.entity_table.meta_referencing_foreign_key import MetaReferencingForeignKey
+ * from shudaodao_core.schemas.query_request import QueryRequest
+ * from shudaodao_meta.generate.entity_table.meta_column import MetaColumnCreate, MetaColumn
+ * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema             # <<<<<<<<<<<<<<
+ * from shudaodao_meta.generate.entity_table.meta_table import MetaTable, MetaTableUpdate, MetaTableCreate
+ * from shudaodao_meta.generate.entity_table.meta_view import MetaView, MetaViewCreate, MetaViewUpdate
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaIndex); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_3, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaIndex); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_2, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaIndex, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaSchema, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":15
- * from shudaodao_meta.generate.entity_table.meta_foreign_key import MetaForeignKey
- * from shudaodao_meta.generate.entity_table.meta_index import MetaIndex
- * from shudaodao_meta.generate.entity_table.meta_primary_key import MetaPrimaryKey             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_referencing_foreign_key import MetaReferencingForeignKey
+ * from shudaodao_meta.generate.entity_table.meta_column import MetaColumnCreate, MetaColumn
  * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
+ * from shudaodao_meta.generate.entity_table.meta_table import MetaTable, MetaTableUpdate, MetaTableCreate             # <<<<<<<<<<<<<<
+ * from shudaodao_meta.generate.entity_table.meta_view import MetaView, MetaViewCreate, MetaViewUpdate
+ * from shudaodao_meta.generate.entity_table.source_schema import SourceSchema
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaPrimaryKey); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_4, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(3, __pyx_mstate_global->__pyx_n_u_MetaTable, __pyx_mstate_global->__pyx_n_u_MetaTableUpdate, __pyx_mstate_global->__pyx_n_u_MetaTableCreate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaPrimaryKey); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_3, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaPrimaryKey, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaTable); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaTable, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaTableUpdate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaTableUpdate, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaTableCreate); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaTableCreate, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":16
- * from shudaodao_meta.generate.entity_table.meta_index import MetaIndex
- * from shudaodao_meta.generate.entity_table.meta_primary_key import MetaPrimaryKey
- * from shudaodao_meta.generate.entity_table.meta_referencing_foreign_key import MetaReferencingForeignKey             # <<<<<<<<<<<<<<
  * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
- * from shudaodao_meta.generate.entity_table.meta_table import MetaTable
+ * from shudaodao_meta.generate.entity_table.meta_table import MetaTable, MetaTableUpdate, MetaTableCreate
+ * from shudaodao_meta.generate.entity_table.meta_view import MetaView, MetaViewCreate, MetaViewUpdate             # <<<<<<<<<<<<<<
+ * from shudaodao_meta.generate.entity_table.source_schema import SourceSchema
+ * from .meta_convert import MetaConverter
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaReferencingForeignKey); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_5, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(3, __pyx_mstate_global->__pyx_n_u_MetaView, __pyx_mstate_global->__pyx_n_u_MetaViewCreate, __pyx_mstate_global->__pyx_n_u_MetaViewUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaReferencingForeignKey); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_4, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaReferencingForeignKey, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaView); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaView, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaViewCreate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaViewCreate, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaViewUpdate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaViewUpdate, __pyx_t_2) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":17
- * from shudaodao_meta.generate.entity_table.meta_primary_key import MetaPrimaryKey
- * from shudaodao_meta.generate.entity_table.meta_referencing_foreign_key import MetaReferencingForeignKey
- * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_table import MetaTable
- * from shudaodao_meta.generate.entity_table.meta_unique_constraint import MetaUniqueConstraint
+ * from shudaodao_meta.generate.entity_table.meta_table import MetaTable, MetaTableUpdate, MetaTableCreate
+ * from shudaodao_meta.generate.entity_table.meta_view import MetaView, MetaViewCreate, MetaViewUpdate
+ * from shudaodao_meta.generate.entity_table.source_schema import SourceSchema             # <<<<<<<<<<<<<<
+ * from .meta_convert import MetaConverter
+ * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_6, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_SourceSchema); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_5, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaSchema, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_SourceSchema); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_SourceSchema, __pyx_t_3) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":18
- * from shudaodao_meta.generate.entity_table.meta_referencing_foreign_key import MetaReferencingForeignKey
- * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
- * from shudaodao_meta.generate.entity_table.meta_table import MetaTable             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_unique_constraint import MetaUniqueConstraint
- * from shudaodao_meta.generate.entity_table.meta_view import MetaView
-*/
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaTable); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_7, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaTable); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaTable, __pyx_t_3) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":19
- * from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
- * from shudaodao_meta.generate.entity_table.meta_table import MetaTable
- * from shudaodao_meta.generate.entity_table.meta_unique_constraint import MetaUniqueConstraint             # <<<<<<<<<<<<<<
- * from shudaodao_meta.generate.entity_table.meta_view import MetaView
- * 
-*/
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaUniqueConstraint); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_8, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaUniqueConstraint); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaUniqueConstraint, __pyx_t_2) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":20
- * from shudaodao_meta.generate.entity_table.meta_table import MetaTable
- * from shudaodao_meta.generate.entity_table.meta_unique_constraint import MetaUniqueConstraint
- * from shudaodao_meta.generate.entity_table.meta_view import MetaView             # <<<<<<<<<<<<<<
+ * from shudaodao_meta.generate.entity_table.meta_view import MetaView, MetaViewCreate, MetaViewUpdate
+ * from shudaodao_meta.generate.entity_table.source_schema import SourceSchema
+ * from .meta_convert import MetaConverter             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaView); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_meta_generate_entity_t_9, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaConverter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaView); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_meta_convert, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaView, __pyx_t_3) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaConverter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaConverter, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":23
+  /* "shudaodao_meta/tools/meta_store.py":21
  * 
  * 
  * class MetaStore:             # <<<<<<<<<<<<<<
- *     def __init__(self, *, db: AsyncSession = None, engine_name: str = None, schema_name: str = None):
+ *     def __init__(self, *, db: AsyncSession = None, schema_name: str = None):
  *         self._db: AsyncSession = db
 */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_MetaStore, __pyx_mstate_global->__pyx_n_u_MetaStore, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_MetaStore, __pyx_mstate_global->__pyx_n_u_MetaStore, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
 
-  /* "shudaodao_meta/tools/meta_store.py":24
+  /* "shudaodao_meta/tools/meta_store.py":22
  * 
  * class MetaStore:
- *     def __init__(self, *, db: AsyncSession = None, engine_name: str = None, schema_name: str = None):             # <<<<<<<<<<<<<<
+ *     def __init__(self, *, db: AsyncSession = None, schema_name: str = None):             # <<<<<<<<<<<<<<
  *         self._db: AsyncSession = db
- *         self._engine_name = engine_name
+ *         self._schema_name = schema_name
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db, Py_None) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_engine_name, Py_None) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_schema_name, Py_None) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, Py_None) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema_name, Py_None) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_1__init__, 0, __pyx_mstate_global->__pyx_n_u_MetaStore___init, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[11])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_1__init__, 0, __pyx_mstate_global->__pyx_n_u_MetaStore___init, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_5, __pyx_t_3);
+  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_5, __pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_init, __pyx_t_5) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_init, __pyx_t_5) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":30
+  /* "shudaodao_meta/tools/meta_store.py":27
  *         self.auto_commit = False
  * 
- *     def inspect(self, *, engine_name: str = None, schema_name: str = None) -> dict:             # <<<<<<<<<<<<<<
- *         if engine_name:
- *             self._engine_name = engine_name
+ *     async def save_sqlmodel(             # <<<<<<<<<<<<<<
+ *             self, db: AsyncSession = None, schema_name: str = None
+ *     ):
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_engine_name, Py_None) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_schema_name, Py_None) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_3save_sqlmodel, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore_save_sqlmodel, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_dict) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_3inspect, 0, __pyx_mstate_global->__pyx_n_u_MetaStore_inspect, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_3, __pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_4);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_4, __pyx_mstate_global->__pyx_tuple[0]);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save_sqlmodel, __pyx_t_4) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_inspect, __pyx_t_3) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":42
- *         )
+  /* "shudaodao_meta/tools/meta_store.py":41
+ *             await self._db.flush()
  * 
- *     async def save_meta(             # <<<<<<<<<<<<<<
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
- *     ):
+ *     async def _meta_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
+ *         #
+ *         source_model = await QueryService.query_columns_first(
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-
-  /* "shudaodao_meta/tools/meta_store.py":43
- * 
- *     async def save_meta(
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None             # <<<<<<<<<<<<<<
- *     ):
- *         if engine_name:
-*/
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_metadata, Py_None) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db, Py_None) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_engine_name, Py_None) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_schema_name, Py_None) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-
-  /* "shudaodao_meta/tools/meta_store.py":42
- *         )
- * 
- *     async def save_meta(             # <<<<<<<<<<<<<<
- *             self, *, metadata: dict = None, db: AsyncSession = None, engine_name: str = None, schema_name: str = None
- *     ):
-*/
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_6_meta_create_or_update, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__meta_create_or_update, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_metadata, __pyx_mstate_global->__pyx_n_u_dict) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_engine_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_5save_meta, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore_save_meta, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_meta_create_or_update, __pyx_t_4) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":57
+ *             )
+ * 
+ *     async def _save_sqlmodel(self):             # <<<<<<<<<<<<<<
+ *         logging.debug_line()
+ *         logging.debug(f": {self._schema_name}")
+*/
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_9_save_sqlmodel, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_sqlmodel, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save_sqlmodel_2, __pyx_t_4) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":70
+ *         await self._save_meta_views(self._schema_name)
+ * 
+ *     async def _save_meta_tables(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "Table")
+*/
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_12_save_meta_tables, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_tables, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save_meta_tables, __pyx_t_4) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":112
+ *                         ...
+ * 
+ *     async def _save_meta_table(self, curr_schema, table, table_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
+*/
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_15_save_meta_table, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_table, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 112, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save_meta_table, __pyx_t_4) < 0) __PYX_ERR(0, 112, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":124
+ *         )
+ * 
+ *     async def _save_meta_views(self, schema_name):             # <<<<<<<<<<<<<<
+ *         #  Source  Meta  schema
+ *         source_schema, meta_schema = await self._get_schema(schema_name, "View")
+*/
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_18_save_meta_views, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_views, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save_meta_views, __pyx_t_4) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":159
+ *                         ...
+ * 
+ *     async def _save_meta_view(self, curr_schema, view, view_map):             # <<<<<<<<<<<<<<
+ *         return await self._save_meta_entity(
+ *             curr_schema=curr_schema,
+*/
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_21_save_meta_view, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_view, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save_meta_view, __pyx_t_4) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "shudaodao_meta/tools/meta_store.py":171
+ *         )
+ * 
+ *     async def _save_meta_entity(             # <<<<<<<<<<<<<<
+ *             self,
+ *             curr_schema,
+*/
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_id_attr, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_24_save_meta_entity, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_entity, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_5, __pyx_t_3);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta, __pyx_t_5) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save_meta_entity, __pyx_t_5) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":63
- *         return metadata
+  /* "shudaodao_meta/tools/meta_store.py":220
+ *         return curr_entity, curr_model
  * 
- *     async def _metamodel_create_or_update(self, model_class, data_model, condition):             # <<<<<<<<<<<<<<
- *         #
- *         meta_model = await QueryService.query_columns_first(
+ *     async def _get_schema(self, schema_name, type_name: Literal["Table", "View"]):             # <<<<<<<<<<<<<<
+ *         query_request = self._get_schema_query_request(
+ *             schema_name, "Source", type_name, type_name == "Table"
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_8_metamodel_create_or_update, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__metamodel_create_or_u, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 220, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_metamodel_create_or_update, __pyx_t_5) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_type_name, __pyx_mstate_global->__pyx_kp_u_Literal_Table_View) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_27_get_schema, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__get_schema, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_schema, __pyx_t_4) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":80
- *             )
+  /* "shudaodao_meta/tools/meta_store.py":235
+ *         return source_schema, meta_schema
  * 
- *     async def _save_meta(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.copy()
- *         create_model["sort_order"] = 10
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def _get_schema_query_request(
+ *             schema_name, prefix: str, type_name: Literal["Table", "View"], expanded: bool = False,
 */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_11_save_meta, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_2, __pyx_t_5) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = NULL;
+  __Pyx_INCREF(__pyx_builtin_staticmethod);
+  __pyx_t_2 = __pyx_builtin_staticmethod; 
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_prefix, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 235, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_type_name, __pyx_mstate_global->__pyx_kp_u_Literal_Table_View) < 0) __PYX_ERR(0, 235, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_expanded, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_30_get_schema_query_request, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_MetaStore__get_schema_query_requ, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_7, __pyx_mstate_global->__pyx_tuple[2]);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_6);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_8 = 1;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_7};
+    __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 235, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+  }
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_schema_query_request, __pyx_t_4) < 0) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "shudaodao_meta/tools/meta_store.py":95
- *         await self._save_meta_views(metadata=create_model)
- * 
- *     async def _save_meta_tables(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         tables = []
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_14_save_meta_tables, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_tables, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_tables, __pyx_t_5) < 0) __PYX_ERR(0, 95, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":136
- *         await self._save_meta_referencing_foreign_keys(tables)
- * 
- *     async def _save_meta_views(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["views"]:
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_17_save_meta_views, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_views, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_views, __pyx_t_5) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":156
- *             await self._save_meta_columns(metadata=create_model)
- * 
- *     async def _save_meta_columns(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["columns"]:
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_20_save_meta_columns, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_columns, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_columns, __pyx_t_5) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":176
- *             )
- * 
- *     async def _save_meta_primary_key(self, metadata):             # <<<<<<<<<<<<<<
- *         create_model = metadata.get("primary_key", None)
- *         if create_model is None:
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_23_save_meta_primary_key, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_primary_key, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 176, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_primary_key, __pyx_t_5) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":186
- *         )
- * 
- *     async def _save_meta_foreign_keys(self, metadata):             # <<<<<<<<<<<<<<
- *         foreign_keys = []
- *         sort_order = 0
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_26_save_meta_foreign_keys, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_foreign_key, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_foreign_keys, __pyx_t_5) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":201
- *         return foreign_keys
- * 
- *     async def _save_meta_unique_constraints(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["unique_constraints"]:
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_29_save_meta_unique_constraints, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_unique_cons, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 201, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_unique_constraints, __pyx_t_5) < 0) __PYX_ERR(0, 201, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":214
- *             )
- * 
- *     async def _save_meta_indexes(self, metadata):             # <<<<<<<<<<<<<<
- *         sort_order = 0
- *         for create_model in metadata["indexes"]:
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_32_save_meta_indexes, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_indexes, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 214, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_indexes, __pyx_t_5) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":227
- *             )
- * 
- *     async def _save_meta_referencing_foreign_keys(self, tables):             # <<<<<<<<<<<<<<
- *         #
- *         table_map = {table["table_name"]: table for table in tables}
-*/
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_meta_5tools_10meta_store_9MetaStore_35_save_meta_referencing_foreign_keys, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_MetaStore__save_meta_referencing, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_meta_tools_meta_store, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 227, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_save_meta_referencing_foreign_k, __pyx_t_5) < 0) __PYX_ERR(0, 227, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-
-  /* "shudaodao_meta/tools/meta_store.py":23
+  /* "shudaodao_meta/tools/meta_store.py":21
  * 
  * 
  * class MetaStore:             # <<<<<<<<<<<<<<
- *     def __init__(self, *, db: AsyncSession = None, engine_name: str = None, schema_name: str = None):
+ *     def __init__(self, *, db: AsyncSession = None, schema_name: str = None):
  *         self._db: AsyncSession = db
 */
-  __pyx_t_5 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_MetaStore, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaStore, __pyx_t_5) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_MetaStore, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaStore, __pyx_t_4) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_meta/tools/meta_store.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -13019,6 +12353,8 @@ __Pyx_RefNannySetupContext("PyInit_meta_store", 0);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
   if (__pyx_m) {
     if (__pyx_mstate->__pyx_d && stringtab_initialized) {
       __Pyx_AddTraceback("init shudaodao_meta.tools.meta_store", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -13074,128 +12410,152 @@ static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_AsyncSession, sizeof(__pyx_k_AsyncSession), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncSession */
+  {__pyx_k_Columns, sizeof(__pyx_k_Columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Columns */
   {__pyx_k_DataService, sizeof(__pyx_k_DataService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataService */
-  {__pyx_k_GenConverter, sizeof(__pyx_k_GenConverter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_GenConverter */
+  {__pyx_k_Literal, sizeof(__pyx_k_Literal), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Literal */
+  {__pyx_k_Literal_Table_View, sizeof(__pyx_k_Literal_Table_View), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Literal_Table_View */
+  {__pyx_k_Meta, sizeof(__pyx_k_Meta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Meta */
   {__pyx_k_MetaColumn, sizeof(__pyx_k_MetaColumn), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaColumn */
-  {__pyx_k_MetaForeignKey, sizeof(__pyx_k_MetaForeignKey), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaForeignKey */
-  {__pyx_k_MetaIndex, sizeof(__pyx_k_MetaIndex), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaIndex */
-  {__pyx_k_MetaInspect, sizeof(__pyx_k_MetaInspect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaInspect */
-  {__pyx_k_MetaPrimaryKey, sizeof(__pyx_k_MetaPrimaryKey), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaPrimaryKey */
-  {__pyx_k_MetaReferencingForeignKey, sizeof(__pyx_k_MetaReferencingForeignKey), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaReferencingForeignKey */
+  {__pyx_k_MetaColumnCreate, sizeof(__pyx_k_MetaColumnCreate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaColumnCreate */
+  {__pyx_k_MetaConverter, sizeof(__pyx_k_MetaConverter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaConverter */
   {__pyx_k_MetaSchema, sizeof(__pyx_k_MetaSchema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaSchema */
   {__pyx_k_MetaStore, sizeof(__pyx_k_MetaStore), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore */
   {__pyx_k_MetaStore___init, sizeof(__pyx_k_MetaStore___init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore___init */
-  {__pyx_k_MetaStore__metamodel_create_or_u, sizeof(__pyx_k_MetaStore__metamodel_create_or_u), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__metamodel_create_or_u */
-  {__pyx_k_MetaStore__save_meta, sizeof(__pyx_k_MetaStore__save_meta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta */
-  {__pyx_k_MetaStore__save_meta_columns, sizeof(__pyx_k_MetaStore__save_meta_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_columns */
-  {__pyx_k_MetaStore__save_meta_foreign_key, sizeof(__pyx_k_MetaStore__save_meta_foreign_key), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_foreign_key */
-  {__pyx_k_MetaStore__save_meta_indexes, sizeof(__pyx_k_MetaStore__save_meta_indexes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_indexes */
-  {__pyx_k_MetaStore__save_meta_primary_key, sizeof(__pyx_k_MetaStore__save_meta_primary_key), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_primary_key */
-  {__pyx_k_MetaStore__save_meta_referencing, sizeof(__pyx_k_MetaStore__save_meta_referencing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_referencing */
+  {__pyx_k_MetaStore__get_schema, sizeof(__pyx_k_MetaStore__get_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__get_schema */
+  {__pyx_k_MetaStore__get_schema_query_requ, sizeof(__pyx_k_MetaStore__get_schema_query_requ), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__get_schema_query_requ */
+  {__pyx_k_MetaStore__meta_create_or_update, sizeof(__pyx_k_MetaStore__meta_create_or_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__meta_create_or_update */
+  {__pyx_k_MetaStore__save_meta_entity, sizeof(__pyx_k_MetaStore__save_meta_entity), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_entity */
+  {__pyx_k_MetaStore__save_meta_table, sizeof(__pyx_k_MetaStore__save_meta_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_table */
   {__pyx_k_MetaStore__save_meta_tables, sizeof(__pyx_k_MetaStore__save_meta_tables), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_tables */
-  {__pyx_k_MetaStore__save_meta_unique_cons, sizeof(__pyx_k_MetaStore__save_meta_unique_cons), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_unique_cons */
+  {__pyx_k_MetaStore__save_meta_view, sizeof(__pyx_k_MetaStore__save_meta_view), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_view */
   {__pyx_k_MetaStore__save_meta_views, sizeof(__pyx_k_MetaStore__save_meta_views), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_meta_views */
-  {__pyx_k_MetaStore_inspect, sizeof(__pyx_k_MetaStore_inspect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore_inspect */
-  {__pyx_k_MetaStore_save_meta, sizeof(__pyx_k_MetaStore_save_meta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore_save_meta */
+  {__pyx_k_MetaStore__save_sqlmodel, sizeof(__pyx_k_MetaStore__save_sqlmodel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore__save_sqlmodel */
+  {__pyx_k_MetaStore_save_sqlmodel, sizeof(__pyx_k_MetaStore_save_sqlmodel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaStore_save_sqlmodel */
   {__pyx_k_MetaTable, sizeof(__pyx_k_MetaTable), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaTable */
-  {__pyx_k_MetaUniqueConstraint, sizeof(__pyx_k_MetaUniqueConstraint), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaUniqueConstraint */
+  {__pyx_k_MetaTableCreate, sizeof(__pyx_k_MetaTableCreate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaTableCreate */
+  {__pyx_k_MetaTableUpdate, sizeof(__pyx_k_MetaTableUpdate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaTableUpdate */
+  {__pyx_k_MetaTables, sizeof(__pyx_k_MetaTables), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaTables */
   {__pyx_k_MetaView, sizeof(__pyx_k_MetaView), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaView */
+  {__pyx_k_MetaViewCreate, sizeof(__pyx_k_MetaViewCreate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaViewCreate */
+  {__pyx_k_MetaViewUpdate, sizeof(__pyx_k_MetaViewUpdate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaViewUpdate */
+  {__pyx_k_MetaViews, sizeof(__pyx_k_MetaViews), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaViews */
   {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
+  {__pyx_k_QueryRequest, sizeof(__pyx_k_QueryRequest), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryRequest */
   {__pyx_k_QueryService, sizeof(__pyx_k_QueryService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryService */
+  {__pyx_k_Source, sizeof(__pyx_k_Source), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Source */
+  {__pyx_k_SourceColumns, sizeof(__pyx_k_SourceColumns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SourceColumns */
+  {__pyx_k_SourceForeignKeys, sizeof(__pyx_k_SourceForeignKeys), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SourceForeignKeys */
+  {__pyx_k_SourceIndexes, sizeof(__pyx_k_SourceIndexes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SourceIndexes */
+  {__pyx_k_SourcePrimaryKey, sizeof(__pyx_k_SourcePrimaryKey), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SourcePrimaryKey */
+  {__pyx_k_SourceSchema, sizeof(__pyx_k_SourceSchema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SourceSchema */
+  {__pyx_k_SourceTables, sizeof(__pyx_k_SourceTables), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SourceTables */
+  {__pyx_k_SourceViews, sizeof(__pyx_k_SourceViews), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SourceViews */
+  {__pyx_k_Table, sizeof(__pyx_k_Table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Table */
+  {__pyx_k_View, sizeof(__pyx_k_View), 0, 1, 1}, /* PyObject cname: __pyx_n_u_View */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
+  {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
   {__pyx_k_append, sizeof(__pyx_k_append), 0, 1, 1}, /* PyObject cname: __pyx_n_u_append */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
   {__pyx_k_auto_commit, sizeof(__pyx_k_auto_commit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auto_commit */
+  {__pyx_k_autoincrement, sizeof(__pyx_k_autoincrement), 0, 1, 1}, /* PyObject cname: __pyx_n_u_autoincrement */
   {__pyx_k_await, sizeof(__pyx_k_await), 0, 1, 1}, /* PyObject cname: __pyx_n_u_await */
+  {__pyx_k_bool, sizeof(__pyx_k_bool), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bool */
+  {__pyx_k_class_getitem, sizeof(__pyx_k_class_getitem), 0, 1, 1}, /* PyObject cname: __pyx_n_u_class_getitem */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
-  {__pyx_k_column_names, sizeof(__pyx_k_column_names), 0, 1, 1}, /* PyObject cname: __pyx_n_u_column_names */
-  {__pyx_k_columns, sizeof(__pyx_k_columns), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_columns */
-  {__pyx_k_columns_2, sizeof(__pyx_k_columns_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_columns_2 */
+  {__pyx_k_column, sizeof(__pyx_k_column), 0, 1, 1}, /* PyObject cname: __pyx_n_u_column */
+  {__pyx_k_column_map, sizeof(__pyx_k_column_map), 0, 1, 1}, /* PyObject cname: __pyx_n_u_column_map */
+  {__pyx_k_columns, sizeof(__pyx_k_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_columns */
+  {__pyx_k_comment, sizeof(__pyx_k_comment), 0, 1, 1}, /* PyObject cname: __pyx_n_u_comment */
   {__pyx_k_commit, sizeof(__pyx_k_commit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_commit */
   {__pyx_k_condition, sizeof(__pyx_k_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_condition */
   {__pyx_k_constrained_columns, sizeof(__pyx_k_constrained_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_constrained_columns */
-  {__pyx_k_constrained_schema, sizeof(__pyx_k_constrained_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_constrained_schema */
-  {__pyx_k_constrained_table, sizeof(__pyx_k_constrained_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_constrained_table */
-  {__pyx_k_copy, sizeof(__pyx_k_copy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_copy */
+  {__pyx_k_create_data, sizeof(__pyx_k_create_data), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_data */
   {__pyx_k_create_model, sizeof(__pyx_k_create_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_model */
+  {__pyx_k_create_model_class, sizeof(__pyx_k_create_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_model_class */
+  {__pyx_k_curr_entity, sizeof(__pyx_k_curr_entity), 0, 1, 1}, /* PyObject cname: __pyx_n_u_curr_entity */
+  {__pyx_k_curr_model, sizeof(__pyx_k_curr_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_curr_model */
+  {__pyx_k_curr_schema, sizeof(__pyx_k_curr_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_curr_schema */
+  {__pyx_k_curr_table, sizeof(__pyx_k_curr_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_curr_table */
+  {__pyx_k_curr_view, sizeof(__pyx_k_curr_view), 0, 1, 1}, /* PyObject cname: __pyx_n_u_curr_view */
   {__pyx_k_data_model, sizeof(__pyx_k_data_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_data_model */
   {__pyx_k_db, sizeof(__pyx_k_db), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db */
   {__pyx_k_db_2, sizeof(__pyx_k_db_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_2 */
   {__pyx_k_db_insert, sizeof(__pyx_k_db_insert), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_insert */
+  {__pyx_k_db_query, sizeof(__pyx_k_db_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_query */
+  {__pyx_k_db_type, sizeof(__pyx_k_db_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_type */
   {__pyx_k_db_update, sizeof(__pyx_k_db_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_update */
   {__pyx_k_debug, sizeof(__pyx_k_debug), 0, 1, 1}, /* PyObject cname: __pyx_n_u_debug */
   {__pyx_k_debug_line, sizeof(__pyx_k_debug_line), 0, 1, 1}, /* PyObject cname: __pyx_n_u_debug_line */
-  {__pyx_k_dict, sizeof(__pyx_k_dict), 0, 1, 1}, /* PyObject cname: __pyx_n_u_dict */
   {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disable */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
   {__pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enable */
-  {__pyx_k_engine_name, sizeof(__pyx_k_engine_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_engine_name */
-  {__pyx_k_engine_name_2, sizeof(__pyx_k_engine_name_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_engine_name_2 */
+  {__pyx_k_entity, sizeof(__pyx_k_entity), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity */
+  {__pyx_k_entity_map, sizeof(__pyx_k_entity_map), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_map */
+  {__pyx_k_entity_name, sizeof(__pyx_k_entity_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_entity_name */
+  {__pyx_k_exclude, sizeof(__pyx_k_exclude), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exclude */
+  {__pyx_k_expanded, sizeof(__pyx_k_expanded), 0, 1, 1}, /* PyObject cname: __pyx_n_u_expanded */
+  {__pyx_k_field, sizeof(__pyx_k_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field */
+  {__pyx_k_fields, sizeof(__pyx_k_fields), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fields */
+  {__pyx_k_filter, sizeof(__pyx_k_filter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_filter */
   {__pyx_k_first_field_value, sizeof(__pyx_k_first_field_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_first_field_value */
-  {__pyx_k_fk, sizeof(__pyx_k_fk), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fk */
   {__pyx_k_flush, sizeof(__pyx_k_flush), 0, 1, 1}, /* PyObject cname: __pyx_n_u_flush */
-  {__pyx_k_foreign_keys, sizeof(__pyx_k_foreign_keys), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_foreign_keys */
-  {__pyx_k_foreign_keys_2, sizeof(__pyx_k_foreign_keys_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_foreign_keys_2 */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
-  {__pyx_k_gen_convert, sizeof(__pyx_k_gen_convert), 0, 1, 1}, /* PyObject cname: __pyx_n_u_gen_convert */
-  {__pyx_k_get, sizeof(__pyx_k_get), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get */
   {__pyx_k_get_schema, sizeof(__pyx_k_get_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_schema */
-  {__pyx_k_indexes, sizeof(__pyx_k_indexes), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_indexes */
-  {__pyx_k_indexes_2, sizeof(__pyx_k_indexes_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_indexes_2 */
+  {__pyx_k_get_schema_query_request, sizeof(__pyx_k_get_schema_query_request), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_schema_query_request */
+  {__pyx_k_id_attr, sizeof(__pyx_k_id_attr), 0, 1, 1}, /* PyObject cname: __pyx_n_u_id_attr */
   {__pyx_k_init, sizeof(__pyx_k_init), 0, 1, 1}, /* PyObject cname: __pyx_n_u_init */
-  {__pyx_k_inspect, sizeof(__pyx_k_inspect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_inspect */
+  {__pyx_k_is_active, sizeof(__pyx_k_is_active), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_active */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
+  {__pyx_k_is_foreign, sizeof(__pyx_k_is_foreign), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_foreign */
+  {__pyx_k_is_increment, sizeof(__pyx_k_is_increment), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_increment */
+  {__pyx_k_is_primary, sizeof(__pyx_k_is_primary), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_primary */
+  {__pyx_k_is_private, sizeof(__pyx_k_is_private), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_private */
+  {__pyx_k_is_unique, sizeof(__pyx_k_is_unique), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_unique */
   {__pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_isenabled */
   {__pyx_k_logging, sizeof(__pyx_k_logging), 0, 1, 1}, /* PyObject cname: __pyx_n_u_logging */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
-  {__pyx_k_meta_foreign_key_id, sizeof(__pyx_k_meta_foreign_key_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_foreign_key_id */
-  {__pyx_k_meta_inspect, sizeof(__pyx_k_meta_inspect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_inspect */
-  {__pyx_k_meta_model, sizeof(__pyx_k_meta_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_model */
-  {__pyx_k_meta_referencing_foreign_key, sizeof(__pyx_k_meta_referencing_foreign_key), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_meta_referencing_foreign_key */
-  {__pyx_k_meta_schema_id, sizeof(__pyx_k_meta_schema_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_schema_id */
-  {__pyx_k_meta_table_id, sizeof(__pyx_k_meta_table_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_table_id */
-  {__pyx_k_meta_view_id, sizeof(__pyx_k_meta_view_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_view_id */
+  {__pyx_k_meta_convert, sizeof(__pyx_k_meta_convert), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_convert */
+  {__pyx_k_meta_create_or_update, sizeof(__pyx_k_meta_create_or_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_create_or_update */
+  {__pyx_k_meta_schema, sizeof(__pyx_k_meta_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_schema */
   {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
-  {__pyx_k_metadata, sizeof(__pyx_k_metadata), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metadata */
-  {__pyx_k_metadata_inspector, sizeof(__pyx_k_metadata_inspector), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metadata_inspector */
-  {__pyx_k_metamodel_create_or_update, sizeof(__pyx_k_metamodel_create_or_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metamodel_create_or_update */
   {__pyx_k_model_class, sizeof(__pyx_k_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_class */
   {__pyx_k_model_dump, sizeof(__pyx_k_model_dump), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_dump */
+  {__pyx_k_model_validate, sizeof(__pyx_k_model_validate), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_validate */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name_2 */
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
-  {__pyx_k_options, sizeof(__pyx_k_options), 0, 1, 1}, /* PyObject cname: __pyx_n_u_options */
+  {__pyx_k_op, sizeof(__pyx_k_op), 0, 1, 1}, /* PyObject cname: __pyx_n_u_op */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
+  {__pyx_k_prefix, sizeof(__pyx_k_prefix), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_primary_id, sizeof(__pyx_k_primary_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_primary_id */
-  {__pyx_k_primary_key, sizeof(__pyx_k_primary_key), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_primary_key */
-  {__pyx_k_primary_key_2, sizeof(__pyx_k_primary_key_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_primary_key_2 */
-  {__pyx_k_primary_key_3, sizeof(__pyx_k_primary_key_3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_primary_key_3 */
-  {__pyx_k_print, sizeof(__pyx_k_print), 0, 1, 1}, /* PyObject cname: __pyx_n_u_print */
+  {__pyx_k_primary_key, sizeof(__pyx_k_primary_key), 0, 1, 1}, /* PyObject cname: __pyx_n_u_primary_key */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_query, sizeof(__pyx_k_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query */
   {__pyx_k_query_columns_first, sizeof(__pyx_k_query_columns_first), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_columns_first */
-  {__pyx_k_referencing_foreign_keys, sizeof(__pyx_k_referencing_foreign_keys), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referencing_foreign_keys */
-  {__pyx_k_referred_columns, sizeof(__pyx_k_referred_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referred_columns */
-  {__pyx_k_referred_schema, sizeof(__pyx_k_referred_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referred_schema */
-  {__pyx_k_referred_table, sizeof(__pyx_k_referred_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_referred_table */
-  {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
-  {__pyx_k_save_meta, sizeof(__pyx_k_save_meta), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta */
-  {__pyx_k_save_meta_2, sizeof(__pyx_k_save_meta_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_2 */
-  {__pyx_k_save_meta_columns, sizeof(__pyx_k_save_meta_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_columns */
-  {__pyx_k_save_meta_foreign_keys, sizeof(__pyx_k_save_meta_foreign_keys), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_foreign_keys */
-  {__pyx_k_save_meta_indexes, sizeof(__pyx_k_save_meta_indexes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_indexes */
-  {__pyx_k_save_meta_primary_key, sizeof(__pyx_k_save_meta_primary_key), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_primary_key */
-  {__pyx_k_save_meta_referencing_foreign_k, sizeof(__pyx_k_save_meta_referencing_foreign_k), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_referencing_foreign_k */
+  {__pyx_k_query_request, sizeof(__pyx_k_query_request), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_request */
+  {__pyx_k_relation, sizeof(__pyx_k_relation), 0, 1, 1}, /* PyObject cname: __pyx_n_u_relation */
+  {__pyx_k_s, sizeof(__pyx_k_s), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_s */
+  {__pyx_k_s_SourceForeignKeys, sizeof(__pyx_k_s_SourceForeignKeys), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_s_SourceForeignKeys */
+  {__pyx_k_s_SourceIndexes, sizeof(__pyx_k_s_SourceIndexes), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_s_SourceIndexes */
+  {__pyx_k_s_SourcePrimaryKey, sizeof(__pyx_k_s_SourcePrimaryKey), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_s_SourcePrimaryKey */
+  {__pyx_k_save_meta_entity, sizeof(__pyx_k_save_meta_entity), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_entity */
+  {__pyx_k_save_meta_table, sizeof(__pyx_k_save_meta_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_table */
   {__pyx_k_save_meta_tables, sizeof(__pyx_k_save_meta_tables), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_tables */
-  {__pyx_k_save_meta_unique_constraints, sizeof(__pyx_k_save_meta_unique_constraints), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_unique_constraints */
+  {__pyx_k_save_meta_view, sizeof(__pyx_k_save_meta_view), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_view */
   {__pyx_k_save_meta_views, sizeof(__pyx_k_save_meta_views), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_views */
+  {__pyx_k_save_sqlmodel, sizeof(__pyx_k_save_sqlmodel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_sqlmodel */
+  {__pyx_k_save_sqlmodel_2, sizeof(__pyx_k_save_sqlmodel_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_sqlmodel_2 */
+  {__pyx_k_schema, sizeof(__pyx_k_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema */
+  {__pyx_k_schema_id, sizeof(__pyx_k_schema_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_id */
+  {__pyx_k_schema_map, sizeof(__pyx_k_schema_map), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_map */
   {__pyx_k_schema_name, sizeof(__pyx_k_schema_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_name */
   {__pyx_k_schema_name_2, sizeof(__pyx_k_schema_name_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema_name_2 */
   {__pyx_k_self, sizeof(__pyx_k_self), 0, 1, 1}, /* PyObject cname: __pyx_n_u_self */
@@ -13203,33 +12563,38 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
   {__pyx_k_set_update_property, sizeof(__pyx_k_set_update_property), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_update_property */
   {__pyx_k_shudaodao_core, sizeof(__pyx_k_shudaodao_core), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_core */
+  {__pyx_k_shudaodao_core_schemas_query_req, sizeof(__pyx_k_shudaodao_core_schemas_query_req), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_core_schemas_query_req */
   {__pyx_k_shudaodao_meta_generate_entity_t, sizeof(__pyx_k_shudaodao_meta_generate_entity_t), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t */
   {__pyx_k_shudaodao_meta_generate_entity_t_2, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_2 */
   {__pyx_k_shudaodao_meta_generate_entity_t_3, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_3), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_3 */
   {__pyx_k_shudaodao_meta_generate_entity_t_4, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_4), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_4 */
   {__pyx_k_shudaodao_meta_generate_entity_t_5, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_5), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_5 */
-  {__pyx_k_shudaodao_meta_generate_entity_t_6, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_6), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_6 */
-  {__pyx_k_shudaodao_meta_generate_entity_t_7, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_7), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_7 */
-  {__pyx_k_shudaodao_meta_generate_entity_t_8, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_8), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_8 */
-  {__pyx_k_shudaodao_meta_generate_entity_t_9, sizeof(__pyx_k_shudaodao_meta_generate_entity_t_9), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_generate_entity_t_9 */
   {__pyx_k_shudaodao_meta_tools_meta_store, sizeof(__pyx_k_shudaodao_meta_tools_meta_store), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_meta_tools_meta_store */
   {__pyx_k_shudaodao_meta_tools_meta_store_2, sizeof(__pyx_k_shudaodao_meta_tools_meta_store_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_shudaodao_meta_tools_meta_store_2 */
+  {__pyx_k_size, sizeof(__pyx_k_size), 0, 1, 1}, /* PyObject cname: __pyx_n_u_size */
   {__pyx_k_sort_order, sizeof(__pyx_k_sort_order), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sort_order */
-  {__pyx_k_source_table, sizeof(__pyx_k_source_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_source_table */
+  {__pyx_k_source_model, sizeof(__pyx_k_source_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_source_model */
+  {__pyx_k_source_schema, sizeof(__pyx_k_source_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_source_schema */
+  {__pyx_k_staticmethod, sizeof(__pyx_k_staticmethod), 0, 1, 1}, /* PyObject cname: __pyx_n_u_staticmethod */
   {__pyx_k_str, sizeof(__pyx_k_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_str */
   {__pyx_k_table, sizeof(__pyx_k_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table */
+  {__pyx_k_table_id, sizeof(__pyx_k_table_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_id */
   {__pyx_k_table_map, sizeof(__pyx_k_table_map), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_map */
   {__pyx_k_table_name, sizeof(__pyx_k_table_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table_name */
-  {__pyx_k_tables, sizeof(__pyx_k_tables), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tables */
-  {__pyx_k_target_table, sizeof(__pyx_k_target_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_target_table */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_throw, sizeof(__pyx_k_throw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_throw */
-  {__pyx_k_unique_constraints, sizeof(__pyx_k_unique_constraints), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_unique_constraints */
-  {__pyx_k_unique_constraints_2, sizeof(__pyx_k_unique_constraints_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_unique_constraints_2 */
+  {__pyx_k_type, sizeof(__pyx_k_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type */
+  {__pyx_k_type_name, sizeof(__pyx_k_type_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type_name */
+  {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
   {__pyx_k_update_model, sizeof(__pyx_k_update_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_model */
+  {__pyx_k_update_model_class, sizeof(__pyx_k_update_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_model_class */
+  {__pyx_k_val, sizeof(__pyx_k_val), 0, 1, 1}, /* PyObject cname: __pyx_n_u_val */
+  {__pyx_k_validated_update, sizeof(__pyx_k_validated_update), 0, 1, 1}, /* PyObject cname: __pyx_n_u_validated_update */
   {__pyx_k_value, sizeof(__pyx_k_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_value */
+  {__pyx_k_view, sizeof(__pyx_k_view), 0, 1, 1}, /* PyObject cname: __pyx_n_u_view */
+  {__pyx_k_view_id, sizeof(__pyx_k_view_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_view_id */
+  {__pyx_k_view_map, sizeof(__pyx_k_view_map), 0, 1, 1}, /* PyObject cname: __pyx_n_u_view_map */
   {__pyx_k_view_name, sizeof(__pyx_k_view_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_view_name */
-  {__pyx_k_views, sizeof(__pyx_k_views), 0, 1, 1}, /* PyObject cname: __pyx_n_u_views */
   {0, 0, 0, 0, 0}
 };
 /* InitStrings.proto */
@@ -13239,7 +12604,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_print); if (!__pyx_builtin_print) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 235, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -13251,36 +12616,36 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "shudaodao_meta/tools/meta_store.py":162
- *             create_model["sort_order"] = sort_order
- *             condition = None
- *             if metadata.get("meta_table_id", None):             # <<<<<<<<<<<<<<
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
+  /* "shudaodao_meta/tools/meta_store.py":27
+ *         self.auto_commit = False
+ * 
+ *     async def save_sqlmodel(             # <<<<<<<<<<<<<<
+ *             self, db: AsyncSession = None, schema_name: str = None
+ *     ):
 */
-  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_n_u_meta_table_id, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(2, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
 
-  /* "shudaodao_meta/tools/meta_store.py":165
- *                 create_model["meta_table_id"] = metadata.get("meta_table_id", None)
- *                 condition = MetaColumn.meta_table_id == create_model["meta_table_id"]
- *             if metadata.get("meta_view_id", None):             # <<<<<<<<<<<<<<
- *                 create_model["meta_view_id"] = metadata.get("meta_view_id", None)
- *                 condition = MetaColumn.meta_view_id == create_model["meta_view_id"]
+  /* "shudaodao_meta/tools/meta_store.py":171
+ *         )
+ * 
+ *     async def _save_meta_entity(             # <<<<<<<<<<<<<<
+ *             self,
+ *             curr_schema,
 */
-  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_n_u_meta_view_id, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[1] = PyTuple_Pack(1, ((PyObject*)__pyx_mstate_global->__pyx_n_u_view_id)); if (unlikely(!__pyx_mstate_global->__pyx_tuple[1])) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[1]);
 
-  /* "shudaodao_meta/tools/meta_store.py":177
+  /* "shudaodao_meta/tools/meta_store.py":235
+ *         return source_schema, meta_schema
  * 
- *     async def _save_meta_primary_key(self, metadata):
- *         create_model = metadata.get("primary_key", None)             # <<<<<<<<<<<<<<
- *         if create_model is None:
- *             return None
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def _get_schema_query_request(
+ *             schema_name, prefix: str, type_name: Literal["Table", "View"], expanded: bool = False,
 */
-  __pyx_mstate_global->__pyx_tuple[2] = PyTuple_Pack(2, __pyx_mstate_global->__pyx_n_u_primary_key_2, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[2])) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[2] = PyTuple_Pack(1, ((PyObject*)Py_False)); if (unlikely(!__pyx_mstate_global->__pyx_tuple[2])) __PYX_ERR(0, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_RefNannyFinishContext();
@@ -13293,13 +12658,12 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_mstate->__pyx_umethod_PyDict_Type_get.type = (PyObject*)&PyDict_Type;
-  __pyx_mstate->__pyx_umethod_PyDict_Type_get.method_name = &__pyx_mstate->__pyx_n_u_get;
   __pyx_mstate->__pyx_umethod_PyDict_Type_pop.type = (PyObject*)&PyDict_Type;
   __pyx_mstate->__pyx_umethod_PyDict_Type_pop.method_name = &__pyx_mstate->__pyx_n_u_pop;
   if (__Pyx_InitStrings(__pyx_string_tab, __pyx_mstate->__pyx_string_tab, __pyx_string_tab_encodings) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_mstate->__pyx_int_0 = PyLong_FromLong(0); if (unlikely(!__pyx_mstate->__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_mstate->__pyx_int_10 = PyLong_FromLong(10); if (unlikely(!__pyx_mstate->__pyx_int_10)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_mstate->__pyx_int_1000 = PyLong_FromLong(1000); if (unlikely(!__pyx_mstate->__pyx_int_1000)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -13307,13 +12671,13 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
 /* #### Code section: init_codeobjects ### */
 \
         typedef struct {
-            unsigned int argcount : 3;
+            unsigned int argcount : 4;
             unsigned int num_posonly_args : 1;
-            unsigned int num_kwonly_args : 3;
-            unsigned int nlocals : 4;
+            unsigned int num_kwonly_args : 2;
+            unsigned int nlocals : 5;
             unsigned int flags : 10;
             unsigned int first_line : 8;
-            unsigned int line_table_length : 11;
+            unsigned int line_table_length : 12;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
 static PyObject* __Pyx_PyCode_New(
@@ -13330,69 +12694,59 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 4, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 42, 23};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_engine_name, __pyx_mstate->__pyx_n_u_schema_name};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta, __pyx_k_D0E_R_kkl, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 27, 12};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_schema_name};
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_sqlmodel, __pyx_k__7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 63, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_data_model, __pyx_mstate->__pyx_n_u_condition, __pyx_mstate->__pyx_n_u_meta_model, __pyx_mstate->__pyx_n_u_first_field_value};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_metamodel_create_or_update, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 41, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_data_model, __pyx_mstate->__pyx_n_u_condition, __pyx_mstate->__pyx_n_u_source_model, __pyx_mstate->__pyx_n_u_first_field_value};
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_meta_create_or_update, __pyx_k__8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 80, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_meta_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_2, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 57, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_create_model};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_sqlmodel_2, __pyx_k__8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 95, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_sort_order, __pyx_mstate->__pyx_n_u_tables, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_table_name, __pyx_mstate->__pyx_n_u_meta_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_tables, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 17, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 70, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_source_schema, __pyx_mstate->__pyx_n_u_meta_schema, __pyx_mstate->__pyx_n_u_schema_map, __pyx_mstate->__pyx_n_u_schema, __pyx_mstate->__pyx_n_u_curr_schema, __pyx_mstate->__pyx_n_u_table_map, __pyx_mstate->__pyx_n_u_table, __pyx_mstate->__pyx_n_u_curr_table, __pyx_mstate->__pyx_n_u_curr_model, __pyx_mstate->__pyx_n_u_column_map, __pyx_mstate->__pyx_n_u_column, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_schema, __pyx_mstate->__pyx_n_u_table, __pyx_mstate->__pyx_n_u_column};
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_tables, __pyx_k__8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 136, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_sort_order, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_view_name, __pyx_mstate->__pyx_n_u_meta_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_views, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 112, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curr_schema, __pyx_mstate->__pyx_n_u_table, __pyx_mstate->__pyx_n_u_table_map};
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_table, __pyx_k__8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 156, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_sort_order, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_condition};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_columns, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 17, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 124, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_source_schema, __pyx_mstate->__pyx_n_u_meta_schema, __pyx_mstate->__pyx_n_u_schema_map, __pyx_mstate->__pyx_n_u_schema, __pyx_mstate->__pyx_n_u_curr_schema, __pyx_mstate->__pyx_n_u_view_map, __pyx_mstate->__pyx_n_u_view, __pyx_mstate->__pyx_n_u_curr_view, __pyx_mstate->__pyx_n_u_curr_model, __pyx_mstate->__pyx_n_u_column_map, __pyx_mstate->__pyx_n_u_column, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_schema, __pyx_mstate->__pyx_n_u_view, __pyx_mstate->__pyx_n_u_column};
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_views, __pyx_k__8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 176, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_create_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_primary_key, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 159, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curr_schema, __pyx_mstate->__pyx_n_u_view, __pyx_mstate->__pyx_n_u_view_map};
+    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_view, __pyx_k__8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 186, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_foreign_keys_2, __pyx_mstate->__pyx_n_u_sort_order, __pyx_mstate->__pyx_n_u_create_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_foreign_keys, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {9, 0, 0, 15, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 171, 9};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_curr_schema, __pyx_mstate->__pyx_n_u_entity, __pyx_mstate->__pyx_n_u_entity_map, __pyx_mstate->__pyx_n_u_entity_name, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_create_model_class, __pyx_mstate->__pyx_n_u_update_model_class, __pyx_mstate->__pyx_n_u_id_attr, __pyx_mstate->__pyx_n_u_curr_entity, __pyx_mstate->__pyx_n_u_update_model, __pyx_mstate->__pyx_n_u_validated_update, __pyx_mstate->__pyx_n_u_curr_model, __pyx_mstate->__pyx_n_u_create_data, __pyx_mstate->__pyx_n_u_create_model};
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_entity, __pyx_k_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 201, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_sort_order, __pyx_mstate->__pyx_n_u_create_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_unique_constraints, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 220, 5};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_type_name, __pyx_mstate->__pyx_n_u_query_request, __pyx_mstate->__pyx_n_u_source_schema, __pyx_mstate->__pyx_n_u_meta_schema};
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_get_schema, __pyx_k_8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 214, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_metadata, __pyx_mstate->__pyx_n_u_sort_order, __pyx_mstate->__pyx_n_u_create_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_indexes, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 22, 35};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_schema_name};
+    __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_init, __pyx_k_3_A_O1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 227, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_tables, __pyx_mstate->__pyx_n_u_table_map, __pyx_mstate->__pyx_n_u_table, __pyx_mstate->__pyx_n_u_source_table, __pyx_mstate->__pyx_n_u_fk, __pyx_mstate->__pyx_n_u_target_table, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_table};
-    __pyx_mstate_global->__pyx_codeobj_tab[10] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_save_meta_referencing_foreign_k, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[10])) goto bad;
-  }
-  {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 3, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 24, 48};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_engine_name, __pyx_mstate->__pyx_n_u_schema_name};
-    __pyx_mstate_global->__pyx_codeobj_tab[11] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_init, __pyx_k_3_MYZ_A_A_O1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[11])) goto bad;
-  }
-  {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 30, 69};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_engine_name, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_metadata_inspector};
-    __pyx_mstate_global->__pyx_codeobj_tab[12] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_inspect, __pyx_k_l_a_1_1_T_A_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[12])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 235, 141};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_prefix, __pyx_mstate->__pyx_n_u_type_name, __pyx_mstate->__pyx_n_u_expanded, __pyx_mstate->__pyx_n_u_query};
+    __pyx_mstate_global->__pyx_codeobj_tab[10] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_meta_tools_meta_store_2, __pyx_mstate->__pyx_n_u_get_schema_query_request, __pyx_k_A_11K_UV_a_a_uG1_hm1_A_S_A_WARt8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[10])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -14712,124 +14066,6 @@ static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr
     return PyObject_SetAttr(obj, attr_name, value);
 }
 #endif
-
-/* PyDictVersioning */
-#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj) {
-    PyObject *dict = Py_TYPE(obj)->tp_dict;
-    return likely(dict) ? __PYX_GET_DICT_VERSION(dict) : 0;
-}
-static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj) {
-    PyObject **dictptr = NULL;
-    Py_ssize_t offset = Py_TYPE(obj)->tp_dictoffset;
-    if (offset) {
-#if CYTHON_COMPILING_IN_CPYTHON
-        dictptr = (likely(offset > 0)) ? (PyObject **) ((char *)obj + offset) : _PyObject_GetDictPtr(obj);
-#else
-        dictptr = _PyObject_GetDictPtr(obj);
-#endif
-    }
-    return (dictptr && *dictptr) ? __PYX_GET_DICT_VERSION(*dictptr) : 0;
-}
-static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version) {
-    PyObject *dict = Py_TYPE(obj)->tp_dict;
-    if (unlikely(!dict) || unlikely(tp_dict_version != __PYX_GET_DICT_VERSION(dict)))
-        return 0;
-    return obj_dict_version == __Pyx_get_object_dict_version(obj);
-}
-#endif
-
-/* GetModuleGlobalName */
-#if CYTHON_USE_DICT_VERSIONS
-static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_version, PyObject **dict_cached_value)
-#else
-static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
-#endif
-{
-    PyObject *result;
-#if CYTHON_COMPILING_IN_LIMITED_API
-    if (unlikely(!__pyx_m)) {
-        if (!PyErr_Occurred())
-            PyErr_SetNone(PyExc_NameError);
-        return NULL;
-    }
-    result = PyObject_GetAttr(__pyx_m, name);
-    if (likely(result)) {
-        return result;
-    }
-    PyErr_Clear();
-#elif CYTHON_AVOID_BORROWED_REFS || CYTHON_AVOID_THREAD_UNSAFE_BORROWED_REFS
-    if (unlikely(__Pyx_PyDict_GetItemRef(__pyx_mstate_global->__pyx_d, name, &result) == -1)) PyErr_Clear();
-    __PYX_UPDATE_DICT_CACHE(__pyx_mstate_global->__pyx_d, result, *dict_cached_value, *dict_version)
-    if (likely(result)) {
-        return result;
-    }
-#else
-    result = _PyDict_GetItem_KnownHash(__pyx_mstate_global->__pyx_d, name, ((PyASCIIObject *) name)->hash);
-    __PYX_UPDATE_DICT_CACHE(__pyx_mstate_global->__pyx_d, result, *dict_cached_value, *dict_version)
-    if (likely(result)) {
-        return __Pyx_NewRef(result);
-    }
-    PyErr_Clear();
-#endif
-    return __Pyx_GetBuiltinName(name);
-}
-
-/* PyObjectVectorCallKwBuilder */
-#if CYTHON_VECTORCALL
-static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
-    (void)__Pyx_PyObject_FastCallDict;
-    if (__Pyx_PyTuple_SET_ITEM(builder, n, key) != (0)) return -1;
-    Py_INCREF(key);
-    args[n] = value;
-    return 0;
-}
-CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
-    (void)__Pyx_VectorcallBuilder_AddArgStr;
-    if (unlikely(!PyUnicode_Check(key))) {
-        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
-        return -1;
-    }
-    return __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n);
-}
-static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
-    PyObject *pyKey = PyUnicode_FromString(key);
-    if (!pyKey) return -1;
-    return __Pyx_VectorcallBuilder_AddArg(pyKey, value, builder, args, n);
-}
-#else // CYTHON_VECTORCALL
-CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, CYTHON_UNUSED PyObject **args, CYTHON_UNUSED int n) {
-    if (unlikely(!PyUnicode_Check(key))) {
-        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
-        return -1;
-    }
-    return PyDict_SetItem(builder, key, value);
-}
-#endif
-
-/* PyObjectVectorCallMethodKwBuilder */
-#if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000
-static PyObject *__Pyx_Object_VectorcallMethod_CallFromBuilder(PyObject *name, PyObject *const *args, size_t nargsf, PyObject *kwnames) {
-    PyObject *result;
-    PyObject *obj = PyObject_GetAttr(args[0], name);
-    if (unlikely(!obj))
-        return NULL;
-    result = __Pyx_Object_Vectorcall_CallFromBuilder(obj, args+1, nargsf-1, kwnames);
-    Py_DECREF(obj);
-    return result;
-}
-#endif
-
-/* RaiseUnexpectedTypeError */
-static int
-__Pyx_RaiseUnexpectedTypeError(const char *expected, PyObject *obj)
-{
-    __Pyx_TypeName obj_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(obj));
-    PyErr_Format(PyExc_TypeError, "Expected %s, got " __Pyx_FMT_TYPENAME,
-                 expected, obj_type_name);
-    __Pyx_DECREF_TypeName(obj_type_name);
-    return 0;
-}
 
 /* PyObjectFastCallMethod */
 #if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000
@@ -17113,6 +16349,138 @@ bad:
     PyErr_SetObject(PyExc_RuntimeError, new_exc);
 }
 
+/* PyDictVersioning */
+  #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj) {
+    PyObject *dict = Py_TYPE(obj)->tp_dict;
+    return likely(dict) ? __PYX_GET_DICT_VERSION(dict) : 0;
+}
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj) {
+    PyObject **dictptr = NULL;
+    Py_ssize_t offset = Py_TYPE(obj)->tp_dictoffset;
+    if (offset) {
+#if CYTHON_COMPILING_IN_CPYTHON
+        dictptr = (likely(offset > 0)) ? (PyObject **) ((char *)obj + offset) : _PyObject_GetDictPtr(obj);
+#else
+        dictptr = _PyObject_GetDictPtr(obj);
+#endif
+    }
+    return (dictptr && *dictptr) ? __PYX_GET_DICT_VERSION(*dictptr) : 0;
+}
+static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version) {
+    PyObject *dict = Py_TYPE(obj)->tp_dict;
+    if (unlikely(!dict) || unlikely(tp_dict_version != __PYX_GET_DICT_VERSION(dict)))
+        return 0;
+    return obj_dict_version == __Pyx_get_object_dict_version(obj);
+}
+#endif
+
+/* GetModuleGlobalName */
+  #if CYTHON_USE_DICT_VERSIONS
+static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_version, PyObject **dict_cached_value)
+#else
+static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
+#endif
+{
+    PyObject *result;
+#if CYTHON_COMPILING_IN_LIMITED_API
+    if (unlikely(!__pyx_m)) {
+        if (!PyErr_Occurred())
+            PyErr_SetNone(PyExc_NameError);
+        return NULL;
+    }
+    result = PyObject_GetAttr(__pyx_m, name);
+    if (likely(result)) {
+        return result;
+    }
+    PyErr_Clear();
+#elif CYTHON_AVOID_BORROWED_REFS || CYTHON_AVOID_THREAD_UNSAFE_BORROWED_REFS
+    if (unlikely(__Pyx_PyDict_GetItemRef(__pyx_mstate_global->__pyx_d, name, &result) == -1)) PyErr_Clear();
+    __PYX_UPDATE_DICT_CACHE(__pyx_mstate_global->__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return result;
+    }
+#else
+    result = _PyDict_GetItem_KnownHash(__pyx_mstate_global->__pyx_d, name, ((PyASCIIObject *) name)->hash);
+    __PYX_UPDATE_DICT_CACHE(__pyx_mstate_global->__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return __Pyx_NewRef(result);
+    }
+    PyErr_Clear();
+#endif
+    return __Pyx_GetBuiltinName(name);
+}
+
+/* PyObjectVectorCallKwBuilder */
+  #if CYTHON_VECTORCALL
+static int __Pyx_VectorcallBuilder_AddArg(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
+    (void)__Pyx_PyObject_FastCallDict;
+    if (__Pyx_PyTuple_SET_ITEM(builder, n, key) != (0)) return -1;
+    Py_INCREF(key);
+    args[n] = value;
+    return 0;
+}
+CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
+    (void)__Pyx_VectorcallBuilder_AddArgStr;
+    if (unlikely(!PyUnicode_Check(key))) {
+        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
+        return -1;
+    }
+    return __Pyx_VectorcallBuilder_AddArg(key, value, builder, args, n);
+}
+static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, PyObject *builder, PyObject **args, int n) {
+    PyObject *pyKey = PyUnicode_FromString(key);
+    if (!pyKey) return -1;
+    return __Pyx_VectorcallBuilder_AddArg(pyKey, value, builder, args, n);
+}
+#else // CYTHON_VECTORCALL
+CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyObject *value, PyObject *builder, CYTHON_UNUSED PyObject **args, CYTHON_UNUSED int n) {
+    if (unlikely(!PyUnicode_Check(key))) {
+        PyErr_SetString(PyExc_TypeError, "keywords must be strings");
+        return -1;
+    }
+    return PyDict_SetItem(builder, key, value);
+}
+#endif
+
+/* RaiseTooManyValuesToUnpack */
+  static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected) {
+    PyErr_Format(PyExc_ValueError,
+                 "too many values to unpack (expected %" CYTHON_FORMAT_SSIZE_T "d)", expected);
+}
+
+/* RaiseNeedMoreValuesToUnpack */
+  static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
+    PyErr_Format(PyExc_ValueError,
+                 "need more than %" CYTHON_FORMAT_SSIZE_T "d value%.1s to unpack",
+                 index, (index == 1) ? "" : "s");
+}
+
+/* IterFinish */
+  static CYTHON_INLINE int __Pyx_IterFinish(void) {
+    PyObject* exc_type;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    exc_type = __Pyx_PyErr_CurrentExceptionType();
+    if (unlikely(exc_type)) {
+        if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))
+            return -1;
+        __Pyx_PyErr_Clear();
+        return 0;
+    }
+    return 0;
+}
+
+/* UnpackItemEndCheck */
+  static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
+    if (unlikely(retval)) {
+        Py_DECREF(retval);
+        __Pyx_RaiseTooManyValuesError(expected);
+        return -1;
+    }
+    return __Pyx_IterFinish();
+}
+
 /* DictGetItem */
   #if !CYTHON_COMPILING_IN_PYPY
 static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key) {
@@ -17132,216 +16500,279 @@ static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key) {
 }
 #endif
 
-/* PyLongBinop */
-  #if !CYTHON_COMPILING_IN_PYPY
-static PyObject* __Pyx_Fallback___Pyx_PyLong_AddObjC(PyObject *op1, PyObject *op2, int inplace) {
-    return (inplace ? PyNumber_InPlaceAdd : PyNumber_Add)(op1, op2);
-}
-#if CYTHON_USE_PYLONG_INTERNALS
-static PyObject* __Pyx_Unpacked___Pyx_PyLong_AddObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check) {
-    CYTHON_MAYBE_UNUSED_VAR(inplace);
-    CYTHON_UNUSED_VAR(zerodivision_check);
-    const long b = intval;
-    long a, x;
-#ifdef HAVE_LONG_LONG
-    const PY_LONG_LONG llb = intval;
-    PY_LONG_LONG lla, llx;
-#endif
-    if (unlikely(__Pyx_PyLong_IsZero(op1))) {
-        return __Pyx_NewRef(op2);
-    }
-    if (likely(__Pyx_PyLong_IsCompact(op1))) {
-        a = __Pyx_PyLong_CompactValue(op1);
-    } else {
-        const digit* digits = __Pyx_PyLong_Digits(op1);
-        const Py_ssize_t size = __Pyx_PyLong_SignedDigitCount(op1);
-        switch (size) {
-            case -2:
-                if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                    a = -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                    break;
-                #ifdef HAVE_LONG_LONG
-                } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                    lla = -(PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                    goto long_long;
-                #endif
-                }
-                CYTHON_FALLTHROUGH;
-            case 2:
-                if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
-                    a = (long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                    break;
-                #ifdef HAVE_LONG_LONG
-                } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
-                    lla = (PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                    goto long_long;
-                #endif
-                }
-                CYTHON_FALLTHROUGH;
-            case -3:
-                if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                    a = -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                    break;
-                #ifdef HAVE_LONG_LONG
-                } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                    lla = -(PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                    goto long_long;
-                #endif
-                }
-                CYTHON_FALLTHROUGH;
-            case 3:
-                if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
-                    a = (long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                    break;
-                #ifdef HAVE_LONG_LONG
-                } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
-                    lla = (PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                    goto long_long;
-                #endif
-                }
-                CYTHON_FALLTHROUGH;
-            case -4:
-                if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                    a = -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                    break;
-                #ifdef HAVE_LONG_LONG
-                } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                    lla = -(PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                    goto long_long;
-                #endif
-                }
-                CYTHON_FALLTHROUGH;
-            case 4:
-                if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
-                    a = (long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
-                    break;
-                #ifdef HAVE_LONG_LONG
-                } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
-                    lla = (PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
-                    goto long_long;
-                #endif
-                }
-                CYTHON_FALLTHROUGH;
-            default: return PyLong_Type.tp_as_number->nb_add(op1, op2);
-        }
-    }
-            x = a + b;
-        return PyLong_FromLong(x);
-#ifdef HAVE_LONG_LONG
-    long_long:
-            llx = lla + llb;
-        return PyLong_FromLongLong(llx);
-#endif
-    return __Pyx_Fallback___Pyx_PyLong_AddObjC(op1, op2, inplace);
-    
-    
-}
-#endif
-static PyObject* __Pyx_Float___Pyx_PyLong_AddObjC(PyObject *float_val, long intval, int zerodivision_check) {
-    CYTHON_UNUSED_VAR(zerodivision_check);
-    const long b = intval;
-    double a = __Pyx_PyFloat_AS_DOUBLE(float_val);
-        double result;
-        
-        result = ((double)a) + (double)b;
-        return PyFloat_FromDouble(result);
-}
-static CYTHON_INLINE PyObject* __Pyx_PyLong_AddObjC(PyObject *op1, PyObject *op2, long intval, int inplace, int zerodivision_check) {
-    CYTHON_MAYBE_UNUSED_VAR(intval);
-    CYTHON_UNUSED_VAR(zerodivision_check);
-    #if CYTHON_USE_PYLONG_INTERNALS
-    if (likely(PyLong_CheckExact(op1))) {
-        return __Pyx_Unpacked___Pyx_PyLong_AddObjC(op1, op2, intval, inplace, zerodivision_check);
-    }
-    #endif
-    if (PyFloat_CheckExact(op1)) {
-        return __Pyx_Float___Pyx_PyLong_AddObjC(op1, intval, zerodivision_check);
-    }
-    return __Pyx_Fallback___Pyx_PyLong_AddObjC(op1, op2, inplace);
-}
-#endif
-
-/* CallUnboundCMethod1 */
-  #if CYTHON_COMPILING_IN_CPYTHON
-static CYTHON_INLINE PyObject* __Pyx_CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg) {
-    int was_initialized =  __Pyx_CachedCFunction_GetAndSetInitializing(cfunc);
-    if (likely(was_initialized == 2 && cfunc->func)) {
-        int flag = cfunc->flag;
-        if (flag == METH_O) {
-            return __Pyx_CallCFunction(cfunc, self, arg);
-        } else if (flag == METH_FASTCALL) {
-            return __Pyx_CallCFunctionFast(cfunc, self, &arg, 1);
-        } else if (flag == (METH_FASTCALL | METH_KEYWORDS)) {
-            return __Pyx_CallCFunctionFastWithKeywords(cfunc, self, &arg, 1, NULL);
-        }
-    }
-#if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
-    else if (unlikely(was_initialized == 1)) {
-        __Pyx_CachedCFunction tmp_cfunc = {
-#ifndef __cplusplus
-            0
-#endif
-        };
-        tmp_cfunc.type = cfunc->type;
-        tmp_cfunc.method_name = cfunc->method_name;
-        return __Pyx__CallUnboundCMethod1(&tmp_cfunc, self, arg);
-    }
-#endif
-    PyObject* result = __Pyx__CallUnboundCMethod1(cfunc, self, arg);
-    __Pyx_CachedCFunction_SetFinishedInitializing(cfunc);
+/* PyObjectVectorCallMethodKwBuilder */
+  #if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000
+static PyObject *__Pyx_Object_VectorcallMethod_CallFromBuilder(PyObject *name, PyObject *const *args, size_t nargsf, PyObject *kwnames) {
+    PyObject *result;
+    PyObject *obj = PyObject_GetAttr(args[0], name);
+    if (unlikely(!obj))
+        return NULL;
+    result = __Pyx_Object_Vectorcall_CallFromBuilder(obj, args+1, nargsf-1, kwnames);
+    Py_DECREF(obj);
     return result;
 }
 #endif
-static PyObject* __Pyx__CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObject* self, PyObject* arg){
-    PyObject *result = NULL;
-    if (unlikely(!cfunc->func && !cfunc->method) && unlikely(__Pyx_TryUnpackUnboundCMethod(cfunc) < 0)) return NULL;
-#if CYTHON_COMPILING_IN_CPYTHON
-    if (cfunc->func && (cfunc->flag & METH_VARARGS)) {
-        PyObject *args = PyTuple_New(1);
-        if (unlikely(!args)) return NULL;
-        Py_INCREF(arg);
-        PyTuple_SET_ITEM(args, 0, arg);
-        if (cfunc->flag & METH_KEYWORDS)
-            result = __Pyx_CallCFunctionWithKeywords(cfunc, self, args, NULL);
-        else
-            result = __Pyx_CallCFunction(cfunc, self, args);
-        Py_DECREF(args);
-    } else
-#endif
-    {
-        result = __Pyx_PyObject_Call2Args(cfunc->method, self, arg);
-    }
-    return result;
-}
 
-/* dict_getitem_default */
-  static PyObject* __Pyx_PyDict_GetItemDefault(PyObject* d, PyObject* key, PyObject* default_value) {
-    PyObject* value;
-#if !CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07020000
-    value = PyDict_GetItemWithError(d, key);
-    if (unlikely(!value)) {
-        if (unlikely(PyErr_Occurred()))
-            return NULL;
-        value = default_value;
+/* GetItemInt */
+  static PyObject *__Pyx_GetItemInt_Generic(PyObject *o, PyObject* j) {
+    PyObject *r;
+    if (unlikely(!j)) return NULL;
+    r = PyObject_GetItem(o, j);
+    Py_DECREF(j);
+    return r;
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_List_Fast(PyObject *o, Py_ssize_t i,
+                                                              CYTHON_NCP_UNUSED int wraparound,
+                                                              CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE && !CYTHON_AVOID_BORROWED_REFS && !CYTHON_AVOID_THREAD_UNSAFE_BORROWED_REFS
+    Py_ssize_t wrapped_i = i;
+    if (wraparound & unlikely(i < 0)) {
+        wrapped_i += PyList_GET_SIZE(o);
     }
-    Py_INCREF(value);
-    if ((1));
+    if ((!boundscheck) || likely(__Pyx_is_valid_index(wrapped_i, PyList_GET_SIZE(o)))) {
+        PyObject *r = PyList_GET_ITEM(o, wrapped_i);
+        Py_INCREF(r);
+        return r;
+    }
+    return __Pyx_GetItemInt_Generic(o, PyLong_FromSsize_t(i));
 #else
-    if (PyBytes_CheckExact(key) || PyUnicode_CheckExact(key) || PyLong_CheckExact(key)) {
-        value = PyDict_GetItem(d, key);
-        if (unlikely(!value)) {
-            value = default_value;
+    return PySequence_GetItem(o, i);
+#endif
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Tuple_Fast(PyObject *o, Py_ssize_t i,
+                                                              CYTHON_NCP_UNUSED int wraparound,
+                                                              CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE && !CYTHON_AVOID_BORROWED_REFS
+    Py_ssize_t wrapped_i = i;
+    if (wraparound & unlikely(i < 0)) {
+        wrapped_i += PyTuple_GET_SIZE(o);
+    }
+    if ((!boundscheck) || likely(__Pyx_is_valid_index(wrapped_i, PyTuple_GET_SIZE(o)))) {
+        PyObject *r = PyTuple_GET_ITEM(o, wrapped_i);
+        Py_INCREF(r);
+        return r;
+    }
+    return __Pyx_GetItemInt_Generic(o, PyLong_FromSsize_t(i));
+#else
+    return PySequence_GetItem(o, i);
+#endif
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i, int is_list,
+                                                     CYTHON_NCP_UNUSED int wraparound,
+                                                     CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE && !CYTHON_AVOID_BORROWED_REFS && CYTHON_USE_TYPE_SLOTS
+    if (is_list || PyList_CheckExact(o)) {
+        Py_ssize_t n = ((!wraparound) | likely(i >= 0)) ? i : i + PyList_GET_SIZE(o);
+        if ((!boundscheck) || (likely(__Pyx_is_valid_index(n, PyList_GET_SIZE(o))))) {
+            return __Pyx_PyList_GetItemRef(o, n);
         }
-        Py_INCREF(value);
+    }
+    else if (PyTuple_CheckExact(o)) {
+        Py_ssize_t n = ((!wraparound) | likely(i >= 0)) ? i : i + PyTuple_GET_SIZE(o);
+        if ((!boundscheck) || likely(__Pyx_is_valid_index(n, PyTuple_GET_SIZE(o)))) {
+            PyObject *r = PyTuple_GET_ITEM(o, n);
+            Py_INCREF(r);
+            return r;
+        }
+    } else {
+        PyMappingMethods *mm = Py_TYPE(o)->tp_as_mapping;
+        PySequenceMethods *sm = Py_TYPE(o)->tp_as_sequence;
+        if (mm && mm->mp_subscript) {
+            PyObject *r, *key = PyLong_FromSsize_t(i);
+            if (unlikely(!key)) return NULL;
+            r = mm->mp_subscript(o, key);
+            Py_DECREF(key);
+            return r;
+        }
+        if (likely(sm && sm->sq_item)) {
+            if (wraparound && unlikely(i < 0) && likely(sm->sq_length)) {
+                Py_ssize_t l = sm->sq_length(o);
+                if (likely(l >= 0)) {
+                    i += l;
+                } else {
+                    if (!PyErr_ExceptionMatches(PyExc_OverflowError))
+                        return NULL;
+                    PyErr_Clear();
+                }
+            }
+            return sm->sq_item(o, i);
+        }
+    }
+#else
+    if (is_list || !PyMapping_Check(o)) {
+        return PySequence_GetItem(o, i);
     }
 #endif
-    else {
-        if (default_value == Py_None)
-            value = __Pyx_CallUnboundCMethod1(&__pyx_mstate_global->__pyx_umethod_PyDict_Type_get, d, key);
-        else
-            value = __Pyx_CallUnboundCMethod2(&__pyx_mstate_global->__pyx_umethod_PyDict_Type_get, d, key, default_value);
+    return __Pyx_GetItemInt_Generic(o, PyLong_FromSsize_t(i));
+}
+
+/* ObjectGetItem */
+  #if CYTHON_USE_TYPE_SLOTS
+static PyObject *__Pyx_PyObject_GetIndex(PyObject *obj, PyObject *index) {
+    PyObject *runerr = NULL;
+    Py_ssize_t key_value;
+    key_value = __Pyx_PyIndex_AsSsize_t(index);
+    if (likely(key_value != -1 || !(runerr = PyErr_Occurred()))) {
+        return __Pyx_GetItemInt_Fast(obj, key_value, 0, 1, 1);
     }
-    return value;
+    if (PyErr_GivenExceptionMatches(runerr, PyExc_OverflowError)) {
+        __Pyx_TypeName index_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(index));
+        PyErr_Clear();
+        PyErr_Format(PyExc_IndexError,
+            "cannot fit '" __Pyx_FMT_TYPENAME "' into an index-sized integer", index_type_name);
+        __Pyx_DECREF_TypeName(index_type_name);
+    }
+    return NULL;
+}
+static PyObject *__Pyx_PyObject_GetItem_Slow(PyObject *obj, PyObject *key) {
+    __Pyx_TypeName obj_type_name;
+    if (likely(PyType_Check(obj))) {
+        PyObject *meth = __Pyx_PyObject_GetAttrStrNoError(obj, __pyx_mstate_global->__pyx_n_u_class_getitem);
+        if (!meth) {
+            PyErr_Clear();
+        } else {
+            PyObject *result = __Pyx_PyObject_CallOneArg(meth, key);
+            Py_DECREF(meth);
+            return result;
+        }
+    }
+    obj_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(obj));
+    PyErr_Format(PyExc_TypeError,
+        "'" __Pyx_FMT_TYPENAME "' object is not subscriptable", obj_type_name);
+    __Pyx_DECREF_TypeName(obj_type_name);
+    return NULL;
+}
+static PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *key) {
+    PyTypeObject *tp = Py_TYPE(obj);
+    PyMappingMethods *mm = tp->tp_as_mapping;
+    PySequenceMethods *sm = tp->tp_as_sequence;
+    if (likely(mm && mm->mp_subscript)) {
+        return mm->mp_subscript(obj, key);
+    }
+    if (likely(sm && sm->sq_item)) {
+        return __Pyx_PyObject_GetIndex(obj, key);
+    }
+    return __Pyx_PyObject_GetItem_Slow(obj, key);
+}
+#endif
+
+/* GetAttr3 */
+  #if __PYX_LIMITED_VERSION_HEX < 0x030d0000
+static PyObject *__Pyx_GetAttr3Default(PyObject *d) {
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    if (unlikely(!__Pyx_PyErr_ExceptionMatches(PyExc_AttributeError)))
+        return NULL;
+    __Pyx_PyErr_Clear();
+    Py_INCREF(d);
+    return d;
+}
+#endif
+static CYTHON_INLINE PyObject *__Pyx_GetAttr3(PyObject *o, PyObject *n, PyObject *d) {
+    PyObject *r;
+#if __PYX_LIMITED_VERSION_HEX >= 0x030d0000
+    int res = PyObject_GetOptionalAttr(o, n, &r);
+    return (res != 0) ? r : __Pyx_NewRef(d);
+#else
+  #if CYTHON_USE_TYPE_SLOTS
+    if (likely(PyUnicode_Check(n))) {
+        r = __Pyx_PyObject_GetAttrStrNoError(o, n);
+        if (unlikely(!r) && likely(!PyErr_Occurred())) {
+            r = __Pyx_NewRef(d);
+        }
+        return r;
+    }
+  #endif
+    r = PyObject_GetAttr(o, n);
+    return (likely(r)) ? r : __Pyx_GetAttr3Default(d);
+#endif
+}
+
+/* GetAttr */
+  static CYTHON_INLINE PyObject *__Pyx_GetAttr(PyObject *o, PyObject *n) {
+#if CYTHON_USE_TYPE_SLOTS
+    if (likely(PyUnicode_Check(n)))
+        return __Pyx_PyObject_GetAttrStr(o, n);
+#endif
+    return PyObject_GetAttr(o, n);
+}
+
+/* JoinPyUnicode */
+  static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char) {
+#if CYTHON_USE_UNICODE_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    PyObject *result_uval;
+    int result_ukind, kind_shift;
+    Py_ssize_t i, char_pos;
+    void *result_udata;
+    if (max_char > 1114111) max_char = 1114111;
+    result_uval = PyUnicode_New(result_ulength, max_char);
+    if (unlikely(!result_uval)) return NULL;
+    result_ukind = (max_char <= 255) ? PyUnicode_1BYTE_KIND : (max_char <= 65535) ? PyUnicode_2BYTE_KIND : PyUnicode_4BYTE_KIND;
+    kind_shift = (result_ukind == PyUnicode_4BYTE_KIND) ? 2 : result_ukind - 1;
+    result_udata = PyUnicode_DATA(result_uval);
+    assert(kind_shift == 2 || kind_shift == 1 || kind_shift == 0);
+    if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - result_ulength < 0))
+        goto overflow;
+    char_pos = 0;
+    for (i=0; i < value_count; i++) {
+        int ukind;
+        Py_ssize_t ulength;
+        void *udata;
+        PyObject *uval = values[i];
+        #if !CYTHON_COMPILING_IN_LIMITED_API
+        if (__Pyx_PyUnicode_READY(uval) == (-1))
+            goto bad;
+        #endif
+        ulength = __Pyx_PyUnicode_GET_LENGTH(uval);
+        #if !CYTHON_ASSUME_SAFE_SIZE
+        if (unlikely(ulength < 0)) goto bad;
+        #endif
+        if (unlikely(!ulength))
+            continue;
+        if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - ulength < char_pos))
+            goto overflow;
+        ukind = __Pyx_PyUnicode_KIND(uval);
+        udata = __Pyx_PyUnicode_DATA(uval);
+        if (ukind == result_ukind) {
+            memcpy((char *)result_udata + (char_pos << kind_shift), udata, (size_t) (ulength << kind_shift));
+        } else {
+            #if PY_VERSION_HEX >= 0x030d0000
+            if (unlikely(PyUnicode_CopyCharacters(result_uval, char_pos, uval, 0, ulength) < 0)) goto bad;
+            #elif CYTHON_COMPILING_IN_CPYTHON || defined(_PyUnicode_FastCopyCharacters)
+            _PyUnicode_FastCopyCharacters(result_uval, char_pos, uval, 0, ulength);
+            #else
+            Py_ssize_t j;
+            for (j=0; j < ulength; j++) {
+                Py_UCS4 uchar = __Pyx_PyUnicode_READ(ukind, udata, j);
+                __Pyx_PyUnicode_WRITE(result_ukind, result_udata, char_pos+j, uchar);
+            }
+            #endif
+        }
+        char_pos += ulength;
+    }
+    return result_uval;
+overflow:
+    PyErr_SetString(PyExc_OverflowError, "join() result is too long for a Python string");
+bad:
+    Py_DECREF(result_uval);
+    return NULL;
+#else
+    Py_ssize_t i;
+    PyObject *result = NULL;
+    PyObject *value_tuple = PyTuple_New(value_count);
+    if (unlikely(!value_tuple)) return NULL;
+    CYTHON_UNUSED_VAR(max_char);
+    CYTHON_UNUSED_VAR(result_ulength);
+    for (i=0; i<value_count; i++) {
+        if (__Pyx_PyTuple_SET_ITEM(value_tuple, i, values[i]) != (0)) goto bad;
+        Py_INCREF(values[i]);
+    }
+    result = PyUnicode_Join(__pyx_mstate_global->__pyx_empty_unicode, value_tuple);
+bad:
+    Py_DECREF(value_tuple);
+    return result;
+#endif
 }
 
 /* append */
@@ -17614,7 +17045,7 @@ bad:
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__4);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__5);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -19233,7 +18664,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__5);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__6);
     }
     goto done;
 }

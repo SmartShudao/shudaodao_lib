@@ -3,34 +3,37 @@
 # @License  ：(C)Copyright 2025, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
-# @Desc     ：SQLModel classes for shudaodao_meta.meta_schema
+# @Desc     ：SQLModel classes for shudaodao_meta.source_index
 
 from datetime import datetime
-from typing import Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import BigInteger
+from sqlalchemy import BigInteger, Text, Boolean
 
 from shudaodao_core import Field, get_primary_id, Relationship
 from shudaodao_core import SQLModel, BaseResponse
-from ... import RegistryModel, get_table_schema
+from ... import RegistryModel, get_table_schema, get_foreign_schema
 
 if TYPE_CHECKING:
-    from .meta_table import MetaTable
-    from .meta_view import MetaView
+    from .source_table import SourceTable
 
 
-class MetaSchema(RegistryModel, table=True):
+class SourceIndex(RegistryModel, table=True):
     """ 数据库对象模型 """
-    __tablename__ = "meta_schema"
-    __table_args__ = {"schema": get_table_schema(), "comment": "代码元数据"}
+    __tablename__ = "source_index"
+    __table_args__ = {"schema": get_table_schema(), "comment": "表索引"}
     # 非数据库字段：仅用于内部处理
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
-    schema_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="架构内码"
+    source_index_id: int = Field(
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="索引内码"
     )
-    schema_label: Optional[str] = Field(default=None, max_length=128, nullable=True, description="架构中文")
-    schema_name: str = Field(max_length=128, description="数据库架构")
+    source_table_id: int = Field(
+        sa_type=BigInteger, description="表内码", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
+    )
+    name: str = Field(max_length=255, description="索引名称")
+    column_names: str = Field(sa_type=Text, description="字段集合")
+    unique: bool = Field(sa_type=Boolean, description="是否唯一")
     sort_order: int = Field(default=10, description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, nullable=True, description="描述")
     create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
@@ -41,44 +44,39 @@ class MetaSchema(RegistryModel, table=True):
     update_at: Optional[datetime] = Field(
         default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
     )
-    # 正向关系 -> 子对象
-    MetaTables: list["MetaTable"] = Relationship(
-        back_populates="Schema", sa_relationship_kwargs={
-            "order_by": "MetaTable.sort_order.asc()"
-        }
-    )
-    MetaViews: list["MetaView"] = Relationship(
-        back_populates="Schema", sa_relationship_kwargs={
-            "order_by": "MetaView.sort_order.asc()"
-        }
-    )
+    # 反向关系 -> 父对象
+    SourceTable: "SourceTable" = Relationship(back_populates="SourceIndexes")
 
 
-class MetaSchemaBase(SQLModel):
+class SourceIndexBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    schema_label: Optional[str] = Field(default=None, max_length=128, description="架构中文")
-    schema_name: str = Field(max_length=128, description="数据库架构")
+    source_table_id: int = Field(sa_type=BigInteger, description="表内码")
+    name: str = Field(max_length=255, description="索引名称")
+    column_names: str = Field(description="字段集合")
+    unique: bool = Field(description="是否唯一")
     sort_order: int = Field(default=10, description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
-class MetaSchemaCreate(MetaSchemaBase):
+class SourceIndexCreate(SourceIndexBase):
     """ 前端创建模型 - 用于接口请求 """
     ...
 
 
-class MetaSchemaUpdate(MetaSchemaBase):
+class SourceIndexUpdate(SourceIndexBase):
     """ 前端更新模型 - 用于接口请求 """
     ...
 
 
-class MetaSchemaResponse(BaseResponse):
+class SourceIndexResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    schema_id: int = Field(description="架构内码", sa_type=BigInteger)
-    schema_label: Optional[str] = Field(description="架构中文", default=None)
-    schema_name: str = Field(description="数据库架构")
+    source_index_id: int = Field(description="索引内码", sa_type=BigInteger)
+    source_table_id: int = Field(description="表内码", sa_type=BigInteger)
+    name: str = Field(description="索引名称")
+    column_names: str = Field(description="字段集合")
+    unique: bool = Field(description="是否唯一")
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(description="描述", default=None)
     create_by: Optional[str] = Field(description="创建人", default=None)

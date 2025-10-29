@@ -1,7 +1,7 @@
-from .gen_convert import GenConverter as GenConverter
+from .meta_convert import MetaConverter as MetaConverter
 from _typeshed import Incomplete
 
-class MetaInspect:
+class SourceInspect:
     engine: Incomplete
     schema_name: Incomplete
     support_schema: Incomplete

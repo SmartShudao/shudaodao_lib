@@ -3,7 +3,7 @@
 # @License  ：(C)Copyright 2025, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
-# @Desc     ：SQLModel classes for shudaodao_meta.meta_referencing_foreign_key
+# @Desc     ：SQLModel classes for shudaodao_meta.source_referencing_foreign_key
 
 from datetime import datetime
 from typing import TYPE_CHECKING, Optional
@@ -15,26 +15,26 @@ from shudaodao_core import SQLModel, BaseResponse
 from ... import RegistryModel, get_table_schema, get_foreign_schema
 
 if TYPE_CHECKING:
-    from .meta_foreign_key import MetaForeignKey
-    from .meta_table import MetaTable
+    from .source_foreign_key import SourceForeignKey
+    from .source_table import SourceTable
 
 
-class MetaReferencingForeignKey(RegistryModel, table=True):
+class SourceReferencingForeignKey(RegistryModel, table=True):
     """ 数据库对象模型 """
-    __tablename__ = "meta_referencing_foreign_key"
+    __tablename__ = "source_referencing_foreign_key"
     __table_args__ = {"schema": get_table_schema(), "comment": "引用当前表的外键"}
     # 非数据库字段：仅用于内部处理
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
-    meta_referencing_foreign_key_id: int = Field(
+    source_referencing_foreign_key_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="外键内码"
     )
-    meta_foreign_key_id: int = Field(
+    source_foreign_key_id: int = Field(
         sa_type=BigInteger, description="外键内码",
-        foreign_key=f"{get_foreign_schema()}meta_foreign_key.meta_foreign_key_id"
+        foreign_key=f"{get_foreign_schema()}source_foreign_key.source_foreign_key_id"
     )
-    meta_table_id: int = Field(
-        sa_type=BigInteger, description="表内码", foreign_key=f"{get_foreign_schema()}meta_table.meta_table_id"
+    source_table_id: int = Field(
+        sa_type=BigInteger, description="表内码", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
     )
     name: Optional[str] = Field(default=None, max_length=255, nullable=True, description="约束名称")
     constrained_schema: Optional[str] = Field(default=None, max_length=128, nullable=True, description="当前架构")
@@ -55,14 +55,14 @@ class MetaReferencingForeignKey(RegistryModel, table=True):
         default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
     )
     # 反向关系 -> 父对象
-    MetaForeignKey: "MetaForeignKey" = Relationship(back_populates="MetaReferencingForeignKeys")
-    MetaTable: "MetaTable" = Relationship(back_populates="MetaReferencingForeignKeys")
+    SourceForeignKey: "SourceForeignKey" = Relationship(back_populates="SourceReferencingForeignKeys")
+    SourceTable: "SourceTable" = Relationship(back_populates="SourceReferencingForeignKeys")
 
 
-class MetaReferencingForeignKeyBase(SQLModel):
+class SourceReferencingForeignKeyBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    meta_foreign_key_id: int = Field(sa_type=BigInteger, description="外键内码")
-    meta_table_id: int = Field(sa_type=BigInteger, description="表内码")
+    source_foreign_key_id: int = Field(sa_type=BigInteger, description="外键内码")
+    source_table_id: int = Field(sa_type=BigInteger, description="表内码")
     name: Optional[str] = Field(default=None, max_length=255, description="约束名称")
     constrained_schema: Optional[str] = Field(default=None, max_length=128, description="当前架构")
     constrained_table: Optional[str] = Field(default=None, max_length=255, description="当前表")
@@ -75,23 +75,23 @@ class MetaReferencingForeignKeyBase(SQLModel):
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
-class MetaReferencingForeignKeyCreate(MetaReferencingForeignKeyBase):
+class SourceReferencingForeignKeyCreate(SourceReferencingForeignKeyBase):
     """ 前端创建模型 - 用于接口请求 """
     ...
 
 
-class MetaReferencingForeignKeyUpdate(MetaReferencingForeignKeyBase):
+class SourceReferencingForeignKeyUpdate(SourceReferencingForeignKeyBase):
     """ 前端更新模型 - 用于接口请求 """
     ...
 
 
-class MetaReferencingForeignKeyResponse(BaseResponse):
+class SourceReferencingForeignKeyResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    meta_referencing_foreign_key_id: int = Field(description="外键内码", sa_type=BigInteger)
-    meta_foreign_key_id: int = Field(description="外键内码", sa_type=BigInteger)
-    meta_table_id: int = Field(description="表内码", sa_type=BigInteger)
+    source_referencing_foreign_key_id: int = Field(description="外键内码", sa_type=BigInteger)
+    source_foreign_key_id: int = Field(description="外键内码", sa_type=BigInteger)
+    source_table_id: int = Field(description="表内码", sa_type=BigInteger)
     name: Optional[str] = Field(description="约束名称", default=None)
     constrained_schema: Optional[str] = Field(description="当前架构", default=None)
     constrained_table: Optional[str] = Field(description="当前表", default=None)

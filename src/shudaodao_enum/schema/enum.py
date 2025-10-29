@@ -14,7 +14,7 @@ from shudaodao_core import ValidError
 
 
 class EnumQueryRequest(BaseModel):
-    schema_name: str = Field(..., description="数据库schema名称", alias="schema")
+    # schema_name: str = Field(..., description="数据库schema名称", alias="schema")
     key: Optional[Union[List[str], str]] = Field(default=None, description="查询枚举字段名[str|list]")
     name: Optional[Union[List[str], str]] = Field(default=None, description="返回枚举字段名[str|list]")
     pid: Optional[Union[List[str], str]] = Field(default=None, description="父ID[str|list]")

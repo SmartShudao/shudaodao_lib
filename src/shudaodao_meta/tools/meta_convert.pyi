@@ -1,6 +1,6 @@
 from _typeshed import Incomplete
 
-class GenConverter:
+class MetaConverter:
     case_mapping: Incomplete
     private_mapping: Incomplete
     @staticmethod

@@ -11,5 +11,5 @@ class EnumQueryService:
     async def query_schema(cls, *, schema_name, db: AsyncSession): ...
     @classmethod
     async def query_field(
-        cls, *, db: AsyncSession, quest_request: EnumQueryRequest
+        cls, *, db: AsyncSession, schema_name, quest_request: EnumQueryRequest
     ): ...

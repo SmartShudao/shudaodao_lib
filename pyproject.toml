@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shudaodao"
-version = "0.1.77"
+version = "0.1.78"
 description = "SmartShudao"
 readme = "README.md"
 authors = [
