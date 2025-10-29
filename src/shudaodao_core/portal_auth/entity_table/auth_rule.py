@@ -17,7 +17,7 @@ class AuthRule(Base):
     __tablename__ = "t_auth_rule"
     __table_args__ = {"schema": f"{get_schema_name()}", "comment": "访问控制规则表"}
 
-    id = Column(Integer, primary_key=True, comment="内码")
+    id = Column(Integer, primary_key=True, comment="主键")
     ptype = Column(String(255), comment="类型")
     v0 = Column(String(255), comment="角色/用户")
     v1 = Column(String(255), comment="资源/角色")

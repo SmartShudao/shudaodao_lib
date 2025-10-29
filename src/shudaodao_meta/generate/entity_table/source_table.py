@@ -31,10 +31,11 @@ class SourceTable(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     source_table_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_schema_id: int = Field(
-        sa_type=BigInteger, description="架构内码", foreign_key=f"{get_foreign_schema()}source_schema.source_schema_id"
+        sa_type=BigInteger, description="外键-模式(schema)",
+        foreign_key=f"{get_foreign_schema()}source_schema.source_schema_id"
     )
     table_name: str = Field(max_length=255, description="表名字")
     comment: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="备注")
@@ -76,7 +77,7 @@ class SourceTable(RegistryModel, table=True):
 
 class SourceTableBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    source_schema_id: int = Field(sa_type=BigInteger, description="架构内码")
+    source_schema_id: int = Field(sa_type=BigInteger, description="外键-模式(schema)")
     table_name: str = Field(max_length=255, description="表名字")
     comment: Optional[str] = Field(default=None, description="备注")
     sort_order: int = Field(default=10, description="排序权重")
@@ -97,8 +98,8 @@ class SourceTableResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    source_table_id: int = Field(description="内码", sa_type=BigInteger)
-    source_schema_id: int = Field(description="架构内码", sa_type=BigInteger)
+    source_table_id: int = Field(description="主键", sa_type=BigInteger)
+    source_schema_id: int = Field(description="外键-模式(schema)", sa_type=BigInteger)
     table_name: str = Field(description="表名字")
     comment: Optional[str] = Field(description="备注", default=None)
     sort_order: int = Field(description="排序权重")

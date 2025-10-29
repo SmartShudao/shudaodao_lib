@@ -26,10 +26,10 @@ class EnumValue(RegistryModel, table=True):
     __database_schema__ = "shudaodao_enum"
     # 数据库字段
     enum_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="枚举内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     field_id: int = Field(
-        sa_type=BigInteger, description="字段内码", foreign_key=f"{get_foreign_schema()}sys_enum_field.field_id"
+        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}sys_enum_field.field_id"
     )
     enum_pid: int = Field(default=-1, sa_type=BigInteger, description="上级枚举")
     enum_label: str = Field(max_length=50, description="枚举名")
@@ -46,14 +46,14 @@ class EnumValue(RegistryModel, table=True):
     update_at: Optional[datetime] = Field(
         default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
     )
-    tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="租户内码")
+    tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="主键")
     # 反向关系 -> 父对象
     Field: "EnumField" = Relationship(back_populates="EnumValues")
 
 
 class EnumValueBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    field_id: int = Field(sa_type=BigInteger, description="字段内码")
+    field_id: int = Field(sa_type=BigInteger, description="主键")
     enum_pid: int = Field(default=-1, sa_type=BigInteger, description="上级枚举")
     enum_label: str = Field(max_length=50, description="枚举名")
     enum_value: str = Field(max_length=50, description="枚举值")
@@ -77,8 +77,8 @@ class EnumValueResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_enum"  # 仅用于内部处理
 
-    enum_id: int = Field(description="枚举内码", sa_type=BigInteger)
-    field_id: int = Field(description="字段内码", sa_type=BigInteger)
+    enum_id: int = Field(description="主键", sa_type=BigInteger)
+    field_id: int = Field(description="主键", sa_type=BigInteger)
     enum_pid: int = Field(description="上级枚举", sa_type=BigInteger)
     enum_label: str = Field(description="枚举名")
     enum_value: str = Field(description="枚举值")

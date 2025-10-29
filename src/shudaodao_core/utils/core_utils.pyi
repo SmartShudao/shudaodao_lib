@@ -35,3 +35,5 @@ class CoreUtil:
         Args:
             file_or_path: 要删除的文件路径
         """
+    @staticmethod
+    def hide_db_password(connection_string): ...

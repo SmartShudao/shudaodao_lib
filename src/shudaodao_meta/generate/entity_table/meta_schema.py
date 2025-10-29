@@ -27,7 +27,7 @@ class MetaSchema(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     schema_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="架构内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     schema_label: Optional[str] = Field(default=None, max_length=128, nullable=True, description="架构中文")
     schema_name: str = Field(max_length=128, description="数据库架构")
@@ -76,7 +76,7 @@ class MetaSchemaResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    schema_id: int = Field(description="架构内码", sa_type=BigInteger)
+    schema_id: int = Field(description="主键", sa_type=BigInteger)
     schema_label: Optional[str] = Field(description="架构中文", default=None)
     schema_name: str = Field(description="数据库架构")
     sort_order: int = Field(description="排序权重")

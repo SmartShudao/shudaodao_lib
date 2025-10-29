@@ -18,9 +18,6 @@ from shudaodao_meta.generate.entity_table.source_schema import (
     SourceSchema as SourceSchema,
 )
 from shudaodao_meta.generate.entity_table.source_table import SourceTable as SourceTable
-from shudaodao_meta.generate.entity_table.source_unique_constraint import (
-    SourceUniqueConstraint as SourceUniqueConstraint,
-)
 from shudaodao_meta.generate.entity_table.source_view import SourceView as SourceView
 
 class SourceStore:

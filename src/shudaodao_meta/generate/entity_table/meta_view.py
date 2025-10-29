@@ -27,10 +27,10 @@ class MetaView(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     view_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="视图内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     schema_id: int = Field(
-        sa_type=BigInteger, description="架构内码", foreign_key=f"{get_foreign_schema()}meta_schema.schema_id"
+        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}meta_schema.schema_id"
     )
     view_name: str = Field(max_length=255, description="视图名字")
     definition: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="SQL脚本")
@@ -60,7 +60,7 @@ class MetaView(RegistryModel, table=True):
 
 class MetaViewBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    schema_id: int = Field(sa_type=BigInteger, description="架构内码")
+    schema_id: int = Field(sa_type=BigInteger, description="主键")
     view_name: str = Field(max_length=255, description="视图名字")
     definition: Optional[str] = Field(default=None, description="SQL脚本")
     class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
@@ -85,8 +85,8 @@ class MetaViewResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    view_id: int = Field(description="视图内码", sa_type=BigInteger)
-    schema_id: int = Field(description="架构内码", sa_type=BigInteger)
+    view_id: int = Field(description="主键", sa_type=BigInteger)
+    schema_id: int = Field(description="主键", sa_type=BigInteger)
     view_name: str = Field(description="视图名字")
     definition: Optional[str] = Field(description="SQL脚本", default=None)
     class_name: Optional[str] = Field(description="类名", default=None)

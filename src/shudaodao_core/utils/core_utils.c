@@ -2465,15 +2465,19 @@ static const char __pyx_k_[] = "\346\262\241\346\211\276\345\210\260\351\241\271
 static const char __pyx_k__2[] = "";
 static const char __pyx_k__3[] = "~";
 static const char __pyx_k__4[] = ".";
-static const char __pyx_k__5[] = " \346\240\270\345\277\203\345\272\223\347\232\204\345\267\245\345\205\267\347\261\273 ";
-static const char __pyx_k__6[] = "?";
-static const char __pyx_k__7[] = "\260\001";
+static const char __pyx_k__5[] = "(:)([^:@/]+)(@)";
+static const char __pyx_k__6[] = " \346\240\270\345\277\203\345\272\223\347\232\204\345\267\245\345\205\267\347\261\273 ";
+static const char __pyx_k__7[] = "?";
+static const char __pyx_k__8[] = "\260\001";
 static const char __pyx_k_gc[] = "gc";
+static const char __pyx_k_re[] = "re";
+static const char __pyx_k_1_3[] = "\\1***\\3";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_get[] = "get";
 static const char __pyx_k_git[] = ".git";
 static const char __pyx_k_pop[] = "pop";
+static const char __pyx_k_sub[] = "sub";
 static const char __pyx_k_web[] = "web";
 static const char __pyx_k_None[] = "None";
 static const char __pyx_k_Path[] = "Path";
@@ -2514,8 +2518,10 @@ static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_genexpr[] = "genexpr";
 static const char __pyx_k_is_file[] = "is_file";
 static const char __pyx_k_pathlib[] = "pathlib";
+static const char __pyx_k_pattern[] = "pattern";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_resolve[] = "resolve";
+static const char __pyx_k_A_r_Qi_1[] = "\200A\360\010\000\t\023\220!\330\010\017\210r\220\024\220Q\220i\230|\2501";
 static const char __pyx_k_CoreUtil[] = "CoreUtil";
 static const char __pyx_k_get_path[] = "get_path";
 static const char __pyx_k_out_path[] = "out_path";
@@ -2548,9 +2554,11 @@ static const char __pyx_k_Union_str_Path[] = "Union[str, Path]";
 static const char __pyx_k_get_admin_path[] = "get_admin_path";
 static const char __pyx_k_pyproject_toml[] = "pyproject.toml";
 static const char __pyx_k_get_config_path[] = "get_config_path";
+static const char __pyx_k_hide_db_password[] = "hide_db_password";
 static const char __pyx_k_remove_node_attr[] = "remove_node_attr";
 static const char __pyx_k_requirements_txt[] = "requirements.txt";
 static const char __pyx_k_CoreUtil_get_path[] = "CoreUtil.get_path";
+static const char __pyx_k_connection_string[] = "connection_string";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_children_node_name[] = "children_node_name";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -2560,6 +2568,7 @@ static const char __pyx_k_CoreUtil_get_web_path[] = "CoreUtil.get_web_path";
 static const char __pyx_k_CoreUtil_get_root_path[] = "CoreUtil.get_root_path";
 static const char __pyx_k_CoreUtil_get_admin_path[] = "CoreUtil.get_admin_path";
 static const char __pyx_k_CoreUtil_get_config_path[] = "CoreUtil.get_config_path";
+static const char __pyx_k_CoreUtil_hide_db_password[] = "CoreUtil.hide_db_password";
 static const char __pyx_k_CoreUtil_remove_node_attr[] = "CoreUtil.remove_node_attr";
 static const char __pyx_k_A_Q_1_t1_Zq_j_4t7_4xq_q_1_4wa[] = "\200A\330\"=\270Q\360\n\000\t\014\210=\230\003\2301\330\014\r\330\010\017\210t\2201\320\024%\240Z\250q\260\016\270j\310\001\330\010\013\2104\210t\2207\230!\330\014\r\330\010\013\2104\210x\220q\330\014\020\220\007\220q\230\013\2401\330\014\r\330\010\013\2104\210w\220a\330\014\022\220'\230\021\230!";
 static const char __pyx_k_A_d_9HA_9_XQ_0_q_3k_Q_Qa_t1IXQ[] = "\200A\340\036\037\360\n\000\t\027\220d\230!\2309\240H\250A\340\010\030\230\r\320%9\270\034\300X\310Q\330\010\t\340\0140\260\001\330\020\027\220q\340\014\017\210|\2303\230k\250\021\330\020\021\330\014\032\230+\240Q\330\010\r\210Q\210a\330\010\017\210t\2201\220I\230X\240Q";
@@ -2575,6 +2584,7 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_6get_config_path(CYTHON_UNUSED 
 static PyObject *__pyx_pf_10core_utils_8CoreUtil_8get_web_path(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
 static PyObject *__pyx_pf_10core_utils_8CoreUtil_10get_admin_path(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
 static PyObject *__pyx_pf_10core_utils_8CoreUtil_12remove_path(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_file_or_path); /* proto */
+static PyObject *__pyx_pf_10core_utils_8CoreUtil_14hide_db_password(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_connection_string); /* proto */
 static PyObject *__pyx_tp_new_10core_utils___pyx_scope_struct__get_root_path(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_10core_utils___pyx_scope_struct_1_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
@@ -2620,8 +2630,8 @@ typedef struct {
   PyTypeObject *__pyx_ptype_10core_utils___pyx_scope_struct__get_root_path;
   PyTypeObject *__pyx_ptype_10core_utils___pyx_scope_struct_1_genexpr;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
-  PyObject *__pyx_codeobj_tab[8];
-  PyObject *__pyx_string_tab[97];
+  PyObject *__pyx_codeobj_tab[9];
+  PyObject *__pyx_string_tab[105];
 /* #### Code section: module_state_contents ### */
 
 #if CYTHON_USE_FREELISTS
@@ -2675,102 +2685,110 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #endif
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
-#define __pyx_n_u_CoreUtil __pyx_string_tab[1]
-#define __pyx_n_u_CoreUtil_get_admin_path __pyx_string_tab[2]
-#define __pyx_n_u_CoreUtil_get_config_path __pyx_string_tab[3]
-#define __pyx_n_u_CoreUtil_get_path __pyx_string_tab[4]
-#define __pyx_n_u_CoreUtil_get_root_path __pyx_string_tab[5]
-#define __pyx_n_u_CoreUtil_get_root_path_locals_ge __pyx_string_tab[6]
-#define __pyx_n_u_CoreUtil_get_web_path __pyx_string_tab[7]
-#define __pyx_n_u_CoreUtil_remove_node_attr __pyx_string_tab[8]
-#define __pyx_n_u_CoreUtil_remove_path __pyx_string_tab[9]
-#define __pyx_n_u_None __pyx_string_tab[10]
-#define __pyx_n_u_Path __pyx_string_tab[11]
-#define __pyx_kp_u_README_md __pyx_string_tab[12]
-#define __pyx_n_u_Union __pyx_string_tab[13]
-#define __pyx_kp_u_Union_str_Path __pyx_string_tab[14]
-#define __pyx_kp_u_Union_str_Path_None __pyx_string_tab[15]
-#define __pyx_kp_u__2 __pyx_string_tab[16]
-#define __pyx_kp_u__3 __pyx_string_tab[17]
-#define __pyx_kp_u__4 __pyx_string_tab[18]
-#define __pyx_kp_u__5 __pyx_string_tab[19]
-#define __pyx_kp_u__6 __pyx_string_tab[20]
-#define __pyx_n_u_admin __pyx_string_tab[21]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[22]
-#define __pyx_n_u_attr_name __pyx_string_tab[23]
-#define __pyx_n_u_cache __pyx_string_tab[24]
-#define __pyx_n_u_child_nodes __pyx_string_tab[25]
-#define __pyx_n_u_children_node_name __pyx_string_tab[26]
-#define __pyx_n_u_class_getitem __pyx_string_tab[27]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[28]
-#define __pyx_n_u_close __pyx_string_tab[29]
-#define __pyx_n_u_cls __pyx_string_tab[30]
-#define __pyx_n_u_config __pyx_string_tab[31]
-#define __pyx_n_u_core_utils __pyx_string_tab[32]
-#define __pyx_kp_u_core_utils_py __pyx_string_tab[33]
-#define __pyx_n_u_current_dir __pyx_string_tab[34]
-#define __pyx_kp_u_disable __pyx_string_tab[35]
-#define __pyx_n_u_doc __pyx_string_tab[36]
-#define __pyx_kp_u_enable __pyx_string_tab[37]
-#define __pyx_n_u_exists __pyx_string_tab[38]
-#define __pyx_n_u_expanduser __pyx_string_tab[39]
-#define __pyx_n_u_file_or_path __pyx_string_tab[40]
-#define __pyx_n_u_func __pyx_string_tab[41]
-#define __pyx_n_u_functools __pyx_string_tab[42]
-#define __pyx_kp_u_gc __pyx_string_tab[43]
-#define __pyx_n_u_genexpr __pyx_string_tab[44]
-#define __pyx_n_u_get __pyx_string_tab[45]
-#define __pyx_n_u_get_admin_path __pyx_string_tab[46]
-#define __pyx_n_u_get_config_path __pyx_string_tab[47]
-#define __pyx_n_u_get_path __pyx_string_tab[48]
-#define __pyx_n_u_get_root_path __pyx_string_tab[49]
-#define __pyx_n_u_get_web_path __pyx_string_tab[50]
-#define __pyx_kp_u_git __pyx_string_tab[51]
-#define __pyx_n_u_initializing __pyx_string_tab[52]
-#define __pyx_n_u_is_absolute __pyx_string_tab[53]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[54]
-#define __pyx_n_u_is_dir __pyx_string_tab[55]
-#define __pyx_n_u_is_file __pyx_string_tab[56]
-#define __pyx_kp_u_isenabled __pyx_string_tab[57]
-#define __pyx_n_u_main __pyx_string_tab[58]
-#define __pyx_n_u_marker __pyx_string_tab[59]
-#define __pyx_n_u_metaclass __pyx_string_tab[60]
-#define __pyx_n_u_missing_ok __pyx_string_tab[61]
-#define __pyx_n_u_module __pyx_string_tab[62]
-#define __pyx_n_u_name __pyx_string_tab[63]
-#define __pyx_n_u_next __pyx_string_tab[64]
-#define __pyx_n_u_node __pyx_string_tab[65]
-#define __pyx_n_u_nodes __pyx_string_tab[66]
-#define __pyx_n_u_out_path __pyx_string_tab[67]
-#define __pyx_n_u_parent __pyx_string_tab[68]
-#define __pyx_n_u_parts __pyx_string_tab[69]
-#define __pyx_n_u_path __pyx_string_tab[70]
-#define __pyx_n_u_pathlib __pyx_string_tab[71]
-#define __pyx_n_u_pop __pyx_string_tab[72]
-#define __pyx_n_u_prepare __pyx_string_tab[73]
-#define __pyx_n_u_print __pyx_string_tab[74]
-#define __pyx_kp_u_pyproject_toml __pyx_string_tab[75]
-#define __pyx_n_u_qualname __pyx_string_tab[76]
-#define __pyx_n_u_remove_attrs __pyx_string_tab[77]
-#define __pyx_n_u_remove_node_attr __pyx_string_tab[78]
-#define __pyx_n_u_remove_path __pyx_string_tab[79]
-#define __pyx_kp_u_requirements_txt __pyx_string_tab[80]
-#define __pyx_n_u_resolve __pyx_string_tab[81]
-#define __pyx_n_u_return __pyx_string_tab[82]
-#define __pyx_n_u_rmtree __pyx_string_tab[83]
-#define __pyx_n_u_root_markers __pyx_string_tab[84]
-#define __pyx_n_u_send __pyx_string_tab[85]
-#define __pyx_n_u_set_name __pyx_string_tab[86]
-#define __pyx_kp_u_setup_py __pyx_string_tab[87]
-#define __pyx_n_u_shutil __pyx_string_tab[88]
-#define __pyx_n_u_spec __pyx_string_tab[89]
-#define __pyx_n_u_staticmethod __pyx_string_tab[90]
-#define __pyx_n_u_test __pyx_string_tab[91]
-#define __pyx_n_u_throw __pyx_string_tab[92]
-#define __pyx_n_u_typing __pyx_string_tab[93]
-#define __pyx_n_u_unlink __pyx_string_tab[94]
-#define __pyx_n_u_value __pyx_string_tab[95]
-#define __pyx_n_u_web __pyx_string_tab[96]
+#define __pyx_kp_u_1_3 __pyx_string_tab[1]
+#define __pyx_n_u_CoreUtil __pyx_string_tab[2]
+#define __pyx_n_u_CoreUtil_get_admin_path __pyx_string_tab[3]
+#define __pyx_n_u_CoreUtil_get_config_path __pyx_string_tab[4]
+#define __pyx_n_u_CoreUtil_get_path __pyx_string_tab[5]
+#define __pyx_n_u_CoreUtil_get_root_path __pyx_string_tab[6]
+#define __pyx_n_u_CoreUtil_get_root_path_locals_ge __pyx_string_tab[7]
+#define __pyx_n_u_CoreUtil_get_web_path __pyx_string_tab[8]
+#define __pyx_n_u_CoreUtil_hide_db_password __pyx_string_tab[9]
+#define __pyx_n_u_CoreUtil_remove_node_attr __pyx_string_tab[10]
+#define __pyx_n_u_CoreUtil_remove_path __pyx_string_tab[11]
+#define __pyx_n_u_None __pyx_string_tab[12]
+#define __pyx_n_u_Path __pyx_string_tab[13]
+#define __pyx_kp_u_README_md __pyx_string_tab[14]
+#define __pyx_n_u_Union __pyx_string_tab[15]
+#define __pyx_kp_u_Union_str_Path __pyx_string_tab[16]
+#define __pyx_kp_u_Union_str_Path_None __pyx_string_tab[17]
+#define __pyx_kp_u__2 __pyx_string_tab[18]
+#define __pyx_kp_u__3 __pyx_string_tab[19]
+#define __pyx_kp_u__4 __pyx_string_tab[20]
+#define __pyx_kp_u__5 __pyx_string_tab[21]
+#define __pyx_kp_u__6 __pyx_string_tab[22]
+#define __pyx_kp_u__7 __pyx_string_tab[23]
+#define __pyx_n_u_admin __pyx_string_tab[24]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[25]
+#define __pyx_n_u_attr_name __pyx_string_tab[26]
+#define __pyx_n_u_cache __pyx_string_tab[27]
+#define __pyx_n_u_child_nodes __pyx_string_tab[28]
+#define __pyx_n_u_children_node_name __pyx_string_tab[29]
+#define __pyx_n_u_class_getitem __pyx_string_tab[30]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[31]
+#define __pyx_n_u_close __pyx_string_tab[32]
+#define __pyx_n_u_cls __pyx_string_tab[33]
+#define __pyx_n_u_config __pyx_string_tab[34]
+#define __pyx_n_u_connection_string __pyx_string_tab[35]
+#define __pyx_n_u_core_utils __pyx_string_tab[36]
+#define __pyx_kp_u_core_utils_py __pyx_string_tab[37]
+#define __pyx_n_u_current_dir __pyx_string_tab[38]
+#define __pyx_kp_u_disable __pyx_string_tab[39]
+#define __pyx_n_u_doc __pyx_string_tab[40]
+#define __pyx_kp_u_enable __pyx_string_tab[41]
+#define __pyx_n_u_exists __pyx_string_tab[42]
+#define __pyx_n_u_expanduser __pyx_string_tab[43]
+#define __pyx_n_u_file_or_path __pyx_string_tab[44]
+#define __pyx_n_u_func __pyx_string_tab[45]
+#define __pyx_n_u_functools __pyx_string_tab[46]
+#define __pyx_kp_u_gc __pyx_string_tab[47]
+#define __pyx_n_u_genexpr __pyx_string_tab[48]
+#define __pyx_n_u_get __pyx_string_tab[49]
+#define __pyx_n_u_get_admin_path __pyx_string_tab[50]
+#define __pyx_n_u_get_config_path __pyx_string_tab[51]
+#define __pyx_n_u_get_path __pyx_string_tab[52]
+#define __pyx_n_u_get_root_path __pyx_string_tab[53]
+#define __pyx_n_u_get_web_path __pyx_string_tab[54]
+#define __pyx_kp_u_git __pyx_string_tab[55]
+#define __pyx_n_u_hide_db_password __pyx_string_tab[56]
+#define __pyx_n_u_initializing __pyx_string_tab[57]
+#define __pyx_n_u_is_absolute __pyx_string_tab[58]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[59]
+#define __pyx_n_u_is_dir __pyx_string_tab[60]
+#define __pyx_n_u_is_file __pyx_string_tab[61]
+#define __pyx_kp_u_isenabled __pyx_string_tab[62]
+#define __pyx_n_u_main __pyx_string_tab[63]
+#define __pyx_n_u_marker __pyx_string_tab[64]
+#define __pyx_n_u_metaclass __pyx_string_tab[65]
+#define __pyx_n_u_missing_ok __pyx_string_tab[66]
+#define __pyx_n_u_module __pyx_string_tab[67]
+#define __pyx_n_u_name __pyx_string_tab[68]
+#define __pyx_n_u_next __pyx_string_tab[69]
+#define __pyx_n_u_node __pyx_string_tab[70]
+#define __pyx_n_u_nodes __pyx_string_tab[71]
+#define __pyx_n_u_out_path __pyx_string_tab[72]
+#define __pyx_n_u_parent __pyx_string_tab[73]
+#define __pyx_n_u_parts __pyx_string_tab[74]
+#define __pyx_n_u_path __pyx_string_tab[75]
+#define __pyx_n_u_pathlib __pyx_string_tab[76]
+#define __pyx_n_u_pattern __pyx_string_tab[77]
+#define __pyx_n_u_pop __pyx_string_tab[78]
+#define __pyx_n_u_prepare __pyx_string_tab[79]
+#define __pyx_n_u_print __pyx_string_tab[80]
+#define __pyx_kp_u_pyproject_toml __pyx_string_tab[81]
+#define __pyx_n_u_qualname __pyx_string_tab[82]
+#define __pyx_n_u_re __pyx_string_tab[83]
+#define __pyx_n_u_remove_attrs __pyx_string_tab[84]
+#define __pyx_n_u_remove_node_attr __pyx_string_tab[85]
+#define __pyx_n_u_remove_path __pyx_string_tab[86]
+#define __pyx_kp_u_requirements_txt __pyx_string_tab[87]
+#define __pyx_n_u_resolve __pyx_string_tab[88]
+#define __pyx_n_u_return __pyx_string_tab[89]
+#define __pyx_n_u_rmtree __pyx_string_tab[90]
+#define __pyx_n_u_root_markers __pyx_string_tab[91]
+#define __pyx_n_u_send __pyx_string_tab[92]
+#define __pyx_n_u_set_name __pyx_string_tab[93]
+#define __pyx_kp_u_setup_py __pyx_string_tab[94]
+#define __pyx_n_u_shutil __pyx_string_tab[95]
+#define __pyx_n_u_spec __pyx_string_tab[96]
+#define __pyx_n_u_staticmethod __pyx_string_tab[97]
+#define __pyx_n_u_sub __pyx_string_tab[98]
+#define __pyx_n_u_test __pyx_string_tab[99]
+#define __pyx_n_u_throw __pyx_string_tab[100]
+#define __pyx_n_u_typing __pyx_string_tab[101]
+#define __pyx_n_u_unlink __pyx_string_tab[102]
+#define __pyx_n_u_value __pyx_string_tab[103]
+#define __pyx_n_u_web __pyx_string_tab[104]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2795,8 +2813,8 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_10core_utils___pyx_scope_struct__get_root_path);
   Py_CLEAR(clear_module_state->__pyx_ptype_10core_utils___pyx_scope_struct_1_genexpr);
   Py_CLEAR(clear_module_state->__pyx_type_10core_utils___pyx_scope_struct_1_genexpr);
-  for (int i=0; i<8; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<97; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<9; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<105; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2821,8 +2839,8 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_10core_utils___pyx_scope_struct__get_root_path);
   Py_VISIT(traverse_module_state->__pyx_ptype_10core_utils___pyx_scope_struct_1_genexpr);
   Py_VISIT(traverse_module_state->__pyx_type_10core_utils___pyx_scope_struct_1_genexpr);
-  for (int i=0; i<8; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<97; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<9; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<105; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -4930,6 +4948,7 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_12remove_path(CYTHON_UNUSED PyO
  *             return
  *         if path.is_dir():             # <<<<<<<<<<<<<<
  *             shutil.rmtree(path)
+ * 
 */
   __pyx_t_5 = __pyx_v_path;
   __Pyx_INCREF(__pyx_t_5);
@@ -4949,6 +4968,8 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_12remove_path(CYTHON_UNUSED PyO
  *             return
  *         if path.is_dir():
  *             shutil.rmtree(path)             # <<<<<<<<<<<<<<
+ * 
+ *     @staticmethod
 */
     __pyx_t_5 = NULL;
     __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_shutil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 128, __pyx_L1_error)
@@ -4983,6 +5004,7 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_12remove_path(CYTHON_UNUSED PyO
  *             return
  *         if path.is_dir():             # <<<<<<<<<<<<<<
  *             shutil.rmtree(path)
+ * 
 */
   }
 
@@ -5006,6 +5028,181 @@ static PyObject *__pyx_pf_10core_utils_8CoreUtil_12remove_path(CYTHON_UNUSED PyO
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_path);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "core_utils.py":130
+ *             shutil.rmtree(path)
+ * 
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def hide_db_password(connection_string):
+ *         #  postgresql+asyncpg://<user>:<password>@host:port/db
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_10core_utils_8CoreUtil_15hide_db_password(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_10core_utils_8CoreUtil_15hide_db_password = {"hide_db_password", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_10core_utils_8CoreUtil_15hide_db_password, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_10core_utils_8CoreUtil_15hide_db_password(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_connection_string = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("hide_db_password (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_connection_string,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 130, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 130, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "hide_db_password", 0) < 0) __PYX_ERR(0, 130, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("hide_db_password", 1, 1, 1, i); __PYX_ERR(0, 130, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 130, __pyx_L3_error)
+    }
+    __pyx_v_connection_string = values[0];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("hide_db_password", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 130, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("core_utils.CoreUtil.hide_db_password", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_10core_utils_8CoreUtil_14hide_db_password(__pyx_self, __pyx_v_connection_string);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_10core_utils_8CoreUtil_14hide_db_password(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_connection_string) {
+  PyObject *__pyx_v_pattern = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  size_t __pyx_t_5;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("hide_db_password", 0);
+
+  /* "core_utils.py":134
+ *         #  postgresql+asyncpg://<user>:<password>@host:port/db
+ *         #  :password@  :***@
+ *         pattern = r'(:)([^:@/]+)(@)'             # <<<<<<<<<<<<<<
+ *         return re.sub(pattern, r'\1***\3', connection_string)
+*/
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__5);
+  __pyx_v_pattern = __pyx_mstate_global->__pyx_kp_u__5;
+
+  /* "core_utils.py":135
+ *         #  :password@  :***@
+ *         pattern = r'(:)([^:@/]+)(@)'
+ *         return re.sub(pattern, r'\1***\3', connection_string)             # <<<<<<<<<<<<<<
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_re); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 135, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_sub); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 135, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_2);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[4] = {__pyx_t_2, __pyx_v_pattern, __pyx_mstate_global->__pyx_kp_u_1_3, __pyx_v_connection_string};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (4-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 135, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "core_utils.py":130
+ *             shutil.rmtree(path)
+ * 
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def hide_db_password(connection_string):
+ *         #  postgresql+asyncpg://<user>:<password>@host:port/db
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("core_utils.CoreUtil.hide_db_password", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_pattern);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -5749,9 +5946,21 @@ __Pyx_RefNannySetupContext("PyInit_core_utils", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
+  /* "core_utils.py":8
+ * # @Date     2025/8/26 11:39
+ * # @Desc
+ * import re             # <<<<<<<<<<<<<<
+ * import shutil
+ * from functools import cache
+*/
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_mstate_global->__pyx_n_u_re, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_re, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
   /* "core_utils.py":9
  * # @Desc
- * 
+ * import re
  * import shutil             # <<<<<<<<<<<<<<
  * from functools import cache
  * from pathlib import Path
@@ -5762,7 +5971,7 @@ __Pyx_RefNannySetupContext("PyInit_core_utils", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "core_utils.py":10
- * 
+ * import re
  * import shutil
  * from functools import cache             # <<<<<<<<<<<<<<
  * from pathlib import Path
@@ -5822,7 +6031,7 @@ __Pyx_RefNannySetupContext("PyInit_core_utils", 0);
  *     """  """
  * 
 */
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_mstate_global->__pyx_n_u_CoreUtil, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_core_utils, __pyx_mstate_global->__pyx_kp_u__5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_mstate_global->__pyx_n_u_CoreUtil, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_core_utils, __pyx_mstate_global->__pyx_kp_u__6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
   /* "core_utils.py":18
@@ -5993,6 +6202,31 @@ __Pyx_RefNannySetupContext("PyInit_core_utils", 0);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_remove_path, __pyx_t_5) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
+  /* "core_utils.py":130
+ *             shutil.rmtree(path)
+ * 
+ *     @staticmethod             # <<<<<<<<<<<<<<
+ *     def hide_db_password(connection_string):
+ *         #  postgresql+asyncpg://<user>:<password>@host:port/db
+*/
+  __pyx_t_7 = NULL;
+  __Pyx_INCREF(__pyx_builtin_staticmethod);
+  __pyx_t_6 = __pyx_builtin_staticmethod; 
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_10core_utils_8CoreUtil_15hide_db_password, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_CoreUtil_hide_db_password, NULL, __pyx_mstate_global->__pyx_n_u_core_utils, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_8 = 1;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_7, __pyx_t_4};
+    __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 130, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+  }
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_hide_db_password, __pyx_t_5) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
   /* "core_utils.py":15
  * 
  * 
@@ -6080,6 +6314,7 @@ typedef struct {
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
+  {__pyx_k_1_3, sizeof(__pyx_k_1_3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_1_3 */
   {__pyx_k_CoreUtil, sizeof(__pyx_k_CoreUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil */
   {__pyx_k_CoreUtil_get_admin_path, sizeof(__pyx_k_CoreUtil_get_admin_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_get_admin_path */
   {__pyx_k_CoreUtil_get_config_path, sizeof(__pyx_k_CoreUtil_get_config_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_get_config_path */
@@ -6087,6 +6322,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_CoreUtil_get_root_path, sizeof(__pyx_k_CoreUtil_get_root_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_get_root_path */
   {__pyx_k_CoreUtil_get_root_path_locals_ge, sizeof(__pyx_k_CoreUtil_get_root_path_locals_ge), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_get_root_path_locals_ge */
   {__pyx_k_CoreUtil_get_web_path, sizeof(__pyx_k_CoreUtil_get_web_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_get_web_path */
+  {__pyx_k_CoreUtil_hide_db_password, sizeof(__pyx_k_CoreUtil_hide_db_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_hide_db_password */
   {__pyx_k_CoreUtil_remove_node_attr, sizeof(__pyx_k_CoreUtil_remove_node_attr), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_remove_node_attr */
   {__pyx_k_CoreUtil_remove_path, sizeof(__pyx_k_CoreUtil_remove_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil_remove_path */
   {__pyx_k_None, sizeof(__pyx_k_None), 0, 1, 1}, /* PyObject cname: __pyx_n_u_None */
@@ -6100,6 +6336,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
+  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__7 */
   {__pyx_k_admin, sizeof(__pyx_k_admin), 0, 1, 1}, /* PyObject cname: __pyx_n_u_admin */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
   {__pyx_k_attr_name, sizeof(__pyx_k_attr_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_attr_name */
@@ -6111,6 +6348,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
   {__pyx_k_cls, sizeof(__pyx_k_cls), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cls */
   {__pyx_k_config, sizeof(__pyx_k_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_config */
+  {__pyx_k_connection_string, sizeof(__pyx_k_connection_string), 0, 1, 1}, /* PyObject cname: __pyx_n_u_connection_string */
   {__pyx_k_core_utils, sizeof(__pyx_k_core_utils), 0, 1, 1}, /* PyObject cname: __pyx_n_u_core_utils */
   {__pyx_k_core_utils_py, sizeof(__pyx_k_core_utils_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_core_utils_py */
   {__pyx_k_current_dir, sizeof(__pyx_k_current_dir), 0, 1, 1}, /* PyObject cname: __pyx_n_u_current_dir */
@@ -6131,6 +6369,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_get_root_path, sizeof(__pyx_k_get_root_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_root_path */
   {__pyx_k_get_web_path, sizeof(__pyx_k_get_web_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_web_path */
   {__pyx_k_git, sizeof(__pyx_k_git), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_git */
+  {__pyx_k_hide_db_password, sizeof(__pyx_k_hide_db_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_hide_db_password */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_is_absolute, sizeof(__pyx_k_is_absolute), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_absolute */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
@@ -6151,11 +6390,13 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_parts, sizeof(__pyx_k_parts), 0, 1, 1}, /* PyObject cname: __pyx_n_u_parts */
   {__pyx_k_path, sizeof(__pyx_k_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_path */
   {__pyx_k_pathlib, sizeof(__pyx_k_pathlib), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pathlib */
+  {__pyx_k_pattern, sizeof(__pyx_k_pattern), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pattern */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_print, sizeof(__pyx_k_print), 0, 1, 1}, /* PyObject cname: __pyx_n_u_print */
   {__pyx_k_pyproject_toml, sizeof(__pyx_k_pyproject_toml), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_pyproject_toml */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_re, sizeof(__pyx_k_re), 0, 1, 1}, /* PyObject cname: __pyx_n_u_re */
   {__pyx_k_remove_attrs, sizeof(__pyx_k_remove_attrs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_remove_attrs */
   {__pyx_k_remove_node_attr, sizeof(__pyx_k_remove_node_attr), 0, 1, 1}, /* PyObject cname: __pyx_n_u_remove_node_attr */
   {__pyx_k_remove_path, sizeof(__pyx_k_remove_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_remove_path */
@@ -6170,6 +6411,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_shutil, sizeof(__pyx_k_shutil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shutil */
   {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_staticmethod, sizeof(__pyx_k_staticmethod), 0, 1, 1}, /* PyObject cname: __pyx_n_u_staticmethod */
+  {__pyx_k_sub, sizeof(__pyx_k_sub), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sub */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_throw, sizeof(__pyx_k_throw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_throw */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
@@ -6219,7 +6461,7 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
             unsigned int num_kwonly_args : 2;
             unsigned int nlocals : 3;
             unsigned int flags : 10;
-            unsigned int first_line : 7;
+            unsigned int first_line : 8;
             unsigned int line_table_length : 12;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
@@ -6239,7 +6481,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR), 68, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_marker};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_core_utils_py, __pyx_mstate->__pyx_n_u_genexpr, __pyx_k__7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_core_utils_py, __pyx_mstate->__pyx_n_u_genexpr, __pyx_k__8, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 3, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 18, 86};
@@ -6275,6 +6517,11 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 113, 96};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_file_or_path, __pyx_mstate->__pyx_n_u_path};
     __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_core_utils_py, __pyx_mstate->__pyx_n_u_remove_path, __pyx_k_A_Q_1_t1_Zq_j_4t7_4xq_q_1_4wa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 130, 24};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_connection_string, __pyx_mstate->__pyx_n_u_pattern};
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_core_utils_py, __pyx_mstate->__pyx_n_u_hide_db_password, __pyx_k_A_r_Qi_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -10608,7 +10855,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__6);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__7);
     }
     goto done;
 }

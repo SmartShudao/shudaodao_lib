@@ -8,7 +8,7 @@
 from datetime import datetime
 from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import BigInteger, Text
+from sqlalchemy import BigInteger, Boolean, Text
 
 from shudaodao_core import Field, get_primary_id, Relationship
 from shudaodao_core import SQLModel, BaseResponse
@@ -27,12 +27,13 @@ class SourceForeignKey(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     source_foreign_key_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="外键内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_table_id: int = Field(
-        sa_type=BigInteger, description="表内码", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
+        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
     )
     name: Optional[str] = Field(default=None, max_length=255, nullable=True, description="约束名称")
+    unique: bool = Field(sa_type=Boolean, description="是否唯一")
     constrained_columns: str = Field(max_length=255, description="约束字段集合")
     referred_schema: Optional[str] = Field(default=None, max_length=128, nullable=True, description="引用架构")
     referred_table: str = Field(max_length=255, description="引用表")
@@ -60,8 +61,9 @@ class SourceForeignKey(RegistryModel, table=True):
 
 class SourceForeignKeyBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    source_table_id: int = Field(sa_type=BigInteger, description="表内码")
+    source_table_id: int = Field(sa_type=BigInteger, description="主键")
     name: Optional[str] = Field(default=None, max_length=255, description="约束名称")
+    unique: bool = Field(description="是否唯一")
     constrained_columns: str = Field(max_length=255, description="约束字段集合")
     referred_schema: Optional[str] = Field(default=None, max_length=128, description="引用架构")
     referred_table: str = Field(max_length=255, description="引用表")
@@ -85,9 +87,10 @@ class SourceForeignKeyResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    source_foreign_key_id: int = Field(description="外键内码", sa_type=BigInteger)
-    source_table_id: int = Field(description="表内码", sa_type=BigInteger)
+    source_foreign_key_id: int = Field(description="主键", sa_type=BigInteger)
+    source_table_id: int = Field(description="主键", sa_type=BigInteger)
     name: Optional[str] = Field(description="约束名称", default=None)
+    unique: bool = Field(description="是否唯一")
     constrained_columns: str = Field(description="约束字段集合")
     referred_schema: Optional[str] = Field(description="引用架构", default=None)
     referred_table: str = Field(description="引用表")

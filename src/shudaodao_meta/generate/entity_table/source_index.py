@@ -26,10 +26,10 @@ class SourceIndex(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     source_index_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="索引内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_table_id: int = Field(
-        sa_type=BigInteger, description="表内码", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
+        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
     )
     name: str = Field(max_length=255, description="索引名称")
     column_names: str = Field(sa_type=Text, description="字段集合")
@@ -50,7 +50,7 @@ class SourceIndex(RegistryModel, table=True):
 
 class SourceIndexBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    source_table_id: int = Field(sa_type=BigInteger, description="表内码")
+    source_table_id: int = Field(sa_type=BigInteger, description="主键")
     name: str = Field(max_length=255, description="索引名称")
     column_names: str = Field(description="字段集合")
     unique: bool = Field(description="是否唯一")
@@ -72,8 +72,8 @@ class SourceIndexResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    source_index_id: int = Field(description="索引内码", sa_type=BigInteger)
-    source_table_id: int = Field(description="表内码", sa_type=BigInteger)
+    source_index_id: int = Field(description="主键", sa_type=BigInteger)
+    source_table_id: int = Field(description="主键", sa_type=BigInteger)
     name: str = Field(description="索引名称")
     column_names: str = Field(description="字段集合")
     unique: bool = Field(description="是否唯一")

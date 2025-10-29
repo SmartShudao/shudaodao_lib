@@ -16,8 +16,8 @@ from ... import RegistryModel, get_table_schema, get_foreign_schema
 
 if TYPE_CHECKING:
     from .meta_schema import MetaSchema
-    from .meta_relationship import MetaRelationship
     from .meta_column import MetaColumn
+    from .meta_constraint import MetaConstraint
 
 
 class MetaTable(RegistryModel, table=True):
@@ -28,10 +28,10 @@ class MetaTable(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     table_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     schema_id: int = Field(
-        sa_type=BigInteger, description="架构内码", foreign_key=f"{get_foreign_schema()}meta_schema.schema_id"
+        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}meta_schema.schema_id"
     )
     table_name: str = Field(max_length=255, description="表名字")
     comment: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="备注")
@@ -50,21 +50,21 @@ class MetaTable(RegistryModel, table=True):
     # 反向关系 -> 父对象
     Schema: "MetaSchema" = Relationship(back_populates="MetaTables")
     # 正向关系 -> 子对象
-    MetaRelationships: list["MetaRelationship"] = Relationship(
-        back_populates="Table", sa_relationship_kwargs={
-            "order_by": "MetaRelationship.sort_order.asc()"
-        }
-    )
     MetaColumns: list["MetaColumn"] = Relationship(
         back_populates="Table", sa_relationship_kwargs={
             "order_by": "MetaColumn.sort_order.asc()"
+        }
+    )
+    MetaConstraints: list["MetaConstraint"] = Relationship(
+        back_populates="Table", sa_relationship_kwargs={
+            "order_by": "MetaConstraint.sort_order.asc()"
         }
     )
 
 
 class MetaTableBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    schema_id: int = Field(sa_type=BigInteger, description="架构内码")
+    schema_id: int = Field(sa_type=BigInteger, description="主键")
     table_name: str = Field(max_length=255, description="表名字")
     comment: Optional[str] = Field(default=None, description="备注")
     class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
@@ -87,8 +87,8 @@ class MetaTableResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    table_id: int = Field(description="内码", sa_type=BigInteger)
-    schema_id: int = Field(description="架构内码", sa_type=BigInteger)
+    table_id: int = Field(description="主键", sa_type=BigInteger)
+    schema_id: int = Field(description="主键", sa_type=BigInteger)
     table_name: str = Field(description="表名字")
     comment: Optional[str] = Field(description="备注", default=None)
     class_name: Optional[str] = Field(description="类名", default=None)

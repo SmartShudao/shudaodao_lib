@@ -11,7 +11,7 @@ from typing import Optional, TYPE_CHECKING
 from sqlalchemy import BigInteger, Boolean
 
 from shudaodao_core import Field, get_primary_id, Relationship
-from shudaodao_core import SQLModel, BaseResponse
+from shudaodao_core import SQLModel, BaseResponse, EnumStr
 from ... import RegistryModel, get_table_schema, get_foreign_schema
 
 if TYPE_CHECKING:
@@ -27,26 +27,26 @@ class MetaColumn(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     column_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="字段内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     table_id: Optional[int] = Field(
-        default=None, nullable=True, sa_type=BigInteger, description="表内码",
+        default=None, nullable=True, sa_type=BigInteger, description="主键",
         foreign_key=f"{get_foreign_schema()}meta_table.table_id"
     )
     view_id: Optional[int] = Field(
-        default=None, nullable=True, sa_type=BigInteger, description="视图内码",
+        default=None, nullable=True, sa_type=BigInteger, description="主键",
         foreign_key=f"{get_foreign_schema()}meta_view.view_id"
     )
     name: str = Field(max_length=255, description="字段名")
     alias: Optional[str] = Field(default=None, max_length=255, nullable=True, description="字段别名")
-    is_private: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="内部字段")
+    model_type: Optional[EnumStr] = Field(default=None, max_length=20, nullable=True, description="模型类型")
     is_primary: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="主键字段")
-    is_foreign: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="外键字段")
     is_increment: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="启用自增")
-    is_unique: bool = Field(sa_type=Boolean, description="是否唯一")
+    is_unique: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="单字段唯一")
+    is_index: Optional[bool] = Field(default=None, nullable=True, sa_type=Boolean, description="单字段索引")
     py_type: str = Field(max_length=30, description="python类型")
     sa_type: str = Field(max_length=30, description="sqlalchemy类型")
-    db_type: str = Field(max_length=20, description="database类型")
+    db_type: str = Field(max_length=20, description="database类型[仅用于展示]")
     nullable: bool = Field(sa_type=Boolean, description="是否可空")
     default: Optional[str] = Field(default=None, max_length=50, nullable=True, description="默认值(一般不用)")
     comment: Optional[str] = Field(default=None, max_length=255, nullable=True, description="字段说明")
@@ -68,18 +68,18 @@ class MetaColumn(RegistryModel, table=True):
 
 class MetaColumnBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    table_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="表内码")
-    view_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="视图内码")
+    table_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
+    view_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
     name: str = Field(max_length=255, description="字段名")
     alias: Optional[str] = Field(default=None, max_length=255, description="字段别名")
-    is_private: Optional[bool] = Field(default=None, description="内部字段")
+    model_type: Optional[EnumStr] = Field(default=None, max_length=20, description="模型类型")
     is_primary: Optional[bool] = Field(default=None, description="主键字段")
-    is_foreign: Optional[bool] = Field(default=None, description="外键字段")
     is_increment: Optional[bool] = Field(default=None, description="启用自增")
-    is_unique: bool = Field(description="是否唯一")
+    is_unique: Optional[bool] = Field(default=None, description="单字段唯一")
+    is_index: Optional[bool] = Field(default=None, description="单字段索引")
     py_type: str = Field(max_length=30, description="python类型")
     sa_type: str = Field(max_length=30, description="sqlalchemy类型")
-    db_type: str = Field(max_length=20, description="database类型")
+    db_type: str = Field(max_length=20, description="database类型[仅用于展示]")
     nullable: bool = Field(description="是否可空")
     default: Optional[str] = Field(default=None, max_length=50, description="默认值(一般不用)")
     comment: Optional[str] = Field(default=None, max_length=255, description="字段说明")
@@ -102,19 +102,19 @@ class MetaColumnResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    column_id: int = Field(description="字段内码", sa_type=BigInteger)
-    table_id: Optional[int] = Field(description="表内码", default=None, sa_type=BigInteger)
-    view_id: Optional[int] = Field(description="视图内码", default=None, sa_type=BigInteger)
+    column_id: int = Field(description="主键", sa_type=BigInteger)
+    table_id: Optional[int] = Field(description="主键", default=None, sa_type=BigInteger)
+    view_id: Optional[int] = Field(description="主键", default=None, sa_type=BigInteger)
     name: str = Field(description="字段名")
     alias: Optional[str] = Field(description="字段别名", default=None)
-    is_private: Optional[bool] = Field(description="内部字段", default=None)
+    model_type: Optional[EnumStr] = Field(description="模型类型", default=None)
     is_primary: Optional[bool] = Field(description="主键字段", default=None)
-    is_foreign: Optional[bool] = Field(description="外键字段", default=None)
     is_increment: Optional[bool] = Field(description="启用自增", default=None)
-    is_unique: bool = Field(description="是否唯一")
+    is_unique: Optional[bool] = Field(description="单字段唯一", default=None)
+    is_index: Optional[bool] = Field(description="单字段索引", default=None)
     py_type: str = Field(description="python类型")
     sa_type: str = Field(description="sqlalchemy类型")
-    db_type: str = Field(description="database类型")
+    db_type: str = Field(description="database类型[仅用于展示]")
     nullable: bool = Field(description="是否可空")
     default: Optional[str] = Field(description="默认值(一般不用)", default=None)
     comment: Optional[str] = Field(description="字段说明", default=None)

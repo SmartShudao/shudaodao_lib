@@ -21,7 +21,7 @@ if TYPE_CHECKING:
 class EnumSchema(RegistryModel, table=True):
     """ 数据库对象模型 """
     __tablename__ = "sys_enum_schema"
-    __table_args__ = {"schema": get_table_schema(), "comment": "数据库模式"}
+    __table_args__ = {"schema": get_table_schema(), "comment": "模式(schema)"}
     # 非数据库字段：仅用于内部处理
     __database_schema__ = "shudaodao_enum"
     # 数据库字段
@@ -29,7 +29,7 @@ class EnumSchema(RegistryModel, table=True):
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键ID"
     )
     schema_label: str = Field(max_length=100, description="模式别名")
-    schema_name: str = Field(max_length=100, description="数据库模式")
+    schema_name: str = Field(max_length=100, description="模式(schema)")
     is_active: bool = Field(sa_type=Boolean, description="启用状态")
     sort_order: int = Field(default=10, description="排序权重")
     create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
@@ -40,7 +40,7 @@ class EnumSchema(RegistryModel, table=True):
     update_at: Optional[datetime] = Field(
         default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
     )
-    tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="租户内码")
+    tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="主键")
     # 正向关系 -> 子对象
     EnumFields: list["EnumField"] = Relationship(
         back_populates="Schema", sa_relationship_kwargs={
@@ -52,7 +52,7 @@ class EnumSchema(RegistryModel, table=True):
 class EnumSchemaBase(SQLModel):
     """ 创建、更新模型 共用字段 """
     schema_label: str = Field(max_length=100, description="模式别名")
-    schema_name: str = Field(max_length=100, description="数据库模式")
+    schema_name: str = Field(max_length=100, description="模式(schema)")
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(default=10, description="排序权重")
 
@@ -73,7 +73,7 @@ class EnumSchemaResponse(BaseResponse):
 
     schema_id: int = Field(description="主键ID", sa_type=BigInteger)
     schema_label: str = Field(description="模式别名")
-    schema_name: str = Field(description="数据库模式")
+    schema_name: str = Field(description="模式(schema)")
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")
     create_by: Optional[str] = Field(description="创建人", default=None)

@@ -8,7 +8,7 @@
 from datetime import datetime
 from typing import TYPE_CHECKING, Optional
 
-from sqlalchemy import BigInteger, Text
+from sqlalchemy import BigInteger, Boolean, Text
 
 from shudaodao_core import Field, get_primary_id, Relationship
 from shudaodao_core import SQLModel, BaseResponse
@@ -27,16 +27,17 @@ class SourceReferencingForeignKey(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     source_referencing_foreign_key_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="外键内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_foreign_key_id: int = Field(
-        sa_type=BigInteger, description="外键内码",
+        sa_type=BigInteger, description="主键",
         foreign_key=f"{get_foreign_schema()}source_foreign_key.source_foreign_key_id"
     )
     source_table_id: int = Field(
-        sa_type=BigInteger, description="表内码", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
+        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
     )
     name: Optional[str] = Field(default=None, max_length=255, nullable=True, description="约束名称")
+    unique: bool = Field(sa_type=Boolean, description="是否唯一")
     constrained_schema: Optional[str] = Field(default=None, max_length=128, nullable=True, description="当前架构")
     constrained_table: Optional[str] = Field(default=None, max_length=255, nullable=True, description="当前表")
     constrained_columns: str = Field(max_length=255, description="当前字段集合")
@@ -61,9 +62,10 @@ class SourceReferencingForeignKey(RegistryModel, table=True):
 
 class SourceReferencingForeignKeyBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    source_foreign_key_id: int = Field(sa_type=BigInteger, description="外键内码")
-    source_table_id: int = Field(sa_type=BigInteger, description="表内码")
+    source_foreign_key_id: int = Field(sa_type=BigInteger, description="主键")
+    source_table_id: int = Field(sa_type=BigInteger, description="主键")
     name: Optional[str] = Field(default=None, max_length=255, description="约束名称")
+    unique: bool = Field(description="是否唯一")
     constrained_schema: Optional[str] = Field(default=None, max_length=128, description="当前架构")
     constrained_table: Optional[str] = Field(default=None, max_length=255, description="当前表")
     constrained_columns: str = Field(max_length=255, description="当前字段集合")
@@ -89,10 +91,11 @@ class SourceReferencingForeignKeyResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    source_referencing_foreign_key_id: int = Field(description="外键内码", sa_type=BigInteger)
-    source_foreign_key_id: int = Field(description="外键内码", sa_type=BigInteger)
-    source_table_id: int = Field(description="表内码", sa_type=BigInteger)
+    source_referencing_foreign_key_id: int = Field(description="主键", sa_type=BigInteger)
+    source_foreign_key_id: int = Field(description="主键", sa_type=BigInteger)
+    source_table_id: int = Field(description="主键", sa_type=BigInteger)
     name: Optional[str] = Field(description="约束名称", default=None)
+    unique: bool = Field(description="是否唯一")
     constrained_schema: Optional[str] = Field(description="当前架构", default=None)
     constrained_table: Optional[str] = Field(description="当前表", default=None)
     constrained_columns: str = Field(description="当前字段集合")

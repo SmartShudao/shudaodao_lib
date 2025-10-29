@@ -27,9 +27,9 @@ class PolicyAction(RegistryModel, table=True):
     __table_args__ = {"schema": get_table_schema(), "comment": "策略动作表"}
 
     action_id: Optional[int] = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="内码")
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键")
     policy_object_id: Optional[int] = Field(
-        sa_type=BigInteger, description="策略对象内码",
+        sa_type=BigInteger, description="主键",
         foreign_key=f"{get_foreign_schema()}t_policy_object.policy_object_id"
     )
     # 动作:增删改查

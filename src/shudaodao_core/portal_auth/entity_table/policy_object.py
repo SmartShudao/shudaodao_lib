@@ -27,7 +27,7 @@ class PolicyObject(RegistryModel, table=True):
     __table_args__ = {"schema": get_table_schema(), "comment": "策略对象表"}
 
     policy_object_id: Optional[int] = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="策略对象内码")
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键")
     # 表: schema+table
     object_name: str = Field(unique=True, index=True, description="对象名称")
     is_active: bool = Field(default=True, sa_type=Boolean, description="启用状态")
@@ -56,7 +56,7 @@ class PolicyObjectUpdate(PolicyObjectBase):
 
 class PolicyObjectResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
-    policy_object_id: int = Field(sa_type=BigInteger, description="策略对象内码")
+    policy_object_id: int = Field(sa_type=BigInteger, description="主键")
     object_name: str = Field(description="对象名称")
     sort_order: Optional[int] = Field(description="排序权重", default=None)
     description: Optional[str] = Field(description="描述", default=None)

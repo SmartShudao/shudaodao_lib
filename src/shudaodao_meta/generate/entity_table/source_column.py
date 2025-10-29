@@ -27,14 +27,14 @@ class SourceColumn(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     source_column_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="字段内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_table_id: Optional[int] = Field(
-        default=None, nullable=True, sa_type=BigInteger, description="表内码",
+        default=None, nullable=True, sa_type=BigInteger, description="主键",
         foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
     )
     source_view_id: Optional[int] = Field(
-        default=None, nullable=True, sa_type=BigInteger, description="视图内码",
+        default=None, nullable=True, sa_type=BigInteger, description="主键",
         foreign_key=f"{get_foreign_schema()}source_view.source_view_id"
     )
     name: str = Field(max_length=255, description="字段名")
@@ -63,8 +63,8 @@ class SourceColumn(RegistryModel, table=True):
 
 class SourceColumnBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    source_table_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="表内码")
-    source_view_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="视图内码")
+    source_table_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
+    source_view_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
     name: str = Field(max_length=255, description="字段名")
     autoincrement: Optional[bool] = Field(default=None, description="启用自增")
     py_type: str = Field(max_length=30, description="python类型")
@@ -92,9 +92,9 @@ class SourceColumnResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    source_column_id: int = Field(description="字段内码", sa_type=BigInteger)
-    source_table_id: Optional[int] = Field(description="表内码", default=None, sa_type=BigInteger)
-    source_view_id: Optional[int] = Field(description="视图内码", default=None, sa_type=BigInteger)
+    source_column_id: int = Field(description="主键", sa_type=BigInteger)
+    source_table_id: Optional[int] = Field(description="主键", default=None, sa_type=BigInteger)
+    source_view_id: Optional[int] = Field(description="主键", default=None, sa_type=BigInteger)
     name: str = Field(description="字段名")
     autoincrement: Optional[bool] = Field(description="启用自增", default=None)
     py_type: str = Field(description="python类型")

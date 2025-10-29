@@ -67,7 +67,7 @@ class AuthController:
             query_router (RouterConfig, optional): 列表查询操作的路由配置。若为 None，则使用默认配置。
             prefix (str, optional): API 路由前缀。若未指定，将自动生成为 ``/v1/{router_path}/{table_name}``。
             router_path (str, optional): 逻辑模块名（如 "user", "order"），用于生成默认权限角色、对象名及标签。
-            schema_name (str, optional): 数据库架构（schema），用于各类默认值。
+            schema_name (str, optional): 数据库模式(schema)，用于各类默认值。
             table_name (str, optional): 数据表名（或资源名），用于生成路由前缀和权限对象标识。
             tags (List[str], optional): OpenAPI 文档中的标签，用于分组接口。默认为 ``["{schema_name}.table"]``。
             default_role (str, optional): 默认角色名，用于角色定义并关联对象动作。默认为 ``schema_name``。

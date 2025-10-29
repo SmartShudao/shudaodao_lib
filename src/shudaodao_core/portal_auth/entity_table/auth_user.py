@@ -27,7 +27,7 @@ class AuthUser(RegistryModel, table=True):
     __database_schema__ = "shudaodao_enum"
     # 数据库字段
     user_id: Optional[int] = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     # --- 核心字段 ---
     username: str = Field(unique=True, index=True, max_length=50, description="账户名")
@@ -92,7 +92,7 @@ class AuthPassword(SQLModel):
 class AuthUserResponse(BaseResponse):
     """ 用户响应模型 """
     # --- 核心字段 ---
-    user_id: Optional[int] = Field(sa_type=BigInteger, description="内码")
+    user_id: Optional[int] = Field(sa_type=BigInteger, description="主键")
     sub: Optional[str] = Field(default=None)
     username: str = Field(..., description="用户名")
     name: Optional[str] = Field(default=None, description="姓名")

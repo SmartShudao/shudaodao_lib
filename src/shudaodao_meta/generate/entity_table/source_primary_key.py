@@ -26,10 +26,10 @@ class SourcePrimaryKey(RegistryModel, table=True):
     __database_schema__ = "shudaodao_meta"
     # 数据库字段
     source_primary_id: int = Field(
-        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键内码"
+        default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_table_id: int = Field(
-        unique=True, sa_type=BigInteger, description="表内码",
+        unique=True, sa_type=BigInteger, description="主键",
         foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
     )
     name: Optional[str] = Field(default=None, max_length=255, nullable=True, description="约束名字")
@@ -53,7 +53,7 @@ class SourcePrimaryKey(RegistryModel, table=True):
 
 class SourcePrimaryKeyBase(SQLModel):
     """ 创建、更新模型 共用字段 """
-    source_table_id: int = Field(sa_type=BigInteger, description="表内码")
+    source_table_id: int = Field(sa_type=BigInteger, description="主键")
     name: Optional[str] = Field(default=None, max_length=255, description="约束名字")
     constrained_columns: str = Field(description="字段集合")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
@@ -73,8 +73,8 @@ class SourcePrimaryKeyResponse(BaseResponse):
     """ 前端响应模型 - 用于接口响应 """
     __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
 
-    source_primary_id: int = Field(description="主键内码", sa_type=BigInteger)
-    source_table_id: int = Field(description="表内码", sa_type=BigInteger)
+    source_primary_id: int = Field(description="主键", sa_type=BigInteger)
+    source_table_id: int = Field(description="主键", sa_type=BigInteger)
     name: Optional[str] = Field(description="约束名字", default=None)
     constrained_columns: str = Field(description="字段集合")
     description: Optional[str] = Field(description="描述", default=None)

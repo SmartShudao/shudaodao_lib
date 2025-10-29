@@ -8,4 +8,6 @@
 
 from .enum_query import EnumQueryService
 
-__all__ = ["EnumQueryService"]
+__all__ = [
+    "EnumQueryService"
+]
