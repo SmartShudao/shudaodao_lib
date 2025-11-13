@@ -1,3 +1,4 @@
+from ..exception.service_exception import ValidError as ValidError
 from ..logger.logging_ import logging as logging
 from typing import Any, Callable
 
@@ -5,10 +6,21 @@ class ClassScanner:
     """
     通用类扫描器：递归扫描包，找出满足条件的类
     """
-    @classmethod
-    def get_model_response_class(cls, original_class: Any) -> type[Any]: ...
     @staticmethod
-    def import_class(dotted_path):
+    def find_class_in_package(package_name: str, class_name: str) -> type | None:
+        """
+        在指定包（含子模块/子包）中查找名为 class_name 的类。
+
+        :param package_name: 包名，如 'mypackage'
+        :param class_name: 要查找的类名，如 'MyClass'
+        :return: 找到的第一个匹配类，否则 None
+        """
+    @classmethod
+    def find_class_with_suffix(
+        cls, original_class: type[Any], suffix: str = "Response"
+    ) -> type[Any]: ...
+    @staticmethod
+    def import_class(module_or_full_name: str, class_name: str = None) -> type[Any]:
         """
         从字符串路径导入类，例如：
         'mypackage.utils.helpers.MyClass'

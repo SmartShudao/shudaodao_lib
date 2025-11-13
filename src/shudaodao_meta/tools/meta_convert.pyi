@@ -1,10 +1,11 @@
+from .template_clazz import TemplateColumn as TemplateColumn
 from _typeshed import Incomplete
 
 class MetaConverter:
     irregular_plurals: Incomplete
     special_endings: Incomplete
     case_mapping: Incomplete
-    column_type_mapping: Incomplete
+    model_type_mapping: Incomplete
     @staticmethod
     def set_update_property(data_model, meta_model): ...
     @staticmethod
@@ -23,3 +24,20 @@ class MetaConverter:
     @classmethod
     def get_plural_name(cls, column_name) -> str:
         """将名称转换为复数形式  注意：这是一个简单的规则实现，可能不适用于所有情况"""
+    @staticmethod
+    def get_sqlalchemy_type(db_type: str) -> str:
+        """将数据库类型映射到 SQLAlchemy 类型"""
+    @classmethod
+    def get_from_import(cls, meta_model, is_view: bool = False): ...
+    @classmethod
+    def get_database_columns(cls, meta_model, foreign_fields): ...
+    @classmethod
+    def get_response_columns(cls, meta_model, foreign_fields): ...
+    @classmethod
+    def get_create_columns(cls, meta_model, foreign_fields): ...
+    @classmethod
+    def get_update_columns(cls, meta_model, foreign_fields): ...
+    @classmethod
+    def get_relation_columns(cls, meta_model): ...
+    @classmethod
+    def get_table_args(cls, meta_model, is_view: bool = False): ...

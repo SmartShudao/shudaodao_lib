@@ -1,3 +1,4 @@
+from ..enums.manager import EnumManager as EnumManager
 from ..exception.service_exception import ValidError as ValidError
 from ..logger.logging_ import logging as logging
 from ..schemas.query_request import (
@@ -6,13 +7,8 @@ from ..schemas.query_request import (
     FilterGroup as FilterGroup,
     QueryRequest as QueryRequest,
 )
-from ..services.enum_service import EnumService as EnumService
+from ..utils.core_utils import CoreUtil as CoreUtil
 from .class_scaner import ClassScanner as ClassScanner
-from .query_field import (
-    convert_datetime_iso_to_standard as convert_datetime_iso_to_standard,
-    format_enum as format_enum,
-    get_enum_field_names as get_enum_field_names,
-)
 from sqlalchemy import ColumnElement as ColumnElement
 from typing import Any
 
@@ -56,10 +52,6 @@ class QueryBuilder:
     def build_children_tree(cls, flat_list): ...
     @classmethod
     def sqlmodel_format_datetime(cls, value): ...
-    @classmethod
-    def format_enum(
-        cls, enum_fields, field_value, item_dict, key, model_class
-    ) -> None: ...
     @classmethod
     def get_fields(
         cls, *, model_class, relation_class, response_class, query_request: QueryRequest

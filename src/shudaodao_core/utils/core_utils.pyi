@@ -5,6 +5,12 @@ class CoreUtil:
     """核心库的工具类"""
     @classmethod
     def remove_node_attr(cls, *, nodes, children_node_name, remove_attrs): ...
+    @staticmethod
+    def format_datatime(dt_str):
+        """
+        将 ISO 8601 格式（含T）的时间字符串转换为 'YYYY-MM-DD HH:MM:SS' 格式
+        支持：2025-09-22T10:30:00, 2025-09-22T10:30:00Z, 2025-09-22T10:30:00+08:00 等
+        """
     @classmethod
     @cache
     def get_root_path(cls) -> Path:

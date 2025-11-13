@@ -13,15 +13,16 @@ from pydantic import Field, BaseModel
 from sqlalchemy import BigInteger
 from sqlmodel import SQLModel
 
-from ..tools.query_builder import QueryBuilder
-from ..tools.query_field import convert_datetime_iso_to_standard, get_enum_field_names
+from ..enums.manager import EnumManager
+from ..utils.core_utils import CoreUtil
 
 
 class BaseResponse(SQLModel):
     """
-    自动将所有 sa_type=BigInteger 的字段，在 model_dump() 时转为字符串。
-    支持嵌套模型递归转换。
-    不新增字段，直接原地替换值类型。
+    支持 sa_type=BigInteger 转 字符串
+    支持 日期格式化
+    支持 枚举转化，新增字段 key_label
+    支持嵌套模型递归转换
     """
 
     def model_dump(self, *args, **kwargs) -> Dict[str, Any]:
@@ -40,7 +41,7 @@ class BaseResponse(SQLModel):
                 data[field_name] = str(value)
             # 2. datetime → ISO 8601 字符串
             elif isinstance(value, datetime):
-                data[field_name] = convert_datetime_iso_to_standard(value.isoformat())
+                data[field_name] = CoreUtil.format_datatime(value.isoformat())
             # 3. date → YYYY-MM-DD
             elif isinstance(value, date):
                 data[field_name] = value.isoformat()  # "2025-09-22"
@@ -66,20 +67,17 @@ class BaseResponse(SQLModel):
     @staticmethod
     def base_response_format_enum(model_class, dump_value):
         # 获取枚举字段
-        enum_fields = get_enum_field_names(model_class)
+        enum_fields = EnumManager().get_field_names(model_class)
         if not enum_fields:
             return dump_value
 
         enum_dict = {}
         for key, val in dump_value.items():
             enum_dict[key] = val
-            QueryBuilder.format_enum(
-                enum_fields=enum_fields,
-                item_dict=enum_dict,
-                field_value=val,
-                key=key,
-                model_class=model_class
-            )
+            if key not in enum_fields:
+                continue
+            # 处理枚举
+            enum_dict[key + "_label"] = EnumManager().resolve_value(model_class, key, val)
         return enum_dict
 
     # 兼容 Pydantic v1 / jsonable_encoder
@@ -114,11 +112,11 @@ class TokenResponse(BaseModel):
     # id_token: Optional[str] = None  # 暂时用不上
 
 
-class TokenErrorResponse(BaseModel):
-    error: str
-    error_description: str
-    error_code: Optional[str] = None
-    timestamp: str = Field(default_factory=lambda: datetime.now().timestamp())
+# class TokenErrorResponse(BaseModel):
+#     error: str
+#     error_description: str
+#     error_code: Optional[str] = None
+#     timestamp: str = Field(default_factory=lambda: datetime.now().timestamp())
 
 
 class TokenRefreshModel(BaseModel):

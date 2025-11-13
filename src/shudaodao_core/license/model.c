@@ -1954,15 +1954,17 @@ static const char __pyx_k_jti[] = "jti";
 static const char __pyx_k_nbf[] = "nbf";
 static const char __pyx_k_str[] = "str";
 static const char __pyx_k_sub[] = "sub";
+static const char __pyx_k_List[] = "List";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_model[] = "model";
 static const char __pyx_k_module[] = "__module__";
+static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_version[] = "version";
+static const char __pyx_k_List_any[] = "List[any]";
 static const char __pyx_k_features[] = "features";
-static const char __pyx_k_list_any[] = "list[any]";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_dataclass[] = "dataclass";
 static const char __pyx_k_metaclass[] = "__metaclass__";
@@ -2013,7 +2015,7 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_string_tab[32];
+  PyObject *__pyx_string_tab[34];
 /* #### Code section: module_state_contents ### */
 /* CodeObjectCache.module_state_decls */
 struct __Pyx_CodeObjectCache __pyx_code_cache;
@@ -2046,35 +2048,37 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_ __pyx_string_tab[0]
 #define __pyx_n_u_JsonWebTokenModel __pyx_string_tab[1]
 #define __pyx_n_u_LicenseModel __pyx_string_tab[2]
-#define __pyx_kp_u__2 __pyx_string_tab[3]
-#define __pyx_n_u_annotations __pyx_string_tab[4]
-#define __pyx_n_u_aud __pyx_string_tab[5]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[6]
-#define __pyx_n_u_dataclass __pyx_string_tab[7]
-#define __pyx_n_u_dataclasses __pyx_string_tab[8]
-#define __pyx_n_u_doc __pyx_string_tab[9]
-#define __pyx_n_u_exp __pyx_string_tab[10]
-#define __pyx_n_u_features __pyx_string_tab[11]
-#define __pyx_n_u_iat __pyx_string_tab[12]
-#define __pyx_n_u_int __pyx_string_tab[13]
-#define __pyx_n_u_iss __pyx_string_tab[14]
-#define __pyx_n_u_jti __pyx_string_tab[15]
-#define __pyx_n_u_license_type __pyx_string_tab[16]
-#define __pyx_kp_u_list_any __pyx_string_tab[17]
-#define __pyx_n_u_machine_id __pyx_string_tab[18]
-#define __pyx_n_u_main __pyx_string_tab[19]
-#define __pyx_n_u_metaclass __pyx_string_tab[20]
-#define __pyx_n_u_model __pyx_string_tab[21]
-#define __pyx_n_u_module __pyx_string_tab[22]
-#define __pyx_n_u_mro_entries __pyx_string_tab[23]
-#define __pyx_n_u_name __pyx_string_tab[24]
-#define __pyx_n_u_nbf __pyx_string_tab[25]
-#define __pyx_n_u_prepare __pyx_string_tab[26]
-#define __pyx_n_u_qualname __pyx_string_tab[27]
-#define __pyx_n_u_str __pyx_string_tab[28]
-#define __pyx_n_u_sub __pyx_string_tab[29]
-#define __pyx_n_u_test __pyx_string_tab[30]
-#define __pyx_n_u_version __pyx_string_tab[31]
+#define __pyx_n_u_List __pyx_string_tab[3]
+#define __pyx_kp_u_List_any __pyx_string_tab[4]
+#define __pyx_kp_u__2 __pyx_string_tab[5]
+#define __pyx_n_u_annotations __pyx_string_tab[6]
+#define __pyx_n_u_aud __pyx_string_tab[7]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[8]
+#define __pyx_n_u_dataclass __pyx_string_tab[9]
+#define __pyx_n_u_dataclasses __pyx_string_tab[10]
+#define __pyx_n_u_doc __pyx_string_tab[11]
+#define __pyx_n_u_exp __pyx_string_tab[12]
+#define __pyx_n_u_features __pyx_string_tab[13]
+#define __pyx_n_u_iat __pyx_string_tab[14]
+#define __pyx_n_u_int __pyx_string_tab[15]
+#define __pyx_n_u_iss __pyx_string_tab[16]
+#define __pyx_n_u_jti __pyx_string_tab[17]
+#define __pyx_n_u_license_type __pyx_string_tab[18]
+#define __pyx_n_u_machine_id __pyx_string_tab[19]
+#define __pyx_n_u_main __pyx_string_tab[20]
+#define __pyx_n_u_metaclass __pyx_string_tab[21]
+#define __pyx_n_u_model __pyx_string_tab[22]
+#define __pyx_n_u_module __pyx_string_tab[23]
+#define __pyx_n_u_mro_entries __pyx_string_tab[24]
+#define __pyx_n_u_name __pyx_string_tab[25]
+#define __pyx_n_u_nbf __pyx_string_tab[26]
+#define __pyx_n_u_prepare __pyx_string_tab[27]
+#define __pyx_n_u_qualname __pyx_string_tab[28]
+#define __pyx_n_u_str __pyx_string_tab[29]
+#define __pyx_n_u_sub __pyx_string_tab[30]
+#define __pyx_n_u_test __pyx_string_tab[31]
+#define __pyx_n_u_typing __pyx_string_tab[32]
+#define __pyx_n_u_version __pyx_string_tab[33]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2095,7 +2099,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  for (int i=0; i<32; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<34; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2116,7 +2120,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  for (int i=0; i<32; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<34; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2497,7 +2501,7 @@ __Pyx_RefNannySetupContext("PyInit_model", 0);
  * 
  * 
  * from dataclasses import dataclass             # <<<<<<<<<<<<<<
- * 
+ * from typing import List
  * 
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
@@ -2511,28 +2515,46 @@ __Pyx_RefNannySetupContext("PyInit_model", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "model.py":14
+  /* "model.py":11
+ * 
+ * from dataclasses import dataclass
+ * from typing import List             # <<<<<<<<<<<<<<
+ * 
+ * 
+*/
+  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_List); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_typing, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_List); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_List, __pyx_t_3) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "model.py":15
  * 
  * @dataclass
  * class JsonWebTokenModel:             # <<<<<<<<<<<<<<
  *     iss: str  # (Issuer) -  String  URI -
  *     sub: str  # (Subject) - String - ID
 */
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_model, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_model, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_iss, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_sub, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aud, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_exp, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_iat, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_nbf, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_jti, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_iss, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_sub, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_aud, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_exp, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_iat, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_nbf, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_jti, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "model.py":13
+  /* "model.py":14
  * 
  * 
  * @dataclass             # <<<<<<<<<<<<<<
@@ -2540,64 +2562,64 @@ __Pyx_RefNannySetupContext("PyInit_model", 0);
  *     iss: str  # (Issuer) -  String  URI -
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
 
-  /* "model.py":14
+  /* "model.py":15
  * 
  * @dataclass
  * class JsonWebTokenModel:             # <<<<<<<<<<<<<<
  *     iss: str  # (Issuer) -  String  URI -
  *     sub: str  # (Subject) - String - ID
 */
-  __pyx_t_6 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_6};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "model.py":25
+  /* "model.py":26
  * 
  * @dataclass
  * class LicenseModel(JsonWebTokenModel):             # <<<<<<<<<<<<<<
  *     license_type: str  #
  *     machine_id: str  #
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyTuple_Pack(1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_JsonWebTokenModel); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PEP560_update_bases(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_Pack(1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_CalculateMetaclass(NULL, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PEP560_update_bases(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_Py3MetaclassPrepare(__pyx_t_5, __pyx_t_3, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_mstate_global->__pyx_n_u_LicenseModel, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_model, (PyObject *) NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_Py3MetaclassPrepare(__pyx_t_5, __pyx_t_2, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_mstate_global->__pyx_n_u_LicenseModel, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_model, (PyObject *) NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (__pyx_t_3 != __pyx_t_2) {
-    if (unlikely((PyDict_SetItemString(__pyx_t_6, "__orig_bases__", __pyx_t_2) < 0))) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (__pyx_t_2 != __pyx_t_3) {
+    if (unlikely((PyDict_SetItemString(__pyx_t_6, "__orig_bases__", __pyx_t_3) < 0))) __PYX_ERR(0, 26, __pyx_L1_error)
   }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_license_type, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_machine_id, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_features, __pyx_mstate_global->__pyx_kp_u_list_any) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_version, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  if (__Pyx_SetNameInClass(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_license_type, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_machine_id, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_features, __pyx_mstate_global->__pyx_kp_u_List_any) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_version, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_annotations, __pyx_t_3) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "model.py":24
+  /* "model.py":25
  * 
  * 
  * @dataclass             # <<<<<<<<<<<<<<
@@ -2605,43 +2627,43 @@ __Pyx_RefNannySetupContext("PyInit_model", 0);
  *     license_type: str  #
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_dataclass); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
 
-  /* "model.py":25
+  /* "model.py":26
  * 
  * @dataclass
  * class LicenseModel(JsonWebTokenModel):             # <<<<<<<<<<<<<<
  *     license_type: str  #
  *     machine_id: str  #
 */
-  __pyx_t_9 = __Pyx_Py3ClassCreate(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_t_3, __pyx_t_6, NULL, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_Py3ClassCreate(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_t_2, __pyx_t_6, NULL, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_7 = 1;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_9};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
   }
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_LicenseModel, __pyx_t_3) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "model.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_3) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -2710,6 +2732,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
   {__pyx_k_JsonWebTokenModel, sizeof(__pyx_k_JsonWebTokenModel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_JsonWebTokenModel */
   {__pyx_k_LicenseModel, sizeof(__pyx_k_LicenseModel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_LicenseModel */
+  {__pyx_k_List, sizeof(__pyx_k_List), 0, 1, 1}, /* PyObject cname: __pyx_n_u_List */
+  {__pyx_k_List_any, sizeof(__pyx_k_List_any), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_List_any */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k_annotations, sizeof(__pyx_k_annotations), 0, 1, 1}, /* PyObject cname: __pyx_n_u_annotations */
   {__pyx_k_aud, sizeof(__pyx_k_aud), 0, 1, 1}, /* PyObject cname: __pyx_n_u_aud */
@@ -2724,7 +2748,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_iss, sizeof(__pyx_k_iss), 0, 1, 1}, /* PyObject cname: __pyx_n_u_iss */
   {__pyx_k_jti, sizeof(__pyx_k_jti), 0, 1, 1}, /* PyObject cname: __pyx_n_u_jti */
   {__pyx_k_license_type, sizeof(__pyx_k_license_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_license_type */
-  {__pyx_k_list_any, sizeof(__pyx_k_list_any), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_list_any */
   {__pyx_k_machine_id, sizeof(__pyx_k_machine_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_machine_id */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
@@ -2738,6 +2761,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_str, sizeof(__pyx_k_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_str */
   {__pyx_k_sub, sizeof(__pyx_k_sub), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sub */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
+  {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
   {__pyx_k_version, sizeof(__pyx_k_version), 0, 1, 1}, /* PyObject cname: __pyx_n_u_version */
   {0, 0, 0, 0, 0}
 };

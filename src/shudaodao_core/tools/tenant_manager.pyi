@@ -1,11 +1,11 @@
-from ..app.base_context import (
-    UserInfo as UserInfo,
-    get_current_user_info as get_current_user_info,
-    set_current_user_info as set_current_user_info,
-)
 from ..exception.service_exception import (
     PermError as PermError,
     ValidError as ValidError,
+)
+from ..tools.tenant_user_info import (
+    TenantUserInfo as TenantUserInfo,
+    get_tenant_user_info as get_tenant_user_info,
+    set_tenant_user_info as set_tenant_user_info,
 )
 
 class TenantManager:

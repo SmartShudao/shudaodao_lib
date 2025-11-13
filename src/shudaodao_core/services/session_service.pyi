@@ -1,5 +1,7 @@
 from ..engine.database_engine import DatabaseEngine as DatabaseEngine
 from ..logger.logging_ import logging as logging
+from _typeshed import Incomplete
+from collections.abc import Generator
 from contextlib import asynccontextmanager
 from sqlalchemy.ext.asyncio import async_sessionmaker
 from sqlmodel.ext.asyncio.session import AsyncSession
@@ -47,8 +49,8 @@ class AsyncSessionService:
     def __del__(self) -> None:
         """析构函数，尝试同步关闭资源"""
     @classmethod
-    async def get_async_session(cls, name: str) -> AsyncGenerator[AsyncSession, None]:
+    async def get_async_session(cls, name: str):
         """快捷函数：用于 FastAPI 依赖注入系统。"""
     @classmethod
-    async def get_auth_async_session(cls) -> AsyncGenerator[AsyncSession, None]:
+    async def get_auth_async_session(cls) -> Generator[Incomplete]:
         """快捷函数：用于 FastAPI 依赖注入系统。"""

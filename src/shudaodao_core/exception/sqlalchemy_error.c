@@ -2210,15 +2210,17 @@ static const char __pyx_k__3[] = "\346\225\260\346\215\256\345\272\223\346\223\2
 static const char __pyx_k__4[] = "\346\211\247\350\241\214\347\232\204\346\225\260\346\215\256\345\272\223\350\257\255\345\217\245\345\255\230\345\234\250\351\227\256\351\242\230\357\274\214\350\257\267\346\243\200\346\237\245\346\237\245\350\257\242\346\235\241\344\273\266\346\210\226\345\217\202\346\225\260";
 static const char __pyx_k__5[] = "\346\225\260\346\215\256\345\272\223\346\216\245\345\217\243\345\274\202\345\270\270\357\274\214\350\257\267\350\201\224\347\263\273\347\256\241\347\220\206\345\221\230";
 static const char __pyx_k__6[] = "\346\225\260\346\215\256\345\272\223\346\223\215\344\275\234\345\244\261\350\264\245\357\274\214\350\257\267\350\201\224\347\263\273\347\256\241\347\220\206\345\221\230";
-static const char __pyx_k__7[] = "\350\256\277\351\227\256\346\225\260\346\215\256\345\272\223\345\274\202\345\270\270\357\274\214\350\257\267\350\201\224\347\263\273\347\256\241\347\220\206\345\221\230";
-static const char __pyx_k__8[] = "\346\202\250\346\217\220\344\272\244\347\232\204\346\225\260\346\215\256\357\274\214\350\277\235\345\217\215\344\272\206\346\225\260\346\215\256\345\272\223\347\272\246\346\235\237\343\200\202";
-static const char __pyx_k__9[] = "\346\202\250\346\217\220\344\272\244\347\232\204\346\225\260\346\215\256\345\267\262\345\255\230\345\234\250\357\274\214\350\257\267\345\213\277\351\207\215\345\244\215\346\267\273\345\212\240";
-static const char __pyx_k__10[] = "\345\244\226\351\224\256\344\270\215\345\255\230\345\234\250\357\274\214\350\257\267\346\243\200\346\237\245\345\205\263\350\201\224\346\225\260\346\215\256";
-static const char __pyx_k__11[] = "\345\277\205\345\241\253\345\255\227\346\256\265\344\270\215\350\203\275\344\270\272\347\251\272";
-static const char __pyx_k__12[] = "\346\225\260\346\215\256\346\234\252\351\200\232\350\277\207\346\240\241\351\252\214\350\247\204\345\210\231";
-static const char __pyx_k__13[] = "\350\276\223\345\205\245\346\225\260\346\215\256\351\225\277\345\272\246\350\266\205\345\207\272\351\231\220\345\210\266";
-static const char __pyx_k__14[] = ".";
-static const char __pyx_k__15[] = "?";
+static const char __pyx_k__7[] = "\346\202\250\346\237\245\350\257\242\347\232\204\346\225\260\346\215\256\344\270\215\345\255\230\345\234\250\357\274\214\350\257\267\350\201\224\347\263\273\347\256\241\347\220\206\345\221\230";
+static const char __pyx_k__8[] = "\346\202\250\346\237\245\350\257\242\347\232\204\346\225\260\346\215\256\345\255\230\345\234\250\345\244\232\344\270\252\347\273\223\346\236\234\357\274\214\350\257\267\350\201\224\347\263\273\347\256\241\347\220\206\345\221\230";
+static const char __pyx_k__9[] = "\350\256\277\351\227\256\346\225\260\346\215\256\345\272\223\345\274\202\345\270\270\357\274\214\350\257\267\350\201\224\347\263\273\347\256\241\347\220\206\345\221\230";
+static const char __pyx_k__10[] = "\346\202\250\346\217\220\344\272\244\347\232\204\346\225\260\346\215\256\357\274\214\350\277\235\345\217\215\344\272\206\346\225\260\346\215\256\345\272\223\347\272\246\346\235\237\343\200\202";
+static const char __pyx_k__11[] = "\346\202\250\346\217\220\344\272\244\347\232\204\346\225\260\346\215\256\345\267\262\345\255\230\345\234\250\357\274\214\350\257\267\345\213\277\351\207\215\345\244\215\346\267\273\345\212\240";
+static const char __pyx_k__12[] = "\345\244\226\351\224\256\344\270\215\345\255\230\345\234\250\357\274\214\350\257\267\346\243\200\346\237\245\345\205\263\350\201\224\346\225\260\346\215\256";
+static const char __pyx_k__13[] = "\345\277\205\345\241\253\345\255\227\346\256\265\344\270\215\350\203\275\344\270\272\347\251\272";
+static const char __pyx_k__14[] = "\346\225\260\346\215\256\346\234\252\351\200\232\350\277\207\346\240\241\351\252\214\350\247\204\345\210\231";
+static const char __pyx_k__15[] = "\350\276\223\345\205\245\346\225\260\346\215\256\351\225\277\345\272\246\350\266\205\345\207\272\351\231\220\345\210\266";
+static const char __pyx_k__16[] = ".";
+static const char __pyx_k__17[] = "?";
 static const char __pyx_k_arg[] = "arg";
 static const char __pyx_k_exc[] = "exc";
 static const char __pyx_k_pop[] = "pop";
@@ -2249,6 +2251,7 @@ static const char __pyx_k_foreignkey[] = "foreignkey";
 static const char __pyx_k_foreign_key[] = "foreign key";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_DatabaseError[] = "DatabaseError";
+static const char __pyx_k_NoResultFound[] = "NoResultFound";
 static const char __pyx_k_Tuple_str_str[] = "Tuple[str, str]";
 static const char __pyx_k_data_too_long[] = "data too long";
 static const char __pyx_k_IntegrityError[] = "IntegrityError";
@@ -2263,10 +2266,11 @@ static const char __pyx_k_sqlalchemy_error[] = "sqlalchemy_error";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_sqlalchemy_error_py[] = "sqlalchemy_error.py";
+static const char __pyx_k_MultipleResultsFound[] = "MultipleResultsFound";
 static const char __pyx_k_format_integrity_error[] = "_format_integrity_error";
 static const char __pyx_k_format_sqlalchemy_error[] = "format_sqlalchemy_error";
 static const char __pyx_k_4A_wauHA_a_1Cq_T_1_M_1A_q_Cq_q[] = "\320\000!\320!4\260A\360\010\000\005\020\210w\220a\220u\230H\240A\330\004\016\210a\330\004\033\2301\230C\230q\240\005\240T\250\027\260\003\2601\330\004\014\210M\230\037\250\003\2501\250A\340\004\007\200q\330\010\024\220C\220q\230\t\240\026\240q\330\010\013\2109\220C\220z\240\023\240L\260\003\2601\330\014\026\220a\330\r\032\230#\230Z\240s\250.\270\003\2701\330\014\026\220a\330\r\030\230\003\2301\330\014\026\220a\330\r \240\003\2401\330\014\026\220a\330\r\030\230\003\230:\240S\320(8\270\003\2701\330\014\026\220a\340\004\013\2109\220A";
-static const char __pyx_k_5Q_1Cq_T_1_M_1A_z_q_aq_1E_a_1E[] = "\320\000!\320!5\260Q\360\016\000\005\034\2301\230C\230q\240\005\240T\250\027\260\003\2601\330\004\014\210M\230\037\250\003\2501\250A\340\004\007\200z\220\021\220%\220q\330\010\017\320\017&\240a\240q\330\t\023\2201\220E\230\021\330\010\017\320\017&\240a\330\t\023\2201\220E\230\021\330\010\017\320\017*\250!\330\t\023\2201\220E\230\021\330\010\017\320\017#\2401\330\t\023\2201\220E\230\021\330\010\017\320\017*\250!\330\t\023\2201\220E\230\021\330\010\017\320\017!\240\021\330\t\023\2201\220E\230\021\340\010\017\320\017!\240\021\360\n\000\005\014\320\013\035\230Q";
+static const char __pyx_k_5Q_1Cq_T_1_M_1A_z_q_aq_1E_a_1E[] = "\320\000!\320!5\260Q\360\016\000\005\034\2301\230C\230q\240\005\240T\250\027\260\003\2601\330\004\014\210M\230\037\250\003\2501\250A\340\004\007\200z\220\021\220%\220q\330\010\017\320\017&\240a\240q\330\t\023\2201\220E\230\021\330\010\017\320\017&\240a\330\t\023\2201\220E\230\021\330\010\017\320\017*\250!\330\t\023\2201\220E\230\021\330\010\017\320\017#\2401\330\t\023\2201\220E\230\021\330\010\017\320\017*\250!\330\t\023\2201\220E\230\021\330\010\017\320\017!\240\021\330\t\023\2201\220E\230\021\340\010\017\320\017!\240\021\330\t\023\2201\220E\230\021\330\010\017\320\017#\2401\330\t\023\2201\220E\230\021\330\010\017\320\017&\240a\360\010\000\005\014\320\013\035\230Q";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_exc); /* proto */
 static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_exc); /* proto */
@@ -2310,7 +2314,7 @@ typedef struct {
   #endif
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[2];
-  PyObject *__pyx_string_tab[61];
+  PyObject *__pyx_string_tab[65];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2353,62 +2357,66 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_DatabaseError __pyx_string_tab[2]
 #define __pyx_n_u_IntegrityError __pyx_string_tab[3]
 #define __pyx_n_u_InterfaceError __pyx_string_tab[4]
-#define __pyx_n_u_OperationalError __pyx_string_tab[5]
-#define __pyx_n_u_ProgrammingError __pyx_string_tab[6]
-#define __pyx_n_u_SQLAlchemyError __pyx_string_tab[7]
-#define __pyx_n_u_StatementError __pyx_string_tab[8]
-#define __pyx_n_u_Tuple __pyx_string_tab[9]
-#define __pyx_kp_u_Tuple_str_str __pyx_string_tab[10]
-#define __pyx_kp_u__10 __pyx_string_tab[11]
-#define __pyx_n_u__11 __pyx_string_tab[12]
-#define __pyx_n_u__12 __pyx_string_tab[13]
-#define __pyx_n_u__13 __pyx_string_tab[14]
-#define __pyx_kp_u__14 __pyx_string_tab[15]
-#define __pyx_kp_u__15 __pyx_string_tab[16]
-#define __pyx_kp_u__2 __pyx_string_tab[17]
-#define __pyx_kp_u__3 __pyx_string_tab[18]
-#define __pyx_kp_u__4 __pyx_string_tab[19]
-#define __pyx_kp_u__5 __pyx_string_tab[20]
-#define __pyx_kp_u__6 __pyx_string_tab[21]
-#define __pyx_kp_u__7 __pyx_string_tab[22]
-#define __pyx_kp_u__8 __pyx_string_tab[23]
-#define __pyx_kp_u__9 __pyx_string_tab[24]
-#define __pyx_n_u_arg __pyx_string_tab[25]
-#define __pyx_n_u_args __pyx_string_tab[26]
-#define __pyx_n_u_args_list __pyx_string_tab[27]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[28]
-#define __pyx_kp_u_check_constraint __pyx_string_tab[29]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[30]
-#define __pyx_kp_u_data_too_long __pyx_string_tab[31]
-#define __pyx_n_u_duplicate __pyx_string_tab[32]
-#define __pyx_n_u_error __pyx_string_tab[33]
-#define __pyx_n_u_error_msg __pyx_string_tab[34]
-#define __pyx_n_u_exc __pyx_string_tab[35]
-#define __pyx_n_u_exc_orig __pyx_string_tab[36]
-#define __pyx_kp_u_foreign_key __pyx_string_tab[37]
-#define __pyx_n_u_foreignkey __pyx_string_tab[38]
-#define __pyx_n_u_format_integrity_error __pyx_string_tab[39]
-#define __pyx_n_u_format_sqlalchemy_error __pyx_string_tab[40]
-#define __pyx_n_u_func __pyx_string_tab[41]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[42]
-#define __pyx_n_u_lower __pyx_string_tab[43]
-#define __pyx_n_u_main __pyx_string_tab[44]
-#define __pyx_n_u_message __pyx_string_tab[45]
-#define __pyx_n_u_module __pyx_string_tab[46]
-#define __pyx_n_u_name __pyx_string_tab[47]
-#define __pyx_kp_u_not_null __pyx_string_tab[48]
-#define __pyx_n_u_orig __pyx_string_tab[49]
-#define __pyx_n_u_pop __pyx_string_tab[50]
-#define __pyx_n_u_qualname __pyx_string_tab[51]
-#define __pyx_n_u_return __pyx_string_tab[52]
-#define __pyx_n_u_set_name __pyx_string_tab[53]
-#define __pyx_n_u_sqlalchemy_error __pyx_string_tab[54]
-#define __pyx_kp_u_sqlalchemy_error_py __pyx_string_tab[55]
-#define __pyx_n_u_sqlalchemy_exc __pyx_string_tab[56]
-#define __pyx_n_u_test __pyx_string_tab[57]
-#define __pyx_kp_u_too_long __pyx_string_tab[58]
-#define __pyx_n_u_typing __pyx_string_tab[59]
-#define __pyx_n_u_unique __pyx_string_tab[60]
+#define __pyx_n_u_MultipleResultsFound __pyx_string_tab[5]
+#define __pyx_n_u_NoResultFound __pyx_string_tab[6]
+#define __pyx_n_u_OperationalError __pyx_string_tab[7]
+#define __pyx_n_u_ProgrammingError __pyx_string_tab[8]
+#define __pyx_n_u_SQLAlchemyError __pyx_string_tab[9]
+#define __pyx_n_u_StatementError __pyx_string_tab[10]
+#define __pyx_n_u_Tuple __pyx_string_tab[11]
+#define __pyx_kp_u_Tuple_str_str __pyx_string_tab[12]
+#define __pyx_kp_u__10 __pyx_string_tab[13]
+#define __pyx_kp_u__11 __pyx_string_tab[14]
+#define __pyx_kp_u__12 __pyx_string_tab[15]
+#define __pyx_n_u__13 __pyx_string_tab[16]
+#define __pyx_n_u__14 __pyx_string_tab[17]
+#define __pyx_n_u__15 __pyx_string_tab[18]
+#define __pyx_kp_u__16 __pyx_string_tab[19]
+#define __pyx_kp_u__17 __pyx_string_tab[20]
+#define __pyx_kp_u__2 __pyx_string_tab[21]
+#define __pyx_kp_u__3 __pyx_string_tab[22]
+#define __pyx_kp_u__4 __pyx_string_tab[23]
+#define __pyx_kp_u__5 __pyx_string_tab[24]
+#define __pyx_kp_u__6 __pyx_string_tab[25]
+#define __pyx_kp_u__7 __pyx_string_tab[26]
+#define __pyx_kp_u__8 __pyx_string_tab[27]
+#define __pyx_kp_u__9 __pyx_string_tab[28]
+#define __pyx_n_u_arg __pyx_string_tab[29]
+#define __pyx_n_u_args __pyx_string_tab[30]
+#define __pyx_n_u_args_list __pyx_string_tab[31]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[32]
+#define __pyx_kp_u_check_constraint __pyx_string_tab[33]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[34]
+#define __pyx_kp_u_data_too_long __pyx_string_tab[35]
+#define __pyx_n_u_duplicate __pyx_string_tab[36]
+#define __pyx_n_u_error __pyx_string_tab[37]
+#define __pyx_n_u_error_msg __pyx_string_tab[38]
+#define __pyx_n_u_exc __pyx_string_tab[39]
+#define __pyx_n_u_exc_orig __pyx_string_tab[40]
+#define __pyx_kp_u_foreign_key __pyx_string_tab[41]
+#define __pyx_n_u_foreignkey __pyx_string_tab[42]
+#define __pyx_n_u_format_integrity_error __pyx_string_tab[43]
+#define __pyx_n_u_format_sqlalchemy_error __pyx_string_tab[44]
+#define __pyx_n_u_func __pyx_string_tab[45]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[46]
+#define __pyx_n_u_lower __pyx_string_tab[47]
+#define __pyx_n_u_main __pyx_string_tab[48]
+#define __pyx_n_u_message __pyx_string_tab[49]
+#define __pyx_n_u_module __pyx_string_tab[50]
+#define __pyx_n_u_name __pyx_string_tab[51]
+#define __pyx_kp_u_not_null __pyx_string_tab[52]
+#define __pyx_n_u_orig __pyx_string_tab[53]
+#define __pyx_n_u_pop __pyx_string_tab[54]
+#define __pyx_n_u_qualname __pyx_string_tab[55]
+#define __pyx_n_u_return __pyx_string_tab[56]
+#define __pyx_n_u_set_name __pyx_string_tab[57]
+#define __pyx_n_u_sqlalchemy_error __pyx_string_tab[58]
+#define __pyx_kp_u_sqlalchemy_error_py __pyx_string_tab[59]
+#define __pyx_n_u_sqlalchemy_exc __pyx_string_tab[60]
+#define __pyx_n_u_test __pyx_string_tab[61]
+#define __pyx_kp_u_too_long __pyx_string_tab[62]
+#define __pyx_n_u_typing __pyx_string_tab[63]
+#define __pyx_n_u_unique __pyx_string_tab[64]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2430,7 +2438,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   __Pyx_State_RemoveModule(NULL);
   #endif
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<61; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<65; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2452,13 +2460,13 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<61; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<65; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "sqlalchemy_error.py":23
+/* "sqlalchemy_error.py":25
  * 
  * 
  * def format_sqlalchemy_error(exc: SQLAlchemyError) -> Tuple[str, str]:             # <<<<<<<<<<<<<<
@@ -2506,32 +2514,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_exc,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "format_sqlalchemy_error", 0) < 0) __PYX_ERR(0, 23, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "format_sqlalchemy_error", 0) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("format_sqlalchemy_error", 1, 1, 1, i); __PYX_ERR(0, 23, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("format_sqlalchemy_error", 1, 1, 1, i); __PYX_ERR(0, 25, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 23, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
     }
     __pyx_v_exc = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("format_sqlalchemy_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 23, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("format_sqlalchemy_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 25, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2570,7 +2578,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("format_sqlalchemy_error", 0);
 
-  /* "sqlalchemy_error.py":30
+  /* "sqlalchemy_error.py":32
  *     :return: (message: , error: )
  *     """
  *     args_list: list[str] = [str(arg) for arg in exc.args]             # <<<<<<<<<<<<<<
@@ -2578,18 +2586,18 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
  * 
 */
   { /* enter inner scope */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L5_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_exc, __pyx_mstate_global->__pyx_n_u_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L5_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_exc, __pyx_mstate_global->__pyx_n_u_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
       __pyx_t_3 = __pyx_t_2; __Pyx_INCREF(__pyx_t_3);
       __pyx_t_4 = 0;
       __pyx_t_5 = NULL;
     } else {
-      __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 30, __pyx_L5_error)
+      __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L5_error)
+      __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L5_error)
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     for (;;) {
@@ -2598,7 +2606,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 30, __pyx_L5_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 32, __pyx_L5_error)
             #endif
             if (__pyx_t_4 >= __pyx_temp) break;
           }
@@ -2608,7 +2616,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 30, __pyx_L5_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 32, __pyx_L5_error)
             #endif
             if (__pyx_t_4 >= __pyx_temp) break;
           }
@@ -2619,13 +2627,13 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
           #endif
           ++__pyx_t_4;
         }
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L5_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L5_error)
       } else {
         __pyx_t_2 = __pyx_t_5(__pyx_t_3);
         if (unlikely(!__pyx_t_2)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 30, __pyx_L5_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 32, __pyx_L5_error)
             PyErr_Clear();
           }
           break;
@@ -2634,9 +2642,9 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_arg, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_7genexpr__pyx_v_arg); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L5_error)
+      __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_7genexpr__pyx_v_arg); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_2);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 30, __pyx_L5_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 32, __pyx_L5_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -2650,7 +2658,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
   __pyx_v_args_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "sqlalchemy_error.py":31
+  /* "sqlalchemy_error.py":33
  *     """
  *     args_list: list[str] = [str(arg) for arg in exc.args]
  *     error = args_list if args_list else str(exc)             # <<<<<<<<<<<<<<
@@ -2659,7 +2667,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 */
   {
     Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_v_args_list);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
     __pyx_t_6 = (__pyx_temp != 0);
   }
 
@@ -2667,7 +2675,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
     __Pyx_INCREF(__pyx_v_args_list);
     __pyx_t_1 = __pyx_v_args_list;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_Unicode(__pyx_v_exc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Unicode(__pyx_v_exc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -2675,20 +2683,20 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
   __pyx_v_error = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "sqlalchemy_error.py":33
+  /* "sqlalchemy_error.py":35
  *     error = args_list if args_list else str(exc)
  * 
  *     if isinstance(exc, IntegrityError):             # <<<<<<<<<<<<<<
  *         return _format_integrity_error(exc)
  *     elif isinstance(exc, DataError):
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_IntegrityError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_IntegrityError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "sqlalchemy_error.py":34
+    /* "sqlalchemy_error.py":36
  * 
  *     if isinstance(exc, IntegrityError):
  *         return _format_integrity_error(exc)             # <<<<<<<<<<<<<<
@@ -2697,7 +2705,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_format_integrity_error); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_format_integrity_error); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_7 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -2716,15 +2724,15 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
-    if (!(likely(PyTuple_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None) || __Pyx_RaiseUnexpectedTypeError("tuple", __pyx_t_1))) __PYX_ERR(0, 34, __pyx_L1_error)
+    if (!(likely(PyTuple_CheckExact(__pyx_t_1))||((__pyx_t_1) == Py_None) || __Pyx_RaiseUnexpectedTypeError("tuple", __pyx_t_1))) __PYX_ERR(0, 36, __pyx_L1_error)
     __pyx_r = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "sqlalchemy_error.py":33
+    /* "sqlalchemy_error.py":35
  *     error = args_list if args_list else str(exc)
  * 
  *     if isinstance(exc, IntegrityError):             # <<<<<<<<<<<<<<
@@ -2733,74 +2741,32 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 */
   }
 
-  /* "sqlalchemy_error.py":35
- *     if isinstance(exc, IntegrityError):
- *         return _format_integrity_error(exc)
- *     elif isinstance(exc, DataError):             # <<<<<<<<<<<<<<
- *         return "", error
- *     elif isinstance(exc, OperationalError):
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_DataError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 35, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 35, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__pyx_t_6) {
-
-    /* "sqlalchemy_error.py":36
- *         return _format_integrity_error(exc)
- *     elif isinstance(exc, DataError):
- *         return "", error             # <<<<<<<<<<<<<<
- *     elif isinstance(exc, OperationalError):
- *         return "", error
-*/
-    __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_);
-    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u_);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u_) != (0)) __PYX_ERR(0, 36, __pyx_L1_error);
-    __Pyx_INCREF(__pyx_v_error);
-    __Pyx_GIVEREF(__pyx_v_error);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 36, __pyx_L1_error);
-    __pyx_r = ((PyObject*)__pyx_t_1);
-    __pyx_t_1 = 0;
-    goto __pyx_L0;
-
-    /* "sqlalchemy_error.py":35
- *     if isinstance(exc, IntegrityError):
- *         return _format_integrity_error(exc)
- *     elif isinstance(exc, DataError):             # <<<<<<<<<<<<<<
- *         return "", error
- *     elif isinstance(exc, OperationalError):
-*/
-  }
-
   /* "sqlalchemy_error.py":37
- *     elif isinstance(exc, DataError):
+ *     if isinstance(exc, IntegrityError):
+ *         return _format_integrity_error(exc)
+ *     elif isinstance(exc, DataError):             # <<<<<<<<<<<<<<
  *         return "", error
- *     elif isinstance(exc, OperationalError):             # <<<<<<<<<<<<<<
- *         return "", error
- *     elif isinstance(exc, ProgrammingError):
+ *     elif isinstance(exc, OperationalError):
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_OperationalError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_DataError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
     /* "sqlalchemy_error.py":38
- *         return "", error
- *     elif isinstance(exc, OperationalError):
+ *         return _format_integrity_error(exc)
+ *     elif isinstance(exc, DataError):
  *         return "", error             # <<<<<<<<<<<<<<
- *     elif isinstance(exc, ProgrammingError):
+ *     elif isinstance(exc, OperationalError):
  *         return "", error
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__2);
-    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__2);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__2) != (0)) __PYX_ERR(0, 38, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_);
+    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u_);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u_) != (0)) __PYX_ERR(0, 38, __pyx_L1_error);
     __Pyx_INCREF(__pyx_v_error);
     __Pyx_GIVEREF(__pyx_v_error);
     if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 38, __pyx_L1_error);
@@ -2809,22 +2775,22 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
     goto __pyx_L0;
 
     /* "sqlalchemy_error.py":37
+ *     if isinstance(exc, IntegrityError):
+ *         return _format_integrity_error(exc)
+ *     elif isinstance(exc, DataError):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     elif isinstance(exc, OperationalError):
+*/
+  }
+
+  /* "sqlalchemy_error.py":39
  *     elif isinstance(exc, DataError):
  *         return "", error
  *     elif isinstance(exc, OperationalError):             # <<<<<<<<<<<<<<
  *         return "", error
  *     elif isinstance(exc, ProgrammingError):
 */
-  }
-
-  /* "sqlalchemy_error.py":39
- *     elif isinstance(exc, OperationalError):
- *         return "", error
- *     elif isinstance(exc, ProgrammingError):             # <<<<<<<<<<<<<<
- *         return "", error
- *     elif isinstance(exc, StatementError):
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ProgrammingError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_OperationalError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2832,17 +2798,17 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 
     /* "sqlalchemy_error.py":40
  *         return "", error
- *     elif isinstance(exc, ProgrammingError):
+ *     elif isinstance(exc, OperationalError):
  *         return "", error             # <<<<<<<<<<<<<<
- *     elif isinstance(exc, StatementError):
+ *     elif isinstance(exc, ProgrammingError):
  *         return "", error
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__3);
-    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__3);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__3) != (0)) __PYX_ERR(0, 40, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__2);
+    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__2);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__2) != (0)) __PYX_ERR(0, 40, __pyx_L1_error);
     __Pyx_INCREF(__pyx_v_error);
     __Pyx_GIVEREF(__pyx_v_error);
     if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 40, __pyx_L1_error);
@@ -2851,22 +2817,22 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
     goto __pyx_L0;
 
     /* "sqlalchemy_error.py":39
+ *     elif isinstance(exc, DataError):
+ *         return "", error
+ *     elif isinstance(exc, OperationalError):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     elif isinstance(exc, ProgrammingError):
+*/
+  }
+
+  /* "sqlalchemy_error.py":41
  *     elif isinstance(exc, OperationalError):
  *         return "", error
  *     elif isinstance(exc, ProgrammingError):             # <<<<<<<<<<<<<<
  *         return "", error
  *     elif isinstance(exc, StatementError):
 */
-  }
-
-  /* "sqlalchemy_error.py":41
- *     elif isinstance(exc, ProgrammingError):
- *         return "", error
- *     elif isinstance(exc, StatementError):             # <<<<<<<<<<<<<<
- *         return "", error
- *     elif isinstance(exc, InterfaceError):
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_StatementError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ProgrammingError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2874,17 +2840,17 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 
     /* "sqlalchemy_error.py":42
  *         return "", error
- *     elif isinstance(exc, StatementError):
+ *     elif isinstance(exc, ProgrammingError):
  *         return "", error             # <<<<<<<<<<<<<<
- *     elif isinstance(exc, InterfaceError):
+ *     elif isinstance(exc, StatementError):
  *         return "", error
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__4);
-    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__4);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__4) != (0)) __PYX_ERR(0, 42, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__3);
+    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__3);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__3) != (0)) __PYX_ERR(0, 42, __pyx_L1_error);
     __Pyx_INCREF(__pyx_v_error);
     __Pyx_GIVEREF(__pyx_v_error);
     if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 42, __pyx_L1_error);
@@ -2893,22 +2859,22 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
     goto __pyx_L0;
 
     /* "sqlalchemy_error.py":41
+ *     elif isinstance(exc, OperationalError):
+ *         return "", error
+ *     elif isinstance(exc, ProgrammingError):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     elif isinstance(exc, StatementError):
+*/
+  }
+
+  /* "sqlalchemy_error.py":43
  *     elif isinstance(exc, ProgrammingError):
  *         return "", error
  *     elif isinstance(exc, StatementError):             # <<<<<<<<<<<<<<
  *         return "", error
  *     elif isinstance(exc, InterfaceError):
 */
-  }
-
-  /* "sqlalchemy_error.py":43
- *     elif isinstance(exc, StatementError):
- *         return "", error
- *     elif isinstance(exc, InterfaceError):             # <<<<<<<<<<<<<<
- *         return "", error
- *     elif isinstance(exc, DatabaseError):
-*/
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_InterfaceError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_StatementError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2916,17 +2882,17 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 
     /* "sqlalchemy_error.py":44
  *         return "", error
- *     elif isinstance(exc, InterfaceError):
+ *     elif isinstance(exc, StatementError):
  *         return "", error             # <<<<<<<<<<<<<<
- *     elif isinstance(exc, DatabaseError):
- *         #
+ *     elif isinstance(exc, InterfaceError):
+ *         return "", error
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__5);
-    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__5);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__5) != (0)) __PYX_ERR(0, 44, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__4);
+    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__4);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__4) != (0)) __PYX_ERR(0, 44, __pyx_L1_error);
     __Pyx_INCREF(__pyx_v_error);
     __Pyx_GIVEREF(__pyx_v_error);
     if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 44, __pyx_L1_error);
@@ -2935,6 +2901,48 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
     goto __pyx_L0;
 
     /* "sqlalchemy_error.py":43
+ *     elif isinstance(exc, ProgrammingError):
+ *         return "", error
+ *     elif isinstance(exc, StatementError):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     elif isinstance(exc, InterfaceError):
+*/
+  }
+
+  /* "sqlalchemy_error.py":45
+ *     elif isinstance(exc, StatementError):
+ *         return "", error
+ *     elif isinstance(exc, InterfaceError):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     elif isinstance(exc, DatabaseError):
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_InterfaceError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 45, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_6) {
+
+    /* "sqlalchemy_error.py":46
+ *         return "", error
+ *     elif isinstance(exc, InterfaceError):
+ *         return "", error             # <<<<<<<<<<<<<<
+ *     elif isinstance(exc, DatabaseError):
+ *         #
+*/
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__5);
+    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__5);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__5) != (0)) __PYX_ERR(0, 46, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_v_error);
+    __Pyx_GIVEREF(__pyx_v_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 46, __pyx_L1_error);
+    __pyx_r = ((PyObject*)__pyx_t_1);
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "sqlalchemy_error.py":45
  *     elif isinstance(exc, StatementError):
  *         return "", error
  *     elif isinstance(exc, InterfaceError):             # <<<<<<<<<<<<<<
@@ -2943,40 +2951,40 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 */
   }
 
-  /* "sqlalchemy_error.py":45
+  /* "sqlalchemy_error.py":47
  *     elif isinstance(exc, InterfaceError):
  *         return "", error
  *     elif isinstance(exc, DatabaseError):             # <<<<<<<<<<<<<<
  *         #
  *         return "", error
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_DatabaseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_DatabaseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "sqlalchemy_error.py":47
+    /* "sqlalchemy_error.py":49
  *     elif isinstance(exc, DatabaseError):
  *         #
  *         return "", error             # <<<<<<<<<<<<<<
- * 
- *     #  PostgreSQLMySQL
+ *     elif isinstance(exc, NoResultFound):
+ *         return "", error
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__6);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__6);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__6) != (0)) __PYX_ERR(0, 47, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__6) != (0)) __PYX_ERR(0, 49, __pyx_L1_error);
     __Pyx_INCREF(__pyx_v_error);
     __Pyx_GIVEREF(__pyx_v_error);
-    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 47, __pyx_L1_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 49, __pyx_L1_error);
     __pyx_r = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "sqlalchemy_error.py":45
+    /* "sqlalchemy_error.py":47
  *     elif isinstance(exc, InterfaceError):
  *         return "", error
  *     elif isinstance(exc, DatabaseError):             # <<<<<<<<<<<<<<
@@ -2985,7 +2993,91 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
 */
   }
 
+  /* "sqlalchemy_error.py":50
+ *         #
+ *         return "", error
+ *     elif isinstance(exc, NoResultFound):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     elif isinstance(exc, MultipleResultsFound):
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_NoResultFound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_6) {
+
+    /* "sqlalchemy_error.py":51
+ *         return "", error
+ *     elif isinstance(exc, NoResultFound):
+ *         return "", error             # <<<<<<<<<<<<<<
+ *     elif isinstance(exc, MultipleResultsFound):
+ *         return "", error
+*/
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__7);
+    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__7);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__7) != (0)) __PYX_ERR(0, 51, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_v_error);
+    __Pyx_GIVEREF(__pyx_v_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 51, __pyx_L1_error);
+    __pyx_r = ((PyObject*)__pyx_t_1);
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "sqlalchemy_error.py":50
+ *         #
+ *         return "", error
+ *     elif isinstance(exc, NoResultFound):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     elif isinstance(exc, MultipleResultsFound):
+*/
+  }
+
   /* "sqlalchemy_error.py":52
+ *     elif isinstance(exc, NoResultFound):
+ *         return "", error
+ *     elif isinstance(exc, MultipleResultsFound):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     #  PostgreSQLMySQL
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_MultipleResultsFound); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_6 = PyObject_IsInstance(__pyx_v_exc, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 52, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_6) {
+
+    /* "sqlalchemy_error.py":53
+ *         return "", error
+ *     elif isinstance(exc, MultipleResultsFound):
+ *         return "", error             # <<<<<<<<<<<<<<
+ *     #  PostgreSQLMySQL
+ * 
+*/
+    __Pyx_XDECREF(__pyx_r);
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__8);
+    __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__8);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__8) != (0)) __PYX_ERR(0, 53, __pyx_L1_error);
+    __Pyx_INCREF(__pyx_v_error);
+    __Pyx_GIVEREF(__pyx_v_error);
+    if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 53, __pyx_L1_error);
+    __pyx_r = ((PyObject*)__pyx_t_1);
+    __pyx_t_1 = 0;
+    goto __pyx_L0;
+
+    /* "sqlalchemy_error.py":52
+ *     elif isinstance(exc, NoResultFound):
+ *         return "", error
+ *     elif isinstance(exc, MultipleResultsFound):             # <<<<<<<<<<<<<<
+ *         return "", error
+ *     #  PostgreSQLMySQL
+*/
+  }
+
+  /* "sqlalchemy_error.py":57
  * 
  *     #
  *     return "", error             # <<<<<<<<<<<<<<
@@ -2993,19 +3085,19 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
  * 
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__7);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__7);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__7) != (0)) __PYX_ERR(0, 52, __pyx_L1_error);
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__9);
+  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__9);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_kp_u__9) != (0)) __PYX_ERR(0, 57, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_error);
   __Pyx_GIVEREF(__pyx_v_error);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 52, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 57, __pyx_L1_error);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "sqlalchemy_error.py":23
+  /* "sqlalchemy_error.py":25
  * 
  * 
  * def format_sqlalchemy_error(exc: SQLAlchemyError) -> Tuple[str, str]:             # <<<<<<<<<<<<<<
@@ -3029,7 +3121,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_format_sqlalchemy_error(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "sqlalchemy_error.py":55
+/* "sqlalchemy_error.py":60
  * 
  * 
  * def _format_integrity_error(exc: IntegrityError) -> Tuple[str, str]:             # <<<<<<<<<<<<<<
@@ -3077,32 +3169,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_exc,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 55, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 60, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 55, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 60, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_format_integrity_error", 0) < 0) __PYX_ERR(0, 55, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_format_integrity_error", 0) < 0) __PYX_ERR(0, 60, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_format_integrity_error", 1, 1, 1, i); __PYX_ERR(0, 55, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_format_integrity_error", 1, 1, 1, i); __PYX_ERR(0, 60, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 55, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 60, __pyx_L3_error)
     }
     __pyx_v_exc = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_format_integrity_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 55, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_format_integrity_error", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 60, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3145,29 +3237,29 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_format_integrity_error", 0);
 
-  /* "sqlalchemy_error.py":59
+  /* "sqlalchemy_error.py":64
  * 
  *     """
  *     exc_orig = getattr(exc, "orig", None)             # <<<<<<<<<<<<<<
  *     message = ""
  *     args_list: list[str] = [str(arg) for arg in exc.args]
 */
-  __pyx_t_1 = __Pyx_GetAttr3(__pyx_v_exc, __pyx_mstate_global->__pyx_n_u_orig, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetAttr3(__pyx_v_exc, __pyx_mstate_global->__pyx_n_u_orig, Py_None); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_exc_orig = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "sqlalchemy_error.py":60
+  /* "sqlalchemy_error.py":65
  *     """
  *     exc_orig = getattr(exc, "orig", None)
  *     message = ""             # <<<<<<<<<<<<<<
  *     args_list: list[str] = [str(arg) for arg in exc.args]
  *     error = args_list if args_list else str(exc)
 */
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__8);
-  __pyx_v_message = __pyx_mstate_global->__pyx_kp_u__8;
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__10);
+  __pyx_v_message = __pyx_mstate_global->__pyx_kp_u__10;
 
-  /* "sqlalchemy_error.py":61
+  /* "sqlalchemy_error.py":66
  *     exc_orig = getattr(exc, "orig", None)
  *     message = ""
  *     args_list: list[str] = [str(arg) for arg in exc.args]             # <<<<<<<<<<<<<<
@@ -3175,18 +3267,18 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
  * 
 */
   { /* enter inner scope */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L5_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_exc, __pyx_mstate_global->__pyx_n_u_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L5_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_exc, __pyx_mstate_global->__pyx_n_u_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
       __pyx_t_3 = __pyx_t_2; __Pyx_INCREF(__pyx_t_3);
       __pyx_t_4 = 0;
       __pyx_t_5 = NULL;
     } else {
-      __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L5_error)
+      __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L5_error)
+      __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L5_error)
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     for (;;) {
@@ -3195,7 +3287,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 61, __pyx_L5_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 66, __pyx_L5_error)
             #endif
             if (__pyx_t_4 >= __pyx_temp) break;
           }
@@ -3205,7 +3297,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 61, __pyx_L5_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 66, __pyx_L5_error)
             #endif
             if (__pyx_t_4 >= __pyx_temp) break;
           }
@@ -3216,13 +3308,13 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
           #endif
           ++__pyx_t_4;
         }
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L5_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L5_error)
       } else {
         __pyx_t_2 = __pyx_t_5(__pyx_t_3);
         if (unlikely(!__pyx_t_2)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 61, __pyx_L5_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 66, __pyx_L5_error)
             PyErr_Clear();
           }
           break;
@@ -3231,9 +3323,9 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_XDECREF_SET(__pyx_8genexpr1__pyx_v_arg, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_8genexpr1__pyx_v_arg); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L5_error)
+      __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_8genexpr1__pyx_v_arg); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_2);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 61, __pyx_L5_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 66, __pyx_L5_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3247,7 +3339,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
   __pyx_v_args_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "sqlalchemy_error.py":62
+  /* "sqlalchemy_error.py":67
  *     message = ""
  *     args_list: list[str] = [str(arg) for arg in exc.args]
  *     error = args_list if args_list else str(exc)             # <<<<<<<<<<<<<<
@@ -3256,7 +3348,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
 */
   {
     Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_v_args_list);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 62, __pyx_L1_error)
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 67, __pyx_L1_error)
     __pyx_t_6 = (__pyx_temp != 0);
   }
 
@@ -3264,7 +3356,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
     __Pyx_INCREF(__pyx_v_args_list);
     __pyx_t_1 = __pyx_v_args_list;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_Unicode(__pyx_v_exc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Unicode(__pyx_v_exc); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -3272,24 +3364,24 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
   __pyx_v_error = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "sqlalchemy_error.py":64
+  /* "sqlalchemy_error.py":69
  *     error = args_list if args_list else str(exc)
  * 
  *     if exc_orig:             # <<<<<<<<<<<<<<
  *         error_msg = str(exc_orig).lower()
  *         if 'unique' in error_msg or 'duplicate' in error_msg:
 */
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_exc_orig); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_exc_orig); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 69, __pyx_L1_error)
   if (__pyx_t_6) {
 
-    /* "sqlalchemy_error.py":65
+    /* "sqlalchemy_error.py":70
  * 
  *     if exc_orig:
  *         error_msg = str(exc_orig).lower()             # <<<<<<<<<<<<<<
  *         if 'unique' in error_msg or 'duplicate' in error_msg:
  *             message = ""
 */
-    __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_v_exc_orig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_v_exc_orig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = __pyx_t_2;
     __Pyx_INCREF(__pyx_t_3);
@@ -3299,41 +3391,41 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_lower, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_v_error_msg = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "sqlalchemy_error.py":66
+    /* "sqlalchemy_error.py":71
  *     if exc_orig:
  *         error_msg = str(exc_orig).lower()
  *         if 'unique' in error_msg or 'duplicate' in error_msg:             # <<<<<<<<<<<<<<
  *             message = ""
  *         elif 'foreignkey' in error_msg or 'foreign key' in error_msg:
 */
-    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_n_u_unique, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_n_u_unique, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
     if (!__pyx_t_8) {
     } else {
       __pyx_t_6 = __pyx_t_8;
       goto __pyx_L12_bool_binop_done;
     }
-    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_n_u_duplicate, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_n_u_duplicate, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
     __pyx_t_6 = __pyx_t_8;
     __pyx_L12_bool_binop_done:;
     if (__pyx_t_6) {
 
-      /* "sqlalchemy_error.py":67
+      /* "sqlalchemy_error.py":72
  *         error_msg = str(exc_orig).lower()
  *         if 'unique' in error_msg or 'duplicate' in error_msg:
  *             message = ""             # <<<<<<<<<<<<<<
  *         elif 'foreignkey' in error_msg or 'foreign key' in error_msg:
  *             message = ""
 */
-      __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__9);
-      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_kp_u__9);
+      __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__11);
+      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_kp_u__11);
 
-      /* "sqlalchemy_error.py":66
+      /* "sqlalchemy_error.py":71
  *     if exc_orig:
  *         error_msg = str(exc_orig).lower()
  *         if 'unique' in error_msg or 'duplicate' in error_msg:             # <<<<<<<<<<<<<<
@@ -3343,35 +3435,35 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
       goto __pyx_L11;
     }
 
-    /* "sqlalchemy_error.py":68
+    /* "sqlalchemy_error.py":73
  *         if 'unique' in error_msg or 'duplicate' in error_msg:
  *             message = ""
  *         elif 'foreignkey' in error_msg or 'foreign key' in error_msg:             # <<<<<<<<<<<<<<
  *             message = ""
  *         elif 'not null' in error_msg:
 */
-    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_n_u_foreignkey, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_n_u_foreignkey, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
     if (!__pyx_t_8) {
     } else {
       __pyx_t_6 = __pyx_t_8;
       goto __pyx_L14_bool_binop_done;
     }
-    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_foreign_key, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_foreign_key, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
     __pyx_t_6 = __pyx_t_8;
     __pyx_L14_bool_binop_done:;
     if (__pyx_t_6) {
 
-      /* "sqlalchemy_error.py":69
+      /* "sqlalchemy_error.py":74
  *             message = ""
  *         elif 'foreignkey' in error_msg or 'foreign key' in error_msg:
  *             message = ""             # <<<<<<<<<<<<<<
  *         elif 'not null' in error_msg:
  *             message = ""
 */
-      __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__10);
-      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_kp_u__10);
+      __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u__12);
+      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_kp_u__12);
 
-      /* "sqlalchemy_error.py":68
+      /* "sqlalchemy_error.py":73
  *         if 'unique' in error_msg or 'duplicate' in error_msg:
  *             message = ""
  *         elif 'foreignkey' in error_msg or 'foreign key' in error_msg:             # <<<<<<<<<<<<<<
@@ -3381,27 +3473,27 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
       goto __pyx_L11;
     }
 
-    /* "sqlalchemy_error.py":70
+    /* "sqlalchemy_error.py":75
  *         elif 'foreignkey' in error_msg or 'foreign key' in error_msg:
  *             message = ""
  *         elif 'not null' in error_msg:             # <<<<<<<<<<<<<<
  *             message = ""
  *         elif 'check constraint' in error_msg:
 */
-    __pyx_t_6 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_not_null, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_6 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_not_null, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
     if (__pyx_t_6) {
 
-      /* "sqlalchemy_error.py":71
+      /* "sqlalchemy_error.py":76
  *             message = ""
  *         elif 'not null' in error_msg:
  *             message = ""             # <<<<<<<<<<<<<<
  *         elif 'check constraint' in error_msg:
  *             message = ""
 */
-      __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u__11);
-      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_n_u__11);
+      __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u__13);
+      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_n_u__13);
 
-      /* "sqlalchemy_error.py":70
+      /* "sqlalchemy_error.py":75
  *         elif 'foreignkey' in error_msg or 'foreign key' in error_msg:
  *             message = ""
  *         elif 'not null' in error_msg:             # <<<<<<<<<<<<<<
@@ -3411,27 +3503,27 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
       goto __pyx_L11;
     }
 
-    /* "sqlalchemy_error.py":72
+    /* "sqlalchemy_error.py":77
  *         elif 'not null' in error_msg:
  *             message = ""
  *         elif 'check constraint' in error_msg:             # <<<<<<<<<<<<<<
  *             message = ""
  *         elif 'too long' in error_msg or 'data too long' in error_msg:
 */
-    __pyx_t_6 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_check_constraint, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 72, __pyx_L1_error)
+    __pyx_t_6 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_check_constraint, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
     if (__pyx_t_6) {
 
-      /* "sqlalchemy_error.py":73
+      /* "sqlalchemy_error.py":78
  *             message = ""
  *         elif 'check constraint' in error_msg:
  *             message = ""             # <<<<<<<<<<<<<<
  *         elif 'too long' in error_msg or 'data too long' in error_msg:
  *             message = ""
 */
-      __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u__12);
-      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_n_u__12);
+      __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u__14);
+      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_n_u__14);
 
-      /* "sqlalchemy_error.py":72
+      /* "sqlalchemy_error.py":77
  *         elif 'not null' in error_msg:
  *             message = ""
  *         elif 'check constraint' in error_msg:             # <<<<<<<<<<<<<<
@@ -3441,35 +3533,35 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
       goto __pyx_L11;
     }
 
-    /* "sqlalchemy_error.py":74
+    /* "sqlalchemy_error.py":79
  *         elif 'check constraint' in error_msg:
  *             message = ""
  *         elif 'too long' in error_msg or 'data too long' in error_msg:             # <<<<<<<<<<<<<<
  *             message = ""
  * 
 */
-    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_too_long, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_too_long, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
     if (!__pyx_t_8) {
     } else {
       __pyx_t_6 = __pyx_t_8;
       goto __pyx_L16_bool_binop_done;
     }
-    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_data_too_long, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_ContainsTF(__pyx_mstate_global->__pyx_kp_u_data_too_long, __pyx_v_error_msg, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
     __pyx_t_6 = __pyx_t_8;
     __pyx_L16_bool_binop_done:;
     if (__pyx_t_6) {
 
-      /* "sqlalchemy_error.py":75
+      /* "sqlalchemy_error.py":80
  *             message = ""
  *         elif 'too long' in error_msg or 'data too long' in error_msg:
  *             message = ""             # <<<<<<<<<<<<<<
  * 
  *     return message, error
 */
-      __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u__13);
-      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_n_u__13);
+      __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u__15);
+      __Pyx_DECREF_SET(__pyx_v_message, __pyx_mstate_global->__pyx_n_u__15);
 
-      /* "sqlalchemy_error.py":74
+      /* "sqlalchemy_error.py":79
  *         elif 'check constraint' in error_msg:
  *             message = ""
  *         elif 'too long' in error_msg or 'data too long' in error_msg:             # <<<<<<<<<<<<<<
@@ -3479,7 +3571,7 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
     }
     __pyx_L11:;
 
-    /* "sqlalchemy_error.py":64
+    /* "sqlalchemy_error.py":69
  *     error = args_list if args_list else str(exc)
  * 
  *     if exc_orig:             # <<<<<<<<<<<<<<
@@ -3488,25 +3580,25 @@ static PyObject *__pyx_pf_16sqlalchemy_error_2_format_integrity_error(CYTHON_UNU
 */
   }
 
-  /* "sqlalchemy_error.py":77
+  /* "sqlalchemy_error.py":82
  *             message = ""
  * 
  *     return message, error             # <<<<<<<<<<<<<<
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_message);
   __Pyx_GIVEREF(__pyx_v_message);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_message) != (0)) __PYX_ERR(0, 77, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_message) != (0)) __PYX_ERR(0, 82, __pyx_L1_error);
   __Pyx_INCREF(__pyx_v_error);
   __Pyx_GIVEREF(__pyx_v_error);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 77, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_error) != (0)) __PYX_ERR(0, 82, __pyx_L1_error);
   __pyx_r = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "sqlalchemy_error.py":55
+  /* "sqlalchemy_error.py":60
  * 
  * 
  * def _format_integrity_error(exc: IntegrityError) -> Tuple[str, str]:             # <<<<<<<<<<<<<<
@@ -3923,7 +4015,7 @@ __Pyx_RefNannySetupContext("PyInit_sqlalchemy_error", 0);
  *     IntegrityError,
  *     DataError,
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(8, __pyx_mstate_global->__pyx_n_u_SQLAlchemyError, __pyx_mstate_global->__pyx_n_u_IntegrityError, __pyx_mstate_global->__pyx_n_u_DataError, __pyx_mstate_global->__pyx_n_u_OperationalError, __pyx_mstate_global->__pyx_n_u_ProgrammingError, __pyx_mstate_global->__pyx_n_u_DatabaseError, __pyx_mstate_global->__pyx_n_u_InterfaceError, __pyx_mstate_global->__pyx_n_u_StatementError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(10, __pyx_mstate_global->__pyx_n_u_SQLAlchemyError, __pyx_mstate_global->__pyx_n_u_IntegrityError, __pyx_mstate_global->__pyx_n_u_DataError, __pyx_mstate_global->__pyx_n_u_NoResultFound, __pyx_mstate_global->__pyx_n_u_OperationalError, __pyx_mstate_global->__pyx_n_u_ProgrammingError, __pyx_mstate_global->__pyx_n_u_DatabaseError, __pyx_mstate_global->__pyx_n_u_InterfaceError, __pyx_mstate_global->__pyx_n_u_StatementError, __pyx_mstate_global->__pyx_n_u_MultipleResultsFound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
   /* "sqlalchemy_error.py":11
@@ -3948,62 +4040,70 @@ __Pyx_RefNannySetupContext("PyInit_sqlalchemy_error", 0);
   __Pyx_GOTREF(__pyx_t_3);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataError, __pyx_t_3) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_NoResultFound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_NoResultFound, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_OperationalError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_OperationalError, __pyx_t_3) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_OperationalError, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_ProgrammingError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ProgrammingError, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ProgrammingError, __pyx_t_3) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DatabaseError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DatabaseError, __pyx_t_3) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DatabaseError, __pyx_t_3) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_InterfaceError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_InterfaceError, __pyx_t_3) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_InterfaceError, __pyx_t_3) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_StatementError); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_StatementError, __pyx_t_3) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_StatementError, __pyx_t_3) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MultipleResultsFound); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MultipleResultsFound, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "sqlalchemy_error.py":23
+  /* "sqlalchemy_error.py":25
  * 
  * 
  * def format_sqlalchemy_error(exc: SQLAlchemyError) -> Tuple[str, str]:             # <<<<<<<<<<<<<<
  *     """
  *      SQLAlchemy  (, )
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_exc, __pyx_mstate_global->__pyx_n_u_SQLAlchemyError) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Tuple_str_str) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_16sqlalchemy_error_1format_sqlalchemy_error, 0, __pyx_mstate_global->__pyx_n_u_format_sqlalchemy_error, NULL, __pyx_mstate_global->__pyx_n_u_sqlalchemy_error, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_exc, __pyx_mstate_global->__pyx_n_u_SQLAlchemyError) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Tuple_str_str) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_16sqlalchemy_error_1format_sqlalchemy_error, 0, __pyx_mstate_global->__pyx_n_u_format_sqlalchemy_error, NULL, __pyx_mstate_global->__pyx_n_u_sqlalchemy_error, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_sqlalchemy_error, __pyx_t_3) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_sqlalchemy_error, __pyx_t_3) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "sqlalchemy_error.py":55
+  /* "sqlalchemy_error.py":60
  * 
  * 
  * def _format_integrity_error(exc: IntegrityError) -> Tuple[str, str]:             # <<<<<<<<<<<<<<
  *     """
  * 
 */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_exc, __pyx_mstate_global->__pyx_n_u_IntegrityError) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Tuple_str_str) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_16sqlalchemy_error_3_format_integrity_error, 0, __pyx_mstate_global->__pyx_n_u_format_integrity_error, NULL, __pyx_mstate_global->__pyx_n_u_sqlalchemy_error, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_exc, __pyx_mstate_global->__pyx_n_u_IntegrityError) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Tuple_str_str) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_16sqlalchemy_error_3_format_integrity_error, 0, __pyx_mstate_global->__pyx_n_u_format_integrity_error, NULL, __pyx_mstate_global->__pyx_n_u_sqlalchemy_error, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_integrity_error, __pyx_t_2) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_format_integrity_error, __pyx_t_2) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "sqlalchemy_error.py":1
@@ -4080,6 +4180,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_DatabaseError, sizeof(__pyx_k_DatabaseError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DatabaseError */
   {__pyx_k_IntegrityError, sizeof(__pyx_k_IntegrityError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_IntegrityError */
   {__pyx_k_InterfaceError, sizeof(__pyx_k_InterfaceError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_InterfaceError */
+  {__pyx_k_MultipleResultsFound, sizeof(__pyx_k_MultipleResultsFound), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MultipleResultsFound */
+  {__pyx_k_NoResultFound, sizeof(__pyx_k_NoResultFound), 0, 1, 1}, /* PyObject cname: __pyx_n_u_NoResultFound */
   {__pyx_k_OperationalError, sizeof(__pyx_k_OperationalError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_OperationalError */
   {__pyx_k_ProgrammingError, sizeof(__pyx_k_ProgrammingError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ProgrammingError */
   {__pyx_k_SQLAlchemyError, sizeof(__pyx_k_SQLAlchemyError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLAlchemyError */
@@ -4087,11 +4189,13 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Tuple, sizeof(__pyx_k_Tuple), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Tuple */
   {__pyx_k_Tuple_str_str, sizeof(__pyx_k_Tuple_str_str), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Tuple_str_str */
   {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__10 */
-  {__pyx_k__11, sizeof(__pyx_k__11), 0, 1, 1}, /* PyObject cname: __pyx_n_u__11 */
-  {__pyx_k__12, sizeof(__pyx_k__12), 0, 1, 1}, /* PyObject cname: __pyx_n_u__12 */
+  {__pyx_k__11, sizeof(__pyx_k__11), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__11 */
+  {__pyx_k__12, sizeof(__pyx_k__12), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__12 */
   {__pyx_k__13, sizeof(__pyx_k__13), 0, 1, 1}, /* PyObject cname: __pyx_n_u__13 */
-  {__pyx_k__14, sizeof(__pyx_k__14), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__14 */
-  {__pyx_k__15, sizeof(__pyx_k__15), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__15 */
+  {__pyx_k__14, sizeof(__pyx_k__14), 0, 1, 1}, /* PyObject cname: __pyx_n_u__14 */
+  {__pyx_k__15, sizeof(__pyx_k__15), 0, 1, 1}, /* PyObject cname: __pyx_n_u__15 */
+  {__pyx_k__16, sizeof(__pyx_k__16), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__16 */
+  {__pyx_k__17, sizeof(__pyx_k__17), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__17 */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
@@ -4193,12 +4297,12 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 23, 175};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 25, 209};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_exc, __pyx_mstate->__pyx_n_u_args_list, __pyx_mstate->__pyx_n_u_error, __pyx_mstate->__pyx_n_u_arg};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_sqlalchemy_error_py, __pyx_mstate->__pyx_n_u_format_sqlalchemy_error, __pyx_k_5Q_1Cq_T_1_M_1A_z_q_aq_1E_a_1E, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 55, 172};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 60, 172};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_exc, __pyx_mstate->__pyx_n_u_exc_orig, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_args_list, __pyx_mstate->__pyx_n_u_error, __pyx_mstate->__pyx_n_u_error_msg, __pyx_mstate->__pyx_n_u_arg};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_sqlalchemy_error_py, __pyx_mstate->__pyx_n_u_format_integrity_error, __pyx_k_4A_wauHA_a_1Cq_T_1_M_1A_q_Cq_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
@@ -5630,7 +5734,7 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__14);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__16);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -7473,7 +7577,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__15);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__17);
     }
     goto done;
 }

@@ -38,6 +38,6 @@ class ModelConfigSetting(BaseModel):
 
 class ModelCollectionConfigSetting(BaseModel):
     context: Optional[List[ContextConfigSetting]] = Field(None, description="上下文配置")
-    language_models: list[ModelConfigSetting] = Field(None, description="语言模型")
-    embedding_models: list[ModelConfigSetting] = Field(None, description="嵌入模型")
-    reranker_models: list[ModelConfigSetting] = Field(None, description="重排序模型")
+    language_models: List[ModelConfigSetting] = Field(None, description="语言模型")
+    embedding_models: List[ModelConfigSetting] = Field(None, description="嵌入模型")
+    reranker_models: List[ModelConfigSetting] = Field(None, description="重排序模型")

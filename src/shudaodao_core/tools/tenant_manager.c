@@ -1115,8 +1115,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__tenant_manager
-#define __PYX_HAVE_API__tenant_manager
+#define __PYX_HAVE__shudaodao_core__tools__tenant_manager
+#define __PYX_HAVE_API__shudaodao_core__tools__tenant_manager
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1325,7 +1325,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char* const __pyx_f[] = {
-  "tenant_manager.py",
+  "shudaodao_core/tools/tenant_manager.py",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* Atomics.proto */
@@ -2254,14 +2254,14 @@ static int __Pyx_State_RemoveModule(void*);
 #define __PYX_TYPE_MODULE_PREFIX __PYX_ABI_MODULE_NAME "."
 
 
-/* Module declarations from "tenant_manager" */
+/* Module declarations from "shudaodao_core.tools.tenant_manager" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "tenant_manager"
-extern int __pyx_module_is_main_tenant_manager;
-int __pyx_module_is_main_tenant_manager = 0;
+#define __Pyx_MODULE_NAME "shudaodao_core.tools.tenant_manager"
+extern int __pyx_module_is_main_shudaodao_core__tools__tenant_manager;
+int __pyx_module_is_main_shudaodao_core__tools__tenant_manager = 0;
 
-/* Implementation of "tenant_manager" */
+/* Implementation of "shudaodao_core.tools.tenant_manager" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = "\346\227\240\346\235\203\346\223\215\344\275\234\345\205\266\344\273\226\347\247\237\346\210\267\346\225\260\346\215\256";
@@ -2288,13 +2288,12 @@ static const char __pyx_k_table[] = "__table__";
 static const char __pyx_k_errors[] = "errors";
 static const char __pyx_k_fields[] = "fields";
 static const char __pyx_k_module[] = "__module__";
-static const char __pyx_k_A_Qha_1[] = "\200A\360\006\000\t\036\230Q\230h\240a\330\014\033\2301";
+static const char __pyx_k_A_A_1_1[] = "\200A\360\006\000\t\035\230A\230^\2501\330\014\033\2301";
 static const char __pyx_k_columns[] = "columns";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_message[] = "message";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_replace[] = "replace";
-static const char __pyx_k_UserInfo[] = "UserInfo";
 static const char __pyx_k_datetime[] = "datetime";
 static const char __pyx_k_db_model[] = "db_model";
 static const char __pyx_k_qualname[] = "__qualname__";
@@ -2312,39 +2311,38 @@ static const char __pyx_k_user_info[] = "user_info";
 static const char __pyx_k_ValidError[] = "ValidError";
 static const char __pyx_k_conditions[] = "conditions";
 static const char __pyx_k_value_type[] = "value_type";
-static const char __pyx_k_A_Qha_1_Q_a[] = "\200A\360\006\000\t\036\230Q\230h\240a\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
+static const char __pyx_k_A_A_1_1_Q_a[] = "\200A\360\006\000\t\035\230A\230^\2501\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
 static const char __pyx_k_create_date[] = "create_date";
 static const char __pyx_k_microsecond[] = "microsecond";
 static const char __pyx_k_python_type[] = "python_type";
 static const char __pyx_k_update_date[] = "update_date";
 static const char __pyx_k_check_enable[] = "_check_enable";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_A45_Qha_1_Q_a[] = "\200A\33045\340\010\035\230Q\230h\240a\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
+static const char __pyx_k_A45_A_1_1_Q_a[] = "\200A\33045\340\010\034\230A\230^\2501\330\014\033\2301\330\014\025\220Q\330\014\026\220a";
 static const char __pyx_k_TenantManager[] = "TenantManager";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_create_person[] = "create_person";
 static const char __pyx_k_update_person[] = "update_person";
+static const char __pyx_k_TenantUserInfo[] = "TenantUserInfo";
 static const char __pyx_k_set_from_token[] = "set_from_token";
 static const char __pyx_k_tenant_enabled[] = "tenant_enabled";
 static const char __pyx_k_tenant_id_null[] = "\345\244\232\347\247\237\346\210\267\346\250\241\345\274\217\344\270\213\357\274\214tenant_id = null";
-static const char __pyx_k_tenant_manager[] = "tenant_manager";
 static const char __pyx_k_model_tenant_id[] = "model_tenant_id";
-static const char __pyx_k_app_base_context[] = "app.base_context";
 static const char __pyx_k_check_permission[] = "check_permission";
 static const char __pyx_k_create_by_fields[] = "create_by_fields";
 static const char __pyx_k_tenant_condition[] = "tenant_condition";
 static const char __pyx_k_update_by_fields[] = "update_by_fields";
-static const char __pyx_k_A_4y_1_4y_A_q_q_q[] = "\200A\340\010\024\320\024)\250\021\340\010\013\2104\210y\230\001\330\014\023\2201\330\010\013\2104\210y\230\001\330\014\022\220*\230A\330\020\030\230\001\330\020\027\220q\330\020\027\220q\340\010\017\210q";
+static const char __pyx_k_A_4y_1_4y_A_q_q_q[] = "\200A\340\010\024\320\024(\250\001\340\010\013\2104\210y\230\001\330\014\023\2201\330\010\013\2104\210y\230\001\330\014\022\220*\230A\330\020\030\230\001\330\020\027\220q\330\020\027\220q\340\010\017\210q";
 static const char __pyx_k_TenantManager_set[] = "TenantManager.set";
-static const char __pyx_k_tenant_manager_py[] = "tenant_manager.py";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_get_tenant_condition[] = "get_tenant_condition";
+static const char __pyx_k_get_tenant_user_info[] = "get_tenant_user_info";
+static const char __pyx_k_set_tenant_user_info[] = "set_tenant_user_info";
 static const char __pyx_k_setattr_column_value[] = "_setattr_column_value";
 static const char __pyx_k_TenantManager_disable[] = "TenantManager.disable";
-static const char __pyx_k_get_current_user_info[] = "get_current_user_info";
-static const char __pyx_k_set_current_user_info[] = "set_current_user_info";
 static const char __pyx_k_apply_tenant_condition[] = "apply_tenant_condition";
+static const char __pyx_k_tools_tenant_user_info[] = "tools.tenant_user_info";
 static const char __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_1_1[] = "\200A\340\010\013\2104\210w\220a\220z\240\021\330\014\023\2201\340\010\024\220C\220~\240Q\330\010\013\2109\320\024$\240D\250\t\260\021\330\014\037\230x\240{\260#\260Y\270a\330\014\023\2201\340\014\023\2201";
 static const char __pyx_k_A_C_Q_7_Q_gQj_Q_s_1_iq_A_1[] = "\200A\340\010\024\220C\220~\240Q\340\010\013\2107\220!\220:\230Q\330\014\036\230g\240Q\240j\260\r\270Q\330\014\017\320\017\037\230s\240)\2501\330\020\026\220i\230q\330\024\034\230A\330\024\033\2301";
 static const char __pyx_k_TenantManager__check_enable[] = "TenantManager._check_enable";
@@ -2359,16 +2357,18 @@ static const char __pyx_k_TenantManager__setattr_column_va[] = "TenantManager._s
 static const char __pyx_k_TenantManager_apply_tenant_condi[] = "TenantManager.apply_tenant_condition";
 static const char __pyx_k_TenantManager_get_tenant_conditi[] = "TenantManager.get_tenant_condition";
 static const char __pyx_k_TenantManager_set_field_with_use[] = "TenantManager.set_field_with_user_and_tenant";
+static const char __pyx_k_shudaodao_core_tools_tenant_mana[] = "shudaodao_core.tools.tenant_manager";
+static const char __pyx_k_shudaodao_core_tools_tenant_mana_2[] = "shudaodao_core/tools/tenant_manager.py";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model, PyObject *__pyx_v_conditions); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user_and_tenant(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_value(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_columns, PyObject *__pyx_v_db_model, PyObject *__pyx_v_field); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_6apply_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model, PyObject *__pyx_v_conditions); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_8get_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_10set_field_with_user_and_tenant(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_12_setattr_column_value(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_columns, PyObject *__pyx_v_db_model, PyObject *__pyx_v_field); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_14check_permission(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model); /* proto */
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_16_check_enable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2460,71 +2460,71 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_TenantManager_set __pyx_string_tab[9]
 #define __pyx_n_u_TenantManager_set_field_with_use __pyx_string_tab[10]
 #define __pyx_n_u_TenantManager_set_from_token __pyx_string_tab[11]
-#define __pyx_n_u_UserInfo __pyx_string_tab[12]
+#define __pyx_n_u_TenantUserInfo __pyx_string_tab[12]
 #define __pyx_n_u_ValidError __pyx_string_tab[13]
 #define __pyx_n_u__2 __pyx_string_tab[14]
 #define __pyx_kp_u__3 __pyx_string_tab[15]
 #define __pyx_kp_u__4 __pyx_string_tab[16]
 #define __pyx_kp_u__5 __pyx_string_tab[17]
 #define __pyx_n_u_and __pyx_string_tab[18]
-#define __pyx_n_u_app_base_context __pyx_string_tab[19]
-#define __pyx_n_u_apply_tenant_condition __pyx_string_tab[20]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[21]
-#define __pyx_n_u_c __pyx_string_tab[22]
-#define __pyx_n_u_check_enable __pyx_string_tab[23]
-#define __pyx_n_u_check_permission __pyx_string_tab[24]
-#define __pyx_n_u_class_getitem __pyx_string_tab[25]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[26]
-#define __pyx_n_u_cls __pyx_string_tab[27]
-#define __pyx_n_u_columns __pyx_string_tab[28]
-#define __pyx_n_u_conditions __pyx_string_tab[29]
-#define __pyx_n_u_create_at __pyx_string_tab[30]
-#define __pyx_n_u_create_by __pyx_string_tab[31]
-#define __pyx_n_u_create_by_fields __pyx_string_tab[32]
-#define __pyx_n_u_create_date __pyx_string_tab[33]
-#define __pyx_n_u_create_person __pyx_string_tab[34]
-#define __pyx_n_u_date __pyx_string_tab[35]
-#define __pyx_n_u_datetime __pyx_string_tab[36]
-#define __pyx_n_u_db_model __pyx_string_tab[37]
-#define __pyx_n_u_disable __pyx_string_tab[38]
-#define __pyx_n_u_doc __pyx_string_tab[39]
-#define __pyx_n_u_errors __pyx_string_tab[40]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[41]
-#define __pyx_n_u_field __pyx_string_tab[42]
-#define __pyx_n_u_fields __pyx_string_tab[43]
-#define __pyx_n_u_func __pyx_string_tab[44]
-#define __pyx_n_u_get_current_user_info __pyx_string_tab[45]
-#define __pyx_n_u_get_tenant_condition __pyx_string_tab[46]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[47]
-#define __pyx_n_u_main __pyx_string_tab[48]
-#define __pyx_n_u_message __pyx_string_tab[49]
-#define __pyx_n_u_metaclass __pyx_string_tab[50]
-#define __pyx_n_u_microsecond __pyx_string_tab[51]
-#define __pyx_n_u_model_tenant_id __pyx_string_tab[52]
-#define __pyx_n_u_module __pyx_string_tab[53]
-#define __pyx_n_u_name __pyx_string_tab[54]
-#define __pyx_n_u_now __pyx_string_tab[55]
-#define __pyx_n_u_pop __pyx_string_tab[56]
-#define __pyx_n_u_prepare __pyx_string_tab[57]
-#define __pyx_n_u_python_type __pyx_string_tab[58]
-#define __pyx_n_u_qualname __pyx_string_tab[59]
-#define __pyx_n_u_replace __pyx_string_tab[60]
-#define __pyx_n_u_set __pyx_string_tab[61]
-#define __pyx_n_u_set_current_user_info __pyx_string_tab[62]
-#define __pyx_n_u_set_field_with_user_and_tenant __pyx_string_tab[63]
-#define __pyx_n_u_set_from_token __pyx_string_tab[64]
-#define __pyx_n_u_set_name __pyx_string_tab[65]
-#define __pyx_n_u_setattr_column_value __pyx_string_tab[66]
-#define __pyx_n_u_sqlmodel __pyx_string_tab[67]
-#define __pyx_n_u_table __pyx_string_tab[68]
-#define __pyx_n_u_tenant_condition __pyx_string_tab[69]
-#define __pyx_n_u_tenant_enabled __pyx_string_tab[70]
-#define __pyx_n_u_tenant_id __pyx_string_tab[71]
-#define __pyx_kp_u_tenant_id_null __pyx_string_tab[72]
-#define __pyx_n_u_tenant_manager __pyx_string_tab[73]
-#define __pyx_kp_u_tenant_manager_py __pyx_string_tab[74]
-#define __pyx_n_u_test __pyx_string_tab[75]
-#define __pyx_n_u_time __pyx_string_tab[76]
+#define __pyx_n_u_apply_tenant_condition __pyx_string_tab[19]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[20]
+#define __pyx_n_u_c __pyx_string_tab[21]
+#define __pyx_n_u_check_enable __pyx_string_tab[22]
+#define __pyx_n_u_check_permission __pyx_string_tab[23]
+#define __pyx_n_u_class_getitem __pyx_string_tab[24]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[25]
+#define __pyx_n_u_cls __pyx_string_tab[26]
+#define __pyx_n_u_columns __pyx_string_tab[27]
+#define __pyx_n_u_conditions __pyx_string_tab[28]
+#define __pyx_n_u_create_at __pyx_string_tab[29]
+#define __pyx_n_u_create_by __pyx_string_tab[30]
+#define __pyx_n_u_create_by_fields __pyx_string_tab[31]
+#define __pyx_n_u_create_date __pyx_string_tab[32]
+#define __pyx_n_u_create_person __pyx_string_tab[33]
+#define __pyx_n_u_date __pyx_string_tab[34]
+#define __pyx_n_u_datetime __pyx_string_tab[35]
+#define __pyx_n_u_db_model __pyx_string_tab[36]
+#define __pyx_n_u_disable __pyx_string_tab[37]
+#define __pyx_n_u_doc __pyx_string_tab[38]
+#define __pyx_n_u_errors __pyx_string_tab[39]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[40]
+#define __pyx_n_u_field __pyx_string_tab[41]
+#define __pyx_n_u_fields __pyx_string_tab[42]
+#define __pyx_n_u_func __pyx_string_tab[43]
+#define __pyx_n_u_get_tenant_condition __pyx_string_tab[44]
+#define __pyx_n_u_get_tenant_user_info __pyx_string_tab[45]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[46]
+#define __pyx_n_u_main __pyx_string_tab[47]
+#define __pyx_n_u_message __pyx_string_tab[48]
+#define __pyx_n_u_metaclass __pyx_string_tab[49]
+#define __pyx_n_u_microsecond __pyx_string_tab[50]
+#define __pyx_n_u_model_tenant_id __pyx_string_tab[51]
+#define __pyx_n_u_module __pyx_string_tab[52]
+#define __pyx_n_u_name __pyx_string_tab[53]
+#define __pyx_n_u_now __pyx_string_tab[54]
+#define __pyx_n_u_pop __pyx_string_tab[55]
+#define __pyx_n_u_prepare __pyx_string_tab[56]
+#define __pyx_n_u_python_type __pyx_string_tab[57]
+#define __pyx_n_u_qualname __pyx_string_tab[58]
+#define __pyx_n_u_replace __pyx_string_tab[59]
+#define __pyx_n_u_set __pyx_string_tab[60]
+#define __pyx_n_u_set_field_with_user_and_tenant __pyx_string_tab[61]
+#define __pyx_n_u_set_from_token __pyx_string_tab[62]
+#define __pyx_n_u_set_name __pyx_string_tab[63]
+#define __pyx_n_u_set_tenant_user_info __pyx_string_tab[64]
+#define __pyx_n_u_setattr_column_value __pyx_string_tab[65]
+#define __pyx_n_u_shudaodao_core_tools_tenant_mana __pyx_string_tab[66]
+#define __pyx_kp_u_shudaodao_core_tools_tenant_mana_2 __pyx_string_tab[67]
+#define __pyx_n_u_sqlmodel __pyx_string_tab[68]
+#define __pyx_n_u_table __pyx_string_tab[69]
+#define __pyx_n_u_tenant_condition __pyx_string_tab[70]
+#define __pyx_n_u_tenant_enabled __pyx_string_tab[71]
+#define __pyx_n_u_tenant_id __pyx_string_tab[72]
+#define __pyx_kp_u_tenant_id_null __pyx_string_tab[73]
+#define __pyx_n_u_test __pyx_string_tab[74]
+#define __pyx_n_u_time __pyx_string_tab[75]
+#define __pyx_n_u_tools_tenant_user_info __pyx_string_tab[76]
 #define __pyx_n_u_type __pyx_string_tab[77]
 #define __pyx_n_u_update_at __pyx_string_tab[78]
 #define __pyx_n_u_update_by __pyx_string_tab[79]
@@ -2585,7 +2585,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
 #endif
 /* #### Code section: module_code ### */
 
-/* "tenant_manager.py":20
+/* "shudaodao_core/tools/tenant_manager.py":20
  * class TenantManager:
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -2594,15 +2594,15 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_1disable(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_1disable(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_1disable = {"disable", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_1disable, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_1disable(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_1disable = {"disable", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_1disable, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_1disable(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2664,11 +2664,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager.disable", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.disable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_disable(__pyx_self, __pyx_v_cls);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_disable(__pyx_self, __pyx_v_cls);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -2678,7 +2678,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2694,23 +2694,23 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("disable", 0);
 
-  /* "tenant_manager.py":23
+  /* "shudaodao_core/tools/tenant_manager.py":23
  *     def disable(cls):
  *         #
- *         set_current_user_info(UserInfo(             # <<<<<<<<<<<<<<
+ *         set_tenant_user_info(TenantUserInfo(             # <<<<<<<<<<<<<<
  *             tenant_enabled=False,
  *             # username=auth_login.username,
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_current_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_tenant_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_UserInfo); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_TenantUserInfo); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
 
-  /* "tenant_manager.py":24
+  /* "shudaodao_core/tools/tenant_manager.py":24
  *         #
- *         set_current_user_info(UserInfo(
+ *         set_tenant_user_info(TenantUserInfo(
  *             tenant_enabled=False,             # <<<<<<<<<<<<<<
  *             # username=auth_login.username,
  *             # tenant_id=AppConfig.get_default_tenant_id()
@@ -2762,7 +2762,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tenant_manager.py":20
+  /* "shudaodao_core/tools/tenant_manager.py":20
  * class TenantManager:
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -2781,7 +2781,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("tenant_manager.TenantManager.disable", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.disable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2789,7 +2789,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "tenant_manager.py":29
+/* "shudaodao_core/tools/tenant_manager.py":29
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -2798,15 +2798,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_disable(CYTHON_UNUSED
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_3set(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_3set(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_3set = {"set", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_3set, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_3set(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_3set = {"set", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_3set, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_3set(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2874,11 +2874,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager.set", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.set", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_2set(__pyx_self, __pyx_v_cls, __pyx_v_username, __pyx_v_tenant_id);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_2set(__pyx_self, __pyx_v_cls, __pyx_v_username, __pyx_v_tenant_id);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -2888,7 +2888,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2904,21 +2904,21 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set", 0);
 
-  /* "tenant_manager.py":32
+  /* "shudaodao_core/tools/tenant_manager.py":32
  *     def set(cls, *, username, tenant_id):
  *         # ID
- *         set_current_user_info(UserInfo(             # <<<<<<<<<<<<<<
+ *         set_tenant_user_info(TenantUserInfo(             # <<<<<<<<<<<<<<
  *             tenant_enabled=None,  # None
  *             username=username,
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_current_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_tenant_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_UserInfo); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_TenantUserInfo); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
 
-  /* "tenant_manager.py":35
+  /* "shudaodao_core/tools/tenant_manager.py":35
  *             tenant_enabled=None,  # None
  *             username=username,
  *             tenant_id=tenant_id             # <<<<<<<<<<<<<<
@@ -2974,7 +2974,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED Py
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tenant_manager.py":29
+  /* "shudaodao_core/tools/tenant_manager.py":29
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -2993,7 +2993,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED Py
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("tenant_manager.TenantManager.set", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.set", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3001,7 +3001,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "tenant_manager.py":38
+/* "shudaodao_core/tools/tenant_manager.py":38
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3010,15 +3010,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_2set(CYTHON_UNUSED Py
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_5set_from_token(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_5set_from_token(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_5set_from_token = {"set_from_token", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_5set_from_token, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_5set_from_token(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_5set_from_token = {"set_from_token", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_5set_from_token, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_5set_from_token(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3064,12 +3064,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
       if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "set_from_token", 0) < 0) __PYX_ERR(0, 38, __pyx_L3_error)
 
-      /* "tenant_manager.py":39
+      /* "shudaodao_core/tools/tenant_manager.py":39
  * 
  *     @classmethod
  *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):             # <<<<<<<<<<<<<<
  *         # ID
- *         set_current_user_info(UserInfo(
+ *         set_tenant_user_info(TenantUserInfo(
 */
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
@@ -3097,13 +3097,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager.set_from_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.set_from_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_4set_from_token(__pyx_self, __pyx_v_cls, __pyx_v_username, __pyx_v_tenant_id, __pyx_v_tenant_enabled);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_4set_from_token(__pyx_self, __pyx_v_cls, __pyx_v_username, __pyx_v_tenant_id, __pyx_v_tenant_enabled);
 
-  /* "tenant_manager.py":38
+  /* "shudaodao_core/tools/tenant_manager.py":38
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3119,7 +3119,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_4set_from_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_username, PyObject *__pyx_v_tenant_id, PyObject *__pyx_v_tenant_enabled) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3135,21 +3135,21 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_4set_from_token(CYTHO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_from_token", 0);
 
-  /* "tenant_manager.py":41
+  /* "shudaodao_core/tools/tenant_manager.py":41
  *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
- *         set_current_user_info(UserInfo(             # <<<<<<<<<<<<<<
+ *         set_tenant_user_info(TenantUserInfo(             # <<<<<<<<<<<<<<
  *             tenant_enabled=tenant_enabled,  # token
  *             username=username,
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_current_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_tenant_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_UserInfo); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_TenantUserInfo); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
 
-  /* "tenant_manager.py":44
+  /* "shudaodao_core/tools/tenant_manager.py":44
  *             tenant_enabled=tenant_enabled,  # token
  *             username=username,
  *             tenant_id=tenant_id             # <<<<<<<<<<<<<<
@@ -3205,7 +3205,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_4set_from_token(CYTHO
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "tenant_manager.py":38
+  /* "shudaodao_core/tools/tenant_manager.py":38
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3224,7 +3224,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_4set_from_token(CYTHO
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("tenant_manager.TenantManager.set_from_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.set_from_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3232,7 +3232,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_4set_from_token(CYTHO
   return __pyx_r;
 }
 
-/* "tenant_manager.py":47
+/* "shudaodao_core/tools/tenant_manager.py":47
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3241,15 +3241,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_4set_from_token(CYTHO
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_7apply_tenant_condition(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_7apply_tenant_condition(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_7apply_tenant_condition = {"apply_tenant_condition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_7apply_tenant_condition, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_7apply_tenant_condition(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_7apply_tenant_condition = {"apply_tenant_condition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_7apply_tenant_condition, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_7apply_tenant_condition(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3317,11 +3317,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager.apply_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.apply_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_condition(__pyx_self, __pyx_v_cls, __pyx_v_db_model, __pyx_v_conditions);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_6apply_tenant_condition(__pyx_self, __pyx_v_cls, __pyx_v_db_model, __pyx_v_conditions);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -3331,7 +3331,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model, PyObject *__pyx_v_conditions) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_6apply_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model, PyObject *__pyx_v_conditions) {
   PyObject *__pyx_v_user_info = NULL;
   PyObject *__pyx_v_tenant_condition = NULL;
   PyObject *__pyx_r = NULL;
@@ -3347,7 +3347,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("apply_tenant_condition", 0);
 
-  /* "tenant_manager.py":49
+  /* "shudaodao_core/tools/tenant_manager.py":49
  *     @classmethod
  *     def apply_tenant_condition(cls, *, db_model, conditions):
  *         if not hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -3358,7 +3358,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
   __pyx_t_2 = (!__pyx_t_1);
   if (__pyx_t_2) {
 
-    /* "tenant_manager.py":50
+    /* "shudaodao_core/tools/tenant_manager.py":50
  *     def apply_tenant_condition(cls, *, db_model, conditions):
  *         if not hasattr(db_model, "tenant_id"):
  *             return conditions             # <<<<<<<<<<<<<<
@@ -3370,7 +3370,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
     __pyx_r = __pyx_v_conditions;
     goto __pyx_L0;
 
-    /* "tenant_manager.py":49
+    /* "shudaodao_core/tools/tenant_manager.py":49
  *     @classmethod
  *     def apply_tenant_condition(cls, *, db_model, conditions):
  *         if not hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -3379,7 +3379,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
 */
   }
 
-  /* "tenant_manager.py":52
+  /* "shudaodao_core/tools/tenant_manager.py":52
  *             return conditions
  *         #  tenant_id
  *         user_info = cls._check_enable()             # <<<<<<<<<<<<<<
@@ -3399,7 +3399,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
   __pyx_v_user_info = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":53
+  /* "shudaodao_core/tools/tenant_manager.py":53
  *         #  tenant_id
  *         user_info = cls._check_enable()
  *         if user_info.tenant_enabled and user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -3423,7 +3423,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "tenant_manager.py":54
+    /* "shudaodao_core/tools/tenant_manager.py":54
  *         user_info = cls._check_enable()
  *         if user_info.tenant_enabled and user_info.tenant_id:
  *             tenant_condition = db_model.tenant_id == user_info.tenant_id             # <<<<<<<<<<<<<<
@@ -3440,7 +3440,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
     __pyx_v_tenant_condition = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "tenant_manager.py":55
+    /* "shudaodao_core/tools/tenant_manager.py":55
  *         if user_info.tenant_enabled and user_info.tenant_id:
  *             tenant_condition = db_model.tenant_id == user_info.tenant_id
  *             if conditions is not None:             # <<<<<<<<<<<<<<
@@ -3450,7 +3450,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
     __pyx_t_2 = (__pyx_v_conditions != Py_None);
     if (__pyx_t_2) {
 
-      /* "tenant_manager.py":56
+      /* "shudaodao_core/tools/tenant_manager.py":56
  *             tenant_condition = db_model.tenant_id == user_info.tenant_id
  *             if conditions is not None:
  *                 return and_(tenant_condition, conditions)             # <<<<<<<<<<<<<<
@@ -3485,7 +3485,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
       __pyx_t_6 = 0;
       goto __pyx_L0;
 
-      /* "tenant_manager.py":55
+      /* "shudaodao_core/tools/tenant_manager.py":55
  *         if user_info.tenant_enabled and user_info.tenant_id:
  *             tenant_condition = db_model.tenant_id == user_info.tenant_id
  *             if conditions is not None:             # <<<<<<<<<<<<<<
@@ -3494,7 +3494,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
 */
     }
 
-    /* "tenant_manager.py":58
+    /* "shudaodao_core/tools/tenant_manager.py":58
  *                 return and_(tenant_condition, conditions)
  *             else:
  *                 return tenant_condition             # <<<<<<<<<<<<<<
@@ -3508,7 +3508,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
       goto __pyx_L0;
     }
 
-    /* "tenant_manager.py":53
+    /* "shudaodao_core/tools/tenant_manager.py":53
  *         #  tenant_id
  *         user_info = cls._check_enable()
  *         if user_info.tenant_enabled and user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -3517,7 +3517,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
 */
   }
 
-  /* "tenant_manager.py":60
+  /* "shudaodao_core/tools/tenant_manager.py":60
  *                 return tenant_condition
  *         else:
  *             return conditions             # <<<<<<<<<<<<<<
@@ -3531,7 +3531,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
     goto __pyx_L0;
   }
 
-  /* "tenant_manager.py":47
+  /* "shudaodao_core/tools/tenant_manager.py":47
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3544,7 +3544,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("tenant_manager.TenantManager.apply_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.apply_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_user_info);
@@ -3554,7 +3554,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
   return __pyx_r;
 }
 
-/* "tenant_manager.py":62
+/* "shudaodao_core/tools/tenant_manager.py":62
  *             return conditions
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3563,15 +3563,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_6apply_tenant_conditi
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_9get_tenant_condition(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_9get_tenant_condition(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_9get_tenant_condition = {"get_tenant_condition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_9get_tenant_condition, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_9get_tenant_condition(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_9get_tenant_condition = {"get_tenant_condition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_9get_tenant_condition, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_9get_tenant_condition(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3637,11 +3637,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager.get_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.get_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition(__pyx_self, __pyx_v_cls, __pyx_v_db_model);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_8get_tenant_condition(__pyx_self, __pyx_v_cls, __pyx_v_db_model);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -3651,7 +3651,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_8get_tenant_condition(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model) {
   PyObject *__pyx_v_user_info = NULL;
   PyObject *__pyx_v_tenant_condition = NULL;
   PyObject *__pyx_r = NULL;
@@ -3667,7 +3667,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_tenant_condition", 0);
 
-  /* "tenant_manager.py":64
+  /* "shudaodao_core/tools/tenant_manager.py":64
  *     @classmethod
  *     def get_tenant_condition(cls, *, db_model):
  *         if not hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -3678,7 +3678,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
   __pyx_t_2 = (!__pyx_t_1);
   if (__pyx_t_2) {
 
-    /* "tenant_manager.py":65
+    /* "shudaodao_core/tools/tenant_manager.py":65
  *     def get_tenant_condition(cls, *, db_model):
  *         if not hasattr(db_model, "tenant_id"):
  *             return None             # <<<<<<<<<<<<<<
@@ -3689,7 +3689,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "tenant_manager.py":64
+    /* "shudaodao_core/tools/tenant_manager.py":64
  *     @classmethod
  *     def get_tenant_condition(cls, *, db_model):
  *         if not hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -3698,7 +3698,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
 */
   }
 
-  /* "tenant_manager.py":67
+  /* "shudaodao_core/tools/tenant_manager.py":67
  *             return None
  *             #  tenant_id
  *         user_info = cls._check_enable()             # <<<<<<<<<<<<<<
@@ -3718,7 +3718,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
   __pyx_v_user_info = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":68
+  /* "shudaodao_core/tools/tenant_manager.py":68
  *             #  tenant_id
  *         user_info = cls._check_enable()
  *         if user_info.tenant_enabled and user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -3742,7 +3742,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "tenant_manager.py":69
+    /* "shudaodao_core/tools/tenant_manager.py":69
  *         user_info = cls._check_enable()
  *         if user_info.tenant_enabled and user_info.tenant_id:
  *             tenant_condition = db_model.tenant_id == user_info.tenant_id             # <<<<<<<<<<<<<<
@@ -3759,7 +3759,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
     __pyx_v_tenant_condition = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "tenant_manager.py":70
+    /* "shudaodao_core/tools/tenant_manager.py":70
  *         if user_info.tenant_enabled and user_info.tenant_id:
  *             tenant_condition = db_model.tenant_id == user_info.tenant_id
  *             return tenant_condition             # <<<<<<<<<<<<<<
@@ -3771,7 +3771,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
     __pyx_r = __pyx_v_tenant_condition;
     goto __pyx_L0;
 
-    /* "tenant_manager.py":68
+    /* "shudaodao_core/tools/tenant_manager.py":68
  *             #  tenant_id
  *         user_info = cls._check_enable()
  *         if user_info.tenant_enabled and user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -3780,7 +3780,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
 */
   }
 
-  /* "tenant_manager.py":72
+  /* "shudaodao_core/tools/tenant_manager.py":72
  *             return tenant_condition
  *         else:
  *             return None             # <<<<<<<<<<<<<<
@@ -3793,7 +3793,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
     goto __pyx_L0;
   }
 
-  /* "tenant_manager.py":62
+  /* "shudaodao_core/tools/tenant_manager.py":62
  *             return conditions
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3806,7 +3806,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("tenant_manager.TenantManager.get_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.get_tenant_condition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_user_info);
@@ -3816,7 +3816,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
   return __pyx_r;
 }
 
-/* "tenant_manager.py":74
+/* "shudaodao_core/tools/tenant_manager.py":74
  *             return None
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3825,15 +3825,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_8get_tenant_condition
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant = {"set_field_with_user_and_tenant", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant = {"set_field_with_user_and_tenant", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3903,11 +3903,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager.set_field_with_user_and_tenant", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.set_field_with_user_and_tenant", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user_and_tenant(__pyx_self, __pyx_v_cls, __pyx_v_db_model);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_10set_field_with_user_and_tenant(__pyx_self, __pyx_v_cls, __pyx_v_db_model);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -3917,7 +3917,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user_and_tenant(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_10set_field_with_user_and_tenant(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model) {
   PyObject *__pyx_v_user_info = NULL;
   PyObject *__pyx_v_tenant_id = NULL;
   PyObject *__pyx_v_columns = NULL;
@@ -3940,7 +3940,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_field_with_user_and_tenant", 0);
 
-  /* "tenant_manager.py":76
+  /* "shudaodao_core/tools/tenant_manager.py":76
  *     @classmethod
  *     def set_field_with_user_and_tenant(cls, db_model):
  *         user_info = cls._check_enable()             # <<<<<<<<<<<<<<
@@ -3960,7 +3960,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __pyx_v_user_info = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "tenant_manager.py":78
+  /* "shudaodao_core/tools/tenant_manager.py":78
  *         user_info = cls._check_enable()
  *         # tenant_id -
  *         if hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -3970,7 +3970,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __pyx_t_4 = __Pyx_HasAttr(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_tenant_id); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 78, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "tenant_manager.py":79
+    /* "shudaodao_core/tools/tenant_manager.py":79
  *         # tenant_id -
  *         if hasattr(db_model, "tenant_id"):
  *             tenant_id = getattr(db_model, "tenant_id")             # <<<<<<<<<<<<<<
@@ -3982,7 +3982,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_v_tenant_id = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "tenant_manager.py":80
+    /* "shudaodao_core/tools/tenant_manager.py":80
  *         if hasattr(db_model, "tenant_id"):
  *             tenant_id = getattr(db_model, "tenant_id")
  *             if not tenant_id:  #  -  (             # <<<<<<<<<<<<<<
@@ -3993,7 +3993,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_t_5 = (!__pyx_t_4);
     if (__pyx_t_5) {
 
-      /* "tenant_manager.py":81
+      /* "shudaodao_core/tools/tenant_manager.py":81
  *             tenant_id = getattr(db_model, "tenant_id")
  *             if not tenant_id:  #  -  (
  *                 setattr(db_model, "tenant_id", user_info.tenant_id)             # <<<<<<<<<<<<<<
@@ -4005,7 +4005,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
       __pyx_t_6 = PyObject_SetAttr(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_tenant_id, __pyx_t_1); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "tenant_manager.py":80
+      /* "shudaodao_core/tools/tenant_manager.py":80
  *         if hasattr(db_model, "tenant_id"):
  *             tenant_id = getattr(db_model, "tenant_id")
  *             if not tenant_id:  #  -  (             # <<<<<<<<<<<<<<
@@ -4015,7 +4015,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
       goto __pyx_L4;
     }
 
-    /* "tenant_manager.py":85
+    /* "shudaodao_core/tools/tenant_manager.py":85
  *             else:
  *                 #  -   get
  *                 if user_info.tenant_id and user_info.tenant_id != tenant_id:             # <<<<<<<<<<<<<<
@@ -4042,7 +4042,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
       __pyx_L6_bool_binop_done:;
       if (unlikely(__pyx_t_5)) {
 
-        /* "tenant_manager.py":86
+        /* "shudaodao_core/tools/tenant_manager.py":86
  *                 #  -   get
  *                 if user_info.tenant_id and user_info.tenant_id != tenant_id:
  *                     raise PermError(             # <<<<<<<<<<<<<<
@@ -4081,7 +4081,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __PYX_ERR(0, 86, __pyx_L1_error)
 
-        /* "tenant_manager.py":85
+        /* "shudaodao_core/tools/tenant_manager.py":85
  *             else:
  *                 #  -   get
  *                 if user_info.tenant_id and user_info.tenant_id != tenant_id:             # <<<<<<<<<<<<<<
@@ -4092,7 +4092,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     }
     __pyx_L4:;
 
-    /* "tenant_manager.py":78
+    /* "shudaodao_core/tools/tenant_manager.py":78
  *         user_info = cls._check_enable()
  *         # tenant_id -
  *         if hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -4101,7 +4101,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
   }
 
-  /* "tenant_manager.py":92
+  /* "shudaodao_core/tools/tenant_manager.py":92
  * 
  *         #
  *         columns = db_model.__table__.c             # <<<<<<<<<<<<<<
@@ -4116,7 +4116,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __pyx_v_columns = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":95
+  /* "shudaodao_core/tools/tenant_manager.py":95
  * 
  *         #  -
  *         create_by_fields = ["create_by", "create_person"]             # <<<<<<<<<<<<<<
@@ -4134,7 +4134,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __pyx_v_create_by_fields = ((PyObject*)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":96
+  /* "shudaodao_core/tools/tenant_manager.py":96
  *         #  -
  *         create_by_fields = ["create_by", "create_person"]
  *         for field in create_by_fields:             # <<<<<<<<<<<<<<
@@ -4158,7 +4158,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __Pyx_XDECREF_SET(__pyx_v_field, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":97
+    /* "shudaodao_core/tools/tenant_manager.py":97
  *         create_by_fields = ["create_by", "create_person"]
  *         for field in create_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4169,7 +4169,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_t_4 = (!__pyx_t_5);
     if (__pyx_t_4) {
 
-      /* "tenant_manager.py":98
+      /* "shudaodao_core/tools/tenant_manager.py":98
  *         for field in create_by_fields:
  *             if not hasattr(db_model, field):
  *                 continue             # <<<<<<<<<<<<<<
@@ -4178,7 +4178,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
       goto __pyx_L8_continue;
 
-      /* "tenant_manager.py":97
+      /* "shudaodao_core/tools/tenant_manager.py":97
  *         create_by_fields = ["create_by", "create_person"]
  *         for field in create_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4187,7 +4187,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
     }
 
-    /* "tenant_manager.py":99
+    /* "shudaodao_core/tools/tenant_manager.py":99
  *             if not hasattr(db_model, field):
  *                 continue
  *             if getattr(db_model, field, None):             # <<<<<<<<<<<<<<
@@ -4200,7 +4200,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_4) {
 
-      /* "tenant_manager.py":100
+      /* "shudaodao_core/tools/tenant_manager.py":100
  *                 continue
  *             if getattr(db_model, field, None):
  *                 continue             # <<<<<<<<<<<<<<
@@ -4209,7 +4209,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
       goto __pyx_L8_continue;
 
-      /* "tenant_manager.py":99
+      /* "shudaodao_core/tools/tenant_manager.py":99
  *             if not hasattr(db_model, field):
  *                 continue
  *             if getattr(db_model, field, None):             # <<<<<<<<<<<<<<
@@ -4218,7 +4218,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
     }
 
-    /* "tenant_manager.py":101
+    /* "shudaodao_core/tools/tenant_manager.py":101
  *             if getattr(db_model, field, None):
  *                 continue
  *             setattr(db_model, field, user_info.username)             # <<<<<<<<<<<<<<
@@ -4230,7 +4230,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_t_6 = PyObject_SetAttr(__pyx_v_db_model, __pyx_v_field, __pyx_t_2); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 101, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":96
+    /* "shudaodao_core/tools/tenant_manager.py":96
  *         #  -
  *         create_by_fields = ["create_by", "create_person"]
  *         for field in create_by_fields:             # <<<<<<<<<<<<<<
@@ -4241,7 +4241,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":104
+  /* "shudaodao_core/tools/tenant_manager.py":104
  * 
  *         #  -
  *         create_by_fields = ["create_at", "create_date"]             # <<<<<<<<<<<<<<
@@ -4259,7 +4259,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __Pyx_DECREF_SET(__pyx_v_create_by_fields, ((PyObject*)__pyx_t_7));
   __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":105
+  /* "shudaodao_core/tools/tenant_manager.py":105
  *         #  -
  *         create_by_fields = ["create_at", "create_date"]
  *         for field in create_by_fields:             # <<<<<<<<<<<<<<
@@ -4283,7 +4283,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __Pyx_XDECREF_SET(__pyx_v_field, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":106
+    /* "shudaodao_core/tools/tenant_manager.py":106
  *         create_by_fields = ["create_at", "create_date"]
  *         for field in create_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4294,7 +4294,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_t_5 = (!__pyx_t_4);
     if (__pyx_t_5) {
 
-      /* "tenant_manager.py":107
+      /* "shudaodao_core/tools/tenant_manager.py":107
  *         for field in create_by_fields:
  *             if not hasattr(db_model, field):
  *                 continue             # <<<<<<<<<<<<<<
@@ -4303,7 +4303,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
       goto __pyx_L13_continue;
 
-      /* "tenant_manager.py":106
+      /* "shudaodao_core/tools/tenant_manager.py":106
  *         create_by_fields = ["create_at", "create_date"]
  *         for field in create_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4312,7 +4312,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
     }
 
-    /* "tenant_manager.py":108
+    /* "shudaodao_core/tools/tenant_manager.py":108
  *             if not hasattr(db_model, field):
  *                 continue
  *             if getattr(db_model, field, None):             # <<<<<<<<<<<<<<
@@ -4325,7 +4325,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_5) {
 
-      /* "tenant_manager.py":109
+      /* "shudaodao_core/tools/tenant_manager.py":109
  *                 continue
  *             if getattr(db_model, field, None):
  *                 continue             # <<<<<<<<<<<<<<
@@ -4334,7 +4334,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
       goto __pyx_L13_continue;
 
-      /* "tenant_manager.py":108
+      /* "shudaodao_core/tools/tenant_manager.py":108
  *             if not hasattr(db_model, field):
  *                 continue
  *             if getattr(db_model, field, None):             # <<<<<<<<<<<<<<
@@ -4343,7 +4343,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
     }
 
-    /* "tenant_manager.py":110
+    /* "shudaodao_core/tools/tenant_manager.py":110
  *             if getattr(db_model, field, None):
  *                 continue
  *             cls._setattr_column_value(columns, db_model, field)             # <<<<<<<<<<<<<<
@@ -4362,7 +4362,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":105
+    /* "shudaodao_core/tools/tenant_manager.py":105
  *         #  -
  *         create_by_fields = ["create_at", "create_date"]
  *         for field in create_by_fields:             # <<<<<<<<<<<<<<
@@ -4373,7 +4373,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":113
+  /* "shudaodao_core/tools/tenant_manager.py":113
  * 
  *         #  -
  *         update_by_fields = ["update_by", "update_person"]             # <<<<<<<<<<<<<<
@@ -4391,7 +4391,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __pyx_v_update_by_fields = ((PyObject*)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":114
+  /* "shudaodao_core/tools/tenant_manager.py":114
  *         #  -
  *         update_by_fields = ["update_by", "update_person"]
  *         for field in update_by_fields:             # <<<<<<<<<<<<<<
@@ -4415,7 +4415,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __Pyx_XDECREF_SET(__pyx_v_field, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":115
+    /* "shudaodao_core/tools/tenant_manager.py":115
  *         update_by_fields = ["update_by", "update_person"]
  *         for field in update_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4426,7 +4426,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_t_4 = (!__pyx_t_5);
     if (__pyx_t_4) {
 
-      /* "tenant_manager.py":116
+      /* "shudaodao_core/tools/tenant_manager.py":116
  *         for field in update_by_fields:
  *             if not hasattr(db_model, field):
  *                 continue             # <<<<<<<<<<<<<<
@@ -4435,7 +4435,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
       goto __pyx_L18_continue;
 
-      /* "tenant_manager.py":115
+      /* "shudaodao_core/tools/tenant_manager.py":115
  *         update_by_fields = ["update_by", "update_person"]
  *         for field in update_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4444,7 +4444,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
     }
 
-    /* "tenant_manager.py":117
+    /* "shudaodao_core/tools/tenant_manager.py":117
  *             if not hasattr(db_model, field):
  *                 continue
  *             setattr(db_model, field, user_info.username)             # <<<<<<<<<<<<<<
@@ -4456,7 +4456,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_t_6 = PyObject_SetAttr(__pyx_v_db_model, __pyx_v_field, __pyx_t_2); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 117, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":114
+    /* "shudaodao_core/tools/tenant_manager.py":114
  *         #  -
  *         update_by_fields = ["update_by", "update_person"]
  *         for field in update_by_fields:             # <<<<<<<<<<<<<<
@@ -4467,7 +4467,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":120
+  /* "shudaodao_core/tools/tenant_manager.py":120
  * 
  *         #  -
  *         update_by_fields = ["update_at", "update_date"]             # <<<<<<<<<<<<<<
@@ -4485,7 +4485,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __Pyx_DECREF_SET(__pyx_v_update_by_fields, ((PyObject*)__pyx_t_7));
   __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":121
+  /* "shudaodao_core/tools/tenant_manager.py":121
  *         #  -
  *         update_by_fields = ["update_at", "update_date"]
  *         for field in update_by_fields:             # <<<<<<<<<<<<<<
@@ -4509,7 +4509,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __Pyx_XDECREF_SET(__pyx_v_field, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":122
+    /* "shudaodao_core/tools/tenant_manager.py":122
  *         update_by_fields = ["update_at", "update_date"]
  *         for field in update_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4520,7 +4520,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     __pyx_t_5 = (!__pyx_t_4);
     if (__pyx_t_5) {
 
-      /* "tenant_manager.py":123
+      /* "shudaodao_core/tools/tenant_manager.py":123
  *         for field in update_by_fields:
  *             if not hasattr(db_model, field):
  *                 continue             # <<<<<<<<<<<<<<
@@ -4529,7 +4529,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
       goto __pyx_L22_continue;
 
-      /* "tenant_manager.py":122
+      /* "shudaodao_core/tools/tenant_manager.py":122
  *         update_by_fields = ["update_at", "update_date"]
  *         for field in update_by_fields:
  *             if not hasattr(db_model, field):             # <<<<<<<<<<<<<<
@@ -4538,7 +4538,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
     }
 
-    /* "tenant_manager.py":124
+    /* "shudaodao_core/tools/tenant_manager.py":124
  *             if not hasattr(db_model, field):
  *                 continue
  *             cls._setattr_column_value(columns, db_model, field)             # <<<<<<<<<<<<<<
@@ -4557,7 +4557,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":121
+    /* "shudaodao_core/tools/tenant_manager.py":121
  *         #  -
  *         update_by_fields = ["update_at", "update_date"]
  *         for field in update_by_fields:             # <<<<<<<<<<<<<<
@@ -4568,7 +4568,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "tenant_manager.py":74
+  /* "shudaodao_core/tools/tenant_manager.py":74
  *             return None
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4584,7 +4584,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("tenant_manager.TenantManager.set_field_with_user_and_tenant", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.set_field_with_user_and_tenant", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_user_info);
@@ -4598,7 +4598,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
   return __pyx_r;
 }
 
-/* "tenant_manager.py":126
+/* "shudaodao_core/tools/tenant_manager.py":126
  *             cls._setattr_column_value(columns, db_model, field)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4607,15 +4607,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_10set_field_with_user
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_13_setattr_column_value(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_13_setattr_column_value(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_13_setattr_column_value = {"_setattr_column_value", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_13_setattr_column_value, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_13_setattr_column_value(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_13_setattr_column_value = {"_setattr_column_value", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_13_setattr_column_value, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_13_setattr_column_value(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4701,11 +4701,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager._setattr_column_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager._setattr_column_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_value(__pyx_self, __pyx_v_cls, __pyx_v_columns, __pyx_v_db_model, __pyx_v_field);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_12_setattr_column_value(__pyx_self, __pyx_v_cls, __pyx_v_columns, __pyx_v_db_model, __pyx_v_field);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -4715,7 +4715,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_value(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_columns, PyObject *__pyx_v_db_model, PyObject *__pyx_v_field) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_12_setattr_column_value(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_columns, PyObject *__pyx_v_db_model, PyObject *__pyx_v_field) {
   PyObject *__pyx_v_value_type = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4735,7 +4735,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_setattr_column_value", 0);
 
-  /* "tenant_manager.py":128
+  /* "shudaodao_core/tools/tenant_manager.py":128
  *     @classmethod
  *     def _setattr_column_value(cls, columns, db_model, field):
  *         value_type = columns[field].type.python_type             # <<<<<<<<<<<<<<
@@ -4753,7 +4753,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   __pyx_v_value_type = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "tenant_manager.py":129
+  /* "shudaodao_core/tools/tenant_manager.py":129
  *     def _setattr_column_value(cls, columns, db_model, field):
  *         value_type = columns[field].type.python_type
  *         if value_type == datetime:             # <<<<<<<<<<<<<<
@@ -4768,7 +4768,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "tenant_manager.py":130
+    /* "shudaodao_core/tools/tenant_manager.py":130
  *         value_type = columns[field].type.python_type
  *         if value_type == datetime:
  *             setattr(db_model, field, datetime.now().replace(microsecond=0))             # <<<<<<<<<<<<<<
@@ -4819,7 +4819,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
     __pyx_t_9 = PyObject_SetAttr(__pyx_v_db_model, __pyx_v_field, __pyx_t_2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 130, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":129
+    /* "shudaodao_core/tools/tenant_manager.py":129
  *     def _setattr_column_value(cls, columns, db_model, field):
  *         value_type = columns[field].type.python_type
  *         if value_type == datetime:             # <<<<<<<<<<<<<<
@@ -4829,7 +4829,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
     goto __pyx_L3;
   }
 
-  /* "tenant_manager.py":131
+  /* "shudaodao_core/tools/tenant_manager.py":131
  *         if value_type == datetime:
  *             setattr(db_model, field, datetime.now().replace(microsecond=0))
  *         elif value_type == datetime.date:             # <<<<<<<<<<<<<<
@@ -4847,7 +4847,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "tenant_manager.py":132
+    /* "shudaodao_core/tools/tenant_manager.py":132
  *             setattr(db_model, field, datetime.now().replace(microsecond=0))
  *         elif value_type == datetime.date:
  *             setattr(db_model, field, datetime.now().date())             # <<<<<<<<<<<<<<
@@ -4894,7 +4894,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
     __pyx_t_9 = PyObject_SetAttr(__pyx_v_db_model, __pyx_v_field, __pyx_t_2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":131
+    /* "shudaodao_core/tools/tenant_manager.py":131
  *         if value_type == datetime:
  *             setattr(db_model, field, datetime.now().replace(microsecond=0))
  *         elif value_type == datetime.date:             # <<<<<<<<<<<<<<
@@ -4904,7 +4904,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
     goto __pyx_L3;
   }
 
-  /* "tenant_manager.py":133
+  /* "shudaodao_core/tools/tenant_manager.py":133
  *         elif value_type == datetime.date:
  *             setattr(db_model, field, datetime.now().date())
  *         elif value_type == datetime.time:             # <<<<<<<<<<<<<<
@@ -4922,7 +4922,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "tenant_manager.py":134
+    /* "shudaodao_core/tools/tenant_manager.py":134
  *             setattr(db_model, field, datetime.now().date())
  *         elif value_type == datetime.time:
  *             setattr(db_model, field, datetime.now().time().replace(microsecond=0))             # <<<<<<<<<<<<<<
@@ -4984,7 +4984,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
     __pyx_t_9 = PyObject_SetAttr(__pyx_v_db_model, __pyx_v_field, __pyx_t_2); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 134, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "tenant_manager.py":133
+    /* "shudaodao_core/tools/tenant_manager.py":133
  *         elif value_type == datetime.date:
  *             setattr(db_model, field, datetime.now().date())
  *         elif value_type == datetime.time:             # <<<<<<<<<<<<<<
@@ -4994,7 +4994,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   }
   __pyx_L3:;
 
-  /* "tenant_manager.py":126
+  /* "shudaodao_core/tools/tenant_manager.py":126
  *             cls._setattr_column_value(columns, db_model, field)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5014,7 +5014,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("tenant_manager.TenantManager._setattr_column_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager._setattr_column_value", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_value_type);
@@ -5023,7 +5023,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
   return __pyx_r;
 }
 
-/* "tenant_manager.py":136
+/* "shudaodao_core/tools/tenant_manager.py":136
  *             setattr(db_model, field, datetime.now().time().replace(microsecond=0))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5032,15 +5032,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_12_setattr_column_val
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_15check_permission(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_15check_permission(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_15check_permission = {"check_permission", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_15check_permission, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_15check_permission(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_15check_permission = {"check_permission", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_15check_permission, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_15check_permission(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5110,11 +5110,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager.check_permission", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.check_permission", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_14check_permission(__pyx_self, __pyx_v_cls, __pyx_v_db_model);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_14check_permission(__pyx_self, __pyx_v_cls, __pyx_v_db_model);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -5124,7 +5124,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_14check_permission(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db_model) {
   PyObject *__pyx_v_user_info = NULL;
   PyObject *__pyx_v_model_tenant_id = NULL;
   PyObject *__pyx_r = NULL;
@@ -5140,7 +5140,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("check_permission", 0);
 
-  /* "tenant_manager.py":138
+  /* "shudaodao_core/tools/tenant_manager.py":138
  *     @classmethod
  *     def check_permission(cls, db_model):
  *         user_info = cls._check_enable()             # <<<<<<<<<<<<<<
@@ -5160,7 +5160,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
   __pyx_v_user_info = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "tenant_manager.py":140
+  /* "shudaodao_core/tools/tenant_manager.py":140
  *         user_info = cls._check_enable()
  * 
  *         if hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -5170,7 +5170,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
   __pyx_t_4 = __Pyx_HasAttr(__pyx_v_db_model, __pyx_mstate_global->__pyx_n_u_tenant_id); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 140, __pyx_L1_error)
   if (__pyx_t_4) {
 
-    /* "tenant_manager.py":141
+    /* "shudaodao_core/tools/tenant_manager.py":141
  * 
  *         if hasattr(db_model, "tenant_id"):
  *             model_tenant_id = getattr(db_model, "tenant_id", None)             # <<<<<<<<<<<<<<
@@ -5182,7 +5182,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
     __pyx_v_model_tenant_id = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "tenant_manager.py":142
+    /* "shudaodao_core/tools/tenant_manager.py":142
  *         if hasattr(db_model, "tenant_id"):
  *             model_tenant_id = getattr(db_model, "tenant_id", None)
  *             if model_tenant_id != user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -5197,7 +5197,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(__pyx_t_4)) {
 
-      /* "tenant_manager.py":143
+      /* "shudaodao_core/tools/tenant_manager.py":143
  *             model_tenant_id = getattr(db_model, "tenant_id", None)
  *             if model_tenant_id != user_info.tenant_id:
  *                 raise PermError(             # <<<<<<<<<<<<<<
@@ -5236,7 +5236,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __PYX_ERR(0, 143, __pyx_L1_error)
 
-      /* "tenant_manager.py":142
+      /* "shudaodao_core/tools/tenant_manager.py":142
  *         if hasattr(db_model, "tenant_id"):
  *             model_tenant_id = getattr(db_model, "tenant_id", None)
  *             if model_tenant_id != user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -5245,7 +5245,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
 */
     }
 
-    /* "tenant_manager.py":140
+    /* "shudaodao_core/tools/tenant_manager.py":140
  *         user_info = cls._check_enable()
  * 
  *         if hasattr(db_model, "tenant_id"):             # <<<<<<<<<<<<<<
@@ -5254,7 +5254,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
 */
   }
 
-  /* "tenant_manager.py":136
+  /* "shudaodao_core/tools/tenant_manager.py":136
  *             setattr(db_model, field, datetime.now().time().replace(microsecond=0))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5270,7 +5270,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("tenant_manager.TenantManager.check_permission", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager.check_permission", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_user_info);
@@ -5280,24 +5280,24 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_14check_permission(CY
   return __pyx_r;
 }
 
-/* "tenant_manager.py":148
+/* "shudaodao_core/tools/tenant_manager.py":148
  *                 )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _check_enable(cls):
- *         user_info = get_current_user_info()
+ *         user_info = get_tenant_user_info()
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_17_check_enable(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_17_check_enable(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_14tenant_manager_13TenantManager_17_check_enable = {"_check_enable", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14tenant_manager_13TenantManager_17_check_enable, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_14tenant_manager_13TenantManager_17_check_enable(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_17_check_enable = {"_check_enable", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_17_check_enable, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14shudaodao_core_5tools_14tenant_manager_13TenantManager_17_check_enable(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5359,11 +5359,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("tenant_manager.TenantManager._check_enable", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager._check_enable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14tenant_manager_13TenantManager_16_check_enable(__pyx_self, __pyx_v_cls);
+  __pyx_r = __pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_16_check_enable(__pyx_self, __pyx_v_cls);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -5373,7 +5373,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls) {
+static PyObject *__pyx_pf_14shudaodao_core_5tools_14tenant_manager_13TenantManager_16_check_enable(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls) {
   PyObject *__pyx_v_user_info = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5389,15 +5389,15 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_check_enable", 0);
 
-  /* "tenant_manager.py":150
+  /* "shudaodao_core/tools/tenant_manager.py":150
  *     @classmethod
  *     def _check_enable(cls):
- *         user_info = get_current_user_info()             # <<<<<<<<<<<<<<
+ *         user_info = get_tenant_user_info()             # <<<<<<<<<<<<<<
  *         #
  *         if not user_info.tenant_enabled:
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_current_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_tenant_user_info); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -5422,8 +5422,8 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
   __pyx_v_user_info = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "tenant_manager.py":152
- *         user_info = get_current_user_info()
+  /* "shudaodao_core/tools/tenant_manager.py":152
+ *         user_info = get_tenant_user_info()
  *         #
  *         if not user_info.tenant_enabled:             # <<<<<<<<<<<<<<
  *             return user_info
@@ -5436,7 +5436,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
   __pyx_t_6 = (!__pyx_t_5);
   if (__pyx_t_6) {
 
-    /* "tenant_manager.py":153
+    /* "shudaodao_core/tools/tenant_manager.py":153
  *         #
  *         if not user_info.tenant_enabled:
  *             return user_info             # <<<<<<<<<<<<<<
@@ -5448,8 +5448,8 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
     __pyx_r = __pyx_v_user_info;
     goto __pyx_L0;
 
-    /* "tenant_manager.py":152
- *         user_info = get_current_user_info()
+    /* "shudaodao_core/tools/tenant_manager.py":152
+ *         user_info = get_tenant_user_info()
  *         #
  *         if not user_info.tenant_enabled:             # <<<<<<<<<<<<<<
  *             return user_info
@@ -5457,7 +5457,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
 */
   }
 
-  /* "tenant_manager.py":154
+  /* "shudaodao_core/tools/tenant_manager.py":154
  *         if not user_info.tenant_enabled:
  *             return user_info
  *         if not user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -5471,7 +5471,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
   __pyx_t_5 = (!__pyx_t_6);
   if (unlikely(__pyx_t_5)) {
 
-    /* "tenant_manager.py":155
+    /* "shudaodao_core/tools/tenant_manager.py":155
  *             return user_info
  *         if not user_info.tenant_id:
  *             raise ValidError(             # <<<<<<<<<<<<<<
@@ -5511,7 +5511,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 155, __pyx_L1_error)
 
-    /* "tenant_manager.py":154
+    /* "shudaodao_core/tools/tenant_manager.py":154
  *         if not user_info.tenant_enabled:
  *             return user_info
  *         if not user_info.tenant_id:             # <<<<<<<<<<<<<<
@@ -5520,7 +5520,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
 */
   }
 
-  /* "tenant_manager.py":160
+  /* "shudaodao_core/tools/tenant_manager.py":160
  *                 errors="tenant_id = null"
  *             )
  *         return user_info             # <<<<<<<<<<<<<<
@@ -5530,12 +5530,12 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
   __pyx_r = __pyx_v_user_info;
   goto __pyx_L0;
 
-  /* "tenant_manager.py":148
+  /* "shudaodao_core/tools/tenant_manager.py":148
  *                 )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _check_enable(cls):
- *         user_info = get_current_user_info()
+ *         user_info = get_tenant_user_info()
 */
 
   /* function exit code */
@@ -5544,7 +5544,7 @@ static PyObject *__pyx_pf_14tenant_manager_13TenantManager_16_check_enable(CYTHO
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("tenant_manager.TenantManager._check_enable", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("shudaodao_core.tools.tenant_manager.TenantManager._check_enable", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_user_info);
@@ -5895,13 +5895,13 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__pyx_AsyncGen_init(__pyx_m) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   /*--- Library function declarations ---*/
-  if (__pyx_module_is_main_tenant_manager) {
+  if (__pyx_module_is_main_shudaodao_core__tools__tenant_manager) {
     if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "tenant_manager")) {
-      if (unlikely((PyDict_SetItemString(modules, "tenant_manager", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "shudaodao_core.tools.tenant_manager")) {
+      if (unlikely((PyDict_SetItemString(modules, "shudaodao_core.tools.tenant_manager", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   /*--- Builtin init code ---*/
@@ -5919,7 +5919,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "tenant_manager.py":10
+  /* "shudaodao_core/tools/tenant_manager.py":10
  * 
  * 
  * from datetime import datetime             # <<<<<<<<<<<<<<
@@ -5937,12 +5937,12 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":12
+  /* "shudaodao_core/tools/tenant_manager.py":12
  * from datetime import datetime
  * 
  * from sqlmodel import and_             # <<<<<<<<<<<<<<
  * 
- * from ..app.base_context import get_current_user_info, set_current_user_info, UserInfo
+ * from ..tools.tenant_user_info import get_tenant_user_info, set_tenant_user_info, TenantUserInfo
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_and); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -5955,35 +5955,35 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tenant_manager.py":14
+  /* "shudaodao_core/tools/tenant_manager.py":14
  * from sqlmodel import and_
  * 
- * from ..app.base_context import get_current_user_info, set_current_user_info, UserInfo             # <<<<<<<<<<<<<<
+ * from ..tools.tenant_user_info import get_tenant_user_info, set_tenant_user_info, TenantUserInfo             # <<<<<<<<<<<<<<
  * from ..exception.service_exception import PermError, ValidError
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(3, __pyx_mstate_global->__pyx_n_u_get_current_user_info, __pyx_mstate_global->__pyx_n_u_set_current_user_info, __pyx_mstate_global->__pyx_n_u_UserInfo); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(3, __pyx_mstate_global->__pyx_n_u_get_tenant_user_info, __pyx_mstate_global->__pyx_n_u_set_tenant_user_info, __pyx_mstate_global->__pyx_n_u_TenantUserInfo); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_app_base_context, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_tools_tenant_user_info, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_current_user_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_tenant_user_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_current_user_info, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_get_tenant_user_info, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_current_user_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_tenant_user_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_set_current_user_info, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_set_tenant_user_info, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_UserInfo); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_TenantUserInfo); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_UserInfo, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TenantUserInfo, __pyx_t_2) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":15
+  /* "shudaodao_core/tools/tenant_manager.py":15
  * 
- * from ..app.base_context import get_current_user_info, set_current_user_info, UserInfo
+ * from ..tools.tenant_user_info import get_tenant_user_info, set_tenant_user_info, TenantUserInfo
  * from ..exception.service_exception import PermError, ValidError             # <<<<<<<<<<<<<<
  * 
  * 
@@ -6003,24 +6003,24 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tenant_manager.py":18
+  /* "shudaodao_core/tools/tenant_manager.py":18
  * 
  * 
  * class TenantManager:             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
 */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_TenantManager, __pyx_mstate_global->__pyx_n_u_TenantManager, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_TenantManager, __pyx_mstate_global->__pyx_n_u_TenantManager, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "tenant_manager.py":20
+  /* "shudaodao_core/tools/tenant_manager.py":20
  * class TenantManager:
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def disable(cls):
  *         #
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_1disable, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_disable, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_1disable, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_disable, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -6028,14 +6028,14 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_disable, __pyx_t_4) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tenant_manager.py":29
+  /* "shudaodao_core/tools/tenant_manager.py":29
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def set(cls, *, username, tenant_id):
  *         # ID
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_3set, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_3set, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -6043,7 +6043,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_set, __pyx_t_3) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":38
+  /* "shudaodao_core/tools/tenant_manager.py":38
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -6053,23 +6053,23 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "tenant_manager.py":39
+  /* "shudaodao_core/tools/tenant_manager.py":39
  * 
  *     @classmethod
  *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):             # <<<<<<<<<<<<<<
  *         # ID
- *         set_current_user_info(UserInfo(
+ *         set_tenant_user_info(TenantUserInfo(
 */
   if (PyDict_SetItem(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_tenant_enabled, Py_None) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
 
-  /* "tenant_manager.py":38
+  /* "shudaodao_core/tools/tenant_manager.py":38
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def set_from_token(cls, *, username, tenant_id, tenant_enabled=None):
  *         # ID
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_5set_from_token, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set_from_token, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_5set_from_token, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set_from_token, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_4, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6079,14 +6079,14 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_set_from_token, __pyx_t_3) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":47
+  /* "shudaodao_core/tools/tenant_manager.py":47
  *         ))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def apply_tenant_condition(cls, *, db_model, conditions):
  *         if not hasattr(db_model, "tenant_id"):
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_7apply_tenant_condition, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_apply_tenant_condi, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_7apply_tenant_condition, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_apply_tenant_condi, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -6094,14 +6094,14 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_apply_tenant_condition, __pyx_t_4) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tenant_manager.py":62
+  /* "shudaodao_core/tools/tenant_manager.py":62
  *             return conditions
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_tenant_condition(cls, *, db_model):
  *         if not hasattr(db_model, "tenant_id"):
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_9get_tenant_condition, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_get_tenant_conditi, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_9get_tenant_condition, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_get_tenant_conditi, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -6109,14 +6109,14 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_get_tenant_condition, __pyx_t_3) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":74
+  /* "shudaodao_core/tools/tenant_manager.py":74
  *             return None
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def set_field_with_user_and_tenant(cls, db_model):
  *         user_info = cls._check_enable()
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set_field_with_use, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_11set_field_with_user_and_tenant, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_set_field_with_use, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -6124,14 +6124,14 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_set_field_with_user_and_tenant, __pyx_t_4) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tenant_manager.py":126
+  /* "shudaodao_core/tools/tenant_manager.py":126
  *             cls._setattr_column_value(columns, db_model, field)
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _setattr_column_value(cls, columns, db_model, field):
  *         value_type = columns[field].type.python_type
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_13_setattr_column_value, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager__setattr_column_va, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_13_setattr_column_value, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager__setattr_column_va, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -6139,14 +6139,14 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_setattr_column_value, __pyx_t_3) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":136
+  /* "shudaodao_core/tools/tenant_manager.py":136
  *             setattr(db_model, field, datetime.now().time().replace(microsecond=0))
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def check_permission(cls, db_model):
  *         user_info = cls._check_enable()
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_15check_permission, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_check_permission, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_15check_permission, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager_check_permission, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -6154,14 +6154,14 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_check_permission, __pyx_t_4) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "tenant_manager.py":148
+  /* "shudaodao_core/tools/tenant_manager.py":148
  *                 )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _check_enable(cls):
- *         user_info = get_current_user_info()
+ *         user_info = get_tenant_user_info()
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14tenant_manager_13TenantManager_17_check_enable, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager__check_enable, NULL, __pyx_mstate_global->__pyx_n_u_tenant_manager, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14shudaodao_core_5tools_14tenant_manager_13TenantManager_17_check_enable, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_TenantManager__check_enable, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_core_tools_tenant_mana, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -6169,7 +6169,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_check_enable, __pyx_t_3) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "tenant_manager.py":18
+  /* "shudaodao_core/tools/tenant_manager.py":18
  * 
  * 
  * class TenantManager:             # <<<<<<<<<<<<<<
@@ -6182,7 +6182,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "tenant_manager.py":1
+  /* "shudaodao_core/tools/tenant_manager.py":1
  * #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # -*- coding:utf-8 -*-
  * # @License  (C)Copyright 2025,
@@ -6201,7 +6201,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
   __Pyx_XDECREF(__pyx_t_4);
   if (__pyx_m) {
     if (__pyx_mstate->__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init tenant_manager", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init shudaodao_core.tools.tenant_manager", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -6215,7 +6215,7 @@ __Pyx_RefNannySetupContext("PyInit_tenant_manager", 0);
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init tenant_manager");
+    PyErr_SetString(PyExc_ImportError, "init shudaodao_core.tools.tenant_manager");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -6264,14 +6264,13 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_TenantManager_set, sizeof(__pyx_k_TenantManager_set), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager_set */
   {__pyx_k_TenantManager_set_field_with_use, sizeof(__pyx_k_TenantManager_set_field_with_use), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager_set_field_with_use */
   {__pyx_k_TenantManager_set_from_token, sizeof(__pyx_k_TenantManager_set_from_token), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantManager_set_from_token */
-  {__pyx_k_UserInfo, sizeof(__pyx_k_UserInfo), 0, 1, 1}, /* PyObject cname: __pyx_n_u_UserInfo */
+  {__pyx_k_TenantUserInfo, sizeof(__pyx_k_TenantUserInfo), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TenantUserInfo */
   {__pyx_k_ValidError, sizeof(__pyx_k_ValidError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ValidError */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k_and, sizeof(__pyx_k_and), 0, 1, 1}, /* PyObject cname: __pyx_n_u_and */
-  {__pyx_k_app_base_context, sizeof(__pyx_k_app_base_context), 0, 1, 1}, /* PyObject cname: __pyx_n_u_app_base_context */
   {__pyx_k_apply_tenant_condition, sizeof(__pyx_k_apply_tenant_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_apply_tenant_condition */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
   {__pyx_k_c, sizeof(__pyx_k_c), 0, 1, 1}, /* PyObject cname: __pyx_n_u_c */
@@ -6297,8 +6296,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_field, sizeof(__pyx_k_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_field */
   {__pyx_k_fields, sizeof(__pyx_k_fields), 0, 1, 1}, /* PyObject cname: __pyx_n_u_fields */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
-  {__pyx_k_get_current_user_info, sizeof(__pyx_k_get_current_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_current_user_info */
   {__pyx_k_get_tenant_condition, sizeof(__pyx_k_get_tenant_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_tenant_condition */
+  {__pyx_k_get_tenant_user_info, sizeof(__pyx_k_get_tenant_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_tenant_user_info */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_message, sizeof(__pyx_k_message), 0, 1, 1}, /* PyObject cname: __pyx_n_u_message */
@@ -6314,21 +6313,22 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_replace, sizeof(__pyx_k_replace), 0, 1, 1}, /* PyObject cname: __pyx_n_u_replace */
   {__pyx_k_set, sizeof(__pyx_k_set), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set */
-  {__pyx_k_set_current_user_info, sizeof(__pyx_k_set_current_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_current_user_info */
   {__pyx_k_set_field_with_user_and_tenant, sizeof(__pyx_k_set_field_with_user_and_tenant), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_field_with_user_and_tenant */
   {__pyx_k_set_from_token, sizeof(__pyx_k_set_from_token), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_from_token */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
+  {__pyx_k_set_tenant_user_info, sizeof(__pyx_k_set_tenant_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_tenant_user_info */
   {__pyx_k_setattr_column_value, sizeof(__pyx_k_setattr_column_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_setattr_column_value */
+  {__pyx_k_shudaodao_core_tools_tenant_mana, sizeof(__pyx_k_shudaodao_core_tools_tenant_mana), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_core_tools_tenant_mana */
+  {__pyx_k_shudaodao_core_tools_tenant_mana_2, sizeof(__pyx_k_shudaodao_core_tools_tenant_mana_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_shudaodao_core_tools_tenant_mana_2 */
   {__pyx_k_sqlmodel, sizeof(__pyx_k_sqlmodel), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sqlmodel */
   {__pyx_k_table, sizeof(__pyx_k_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_table */
   {__pyx_k_tenant_condition, sizeof(__pyx_k_tenant_condition), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tenant_condition */
   {__pyx_k_tenant_enabled, sizeof(__pyx_k_tenant_enabled), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tenant_enabled */
   {__pyx_k_tenant_id, sizeof(__pyx_k_tenant_id), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tenant_id */
   {__pyx_k_tenant_id_null, sizeof(__pyx_k_tenant_id_null), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_tenant_id_null */
-  {__pyx_k_tenant_manager, sizeof(__pyx_k_tenant_manager), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tenant_manager */
-  {__pyx_k_tenant_manager_py, sizeof(__pyx_k_tenant_manager_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_tenant_manager_py */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_time, sizeof(__pyx_k_time), 0, 1, 1}, /* PyObject cname: __pyx_n_u_time */
+  {__pyx_k_tools_tenant_user_info, sizeof(__pyx_k_tools_tenant_user_info), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tools_tenant_user_info */
   {__pyx_k_type, sizeof(__pyx_k_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type */
   {__pyx_k_update_at, sizeof(__pyx_k_update_at), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_at */
   {__pyx_k_update_by, sizeof(__pyx_k_update_by), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_by */
@@ -6398,47 +6398,47 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 20, 18};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_disable, __pyx_k_A_Qha_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_disable, __pyx_k_A_A_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 29, 28};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_username, __pyx_mstate->__pyx_n_u_tenant_id};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_set, __pyx_k_A_Qha_1_Q_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_set, __pyx_k_A_A_1_1_Q_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 3, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 38, 29};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_username, __pyx_mstate->__pyx_n_u_tenant_id, __pyx_mstate->__pyx_n_u_tenant_enabled};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_set_from_token, __pyx_k_A45_Qha_1_Q_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_set_from_token, __pyx_k_A45_A_1_1_Q_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 47, 87};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db_model, __pyx_mstate->__pyx_n_u_conditions, __pyx_mstate->__pyx_n_u_user_info, __pyx_mstate->__pyx_n_u_tenant_condition};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_apply_tenant_condition, __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_t1_a_q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_apply_tenant_condition, __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_t1_a_q_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 1, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 62, 66};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db_model, __pyx_mstate->__pyx_n_u_user_info, __pyx_mstate->__pyx_n_u_tenant_condition};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_get_tenant_condition, __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_get_tenant_condition, __pyx_k_A_4waz_1_C_Q_9_D_x_Ya_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 74, 322};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db_model, __pyx_mstate->__pyx_n_u_user_info, __pyx_mstate->__pyx_n_u_tenant_id, __pyx_mstate->__pyx_n_u_columns, __pyx_mstate->__pyx_n_u_create_by_fields, __pyx_mstate->__pyx_n_u_field, __pyx_mstate->__pyx_n_u_update_by_fields};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_set_field_with_user_and_tenant, __pyx_k_A_C_Q_7_Q_q_t1_q_y_9Kt9Ks_1_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_set_field_with_user_and_tenant, __pyx_k_A_C_Q_7_Q_q_t1_q_y_9Kt9Ks_1_q_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 126, 111};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_columns, __pyx_mstate->__pyx_n_u_db_model, __pyx_mstate->__pyx_n_u_field, __pyx_mstate->__pyx_n_u_value_type};
-    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_setattr_column_value, __pyx_k_A_WAV5_c_1JgXT_81L_81_1JgXT_5_81, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_setattr_column_value, __pyx_k_A_WAV5_c_1JgXT_81L_81_1JgXT_5_81, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 136, 64};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db_model, __pyx_mstate->__pyx_n_u_user_info, __pyx_mstate->__pyx_n_u_model_tenant_id};
-    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_check_permission, __pyx_k_A_C_Q_7_Q_gQj_Q_s_1_iq_A_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_check_permission, __pyx_k_A_C_Q_7_Q_gQj_Q_s_1_iq_A_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 148, 60};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_user_info};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_tenant_manager_py, __pyx_mstate->__pyx_n_u_check_enable, __pyx_k_A_4y_1_4y_A_q_q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_core_tools_tenant_mana_2, __pyx_mstate->__pyx_n_u_check_enable, __pyx_k_A_4y_1_4y_A_q_q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;

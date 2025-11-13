@@ -18,6 +18,9 @@ from ..generate.entity_table.meta_view import (
     MetaViewCreate as MetaViewCreate,
     MetaViewUpdate as MetaViewUpdate,
 )
+from ..generate.entity_table.source_referencing_foreign_key import (
+    SourceReferencingForeignKey as SourceReferencingForeignKey,
+)
 from ..generate.entity_table.source_schema import SourceSchema as SourceSchema
 from .meta_convert import MetaConverter as MetaConverter
 from shudaodao_core import AsyncSession as AsyncSession

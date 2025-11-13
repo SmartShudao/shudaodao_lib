@@ -6,7 +6,7 @@
 # @Date     ：2025/6/29 下午9:08
 # @Desc     ：
 
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 from pydantic import BaseModel, Field
 
@@ -77,6 +77,6 @@ class DataBaseConfigSetting(BaseModel):
 
 
 class StorageConfigSetting(BaseModel):
-    redis: list[RedisConfigSetting] = Field(None, description="Redis连接")
-    disk: list[DiskConfigSetting] = Field(None, description="文件系统存储")
-    database: list[DataBaseConfigSetting] = Field(None, description="数据库连接")
+    redis: List[RedisConfigSetting] = Field(None, description="Redis连接")
+    disk: List[DiskConfigSetting] = Field(None, description="文件系统存储")
+    database: List[DataBaseConfigSetting] = Field(None, description="数据库连接")

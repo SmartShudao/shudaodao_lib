@@ -6,83 +6,84 @@
 # @Desc     ：SQLModel classes for shudaodao_meta.source_view
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Optional
+from typing import Optional, TYPE_CHECKING
 
 from sqlalchemy import BigInteger, Text
 
-from shudaodao_core import Field, get_primary_id, Relationship
-from shudaodao_core import SQLModel, BaseResponse
-from ... import RegistryModel, get_table_schema, get_foreign_schema
+from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
+from ...meta_config import MetaConfig
 
 if TYPE_CHECKING:
-    from .source_schema import SourceSchema
     from .source_column import SourceColumn
+    from .source_schema import SourceSchema
 
 
-class SourceView(RegistryModel, table=True):
-    """ 数据库对象模型 """
+class SourceView(MetaConfig.RegistryModel, table=True):
+    """数据库对象模型"""
+
     __tablename__ = "source_view"
-    __table_args__ = {"schema": get_table_schema(), "comment": "视图元数据"}
-    # 非数据库字段：仅用于内部处理
-    __database_schema__ = "shudaodao_meta"
-    # 数据库字段
+    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "视图元数据"}
+    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+
     source_view_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_schema_id: int = Field(
-        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}source_schema.source_schema_id"
+        foreign_key=f"{MetaConfig.SchemaForeignKey}source_schema.source_schema_id",
+        ondelete="CASCADE",
+        sa_type=BigInteger,
+        description="主键",
     )
     view_name: str = Field(max_length=255, description="视图名字")
-    definition: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="SQL脚本")
-    class_name: Optional[str] = Field(default=None, max_length=50, nullable=True, description="类名")
-    file_name: Optional[str] = Field(default=None, max_length=50, nullable=True, description="文件名")
-    comment: Optional[str] = Field(default=None, nullable=True, sa_type=Text, description="备注")
-    sort_order: int = Field(default=10, description="排序权重")
-    description: Optional[str] = Field(default=None, max_length=500, nullable=True, description="描述")
-    create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
-    create_at: Optional[datetime] = Field(
-        default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="创建日期"
-    )
-    update_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="修改人")
-    update_at: Optional[datetime] = Field(
-        default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
-    )
-    # 反向关系 -> 父对象
+    definition: Optional[str] = Field(default=None, sa_type=Text, nullable=True, description="SQL脚本")
+    class_name: Optional[str] = Field(default=None, nullable=True, max_length=50, description="类名")
+    file_name: Optional[str] = Field(default=None, nullable=True, max_length=50, description="文件名")
+    comment: Optional[str] = Field(default=None, sa_type=Text, nullable=True, description="备注")
+    sort_order: int = Field(description="排序权重")
+    description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
+    create_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="创建人")
+    create_at: Optional[datetime] = Field(default=None, nullable=True, description="创建日期")
+    update_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="修改人")
+    update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
+    # 反向关系 - 父对象
     SourceSchema: "SourceSchema" = Relationship(back_populates="SourceViews")
-    # 正向关系 -> 子对象
+    # 正向关系 - 子对象
     SourceColumns: list["SourceColumn"] = Relationship(
-        back_populates="SourceView", sa_relationship_kwargs={
-            "order_by": "SourceColumn.sort_order.asc()"
-        }
+        back_populates="SourceView", sa_relationship_kwargs={"order_by": "SourceColumn.sort_order.asc()"}
     )
 
 
-class SourceViewBase(SQLModel):
-    """ 创建、更新模型 共用字段 """
+class SourceViewCreate(SQLModel):
+    """前端创建模型 - 用于接口请求"""
+
     source_schema_id: int = Field(sa_type=BigInteger, description="主键")
     view_name: str = Field(max_length=255, description="视图名字")
     definition: Optional[str] = Field(default=None, description="SQL脚本")
     class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
     file_name: Optional[str] = Field(default=None, max_length=50, description="文件名")
     comment: Optional[str] = Field(default=None, description="备注")
-    sort_order: int = Field(default=10, description="排序权重")
+    sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
-class SourceViewCreate(SourceViewBase):
-    """ 前端创建模型 - 用于接口请求 """
-    ...
+class SourceViewUpdate(SQLModel):
+    """前端更新模型 - 用于接口请求"""
 
-
-class SourceViewUpdate(SourceViewBase):
-    """ 前端更新模型 - 用于接口请求 """
-    ...
+    source_view_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
+    source_schema_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
+    view_name: Optional[str] = Field(default=None, max_length=255, description="视图名字")
+    definition: Optional[str] = Field(default=None, description="SQL脚本")
+    class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
+    file_name: Optional[str] = Field(default=None, max_length=50, description="文件名")
+    comment: Optional[str] = Field(default=None, description="备注")
+    sort_order: Optional[int] = Field(default=None, description="排序权重")
+    description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
 class SourceViewResponse(BaseResponse):
-    """ 前端响应模型 - 用于接口响应 """
-    __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
+    """前端响应模型 - 用于接口响应"""
 
+    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
     source_view_id: int = Field(description="主键", sa_type=BigInteger)
     source_schema_id: int = Field(description="主键", sa_type=BigInteger)
     view_name: str = Field(description="视图名字")

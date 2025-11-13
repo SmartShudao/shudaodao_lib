@@ -1504,12 +1504,11 @@ struct __pyx_obj_12data_service___pyx_scope_struct_6_delete;
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
+ *     async def create(
+ *             cls, db: AsyncSession, *,
 */
 struct __pyx_obj_12data_service___pyx_scope_struct__create {
   PyObject_HEAD
-  PyObject *__pyx_v_auto_commit;
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_create_model;
   PyObject *__pyx_v_db;
@@ -1519,7 +1518,7 @@ struct __pyx_obj_12data_service___pyx_scope_struct__create {
 };
 
 
-/* "data_service.py":75
+/* "data_service.py":73
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -1536,8 +1535,8 @@ struct __pyx_obj_12data_service___pyx_scope_struct_1_db_get {
 };
 
 
-/* "data_service.py":94
- *         return None if db_model is None else db_model
+/* "data_service.py":92
+ *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
@@ -1585,7 +1584,6 @@ struct __pyx_obj_12data_service___pyx_scope_struct_3_db_update {
 */
 struct __pyx_obj_12data_service___pyx_scope_struct_4_update {
   PyObject_HEAD
-  PyObject *__pyx_v_auto_commit;
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_db;
   PyObject *__pyx_v_db_model;
@@ -1596,7 +1594,7 @@ struct __pyx_obj_12data_service___pyx_scope_struct_4_update {
 };
 
 
-/* "data_service.py":196
+/* "data_service.py":191
  *         )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -1613,16 +1611,15 @@ struct __pyx_obj_12data_service___pyx_scope_struct_5_db_delete {
 };
 
 
-/* "data_service.py":214
+/* "data_service.py":209
  *         return True
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def delete(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
- *                      auto_commit: bool = True) -> bool:
+ *     async def delete(
+ *             cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB]
 */
 struct __pyx_obj_12data_service___pyx_scope_struct_6_delete {
   PyObject_HEAD
-  PyObject *__pyx_v_auto_commit;
   PyObject *__pyx_v_cls;
   PyObject *__pyx_v_db;
   PyObject *__pyx_v_model_class;
@@ -2017,6 +2014,23 @@ static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_ve
 static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name);
 #endif
 
+/* GetException.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_GetException(type, value, tb)  __Pyx__GetException(__pyx_tstate, type, value, tb)
+static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
+#else
+static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb);
+#endif
+
+/* pep479.proto */
+static void __Pyx_Generator_Replace_StopIteration(int in_async_gen);
+
+/* ArgTypeTest.proto */
+#define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
+    ((likely(__Pyx_IS_TYPE(obj, type) | (none_allowed && (obj == Py_None)))) ? 1 :\
+        __Pyx__ArgTypeTest(obj, type, name, exact))
+static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
+
 /* LimitedApiGetTypeDict.proto */
 #if CYTHON_COMPILING_IN_LIMITED_API
 static PyObject *__Pyx_GetTypeDict(PyTypeObject *tp);
@@ -2204,23 +2218,6 @@ static PyObject *__Pyx__Coroutine_GetAwaitableIter(PyObject *o);
 
 /* CoroutineYieldFrom.proto */
 static CYTHON_INLINE __Pyx_PySendResult __Pyx_Coroutine_Yield_From(__pyx_CoroutineObject *gen, PyObject *source, PyObject **retval);
-
-/* GetException.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_GetException(type, value, tb)  __Pyx__GetException(__pyx_tstate, type, value, tb)
-static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
-#else
-static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb);
-#endif
-
-/* pep479.proto */
-static void __Pyx_Generator_Replace_StopIteration(int in_async_gen);
-
-/* ArgTypeTest.proto */
-#define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
-    ((likely(__Pyx_IS_TYPE(obj, type) | (none_allowed && (obj == Py_None)))) ? 1 :\
-        __Pyx__ArgTypeTest(obj, type, name, exact))
-static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
 
 /* IterFinish.proto */
 static CYTHON_INLINE int __Pyx_IterFinish(void);
@@ -2665,6 +2662,7 @@ static const char __pyx_k__6[] = ".";
 static const char __pyx_k__7[] = "?";
 static const char __pyx_k_db[] = "db";
 static const char __pyx_k_gc[] = "gc";
+static const char __pyx_k_A_A[] = "\200A\340\025\026\330\031\032\330\032\033\330\014\034\230A\330\t\n";
 static const char __pyx_k_Any[] = "Any";
 static const char __pyx_k_add[] = "add";
 static const char __pyx_k_cls[] = "cls";
@@ -2674,6 +2672,7 @@ static const char __pyx_k_get[] = "get";
 static const char __pyx_k_int[] = "int";
 static const char __pyx_k_pop[] = "pop";
 static const char __pyx_k_str[] = "str";
+static const char __pyx_k_A_DA[] = "\200A\340\025/\320/D\300A\330\t\n";
 static const char __pyx_k_None[] = "None";
 static const char __pyx_k_Type[] = "Type";
 static const char __pyx_k_bind[] = "bind";
@@ -2694,7 +2693,6 @@ static const char __pyx_k_items[] = "items";
 static const char __pyx_k_table[] = "__table__";
 static const char __pyx_k_throw[] = "throw";
 static const char __pyx_k_value[] = "value";
-static const char __pyx_k_commit[] = "commit";
 static const char __pyx_k_create[] = "create";
 static const char __pyx_k_db_get[] = "db_get";
 static const char __pyx_k_delete[] = "delete";
@@ -2706,7 +2704,6 @@ static const char __pyx_k_schema[] = "schema";
 static const char __pyx_k_sqlite[] = "sqlite";
 static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_update[] = "update";
-static const char __pyx_k_A_A_Q_2[] = "\200A\330\036<\270A\330#$\330\025%\240Q\330\025\"\320\"2\260!";
 static const char __pyx_k_A_PPQ_J[] = "\200A\330!;\320;P\320PQ\330&J\310!";
 static const char __pyx_k_A_PPeef[] = "\200A\330!;\320;P\320Pe\320ef";
 static const char __pyx_k_columns[] = "columns";
@@ -2714,9 +2711,7 @@ static const char __pyx_k_dialect[] = "dialect";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_message[] = "message";
 static const char __pyx_k_prepare[] = "__prepare__";
-static const char __pyx_k_refresh[] = "refresh";
 static const char __pyx_k_table_2[] = "table";
-static const char __pyx_k_A_88MQ_2[] = "\200A\330\0368\3208M\310Q\330\025\"\320\"2\260!";
 static const char __pyx_k_add_note[] = "add_note";
 static const char __pyx_k_db_model[] = "db_model";
 static const char __pyx_k_qualname[] = "__qualname__";
@@ -2724,20 +2719,19 @@ static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_type_var[] = "type.var";
 static const char __pyx_k_A_66K1_EQ[] = "\200A\330\0346\3206K\3101\330\023#\320#E\300Q";
 static const char __pyx_k_A_88MMbbc[] = "\200A\330\0368\3208M\320Mb\320bc";
+static const char __pyx_k_A_88MQ_Gq[] = "\200A\330\0368\3208M\310Q\330#$\330\025%\320%G\300q";
 static const char __pyx_k_db_delete[] = "db_delete";
 static const char __pyx_k_db_insert[] = "db_insert";
 static const char __pyx_k_db_update[] = "db_update";
 static const char __pyx_k_field_key[] = "field_key";
 static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_A_88MQ_Q_2[] = "\200A\330\0368\3208M\310Q\330#$\330\025%\240Q\330\025\"\320\"2\260!";
 static const char __pyx_k_SQLModelDB[] = "SQLModelDB";
 static const char __pyx_k_field_name[] = "field_name";
 static const char __pyx_k_model_dump[] = "model_dump";
 static const char __pyx_k_pk_columns[] = "pk_columns";
 static const char __pyx_k_primary_id[] = "primary_id";
 static const char __pyx_k_DataService[] = "DataService";
-static const char __pyx_k_auto_commit[] = "auto_commit";
 static const char __pyx_k_create_data[] = "create_data";
 static const char __pyx_k_model_class[] = "model_class";
 static const char __pyx_k_primary_key[] = "primary_key";
@@ -2797,14 +2791,14 @@ static const char __pyx_k_DataService_get_primary_key_name[] = "DataService.get_
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_12data_service_11DataService_db_insert(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_model); /* proto */
-static PyObject *__pyx_pf_12data_service_11DataService_2create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_model, PyObject *__pyx_v_response_class, PyObject *__pyx_v_auto_commit); /* proto */
+static PyObject *__pyx_pf_12data_service_11DataService_2create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_model, PyObject *__pyx_v_response_class); /* proto */
 static PyObject *__pyx_pf_12data_service_11DataService_5db_get(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class); /* proto */
 static PyObject *__pyx_pf_12data_service_11DataService_8read(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_response_class); /* proto */
 static PyObject *__pyx_pf_12data_service_11DataService_11db_update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_update_model); /* proto */
-static PyObject *__pyx_pf_12data_service_11DataService_14update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_update_model, PyObject *__pyx_v_response_class, PyObject *__pyx_v_auto_commit); /* proto */
+static PyObject *__pyx_pf_12data_service_11DataService_14update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_update_model, PyObject *__pyx_v_response_class); /* proto */
 static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_exception(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_message); /* proto */
 static PyObject *__pyx_pf_12data_service_11DataService_19db_delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class); /* proto */
-static PyObject *__pyx_pf_12data_service_11DataService_22delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_auto_commit); /* proto */
+static PyObject *__pyx_pf_12data_service_11DataService_22delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class); /* proto */
 static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_model_class); /* proto */
 static PyObject *__pyx_pf_12data_service_11DataService_27reset_schema(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_db, PyObject *__pyx_v_model_class); /* proto */
 static PyObject *__pyx_tp_new_12data_service___pyx_scope_struct__create(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -2868,7 +2862,7 @@ typedef struct {
   PyTypeObject *__pyx_ptype_12data_service___pyx_scope_struct_6_delete;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[11];
-  PyObject *__pyx_string_tab[128];
+  PyObject *__pyx_string_tab[125];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2993,92 +2987,89 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_add __pyx_string_tab[39]
 #define __pyx_kp_u_add_note __pyx_string_tab[40]
 #define __pyx_n_u_asyncio_coroutines __pyx_string_tab[41]
-#define __pyx_n_u_auto_commit __pyx_string_tab[42]
-#define __pyx_n_u_await __pyx_string_tab[43]
-#define __pyx_n_u_bind __pyx_string_tab[44]
-#define __pyx_n_u_bool __pyx_string_tab[45]
-#define __pyx_n_u_check_permission __pyx_string_tab[46]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[47]
-#define __pyx_n_u_close __pyx_string_tab[48]
-#define __pyx_n_u_cls __pyx_string_tab[49]
-#define __pyx_n_u_col __pyx_string_tab[50]
-#define __pyx_n_u_columns __pyx_string_tab[51]
-#define __pyx_n_u_commit __pyx_string_tab[52]
-#define __pyx_n_u_create __pyx_string_tab[53]
-#define __pyx_n_u_create_data __pyx_string_tab[54]
-#define __pyx_n_u_create_model __pyx_string_tab[55]
-#define __pyx_n_u_data_service __pyx_string_tab[56]
-#define __pyx_kp_u_data_service_py __pyx_string_tab[57]
-#define __pyx_n_u_db __pyx_string_tab[58]
-#define __pyx_n_u_db_delete __pyx_string_tab[59]
-#define __pyx_n_u_db_get __pyx_string_tab[60]
-#define __pyx_n_u_db_insert __pyx_string_tab[61]
-#define __pyx_n_u_db_model __pyx_string_tab[62]
-#define __pyx_n_u_db_update __pyx_string_tab[63]
-#define __pyx_n_u_delete __pyx_string_tab[64]
-#define __pyx_n_u_dialect __pyx_string_tab[65]
-#define __pyx_kp_u_disable __pyx_string_tab[66]
-#define __pyx_n_u_doc __pyx_string_tab[67]
-#define __pyx_kp_u_enable __pyx_string_tab[68]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[69]
-#define __pyx_n_u_exclude_unset __pyx_string_tab[70]
-#define __pyx_n_u_field __pyx_string_tab[71]
-#define __pyx_n_u_field_key __pyx_string_tab[72]
-#define __pyx_n_u_field_name __pyx_string_tab[73]
-#define __pyx_n_u_func __pyx_string_tab[74]
-#define __pyx_kp_u_gc __pyx_string_tab[75]
-#define __pyx_n_u_get __pyx_string_tab[76]
-#define __pyx_n_u_get_primary_key_name __pyx_string_tab[77]
-#define __pyx_n_u_int __pyx_string_tab[78]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[79]
-#define __pyx_kp_u_isenabled __pyx_string_tab[80]
-#define __pyx_n_u_items __pyx_string_tab[81]
-#define __pyx_n_u_keys __pyx_string_tab[82]
-#define __pyx_n_u_main __pyx_string_tab[83]
-#define __pyx_n_u_message __pyx_string_tab[84]
-#define __pyx_n_u_metaclass __pyx_string_tab[85]
-#define __pyx_n_u_model_class __pyx_string_tab[86]
-#define __pyx_n_u_model_dump __pyx_string_tab[87]
-#define __pyx_n_u_model_fields __pyx_string_tab[88]
-#define __pyx_n_u_model_validate __pyx_string_tab[89]
-#define __pyx_n_u_module __pyx_string_tab[90]
-#define __pyx_n_u_name __pyx_string_tab[91]
-#define __pyx_n_u_name_2 __pyx_string_tab[92]
-#define __pyx_n_u_next __pyx_string_tab[93]
-#define __pyx_n_u_pk_columns __pyx_string_tab[94]
-#define __pyx_n_u_pop __pyx_string_tab[95]
-#define __pyx_n_u_prepare __pyx_string_tab[96]
-#define __pyx_n_u_primary_field __pyx_string_tab[97]
-#define __pyx_n_u_primary_id __pyx_string_tab[98]
-#define __pyx_kp_u_primary_id_2 __pyx_string_tab[99]
-#define __pyx_n_u_primary_key __pyx_string_tab[100]
-#define __pyx_n_u_qualname __pyx_string_tab[101]
-#define __pyx_n_u_raise_data_not_found_exception __pyx_string_tab[102]
-#define __pyx_n_u_read __pyx_string_tab[103]
-#define __pyx_n_u_refresh __pyx_string_tab[104]
-#define __pyx_n_u_reset_schema __pyx_string_tab[105]
-#define __pyx_n_u_response_class __pyx_string_tab[106]
-#define __pyx_n_u_return __pyx_string_tab[107]
-#define __pyx_n_u_schema __pyx_string_tab[108]
-#define __pyx_n_u_send __pyx_string_tab[109]
-#define __pyx_n_u_set_field_with_user_and_tenant __pyx_string_tab[110]
-#define __pyx_n_u_set_name __pyx_string_tab[111]
-#define __pyx_n_u_sqlite __pyx_string_tab[112]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[113]
-#define __pyx_n_u_staticmethod __pyx_string_tab[114]
-#define __pyx_n_u_str __pyx_string_tab[115]
-#define __pyx_n_u_table __pyx_string_tab[116]
-#define __pyx_n_u_table_2 __pyx_string_tab[117]
-#define __pyx_n_u_test __pyx_string_tab[118]
-#define __pyx_n_u_throw __pyx_string_tab[119]
-#define __pyx_n_u_tools_tenant_manager __pyx_string_tab[120]
-#define __pyx_kp_u_type_SQLModelDB __pyx_string_tab[121]
-#define __pyx_n_u_type_var __pyx_string_tab[122]
-#define __pyx_n_u_typing __pyx_string_tab[123]
-#define __pyx_n_u_update __pyx_string_tab[124]
-#define __pyx_n_u_update_data __pyx_string_tab[125]
-#define __pyx_n_u_update_model __pyx_string_tab[126]
-#define __pyx_n_u_value __pyx_string_tab[127]
+#define __pyx_n_u_await __pyx_string_tab[42]
+#define __pyx_n_u_bind __pyx_string_tab[43]
+#define __pyx_n_u_bool __pyx_string_tab[44]
+#define __pyx_n_u_check_permission __pyx_string_tab[45]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[46]
+#define __pyx_n_u_close __pyx_string_tab[47]
+#define __pyx_n_u_cls __pyx_string_tab[48]
+#define __pyx_n_u_col __pyx_string_tab[49]
+#define __pyx_n_u_columns __pyx_string_tab[50]
+#define __pyx_n_u_create __pyx_string_tab[51]
+#define __pyx_n_u_create_data __pyx_string_tab[52]
+#define __pyx_n_u_create_model __pyx_string_tab[53]
+#define __pyx_n_u_data_service __pyx_string_tab[54]
+#define __pyx_kp_u_data_service_py __pyx_string_tab[55]
+#define __pyx_n_u_db __pyx_string_tab[56]
+#define __pyx_n_u_db_delete __pyx_string_tab[57]
+#define __pyx_n_u_db_get __pyx_string_tab[58]
+#define __pyx_n_u_db_insert __pyx_string_tab[59]
+#define __pyx_n_u_db_model __pyx_string_tab[60]
+#define __pyx_n_u_db_update __pyx_string_tab[61]
+#define __pyx_n_u_delete __pyx_string_tab[62]
+#define __pyx_n_u_dialect __pyx_string_tab[63]
+#define __pyx_kp_u_disable __pyx_string_tab[64]
+#define __pyx_n_u_doc __pyx_string_tab[65]
+#define __pyx_kp_u_enable __pyx_string_tab[66]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[67]
+#define __pyx_n_u_exclude_unset __pyx_string_tab[68]
+#define __pyx_n_u_field __pyx_string_tab[69]
+#define __pyx_n_u_field_key __pyx_string_tab[70]
+#define __pyx_n_u_field_name __pyx_string_tab[71]
+#define __pyx_n_u_func __pyx_string_tab[72]
+#define __pyx_kp_u_gc __pyx_string_tab[73]
+#define __pyx_n_u_get __pyx_string_tab[74]
+#define __pyx_n_u_get_primary_key_name __pyx_string_tab[75]
+#define __pyx_n_u_int __pyx_string_tab[76]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[77]
+#define __pyx_kp_u_isenabled __pyx_string_tab[78]
+#define __pyx_n_u_items __pyx_string_tab[79]
+#define __pyx_n_u_keys __pyx_string_tab[80]
+#define __pyx_n_u_main __pyx_string_tab[81]
+#define __pyx_n_u_message __pyx_string_tab[82]
+#define __pyx_n_u_metaclass __pyx_string_tab[83]
+#define __pyx_n_u_model_class __pyx_string_tab[84]
+#define __pyx_n_u_model_dump __pyx_string_tab[85]
+#define __pyx_n_u_model_fields __pyx_string_tab[86]
+#define __pyx_n_u_model_validate __pyx_string_tab[87]
+#define __pyx_n_u_module __pyx_string_tab[88]
+#define __pyx_n_u_name __pyx_string_tab[89]
+#define __pyx_n_u_name_2 __pyx_string_tab[90]
+#define __pyx_n_u_next __pyx_string_tab[91]
+#define __pyx_n_u_pk_columns __pyx_string_tab[92]
+#define __pyx_n_u_pop __pyx_string_tab[93]
+#define __pyx_n_u_prepare __pyx_string_tab[94]
+#define __pyx_n_u_primary_field __pyx_string_tab[95]
+#define __pyx_n_u_primary_id __pyx_string_tab[96]
+#define __pyx_kp_u_primary_id_2 __pyx_string_tab[97]
+#define __pyx_n_u_primary_key __pyx_string_tab[98]
+#define __pyx_n_u_qualname __pyx_string_tab[99]
+#define __pyx_n_u_raise_data_not_found_exception __pyx_string_tab[100]
+#define __pyx_n_u_read __pyx_string_tab[101]
+#define __pyx_n_u_reset_schema __pyx_string_tab[102]
+#define __pyx_n_u_response_class __pyx_string_tab[103]
+#define __pyx_n_u_return __pyx_string_tab[104]
+#define __pyx_n_u_schema __pyx_string_tab[105]
+#define __pyx_n_u_send __pyx_string_tab[106]
+#define __pyx_n_u_set_field_with_user_and_tenant __pyx_string_tab[107]
+#define __pyx_n_u_set_name __pyx_string_tab[108]
+#define __pyx_n_u_sqlite __pyx_string_tab[109]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[110]
+#define __pyx_n_u_staticmethod __pyx_string_tab[111]
+#define __pyx_n_u_str __pyx_string_tab[112]
+#define __pyx_n_u_table __pyx_string_tab[113]
+#define __pyx_n_u_table_2 __pyx_string_tab[114]
+#define __pyx_n_u_test __pyx_string_tab[115]
+#define __pyx_n_u_throw __pyx_string_tab[116]
+#define __pyx_n_u_tools_tenant_manager __pyx_string_tab[117]
+#define __pyx_kp_u_type_SQLModelDB __pyx_string_tab[118]
+#define __pyx_n_u_type_var __pyx_string_tab[119]
+#define __pyx_n_u_typing __pyx_string_tab[120]
+#define __pyx_n_u_update __pyx_string_tab[121]
+#define __pyx_n_u_update_data __pyx_string_tab[122]
+#define __pyx_n_u_update_model __pyx_string_tab[123]
+#define __pyx_n_u_value __pyx_string_tab[124]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3114,7 +3105,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_12data_service___pyx_scope_struct_6_delete);
   Py_CLEAR(clear_module_state->__pyx_type_12data_service___pyx_scope_struct_6_delete);
   for (int i=0; i<11; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<128; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<125; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3150,7 +3141,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_ptype_12data_service___pyx_scope_struct_6_delete);
   Py_VISIT(traverse_module_state->__pyx_type_12data_service___pyx_scope_struct_6_delete);
   for (int i=0; i<11; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<128; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<125; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3469,8 +3460,8 @@ static PyObject *__pyx_gb_12data_service_11DataService_4generator(__pyx_Coroutin
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
+ *     async def create(
+ *             cls, db: AsyncSession, *,
 */
 
 /* Python wrapper */
@@ -3481,7 +3472,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12data_service_11DataService_2create, "\345\210\233\345\273\272\346\226\260\350\256\260\345\275\225\345\271\266\345\217\257\351\200\211\350\207\252\345\212\250\346\217\220\344\272\244\343\200\202\n\n        Args:\n            db (AsyncSession): \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n            model_class (Type[SQLModelDB]): \346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\347\261\273\343\200\202\n            create_model (SQLModelCreate | dict[str, Any]): \345\210\233\345\273\272\346\225\260\346\215\256\343\200\202\n            response_class (Type[SQLModelResponse], optional): \345\223\215\345\272\224\346\250\241\345\236\213\347\261\273\357\274\214\347\224\250\344\272\216\350\277\224\345\233\236\350\275\254\346\215\242\345\220\216\347\232\204\346\225\260\346\215\256\343\200\202\n            auto_commit (bool): \346\230\257\345\220\246\350\207\252\345\212\250\346\217\220\344\272\244\344\272\213\345\212\241\343\200\202\351\273\230\350\256\244\344\270\272 True\343\200\202\n\n        Returns:\n            SQLModelDB | SQLModelResponse: \345\210\233\345\273\272\346\210\220\345\212\237\347\232\204\346\250\241\345\236\213\345\256\236\344\276\213\346\210\226\345\205\266\345\223\215\345\272\224\350\241\250\347\244\272\343\200\202\n        ");
+PyDoc_STRVAR(__pyx_doc_12data_service_11DataService_2create, "\345\210\233\345\273\272\346\226\260\350\256\260\345\275\225\345\271\266\345\217\257\351\200\211\350\207\252\345\212\250\346\217\220\344\272\244\343\200\202\n\n        Args:\n            db (AsyncSession): \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n            model_class (Type[SQLModelDB]): \346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\347\261\273\343\200\202\n            create_model (SQLModelCreate | dict[str, Any]): \345\210\233\345\273\272\346\225\260\346\215\256\343\200\202\n            response_class (Type[SQLModelResponse], optional): \345\223\215\345\272\224\346\250\241\345\236\213\347\261\273\357\274\214\347\224\250\344\272\216\350\277\224\345\233\236\350\275\254\346\215\242\345\220\216\347\232\204\346\225\260\346\215\256\343\200\202\n\n        Returns:\n            SQLModelDB | SQLModelResponse: \345\210\233\345\273\272\346\210\220\345\212\237\347\232\204\346\250\241\345\236\213\345\256\236\344\276\213\346\210\226\345\205\266\345\223\215\345\272\224\350\241\250\347\244\272\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_12data_service_11DataService_3create = {"create", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12data_service_11DataService_3create, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12data_service_11DataService_2create};
 static PyObject *__pyx_pw_12data_service_11DataService_3create(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -3495,12 +3486,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   PyObject *__pyx_v_model_class = 0;
   PyObject *__pyx_v_create_model = 0;
   PyObject *__pyx_v_response_class = 0;
-  PyObject *__pyx_v_auto_commit = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[6] = {0,0,0,0,0,0};
+  PyObject* values[5] = {0,0,0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3516,7 +3506,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_create_model,&__pyx_mstate_global->__pyx_n_u_response_class,&__pyx_mstate_global->__pyx_n_u_auto_commit,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_create_model,&__pyx_mstate_global->__pyx_n_u_response_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
     if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 50, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
@@ -3535,23 +3525,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
       if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "create", 0) < 0) __PYX_ERR(0, 50, __pyx_L3_error)
 
-      /* "data_service.py":53
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
- *                      response_class: Type[SQLModelResponse] = None,             # <<<<<<<<<<<<<<
- *                      auto_commit: bool = True) -> SQLModelDB | SQLModelResponse:
+      /* "data_service.py":55
+ *             model_class: Type[SQLModelDB],
+ *             create_model: SQLModelCreate | dict[str, Any],
+ *             response_class: Type[SQLModelResponse] = None             # <<<<<<<<<<<<<<
+ *     ) -> SQLModelDB | SQLModelResponse:
  *         """
 */
       if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)Py_None));
-
-      /* "data_service.py":54
- *                      create_model: SQLModelCreate | dict[str, Any],
- *                      response_class: Type[SQLModelResponse] = None,
- *                      auto_commit: bool = True) -> SQLModelDB | SQLModelResponse:             # <<<<<<<<<<<<<<
- *         """
- * 
-*/
-      if (!values[5]) values[5] = __Pyx_NewRef(((PyObject *)((PyObject*)Py_True)));
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
         if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("create", 1, 2, 2, i); __PYX_ERR(0, 50, __pyx_L3_error) }
       }
@@ -3568,7 +3549,6 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     __pyx_v_model_class = values[2];
     __pyx_v_create_model = values[3];
     __pyx_v_response_class = values[4];
-    __pyx_v_auto_commit = values[5];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
@@ -3583,14 +3563,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12data_service_11DataService_2create(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_model_class, __pyx_v_create_model, __pyx_v_response_class, __pyx_v_auto_commit);
+  __pyx_r = __pyx_pf_12data_service_11DataService_2create(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_model_class, __pyx_v_create_model, __pyx_v_response_class);
 
   /* "data_service.py":50
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
+ *     async def create(
+ *             cls, db: AsyncSession, *,
 */
 
   /* function exit code */
@@ -3601,7 +3581,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12data_service_11DataService_2create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_model, PyObject *__pyx_v_response_class, PyObject *__pyx_v_auto_commit) {
+static PyObject *__pyx_pf_12data_service_11DataService_2create(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_model_class, PyObject *__pyx_v_create_model, PyObject *__pyx_v_response_class) {
   struct __pyx_obj_12data_service___pyx_scope_struct__create *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3632,9 +3612,6 @@ static PyObject *__pyx_pf_12data_service_11DataService_2create(CYTHON_UNUSED PyO
   __pyx_cur_scope->__pyx_v_response_class = __pyx_v_response_class;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_response_class);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_response_class);
-  __pyx_cur_scope->__pyx_v_auto_commit = __pyx_v_auto_commit;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_auto_commit);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_auto_commit);
   {
     __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_create, __pyx_mstate_global->__pyx_n_u_DataService_create, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
@@ -3661,8 +3638,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_4generator(__pyx_Coroutin
   size_t __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
-  __Pyx_PySendResult __pyx_t_6;
-  int __pyx_t_7;
+  int __pyx_t_6;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3670,8 +3646,6 @@ static PyObject *__pyx_gb_12data_service_11DataService_4generator(__pyx_Coroutin
   __Pyx_RefNannySetupContext("create", 0);
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L5_resume_from_await;
-    case 2: goto __pyx_L6_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -3682,147 +3656,54 @@ static PyObject *__pyx_gb_12data_service_11DataService_4generator(__pyx_Coroutin
     __PYX_ERR(0, 50, __pyx_L1_error)
   }
 
-  /* "data_service.py":67
+  /* "data_service.py":68
  *             SQLModelDB | SQLModelResponse:
  *         """
  *         db_model = cls.db_insert(db, model_class=model_class, create_model=create_model)             # <<<<<<<<<<<<<<
- *         if auto_commit:
- *             await db.commit()
+ *         if response_class and response_class != model_class:
+ *             return response_class.model_validate(db_model)
 */
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_cls;
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_3 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_create_model, __pyx_cur_scope->__pyx_v_create_model, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_db_insert, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_db_model = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "data_service.py":68
+  /* "data_service.py":69
  *         """
  *         db_model = cls.db_insert(db, model_class=model_class, create_model=create_model)
- *         if auto_commit:             # <<<<<<<<<<<<<<
- *             await db.commit()
- *             await db.refresh(db_model)
-*/
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auto_commit); if (unlikely((__pyx_t_5 < 0))) __PYX_ERR(0, 68, __pyx_L1_error)
-  if (__pyx_t_5) {
-
-    /* "data_service.py":69
- *         db_model = cls.db_insert(db, model_class=model_class, create_model=create_model)
- *         if auto_commit:
- *             await db.commit()             # <<<<<<<<<<<<<<
- *             await db.refresh(db_model)
- *         if response_class and response_class != model_class:
-*/
-    __pyx_t_4 = __pyx_cur_scope->__pyx_v_db;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_3 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_commit, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_6 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_6 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 1;
-      return __pyx_r;
-      __pyx_L5_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 69, __pyx_L1_error)
-    } else if (likely(__pyx_t_6 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 69, __pyx_L1_error)
-    }
-
-    /* "data_service.py":70
- *         if auto_commit:
- *             await db.commit()
- *             await db.refresh(db_model)             # <<<<<<<<<<<<<<
- *         if response_class and response_class != model_class:
- *             return response_class.model_validate(db_model)
-*/
-    __pyx_t_4 = __pyx_cur_scope->__pyx_v_db;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_3 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_db_model};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_refresh, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_6 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_6 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 2;
-      return __pyx_r;
-      __pyx_L6_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 70, __pyx_L1_error)
-    } else if (likely(__pyx_t_6 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 70, __pyx_L1_error)
-    }
-
-    /* "data_service.py":68
- *         """
- *         db_model = cls.db_insert(db, model_class=model_class, create_model=create_model)
- *         if auto_commit:             # <<<<<<<<<<<<<<
- *             await db.commit()
- *             await db.refresh(db_model)
-*/
-  }
-
-  /* "data_service.py":71
- *             await db.commit()
- *             await db.refresh(db_model)
  *         if response_class and response_class != model_class:             # <<<<<<<<<<<<<<
  *             return response_class.model_validate(db_model)
  *         return db_model
 */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_response_class); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
-  if (__pyx_t_7) {
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_response_class); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 69, __pyx_L1_error)
+  if (__pyx_t_6) {
   } else {
-    __pyx_t_5 = __pyx_t_7;
-    goto __pyx_L8_bool_binop_done;
+    __pyx_t_5 = __pyx_t_6;
+    goto __pyx_L5_bool_binop_done;
   }
-  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_response_class, __pyx_cur_scope->__pyx_v_model_class, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_response_class, __pyx_cur_scope->__pyx_v_model_class, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __pyx_t_7;
-  __pyx_L8_bool_binop_done:;
+  __pyx_t_5 = __pyx_t_6;
+  __pyx_L5_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "data_service.py":72
- *             await db.refresh(db_model)
+    /* "data_service.py":70
+ *         db_model = cls.db_insert(db, model_class=model_class, create_model=create_model)
  *         if response_class and response_class != model_class:
  *             return response_class.model_validate(db_model)             # <<<<<<<<<<<<<<
  *         return db_model
@@ -3836,23 +3717,23 @@ static PyObject *__pyx_gb_12data_service_11DataService_4generator(__pyx_Coroutin
       PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_db_model};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_model_validate, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "data_service.py":71
- *             await db.commit()
- *             await db.refresh(db_model)
+    /* "data_service.py":69
+ *         """
+ *         db_model = cls.db_insert(db, model_class=model_class, create_model=create_model)
  *         if response_class and response_class != model_class:             # <<<<<<<<<<<<<<
  *             return response_class.model_validate(db_model)
  *         return db_model
 */
   }
 
-  /* "data_service.py":73
+  /* "data_service.py":71
  *         if response_class and response_class != model_class:
  *             return response_class.model_validate(db_model)
  *         return db_model             # <<<<<<<<<<<<<<
@@ -3869,8 +3750,8 @@ static PyObject *__pyx_gb_12data_service_11DataService_4generator(__pyx_Coroutin
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
+ *     async def create(
+ *             cls, db: AsyncSession, *,
 */
 
   /* function exit code */
@@ -3894,7 +3775,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_4generator(__pyx_Coroutin
 }
 static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "data_service.py":75
+/* "data_service.py":73
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -3945,36 +3826,36 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 75, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 73, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 73, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 73, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 73, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "db_get", 0) < 0) __PYX_ERR(0, 75, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "db_get", 0) < 0) __PYX_ERR(0, 73, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("db_get", 1, 3, 3, i); __PYX_ERR(0, 75, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("db_get", 1, 3, 3, i); __PYX_ERR(0, 73, __pyx_L3_error) }
       }
       for (Py_ssize_t i = 3; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("db_get", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 75, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("db_get", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 73, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("db_get", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 75, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("db_get", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 73, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_db = values[1];
@@ -3983,7 +3864,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("db_get", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 75, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("db_get", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 73, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3994,7 +3875,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 76, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 74, __pyx_L1_error)
   __pyx_r = __pyx_pf_12data_service_11DataService_5db_get(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_primary_id, __pyx_v_model_class);
 
   /* function exit code */
@@ -4026,7 +3907,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_5db_get(CYTHON_UNUSED PyO
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12data_service___pyx_scope_struct_1_db_get *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 75, __pyx_L1_error)
+    __PYX_ERR(0, 73, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -4043,7 +3924,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_5db_get(CYTHON_UNUSED PyO
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_model_class);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_model_class);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_7generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_db_get, __pyx_mstate_global->__pyx_n_u_DataService_db_get, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_7generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_db_get, __pyx_mstate_global->__pyx_n_u_DataService_db_get, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 73, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4069,7 +3950,6 @@ static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_Corouti
   __Pyx_PySendResult __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
-  int __pyx_t_7;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4085,10 +3965,10 @@ static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_Corouti
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 75, __pyx_L1_error)
+    __PYX_ERR(0, 73, __pyx_L1_error)
   }
 
-  /* "data_service.py":89
+  /* "data_service.py":87
  *             SQLModelDB | None:  None
  *         """
  *         cls.reset_schema(db, model_class)             # <<<<<<<<<<<<<<
@@ -4102,17 +3982,17 @@ static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_Corouti
     PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_model_class};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_reset_schema, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "data_service.py":90
+  /* "data_service.py":88
  *         """
  *         cls.reset_schema(db, model_class)
  *         db_model = await db.get(model_class, primary_id)             # <<<<<<<<<<<<<<
  *         TenantManager.check_permission(db_model)
- *         return None if db_model is None else db_model
+ *         return db_model
 */
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_db;
   __Pyx_INCREF(__pyx_t_2);
@@ -4121,7 +4001,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_Corouti
     PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_model_class, __pyx_cur_scope->__pyx_v_primary_id};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_4 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4135,30 +4015,30 @@ static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_Corouti
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 88, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_4 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 90, __pyx_L1_error)
+    __PYX_ERR(0, 88, __pyx_L1_error)
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_db_model = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "data_service.py":91
+  /* "data_service.py":89
  *         cls.reset_schema(db, model_class)
  *         db_model = await db.get(model_class, primary_id)
  *         TenantManager.check_permission(db_model)             # <<<<<<<<<<<<<<
- *         return None if db_model is None else db_model
+ *         return db_model
  * 
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_TenantManager); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_check_permission); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_check_permission); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_3 = 1;
@@ -4178,33 +4058,25 @@ static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_Corouti
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "data_service.py":92
+  /* "data_service.py":90
  *         db_model = await db.get(model_class, primary_id)
  *         TenantManager.check_permission(db_model)
- *         return None if db_model is None else db_model             # <<<<<<<<<<<<<<
+ *         return db_model             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_7 = (__pyx_cur_scope->__pyx_v_db_model == Py_None);
-  if (__pyx_t_7) {
-    __Pyx_INCREF(Py_None);
-    __pyx_t_1 = Py_None;
-  } else {
-    __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db_model);
-    __pyx_t_1 = __pyx_cur_scope->__pyx_v_db_model;
-  }
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_db_model);
+  __pyx_r = __pyx_cur_scope->__pyx_v_db_model;
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "data_service.py":75
+  /* "data_service.py":73
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -4234,8 +4106,8 @@ static PyObject *__pyx_gb_12data_service_11DataService_7generator1(__pyx_Corouti
 }
 static PyObject *__pyx_gb_12data_service_11DataService_10generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "data_service.py":94
- *         return None if db_model is None else db_model
+/* "data_service.py":92
+ *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
@@ -4286,28 +4158,28 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_response_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 94, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 92, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 94, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 92, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 94, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 92, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 94, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 92, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "read", 0) < 0) __PYX_ERR(0, 94, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "read", 0) < 0) __PYX_ERR(0, 92, __pyx_L3_error)
 
-      /* "data_service.py":96
+      /* "data_service.py":94
  *     @classmethod
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                    response_class: Type[SQLModelResponse] = None) -> SQLModelDB | SQLModelResponse:             # <<<<<<<<<<<<<<
@@ -4316,15 +4188,15 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 */
       if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("read", 1, 3, 3, i); __PYX_ERR(0, 94, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("read", 1, 3, 3, i); __PYX_ERR(0, 92, __pyx_L3_error) }
       }
       for (Py_ssize_t i = 3; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("read", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 94, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("read", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 92, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("read", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 94, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("read", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 92, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_db = values[1];
@@ -4334,7 +4206,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("read", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 94, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("read", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 92, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4345,11 +4217,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 93, __pyx_L1_error)
   __pyx_r = __pyx_pf_12data_service_11DataService_8read(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_primary_id, __pyx_v_model_class, __pyx_v_response_class);
 
-  /* "data_service.py":94
- *         return None if db_model is None else db_model
+  /* "data_service.py":92
+ *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
@@ -4385,7 +4257,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_8read(CYTHON_UNUSED PyObj
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12data_service___pyx_scope_struct_2_read *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 94, __pyx_L1_error)
+    __PYX_ERR(0, 92, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -4405,7 +4277,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_8read(CYTHON_UNUSED PyObj
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_response_class);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_response_class);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_10generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_read, __pyx_mstate_global->__pyx_n_u_DataService_read, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_10generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_read, __pyx_mstate_global->__pyx_n_u_DataService_read, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 92, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4447,29 +4319,29 @@ static PyObject *__pyx_gb_12data_service_11DataService_10generator2(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 94, __pyx_L1_error)
+    __PYX_ERR(0, 92, __pyx_L1_error)
   }
 
-  /* "data_service.py":111
+  /* "data_service.py":109
  *             DataNotFoundException:
  *         """
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)             # <<<<<<<<<<<<<<
  *         if not db_model:
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
+ *             cls._raise_data_not_found_exception(
 */
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_cls;
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_3 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_primary_id, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_primary_id, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 109, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_db_get, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4483,61 +4355,69 @@ static PyObject *__pyx_gb_12data_service_11DataService_10generator2(__pyx_Corout
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 111, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 109, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 111, __pyx_L1_error)
+    __PYX_ERR(0, 109, __pyx_L1_error)
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_db_model = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "data_service.py":112
+  /* "data_service.py":110
  *         """
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)
  *         if not db_model:             # <<<<<<<<<<<<<<
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if response_class:
+ *             cls._raise_data_not_found_exception(
+ *                 primary_id, model_class, ""
 */
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db_model); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 112, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db_model); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 110, __pyx_L1_error)
   __pyx_t_7 = (!__pyx_t_6);
   if (__pyx_t_7) {
 
-    /* "data_service.py":113
+    /* "data_service.py":111
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)
  *         if not db_model:
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")             # <<<<<<<<<<<<<<
- *         if response_class:
- *             return response_class.model_validate(db_model)
+ *             cls._raise_data_not_found_exception(             # <<<<<<<<<<<<<<
+ *                 primary_id, model_class, ""
+ *             )
 */
     __pyx_t_4 = __pyx_cur_scope->__pyx_v_cls;
     __Pyx_INCREF(__pyx_t_4);
+
+    /* "data_service.py":112
+ *         if not db_model:
+ *             cls._raise_data_not_found_exception(
+ *                 primary_id, model_class, ""             # <<<<<<<<<<<<<<
+ *             )
+ *         if response_class:
+*/
     __pyx_t_3 = 0;
     {
       PyObject *__pyx_callargs[4] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_primary_id, __pyx_cur_scope->__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_raise_data_not_found_exception, __pyx_callargs+__pyx_t_3, (4-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "data_service.py":112
+    /* "data_service.py":110
  *         """
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)
  *         if not db_model:             # <<<<<<<<<<<<<<
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if response_class:
+ *             cls._raise_data_not_found_exception(
+ *                 primary_id, model_class, ""
 */
   }
 
   /* "data_service.py":114
- *         if not db_model:
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
+ *                 primary_id, model_class, ""
+ *             )
  *         if response_class:             # <<<<<<<<<<<<<<
  *             return response_class.model_validate(db_model)
  *         return db_model
@@ -4546,7 +4426,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_10generator2(__pyx_Corout
   if (__pyx_t_7) {
 
     /* "data_service.py":115
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
+ *             )
  *         if response_class:
  *             return response_class.model_validate(db_model)             # <<<<<<<<<<<<<<
  *         return db_model
@@ -4568,8 +4448,8 @@ static PyObject *__pyx_gb_12data_service_11DataService_10generator2(__pyx_Corout
     goto __pyx_L0;
 
     /* "data_service.py":114
- *         if not db_model:
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
+ *                 primary_id, model_class, ""
+ *             )
  *         if response_class:             # <<<<<<<<<<<<<<
  *             return response_class.model_validate(db_model)
  *         return db_model
@@ -4589,8 +4469,8 @@ static PyObject *__pyx_gb_12data_service_11DataService_10generator2(__pyx_Corout
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "data_service.py":94
- *         return None if db_model is None else db_model
+  /* "data_service.py":92
+ *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
@@ -5158,7 +5038,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12data_service_11DataService_14update, "\346\233\264\346\226\260\350\256\260\345\275\225\345\271\266\345\217\257\351\200\211\350\207\252\345\212\250\346\217\220\344\272\244\343\200\202\n\n        Args:\n            db (AsyncSession): \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n            primary_id (int): \344\270\273\351\224\256 ID\343\200\202\n            model_class (Type[SQLModelDB]): \346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\347\261\273\343\200\202\n            update_model (SQLModelUpdate | dict[str, Any]): \346\233\264\346\226\260\346\225\260\346\215\256\343\200\202\n            response_class (Type[SQLModelResponse], optional): \345\223\215\345\272\224\346\250\241\345\236\213\347\261\273\343\200\202\n            auto_commit (bool): \346\230\257\345\220\246\350\207\252\345\212\250\346\217\220\344\272\244\344\272\213\345\212\241\343\200\202\351\273\230\350\256\244\344\270\272 True\343\200\202\n\n        Returns:\n            SQLModelDB | SQLModelResponse: \346\233\264\346\226\260\345\220\216\347\232\204\350\256\260\345\275\225\343\200\202\n\n        Raises:\n            DataNotFoundException: \350\213\245\350\256\260\345\275\225\344\270\215\345\255\230\345\234\250\346\210\226\346\227\240\346\235\203\351\231\220\350\256\277\351\227\256\343\200\202\n        ");
+PyDoc_STRVAR(__pyx_doc_12data_service_11DataService_14update, "\346\233\264\346\226\260\350\256\260\345\275\225\345\271\266\345\217\257\351\200\211\350\207\252\345\212\250\346\217\220\344\272\244\343\200\202\n\n        Args:\n            db (AsyncSession): \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n            primary_id (int): \344\270\273\351\224\256 ID\343\200\202\n            model_class (Type[SQLModelDB]): \346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\347\261\273\343\200\202\n            update_model (SQLModelUpdate | dict[str, Any]): \346\233\264\346\226\260\346\225\260\346\215\256\343\200\202\n            response_class (Type[SQLModelResponse], optional): \345\223\215\345\272\224\346\250\241\345\236\213\347\261\273\343\200\202\n\n        Returns:\n            SQLModelDB | SQLModelResponse: \346\233\264\346\226\260\345\220\216\347\232\204\350\256\260\345\275\225\343\200\202\n\n        Raises:\n            DataNotFoundException: \350\213\245\350\256\260\345\275\225\344\270\215\345\255\230\345\234\250\346\210\226\346\227\240\346\235\203\351\231\220\350\256\277\351\227\256\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_12data_service_11DataService_15update = {"update", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12data_service_11DataService_15update, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12data_service_11DataService_14update};
 static PyObject *__pyx_pw_12data_service_11DataService_15update(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -5173,12 +5053,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   PyObject *__pyx_v_model_class = 0;
   PyObject *__pyx_v_update_model = 0;
   PyObject *__pyx_v_response_class = 0;
-  PyObject *__pyx_v_auto_commit = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[7] = {0,0,0,0,0,0,0};
+  PyObject* values[6] = {0,0,0,0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -5194,7 +5073,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_update_model,&__pyx_mstate_global->__pyx_n_u_response_class,&__pyx_mstate_global->__pyx_n_u_auto_commit,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_update_model,&__pyx_mstate_global->__pyx_n_u_response_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
     if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 147, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
@@ -5220,20 +5099,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       /* "data_service.py":150
  *     async def update(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                      update_model: SQLModelUpdate | dict[str, Any],
- *                      response_class: Type[SQLModelResponse] = None,             # <<<<<<<<<<<<<<
- *                      auto_commit: bool = True) -> SQLModelDB | SQLModelResponse:
- *         """
-*/
-      if (!values[5]) values[5] = __Pyx_NewRef(((PyObject *)Py_None));
-
-      /* "data_service.py":151
- *                      update_model: SQLModelUpdate | dict[str, Any],
- *                      response_class: Type[SQLModelResponse] = None,
- *                      auto_commit: bool = True) -> SQLModelDB | SQLModelResponse:             # <<<<<<<<<<<<<<
+ *                      response_class: Type[SQLModelResponse] = None) -> SQLModelDB | SQLModelResponse:             # <<<<<<<<<<<<<<
  *         """
  * 
 */
-      if (!values[6]) values[6] = __Pyx_NewRef(((PyObject *)((PyObject*)Py_True)));
+      if (!values[5]) values[5] = __Pyx_NewRef(((PyObject *)Py_None));
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
         if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("update", 1, 3, 3, i); __PYX_ERR(0, 147, __pyx_L3_error) }
       }
@@ -5251,7 +5121,6 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     __pyx_v_model_class = values[3];
     __pyx_v_update_model = values[4];
     __pyx_v_response_class = values[5];
-    __pyx_v_auto_commit = values[6];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
@@ -5267,7 +5136,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 148, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12data_service_11DataService_14update(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_primary_id, __pyx_v_model_class, __pyx_v_update_model, __pyx_v_response_class, __pyx_v_auto_commit);
+  __pyx_r = __pyx_pf_12data_service_11DataService_14update(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_primary_id, __pyx_v_model_class, __pyx_v_update_model, __pyx_v_response_class);
 
   /* "data_service.py":147
  *         return db_model
@@ -5294,7 +5163,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12data_service_11DataService_14update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_update_model, PyObject *__pyx_v_response_class, PyObject *__pyx_v_auto_commit) {
+static PyObject *__pyx_pf_12data_service_11DataService_14update(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_update_model, PyObject *__pyx_v_response_class) {
   struct __pyx_obj_12data_service___pyx_scope_struct_4_update *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5328,9 +5197,6 @@ static PyObject *__pyx_pf_12data_service_11DataService_14update(CYTHON_UNUSED Py
   __pyx_cur_scope->__pyx_v_response_class = __pyx_v_response_class;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_response_class);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_response_class);
-  __pyx_cur_scope->__pyx_v_auto_commit = __pyx_v_auto_commit;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_auto_commit);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_auto_commit);
   {
     __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_16generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_update, __pyx_mstate_global->__pyx_n_u_DataService_update, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 147, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
@@ -5367,8 +5233,6 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L4_resume_from_await;
-    case 2: goto __pyx_L7_resume_from_await;
-    case 3: goto __pyx_L8_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -5379,7 +5243,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
     __PYX_ERR(0, 147, __pyx_L1_error)
   }
 
-  /* "data_service.py":168
+  /* "data_service.py":166
  *             DataNotFoundException:
  *         """
  *         db_model = await cls.db_update(db, primary_id=primary_id, model_class=model_class,             # <<<<<<<<<<<<<<
@@ -5389,7 +5253,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_cls;
   __Pyx_INCREF(__pyx_t_2);
 
-  /* "data_service.py":169
+  /* "data_service.py":167
  *         """
  *         db_model = await cls.db_update(db, primary_id=primary_id, model_class=model_class,
  *                                        update_model=update_model)             # <<<<<<<<<<<<<<
@@ -5399,15 +5263,15 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
   __pyx_t_3 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_primary_id, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_update_model, __pyx_t_4, __pyx_callargs+2, 2) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_primary_id, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_update_model, __pyx_cur_scope->__pyx_v_update_model, __pyx_t_4, __pyx_callargs+2, 2) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_db_update, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -5421,36 +5285,36 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 168, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 166, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 168, __pyx_L1_error)
+    __PYX_ERR(0, 166, __pyx_L1_error)
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_db_model = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "data_service.py":170
+  /* "data_service.py":168
  *         db_model = await cls.db_update(db, primary_id=primary_id, model_class=model_class,
  *                                        update_model=update_model)
  *         if not db_model:             # <<<<<<<<<<<<<<
  *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:
+ *         if response_class:
 */
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db_model); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db_model); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 168, __pyx_L1_error)
   __pyx_t_7 = (!__pyx_t_6);
   if (__pyx_t_7) {
 
-    /* "data_service.py":171
+    /* "data_service.py":169
  *                                        update_model=update_model)
  *         if not db_model:
  *             cls._raise_data_not_found_exception(primary_id, model_class, "")             # <<<<<<<<<<<<<<
- *         if auto_commit:
- *             await db.commit()
+ *         if response_class:
+ *             return response_class.model_validate(db_model)
 */
     __pyx_t_4 = __pyx_cur_scope->__pyx_v_cls;
     __Pyx_INCREF(__pyx_t_4);
@@ -5459,125 +5323,32 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
       PyObject *__pyx_callargs[4] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_primary_id, __pyx_cur_scope->__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u__2};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_raise_data_not_found_exception, __pyx_callargs+__pyx_t_3, (4-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "data_service.py":170
+    /* "data_service.py":168
  *         db_model = await cls.db_update(db, primary_id=primary_id, model_class=model_class,
  *                                        update_model=update_model)
  *         if not db_model:             # <<<<<<<<<<<<<<
  *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:
+ *         if response_class:
 */
   }
 
-  /* "data_service.py":172
+  /* "data_service.py":170
  *         if not db_model:
  *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:             # <<<<<<<<<<<<<<
- *             await db.commit()
- *             await db.refresh(db_model)
-*/
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auto_commit); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 172, __pyx_L1_error)
-  if (__pyx_t_7) {
-
-    /* "data_service.py":173
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:
- *             await db.commit()             # <<<<<<<<<<<<<<
- *             await db.refresh(db_model)
- *         if response_class:
-*/
-    __pyx_t_4 = __pyx_cur_scope->__pyx_v_db;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_3 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_commit, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_5 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 2;
-      return __pyx_r;
-      __pyx_L7_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 173, __pyx_L1_error)
-    } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 173, __pyx_L1_error)
-    }
-
-    /* "data_service.py":174
- *         if auto_commit:
- *             await db.commit()
- *             await db.refresh(db_model)             # <<<<<<<<<<<<<<
- *         if response_class:
- *             return response_class.model_validate(db_model)
-*/
-    __pyx_t_4 = __pyx_cur_scope->__pyx_v_db;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_3 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_db_model};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_refresh, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_5 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 3;
-      return __pyx_r;
-      __pyx_L8_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 174, __pyx_L1_error)
-    } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 174, __pyx_L1_error)
-    }
-
-    /* "data_service.py":172
- *         if not db_model:
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:             # <<<<<<<<<<<<<<
- *             await db.commit()
- *             await db.refresh(db_model)
-*/
-  }
-
-  /* "data_service.py":175
- *             await db.commit()
- *             await db.refresh(db_model)
  *         if response_class:             # <<<<<<<<<<<<<<
  *             return response_class.model_validate(db_model)
  *         return db_model
 */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_response_class); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_response_class); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 170, __pyx_L1_error)
   if (__pyx_t_7) {
 
-    /* "data_service.py":176
- *             await db.refresh(db_model)
+    /* "data_service.py":171
+ *             cls._raise_data_not_found_exception(primary_id, model_class, "")
  *         if response_class:
  *             return response_class.model_validate(db_model)             # <<<<<<<<<<<<<<
  *         return db_model
@@ -5591,23 +5362,23 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
       PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_db_model};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_model_validate, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "data_service.py":175
- *             await db.commit()
- *             await db.refresh(db_model)
+    /* "data_service.py":170
+ *         if not db_model:
+ *             cls._raise_data_not_found_exception(primary_id, model_class, "")
  *         if response_class:             # <<<<<<<<<<<<<<
  *             return response_class.model_validate(db_model)
  *         return db_model
 */
   }
 
-  /* "data_service.py":177
+  /* "data_service.py":172
  *         if response_class:
  *             return response_class.model_validate(db_model)
  *         return db_model             # <<<<<<<<<<<<<<
@@ -5648,7 +5419,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_16generator4(__pyx_Corout
   return __pyx_r;
 }
 
-/* "data_service.py":179
+/* "data_service.py":174
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5699,44 +5470,44 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_message,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 179, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 174, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  4:
         values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 179, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 174, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 179, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 174, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 179, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 174, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 179, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 174, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_raise_data_not_found_exception", 0) < 0) __PYX_ERR(0, 179, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_raise_data_not_found_exception", 0) < 0) __PYX_ERR(0, 174, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_raise_data_not_found_exception", 1, 4, 4, i); __PYX_ERR(0, 179, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_raise_data_not_found_exception", 1, 4, 4, i); __PYX_ERR(0, 174, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 4)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 179, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 174, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 179, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 174, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 179, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 174, __pyx_L3_error)
       values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 179, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 174, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_primary_id = ((PyObject*)values[1]);
@@ -5745,7 +5516,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_raise_data_not_found_exception", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 179, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_raise_data_not_found_exception", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 174, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5756,8 +5527,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 180, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), (&PyUnicode_Type), 0, "message", 2))) __PYX_ERR(0, 180, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 175, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_message), (&PyUnicode_Type), 0, "message", 2))) __PYX_ERR(0, 175, __pyx_L1_error)
   __pyx_r = __pyx_pf_12data_service_11DataService_17_raise_data_not_found_exception(__pyx_self, __pyx_v_cls, __pyx_v_primary_id, __pyx_v_model_class, __pyx_v_message);
 
   /* function exit code */
@@ -5795,7 +5566,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_raise_data_not_found_exception", 0);
 
-  /* "data_service.py":188
+  /* "data_service.py":183
  *             message (str):
  *         """
  *         field_name = cls.get_primary_key_name(model_class)             # <<<<<<<<<<<<<<
@@ -5809,13 +5580,13 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_v_model_class};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_primary_key_name, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_field_name = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "data_service.py":189
+  /* "data_service.py":184
  *         """
  *         field_name = cls.get_primary_key_name(model_class)
  *         raise DataNotFoundException(             # <<<<<<<<<<<<<<
@@ -5823,10 +5594,10 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
  *             model_class=model_class.__name__,
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_DataNotFoundException); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_DataNotFoundException); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "data_service.py":190
+  /* "data_service.py":185
  *         field_name = cls.get_primary_key_name(model_class)
  *         raise DataNotFoundException(
  *             message=f"{message if message else ''}{model_class.__name__}, primary_id ",             # <<<<<<<<<<<<<<
@@ -5835,7 +5606,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
 */
   {
     Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_v_message);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 190, __pyx_L1_error)
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 185, __pyx_L1_error)
     __pyx_t_6 = (__pyx_temp != 0);
   }
 
@@ -5846,12 +5617,12 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
     __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u__3);
     __pyx_t_5 = __pyx_mstate_global->__pyx_n_u__3;
   }
-  __pyx_t_7 = __Pyx_PyUnicode_Unicode(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyUnicode_Unicode(__pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_9[0] = __pyx_t_7;
@@ -5859,22 +5630,22 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
   __pyx_t_9[2] = __pyx_t_8;
   __pyx_t_9[3] = __pyx_mstate_global->__pyx_kp_u_primary_id_2;
   __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_9, 4, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7) + 1 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8) + 21, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8));
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 190, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "data_service.py":191
+  /* "data_service.py":186
  *         raise DataNotFoundException(
  *             message=f"{message if message else ''}{model_class.__name__}, primary_id ",
  *             model_class=model_class.__name__,             # <<<<<<<<<<<<<<
  *             primary_field=field_name,
  *             primary_id=primary_id
 */
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 186, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
 
-  /* "data_service.py":193
+  /* "data_service.py":188
  *             model_class=model_class.__name__,
  *             primary_field=field_name,
  *             primary_id=primary_id             # <<<<<<<<<<<<<<
@@ -5895,26 +5666,26 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 4 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_MakeVectorcallBuilderKwds(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 184, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_t_5, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 189, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_8, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 189, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_field, __pyx_v_field_name, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 189, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_v_primary_id, __pyx_t_7, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 189, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_message, __pyx_t_5, __pyx_t_7, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_t_8, __pyx_t_7, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_field, __pyx_v_field_name, __pyx_t_7, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_v_primary_id, __pyx_t_7, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (__pyx_t_3*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_Raise(__pyx_t_1, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __PYX_ERR(0, 189, __pyx_L1_error)
+  __PYX_ERR(0, 184, __pyx_L1_error)
 
-  /* "data_service.py":179
+  /* "data_service.py":174
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5939,7 +5710,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_17_raise_data_not_found_e
 }
 static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "data_service.py":196
+/* "data_service.py":191
  *         )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -5990,36 +5761,36 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 196, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 191, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 196, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 191, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 196, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 191, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 196, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 191, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "db_delete", 0) < 0) __PYX_ERR(0, 196, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "db_delete", 0) < 0) __PYX_ERR(0, 191, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("db_delete", 1, 3, 3, i); __PYX_ERR(0, 196, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("db_delete", 1, 3, 3, i); __PYX_ERR(0, 191, __pyx_L3_error) }
       }
       for (Py_ssize_t i = 3; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("db_delete", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 196, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("db_delete", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 191, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("db_delete", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 196, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("db_delete", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 191, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_db = values[1];
@@ -6028,7 +5799,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("db_delete", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 196, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("db_delete", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 191, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6039,7 +5810,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 197, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 192, __pyx_L1_error)
   __pyx_r = __pyx_pf_12data_service_11DataService_19db_delete(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_primary_id, __pyx_v_model_class);
 
   /* function exit code */
@@ -6071,7 +5842,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_19db_delete(CYTHON_UNUSED
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12data_service___pyx_scope_struct_5_db_delete *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 196, __pyx_L1_error)
+    __PYX_ERR(0, 191, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -6088,7 +5859,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_19db_delete(CYTHON_UNUSED
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_model_class);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_model_class);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_21generator5, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_db_delete, __pyx_mstate_global->__pyx_n_u_DataService_db_delete, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_21generator5, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_db_delete, __pyx_mstate_global->__pyx_n_u_DataService_db_delete, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6131,10 +5902,10 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 196, __pyx_L1_error)
+    __PYX_ERR(0, 191, __pyx_L1_error)
   }
 
-  /* "data_service.py":208
+  /* "data_service.py":203
  *             bool:  True False
  *         """
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)             # <<<<<<<<<<<<<<
@@ -6146,14 +5917,14 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
   __pyx_t_3 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 208, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_primary_id, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_primary_id, __pyx_cur_scope->__pyx_v_primary_id, __pyx_t_4, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 203, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 203, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_db_get, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -6167,31 +5938,31 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L4_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 208, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 203, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 208, __pyx_L1_error)
+    __PYX_ERR(0, 203, __pyx_L1_error)
   }
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_db_model = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "data_service.py":209
+  /* "data_service.py":204
  *         """
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)
  *         if not db_model:             # <<<<<<<<<<<<<<
  *             return False
  *         await db.delete(db_model)
 */
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db_model); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_db_model); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 204, __pyx_L1_error)
   __pyx_t_7 = (!__pyx_t_6);
   if (__pyx_t_7) {
 
-    /* "data_service.py":210
+    /* "data_service.py":205
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)
  *         if not db_model:
  *             return False             # <<<<<<<<<<<<<<
@@ -6203,7 +5974,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "data_service.py":209
+    /* "data_service.py":204
  *         """
  *         db_model = await cls.db_get(db, primary_id=primary_id, model_class=model_class)
  *         if not db_model:             # <<<<<<<<<<<<<<
@@ -6212,7 +5983,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
 */
   }
 
-  /* "data_service.py":211
+  /* "data_service.py":206
  *         if not db_model:
  *             return False
  *         await db.delete(db_model)             # <<<<<<<<<<<<<<
@@ -6226,7 +5997,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
     PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_db_model};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_delete, __pyx_callargs+__pyx_t_3, (2-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -6240,16 +6011,16 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
     __pyx_generator->resume_label = 2;
     return __pyx_r;
     __pyx_L6_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 211, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 206, __pyx_L1_error)
   } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_DECREF(__pyx_r); __pyx_r = 0;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 211, __pyx_L1_error)
+    __PYX_ERR(0, 206, __pyx_L1_error)
   }
 
-  /* "data_service.py":212
+  /* "data_service.py":207
  *             return False
  *         await db.delete(db_model)
  *         return True             # <<<<<<<<<<<<<<
@@ -6262,7 +6033,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "data_service.py":196
+  /* "data_service.py":191
  *         )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -6291,12 +6062,12 @@ static PyObject *__pyx_gb_12data_service_11DataService_21generator5(__pyx_Corout
 }
 static PyObject *__pyx_gb_12data_service_11DataService_24generator6(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "data_service.py":214
+/* "data_service.py":209
  *         return True
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def delete(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
- *                      auto_commit: bool = True) -> bool:
+ *     async def delete(
+ *             cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB]
 */
 
 /* Python wrapper */
@@ -6307,7 +6078,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_12data_service_11DataService_22delete, "\345\210\240\351\231\244\350\256\260\345\275\225\345\271\266\345\217\257\351\200\211\350\207\252\345\212\250\346\217\220\344\272\244\343\200\202\n\n        Args:\n            db (AsyncSession): \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n            primary_id (int): \344\270\273\351\224\256 ID\343\200\202\n            model_class (Type[SQLModelDB]): \346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\347\261\273\343\200\202\n            auto_commit (bool): \346\230\257\345\220\246\350\207\252\345\212\250\346\217\220\344\272\244\344\272\213\345\212\241\343\200\202\351\273\230\350\256\244\344\270\272 True\343\200\202\n\n        Returns:\n            bool: \345\210\240\351\231\244\346\210\220\345\212\237\350\277\224\345\233\236 True\343\200\202\n\n        Raises:\n            DataNotFoundException: \350\213\245\350\256\260\345\275\225\344\270\215\345\255\230\345\234\250\346\210\226\346\227\240\346\235\203\351\231\220\350\256\277\351\227\256\343\200\202\n        ");
+PyDoc_STRVAR(__pyx_doc_12data_service_11DataService_22delete, "\345\210\240\351\231\244\350\256\260\345\275\225\345\271\266\345\217\257\351\200\211\350\207\252\345\212\250\346\217\220\344\272\244\343\200\202\n\n        Args:\n            db (AsyncSession): \345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235\343\200\202\n            primary_id (int): \344\270\273\351\224\256 ID\343\200\202\n            model_class (Type[SQLModelDB]): \346\225\260\346\215\256\345\272\223\346\250\241\345\236\213\347\261\273\343\200\202\n\n        Returns:\n            bool: \345\210\240\351\231\244\346\210\220\345\212\237\350\277\224\345\233\236 True\343\200\202\n\n        Raises:\n            DataNotFoundException: \350\213\245\350\256\260\345\275\225\344\270\215\345\255\230\345\234\250\346\210\226\346\227\240\346\235\203\351\231\220\350\256\277\351\227\256\343\200\202\n        ");
 static PyMethodDef __pyx_mdef_12data_service_11DataService_23delete = {"delete", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_12data_service_11DataService_23delete, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_12data_service_11DataService_22delete};
 static PyObject *__pyx_pw_12data_service_11DataService_23delete(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -6320,12 +6091,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   PyObject *__pyx_v_db = 0;
   PyObject *__pyx_v_primary_id = 0;
   PyObject *__pyx_v_model_class = 0;
-  PyObject *__pyx_v_auto_commit = 0;
   #if !CYTHON_METH_FASTCALL
   CYTHON_UNUSED Py_ssize_t __pyx_nargs;
   #endif
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[5] = {0,0,0,0,0};
+  PyObject* values[4] = {0,0,0,0};
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -6341,57 +6111,47 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   #endif
   __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
   {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,&__pyx_mstate_global->__pyx_n_u_auto_commit,0};
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_primary_id,&__pyx_mstate_global->__pyx_n_u_model_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 214, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 209, __pyx_L3_error)
     if (likely(__pyx_kwds_len > 0)) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 214, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 209, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 214, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 209, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 214, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 209, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "delete", 0) < 0) __PYX_ERR(0, 214, __pyx_L3_error)
-
-      /* "data_service.py":216
- *     @classmethod
- *     async def delete(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
- *                      auto_commit: bool = True) -> bool:             # <<<<<<<<<<<<<<
- *         """
- * 
-*/
-      if (!values[4]) values[4] = __Pyx_NewRef(((PyObject *)((PyObject*)Py_True)));
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "delete", 0) < 0) __PYX_ERR(0, 209, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("delete", 1, 3, 3, i); __PYX_ERR(0, 214, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("delete", 1, 3, 3, i); __PYX_ERR(0, 209, __pyx_L3_error) }
       }
       for (Py_ssize_t i = 3; i < 4; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("delete", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 214, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("delete", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 209, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
     } else {
-      __Pyx_RaiseKeywordRequired("delete", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 214, __pyx_L3_error)
+      __Pyx_RaiseKeywordRequired("delete", __pyx_mstate_global->__pyx_n_u_model_class); __PYX_ERR(0, 209, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_db = values[1];
     __pyx_v_primary_id = ((PyObject*)values[2]);
     __pyx_v_model_class = values[3];
-    __pyx_v_auto_commit = values[4];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("delete", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 214, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("delete", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 209, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6402,16 +6162,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 215, __pyx_L1_error)
-  __pyx_r = __pyx_pf_12data_service_11DataService_22delete(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_primary_id, __pyx_v_model_class, __pyx_v_auto_commit);
-
-  /* "data_service.py":214
- *         return True
- * 
- *     @classmethod             # <<<<<<<<<<<<<<
- *     async def delete(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
- *                      auto_commit: bool = True) -> bool:
-*/
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_primary_id), (&PyLong_Type), 0, "primary_id", 2))) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_r = __pyx_pf_12data_service_11DataService_22delete(__pyx_self, __pyx_v_cls, __pyx_v_db, __pyx_v_primary_id, __pyx_v_model_class);
 
   /* function exit code */
   goto __pyx_L0;
@@ -6430,7 +6182,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12data_service_11DataService_22delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class, PyObject *__pyx_v_auto_commit) {
+static PyObject *__pyx_pf_12data_service_11DataService_22delete(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_primary_id, PyObject *__pyx_v_model_class) {
   struct __pyx_obj_12data_service___pyx_scope_struct_6_delete *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -6442,7 +6194,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_22delete(CYTHON_UNUSED Py
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_12data_service___pyx_scope_struct_6_delete *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 214, __pyx_L1_error)
+    __PYX_ERR(0, 209, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -6458,11 +6210,8 @@ static PyObject *__pyx_pf_12data_service_11DataService_22delete(CYTHON_UNUSED Py
   __pyx_cur_scope->__pyx_v_model_class = __pyx_v_model_class;
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_model_class);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_model_class);
-  __pyx_cur_scope->__pyx_v_auto_commit = __pyx_v_auto_commit;
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_auto_commit);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_auto_commit);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_24generator6, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_delete, __pyx_mstate_global->__pyx_n_u_DataService_delete, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 214, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_12data_service_11DataService_24generator6, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_delete, __pyx_mstate_global->__pyx_n_u_DataService_delete, __pyx_mstate_global->__pyx_n_u_data_service); if (unlikely(!gen)) __PYX_ERR(0, 209, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6497,7 +6246,6 @@ static PyObject *__pyx_gb_12data_service_11DataService_24generator6(__pyx_Corout
   switch (__pyx_generator->resume_label) {
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L5_resume_from_await;
-    case 2: goto __pyx_L7_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -6505,28 +6253,28 @@ static PyObject *__pyx_gb_12data_service_11DataService_24generator6(__pyx_Corout
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 214, __pyx_L1_error)
+    __PYX_ERR(0, 209, __pyx_L1_error)
   }
 
-  /* "data_service.py":231
+  /* "data_service.py":226
  *             DataNotFoundException:
  *         """
  *         if not await cls.db_delete(db, primary_id, model_class=model_class):             # <<<<<<<<<<<<<<
  *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:
+ *         return True
 */
   __pyx_t_2 = __pyx_cur_scope->__pyx_v_cls;
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_3 = 0;
   {
     PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_db, __pyx_cur_scope->__pyx_v_primary_id};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 231, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model_class, __pyx_cur_scope->__pyx_v_model_class, __pyx_t_4, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 226, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_db_delete, __pyx_callargs+__pyx_t_3, (3-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -6540,26 +6288,26 @@ static PyObject *__pyx_gb_12data_service_11DataService_24generator6(__pyx_Corout
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L5_resume_from_await:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 231, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 226, __pyx_L1_error)
     __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
   } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __pyx_t_1 = __pyx_r; __pyx_r = NULL;
   } else {
     __Pyx_XGOTREF(__pyx_r);
-    __PYX_ERR(0, 231, __pyx_L1_error)
+    __PYX_ERR(0, 226, __pyx_L1_error)
   }
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = (!__pyx_t_6);
   if (__pyx_t_7) {
 
-    /* "data_service.py":232
+    /* "data_service.py":227
  *         """
  *         if not await cls.db_delete(db, primary_id, model_class=model_class):
  *             cls._raise_data_not_found_exception(primary_id, model_class, "")             # <<<<<<<<<<<<<<
- *         if auto_commit:
- *             await db.commit()
+ *         return True
+ * 
 */
     __pyx_t_4 = __pyx_cur_scope->__pyx_v_cls;
     __Pyx_INCREF(__pyx_t_4);
@@ -6568,79 +6316,23 @@ static PyObject *__pyx_gb_12data_service_11DataService_24generator6(__pyx_Corout
       PyObject *__pyx_callargs[4] = {__pyx_t_4, __pyx_cur_scope->__pyx_v_primary_id, __pyx_cur_scope->__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u__5};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_raise_data_not_found_exception, __pyx_callargs+__pyx_t_3, (4-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "data_service.py":231
+    /* "data_service.py":226
  *             DataNotFoundException:
  *         """
  *         if not await cls.db_delete(db, primary_id, model_class=model_class):             # <<<<<<<<<<<<<<
  *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:
-*/
-  }
-
-  /* "data_service.py":233
- *         if not await cls.db_delete(db, primary_id, model_class=model_class):
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:             # <<<<<<<<<<<<<<
- *             await db.commit()
- *         return True
-*/
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_auto_commit); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 233, __pyx_L1_error)
-  if (__pyx_t_7) {
-
-    /* "data_service.py":234
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:
- *             await db.commit()             # <<<<<<<<<<<<<<
- *         return True
- * 
-*/
-    __pyx_t_4 = __pyx_cur_scope->__pyx_v_db;
-    __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_3 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_commit, __pyx_callargs+__pyx_t_3, (1-__pyx_t_3) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_5 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 2;
-      return __pyx_r;
-      __pyx_L7_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 234, __pyx_L1_error)
-    } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 234, __pyx_L1_error)
-    }
-
-    /* "data_service.py":233
- *         if not await cls.db_delete(db, primary_id, model_class=model_class):
- *             cls._raise_data_not_found_exception(primary_id, model_class, "")
- *         if auto_commit:             # <<<<<<<<<<<<<<
- *             await db.commit()
  *         return True
 */
   }
 
-  /* "data_service.py":235
- *         if auto_commit:
- *             await db.commit()
+  /* "data_service.py":228
+ *         if not await cls.db_delete(db, primary_id, model_class=model_class):
+ *             cls._raise_data_not_found_exception(primary_id, model_class, "")
  *         return True             # <<<<<<<<<<<<<<
  * 
  *     @classmethod
@@ -6651,12 +6343,12 @@ static PyObject *__pyx_gb_12data_service_11DataService_24generator6(__pyx_Corout
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "data_service.py":214
+  /* "data_service.py":209
  *         return True
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def delete(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
- *                      auto_commit: bool = True) -> bool:
+ *     async def delete(
+ *             cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB]
 */
 
   /* function exit code */
@@ -6679,7 +6371,7 @@ static PyObject *__pyx_gb_12data_service_11DataService_24generator6(__pyx_Corout
   return __pyx_r;
 }
 
-/* "data_service.py":237
+/* "data_service.py":230
  *         return True
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -6728,39 +6420,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,&__pyx_mstate_global->__pyx_n_u_model_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 237, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 230, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 237, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 230, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 237, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 230, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_primary_key_name", 0) < 0) __PYX_ERR(0, 237, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_primary_key_name", 0) < 0) __PYX_ERR(0, 230, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_primary_key_name", 1, 2, 2, i); __PYX_ERR(0, 237, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_primary_key_name", 1, 2, 2, i); __PYX_ERR(0, 230, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 237, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 230, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 237, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 230, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
     __pyx_v_model_class = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_primary_key_name", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 237, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_primary_key_name", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 230, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6799,19 +6491,19 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_primary_key_name", 0);
 
-  /* "data_service.py":250
+  /* "data_service.py":243
  *                 -  None
  *         """
  *         table = model_class.__table__             # <<<<<<<<<<<<<<
  *         pk_columns = [col.name for col in table.primary_key.columns]
  * 
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_table = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "data_service.py":251
+  /* "data_service.py":244
  *         """
  *         table = model_class.__table__
  *         pk_columns = [col.name for col in table.primary_key.columns]             # <<<<<<<<<<<<<<
@@ -6819,11 +6511,11 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
  *         if not pk_columns:
 */
   { /* enter inner scope */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L5_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_table, __pyx_mstate_global->__pyx_n_u_primary_key); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L5_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_table, __pyx_mstate_global->__pyx_n_u_primary_key); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_columns); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L5_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_columns); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
@@ -6831,9 +6523,9 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
       __pyx_t_4 = 0;
       __pyx_t_5 = NULL;
     } else {
-      __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L5_error)
+      __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 251, __pyx_L5_error)
+      __pyx_t_5 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 244, __pyx_L5_error)
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     for (;;) {
@@ -6842,7 +6534,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 251, __pyx_L5_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 244, __pyx_L5_error)
             #endif
             if (__pyx_t_4 >= __pyx_temp) break;
           }
@@ -6852,7 +6544,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 251, __pyx_L5_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 244, __pyx_L5_error)
             #endif
             if (__pyx_t_4 >= __pyx_temp) break;
           }
@@ -6863,13 +6555,13 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
           #endif
           ++__pyx_t_4;
         }
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L5_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L5_error)
       } else {
         __pyx_t_3 = __pyx_t_5(__pyx_t_2);
         if (unlikely(!__pyx_t_3)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 251, __pyx_L5_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 244, __pyx_L5_error)
             PyErr_Clear();
           }
           break;
@@ -6878,9 +6570,9 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_col, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_7genexpr__pyx_v_col, __pyx_mstate_global->__pyx_n_u_name_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L5_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_7genexpr__pyx_v_col, __pyx_mstate_global->__pyx_n_u_name_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) __PYX_ERR(0, 251, __pyx_L5_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) __PYX_ERR(0, 244, __pyx_L5_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6894,7 +6586,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
   __pyx_v_pk_columns = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "data_service.py":253
+  /* "data_service.py":246
  *         pk_columns = [col.name for col in table.primary_key.columns]
  * 
  *         if not pk_columns:             # <<<<<<<<<<<<<<
@@ -6903,14 +6595,14 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
 */
   {
     Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_v_pk_columns);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 253, __pyx_L1_error)
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 246, __pyx_L1_error)
     __pyx_t_6 = (__pyx_temp != 0);
   }
 
   __pyx_t_7 = (!__pyx_t_6);
   if (__pyx_t_7) {
 
-    /* "data_service.py":254
+    /* "data_service.py":247
  * 
  *         if not pk_columns:
  *             return None             # <<<<<<<<<<<<<<
@@ -6921,7 +6613,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
     __pyx_r = Py_None; __Pyx_INCREF(Py_None);
     goto __pyx_L0;
 
-    /* "data_service.py":253
+    /* "data_service.py":246
  *         pk_columns = [col.name for col in table.primary_key.columns]
  * 
  *         if not pk_columns:             # <<<<<<<<<<<<<<
@@ -6930,18 +6622,18 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
 */
   }
 
-  /* "data_service.py":255
+  /* "data_service.py":248
  *         if not pk_columns:
  *             return None
  *         elif len(pk_columns) == 1:             # <<<<<<<<<<<<<<
  *             return pk_columns[0]
  *         else:
 */
-  __pyx_t_4 = __Pyx_PyList_GET_SIZE(__pyx_v_pk_columns); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyList_GET_SIZE(__pyx_v_pk_columns); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 248, __pyx_L1_error)
   __pyx_t_7 = (__pyx_t_4 == 1);
   if (__pyx_t_7) {
 
-    /* "data_service.py":256
+    /* "data_service.py":249
  *             return None
  *         elif len(pk_columns) == 1:
  *             return pk_columns[0]             # <<<<<<<<<<<<<<
@@ -6949,13 +6641,13 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
  *             return pk_columns
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_pk_columns, 0, long, 1, __Pyx_PyLong_From_long, 1, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_pk_columns, 0, long, 1, __Pyx_PyLong_From_long, 1, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "data_service.py":255
+    /* "data_service.py":248
  *         if not pk_columns:
  *             return None
  *         elif len(pk_columns) == 1:             # <<<<<<<<<<<<<<
@@ -6964,7 +6656,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
 */
   }
 
-  /* "data_service.py":258
+  /* "data_service.py":251
  *             return pk_columns[0]
  *         else:
  *             return pk_columns             # <<<<<<<<<<<<<<
@@ -6978,7 +6670,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
     goto __pyx_L0;
   }
 
-  /* "data_service.py":237
+  /* "data_service.py":230
  *         return True
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
@@ -7002,7 +6694,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_25get_primary_key_name(CY
   return __pyx_r;
 }
 
-/* "data_service.py":260
+/* "data_service.py":253
  *             return pk_columns
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -7051,39 +6743,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_db,&__pyx_mstate_global->__pyx_n_u_model_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 260, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 253, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 260, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 253, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 260, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 253, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "reset_schema", 0) < 0) __PYX_ERR(0, 260, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "reset_schema", 0) < 0) __PYX_ERR(0, 253, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("reset_schema", 1, 2, 2, i); __PYX_ERR(0, 260, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("reset_schema", 1, 2, 2, i); __PYX_ERR(0, 253, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 260, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 253, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 260, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 253, __pyx_L3_error)
     }
     __pyx_v_db = values[0];
     __pyx_v_model_class = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("reset_schema", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 260, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("reset_schema", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 253, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -7116,36 +6808,36 @@ static PyObject *__pyx_pf_12data_service_11DataService_27reset_schema(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset_schema", 0);
 
-  /* "data_service.py":268
+  /* "data_service.py":261
  *             model_class (Type[SQLModelDB]):
  *         """
  *         if db.bind.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
  *             model_class.__table__.schema = None
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_db, __pyx_mstate_global->__pyx_n_u_bind); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_db, __pyx_mstate_global->__pyx_n_u_bind); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_dialect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_dialect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_name_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_name_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_sqlite, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_sqlite, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_4 = __pyx_t_3;
   if (__pyx_t_4) {
 
-    /* "data_service.py":269
+    /* "data_service.py":262
  *         """
  *         if db.bind.dialect.name in ['sqlite']:
  *             model_class.__table__.schema = None             # <<<<<<<<<<<<<<
 */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_model_class, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_schema, Py_None) < 0) __PYX_ERR(0, 269, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_schema, Py_None) < 0) __PYX_ERR(0, 262, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "data_service.py":268
+    /* "data_service.py":261
  *             model_class (Type[SQLModelDB]):
  *         """
  *         if db.bind.dialect.name in ['sqlite']:             # <<<<<<<<<<<<<<
@@ -7153,7 +6845,7 @@ static PyObject *__pyx_pf_12data_service_11DataService_27reset_schema(CYTHON_UNU
 */
   }
 
-  /* "data_service.py":260
+  /* "data_service.py":253
  *             return pk_columns
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -7208,7 +6900,6 @@ static void __pyx_tp_dealloc_12data_service___pyx_scope_struct__create(PyObject 
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_auto_commit);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_create_model);
   Py_CLEAR(p->__pyx_v_db);
@@ -7238,9 +6929,6 @@ static int __pyx_tp_traverse_12data_service___pyx_scope_struct__create(PyObject 
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
-  }
-  if (p->__pyx_v_auto_commit) {
-    e = (*v)(p->__pyx_v_auto_commit, a); if (e) return e;
   }
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
@@ -7919,7 +7607,6 @@ static void __pyx_tp_dealloc_12data_service___pyx_scope_struct_4_update(PyObject
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_auto_commit);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_db);
   Py_CLEAR(p->__pyx_v_db_model);
@@ -7950,9 +7637,6 @@ static int __pyx_tp_traverse_12data_service___pyx_scope_struct_4_update(PyObject
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
-  }
-  if (p->__pyx_v_auto_commit) {
-    e = (*v)(p->__pyx_v_auto_commit, a); if (e) return e;
   }
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
@@ -8269,7 +7953,6 @@ static void __pyx_tp_dealloc_12data_service___pyx_scope_struct_6_delete(PyObject
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_auto_commit);
   Py_CLEAR(p->__pyx_v_cls);
   Py_CLEAR(p->__pyx_v_db);
   Py_CLEAR(p->__pyx_v_model_class);
@@ -8297,9 +7980,6 @@ static int __pyx_tp_traverse_12data_service___pyx_scope_struct_6_delete(PyObject
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
-  }
-  if (p->__pyx_v_auto_commit) {
-    e = (*v)(p->__pyx_v_auto_commit, a); if (e) return e;
   }
   if (p->__pyx_v_cls) {
     e = (*v)(p->__pyx_v_cls, a); if (e) return e;
@@ -8476,15 +8156,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_1_db_get_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get)) __PYX_ERR(0, 75, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_1_db_get_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_1_db_get_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get)) __PYX_ERR(0, 73, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_1_db_get_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get = &__pyx_type_12data_service___pyx_scope_struct_1_db_get;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get->tp_dictoffset && __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_1_db_get->tp_getattro == PyObject_GenericGetAttr)) {
@@ -8492,15 +8172,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_2_read_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read)) __PYX_ERR(0, 94, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_2_read_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_2_read_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read)) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_2_read_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read = &__pyx_type_12data_service___pyx_scope_struct_2_read;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read->tp_dictoffset && __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_2_read->tp_getattro == PyObject_GenericGetAttr)) {
@@ -8540,15 +8220,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_5_db_delete_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete)) __PYX_ERR(0, 196, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_5_db_delete_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_5_db_delete_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete)) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_5_db_delete_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete = &__pyx_type_12data_service___pyx_scope_struct_5_db_delete;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete->tp_dictoffset && __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_5_db_delete->tp_getattro == PyObject_GenericGetAttr)) {
@@ -8556,15 +8236,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_6_delete_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete)) __PYX_ERR(0, 214, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_6_delete_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_12data_service___pyx_scope_struct_6_delete_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete)) __PYX_ERR(0, 209, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_12data_service___pyx_scope_struct_6_delete_spec, __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete = &__pyx_type_12data_service___pyx_scope_struct_6_delete;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete->tp_dictoffset && __pyx_mstate->__pyx_ptype_12data_service___pyx_scope_struct_6_delete->tp_getattro == PyObject_GenericGetAttr)) {
@@ -9040,36 +8720,34 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
+ *     async def create(
+ *             cls, db: AsyncSession, *,
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "data_service.py":53
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
- *                      response_class: Type[SQLModelResponse] = None,             # <<<<<<<<<<<<<<
- *                      auto_commit: bool = True) -> SQLModelDB | SQLModelResponse:
+  /* "data_service.py":55
+ *             model_class: Type[SQLModelDB],
+ *             create_model: SQLModelCreate | dict[str, Any],
+ *             response_class: Type[SQLModelResponse] = None             # <<<<<<<<<<<<<<
+ *     ) -> SQLModelDB | SQLModelResponse:
  *         """
 */
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_response_class, Py_None) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auto_commit, ((PyObject*)Py_True)) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
 
   /* "data_service.py":50
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def create(cls, db: AsyncSession, *, model_class: Type[SQLModelDB],
- *                      create_model: SQLModelCreate | dict[str, Any],
+ *     async def create(
+ *             cls, db: AsyncSession, *,
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_create_model, __pyx_mstate_global->__pyx_kp_u_SQLModelCreate_dict_str_Any) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_response_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelResponse) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_auto_commit, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_SQLModelDB_SQLModelResponse) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_3create, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_create, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
@@ -9083,72 +8761,72 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_create, __pyx_t_4) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "data_service.py":75
+  /* "data_service.py":73
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def db_get(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB]) -> SQLModelDB | None:
  *         """ ID
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_SQLModelDB_None) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_6db_get, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_db_get, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_SQLModelDB_None) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_6db_get, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_db_get, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_get, __pyx_t_4) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_get, __pyx_t_4) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "data_service.py":94
- *         return None if db_model is None else db_model
+  /* "data_service.py":92
+ *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                    response_class: Type[SQLModelResponse] = None) -> SQLModelDB | SQLModelResponse:
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "data_service.py":96
+  /* "data_service.py":94
  *     @classmethod
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                    response_class: Type[SQLModelResponse] = None) -> SQLModelDB | SQLModelResponse:             # <<<<<<<<<<<<<<
  *         """ ID
  * 
 */
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_response_class, Py_None) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_response_class, Py_None) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
 
-  /* "data_service.py":94
- *         return None if db_model is None else db_model
+  /* "data_service.py":92
+ *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def read(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                    response_class: Type[SQLModelResponse] = None) -> SQLModelDB | SQLModelResponse:
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_response_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelResponse) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_SQLModelDB_SQLModelResponse) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_9read, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_read, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_response_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelResponse) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_SQLModelDB_SQLModelResponse) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_9read, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_read, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_2, __pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_read, __pyx_t_5) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_read, __pyx_t_5) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "data_service.py":118
@@ -9182,18 +8860,17 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
  *     async def update(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                      update_model: SQLModelUpdate | dict[str, Any],
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
 
   /* "data_service.py":150
  *     async def update(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                      update_model: SQLModelUpdate | dict[str, Any],
- *                      response_class: Type[SQLModelResponse] = None,             # <<<<<<<<<<<<<<
- *                      auto_commit: bool = True) -> SQLModelDB | SQLModelResponse:
+ *                      response_class: Type[SQLModelResponse] = None) -> SQLModelDB | SQLModelResponse:             # <<<<<<<<<<<<<<
  *         """
+ * 
 */
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_response_class, Py_None) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_auto_commit, ((PyObject*)Py_True)) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
 
   /* "data_service.py":147
  *         return db_model
@@ -9202,14 +8879,13 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
  *     async def update(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
  *                      update_model: SQLModelUpdate | dict[str, Any],
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_update_model, __pyx_mstate_global->__pyx_kp_u_SQLModelUpdate_dict_str_Any) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_response_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelResponse) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auto_commit, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_SQLModelDB_SQLModelResponse) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_15update, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_update, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -9223,131 +8899,125 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
   if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_update, __pyx_t_2) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "data_service.py":179
+  /* "data_service.py":174
  *         return db_model
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def _raise_data_not_found_exception(cls, primary_id: int, model_class: Type[SQLModelDB], message: str):
  *         """
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_18_raise_data_not_found_exception, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_DataService__raise_data_not_foun, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 179, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_message, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_18_raise_data_not_found_exception, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_DataService__raise_data_not_foun, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_raise_data_not_found_exception, __pyx_t_2) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_raise_data_not_found_exception, __pyx_t_2) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "data_service.py":196
+  /* "data_service.py":191
  *         )
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     async def db_delete(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB]) -> bool:
  *         """ ID
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_20db_delete, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_db_delete, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_20db_delete, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_db_delete, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 191, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_delete, __pyx_t_2) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_db_delete, __pyx_t_2) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "data_service.py":214
+  /* "data_service.py":209
  *         return True
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
- *     async def delete(cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB],
- *                      auto_commit: bool = True) -> bool:
+ *     async def delete(
+ *             cls, db: AsyncSession, primary_id: int, *, model_class: Type[SQLModelDB]
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auto_commit, ((PyObject*)Py_True)) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 214, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_23delete, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_delete, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_primary_id, __pyx_mstate_global->__pyx_n_u_int) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_auto_commit, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_23delete, __Pyx_CYFUNCTION_CLASSMETHOD | __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_DataService_delete, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 214, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetDefaultsKwDict(__pyx_t_5, __pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 214, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_delete, __pyx_t_4) < 0) __PYX_ERR(0, 214, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_delete, __pyx_t_2) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "data_service.py":237
+  /* "data_service.py":230
  *         return True
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def get_primary_key_name(cls, model_class: type[SQLModelDB]) -> Union[str, list[str], None]:
  *         """
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_type_SQLModelDB) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Union_str_list_str_None) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_26get_primary_key_name, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_DataService_get_primary_key_name, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_type_SQLModelDB) < 0) __PYX_ERR(0, 237, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_Union_str_list_str_None) < 0) __PYX_ERR(0, 237, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_26get_primary_key_name, __Pyx_CYFUNCTION_CLASSMETHOD, __pyx_mstate_global->__pyx_n_u_DataService_get_primary_key_name, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 237, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_Method_ClassMethod(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_primary_key_name, __pyx_t_4) < 0) __PYX_ERR(0, 237, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_primary_key_name, __pyx_t_2) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "data_service.py":260
+  /* "data_service.py":253
  *             return pk_columns
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
  *     def reset_schema(db: AsyncSession, model_class: Type[SQLModelDB]):
  *         """ schema SQLite  schema
 */
-  __pyx_t_5 = NULL;
+  __pyx_t_4 = NULL;
   __Pyx_INCREF(__pyx_builtin_staticmethod);
-  __pyx_t_2 = __pyx_builtin_staticmethod; 
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_5 = __pyx_builtin_staticmethod; 
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_28reset_schema, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_DataService_reset_schema, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 260, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_db, __pyx_mstate_global->__pyx_n_u_AsyncSession) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_model_class, __pyx_mstate_global->__pyx_kp_u_Type_SQLModelDB) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_12data_service_11DataService_28reset_schema, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_DataService_reset_schema, NULL, __pyx_mstate_global->__pyx_n_u_data_service, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_7, __pyx_t_6);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_8 = 1;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_t_7};
-    __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_7};
+    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 260, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 253, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
   }
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reset_schema, __pyx_t_4) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_reset_schema, __pyx_t_2) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "data_service.py":18
  * 
@@ -9356,10 +9026,10 @@ __Pyx_RefNannySetupContext("PyInit_data_service", 0);
  *     """ SQLModel  CRUD
  * 
 */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_DataService, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_t_4) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_DataService, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DataService, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "data_service.py":1
@@ -9477,7 +9147,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_add, sizeof(__pyx_k_add), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
-  {__pyx_k_auto_commit, sizeof(__pyx_k_auto_commit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auto_commit */
   {__pyx_k_await, sizeof(__pyx_k_await), 0, 1, 1}, /* PyObject cname: __pyx_n_u_await */
   {__pyx_k_bind, sizeof(__pyx_k_bind), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bind */
   {__pyx_k_bool, sizeof(__pyx_k_bool), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bool */
@@ -9487,7 +9156,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_cls, sizeof(__pyx_k_cls), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cls */
   {__pyx_k_col, sizeof(__pyx_k_col), 0, 1, 1}, /* PyObject cname: __pyx_n_u_col */
   {__pyx_k_columns, sizeof(__pyx_k_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_columns */
-  {__pyx_k_commit, sizeof(__pyx_k_commit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_commit */
   {__pyx_k_create, sizeof(__pyx_k_create), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create */
   {__pyx_k_create_data, sizeof(__pyx_k_create_data), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_data */
   {__pyx_k_create_model, sizeof(__pyx_k_create_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_model */
@@ -9539,7 +9207,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_raise_data_not_found_exception, sizeof(__pyx_k_raise_data_not_found_exception), 0, 1, 1}, /* PyObject cname: __pyx_n_u_raise_data_not_found_exception */
   {__pyx_k_read, sizeof(__pyx_k_read), 0, 1, 1}, /* PyObject cname: __pyx_n_u_read */
-  {__pyx_k_refresh, sizeof(__pyx_k_refresh), 0, 1, 1}, /* PyObject cname: __pyx_n_u_refresh */
   {__pyx_k_reset_schema, sizeof(__pyx_k_reset_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_reset_schema */
   {__pyx_k_response_class, sizeof(__pyx_k_response_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_class */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
@@ -9572,7 +9239,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_builtin_staticmethod = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_staticmethod); if (!__pyx_builtin_staticmethod) __PYX_ERR(0, 253, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -9602,10 +9269,10 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
         typedef struct {
             unsigned int argcount : 3;
             unsigned int num_posonly_args : 1;
-            unsigned int num_kwonly_args : 3;
+            unsigned int num_kwonly_args : 2;
             unsigned int nlocals : 4;
             unsigned int flags : 10;
-            unsigned int first_line : 9;
+            unsigned int first_line : 8;
             unsigned int line_table_length : 11;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
@@ -9623,17 +9290,17 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 4, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 50, 23};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_response_class, __pyx_mstate->__pyx_n_u_auto_commit, __pyx_mstate->__pyx_n_u_db_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_create, __pyx_k_A_A_Q_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 3, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 50, 19};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_create_model, __pyx_mstate->__pyx_n_u_response_class, __pyx_mstate->__pyx_n_u_db_model};
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_create, __pyx_k_A_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 1, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 75, 14};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 1, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 73, 14};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_db_model};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_db_get, __pyx_k_A_88MMbbc, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 2, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 94, 18};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 2, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 92, 18};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_response_class, __pyx_mstate->__pyx_n_u_db_model};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_read, __pyx_k_A_66K1_EQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
@@ -9643,19 +9310,19 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_db_update, __pyx_k_A_PPQ_J, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 4, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 147, 26};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_update_model, __pyx_mstate->__pyx_n_u_response_class, __pyx_mstate->__pyx_n_u_auto_commit, __pyx_mstate->__pyx_n_u_db_model};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_update, __pyx_k_A_88MQ_Q_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 3, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 147, 21};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_update_model, __pyx_mstate->__pyx_n_u_response_class, __pyx_mstate->__pyx_n_u_db_model};
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_update, __pyx_k_A_88MQ_Gq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 1, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 196, 14};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 1, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 191, 14};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_db_model};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_db_delete, __pyx_k_A_PPeef, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 2, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 214, 18};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_auto_commit};
-    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_delete, __pyx_k_A_88MQ_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 1, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 209, 13};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class};
+    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_delete, __pyx_k_A_DA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 2, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 25, 89};
@@ -9663,17 +9330,17 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_db_insert, __pyx_k_A_9_DA_Q_QnA_k_oQa_4AQ_aq_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 179, 67};
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 174, 67};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_primary_id, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_field_name};
     __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_raise_data_not_found_exception, __pyx_k_A9KKffg_S_Qa_1_Bd_Kq_1_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 237, 72};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 5, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 230, 72};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_model_class, __pyx_mstate->__pyx_n_u_table_2, __pyx_mstate->__pyx_n_u_pk_columns, __pyx_mstate->__pyx_n_u_col};
     __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_get_primary_key_name, __pyx_k_A_DA_1_Qc_t7_1_4q_1_S_Qa_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 260, 33};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 253, 33};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_db, __pyx_mstate->__pyx_n_u_model_class};
     __pyx_mstate_global->__pyx_codeobj_tab[10] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_data_service_py, __pyx_mstate->__pyx_n_u_reset_schema, __pyx_k_A_4A_2U_A_z_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[10])) goto bad;
   }
@@ -11062,6 +10729,187 @@ static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
     PyErr_Clear();
 #endif
     return __Pyx_GetBuiltinName(name);
+}
+
+/* GetException */
+#if CYTHON_FAST_THREAD_STATE
+static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb)
+#else
+static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb)
+#endif
+{
+    PyObject *local_type = NULL, *local_value, *local_tb = NULL;
+#if CYTHON_FAST_THREAD_STATE
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+  #if PY_VERSION_HEX >= 0x030C0000
+    local_value = tstate->current_exception;
+    tstate->current_exception = 0;
+  #else
+    local_type = tstate->curexc_type;
+    local_value = tstate->curexc_value;
+    local_tb = tstate->curexc_traceback;
+    tstate->curexc_type = 0;
+    tstate->curexc_value = 0;
+    tstate->curexc_traceback = 0;
+  #endif
+#elif __PYX_LIMITED_VERSION_HEX > 0x030C0000
+    local_value = PyErr_GetRaisedException();
+#else
+    PyErr_Fetch(&local_type, &local_value, &local_tb);
+#endif
+#if __PYX_LIMITED_VERSION_HEX > 0x030C0000
+    if (likely(local_value)) {
+        local_type = (PyObject*) Py_TYPE(local_value);
+        Py_INCREF(local_type);
+        local_tb = PyException_GetTraceback(local_value);
+    }
+#else
+    PyErr_NormalizeException(&local_type, &local_value, &local_tb);
+#if CYTHON_FAST_THREAD_STATE
+    if (unlikely(tstate->curexc_type))
+#else
+    if (unlikely(PyErr_Occurred()))
+#endif
+        goto bad;
+    if (local_tb) {
+        if (unlikely(PyException_SetTraceback(local_value, local_tb) < 0))
+            goto bad;
+    }
+#endif // __PYX_LIMITED_VERSION_HEX > 0x030C0000
+    Py_XINCREF(local_tb);
+    Py_XINCREF(local_type);
+    Py_XINCREF(local_value);
+    *type = local_type;
+    *value = local_value;
+    *tb = local_tb;
+#if CYTHON_FAST_THREAD_STATE
+    #if CYTHON_USE_EXC_INFO_STACK
+    {
+        _PyErr_StackItem *exc_info = tstate->exc_info;
+      #if PY_VERSION_HEX >= 0x030B00a4
+        tmp_value = exc_info->exc_value;
+        exc_info->exc_value = local_value;
+        tmp_type = NULL;
+        tmp_tb = NULL;
+        Py_XDECREF(local_type);
+        Py_XDECREF(local_tb);
+      #else
+        tmp_type = exc_info->exc_type;
+        tmp_value = exc_info->exc_value;
+        tmp_tb = exc_info->exc_traceback;
+        exc_info->exc_type = local_type;
+        exc_info->exc_value = local_value;
+        exc_info->exc_traceback = local_tb;
+      #endif
+    }
+    #else
+    tmp_type = tstate->exc_type;
+    tmp_value = tstate->exc_value;
+    tmp_tb = tstate->exc_traceback;
+    tstate->exc_type = local_type;
+    tstate->exc_value = local_value;
+    tstate->exc_traceback = local_tb;
+    #endif
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+#elif __PYX_LIMITED_VERSION_HEX >= 0x030b0000
+    PyErr_SetHandledException(local_value);
+    Py_XDECREF(local_value);
+    Py_XDECREF(local_type);
+    Py_XDECREF(local_tb);
+#else
+    PyErr_SetExcInfo(local_type, local_value, local_tb);
+#endif
+    return 0;
+#if __PYX_LIMITED_VERSION_HEX <= 0x030C0000
+bad:
+    *type = 0;
+    *value = 0;
+    *tb = 0;
+    Py_XDECREF(local_type);
+    Py_XDECREF(local_value);
+    Py_XDECREF(local_tb);
+    return -1;
+#endif
+}
+
+/* pep479 */
+static void __Pyx_Generator_Replace_StopIteration(int in_async_gen) {
+    PyObject *exc, *val, *tb, *cur_exc, *new_exc;
+    __Pyx_PyThreadState_declare
+    int is_async_stopiteration = 0;
+    CYTHON_MAYBE_UNUSED_VAR(in_async_gen);
+    __Pyx_PyThreadState_assign
+    cur_exc = __Pyx_PyErr_CurrentExceptionType();
+    if (likely(!__Pyx_PyErr_GivenExceptionMatches(cur_exc, PyExc_StopIteration))) {
+        if (in_async_gen && unlikely(__Pyx_PyErr_GivenExceptionMatches(cur_exc, PyExc_StopAsyncIteration))) {
+            is_async_stopiteration = 1;
+        } else {
+            return;
+        }
+    }
+    __Pyx_GetException(&exc, &val, &tb);
+    Py_XDECREF(exc);
+    Py_XDECREF(tb);
+    new_exc = PyObject_CallFunction(PyExc_RuntimeError, "s",
+        is_async_stopiteration ? "async generator raised StopAsyncIteration" :
+        in_async_gen ? "async generator raised StopIteration" :
+        "generator raised StopIteration");
+    if (!new_exc) {
+        Py_XDECREF(val);
+        return;
+    }
+    PyException_SetCause(new_exc, val); // steals ref to val
+    PyErr_SetObject(PyExc_RuntimeError, new_exc);
+}
+
+/* ArgTypeTest */
+static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
+{
+    __Pyx_TypeName type_name;
+    __Pyx_TypeName obj_type_name;
+    PyObject *extra_info = __pyx_mstate_global->__pyx_empty_unicode;
+    int from_annotation_subclass = 0;
+    if (unlikely(!type)) {
+        PyErr_SetString(PyExc_SystemError, "Missing type object");
+        return 0;
+    }
+    else if (!exact) {
+        if (likely(__Pyx_TypeCheck(obj, type))) return 1;
+    } else if (exact == 2) {
+        if (__Pyx_TypeCheck(obj, type)) {
+            from_annotation_subclass = 1;
+            extra_info = __pyx_mstate_global->__pyx_kp_u_Note_that_Cython_is_deliberately;
+        }
+    }
+    type_name = __Pyx_PyType_GetFullyQualifiedName(type);
+    obj_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(obj));
+    PyErr_Format(PyExc_TypeError,
+        "Argument '%.200s' has incorrect type (expected " __Pyx_FMT_TYPENAME
+        ", got " __Pyx_FMT_TYPENAME ")"
+#if __PYX_LIMITED_VERSION_HEX < 0x030C0000
+        "%s%U"
+#endif
+        , name, type_name, obj_type_name
+#if __PYX_LIMITED_VERSION_HEX < 0x030C0000
+        , (from_annotation_subclass ? ". " : ""), extra_info
+#endif
+        );
+#if __PYX_LIMITED_VERSION_HEX >= 0x030C0000
+    if (exact == 2 && from_annotation_subclass) {
+        PyObject *res;
+        PyObject *vargs[2];
+        vargs[0] = PyErr_GetRaisedException();
+        vargs[1] = extra_info;
+        res = PyObject_VectorcallMethod(__pyx_mstate_global->__pyx_kp_u_add_note, vargs, 2, NULL);
+        Py_XDECREF(res);
+        PyErr_SetRaisedException(vargs[0]);
+    }
+#endif
+    __Pyx_DECREF_TypeName(type_name);
+    __Pyx_DECREF_TypeName(obj_type_name);
+    return 0;
 }
 
 /* LimitedApiGetTypeDict */
@@ -13198,187 +13046,6 @@ static CYTHON_INLINE __Pyx_PySendResult __Pyx_Coroutine_Yield_From(__pyx_Corouti
     }
 #endif
     return __Pyx_Coroutine_Yield_From_Generic(gen, source, retval);
-}
-
-/* GetException */
-  #if CYTHON_FAST_THREAD_STATE
-static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb)
-#else
-static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb)
-#endif
-{
-    PyObject *local_type = NULL, *local_value, *local_tb = NULL;
-#if CYTHON_FAST_THREAD_STATE
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-  #if PY_VERSION_HEX >= 0x030C0000
-    local_value = tstate->current_exception;
-    tstate->current_exception = 0;
-  #else
-    local_type = tstate->curexc_type;
-    local_value = tstate->curexc_value;
-    local_tb = tstate->curexc_traceback;
-    tstate->curexc_type = 0;
-    tstate->curexc_value = 0;
-    tstate->curexc_traceback = 0;
-  #endif
-#elif __PYX_LIMITED_VERSION_HEX > 0x030C0000
-    local_value = PyErr_GetRaisedException();
-#else
-    PyErr_Fetch(&local_type, &local_value, &local_tb);
-#endif
-#if __PYX_LIMITED_VERSION_HEX > 0x030C0000
-    if (likely(local_value)) {
-        local_type = (PyObject*) Py_TYPE(local_value);
-        Py_INCREF(local_type);
-        local_tb = PyException_GetTraceback(local_value);
-    }
-#else
-    PyErr_NormalizeException(&local_type, &local_value, &local_tb);
-#if CYTHON_FAST_THREAD_STATE
-    if (unlikely(tstate->curexc_type))
-#else
-    if (unlikely(PyErr_Occurred()))
-#endif
-        goto bad;
-    if (local_tb) {
-        if (unlikely(PyException_SetTraceback(local_value, local_tb) < 0))
-            goto bad;
-    }
-#endif // __PYX_LIMITED_VERSION_HEX > 0x030C0000
-    Py_XINCREF(local_tb);
-    Py_XINCREF(local_type);
-    Py_XINCREF(local_value);
-    *type = local_type;
-    *value = local_value;
-    *tb = local_tb;
-#if CYTHON_FAST_THREAD_STATE
-    #if CYTHON_USE_EXC_INFO_STACK
-    {
-        _PyErr_StackItem *exc_info = tstate->exc_info;
-      #if PY_VERSION_HEX >= 0x030B00a4
-        tmp_value = exc_info->exc_value;
-        exc_info->exc_value = local_value;
-        tmp_type = NULL;
-        tmp_tb = NULL;
-        Py_XDECREF(local_type);
-        Py_XDECREF(local_tb);
-      #else
-        tmp_type = exc_info->exc_type;
-        tmp_value = exc_info->exc_value;
-        tmp_tb = exc_info->exc_traceback;
-        exc_info->exc_type = local_type;
-        exc_info->exc_value = local_value;
-        exc_info->exc_traceback = local_tb;
-      #endif
-    }
-    #else
-    tmp_type = tstate->exc_type;
-    tmp_value = tstate->exc_value;
-    tmp_tb = tstate->exc_traceback;
-    tstate->exc_type = local_type;
-    tstate->exc_value = local_value;
-    tstate->exc_traceback = local_tb;
-    #endif
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-#elif __PYX_LIMITED_VERSION_HEX >= 0x030b0000
-    PyErr_SetHandledException(local_value);
-    Py_XDECREF(local_value);
-    Py_XDECREF(local_type);
-    Py_XDECREF(local_tb);
-#else
-    PyErr_SetExcInfo(local_type, local_value, local_tb);
-#endif
-    return 0;
-#if __PYX_LIMITED_VERSION_HEX <= 0x030C0000
-bad:
-    *type = 0;
-    *value = 0;
-    *tb = 0;
-    Py_XDECREF(local_type);
-    Py_XDECREF(local_value);
-    Py_XDECREF(local_tb);
-    return -1;
-#endif
-}
-
-/* pep479 */
-  static void __Pyx_Generator_Replace_StopIteration(int in_async_gen) {
-    PyObject *exc, *val, *tb, *cur_exc, *new_exc;
-    __Pyx_PyThreadState_declare
-    int is_async_stopiteration = 0;
-    CYTHON_MAYBE_UNUSED_VAR(in_async_gen);
-    __Pyx_PyThreadState_assign
-    cur_exc = __Pyx_PyErr_CurrentExceptionType();
-    if (likely(!__Pyx_PyErr_GivenExceptionMatches(cur_exc, PyExc_StopIteration))) {
-        if (in_async_gen && unlikely(__Pyx_PyErr_GivenExceptionMatches(cur_exc, PyExc_StopAsyncIteration))) {
-            is_async_stopiteration = 1;
-        } else {
-            return;
-        }
-    }
-    __Pyx_GetException(&exc, &val, &tb);
-    Py_XDECREF(exc);
-    Py_XDECREF(tb);
-    new_exc = PyObject_CallFunction(PyExc_RuntimeError, "s",
-        is_async_stopiteration ? "async generator raised StopAsyncIteration" :
-        in_async_gen ? "async generator raised StopIteration" :
-        "generator raised StopIteration");
-    if (!new_exc) {
-        Py_XDECREF(val);
-        return;
-    }
-    PyException_SetCause(new_exc, val); // steals ref to val
-    PyErr_SetObject(PyExc_RuntimeError, new_exc);
-}
-
-/* ArgTypeTest */
-  static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact)
-{
-    __Pyx_TypeName type_name;
-    __Pyx_TypeName obj_type_name;
-    PyObject *extra_info = __pyx_mstate_global->__pyx_empty_unicode;
-    int from_annotation_subclass = 0;
-    if (unlikely(!type)) {
-        PyErr_SetString(PyExc_SystemError, "Missing type object");
-        return 0;
-    }
-    else if (!exact) {
-        if (likely(__Pyx_TypeCheck(obj, type))) return 1;
-    } else if (exact == 2) {
-        if (__Pyx_TypeCheck(obj, type)) {
-            from_annotation_subclass = 1;
-            extra_info = __pyx_mstate_global->__pyx_kp_u_Note_that_Cython_is_deliberately;
-        }
-    }
-    type_name = __Pyx_PyType_GetFullyQualifiedName(type);
-    obj_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(obj));
-    PyErr_Format(PyExc_TypeError,
-        "Argument '%.200s' has incorrect type (expected " __Pyx_FMT_TYPENAME
-        ", got " __Pyx_FMT_TYPENAME ")"
-#if __PYX_LIMITED_VERSION_HEX < 0x030C0000
-        "%s%U"
-#endif
-        , name, type_name, obj_type_name
-#if __PYX_LIMITED_VERSION_HEX < 0x030C0000
-        , (from_annotation_subclass ? ". " : ""), extra_info
-#endif
-        );
-#if __PYX_LIMITED_VERSION_HEX >= 0x030C0000
-    if (exact == 2 && from_annotation_subclass) {
-        PyObject *res;
-        PyObject *vargs[2];
-        vargs[0] = PyErr_GetRaisedException();
-        vargs[1] = extra_info;
-        res = PyObject_VectorcallMethod(__pyx_mstate_global->__pyx_kp_u_add_note, vargs, 2, NULL);
-        Py_XDECREF(res);
-        PyErr_SetRaisedException(vargs[0]);
-    }
-#endif
-    __Pyx_DECREF_TypeName(type_name);
-    __Pyx_DECREF_TypeName(obj_type_name);
-    return 0;
 }
 
 /* IterFinish */

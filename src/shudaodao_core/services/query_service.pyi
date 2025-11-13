@@ -13,47 +13,52 @@ class QueryService:
     @classmethod
     def check_query_request(cls, query: QueryRequest): ...
     @classmethod
+    async def query_columns_one(
+        cls,
+        db: AsyncSession,
+        *,
+        model_class: type[SQLModelDB],
+        condition: list[ColumnElement] | ColumnElement | Any,
+    ) -> SQLModelDB:
+        """根据列条件查询唯一记录"""
+    @classmethod
     async def query_columns_first(
         cls,
         db: AsyncSession,
         *,
         model_class: type[SQLModelDB],
-        condition: list[ColumnElement] | ColumnElement | any,
+        condition: list[ColumnElement] | ColumnElement | Any,
     ) -> SQLModelDB:
-        """根据列条件查询单条记录。
-        自动附加租户过滤条件。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-            condition (Union[List[ColumnElement], ColumnElement, Any]): 查询条件。
-
-        Returns:
-            SQLModelDB: 查询到的第一条记录，若无则返回 None（但类型提示为模型，实际可能为 None）。
-        """
+        """根据列条件查询单条记录"""
     @classmethod
-    async def query_columns(
+    async def query_columns_all(
         cls,
         db: AsyncSession,
         *,
         model_class: type[SQLModelDB],
-        condition: list[ColumnElement] | ColumnElement | any,
+        condition: list[ColumnElement] | ColumnElement | Any,
     ):
-        """根据列条件查询单条记录。
-        自动附加租户过滤条件。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-            condition (Union[List[ColumnElement], ColumnElement, Any]): 查询条件。
-
-        Returns:
-            SQLModelDB: 查询到的所有记录，若无则返回 None（但类型提示为模型，实际可能为 None）。
-        """
+        """根据列条件查询所有记录"""
     @classmethod
     def get_condition_from_columns(cls, condition, model_class): ...
     @classmethod
-    async def db_query(
+    async def db_query_one(
+        cls,
+        db: AsyncSession,
+        *,
+        query_request: QueryRequest,
+        model_class: type[SQLModelDB],
+    ): ...
+    @classmethod
+    async def db_query_first(
+        cls,
+        db: AsyncSession,
+        *,
+        query_request: QueryRequest,
+        model_class: type[SQLModelDB],
+    ): ...
+    @classmethod
+    async def db_query_all(
         cls,
         db: AsyncSession,
         *,

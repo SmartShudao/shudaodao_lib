@@ -10,75 +10,103 @@ from typing import Optional, TYPE_CHECKING
 
 from sqlalchemy import BigInteger
 
-from shudaodao_core import Field, get_primary_id, Relationship
-from shudaodao_core import SQLModel, BaseResponse
-from ... import RegistryModel, get_table_schema
+from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
+from ...meta_config import MetaConfig
 
 if TYPE_CHECKING:
     from .meta_table import MetaTable
     from .meta_view import MetaView
+    from .sys_enum_field import EnumField
 
 
-class MetaSchema(RegistryModel, table=True):
-    """ 数据库对象模型 """
+class MetaSchema(MetaConfig.RegistryModel, table=True):
+    """数据库对象模型"""
+
     __tablename__ = "meta_schema"
-    __table_args__ = {"schema": get_table_schema(), "comment": "代码元数据"}
-    # 非数据库字段：仅用于内部处理
-    __database_schema__ = "shudaodao_meta"
-    # 数据库字段
-    schema_id: int = Field(
+    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "代码元数据"}
+    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+
+    meta_schema_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
-    schema_label: Optional[str] = Field(default=None, max_length=128, nullable=True, description="架构中文")
-    schema_name: str = Field(max_length=128, description="数据库架构")
-    sort_order: int = Field(default=10, description="排序权重")
-    description: Optional[str] = Field(default=None, max_length=500, nullable=True, description="描述")
-    create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
-    create_at: Optional[datetime] = Field(
-        default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="创建日期"
+    schema_label: Optional[str] = Field(
+        default=None, nullable=True, max_length=128, description="数据库-模式标签"
     )
-    update_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="修改人")
-    update_at: Optional[datetime] = Field(
-        default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
+    schema_name: str = Field(max_length=128, description="数据库-模式(schema)")
+    engine_name: Optional[str] = Field(
+        default=None, nullable=True, max_length=128, description="数据库-配置名称"
     )
-    # 正向关系 -> 子对象
+    router_name: Optional[str] = Field(
+        default=None, nullable=True, max_length=128, description="API路由-路径名称"
+    )
+    router_tags: Optional[str] = Field(
+        default=None, nullable=True, max_length=256, description="API路由-分组标签"
+    )
+    output_frontend: Optional[str] = Field(
+        default=None, nullable=True, max_length=256, description="前端路径"
+    )
+    output_backend: Optional[str] = Field(default=None, nullable=True, max_length=256, description="后端路径")
+    sort_order: int = Field(description="排序权重")
+    description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
+    create_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="创建人")
+    create_at: Optional[datetime] = Field(default=None, nullable=True, description="创建日期")
+    update_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="修改人")
+    update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
+    # 正向关系 - 子对象
     MetaTables: list["MetaTable"] = Relationship(
-        back_populates="Schema", sa_relationship_kwargs={
-            "order_by": "MetaTable.sort_order.asc()"
-        }
+        back_populates="MetaSchema", sa_relationship_kwargs={"order_by": "MetaTable.sort_order.asc()"}
     )
+    # 正向关系 - 子对象
     MetaViews: list["MetaView"] = Relationship(
-        back_populates="Schema", sa_relationship_kwargs={
-            "order_by": "MetaView.sort_order.asc()"
-        }
+        back_populates="MetaSchema", sa_relationship_kwargs={"order_by": "MetaView.sort_order.asc()"}
+    )
+    # 正向关系 - 子对象
+    EnumFields: list["EnumField"] = Relationship(
+        back_populates="MetaSchema", sa_relationship_kwargs={"order_by": "EnumField.sort_order.asc()"}
     )
 
 
-class MetaSchemaBase(SQLModel):
-    """ 创建、更新模型 共用字段 """
-    schema_label: Optional[str] = Field(default=None, max_length=128, description="架构中文")
-    schema_name: str = Field(max_length=128, description="数据库架构")
-    sort_order: int = Field(default=10, description="排序权重")
+class MetaSchemaCreate(SQLModel):
+    """前端创建模型 - 用于接口请求"""
+
+    schema_label: Optional[str] = Field(default=None, max_length=128, description="数据库-模式标签")
+    schema_name: str = Field(max_length=128, description="数据库-模式(schema)")
+    engine_name: Optional[str] = Field(default=None, max_length=128, description="数据库-配置名称")
+    router_name: Optional[str] = Field(default=None, max_length=128, description="API路由-路径名称")
+    router_tags: Optional[str] = Field(default=None, max_length=256, description="API路由-分组标签")
+    output_frontend: Optional[str] = Field(default=None, max_length=256, description="前端路径")
+    output_backend: Optional[str] = Field(default=None, max_length=256, description="后端路径")
+    sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
-class MetaSchemaCreate(MetaSchemaBase):
-    """ 前端创建模型 - 用于接口请求 """
-    ...
+class MetaSchemaUpdate(SQLModel):
+    """前端更新模型 - 用于接口请求"""
 
-
-class MetaSchemaUpdate(MetaSchemaBase):
-    """ 前端更新模型 - 用于接口请求 """
-    ...
+    meta_schema_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
+    schema_label: Optional[str] = Field(default=None, max_length=128, description="数据库-模式标签")
+    schema_name: Optional[str] = Field(default=None, max_length=128, description="数据库-模式(schema)")
+    engine_name: Optional[str] = Field(default=None, max_length=128, description="数据库-配置名称")
+    router_name: Optional[str] = Field(default=None, max_length=128, description="API路由-路径名称")
+    router_tags: Optional[str] = Field(default=None, max_length=256, description="API路由-分组标签")
+    output_frontend: Optional[str] = Field(default=None, max_length=256, description="前端路径")
+    output_backend: Optional[str] = Field(default=None, max_length=256, description="后端路径")
+    sort_order: Optional[int] = Field(default=None, description="排序权重")
+    description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
 class MetaSchemaResponse(BaseResponse):
-    """ 前端响应模型 - 用于接口响应 """
-    __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
+    """前端响应模型 - 用于接口响应"""
 
-    schema_id: int = Field(description="主键", sa_type=BigInteger)
-    schema_label: Optional[str] = Field(description="架构中文", default=None)
-    schema_name: str = Field(description="数据库架构")
+    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    meta_schema_id: int = Field(description="主键", sa_type=BigInteger)
+    schema_label: Optional[str] = Field(description="数据库-模式标签", default=None)
+    schema_name: str = Field(description="数据库-模式(schema)")
+    engine_name: Optional[str] = Field(description="数据库-配置名称", default=None)
+    router_name: Optional[str] = Field(description="API路由-路径名称", default=None)
+    router_tags: Optional[str] = Field(description="API路由-分组标签", default=None)
+    output_frontend: Optional[str] = Field(description="前端路径", default=None)
+    output_backend: Optional[str] = Field(description="后端路径", default=None)
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(description="描述", default=None)
     create_by: Optional[str] = Field(description="创建人", default=None)

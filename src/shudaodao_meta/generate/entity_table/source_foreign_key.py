@@ -6,92 +6,110 @@
 # @Desc     ：SQLModel classes for shudaodao_meta.source_foreign_key
 
 from datetime import datetime
-from typing import TYPE_CHECKING, Optional
+from typing import Optional, TYPE_CHECKING
 
 from sqlalchemy import BigInteger, Boolean, Text
 
-from shudaodao_core import Field, get_primary_id, Relationship
-from shudaodao_core import SQLModel, BaseResponse
-from ... import RegistryModel, get_table_schema, get_foreign_schema
+from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
+from ...meta_config import MetaConfig
 
 if TYPE_CHECKING:
-    from .source_table import SourceTable
     from .source_referencing_foreign_key import SourceReferencingForeignKey
+    from .source_table import SourceTable
 
 
-class SourceForeignKey(RegistryModel, table=True):
-    """ 数据库对象模型 """
+class SourceForeignKey(MetaConfig.RegistryModel, table=True):
+    """数据库对象模型"""
+
     __tablename__ = "source_foreign_key"
-    __table_args__ = {"schema": get_table_schema(), "comment": "外键元数据"}
-    # 非数据库字段：仅用于内部处理
-    __database_schema__ = "shudaodao_meta"
-    # 数据库字段
+    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "外键元数据"}
+    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+
     source_foreign_key_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     source_table_id: int = Field(
-        sa_type=BigInteger, description="主键", foreign_key=f"{get_foreign_schema()}source_table.source_table_id"
+        foreign_key=f"{MetaConfig.SchemaForeignKey}source_table.source_table_id",
+        ondelete="CASCADE",
+        sa_type=BigInteger,
+        description="主键",
     )
-    name: Optional[str] = Field(default=None, max_length=255, nullable=True, description="约束名称")
+    name: Optional[str] = Field(default=None, nullable=True, max_length=255, description="约束名称")
+    has_sort_order: Optional[bool] = Field(
+        default=None, sa_type=Boolean, nullable=True, description="默认排序字段"
+    )
     unique: bool = Field(sa_type=Boolean, description="是否唯一")
     constrained_columns: str = Field(max_length=255, description="约束字段集合")
-    referred_schema: Optional[str] = Field(default=None, max_length=128, nullable=True, description="引用架构")
+    constrained_orderby: Optional[bool] = Field(
+        default=None, sa_type=Boolean, nullable=True, description="包含排序字段"
+    )
+    referred_schema: Optional[str] = Field(
+        default=None, nullable=True, max_length=128, description="引用架构"
+    )
     referred_table: str = Field(max_length=255, description="引用表")
     referred_columns: str = Field(sa_type=Text, description="引用字段集合")
-    options: Optional[str] = Field(default=None, max_length=255, nullable=True, description="行为选项")
-    sort_order: int = Field(default=10, description="排序权重")
-    description: Optional[str] = Field(default=None, max_length=500, nullable=True, description="描述")
-    create_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="创建人")
-    create_at: Optional[datetime] = Field(
-        default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="创建日期"
-    )
-    update_by: Optional[str] = Field(default=None, max_length=50, nullable=True, description="修改人")
-    update_at: Optional[datetime] = Field(
-        default_factory=lambda: datetime.now().replace(microsecond=0), nullable=True, description="修改日期"
-    )
-    # 反向关系 -> 父对象
+    options: Optional[str] = Field(default=None, nullable=True, max_length=255, description="行为选项")
+    sort_order: int = Field(description="排序权重")
+    description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
+    create_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="创建人")
+    create_at: Optional[datetime] = Field(default=None, nullable=True, description="创建日期")
+    update_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="修改人")
+    update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
+    # 反向关系 - 父对象
     SourceTable: "SourceTable" = Relationship(back_populates="SourceForeignKeys")
-    # 正向关系 -> 子对象
+    # 正向关系 - 子对象
     SourceReferencingForeignKeys: list["SourceReferencingForeignKey"] = Relationship(
-        back_populates="SourceForeignKey", sa_relationship_kwargs={
-            "order_by": "SourceReferencingForeignKey.sort_order.asc()"
-        }
+        back_populates="SourceForeignKey",
+        sa_relationship_kwargs={"order_by": "SourceReferencingForeignKey.sort_order.asc()"},
     )
 
 
-class SourceForeignKeyBase(SQLModel):
-    """ 创建、更新模型 共用字段 """
+class SourceForeignKeyCreate(SQLModel):
+    """前端创建模型 - 用于接口请求"""
+
     source_table_id: int = Field(sa_type=BigInteger, description="主键")
     name: Optional[str] = Field(default=None, max_length=255, description="约束名称")
+    has_sort_order: Optional[bool] = Field(default=None, description="默认排序字段")
     unique: bool = Field(description="是否唯一")
     constrained_columns: str = Field(max_length=255, description="约束字段集合")
+    constrained_orderby: Optional[bool] = Field(default=None, description="包含排序字段")
     referred_schema: Optional[str] = Field(default=None, max_length=128, description="引用架构")
     referred_table: str = Field(max_length=255, description="引用表")
     referred_columns: str = Field(description="引用字段集合")
     options: Optional[str] = Field(default=None, max_length=255, description="行为选项")
-    sort_order: int = Field(default=10, description="排序权重")
+    sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
-class SourceForeignKeyCreate(SourceForeignKeyBase):
-    """ 前端创建模型 - 用于接口请求 """
-    ...
+class SourceForeignKeyUpdate(SQLModel):
+    """前端更新模型 - 用于接口请求"""
 
-
-class SourceForeignKeyUpdate(SourceForeignKeyBase):
-    """ 前端更新模型 - 用于接口请求 """
-    ...
+    source_foreign_key_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
+    source_table_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
+    name: Optional[str] = Field(default=None, max_length=255, description="约束名称")
+    has_sort_order: Optional[bool] = Field(default=None, description="默认排序字段")
+    unique: Optional[bool] = Field(default=None, description="是否唯一")
+    constrained_columns: Optional[str] = Field(default=None, max_length=255, description="约束字段集合")
+    constrained_orderby: Optional[bool] = Field(default=None, description="包含排序字段")
+    referred_schema: Optional[str] = Field(default=None, max_length=128, description="引用架构")
+    referred_table: Optional[str] = Field(default=None, max_length=255, description="引用表")
+    referred_columns: Optional[str] = Field(default=None, description="引用字段集合")
+    options: Optional[str] = Field(default=None, max_length=255, description="行为选项")
+    sort_order: Optional[int] = Field(default=None, description="排序权重")
+    description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
 
 class SourceForeignKeyResponse(BaseResponse):
-    """ 前端响应模型 - 用于接口响应 """
-    __database_schema__ = "shudaodao_meta"  # 仅用于内部处理
+    """前端响应模型 - 用于接口响应"""
 
+    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
     source_foreign_key_id: int = Field(description="主键", sa_type=BigInteger)
     source_table_id: int = Field(description="主键", sa_type=BigInteger)
     name: Optional[str] = Field(description="约束名称", default=None)
+    has_sort_order: Optional[bool] = Field(description="默认排序字段", default=None)
     unique: bool = Field(description="是否唯一")
     constrained_columns: str = Field(description="约束字段集合")
+    constrained_orderby: Optional[bool] = Field(description="包含排序字段", default=None)
     referred_schema: Optional[str] = Field(description="引用架构", default=None)
     referred_table: str = Field(description="引用表")
     referred_columns: str = Field(description="引用字段集合")

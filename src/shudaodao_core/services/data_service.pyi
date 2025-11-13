@@ -43,7 +43,6 @@ class DataService:
         model_class: type[SQLModelDB],
         create_model: SQLModelCreate | dict[str, Any],
         response_class: type[SQLModelResponse] = None,
-        auto_commit: bool = True,
     ) -> SQLModelDB | SQLModelResponse:
         """创建新记录并可选自动提交。
 
@@ -52,7 +51,6 @@ class DataService:
             model_class (Type[SQLModelDB]): 数据库模型类。
             create_model (SQLModelCreate | dict[str, Any]): 创建数据。
             response_class (Type[SQLModelResponse], optional): 响应模型类，用于返回转换后的数据。
-            auto_commit (bool): 是否自动提交事务。默认为 True。
 
         Returns:
             SQLModelDB | SQLModelResponse: 创建成功的模型实例或其响应表示。
@@ -125,7 +123,6 @@ class DataService:
         model_class: type[SQLModelDB],
         update_model: SQLModelUpdate | dict[str, Any],
         response_class: type[SQLModelResponse] = None,
-        auto_commit: bool = True,
     ) -> SQLModelDB | SQLModelResponse:
         """更新记录并可选自动提交。
 
@@ -135,7 +132,6 @@ class DataService:
             model_class (Type[SQLModelDB]): 数据库模型类。
             update_model (SQLModelUpdate | dict[str, Any]): 更新数据。
             response_class (Type[SQLModelResponse], optional): 响应模型类。
-            auto_commit (bool): 是否自动提交事务。默认为 True。
 
         Returns:
             SQLModelDB | SQLModelResponse: 更新后的记录。
@@ -159,12 +155,7 @@ class DataService:
         """
     @classmethod
     async def delete(
-        cls,
-        db: AsyncSession,
-        primary_id: int,
-        *,
-        model_class: type[SQLModelDB],
-        auto_commit: bool = True,
+        cls, db: AsyncSession, primary_id: int, *, model_class: type[SQLModelDB]
     ) -> bool:
         """删除记录并可选自动提交。
 
@@ -172,7 +163,6 @@ class DataService:
             db (AsyncSession): 异步数据库会话。
             primary_id (int): 主键 ID。
             model_class (Type[SQLModelDB]): 数据库模型类。
-            auto_commit (bool): 是否自动提交事务。默认为 True。
 
         Returns:
             bool: 删除成功返回 True。
