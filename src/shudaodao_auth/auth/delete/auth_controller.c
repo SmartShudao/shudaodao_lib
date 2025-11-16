@@ -1115,8 +1115,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__auth_controller
-#define __PYX_HAVE_API__auth_controller
+#define __PYX_HAVE__shudaodao_auth__auth__delete__auth_controller
+#define __PYX_HAVE_API__shudaodao_auth__auth__delete__auth_controller
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1325,7 +1325,7 @@ static const char *__pyx_filename;
 /* #### Code section: filename_table ### */
 
 static const char* const __pyx_f[] = {
-  "auth_controller.py",
+  "shudaodao_auth/auth/delete/auth_controller.py",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* CriticalSections.proto */
@@ -1857,14 +1857,14 @@ static int __Pyx_State_RemoveModule(void*);
 #define __PYX_TYPE_MODULE_PREFIX __PYX_ABI_MODULE_NAME "."
 
 
-/* Module declarations from "auth_controller" */
+/* Module declarations from "shudaodao_auth.auth.delete.auth_controller" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "auth_controller"
-extern int __pyx_module_is_main_auth_controller;
-int __pyx_module_is_main_auth_controller = 0;
+#define __Pyx_MODULE_NAME "shudaodao_auth.auth.delete.auth_controller"
+extern int __pyx_module_is_main_shudaodao_auth__auth__delete__auth_controller;
+int __pyx_module_is_main_shudaodao_auth__auth__delete__auth_controller = 0;
 
-/* Implementation of "auth_controller" */
+/* Implementation of "shudaodao_auth.auth.delete.auth_controller" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = "?";
@@ -2337,13 +2337,13 @@ __Pyx_RefNannySetupContext("PyInit_auth_controller", 0);
   if (__pyx_AsyncGen_init(__pyx_m) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   /*--- Library function declarations ---*/
-  if (__pyx_module_is_main_auth_controller) {
+  if (__pyx_module_is_main_shudaodao_auth__auth__delete__auth_controller) {
     if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "auth_controller")) {
-      if (unlikely((PyDict_SetItemString(modules, "auth_controller", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "shudaodao_auth.auth.delete.auth_controller")) {
+      if (unlikely((PyDict_SetItemString(modules, "shudaodao_auth.auth.delete.auth_controller", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   /*--- Builtin init code ---*/
@@ -2361,7 +2361,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_controller", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "auth_controller.py":1
+  /* "shudaodao_auth/auth/delete/auth_controller.py":1
  * # #!/usr/bin/env python3             # <<<<<<<<<<<<<<
  * # # -*- coding:utf-8 -*-
  * # # @License  (C)Copyright 2025,
@@ -2378,7 +2378,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_controller", 0);
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_mstate->__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init auth_controller", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init shudaodao_auth.auth.delete.auth_controller", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -2392,7 +2392,7 @@ __Pyx_RefNannySetupContext("PyInit_auth_controller", 0);
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init auth_controller");
+    PyErr_SetString(PyExc_ImportError, "init shudaodao_auth.auth.delete.auth_controller");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

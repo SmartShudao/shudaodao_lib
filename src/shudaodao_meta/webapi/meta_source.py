@@ -10,24 +10,24 @@
 from fastapi import Path
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from shudaodao_auth import AuthRouter
+from shudaodao_auth import AuthAPIRouter
 from shudaodao_core import Depends, ResponseUtil
 from ..meta_config import MetaConfig
 from ..tools.meta_store import MetaStore
 from ..tools.source_store import SourceStore
 
-Meta_Source_Router = AuthRouter(
+Meta_Source_Router = AuthAPIRouter(
     prefix=f"/{MetaConfig.RouterPath}",
-    tags=["元数据管理 - 数据来源"],
-    db_config_name=MetaConfig.EngineName,  # 配置文件中的数据库连接名称
-    default_role="meta_admin",
-    auth_role="admin"
+    tags=[f"{MetaConfig.RouterTags} - 数据来源"],
+    db_engine_name=MetaConfig.EngineName,  # 配置文件中的数据库连接名称
+    auth_role="admin",
+    auth_sub=MetaConfig.SchemaName
 )
 
 
 @Meta_Source_Router.get(
-    path="/sources/{sources_engine}/schemas/{schema_name}/discover", auth_role="admin",
-    summary=["获取(不保存)数据库元数据"]
+    path="/sources/{sources_engine}/schemas/{schema_name}/discover",
+    summary=["获取(不保存)数据库元数据"], auth_obj="source", auth_act="query",
 )
 async def sources_discover(
         sources_engine: str = Path(description="数据库配置名称"),
@@ -40,7 +40,7 @@ async def sources_discover(
 
 
 @Meta_Source_Router.post(
-    path="/sources/{sources_engine}/schemas/{schema_name}/sync", auth_role="admin",
+    path="/sources/{sources_engine}/schemas/{schema_name}/sync",
     summary=["同步(获取+保存)元数据原始来源 - 从 数据库 database 同步到 原始来源"]
 )
 async def sources_sync(
@@ -55,8 +55,7 @@ async def sources_sync(
 
 
 @Meta_Source_Router.post(
-    path="/schemas/{schema_name}/sync", auth_role="admin",
-    summary=["同步(获取+保存)元数据 - 从 原始来源 source 同步管理库"]
+    path="/schemas/{schema_name}/sync", summary=["同步(获取+保存)元数据 - 从 原始来源 source 同步管理库"]
 )
 async def schemas_sync(
         schema_name: str = Path(description="数据库模式(schema)"),

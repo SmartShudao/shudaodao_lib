@@ -22,7 +22,9 @@ class SourceIndex(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "source_index"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "表索引"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["source_index_id"]
 
     source_index_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"

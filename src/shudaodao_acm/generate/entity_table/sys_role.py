@@ -22,7 +22,9 @@ class Role(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "sys_role"
     __table_args__ = {"schema": MetaConfig.SchemaTable}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["role_id"]
 
     role_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="角色内码"

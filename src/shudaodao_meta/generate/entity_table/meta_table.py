@@ -17,7 +17,6 @@ if TYPE_CHECKING:
     from .meta_column import MetaColumn
     from .meta_constraint import MetaConstraint
     from .meta_schema import MetaSchema
-    from .meta_web_api import MetaWebApi
 
 
 class MetaTable(MetaConfig.RegistryModel, table=True):
@@ -25,7 +24,9 @@ class MetaTable(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "meta_table"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "表元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["meta_table_id"]
 
     meta_table_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
@@ -37,10 +38,11 @@ class MetaTable(MetaConfig.RegistryModel, table=True):
         description="主键",
     )
     table_name: str = Field(max_length=255, description="表名字")
-    router_name: str = Field(max_length=128, description="API路由名")
+    router_path: str = Field(max_length=128, description="API路由名")
     comment: Optional[str] = Field(default=None, sa_type=Text, nullable=True, description="备注")
     class_name: Optional[str] = Field(default=None, nullable=True, max_length=50, description="类名")
-    default_column: Optional[str] = Field(default=None, nullable=True, max_length=50, description="默认列")
+    default_column: Optional[str] = Field(default=None, nullable=True, max_length=64, description="默认列")
+    api_acts: Optional[str] = Field(default=None, nullable=True, max_length=128, description="接口操作集合")
     is_active: bool = Field(sa_type=Boolean, description="启用状态")
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
@@ -52,14 +54,16 @@ class MetaTable(MetaConfig.RegistryModel, table=True):
     MetaSchema: "MetaSchema" = Relationship(back_populates="MetaTables")
     # 正向关系 - 子对象
     MetaColumns: list["MetaColumn"] = Relationship(
-        back_populates="MetaTable", sa_relationship_kwargs={"order_by": "MetaColumn.sort_order.asc()"}
+        back_populates="MetaTable",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "MetaColumn.sort_order.asc()"},
     )
     # 正向关系 - 子对象
     MetaConstraints: list["MetaConstraint"] = Relationship(
-        back_populates="MetaTable", sa_relationship_kwargs={"order_by": "MetaConstraint.sort_order.asc()"}
+        back_populates="MetaTable",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "MetaConstraint.sort_order.asc()"},
     )
-    # 正向关系 - 子对象
-    MetaWebApis: list["MetaWebApi"] = Relationship(back_populates="MetaTable")
 
 
 class MetaTableCreate(SQLModel):
@@ -67,10 +71,11 @@ class MetaTableCreate(SQLModel):
 
     meta_schema_id: int = Field(sa_type=BigInteger, description="主键")
     table_name: str = Field(max_length=255, description="表名字")
-    router_name: str = Field(max_length=128, description="API路由名")
+    router_path: str = Field(max_length=128, description="API路由名")
     comment: Optional[str] = Field(default=None, description="备注")
     class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
-    default_column: Optional[str] = Field(default=None, max_length=50, description="默认列")
+    default_column: Optional[str] = Field(default=None, max_length=64, description="默认列")
+    api_acts: Optional[str] = Field(default=None, max_length=128, description="接口操作集合")
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
@@ -82,10 +87,11 @@ class MetaTableUpdate(SQLModel):
     meta_table_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
     meta_schema_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
     table_name: Optional[str] = Field(default=None, max_length=255, description="表名字")
-    router_name: Optional[str] = Field(default=None, max_length=128, description="API路由名")
+    router_path: Optional[str] = Field(default=None, max_length=128, description="API路由名")
     comment: Optional[str] = Field(default=None, description="备注")
     class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
-    default_column: Optional[str] = Field(default=None, max_length=50, description="默认列")
+    default_column: Optional[str] = Field(default=None, max_length=64, description="默认列")
+    api_acts: Optional[str] = Field(default=None, max_length=128, description="接口操作集合")
     is_active: Optional[bool] = Field(default=None, description="启用状态")
     sort_order: Optional[int] = Field(default=None, description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
@@ -98,10 +104,11 @@ class MetaTableResponse(BaseResponse):
     meta_table_id: int = Field(description="主键", sa_type=BigInteger)
     meta_schema_id: int = Field(description="主键", sa_type=BigInteger)
     table_name: str = Field(description="表名字")
-    router_name: str = Field(description="API路由名")
+    router_path: str = Field(description="API路由名")
     comment: Optional[str] = Field(description="备注", default=None)
     class_name: Optional[str] = Field(description="类名", default=None)
     default_column: Optional[str] = Field(description="默认列", default=None)
+    api_acts: Optional[str] = Field(description="接口操作集合", default=None)
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(description="描述", default=None)

@@ -10,14 +10,14 @@ from typing import Optional
 
 from fastapi import Path
 
-from shudaodao_auth import AuthRouter
+from shudaodao_auth import AuthAPIRouter
 from shudaodao_meta.meta_config import MetaConfig
 from ..services.generic_service_v1 import GenericServiceV1
 
-generic_router = AuthRouter(
+generic_router = AuthAPIRouter(
     prefix=f"/v1",
-    db_config_name=MetaConfig.EngineName,
-    tags=["通用接口 - 增删改查 v1 - 兼容 java 接口"],
+    db_engine_name=MetaConfig.EngineName,
+    tags=["通用接口 - 增删改查 v1 - 标准功能，更倾向去兼容java版接口"],
 )
 
 
@@ -48,8 +48,8 @@ async def delete_route(
 
 @generic_router.put(
     path="/{schema_path}/{entity_path}/{primary_id}", summary="更新 schema - table/view 的数据")
-@generic_router.patch(
-    path="/{schema_path}/{entity_path}/{primary_id}", summary="更新 schema - table/view 的数据")
+# @generic_router.patch(
+#     path="/{schema_path}/{entity_path}/{primary_id}", summary="更新 schema - table/view 的数据")
 async def update_route(
         update_models: dict,
         primary_id: Optional[int] = Path(description="主键ID值,int或List[int]"),

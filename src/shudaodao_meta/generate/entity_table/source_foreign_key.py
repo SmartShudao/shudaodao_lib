@@ -23,7 +23,9 @@ class SourceForeignKey(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "source_foreign_key"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "外键元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["source_foreign_key_id"]
 
     source_foreign_key_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
@@ -60,6 +62,7 @@ class SourceForeignKey(MetaConfig.RegistryModel, table=True):
     # 正向关系 - 子对象
     SourceReferencingForeignKeys: list["SourceReferencingForeignKey"] = Relationship(
         back_populates="SourceForeignKey",
+        cascade_delete=True,
         sa_relationship_kwargs={"order_by": "SourceReferencingForeignKey.sort_order.asc()"},
     )
 

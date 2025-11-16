@@ -1,4 +1,7 @@
-from ..exception.service_exception import DataNotFoundException as DataNotFoundException
+from ..exception.service_exception import (
+    DataNotFoundException as DataNotFoundException,
+    ValidError as ValidError,
+)
 from ..tools.tenant_manager import TenantManager as TenantManager
 from ..type.var import (
     SQLModelCreate as SQLModelCreate,
@@ -22,19 +25,7 @@ class DataService:
         *,
         model_class: type[SQLModelDB],
         create_model: SQLModelCreate | dict[str, Any],
-    ) -> SQLModelDB:
-        """在数据库会话中插入新记录（不提交事务）。
-
-        此方法为底层插入操作，不自动提交，适用于事务组合场景。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-            create_model (SQLModelCreate | dict[str, Any]): 创建数据，可为 Pydantic 模型或字典。
-
-        Returns:
-            SQLModelDB: 已添加到会话但未提交的数据库模型实例。
-        """
+    ) -> SQLModelDB: ...
     @classmethod
     async def create(
         cls,
@@ -57,25 +48,17 @@ class DataService:
         """
     @classmethod
     async def db_get(
-        cls, db: AsyncSession, primary_id: int, *, model_class: type[SQLModelDB]
-    ) -> SQLModelDB | None:
-        """根据主键 ID 获取数据库记录（不抛异常）。
-
-        同时执行租户权限校验，若记录不属于当前租户则视为不存在。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            primary_id (int): 主键 ID。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-
-        Returns:
-            SQLModelDB | None: 若存在且权限允许，返回模型实例；否则返回 None。
-        """
+        cls,
+        db: AsyncSession,
+        primary_id: Any | tuple[Any, ...],
+        *,
+        model_class: type[SQLModelDB],
+    ) -> SQLModelDB | None: ...
     @classmethod
     async def read(
         cls,
         db: AsyncSession,
-        primary_id: int,
+        primary_id: Any | tuple[Any, ...],
         *,
         model_class: type[SQLModelDB],
         response_class: type[SQLModelResponse] = None,
@@ -84,7 +67,7 @@ class DataService:
 
         Args:
             db (AsyncSession): 异步数据库会话。
-            primary_id (int): 主键 ID。
+            primary_id (Union[Any, Tuple[Any, ...]]): 主键 ID。
             model_class (Type[SQLModelDB]): 数据库模型类。
             response_class (Type[SQLModelResponse], optional): 响应模型类。
 
@@ -98,27 +81,16 @@ class DataService:
     async def db_update(
         cls,
         db: AsyncSession,
-        primary_id: int,
+        primary_id: Any | tuple[Any, ...],
         *,
         model_class: type[SQLModelDB],
         update_model: SQLModelUpdate | dict[str, Any],
-    ) -> SQLModelDB | None:
-        """更新指定 ID 的记录（不提交事务，不抛异常）。
-
-        Args:
-            db (AsyncSession): 异步数据库会话。
-            primary_id (int): 主键 ID。
-            model_class (Type[SQLModelDB]): 数据库模型类。
-            update_model (SQLModelUpdate | dict[str, Any]): 更新数据。
-
-        Returns:
-            SQLModelDB | None: 更新后的模型实例；若记录不存在，返回 None。
-        """
+    ) -> SQLModelDB | None: ...
     @classmethod
     async def update(
         cls,
         db: AsyncSession,
-        primary_id: int,
+        primary_id: Any | tuple[Any, ...],
         *,
         model_class: type[SQLModelDB],
         update_model: SQLModelUpdate | dict[str, Any],
@@ -128,7 +100,7 @@ class DataService:
 
         Args:
             db (AsyncSession): 异步数据库会话。
-            primary_id (int): 主键 ID。
+            primary_id (Union[Any, Tuple[Any, ...]]): 主键 ID。
             model_class (Type[SQLModelDB]): 数据库模型类。
             update_model (SQLModelUpdate | dict[str, Any]): 更新数据。
             response_class (Type[SQLModelResponse], optional): 响应模型类。
@@ -141,13 +113,17 @@ class DataService:
         """
     @classmethod
     async def db_delete(
-        cls, db: AsyncSession, primary_id: int, *, model_class: type[SQLModelDB]
+        cls,
+        db: AsyncSession,
+        primary_id: Any | tuple[Any, ...],
+        *,
+        model_class: type[SQLModelDB],
     ) -> bool:
         """删除指定 ID 的记录（不提交事务，不抛异常）。
 
         Args:
             db (AsyncSession): 异步数据库会话。
-            primary_id (int): 主键 ID。
+            primary_id (Union[Any, Tuple[Any, ...]]): 主键 ID。
             model_class (Type[SQLModelDB]): 数据库模型类。
 
         Returns:
@@ -155,13 +131,17 @@ class DataService:
         """
     @classmethod
     async def delete(
-        cls, db: AsyncSession, primary_id: int, *, model_class: type[SQLModelDB]
+        cls,
+        db: AsyncSession,
+        primary_id: Any | tuple[Any, ...],
+        *,
+        model_class: type[SQLModelDB],
     ) -> bool:
         """删除记录并可选自动提交。
 
         Args:
             db (AsyncSession): 异步数据库会话。
-            primary_id (int): 主键 ID。
+            primary_id (Union[Any, Tuple[Any, ...]]): 主键 ID。
             model_class (Type[SQLModelDB]): 数据库模型类。
 
         Returns:
@@ -170,6 +150,16 @@ class DataService:
         Raises:
             DataNotFoundException: 若记录不存在或无权限访问。
         """
+    @staticmethod
+    def reset_schema(db: AsyncSession, model_class: type[SQLModelDB]):
+        """重置模型的 schema，以兼容 SQLite 等不支持 schema 的数据库。
+
+        Args:
+            db (AsyncSession): 数据库会话。
+            model_class (Type[SQLModelDB]): 数据库模型类。
+        """
+    @classmethod
+    def get_primary_id(cls, data_model, model_class): ...
     @classmethod
     def get_primary_key_name(
         cls, model_class: type[SQLModelDB]
@@ -184,12 +174,4 @@ class DataService:
                 - 单个主键时返回字段名（str），
                 - 复合主键时返回字段名列表（list[str]），
                 - 无主键时返回 None。
-        """
-    @staticmethod
-    def reset_schema(db: AsyncSession, model_class: type[SQLModelDB]):
-        """重置模型的 schema，以兼容 SQLite 等不支持 schema 的数据库。
-
-        Args:
-            db (AsyncSession): 数据库会话。
-            model_class (Type[SQLModelDB]): 数据库模型类。
         """

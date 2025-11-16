@@ -1,7 +1,7 @@
 from .checker import check_admin_user as check_admin_user
 from .engine import load_engine as load_engine, unload_engine as unload_engine
 from .fast_api import create_init_fastapi as create_init_fastapi
-from .meta import load_meta_config as load_meta_config
+from .package import load_meta_config as load_meta_config
 from _typeshed import Incomplete
 from fastapi import FastAPI as FastAPI
 from typing import Callable

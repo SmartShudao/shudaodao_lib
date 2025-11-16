@@ -16,7 +16,9 @@
 # 
 #     __tablename__ = "t_auth_rule"
 #     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "访问控制规则表"}
-#     __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+#     # 仅用于内部处理
+#     __database_schema__ = MetaConfig.SchemaName
+#     __primary_key__ = ["id"]
 # 
 #     id: int = Field(
 #         default=None, primary_key=True, sa_column_kwargs={"autoincrement": True}, description="主键"

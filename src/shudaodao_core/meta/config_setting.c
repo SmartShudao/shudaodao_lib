@@ -2392,7 +2392,7 @@ static const char __pyx_k_table_or_view_name[] = "table_or_view_name";
 static const char __pyx_k_A_R_auD_t1_A_81BnA_1[] = "\200A\330\010\t\330\014\017\210~\230R\230\177\250a\250u\260D\270\001\330\020\027\220t\2301\330\010\017\210}\230A\330\014\023\2208\2301\230B\230n\250A\330\014\023\2201";
 static const char __pyx_k_engine_database_engine[] = "engine.database_engine";
 static const char __pyx_k_MetaConfigSetting___init[] = "MetaConfigSetting.__init__";
-static const char __pyx_k_Na_L_Zy_A_Q_N_N_A_N_N_O4_1_8_A[] = "\320\004N\310a\340\010\014\210L\230\010\240\001\340\010\035\230Z\240y\260\004\260A\360\010\000\t\r\320\014\035\230Q\360\006\000\t\r\210N\230!\340\010\014\210N\230!\320\033+\320+<\270A\340\010\014\210N\230!\340\010\014\210N\230!\340\010\014\210O\2304\320\0371\260\021\340\010\014\320\014 \240\004\320$8\270\001\340\010\014\320\014\034\230A\340\010\014\210L\230\001";
+static const char __pyx_k_Na_L_Zy_A_Q_N_N_N_N_O4_1_8_A_L[] = "\320\004N\310a\340\010\014\210L\230\010\240\001\340\010\035\230Z\240y\260\004\260A\360\010\000\t\r\320\014\035\230Q\360\006\000\t\r\210N\230!\340\010\014\210N\230!\340\010\014\210N\230!\340\010\014\210N\230!\340\010\014\210O\2304\320\0371\260\021\340\010\014\320\014 \240\004\320$8\270\001\340\010\014\320\014\034\230A\340\010\014\210L\230\001";
 static const char __pyx_k_MetaConfigSetting_remove_router[] = "MetaConfigSetting.remove_router_path";
 static const char __pyx_k_MetaConfigSetting___init___local[] = "MetaConfigSetting.__init__.<locals>._RegistryModel";
 static const char __pyx_k_MetaConfigSetting__get_foreign_s[] = "MetaConfigSetting._get_foreign_schema";
@@ -2722,7 +2722,6 @@ static PyObject *__pyx_pf_14config_setting_17MetaConfigSetting___init__(CYTHON_U
   size_t __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
-  int __pyx_t_7;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2814,35 +2813,21 @@ static PyObject *__pyx_pf_14config_setting_17MetaConfigSetting___init__(CYTHON_U
  *         #
  *         self.EngineName = engine_name             # <<<<<<<<<<<<<<
  *         #
- *         self.RouterTags = [router_tags] if router_tags else None
+ *         self.RouterTags = router_tags
 */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_EngineName, __pyx_v_engine_name) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
 
   /* "config_setting.py":31
  *         self.EngineName = engine_name
  *         #
- *         self.RouterTags = [router_tags] if router_tags else None             # <<<<<<<<<<<<<<
+ *         self.RouterTags = router_tags             # <<<<<<<<<<<<<<
  *         #
  *         self.RouterPath = router_path
 */
-  __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_v_router_tags); if (unlikely((__pyx_t_7 < 0))) __PYX_ERR(0, 31, __pyx_L1_error)
-  if (__pyx_t_7) {
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx_v_router_tags);
-    __Pyx_GIVEREF(__pyx_v_router_tags);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_2, 0, __pyx_v_router_tags) != (0)) __PYX_ERR(0, 31, __pyx_L1_error);
-    __pyx_t_1 = __pyx_t_2;
-    __pyx_t_2 = 0;
-  } else {
-    __Pyx_INCREF(Py_None);
-    __pyx_t_1 = Py_None;
-  }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_RouterTags, __pyx_t_1) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_RouterTags, __pyx_v_router_tags) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
 
   /* "config_setting.py":33
- *         self.RouterTags = [router_tags] if router_tags else None
+ *         self.RouterTags = router_tags
  *         #
  *         self.RouterPath = router_path             # <<<<<<<<<<<<<<
  *         #  schema_name
@@ -4909,7 +4894,7 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
             unsigned int nlocals : 3;
             unsigned int flags : 10;
             unsigned int first_line : 7;
-            unsigned int line_table_length : 12;
+            unsigned int line_table_length : 11;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
 static PyObject* __Pyx_PyCode_New(
@@ -4926,9 +4911,9 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 5, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 18, 113};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 5, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 18, 105};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_engine_name, __pyx_mstate->__pyx_n_u_schema_name, __pyx_mstate->__pyx_n_u_router_path, __pyx_mstate->__pyx_n_u_router_tags, __pyx_mstate->__pyx_n_u_auth_role, __pyx_mstate->__pyx_n_u_RegistryModel};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_config_setting_py, __pyx_mstate->__pyx_n_u_init, __pyx_k_Na_L_Zy_A_Q_N_N_A_N_N_O4_1_8_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_config_setting_py, __pyx_mstate->__pyx_n_u_init, __pyx_k_Na_L_Zy_A_Q_N_N_N_N_O4_1_8_A_L, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 45, 54};

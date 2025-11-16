@@ -27,7 +27,9 @@ class SourceTable(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "source_table"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "表元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["source_table_id"]
 
     source_table_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
@@ -50,21 +52,28 @@ class SourceTable(MetaConfig.RegistryModel, table=True):
     SourceSchema: "SourceSchema" = Relationship(back_populates="SourceTables")
     # 正向关系 - 子对象
     SourceColumns: list["SourceColumn"] = Relationship(
-        back_populates="SourceTable", sa_relationship_kwargs={"order_by": "SourceColumn.sort_order.asc()"}
+        back_populates="SourceTable",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "SourceColumn.sort_order.asc()"},
     )
     # 正向关系 - 子对象
     SourceForeignKeys: list["SourceForeignKey"] = Relationship(
-        back_populates="SourceTable", sa_relationship_kwargs={"order_by": "SourceForeignKey.sort_order.asc()"}
+        back_populates="SourceTable",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "SourceForeignKey.sort_order.asc()"},
     )
     # 正向关系 - 子对象
     SourceIndexes: list["SourceIndex"] = Relationship(
-        back_populates="SourceTable", sa_relationship_kwargs={"order_by": "SourceIndex.sort_order.asc()"}
+        back_populates="SourceTable",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "SourceIndex.sort_order.asc()"},
     )
     # 正向关系 - 子对象
-    SourcePrimaryKey: "SourcePrimaryKey" = Relationship(back_populates="SourceTable")
+    SourcePrimaryKey: "SourcePrimaryKey" = Relationship(back_populates="SourceTable", cascade_delete=True)
     # 正向关系 - 子对象
     SourceReferencingForeignKeys: list["SourceReferencingForeignKey"] = Relationship(
         back_populates="SourceTable",
+        cascade_delete=True,
         sa_relationship_kwargs={"order_by": "SourceReferencingForeignKey.sort_order.asc()"},
     )
 

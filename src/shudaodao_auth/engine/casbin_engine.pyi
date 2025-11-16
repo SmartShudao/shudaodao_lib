@@ -1,35 +1,11 @@
 from ..entity_table.t_auth_rule import AuthRule as AuthRule
-from casbin import AsyncEnforcer
 
 class PermissionEngine:
-    """Casbin 异步权限引擎的线程安全单例管理器。
-
-    负责：
-        - 初始化 Casbin 的 AsyncEnforcer；
-        - 绑定 SQLAlchemy 异步适配器（持久化策略到 `AuthRule` 表）；
-        - 支持自动保存策略、自动构建角色继承关系；
-        - 提供表结构检查与重建能力（用于开发/测试环境）。
-
-    注意：
-        - 本类使用 **双重检查锁（DCL）** 实现线程安全的单例模式；
-        - `_load()` 在首次实例化时同步执行，因此应避免在异步上下文中首次触发；
-
-    典型用法：
-        enforcer = PermissionEngine().get_async_enforcer()
-        allowed = await enforcer.enforce("admin", "user", "read")
-    """
-    def __new__(cls):
-        """线程安全的单例构造器。
-
-        使用双重检查锁确保多线程环境下仅创建一个实例。
-        注意：`_load()` 是同步方法，首次调用会阻塞当前线程。
-        """
-    def get_async_enforcer(self) -> AsyncEnforcer:
-        """获取已初始化的异步 Casbin Enforcer 实例。
-
-        Returns:
-            AsyncEnforcer: 可用于 `await enforcer.enforce(...)` 的权限校验器。
-        """
+    """Casbin 异步权限引擎的线程安全单例管理器"""
+    def __new__(cls): ...
+    async def load(self) -> None: ...
+    async def rebuild(self) -> None: ...
+    async def save(self) -> None: ...
     async def check_table(self) -> None:
         """检查并按需重建权限策略表。
 
@@ -39,3 +15,11 @@ class PermissionEngine:
 
         适用于开发/测试环境重置权限规则。
         """
+    async def set_role_policy(self, role, obj, act) -> None: ...
+    async def set_inherit_role(self, *, p_role, c_role) -> None: ...
+    async def set_user_role(self, *, user, role) -> None: ...
+    async def has_role(self, user, role): ...
+    def has_permission(self, user, obj, act): ...
+    def add_policy(self, p_sub, p_obj, p_act) -> None: ...
+    async def close(self) -> None:
+        """释放权限引擎占用的资源"""

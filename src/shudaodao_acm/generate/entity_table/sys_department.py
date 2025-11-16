@@ -22,7 +22,9 @@ class Department(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "sys_department"
     __table_args__ = {"schema": MetaConfig.SchemaTable}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["department_id"]
 
     department_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="部门ID"

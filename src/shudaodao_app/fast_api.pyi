@@ -1,4 +1,4 @@
-from .router import load_router as load_router
+from .package import load_router as load_router
 from fastapi import FastAPI
 
 def create_init_fastapi(lifespan) -> FastAPI:

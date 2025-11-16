@@ -1,11 +1,10 @@
 from ..services.auth_service import AuthService as AuthService
-from .auth_data_rule import AuthDataRule as AuthDataRule
+from ..services.casbin_service import PermissionService as PermissionService
 from _typeshed import Incomplete
-from fastapi import APIRouter, Request as Request
-from shudaodao_core import MetaConfigSetting as MetaConfigSetting
-from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
+from collections.abc import Generator
+from fastapi import APIRouter
 
-class AuthRouter(APIRouter):
+class AuthAPIRouter(APIRouter):
     """增强版 APIRouter，支持自动注入权限校验依赖。
 
     在路由注册时自动绑定用户认证、角色检查、数据权限（Casbin）等依赖。
@@ -16,74 +15,59 @@ class AuthRouter(APIRouter):
             格式：{role: {obj: [act1, act2, ...]}}，供应用启动时批量初始化 Casbin 策略。
     """
 
-    permission_rules: Incomplete
-    current_user: Incomplete
-    default_role: Incomplete
+    curr_user: Incomplete
     auth_role: Incomplete
     auth_obj: Incomplete
     auth_act: Incomplete
-    db_config: Incomplete
-    prefix: Incomplete
-    tags: Incomplete
-    data_rules: list[AuthDataRule]
+    db_engine_name: Incomplete
+    auth_sub: Incomplete
     def __init__(
         self,
-        default_role: str | None = None,
         auth_role: str | None = None,
+        auth_sub: str | None = None,
         auth_obj: str | None = None,
         auth_act: str | None = None,
-        db_config_name: str | None = None,
-        mete_config: MetaConfigSetting | None = None,
+        db_engine_name: str | None = None,
         *args,
         **kwargs,
     ) -> None:
-        """初始化 AuthRouter 实例。
+        """初始化 AuthAPIRouter 实例。
 
         Args:
-            default_role (Optional[str]): 默认角色，用于自动收集权限规则。
-            auth_role (Optional[str]): 默认角色校验规则（可被单个路由覆盖）。
-            auth_obj (Optional[str]): 默认数据对象（Casbin 中的 obj）。
-            auth_act (Optional[str]): 默认操作行为（Casbin 中的 act）。
-            db_config_name (Optional[str]): 数据库配置名称，用于 get_async_session。
-            mete_config (Optional[MetaConfigSetting]): 元数据设置类，取代其他参数
+            auth_role (Optional[str]): 指定角色校验（可被单个路由覆盖）。
+            auth_sub (Optional[str]): 指定验证主体（一般是schema_name，Casbin 中的 sub）。
+            auth_obj (Optional[str]): 指定验证对象（一般是table_name\x0biew_name，Casbin 中的 obj，可被单个路由覆盖）。
+            auth_act (Optional[str]): 指定验证操作（crud、query、list、tree，Casbin 中的 act）。
+            db_engine_name (Optional[str]): 数据库配置名称，用于 get_async_session。
             *args: 透传给父类 APIRouter。
             **kwargs: 透传给父类 APIRouter。
         """
-    async def get_async_session(self) -> AsyncSession:
+    async def get_async_session(self) -> Generator[Incomplete]:
         """提供依赖注入用的异步数据库会话"""
+    def check_auth(self, auth_role: str, auth_obj: str, auth_act: str): ...
     def api_route(
         self,
         path: str,
         *,
         auth: bool = True,
+        auth_sub: str | None = None,
         auth_role: str | None = None,
         auth_obj: str | None = None,
         auth_act: str | None = None,
         **kwargs,
     ):
         """注册路由并自动注入权限依赖。
-
         支持按需启用用户认证、角色校验、数据权限校验。
-
         Args:
             path (str): 路由路径。
             auth (bool): 是否启用认证（默认 True）。
-            auth_role (Optional[str]): 指定角色校验（覆盖实例默认值）。
-            auth_obj (Optional[str]): 指定数据对象（Casbin obj）。
-            auth_act (Optional[str]): 指定操作行为（Casbin act）。
+            auth_role (Optional[str]): 指定角色校验。
+            auth_sub (Optional[str]): 指定验证主体（Casbin sub）。
+            auth_obj (Optional[str]): 指定验证对象（Casbin obj）。
+            auth_act (Optional[str]): 指定验证操作（Casbin act）。
             **kwargs: 透传给父类 api_route。
-
         Returns:
             Callable: 路由装饰器。
-        """
-    def add_auth_data_rule(self, path: str, **kwargs):
-        """将当前路由的权限规则加入 data_rules 列表，并更新全局 permission_rules。
-
-        用于后续权限匹配和默认策略初始化。
-
-        Args:
-            path (str): 路由路径。
-            **kwargs: 包含 methods 等路由元数据。
         """
     def get(
         self,
@@ -91,6 +75,7 @@ class AuthRouter(APIRouter):
         *,
         auth: bool = True,
         auth_role: str | None = None,
+        auth_sub: str | None = None,
         auth_obj: str | None = None,
         auth_act: str | None = None,
         **kwargs,
@@ -100,9 +85,10 @@ class AuthRouter(APIRouter):
         Args:
             path (str): 路由路径。
             auth (bool): 是否启用认证。
-            auth_role (Optional[str]): 角色校验。
-            auth_obj (Optional[str]): 数据对象。
-            auth_act (Optional[str]): 操作行为。
+            auth_role (Optional[str]): 指定角色校验。
+            auth_sub (Optional[str]): 指定验证主体（Casbin sub）。
+            auth_obj (Optional[str]): 指定验证对象（Casbin obj）。
+            auth_act (Optional[str]): 指定验证操作（Casbin act）。
             **kwargs: 透传参数。
 
         Returns:
@@ -114,6 +100,7 @@ class AuthRouter(APIRouter):
         *,
         auth: bool = True,
         auth_role: str | None = None,
+        auth_sub: str | None = None,
         auth_obj: str | None = None,
         auth_act: str | None = None,
         **kwargs,
@@ -123,9 +110,10 @@ class AuthRouter(APIRouter):
         Args:
             path (str): 路由路径。
             auth (bool): 是否启用认证。
-            auth_role (Optional[str]): 角色校验。
-            auth_obj (Optional[str]): 数据对象。
-            auth_act (Optional[str]): 操作行为。
+            auth_role (Optional[str]): 指定角色校验。
+            auth_sub (Optional[str]): 指定验证主体（Casbin sub）。
+            auth_obj (Optional[str]): 指定验证对象（Casbin obj）。
+            auth_act (Optional[str]): 指定验证操作（Casbin act）。
             **kwargs: 透传参数。
 
         Returns:
@@ -137,6 +125,7 @@ class AuthRouter(APIRouter):
         *,
         auth: bool = True,
         auth_role: str | None = None,
+        auth_sub: str | None = None,
         auth_obj: str | None = None,
         auth_act: str | None = None,
         **kwargs,
@@ -146,9 +135,10 @@ class AuthRouter(APIRouter):
         Args:
             path (str): 路由路径。
             auth (bool): 是否启用认证。
-            auth_role (Optional[str]): 角色校验。
-            auth_obj (Optional[str]): 数据对象。
-            auth_act (Optional[str]): 操作行为。
+            auth_role (Optional[str]): 指定角色校验。
+            auth_sub (Optional[str]): 指定验证主体（Casbin sub）。
+            auth_obj (Optional[str]): 指定验证对象（Casbin obj）。
+            auth_act (Optional[str]): 指定验证操作（Casbin act）。
             **kwargs: 透传参数。
 
         Returns:
@@ -160,6 +150,7 @@ class AuthRouter(APIRouter):
         *,
         auth: bool = True,
         auth_role: str | None = None,
+        auth_sub: str | None = None,
         auth_obj: str | None = None,
         auth_act: str | None = None,
         **kwargs,
@@ -169,9 +160,10 @@ class AuthRouter(APIRouter):
         Args:
             path (str): 路由路径。
             auth (bool): 是否启用认证。
-            auth_role (Optional[str]): 角色校验。
-            auth_obj (Optional[str]): 数据对象。
-            auth_act (Optional[str]): 操作行为。
+            auth_role (Optional[str]): 指定角色校验。
+            auth_sub (Optional[str]): 指定验证主体（Casbin sub）。
+            auth_obj (Optional[str]): 指定验证对象（Casbin obj）。
+            auth_act (Optional[str]): 指定验证操作（Casbin act）。
             **kwargs: 透传参数。
 
         Returns:
@@ -183,6 +175,7 @@ class AuthRouter(APIRouter):
         *,
         auth: bool = True,
         auth_role: str | None = None,
+        auth_sub: str | None = None,
         auth_obj: str | None = None,
         auth_act: str | None = None,
         **kwargs,
@@ -192,26 +185,12 @@ class AuthRouter(APIRouter):
         Args:
             path (str): 路由路径。
             auth (bool): 是否启用认证。
-            auth_role (Optional[str]): 角色校验。
-            auth_obj (Optional[str]): 数据对象。
-            auth_act (Optional[str]): 操作行为。
+            auth_role (Optional[str]): 指定角色校验。
+            auth_sub (Optional[str]): 指定验证主体（Casbin sub）。
+            auth_obj (Optional[str]): 指定验证对象（Casbin obj）。
+            auth_act (Optional[str]): 指定验证操作（Casbin act）。
             **kwargs: 透传参数。
 
         Returns:
             Callable: 路由装饰器。
         """
-
-def get_data_rule_from_request(
-    *, request: Request, data_rules: list[AuthDataRule]
-) -> AuthDataRule | None:
-    """根据当前请求匹配对应的权限规则。
-
-    遍历已注册的 AuthDataRule 列表，查找方法和路径均匹配的规则。
-
-    Args:
-        request (Request): 当前 HTTP 请求。
-        data_rules (list[AuthDataRule]): 已注册的权限规则列表。
-
-    Returns:
-        Optional[AuthDataRule]: 匹配的规则，若无匹配则返回 None。
-    """

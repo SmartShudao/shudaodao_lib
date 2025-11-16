@@ -22,7 +22,9 @@ class MetaConstraint(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "meta_constraint"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "表约束元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["meta_constraint_id"]
 
     meta_constraint_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"

@@ -16,7 +16,6 @@ from ...meta_config import MetaConfig
 if TYPE_CHECKING:
     from .meta_table import MetaTable
     from .meta_view import MetaView
-    from .sys_enum_field import EnumField
 
 
 class MetaSchema(MetaConfig.RegistryModel, table=True):
@@ -24,7 +23,9 @@ class MetaSchema(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "meta_schema"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "代码元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["meta_schema_id"]
 
     meta_schema_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
@@ -36,7 +37,7 @@ class MetaSchema(MetaConfig.RegistryModel, table=True):
     engine_name: Optional[str] = Field(
         default=None, nullable=True, max_length=128, description="数据库-配置名称"
     )
-    router_name: Optional[str] = Field(
+    router_path: Optional[str] = Field(
         default=None, nullable=True, max_length=128, description="API路由-路径名称"
     )
     router_tags: Optional[str] = Field(
@@ -54,15 +55,15 @@ class MetaSchema(MetaConfig.RegistryModel, table=True):
     update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
     # 正向关系 - 子对象
     MetaTables: list["MetaTable"] = Relationship(
-        back_populates="MetaSchema", sa_relationship_kwargs={"order_by": "MetaTable.sort_order.asc()"}
+        back_populates="MetaSchema",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "MetaTable.sort_order.asc()"},
     )
     # 正向关系 - 子对象
     MetaViews: list["MetaView"] = Relationship(
-        back_populates="MetaSchema", sa_relationship_kwargs={"order_by": "MetaView.sort_order.asc()"}
-    )
-    # 正向关系 - 子对象
-    EnumFields: list["EnumField"] = Relationship(
-        back_populates="MetaSchema", sa_relationship_kwargs={"order_by": "EnumField.sort_order.asc()"}
+        back_populates="MetaSchema",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "MetaView.sort_order.asc()"},
     )
 
 
@@ -72,7 +73,7 @@ class MetaSchemaCreate(SQLModel):
     schema_label: Optional[str] = Field(default=None, max_length=128, description="数据库-模式标签")
     schema_name: str = Field(max_length=128, description="数据库-模式(schema)")
     engine_name: Optional[str] = Field(default=None, max_length=128, description="数据库-配置名称")
-    router_name: Optional[str] = Field(default=None, max_length=128, description="API路由-路径名称")
+    router_path: Optional[str] = Field(default=None, max_length=128, description="API路由-路径名称")
     router_tags: Optional[str] = Field(default=None, max_length=256, description="API路由-分组标签")
     output_frontend: Optional[str] = Field(default=None, max_length=256, description="前端路径")
     output_backend: Optional[str] = Field(default=None, max_length=256, description="后端路径")
@@ -87,7 +88,7 @@ class MetaSchemaUpdate(SQLModel):
     schema_label: Optional[str] = Field(default=None, max_length=128, description="数据库-模式标签")
     schema_name: Optional[str] = Field(default=None, max_length=128, description="数据库-模式(schema)")
     engine_name: Optional[str] = Field(default=None, max_length=128, description="数据库-配置名称")
-    router_name: Optional[str] = Field(default=None, max_length=128, description="API路由-路径名称")
+    router_path: Optional[str] = Field(default=None, max_length=128, description="API路由-路径名称")
     router_tags: Optional[str] = Field(default=None, max_length=256, description="API路由-分组标签")
     output_frontend: Optional[str] = Field(default=None, max_length=256, description="前端路径")
     output_backend: Optional[str] = Field(default=None, max_length=256, description="后端路径")
@@ -103,7 +104,7 @@ class MetaSchemaResponse(BaseResponse):
     schema_label: Optional[str] = Field(description="数据库-模式标签", default=None)
     schema_name: str = Field(description="数据库-模式(schema)")
     engine_name: Optional[str] = Field(description="数据库-配置名称", default=None)
-    router_name: Optional[str] = Field(description="API路由-路径名称", default=None)
+    router_path: Optional[str] = Field(description="API路由-路径名称", default=None)
     router_tags: Optional[str] = Field(description="API路由-分组标签", default=None)
     output_frontend: Optional[str] = Field(description="前端路径", default=None)
     output_backend: Optional[str] = Field(description="后端路径", default=None)

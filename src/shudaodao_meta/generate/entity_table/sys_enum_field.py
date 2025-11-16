@@ -14,7 +14,6 @@ from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_prim
 from ...meta_config import MetaConfig
 
 if TYPE_CHECKING:
-    from .meta_schema import MetaSchema
     from .sys_enum_value import EnumValue
 
 
@@ -23,16 +22,14 @@ class EnumField(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "sys_enum_field"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "枚举字段表"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["field_id"]
 
     field_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
-    meta_schema_id: int = Field(
-        foreign_key=f"{MetaConfig.SchemaForeignKey}meta_schema.meta_schema_id",
-        sa_type=BigInteger,
-        description="主键",
-    )
+    meta_schema_id: int = Field(sa_type=BigInteger, description="主键")
     field_label: str = Field(max_length=50, description="字段标签")
     field_name: str = Field(max_length=50, description="字段列名")
     description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
@@ -43,11 +40,11 @@ class EnumField(MetaConfig.RegistryModel, table=True):
     update_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="修改人")
     update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
     tenant_id: Optional[int] = Field(default=None, sa_type=BigInteger, nullable=True, description="主键")
-    # 反向关系 - 父对象
-    MetaSchema: "MetaSchema" = Relationship(back_populates="EnumFields")
     # 正向关系 - 子对象
     EnumValues: list["EnumValue"] = Relationship(
-        back_populates="EnumField", sa_relationship_kwargs={"order_by": "EnumValue.sort_order.asc()"}
+        back_populates="EnumField",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "EnumValue.sort_order.asc()"},
     )
 
 

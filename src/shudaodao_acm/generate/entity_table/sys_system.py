@@ -24,7 +24,9 @@ class System(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "sys_system"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "系统表"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["system_id"]
 
     system_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="系统内码"

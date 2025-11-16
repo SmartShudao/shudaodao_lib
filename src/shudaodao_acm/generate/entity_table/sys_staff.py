@@ -23,7 +23,9 @@ class Staff(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "sys_staff"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "人员表"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["staff_id"]
 
     staff_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="人员内码"

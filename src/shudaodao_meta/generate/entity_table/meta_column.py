@@ -23,7 +23,9 @@ class MetaColumn(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "meta_column"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "字段元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["meta_column_id"]
 
     meta_column_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"

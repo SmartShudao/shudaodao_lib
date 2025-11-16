@@ -1495,7 +1495,7 @@ static const char* const __pyx_f[] = {
 struct __pyx_obj_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs;
 struct __pyx_obj_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs;
 
-/* "shudaodao_app/fast_api.py":41
+/* "shudaodao_app/fast_api.py":42
  * 
  *     #
  *     @app.get("/docs", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -1507,7 +1507,7 @@ struct __pyx_obj_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs {
 };
 
 
-/* "shudaodao_app/fast_api.py":52
+/* "shudaodao_app/fast_api.py":53
  * 
  *     #
  *     @app.get("/redoc", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -2043,6 +2043,29 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml,
                                       PyObject *module, PyObject *globals,
                                       PyObject* code);
 
+/* HasAttr.proto */
+#if __PYX_LIMITED_VERSION_HEX >= 0x030d0000
+#define __Pyx_HasAttr(o, n)  PyObject_HasAttrWithError(o, n)
+#else
+static CYTHON_INLINE int __Pyx_HasAttr(PyObject *, PyObject *);
+#endif
+
+/* PyObjectDelAttr.proto */
+#if CYTHON_COMPILING_IN_LIMITED_API && __PYX_LIMITED_VERSION_HEX < 0x030d0000
+#define __Pyx_PyObject_DelAttr(o, n) PyObject_SetAttr(o, n, NULL)
+#else
+#define __Pyx_PyObject_DelAttr(o, n) PyObject_DelAttr(o, n)
+#endif
+
+/* PyObjectSetAttrStr.proto */
+#if CYTHON_USE_TYPE_SLOTS
+#define __Pyx_PyObject_DelAttrStr(o,n) __Pyx_PyObject_SetAttrStr(o, n, NULL)
+static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value);
+#else
+#define __Pyx_PyObject_DelAttrStr(o,n)   __Pyx_PyObject_DelAttr(o,n)
+#define __Pyx_PyObject_SetAttrStr(o,n,v) PyObject_SetAttr(o,n,v)
+#endif
+
 /* PyObjectCallNoArg.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func);
 
@@ -2357,9 +2380,11 @@ int __pyx_module_is_main_shudaodao_app__fast_api = 0;
 /* Implementation of "shudaodao_app.fast_api" */
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = ".";
+static const char __pyx_k_[] = "\346\255\243\345\234\250\345\212\240\350\275\275 \345\274\202\345\270\270\345\244\204\347\220\206... ";
 static const char __pyx_k_A[] = "\200A";
-static const char __pyx_k__2[] = "?";
+static const char __pyx_k_r[] = "r";
+static const char __pyx_k__2[] = ".";
+static const char __pyx_k__3[] = "?";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_app[] = "app";
 static const char __pyx_k_get[] = "get";
@@ -2370,6 +2395,7 @@ static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "name";
 static const char __pyx_k_next[] = "next";
 static const char __pyx_k_send[] = "send";
+static const char __pyx_k_tags[] = "tags";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_close[] = "close";
 static const char __pyx_k_debug[] = "debug";
@@ -2382,13 +2408,15 @@ static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_name_2[] = "__name__";
 static const char __pyx_k_return[] = "return";
-static const char __pyx_k_router[] = "router";
+static const char __pyx_k_router[] = "\346\255\243\345\234\250\345\212\240\350\275\275 router...";
+static const char __pyx_k_routes[] = "routes";
 static const char __pyx_k_static[] = "/static";
 static const char __pyx_k_webapp[] = "webapp";
 static const char __pyx_k_FastAPI[] = "FastAPI \345\210\235\345\247\213\345\214\226...";
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_fastapi[] = "fastapi";
 static const char __pyx_k_logging[] = "logging";
+static const char __pyx_k_package[] = "package";
 static const char __pyx_k_version[] = "version";
 static const char __pyx_k_docs_url[] = "docs_url";
 static const char __pyx_k_lifespan[] = "lifespan";
@@ -2410,7 +2438,7 @@ static const char __pyx_k_openapi_url[] = "openapi_url";
 static const char __pyx_k_HTMLResponse[] = "HTMLResponse";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_openapi_json[] = "/openapi.json";
-static const char __pyx_k_yaml_routers[] = "\345\212\240\350\275\275: .yaml - routers ";
+static const char __pyx_k_yaml_packages[] = "\345\212\240\350\275\275: .yaml - packages ";
 static const char __pyx_k_response_class[] = "response_class";
 static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
 static const char __pyx_k_swagger_js_url[] = "swagger_js_url";
@@ -2430,8 +2458,8 @@ static const char __pyx_k_shudaodao_app_fast_api[] = "shudaodao_app.fast_api";
 static const char __pyx_k_shudaodao_app_fast_api_py[] = "shudaodao_app/fast_api.py";
 static const char __pyx_k_register_exception_handlers[] = "register_exception_handlers";
 static const char __pyx_k_static_swagger_ui_bundle_js[] = "/static/swagger-ui-bundle.js";
+static const char __pyx_k_Q_a_6_a_6_iwa_6_q_6_q_vQk_AZ_q[] = "\320\000%\240Q\340\004\013\210;\220a\330\004\013\2106\220\021\220!\330\004\013\210;\220a\330\004\013\2106\220\021\220!\330\004\n\210'\220\021\330\010\016\210i\220w\230a\330\010\020\220\t\230\027\240\001\330\010\021\220\021\330\010\021\220\021\330\010\022\220!\360\006\000\005\014\2106\220\021\220!\330\004\037\230q\240\001\340\004\013\2106\220\021\220!\330\004\017\210q\220\001\340\004\007\200v\210Q\210k\230\033\240A\240Z\250{\270%\270q\360\006\000\005\006\200S\210\004\210A\210Y\220o\240^\3203E\300Q\360\026\000\005\006\200S\210\004\210A\210Z\220\177\240n\3204F\300a\360~\001\000\005\t\210\005\210S\220\001\330\010\013\2104\210w\220a\220s\230!\330\014\r\330\010\t\210\030\220\024\220Q\220c\230\021\230!\2301\330\004\013\210;\220a\330\004\013\2101";
 static const char __pyx_k_DOCTYPE_html_html_head_title_Re[] = "\n<!DOCTYPE html>\n<html>\n<head>\n    <title>\346\225\260\351\201\223\346\231\272\350\236\215 Restful API \346\226\207\346\241\243</title>\n    <!-- \344\275\277\347\224\250\346\234\254\345\234\260\345\255\227\344\275\223\346\210\226\347\263\273\347\273\237\345\255\227\344\275\223 -->\n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;\n            margin: 0;\n            padding: 0;\n        }\n        .hqgvLZ {\n            width: 20% !important;\n            top:0 !important;\n        }\n        .api-info {\n            display: none !important;\n        }\n        .hutltu{\n            padding: 0 40px !important;\n        }\n        .chOOHy{\n            padding: 10px 0 0 0 !important;\n        }\n        .kzhJjR{\n            padding: 20px 0 !important;\n        }\n\n    </style>\n    <meta charset=\"utf-8\"/>\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"icon\" type=\"image/png\" href=\"/static/favicon.png\">\n</head>\n<body>\n    <div id=\"redoc-container\"></div>\n    <script src=\"/static/redoc.standalone.js\"></script>\n    <script>\n        Redoc.init(\n            '/openapi.json',\n            {\n                scrollYOffset: 50,\n                hideDownloadButton: false,\n                expandResponses: \"200,201\",\n                pathInMiddlePanel: true\n            },\n            document.getElementById('redoc-container')\n        );\n    </script>\n</body>\n</html>\n    ";
-static const char __pyx_k_Q_a_6_a_6_iwa_q_q_vQk_AZ_q_S_AY[] = "\320\000%\240Q\340\004\013\210;\220a\330\004\013\2106\220\021\220!\330\004\013\210;\220a\330\004\013\2106\220\021\220!\330\004\n\210'\220\021\330\010\016\210i\220w\230a\330\010\020\220\t\230\027\240\001\330\010\021\220\021\330\010\021\220\021\330\010\022\220!\360\010\000\005 \230q\240\001\340\004\017\210q\220\001\340\004\007\200v\210Q\210k\230\033\240A\240Z\250{\270%\270q\360\006\000\005\006\200S\210\004\210A\210Y\220o\240^\3203E\300Q\360\026\000\005\006\200S\210\004\210A\210Z\220\177\240n\3204F\300a\360|\001\000\005\014\2101";
 static const char __pyx_k_create_init_fastapi_locals_custo[] = "create_init_fastapi.<locals>.custom_docs";
 static const char __pyx_k_create_init_fastapi_locals_redoc[] = "create_init_fastapi.<locals>.redoc_docs";
 static const char __pyx_k_shudaodao_core_exception_registe[] = "shudaodao_core.exception.register_handlers";
@@ -2485,7 +2513,7 @@ typedef struct {
   PyTypeObject *__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[3];
-  PyObject *__pyx_string_tab[76];
+  PyObject *__pyx_string_tab[81];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2547,73 +2575,78 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_Restful_API __pyx_string_tab[6]
 #define __pyx_n_u_StaticFiles __pyx_string_tab[7]
 #define __pyx_kp_u__2 __pyx_string_tab[8]
-#define __pyx_n_u_app __pyx_string_tab[9]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[10]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[11]
-#define __pyx_n_u_close __pyx_string_tab[12]
-#define __pyx_n_u_create_init_fastapi __pyx_string_tab[13]
-#define __pyx_n_u_create_init_fastapi_locals_custo __pyx_string_tab[14]
-#define __pyx_n_u_create_init_fastapi_locals_redoc __pyx_string_tab[15]
-#define __pyx_n_u_custom_docs __pyx_string_tab[16]
-#define __pyx_n_u_debug __pyx_string_tab[17]
-#define __pyx_n_u_debug_line __pyx_string_tab[18]
-#define __pyx_n_u_directory __pyx_string_tab[19]
-#define __pyx_kp_u_disable __pyx_string_tab[20]
-#define __pyx_kp_u_docs __pyx_string_tab[21]
-#define __pyx_n_u_docs_url __pyx_string_tab[22]
-#define __pyx_kp_u_enable __pyx_string_tab[23]
-#define __pyx_n_u_fastapi __pyx_string_tab[24]
-#define __pyx_n_u_fastapi_openapi_docs __pyx_string_tab[25]
-#define __pyx_n_u_func __pyx_string_tab[26]
-#define __pyx_kp_u_gc __pyx_string_tab[27]
-#define __pyx_n_u_get __pyx_string_tab[28]
-#define __pyx_n_u_get_swagger_ui_html __pyx_string_tab[29]
-#define __pyx_n_u_include_in_schema __pyx_string_tab[30]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[31]
-#define __pyx_kp_u_isenabled __pyx_string_tab[32]
-#define __pyx_n_u_lifespan __pyx_string_tab[33]
-#define __pyx_n_u_load_router __pyx_string_tab[34]
-#define __pyx_n_u_logging __pyx_string_tab[35]
-#define __pyx_n_u_main __pyx_string_tab[36]
-#define __pyx_n_u_module __pyx_string_tab[37]
-#define __pyx_n_u_mount __pyx_string_tab[38]
-#define __pyx_n_u_name __pyx_string_tab[39]
-#define __pyx_n_u_name_2 __pyx_string_tab[40]
-#define __pyx_n_u_next __pyx_string_tab[41]
-#define __pyx_kp_u_openapi_json __pyx_string_tab[42]
-#define __pyx_n_u_openapi_url __pyx_string_tab[43]
-#define __pyx_n_u_pop __pyx_string_tab[44]
-#define __pyx_n_u_qualname __pyx_string_tab[45]
-#define __pyx_kp_u_redoc __pyx_string_tab[46]
-#define __pyx_n_u_redoc_docs __pyx_string_tab[47]
-#define __pyx_n_u_redoc_url __pyx_string_tab[48]
-#define __pyx_n_u_register_exception_handlers __pyx_string_tab[49]
-#define __pyx_n_u_response_class __pyx_string_tab[50]
-#define __pyx_n_u_return __pyx_string_tab[51]
-#define __pyx_n_u_router __pyx_string_tab[52]
-#define __pyx_n_u_send __pyx_string_tab[53]
-#define __pyx_n_u_set_name __pyx_string_tab[54]
-#define __pyx_n_u_shudaodao_app_fast_api __pyx_string_tab[55]
-#define __pyx_kp_u_shudaodao_app_fast_api_py __pyx_string_tab[56]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[57]
-#define __pyx_n_u_shudaodao_core_exception_registe __pyx_string_tab[58]
-#define __pyx_n_u_starlette_responses __pyx_string_tab[59]
-#define __pyx_n_u_starlette_staticfiles __pyx_string_tab[60]
-#define __pyx_kp_u_static __pyx_string_tab[61]
-#define __pyx_n_u_static_2 __pyx_string_tab[62]
-#define __pyx_kp_u_static_favicon_png __pyx_string_tab[63]
-#define __pyx_kp_u_static_swagger_ui_bundle_js __pyx_string_tab[64]
-#define __pyx_kp_u_static_swagger_ui_css __pyx_string_tab[65]
-#define __pyx_n_u_swagger_css_url __pyx_string_tab[66]
-#define __pyx_n_u_swagger_favicon_url __pyx_string_tab[67]
-#define __pyx_n_u_swagger_js_url __pyx_string_tab[68]
-#define __pyx_n_u_test __pyx_string_tab[69]
-#define __pyx_n_u_throw __pyx_string_tab[70]
-#define __pyx_n_u_title __pyx_string_tab[71]
-#define __pyx_n_u_value __pyx_string_tab[72]
-#define __pyx_n_u_version __pyx_string_tab[73]
-#define __pyx_n_u_webapp __pyx_string_tab[74]
-#define __pyx_kp_u_yaml_routers __pyx_string_tab[75]
+#define __pyx_kp_u__3 __pyx_string_tab[9]
+#define __pyx_n_u_app __pyx_string_tab[10]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[11]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[12]
+#define __pyx_n_u_close __pyx_string_tab[13]
+#define __pyx_n_u_create_init_fastapi __pyx_string_tab[14]
+#define __pyx_n_u_create_init_fastapi_locals_custo __pyx_string_tab[15]
+#define __pyx_n_u_create_init_fastapi_locals_redoc __pyx_string_tab[16]
+#define __pyx_n_u_custom_docs __pyx_string_tab[17]
+#define __pyx_n_u_debug __pyx_string_tab[18]
+#define __pyx_n_u_debug_line __pyx_string_tab[19]
+#define __pyx_n_u_directory __pyx_string_tab[20]
+#define __pyx_kp_u_disable __pyx_string_tab[21]
+#define __pyx_kp_u_docs __pyx_string_tab[22]
+#define __pyx_n_u_docs_url __pyx_string_tab[23]
+#define __pyx_kp_u_enable __pyx_string_tab[24]
+#define __pyx_n_u_fastapi __pyx_string_tab[25]
+#define __pyx_n_u_fastapi_openapi_docs __pyx_string_tab[26]
+#define __pyx_n_u_func __pyx_string_tab[27]
+#define __pyx_kp_u_gc __pyx_string_tab[28]
+#define __pyx_n_u_get __pyx_string_tab[29]
+#define __pyx_n_u_get_swagger_ui_html __pyx_string_tab[30]
+#define __pyx_n_u_include_in_schema __pyx_string_tab[31]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[32]
+#define __pyx_kp_u_isenabled __pyx_string_tab[33]
+#define __pyx_n_u_lifespan __pyx_string_tab[34]
+#define __pyx_n_u_load_router __pyx_string_tab[35]
+#define __pyx_n_u_logging __pyx_string_tab[36]
+#define __pyx_n_u_main __pyx_string_tab[37]
+#define __pyx_n_u_module __pyx_string_tab[38]
+#define __pyx_n_u_mount __pyx_string_tab[39]
+#define __pyx_n_u_name __pyx_string_tab[40]
+#define __pyx_n_u_name_2 __pyx_string_tab[41]
+#define __pyx_n_u_next __pyx_string_tab[42]
+#define __pyx_kp_u_openapi_json __pyx_string_tab[43]
+#define __pyx_n_u_openapi_url __pyx_string_tab[44]
+#define __pyx_n_u_package __pyx_string_tab[45]
+#define __pyx_n_u_pop __pyx_string_tab[46]
+#define __pyx_n_u_qualname __pyx_string_tab[47]
+#define __pyx_n_u_r __pyx_string_tab[48]
+#define __pyx_kp_u_redoc __pyx_string_tab[49]
+#define __pyx_n_u_redoc_docs __pyx_string_tab[50]
+#define __pyx_n_u_redoc_url __pyx_string_tab[51]
+#define __pyx_n_u_register_exception_handlers __pyx_string_tab[52]
+#define __pyx_n_u_response_class __pyx_string_tab[53]
+#define __pyx_n_u_return __pyx_string_tab[54]
+#define __pyx_kp_u_router __pyx_string_tab[55]
+#define __pyx_n_u_routes __pyx_string_tab[56]
+#define __pyx_n_u_send __pyx_string_tab[57]
+#define __pyx_n_u_set_name __pyx_string_tab[58]
+#define __pyx_n_u_shudaodao_app_fast_api __pyx_string_tab[59]
+#define __pyx_kp_u_shudaodao_app_fast_api_py __pyx_string_tab[60]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[61]
+#define __pyx_n_u_shudaodao_core_exception_registe __pyx_string_tab[62]
+#define __pyx_n_u_starlette_responses __pyx_string_tab[63]
+#define __pyx_n_u_starlette_staticfiles __pyx_string_tab[64]
+#define __pyx_kp_u_static __pyx_string_tab[65]
+#define __pyx_n_u_static_2 __pyx_string_tab[66]
+#define __pyx_kp_u_static_favicon_png __pyx_string_tab[67]
+#define __pyx_kp_u_static_swagger_ui_bundle_js __pyx_string_tab[68]
+#define __pyx_kp_u_static_swagger_ui_css __pyx_string_tab[69]
+#define __pyx_n_u_swagger_css_url __pyx_string_tab[70]
+#define __pyx_n_u_swagger_favicon_url __pyx_string_tab[71]
+#define __pyx_n_u_swagger_js_url __pyx_string_tab[72]
+#define __pyx_n_u_tags __pyx_string_tab[73]
+#define __pyx_n_u_test __pyx_string_tab[74]
+#define __pyx_n_u_throw __pyx_string_tab[75]
+#define __pyx_n_u_title __pyx_string_tab[76]
+#define __pyx_n_u_value __pyx_string_tab[77]
+#define __pyx_n_u_version __pyx_string_tab[78]
+#define __pyx_n_u_webapp __pyx_string_tab[79]
+#define __pyx_kp_u_yaml_packages __pyx_string_tab[80]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2639,7 +2672,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs);
   Py_CLEAR(clear_module_state->__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs);
   for (int i=0; i<3; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<76; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<81; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2665,7 +2698,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs);
   Py_VISIT(traverse_module_state->__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs);
   for (int i=0; i<3; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<76; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<81; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2766,7 +2799,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_app/fast_api.py":41
+/* "shudaodao_app/fast_api.py":42
  * 
  *     #
  *     @app.get("/docs", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -2802,12 +2835,12 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_19create_init_fastapi_custom
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 41, __pyx_L1_error)
+    __PYX_ERR(0, 42, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_custom_docs, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_custo, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api); if (unlikely(!gen)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_custom_docs, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_custo, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api); if (unlikely(!gen)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2845,10 +2878,10 @@ static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2gener
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 41, __pyx_L1_error)
+    __PYX_ERR(0, 42, __pyx_L1_error)
   }
 
-  /* "shudaodao_app/fast_api.py":43
+  /* "shudaodao_app/fast_api.py":44
  *     @app.get("/docs", response_class=HTMLResponse, include_in_schema=False)
  *     async def custom_docs():
  *         return get_swagger_ui_html(             # <<<<<<<<<<<<<<
@@ -2857,7 +2890,7 @@ static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2gener
 */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_swagger_ui_html); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_swagger_ui_html); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -2873,25 +2906,25 @@ static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2gener
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 5 : 0)] = {__pyx_t_2, NULL};
-    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_openapi_url, __pyx_mstate_global->__pyx_kp_u_openapi_json, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_title, __pyx_mstate_global->__pyx_kp_u_Restful_API, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_js_url, __pyx_mstate_global->__pyx_kp_u_static_swagger_ui_bundle_js, __pyx_t_5, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_css_url, __pyx_mstate_global->__pyx_kp_u_static_swagger_ui_css, __pyx_t_5, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_favicon_url, __pyx_mstate_global->__pyx_kp_u_static_favicon_png, __pyx_t_5, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_openapi_url, __pyx_mstate_global->__pyx_kp_u_openapi_json, __pyx_t_5, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_title, __pyx_mstate_global->__pyx_kp_u_Restful_API, __pyx_t_5, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_js_url, __pyx_mstate_global->__pyx_kp_u_static_swagger_ui_bundle_js, __pyx_t_5, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_css_url, __pyx_mstate_global->__pyx_kp_u_static_swagger_ui_css, __pyx_t_5, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_swagger_favicon_url, __pyx_mstate_global->__pyx_kp_u_static_favicon_png, __pyx_t_5, __pyx_callargs+1, 4) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "shudaodao_app/fast_api.py":41
+  /* "shudaodao_app/fast_api.py":42
  * 
  *     #
  *     @app.get("/docs", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -2921,7 +2954,7 @@ static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2gener
 }
 static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_5generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_app/fast_api.py":52
+/* "shudaodao_app/fast_api.py":53
  * 
  *     #
  *     @app.get("/redoc", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -2957,12 +2990,12 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_19create_init_fastapi_3redoc
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 52, __pyx_L1_error)
+    __PYX_ERR(0, 53, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_5generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_redoc_docs, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_redoc, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api); if (unlikely(!gen)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_5generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_redoc_docs, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_redoc, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api); if (unlikely(!gen)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2995,10 +3028,10 @@ static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_5gener
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 52, __pyx_L1_error)
+    __PYX_ERR(0, 53, __pyx_L1_error)
   }
 
-  /* "shudaodao_app/fast_api.py":61
+  /* "shudaodao_app/fast_api.py":62
  *         # )
  *         # noinspection SpellCheckingInspection
  *         return """             # <<<<<<<<<<<<<<
@@ -3010,7 +3043,7 @@ static PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_5gener
   __pyx_r = __pyx_mstate_global->__pyx_kp_u_DOCTYPE_html_html_head_title_Re;
   goto __pyx_L0;
 
-  /* "shudaodao_app/fast_api.py":52
+  /* "shudaodao_app/fast_api.py":53
  * 
  *     #
  *     @app.get("/redoc", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -3049,6 +3082,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2generator = 0;
   CYTHON_UNUSED PyObject *__pyx_v_redoc_docs = 0;
   PyObject *__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_5generator1 = 0;
+  PyObject *__pyx_v_r = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3058,6 +3092,10 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   size_t __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
+  Py_ssize_t __pyx_t_8;
+  PyObject *(*__pyx_t_9)(PyObject *);
+  int __pyx_t_10;
+  int __pyx_t_11;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -3067,7 +3105,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
  * def create_init_fastapi(lifespan) -> FastAPI:
  *     """FastAPI"""
  *     logging.debug_line()             # <<<<<<<<<<<<<<
- *     logging.debug(": .yaml - routers ")
+ *     logging.debug(": .yaml - packages ")
  *     logging.debug_line()
 */
   __pyx_t_2 = NULL;
@@ -3101,7 +3139,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   /* "shudaodao_app/fast_api.py":22
  *     """FastAPI"""
  *     logging.debug_line()
- *     logging.debug(": .yaml - routers ")             # <<<<<<<<<<<<<<
+ *     logging.debug(": .yaml - packages ")             # <<<<<<<<<<<<<<
  *     logging.debug_line()
  *     logging.debug("FastAPI ...")
 */
@@ -3124,7 +3162,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_yaml_routers};
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_mstate_global->__pyx_kp_u_yaml_packages};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3135,7 +3173,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
 
   /* "shudaodao_app/fast_api.py":23
  *     logging.debug_line()
- *     logging.debug(": .yaml - routers ")
+ *     logging.debug(": .yaml - packages ")
  *     logging.debug_line()             # <<<<<<<<<<<<<<
  *     logging.debug("FastAPI ...")
  *     app = FastAPI(
@@ -3169,7 +3207,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "shudaodao_app/fast_api.py":24
- *     logging.debug(": .yaml - routers ")
+ *     logging.debug(": .yaml - packages ")
  *     logging.debug_line()
  *     logging.debug("FastAPI ...")             # <<<<<<<<<<<<<<
  *     app = FastAPI(
@@ -3286,16 +3324,86 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   __pyx_v_app = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "shudaodao_app/fast_api.py":34
+  /* "shudaodao_app/fast_api.py":33
+ *     )
  * 
- *     # logging.debug(" ... ")
- *     register_exception_handlers(app)             # <<<<<<<<<<<<<<
+ *     logging.debug(" ... ")             # <<<<<<<<<<<<<<
+ *     register_exception_handlers(app)
  *     #
- *     load_router(app)
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_register_exception_handlers); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_6);
+    assert(__pyx_t_2);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "shudaodao_app/fast_api.py":34
+ * 
+ *     logging.debug(" ... ")
+ *     register_exception_handlers(app)             # <<<<<<<<<<<<<<
+ *     #
+ *     logging.debug(" router...")
+*/
+  __pyx_t_6 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_register_exception_handlers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+    assert(__pyx_t_6);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_2);
+    __Pyx_INCREF(__pyx_t_6);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_2, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_v_app};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "shudaodao_app/fast_api.py":36
+ *     register_exception_handlers(app)
+ *     #
+ *     logging.debug(" router...")             # <<<<<<<<<<<<<<
+ *     load_router(app)
+ *     #
+*/
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_7))) {
@@ -3309,24 +3417,24 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_v_app};
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_router};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 34, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "shudaodao_app/fast_api.py":36
- *     register_exception_handlers(app)
+  /* "shudaodao_app/fast_api.py":37
  *     #
+ *     logging.debug(" router...")
  *     load_router(app)             # <<<<<<<<<<<<<<
  *     #
  *     app.mount("/static", StaticFiles(directory="static"), name="static")
 */
   __pyx_t_7 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load_router); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_load_router); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3345,12 +3453,12 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "shudaodao_app/fast_api.py":38
+  /* "shudaodao_app/fast_api.py":39
  *     load_router(app)
  *     #
  *     app.mount("/static", StaticFiles(directory="static"), name="static")             # <<<<<<<<<<<<<<
@@ -3360,7 +3468,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   __pyx_t_2 = __pyx_v_app;
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_6 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_StaticFiles); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_StaticFiles); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3376,32 +3484,32 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_6, NULL};
-    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_directory, __pyx_mstate_global->__pyx_n_u_static_2, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_directory, __pyx_mstate_global->__pyx_n_u_static_2, __pyx_t_4, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
     __pyx_t_7 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_3, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 38, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
   __pyx_t_5 = 0;
   {
     PyObject *__pyx_callargs[3 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_static, __pyx_t_7};
-    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_static_2, __pyx_t_3, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_static_2, __pyx_t_3, __pyx_callargs+3, 0) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_mount, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "shudaodao_app/fast_api.py":41
+  /* "shudaodao_app/fast_api.py":42
  * 
  *     #
  *     @app.get("/docs", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -3411,23 +3519,23 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   __pyx_t_3 = NULL;
   __pyx_t_2 = __pyx_v_app;
   __Pyx_INCREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_HTMLResponse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_HTMLResponse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_docs};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_class, __pyx_t_4, __pyx_t_6, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_include_in_schema, Py_False, __pyx_t_6, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_class, __pyx_t_4, __pyx_t_6, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_include_in_schema, Py_False, __pyx_t_6, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
     __pyx_t_7 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_get, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 41, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
   }
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_8fast_api_19create_init_fastapi_1custom_docs, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_custo, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_8fast_api_19create_init_fastapi_1custom_docs, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_custo, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3447,13 +3555,13 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_custom_docs = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "shudaodao_app/fast_api.py":52
+  /* "shudaodao_app/fast_api.py":53
  * 
  *     #
  *     @app.get("/redoc", response_class=HTMLResponse, include_in_schema=False)             # <<<<<<<<<<<<<<
@@ -3463,23 +3571,23 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   __pyx_t_7 = NULL;
   __pyx_t_3 = __pyx_v_app;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_HTMLResponse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_HTMLResponse); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = 0;
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_redoc};
-    __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_class, __pyx_t_4, __pyx_t_2, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_include_in_schema, Py_False, __pyx_t_2, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_response_class, __pyx_t_4, __pyx_t_2, __pyx_callargs+2, 0) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_include_in_schema, Py_False, __pyx_t_2, __pyx_callargs+2, 1) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
     __pyx_t_6 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_get, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
   }
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_8fast_api_19create_init_fastapi_4redoc_docs, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_redoc, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_8fast_api_19create_init_fastapi_4redoc_docs, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_create_init_fastapi_locals_redoc, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_fast_api, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3499,15 +3607,169 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_redoc_docs = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "shudaodao_app/fast_api.py":114
- *     """
+  /* "shudaodao_app/fast_api.py":116
  * 
+ *     #   tags
+ *     for r in app.routes:             # <<<<<<<<<<<<<<
+ *         if not hasattr(r, "tags"):
+ *             continue
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_app, __pyx_mstate_global->__pyx_n_u_routes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
+    __pyx_t_6 = __pyx_t_1; __Pyx_INCREF(__pyx_t_6);
+    __pyx_t_8 = 0;
+    __pyx_t_9 = NULL;
+  } else {
+    __pyx_t_8 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 116, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_9 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 116, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_9)) {
+      if (likely(PyList_CheckExact(__pyx_t_6))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 116, __pyx_L1_error)
+          #endif
+          if (__pyx_t_8 >= __pyx_temp) break;
+        }
+        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_6, __pyx_t_8);
+        ++__pyx_t_8;
+      } else {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 116, __pyx_L1_error)
+          #endif
+          if (__pyx_t_8 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_8));
+        #else
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_8);
+        #endif
+        ++__pyx_t_8;
+      }
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
+    } else {
+      __pyx_t_1 = __pyx_t_9(__pyx_t_6);
+      if (unlikely(!__pyx_t_1)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 116, __pyx_L1_error)
+          PyErr_Clear();
+        }
+        break;
+      }
+    }
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_XDECREF_SET(__pyx_v_r, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "shudaodao_app/fast_api.py":117
+ *     #   tags
+ *     for r in app.routes:
+ *         if not hasattr(r, "tags"):             # <<<<<<<<<<<<<<
+ *             continue
+ *         r.tags = list(set(r.tags))
+*/
+    __pyx_t_10 = __Pyx_HasAttr(__pyx_v_r, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 117, __pyx_L1_error)
+    __pyx_t_11 = (!__pyx_t_10);
+    if (__pyx_t_11) {
+
+      /* "shudaodao_app/fast_api.py":118
+ *     for r in app.routes:
+ *         if not hasattr(r, "tags"):
+ *             continue             # <<<<<<<<<<<<<<
+ *         r.tags = list(set(r.tags))
+ *     logging.debug_line()
+*/
+      goto __pyx_L3_continue;
+
+      /* "shudaodao_app/fast_api.py":117
+ *     #   tags
+ *     for r in app.routes:
+ *         if not hasattr(r, "tags"):             # <<<<<<<<<<<<<<
+ *             continue
+ *         r.tags = list(set(r.tags))
+*/
+    }
+
+    /* "shudaodao_app/fast_api.py":119
+ *         if not hasattr(r, "tags"):
+ *             continue
+ *         r.tags = list(set(r.tags))             # <<<<<<<<<<<<<<
+ *     logging.debug_line()
+ *     return app
+*/
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_r, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = PySet_New(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = PySequence_List(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_r, __pyx_mstate_global->__pyx_n_u_tags, __pyx_t_1) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "shudaodao_app/fast_api.py":116
+ * 
+ *     #   tags
+ *     for r in app.routes:             # <<<<<<<<<<<<<<
+ *         if not hasattr(r, "tags"):
+ *             continue
+*/
+    __pyx_L3_continue:;
+  }
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "shudaodao_app/fast_api.py":120
+ *             continue
+ *         r.tags = list(set(r.tags))
+ *     logging.debug_line()             # <<<<<<<<<<<<<<
+ *     return app
+*/
+  __pyx_t_1 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_7);
+    assert(__pyx_t_1);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
+    __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 120, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+  }
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "shudaodao_app/fast_api.py":121
+ *         r.tags = list(set(r.tags))
+ *     logging.debug_line()
  *     return app             # <<<<<<<<<<<<<<
 */
   __Pyx_XDECREF(__pyx_r);
@@ -3539,6 +3801,7 @@ static PyObject *__pyx_pf_13shudaodao_app_8fast_api_create_init_fastapi(CYTHON_U
   __Pyx_XDECREF(__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_2generator);
   __Pyx_XDECREF(__pyx_v_redoc_docs);
   __Pyx_XDECREF(__pyx_gb_13shudaodao_app_8fast_api_19create_init_fastapi_5generator1);
+  __Pyx_XDECREF(__pyx_v_r);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -3875,15 +4138,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs)) __PYX_ERR(0, 41, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs)) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs = &__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs->tp_dictoffset && __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct__custom_docs->tp_getattro == PyObject_GenericGetAttr)) {
@@ -3891,15 +4154,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs)) __PYX_ERR(0, 52, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs)) __PYX_ERR(0, 53, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs = &__pyx_type_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs) < 0) __PYX_ERR(0, 53, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs->tp_dictoffset && __pyx_mstate->__pyx_ptype_13shudaodao_app_8fast_api___pyx_scope_struct_1_redoc_docs->tp_getattro == PyObject_GenericGetAttr)) {
@@ -4300,7 +4563,7 @@ __Pyx_RefNannySetupContext("PyInit_fast_api", 0);
  * 
  * from shudaodao_core import AppConfig, logging             # <<<<<<<<<<<<<<
  * from shudaodao_core.exception.register_handlers import register_exception_handlers
- * from .router import load_router
+ * from .package import load_router
 */
   __pyx_t_2 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -4321,7 +4584,7 @@ __Pyx_RefNannySetupContext("PyInit_fast_api", 0);
  * 
  * from shudaodao_core import AppConfig, logging
  * from shudaodao_core.exception.register_handlers import register_exception_handlers             # <<<<<<<<<<<<<<
- * from .router import load_router
+ * from .package import load_router
  * 
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_register_exception_handlers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 15, __pyx_L1_error)
@@ -4338,13 +4601,13 @@ __Pyx_RefNannySetupContext("PyInit_fast_api", 0);
   /* "shudaodao_app/fast_api.py":16
  * from shudaodao_core import AppConfig, logging
  * from shudaodao_core.exception.register_handlers import register_exception_handlers
- * from .router import load_router             # <<<<<<<<<<<<<<
+ * from .package import load_router             # <<<<<<<<<<<<<<
  * 
  * 
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_load_router); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_router, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_package, __pyx_t_2, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_load_router); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
@@ -4448,6 +4711,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Restful_API, sizeof(__pyx_k_Restful_API), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Restful_API */
   {__pyx_k_StaticFiles, sizeof(__pyx_k_StaticFiles), 0, 1, 1}, /* PyObject cname: __pyx_n_u_StaticFiles */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
+  {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k_app, sizeof(__pyx_k_app), 0, 1, 1}, /* PyObject cname: __pyx_n_u_app */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
@@ -4483,15 +4747,18 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
   {__pyx_k_openapi_json, sizeof(__pyx_k_openapi_json), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_openapi_json */
   {__pyx_k_openapi_url, sizeof(__pyx_k_openapi_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_openapi_url */
+  {__pyx_k_package, sizeof(__pyx_k_package), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_r, sizeof(__pyx_k_r), 0, 1, 1}, /* PyObject cname: __pyx_n_u_r */
   {__pyx_k_redoc, sizeof(__pyx_k_redoc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_redoc */
   {__pyx_k_redoc_docs, sizeof(__pyx_k_redoc_docs), 0, 1, 1}, /* PyObject cname: __pyx_n_u_redoc_docs */
   {__pyx_k_redoc_url, sizeof(__pyx_k_redoc_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_redoc_url */
   {__pyx_k_register_exception_handlers, sizeof(__pyx_k_register_exception_handlers), 0, 1, 1}, /* PyObject cname: __pyx_n_u_register_exception_handlers */
   {__pyx_k_response_class, sizeof(__pyx_k_response_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_response_class */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
-  {__pyx_k_router, sizeof(__pyx_k_router), 0, 1, 1}, /* PyObject cname: __pyx_n_u_router */
+  {__pyx_k_router, sizeof(__pyx_k_router), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_router */
+  {__pyx_k_routes, sizeof(__pyx_k_routes), 0, 1, 1}, /* PyObject cname: __pyx_n_u_routes */
   {__pyx_k_send, sizeof(__pyx_k_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_send */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
   {__pyx_k_shudaodao_app_fast_api, sizeof(__pyx_k_shudaodao_app_fast_api), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_app_fast_api */
@@ -4508,13 +4775,14 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_swagger_css_url, sizeof(__pyx_k_swagger_css_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_swagger_css_url */
   {__pyx_k_swagger_favicon_url, sizeof(__pyx_k_swagger_favicon_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_swagger_favicon_url */
   {__pyx_k_swagger_js_url, sizeof(__pyx_k_swagger_js_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_swagger_js_url */
+  {__pyx_k_tags, sizeof(__pyx_k_tags), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tags */
   {__pyx_k_test, sizeof(__pyx_k_test), 0, 1, 1}, /* PyObject cname: __pyx_n_u_test */
   {__pyx_k_throw, sizeof(__pyx_k_throw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_throw */
   {__pyx_k_title, sizeof(__pyx_k_title), 0, 1, 1}, /* PyObject cname: __pyx_n_u_title */
   {__pyx_k_value, sizeof(__pyx_k_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_value */
   {__pyx_k_version, sizeof(__pyx_k_version), 0, 1, 1}, /* PyObject cname: __pyx_n_u_version */
   {__pyx_k_webapp, sizeof(__pyx_k_webapp), 0, 1, 1}, /* PyObject cname: __pyx_n_u_webapp */
-  {__pyx_k_yaml_routers, sizeof(__pyx_k_yaml_routers), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_yaml_routers */
+  {__pyx_k_yaml_packages, sizeof(__pyx_k_yaml_packages), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_yaml_packages */
   {0, 0, 0, 0, 0}
 };
 /* InitStrings.proto */
@@ -4555,7 +4823,7 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
             unsigned int nlocals : 3;
             unsigned int flags : 10;
             unsigned int first_line : 6;
-            unsigned int line_table_length : 12;
+            unsigned int line_table_length : 13;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
 static PyObject* __Pyx_PyCode_New(
@@ -4572,19 +4840,19 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 41, 2};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 42, 2};
     PyObject* const varnames[] = {0};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_fast_api_py, __pyx_mstate->__pyx_n_u_custom_docs, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 52, 2};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 0, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 53, 2};
     PyObject* const varnames[] = {0};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_fast_api_py, __pyx_mstate->__pyx_n_u_redoc_docs, __pyx_k_A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 19, 166};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_lifespan, __pyx_mstate->__pyx_n_u_app, __pyx_mstate->__pyx_n_u_custom_docs, __pyx_mstate->__pyx_n_u_custom_docs, __pyx_mstate->__pyx_n_u_redoc_docs, __pyx_mstate->__pyx_n_u_redoc_docs};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_fast_api_py, __pyx_mstate->__pyx_n_u_create_init_fastapi, __pyx_k_Q_a_6_a_6_iwa_q_q_vQk_AZ_q_S_AY, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 7, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 19, 233};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_lifespan, __pyx_mstate->__pyx_n_u_app, __pyx_mstate->__pyx_n_u_custom_docs, __pyx_mstate->__pyx_n_u_custom_docs, __pyx_mstate->__pyx_n_u_redoc_docs, __pyx_mstate->__pyx_n_u_redoc_docs, __pyx_mstate->__pyx_n_u_r};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_fast_api_py, __pyx_mstate->__pyx_n_u_create_init_fastapi, __pyx_k_Q_a_6_a_6_iwa_6_q_6_q_vQk_AZ_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -7555,6 +7823,35 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml, int flags, PyObject* qual
     return op;
 }
 
+/* HasAttr */
+#if __PYX_LIMITED_VERSION_HEX < 0x030d0000
+static CYTHON_INLINE int __Pyx_HasAttr(PyObject *o, PyObject *n) {
+    PyObject *r;
+    if (unlikely(!PyUnicode_Check(n))) {
+        PyErr_SetString(PyExc_TypeError,
+                        "hasattr(): attribute name must be string");
+        return -1;
+    }
+    r = __Pyx_PyObject_GetAttrStrNoError(o, n);
+    if (!r) {
+        return (unlikely(PyErr_Occurred())) ? -1 : 0;
+    } else {
+        Py_DECREF(r);
+        return 1;
+    }
+}
+#endif
+
+/* PyObjectSetAttrStr */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE int __Pyx_PyObject_SetAttrStr(PyObject* obj, PyObject* attr_name, PyObject* value) {
+    PyTypeObject* tp = Py_TYPE(obj);
+    if (likely(tp->tp_setattro))
+        return tp->tp_setattro(obj, attr_name, value);
+    return PyObject_SetAttr(obj, attr_name, value);
+}
+#endif
+
 /* PyObjectCallNoArg */
 static CYTHON_INLINE PyObject* __Pyx_PyObject_CallNoArg(PyObject *func) {
     PyObject *arg[2] = {NULL, NULL};
@@ -7914,7 +8211,7 @@ static PyObject* __Pyx_ImportFrom(PyObject* module, PyObject* name) {
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u_);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__2);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -8275,7 +8572,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__2);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__3);
     }
     goto done;
 }

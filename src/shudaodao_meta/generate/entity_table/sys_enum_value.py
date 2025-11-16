@@ -22,13 +22,16 @@ class EnumValue(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "sys_enum_value"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "枚举值表"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["enum_id"]
 
     enum_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
     field_id: int = Field(
         foreign_key=f"{MetaConfig.SchemaForeignKey}sys_enum_field.field_id",
+        ondelete="CASCADE",
         sa_type=BigInteger,
         description="主键",
     )

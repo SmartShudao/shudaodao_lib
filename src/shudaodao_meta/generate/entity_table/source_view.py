@@ -23,7 +23,9 @@ class SourceView(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "source_view"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "视图元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["source_view_id"]
 
     source_view_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
@@ -49,7 +51,9 @@ class SourceView(MetaConfig.RegistryModel, table=True):
     SourceSchema: "SourceSchema" = Relationship(back_populates="SourceViews")
     # 正向关系 - 子对象
     SourceColumns: list["SourceColumn"] = Relationship(
-        back_populates="SourceView", sa_relationship_kwargs={"order_by": "SourceColumn.sort_order.asc()"}
+        back_populates="SourceView",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "SourceColumn.sort_order.asc()"},
     )
 
 

@@ -1,4 +1,4 @@
-from ..auth.auth_router import AuthRouter as AuthRouter
+from ..auth.auth_router import AuthAPIRouter as AuthAPIRouter
 from ..entity_table.t_auth_user import (
     AuthLogin as AuthLogin,
     AuthPassword as AuthPassword,

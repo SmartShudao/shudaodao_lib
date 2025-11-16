@@ -1,4 +1,5 @@
 from ..engine.database_engine import DatabaseEngine as DatabaseEngine
+from ..exception.service_exception import ShudaodaoException as ShudaodaoException
 from ..logger.logging_ import logging as logging
 from _typeshed import Incomplete
 from collections.abc import Generator

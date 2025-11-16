@@ -23,7 +23,9 @@ class Module(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "sys_module"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "功能模块"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["module_id"]
 
     module_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="模块内码"

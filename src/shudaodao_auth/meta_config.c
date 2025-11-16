@@ -1904,7 +1904,7 @@ int __pyx_module_is_main_shudaodao_auth__meta_config = 0;
 /* #### Code section: global_var ### */
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = ".";
-static const char __pyx_k__2[] = "\350\264\246\346\210\267\347\256\241\347\220\206 - \347\231\273\345\275\225\343\200\201\351\211\264\346\235\203";
+static const char __pyx_k__2[] = "\350\264\246\346\210\267\347\256\241\347\220\206";
 static const char __pyx_k__3[] = "?";
 static const char __pyx_k_Auth[] = "Auth";
 static const char __pyx_k_auth[] = "auth";
@@ -1995,7 +1995,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_Auth __pyx_string_tab[1]
 #define __pyx_n_u_MetaConfig __pyx_string_tab[2]
 #define __pyx_n_u_MetaConfigSetting __pyx_string_tab[3]
-#define __pyx_kp_u__2 __pyx_string_tab[4]
+#define __pyx_n_u__2 __pyx_string_tab[4]
 #define __pyx_kp_u__3 __pyx_string_tab[5]
 #define __pyx_n_u_auth __pyx_string_tab[6]
 #define __pyx_n_u_cline_in_traceback __pyx_string_tab[7]
@@ -2461,7 +2461,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_config", 0);
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_engine_name, __pyx_mstate_global->__pyx_n_u_Auth, __pyx_t_6, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_schema_name, __pyx_mstate_global->__pyx_n_u_shudaodao_auth, __pyx_t_6, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
     if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_router_path, __pyx_mstate_global->__pyx_n_u_auth, __pyx_t_6, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_router_tags, __pyx_mstate_global->__pyx_kp_u__2, __pyx_t_6, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_router_tags, __pyx_mstate_global->__pyx_n_u__2, __pyx_t_6, __pyx_callargs+1, 3) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
     __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -2520,11 +2520,11 @@ __Pyx_RefNannySetupContext("PyInit_meta_config", 0);
 
 typedef struct {
     const char *s;
-#if 111 <= 65535
+#if 48 <= 65535
     const unsigned short n;
-#elif 111 / 2 < INT_MAX
+#elif 48 / 2 < INT_MAX
     const unsigned int n;
-#elif 111 / 2 < LONG_MAX
+#elif 48 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -2547,7 +2547,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Auth, sizeof(__pyx_k_Auth), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Auth */
   {__pyx_k_MetaConfig, sizeof(__pyx_k_MetaConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaConfig */
   {__pyx_k_MetaConfigSetting, sizeof(__pyx_k_MetaConfigSetting), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaConfigSetting */
-  {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
+  {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 1}, /* PyObject cname: __pyx_n_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k_auth, sizeof(__pyx_k_auth), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */

@@ -1492,30 +1492,95 @@ static const char* const __pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table;
-struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct__load;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close;
 
-/* "casbin_engine.py":106
- *         return self._enforcer
+/* "casbin_engine.py":68
+ *         self.policies = {}
  * 
- *     async def check_table(self):             # <<<<<<<<<<<<<<
- *         """
- * 
+ *     async def load(self):             # <<<<<<<<<<<<<<
+ *         # logging.debug(f"...")
+ *         await self._enforcer.load_policy()
 */
-struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table {
+struct __pyx_obj_13casbin_engine___pyx_scope_struct__load {
   PyObject_HEAD
   PyObject *__pyx_v_self;
 };
 
 
-/* "casbin_engine.py":124
- *             await self._enforcer.save_policy()
+/* "casbin_engine.py":81
+ *         logging.debug(f" - {_count_grouping.rjust(_max_length)} ")
+ * 
+ *     async def rebuild(self):             # <<<<<<<<<<<<<<
+ *         self._enforcer.clear_policy()
+ *         await self.save()
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild {
+  PyObject_HEAD
+  PyObject *__pyx_v_act;
+  PyObject *__pyx_v_acts;
+  PyObject *__pyx_v_admin_role;
+  PyObject *__pyx_v_admin_user;
+  PyObject *__pyx_v_obj;
+  PyObject *__pyx_v_role;
+  PyObject *__pyx_v_roles;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_t_0;
+  PyObject *__pyx_t_1;
+  PyObject *__pyx_t_2;
+  Py_ssize_t __pyx_t_3;
+  PyObject *(*__pyx_t_4)(PyObject *);
+  Py_ssize_t __pyx_t_5;
+  Py_ssize_t __pyx_t_6;
+  int __pyx_t_7;
+  Py_ssize_t __pyx_t_8;
+  PyObject *(*__pyx_t_9)(PyObject *);
+};
+
+
+/* "casbin_engine.py":113
+ *         self._check_count()
+ * 
+ *     async def save(self):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.save_policy()
+ * 
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save {
+  PyObject_HEAD
+  PyObject *__pyx_v_self;
+};
+
+
+/* "casbin_engine.py":116
+ *         await self._enforcer.save_policy()
+ * 
+ *     async def check_table(self):             # <<<<<<<<<<<<<<
+ *         """
+ * 
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table {
+  PyObject_HEAD
+  PyObject *__pyx_v_self;
+};
+
+
+/* "casbin_engine.py":130
+ *                 await self.adapter.create_table()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
  *         """ `AuthRule`
  * 
 */
-struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists {
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists {
   PyObject_HEAD
   PyObject *__pyx_v_conn;
   PyObject *__pyx_v_self;
@@ -1528,6 +1593,96 @@ struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists {
   PyObject *__pyx_t_5;
   PyObject *__pyx_t_6;
   PyObject *__pyx_t_7;
+};
+
+
+/* "casbin_engine.py":150
+ *                 )
+ * 
+ *     async def set_role_policy(self, role, obj, act):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy {
+  PyObject_HEAD
+  PyObject *__pyx_v_act;
+  PyObject *__pyx_v_obj;
+  PyObject *__pyx_v_role;
+  PyObject *__pyx_v_self;
+};
+
+
+/* "casbin_engine.py":153
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+ *     async def _set_grouping_policy(self, *, p_obj, c_obj):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy {
+  PyObject_HEAD
+  PyObject *__pyx_v_c_obj;
+  PyObject *__pyx_v_p_obj;
+  PyObject *__pyx_v_self;
+};
+
+
+/* "casbin_engine.py":156
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+ *     async def set_inherit_role(self, *, p_role, c_role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role {
+  PyObject_HEAD
+  PyObject *__pyx_v_c_role;
+  PyObject *__pyx_v_p_role;
+  PyObject *__pyx_v_self;
+};
+
+
+/* "casbin_engine.py":159
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+ *     async def set_user_role(self, *, user, role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role {
+  PyObject_HEAD
+  PyObject *__pyx_v_role;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_v_user;
+};
+
+
+/* "casbin_engine.py":162
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+ *     async def has_role(self, user, role):             # <<<<<<<<<<<<<<
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):
+ *             return False
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role {
+  PyObject_HEAD
+  PyObject *__pyx_v_role;
+  PyObject *__pyx_v_self;
+  PyObject *__pyx_v_user;
+  PyObject *__pyx_t_0;
+};
+
+
+/* "casbin_engine.py":183
+ *             act.append(p_act)
+ * 
+ *     async def close(self):             # <<<<<<<<<<<<<<
+ *         """"""
+ *         if self._enforcer is not None:
+*/
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close {
+  PyObject_HEAD
+  PyObject *__pyx_v_self;
 };
 
 /* #### Code section: utility_code_proto ### */
@@ -1979,9 +2134,6 @@ static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, P
 #define __Pyx_PyObject_Unicode(obj)\
     (likely(PyUnicode_CheckExact(obj)) ? __Pyx_NewRef(obj) : PyObject_Str(obj))
 
-/* RaiseException.proto */
-static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
-
 /* LimitedApiGetTypeDict.proto */
 #if CYTHON_COMPILING_IN_LIMITED_API
 static PyObject *__Pyx_GetTypeDict(PyTypeObject *tp);
@@ -2006,6 +2158,9 @@ static PyTypeObject* __Pyx_FetchCommonTypeFromSpec(PyTypeObject *metaclass, PyOb
 /* CommonTypesMetaclass.proto */
 static int __pyx_CommonTypesMetaclass_init(PyObject *module);
 #define __Pyx_CommonTypesMetaclass_USED
+
+/* RaiseException.proto */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause);
 
 /* SwapException.proto */
 #if CYTHON_FAST_THREAD_STATE
@@ -2154,6 +2309,108 @@ static CYTHON_INLINE __Pyx_PySendResult __Pyx_Coroutine_Yield_From(__pyx_Corouti
 /* pep479.proto */
 static void __Pyx_Generator_Replace_StopIteration(int in_async_gen);
 
+/* JoinPyUnicode.proto */
+static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char);
+
+/* PySequenceContains.proto */
+static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* seq, int eq) {
+    int result = PySequence_Contains(seq, item);
+    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
+}
+
+/* ListAppend.proto */
+#if CYTHON_USE_PYLIST_INTERNALS && CYTHON_ASSUME_SAFE_MACROS
+static CYTHON_INLINE int __Pyx_PyList_Append(PyObject* list, PyObject* x) {
+    PyListObject* L = (PyListObject*) list;
+    Py_ssize_t len = Py_SIZE(list);
+    if (likely(L->allocated > len) & likely(len > (L->allocated >> 1))) {
+        Py_INCREF(x);
+        #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030d0000
+        L->ob_item[len] = x;
+        #else
+        PyList_SET_ITEM(list, len, x);
+        #endif
+        __Pyx_SET_SIZE(list, len + 1);
+        return 0;
+    }
+    return PyList_Append(list, x);
+}
+#else
+#define __Pyx_PyList_Append(L,x) PyList_Append(L,x)
+#endif
+
+/* IterFinish.proto */
+static CYTHON_INLINE int __Pyx_IterFinish(void);
+
+/* PyObjectCallMethod0.proto */
+static PyObject* __Pyx_PyObject_CallMethod0(PyObject* obj, PyObject* method_name);
+
+/* RaiseNeedMoreValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
+
+/* RaiseTooManyValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected);
+
+/* UnpackItemEndCheck.proto */
+static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected);
+
+/* RaiseNoneIterError.proto */
+static CYTHON_INLINE void __Pyx_RaiseNoneNotIterableError(void);
+
+/* UnpackTupleError.proto */
+static void __Pyx_UnpackTupleError(PyObject *, Py_ssize_t index);
+
+/* UnpackTuple2.proto */
+static CYTHON_INLINE int __Pyx_unpack_tuple2(
+    PyObject* tuple, PyObject** value1, PyObject** value2, int is_tuple, int has_known_size, int decref_tuple);
+static CYTHON_INLINE int __Pyx_unpack_tuple2_exact(
+    PyObject* tuple, PyObject** value1, PyObject** value2, int decref_tuple);
+static int __Pyx_unpack_tuple2_generic(
+    PyObject* tuple, PyObject** value1, PyObject** value2, int has_known_size, int decref_tuple);
+
+/* dict_iter.proto */
+static CYTHON_INLINE PyObject* __Pyx_dict_iterator(PyObject* dict, int is_dict, PyObject* method_name,
+                                                   Py_ssize_t* p_orig_length, int* p_is_dict);
+static CYTHON_INLINE int __Pyx_dict_iter_next(PyObject* dict_or_iter, Py_ssize_t orig_length, Py_ssize_t* ppos,
+                                              PyObject** pkey, PyObject** pvalue, PyObject** pitem, int is_dict);
+
+/* GetItemInt.proto */
+#define __Pyx_GetItemInt(o, i, type, is_signed, to_py_func, is_list, wraparound, boundscheck, has_gil)\
+    (__Pyx_fits_Py_ssize_t(i, type, is_signed) ?\
+    __Pyx_GetItemInt_Fast(o, (Py_ssize_t)i, is_list, wraparound, boundscheck) :\
+    (is_list ? (PyErr_SetString(PyExc_IndexError, "list index out of range"), (PyObject*)NULL) :\
+               __Pyx_GetItemInt_Generic(o, to_py_func(i))))
+#define __Pyx_GetItemInt_List(o, i, type, is_signed, to_py_func, is_list, wraparound, boundscheck, has_gil)\
+    (__Pyx_fits_Py_ssize_t(i, type, is_signed) ?\
+    __Pyx_GetItemInt_List_Fast(o, (Py_ssize_t)i, wraparound, boundscheck) :\
+    (PyErr_SetString(PyExc_IndexError, "list index out of range"), (PyObject*)NULL))
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_List_Fast(PyObject *o, Py_ssize_t i,
+                                                              int wraparound, int boundscheck);
+#define __Pyx_GetItemInt_Tuple(o, i, type, is_signed, to_py_func, is_list, wraparound, boundscheck, has_gil)\
+    (__Pyx_fits_Py_ssize_t(i, type, is_signed) ?\
+    __Pyx_GetItemInt_Tuple_Fast(o, (Py_ssize_t)i, wraparound, boundscheck) :\
+    (PyErr_SetString(PyExc_IndexError, "tuple index out of range"), (PyObject*)NULL))
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Tuple_Fast(PyObject *o, Py_ssize_t i,
+                                                              int wraparound, int boundscheck);
+static PyObject *__Pyx_GetItemInt_Generic(PyObject *o, PyObject* j);
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i,
+                                                     int is_list, int wraparound, int boundscheck);
+
+/* ObjectGetItem.proto */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *key);
+#else
+#define __Pyx_PyObject_GetItem(obj, key)  PyObject_GetItem(obj, key)
+#endif
+
+/* PyObjectVectorCallMethodKwBuilder.proto */
+#if CYTHON_VECTORCALL && PY_VERSION_HEX >= 0x03090000
+#define __Pyx_Object_VectorcallMethod_CallFromBuilder PyObject_VectorcallMethod
+#else
+static PyObject *__Pyx_Object_VectorcallMethod_CallFromBuilder(PyObject *name, PyObject *const *args, size_t nargsf, PyObject *kwnames);
+#endif
+
 /* RaiseClosureNameError.proto */
 static void __Pyx_RaiseClosureNameError(const char *varname);
 
@@ -2261,8 +2518,11 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml,
                                       PyObject *module, PyObject *globals,
                                       PyObject* code);
 
-/* PyObjectCallMethod0.proto */
-static PyObject* __Pyx_PyObject_CallMethod0(PyObject* obj, PyObject* method_name);
+/* RaiseKeywordRequired.proto */
+static void __Pyx_RaiseKeywordRequired(const char* func_name, PyObject* kw_name);
+
+/* append.proto */
+static CYTHON_INLINE int __Pyx_PyObject_Append(PyObject* L, PyObject* x);
 
 /* ValidateBasesTuple.proto */
 #if CYTHON_COMPILING_IN_CPYTHON || CYTHON_COMPILING_IN_LIMITED_API || CYTHON_USE_TYPE_SPECS
@@ -2460,24 +2720,30 @@ int __pyx_module_is_main_casbin_engine = 0;
 /* Implementation of "casbin_engine" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_super;
-static PyObject *__pyx_builtin_RuntimeError;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_[] = "";
 static const char __pyx_k_1[] = "\320\n+\2501";
-static const char __pyx_k__2[] = "\346\250\241\345\236\213\346\226\207\344\273\266: ";
-static const char __pyx_k__3[] = "\346\255\243\345\234\250\345\210\233\345\273\272\346\225\260\346\215\256\350\241\250...";
-static const char __pyx_k__4[] = "\346\255\243\345\234\250\346\270\205\351\231\244\350\247\204\345\210\231\346\225\260\346\215\256...";
-static const char __pyx_k__5[] = ".";
-static const char __pyx_k__6[] = "?";
-static const char __pyx_k__7[] = "\210!";
+static const char __pyx_k__2[] = "\350\247\204\345\210\231\347\255\226\347\225\245 - ";
+static const char __pyx_k__3[] = " \346\235\241";
+static const char __pyx_k__4[] = "\345\210\206\347\273\204\347\255\226\347\225\245 - ";
+static const char __pyx_k__5[] = "\346\255\243\345\234\250\345\210\235\345\247\213\345\214\226...";
+static const char __pyx_k__6[] = "\346\255\243\345\234\250\345\210\233\345\273\272\346\225\260\346\215\256\350\241\250...";
+static const char __pyx_k__7[] = "\346\235\203\351\231\220\345\274\225\346\223\216\350\265\204\346\272\220\345\267\262\351\207\212\346\224\276";
+static const char __pyx_k__8[] = ".";
+static const char __pyx_k__9[] = "?";
 static const char __pyx_k_gc[] = "gc";
+static const char __pyx_k__10[] = "\210!";
+static const char __pyx_k_act[] = "act";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_new[] = "__new__";
+static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_pop[] = "pop";
+static const char __pyx_k_str[] = "__str__";
 static const char __pyx_k_url[] = "url";
 static const char __pyx_k_Auth[] = "Auth";
 static const char __pyx_k_Lock[] = "Lock";
+static const char __pyx_k_acts[] = "acts";
 static const char __pyx_k_auth[] = "auth";
 static const char __pyx_k_bool[] = "bool";
 static const char __pyx_k_conn[] = "conn";
@@ -2488,108 +2754,185 @@ static const char __pyx_k_lock[] = "_lock";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_next[] = "next";
+static const char __pyx_k_role[] = "role";
+static const char __pyx_k_save[] = "save";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_send[] = "send";
 static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_user[] = "user";
 static const char __pyx_k_aexit[] = "__aexit__";
 static const char __pyx_k_await[] = "__await__";
+static const char __pyx_k_c_obj[] = "c_obj";
+static const char __pyx_k_clear[] = "clear";
 static const char __pyx_k_close[] = "close";
 static const char __pyx_k_debug[] = "debug";
 static const char __pyx_k_enter[] = "__enter__";
 static const char __pyx_k_gQj_1[] = "\320\024&\240g\250Q\250j\270\n\300!\3001";
+static const char __pyx_k_items[] = "items";
 static const char __pyx_k_model[] = "model";
+static const char __pyx_k_p_act[] = "p_act";
+static const char __pyx_k_p_obj[] = "p_obj";
+static const char __pyx_k_p_sub[] = "p_sub";
+static const char __pyx_k_rjust[] = "rjust";
+static const char __pyx_k_roles[] = "roles";
 static const char __pyx_k_super[] = "super";
 static const char __pyx_k_table[] = "__table__";
 static const char __pyx_k_throw[] = "throw";
 static const char __pyx_k_value[] = "value";
+static const char __pyx_k_Auth_2[] = "\346\225\260\346\215\256\345\255\230\345\202\250 - Auth - ";
+static const char __pyx_k_Casbin[] = "Casbin \345\274\202\346\255\245\346\235\203\351\231\220\345\274\225\346\223\216\347\232\204\347\272\277\347\250\213\345\256\211\345\205\250\345\215\225\344\276\213\347\256\241\347\220\206\345\231\250";
 static const char __pyx_k_aenter[] = "__aenter__";
-static const char __pyx_k_casbin[] = "\351\252\214\350\257\201\346\250\241\345\236\213: casbin \343\200\214\350\256\277\351\227\256\346\216\247\345\210\266\346\241\206\346\236\266\343\200\215";
+static const char __pyx_k_append[] = "append";
+static const char __pyx_k_c_role[] = "c_role";
+static const char __pyx_k_casbin[] = "\351\252\214\350\257\201\346\250\241\345\236\213 - casbin \343\200\214\350\256\277\351\227\256\346\216\247\345\210\266\346\241\206\346\236\266\343\200\215";
 static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_engine[] = "engine";
 static const char __pyx_k_lambda[] = "<lambda>";
+static const char __pyx_k_load_2[] = "load";
 static const char __pyx_k_module[] = "__module__";
+static const char __pyx_k_p_role[] = "p_role";
 static const char __pyx_k_return[] = "return";
+static const char __pyx_k_role_2[] = "role::";
 static const char __pyx_k_schema[] = "schema";
+static const char __pyx_k_user_2[] = "user::";
 static const char __pyx_k_Adapter[] = "Adapter";
 static const char __pyx_k_adapter[] = "adapter";
 static const char __pyx_k_connect[] = "connect";
 static const char __pyx_k_disable[] = "disable";
+static const char __pyx_k_enforce[] = "enforce";
 static const char __pyx_k_inspect[] = "inspect";
 static const char __pyx_k_logging[] = "logging";
 static const char __pyx_k_prepare[] = "__prepare__";
+static const char __pyx_k_rebuild[] = "rebuild";
 static const char __pyx_k_AuthRule[] = "AuthRule";
 static const char __pyx_k_CoreUtil[] = "CoreUtil";
 static const char __pyx_k_casbin_2[] = "casbin";
 static const char __pyx_k_db_class[] = "db_class";
 static const char __pyx_k_enforcer[] = "_enforcer";
+static const char __pyx_k_has_role[] = "has_role";
 static const char __pyx_k_instance[] = "_instance";
+static const char __pyx_k_policies[] = "policies";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_run_sync[] = "run_sync";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_AppConfig[] = "AppConfig";
+static const char __pyx_k_auto_save[] = "auto_save";
 static const char __pyx_k_gQj_xWaab[] = "\320\024&\240g\250Q\250j\270\n\300!\300<\310x\320Wa\320ab";
 static const char __pyx_k_has_table[] = "has_table";
 static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_metaclass[] = "__metaclass__";
-static const char __pyx_k_name_Auth[] = "\346\225\260\346\215\256\345\255\230\345\202\250: name: Auth - ";
 static const char __pyx_k_sync_conn[] = "sync_conn";
 static const char __pyx_k_tablename[] = "__tablename__";
 static const char __pyx_k_threading[] = "threading";
 static const char __pyx_k_yaml_auth[] = "\345\212\240\350\275\275: .yaml - auth ";
+static const char __pyx_k_A_t_XQb_uA[] = "\200A\330\010\017\210t\220:\230X\240Q\240b\250\n\260%\260u\270A";
+static const char __pyx_k_add_policy[] = "add_policy";
+static const char __pyx_k_admin_role[] = "admin_role";
+static const char __pyx_k_admin_user[] = "admin_user";
 static const char __pyx_k_debug_line[] = "debug_line";
+static const char __pyx_k_drivername[] = "drivername";
+static const char __pyx_k_get_policy[] = "get_policy";
+static const char __pyx_k_max_length[] = "_max_length";
 static const char __pyx_k_model_path[] = "model_path";
 static const char __pyx_k_sqlalchemy[] = "sqlalchemy";
 static const char __pyx_k_table_name[] = "table_name";
-static const char __pyx_k_A_4_Q_aq_t1[] = "\320\004$\240A\360\014\000\t\014\2104\210{\230#\230Q\330\014\022\220,\230a\230q\330\010\017\210t\2201";
+static const char __pyx_k_check_count[] = "_check_count";
 static const char __pyx_k_check_table[] = "check_table";
+static const char __pyx_k_load_policy[] = "load_policy";
 static const char __pyx_k_save_policy[] = "save_policy";
-static const char __pyx_k_RuntimeError[] = "RuntimeError";
 static const char __pyx_k_clear_policy[] = "clear_policy";
+static const char __pyx_k_count_policy[] = "_count_policy";
 static const char __pyx_k_create_table[] = "create_table";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
+static const char __pyx_k_role_obj_act[] = "\350\247\222\350\211\262\346\235\203\351\231\220: role - obj - act  ";
 static const char __pyx_k_AsyncEnforcer[] = "AsyncEnforcer";
 static const char __pyx_k_casbin_engine[] = "casbin_engine";
+static const char __pyx_k_class_getitem[] = "__class_getitem__";
+static const char __pyx_k_set_user_role[] = "set_user_role";
 static const char __pyx_k_DatabaseEngine[] = "DatabaseEngine";
+static const char __pyx_k_count_grouping[] = "_count_grouping";
+static const char __pyx_k_has_permission[] = "has_permission";
 static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
 static const char __pyx_k_support_schema[] = "support_schema";
+static const char __pyx_k_admin_role_role[] = "\350\247\222\350\211\262\347\273\247\346\211\277: admin_role  <- role  ";
 static const char __pyx_k_database_engine[] = "database_engine";
 static const char __pyx_k_get_config_path[] = "get_config_path";
+static const char __pyx_k_set_role_policy[] = "set_role_policy";
 static const char __pyx_k_PermissionEngine[] = "PermissionEngine";
 static const char __pyx_k_casbin_engine_py[] = "casbin_engine.py";
 static const char __pyx_k_enable_auto_save[] = "enable_auto_save";
 static const char __pyx_k_get_async_engine[] = "get_async_engine";
+static const char __pyx_k_set_inherit_role[] = "set_inherit_role";
 static const char __pyx_k_SQLAlchemyAdapter[] = "SQLAlchemyAdapter";
 static const char __pyx_k_casbin_model_conf[] = "casbin/model.conf";
 static const char __pyx_k_rebuild_auth_rule[] = "rebuild_auth_rule";
-static const char __pyx_k_PermissionEngine_2[] = "PermissionEngine \346\234\252\346\255\243\347\241\256\345\210\235\345\247\213\345\214\226";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_check_table_exists[] = "_check_table_exists";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_get_async_enforcer[] = "get_async_enforcer";
+static const char __pyx_k_add_grouping_policy[] = "add_grouping_policy";
+static const char __pyx_k_default_admin_roles[] = "default_admin_roles";
+static const char __pyx_k_default_admin_users[] = "default_admin_users";
+static const char __pyx_k_get_grouping_policy[] = "get_grouping_policy";
+static const char __pyx_k_set_grouping_policy[] = "_set_grouping_policy";
+static const char __pyx_k_PermissionEngine_load[] = "PermissionEngine.load";
+static const char __pyx_k_PermissionEngine_save[] = "PermissionEngine.save";
+static const char __pyx_k_admin_user_admin_role[] = "\347\224\250\346\210\267\346\216\210\346\235\203: admin_user  <- admin_role  ";
 static const char __pyx_k_PermissionEngine___new[] = "PermissionEngine.__new__";
 static const char __pyx_k_PermissionEngine__load[] = "PermissionEngine._load";
-static const char __pyx_k_A_3k_A_A_3k_A_E_D_z_q_s[] = "\200A\360\014\000\t\014\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\320*<\270D\300\010\310\001\310\021\330\024\027\220z\240\026\240q\330\010\017\210s\220!";
+static const char __pyx_k_PermissionEngine_close[] = "PermissionEngine.close";
+static const char __pyx_k_A_3k_A_A_3k_A_E_D_z_q_s[] = "\200A\330\010\013\2103\210k\230\023\230A\330\021\024\220A\330\020\023\2203\220k\240\023\240A\330\024\027\220}\240E\250\021\320*<\270D\300\010\310\001\310\021\330\024\027\220z\240\026\240q\330\010\017\210s\220!";
+static const char __pyx_k_A_6_A_1_d_1A_6_q_c_6_waq[] = "\200A\340\010\013\2106\220\027\230\004\230A\330\014\020\220\t\230\021\230)\2401\330\010\016\210d\220)\2301\230A\340\010\013\2106\220\027\230\001\330\014\017\210q\220\t\230\021\330\010\016\210c\220\021\220!\340\010\013\2106\220\027\230\001\330\014\017\210w\220a\220q";
+static const char __pyx_k_PermissionEngine_rebuild[] = "PermissionEngine.rebuild";
+static const char __pyx_k_config_casbin_model_conf[] = "\346\250\241\345\236\213\346\226\207\344\273\266 - config/casbin/model.conf";
 static const char __pyx_k_entity_table_t_auth_rule[] = "entity_table.t_auth_rule";
+static const char __pyx_k_PermissionEngine_has_role[] = "PermissionEngine.has_role";
+static const char __pyx_k_A_1D_S_Qd_81_Q_c_vQb_aq_vQb[] = "\200A\340\010\030\230\003\2301\230D\240\n\250+\260S\270\010\300\001\330\010\032\230#\230Q\230d\240*\320,@\300\003\3008\3101\330\010\031\230\021\230#\230Q\320\036.\250c\260\021\260!\330\010\017\210v\220Q\220b\230\013\240=\260\006\260a\260q\330\010\017\210v\220Q\220b\230\013\240?\260&\270\001\270\021";
+static const char __pyx_k_PermissionEngine_add_policy[] = "PermissionEngine.add_policy";
+static const char __pyx_k_get_implicit_roles_for_user[] = "get_implicit_roles_for_user";
 static const char __pyx_k_PermissionEngine_check_table[] = "PermissionEngine.check_table";
 static const char __pyx_k_enable_auto_build_role_links[] = "enable_auto_build_role_links";
-static const char __pyx_k_A_M_vQa_vQa_Jo_6aq_4_oQa_Jj_vQb[] = "\200A\360\024\000\t\r\210M\230\021\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\340\010\032\230.\250\001\330\010\014\210J\220o\320%6\260a\260q\340\010\013\2104\210\177\230o\250Q\250a\330\014\024\220J\230j\250\001\330\010\017\210v\220Q\220b\320\030/\250t\2607\270!\360\006\000\t\r\210K\320\027(\250\001\330\014\023\2204\220q\330\014\025\220Q\360\006\000\t\026\220X\320\035-\250S\260\002\260!\330\010\017\210v\220Q\220b\230\n\240!\340\010\014\210M\230\035\240a\330\014\022\220#\220Q\220a\330\014\024\220D\230\001\360\010\000\t\r\210J\320\026'\240q\250\001\340\010\014\210J\320\0263\2601\260A";
+static const char __pyx_k_PermissionEngine__check_count[] = "PermissionEngine._check_count";
+static const char __pyx_k_PermissionEngine_set_user_role[] = "PermissionEngine.set_user_role";
+static const char __pyx_k_A_M_vQa_vQa_Jo_6aq_4_oQa_Jj_vQb[] = "\200A\340\010\014\210M\230\021\330\010\017\210{\230!\330\010\017\210v\220Q\220a\330\010\017\210{\230!\330\010\017\210v\220Q\220a\340\010\032\230.\250\001\330\010\014\210J\220o\320%6\260a\260q\340\010\013\2104\210\177\230o\250Q\250a\330\014\024\220J\230j\250\001\330\010\017\210v\220Q\220b\320\030*\250$\250g\260T\270\021\360\006\000\t\r\210K\320\027(\250\001\330\014\023\2204\220q\330\014\025\220Q\360\006\000\t\026\220X\320\035-\250S\260\002\260!\330\010\017\210v\220S\230\001\340\010\014\210M\230\035\240a\330\014\022\220#\220Q\220a\330\014\024\220D\230\001\360\006\000\t\r\210J\320\026'\240q\250\001\340\010\014\210J\320\0263\2601\260A\340\010\014\210L\230\001";
+static const char __pyx_k_PermissionEngine_has_permission[] = "PermissionEngine.has_permission";
 static const char __pyx_k_casbin_async_sqlalchemy_adapter[] = "casbin_async_sqlalchemy_adapter";
-static const char __pyx_k_Casbin_Casbin_AsyncEnforcer_SQLA[] = "Casbin \345\274\202\346\255\245\346\235\203\351\231\220\345\274\225\346\223\216\347\232\204\347\272\277\347\250\213\345\256\211\345\205\250\345\215\225\344\276\213\347\256\241\347\220\206\345\231\250\343\200\202\n\n    \350\264\237\350\264\243\357\274\232\n        - \345\210\235\345\247\213\345\214\226 Casbin \347\232\204 AsyncEnforcer\357\274\233\n        - \347\273\221\345\256\232 SQLAlchemy \345\274\202\346\255\245\351\200\202\351\205\215\345\231\250\357\274\210\346\214\201\344\271\205\345\214\226\347\255\226\347\225\245\345\210\260 `AuthRule` \350\241\250\357\274\211\357\274\233\n        - \346\224\257\346\214\201\350\207\252\345\212\250\344\277\235\345\255\230\347\255\226\347\225\245\343\200\201\350\207\252\345\212\250\346\236\204\345\273\272\350\247\222\350\211\262\347\273\247\346\211\277\345\205\263\347\263\273\357\274\233\n        - \346\217\220\344\276\233\350\241\250\347\273\223\346\236\204\346\243\200\346\237\245\344\270\216\351\207\215\345\273\272\350\203\275\345\212\233\357\274\210\347\224\250\344\272\216\345\274\200\345\217\221/\346\265\213\350\257\225\347\216\257\345\242\203\357\274\211\343\200\202\n\n    \346\263\250\346\204\217\357\274\232\n        - \346\234\254\347\261\273\344\275\277\347\224\250 **\345\217\214\351\207\215\346\243\200\346\237\245\351\224\201\357\274\210DCL\357\274\211** \345\256\236\347\216\260\347\272\277\347\250\213\345\256\211\345\205\250\347\232\204\345\215\225\344\276\213\346\250\241\345\274\217\357\274\233\n        - `_load()` \345\234\250\351\246\226\346\254\241\345\256\236\344\276\213\345\214\226\346\227\266\345\220\214\346\255\245\346\211\247\350\241\214\357\274\214\345\233\240\346\255\244\345\272\224\351\201\277\345\205\215\345\234\250\345\274\202\346\255\245\344\270\212\344\270\213\346\226\207\344\270\255\351\246\226\346\254\241\350\247\246\345\217\221\357\274\233\n\n    \345\205\270\345\236\213\347\224\250\346\263\225\357\274\232\n        enforcer = PermissionEngine().get_async_enforcer()\n        allowed = await enfor""cer.enforce(\"admin\", \"user\", \"read\")\n    ";
 static const char __pyx_k_PermissionEngine__check_table_ex[] = "PermissionEngine._check_table_exists";
-static const char __pyx_k_PermissionEngine_get_async_enfor[] = "PermissionEngine.get_async_enforcer";
+static const char __pyx_k_PermissionEngine__set_grouping_p[] = "PermissionEngine._set_grouping_policy";
+static const char __pyx_k_PermissionEngine_set_inherit_rol[] = "PermissionEngine.set_inherit_role";
+static const char __pyx_k_PermissionEngine_set_role_policy[] = "PermissionEngine.set_role_policy";
 static const char __pyx_k_PermissionEngine__check_table_ex_2[] = "PermissionEngine._check_table_exists.<locals>.<lambda>";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls); /* proto */
 static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_6check_table(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4load(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_7_check_count(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9rebuild(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_12save(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_15check_table(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__pyx_v_sync_conn); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__pyx_v_sync_conn); /* proto */
-static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9_check_table_exists(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct__check_table(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_1__check_table_exists(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_18_check_table_exists(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_21set_role_policy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_role, PyObject *__pyx_v_obj, PyObject *__pyx_v_act); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_24_set_grouping_policy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_p_obj, PyObject *__pyx_v_c_obj); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_27set_inherit_role(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_p_role, PyObject *__pyx_v_c_role); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_30set_user_role(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_user, PyObject *__pyx_v_role); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_33has_role(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_user, PyObject *__pyx_v_role); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_36has_permission(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_user, PyObject *__pyx_v_obj, PyObject *__pyx_v_act); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_38add_policy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_p_sub, PyObject *__pyx_v_p_obj, PyObject *__pyx_v_p_act); /* proto */
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_40close(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct__load(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_1_rebuild(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_2_save(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_3_check_table(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_4__check_table_exists(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_5_set_role_policy(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_6__set_grouping_policy(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_7_set_inherit_role(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_8_set_user_role(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_9_has_role(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_10_close(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2628,14 +2971,32 @@ typedef struct {
   #ifdef __Pyx_Coroutine_USED
   PyTypeObject *__pyx_CoroutineType;
   #endif
-  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct__check_table;
-  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists;
-  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table;
-  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct__load;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_2_save;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_3_check_table;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_9_has_role;
+  PyObject *__pyx_type_13casbin_engine___pyx_scope_struct_10_close;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct__load;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role;
+  PyTypeObject *__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[1];
-  PyObject *__pyx_codeobj_tab[7];
-  PyObject *__pyx_string_tab[111];
+  PyObject *__pyx_codeobj_tab[18];
+  PyObject *__pyx_string_tab[173];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2657,13 +3018,58 @@ PyObject *__Pyx_CachedMethodType;
 
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *__pyx_freelist_13casbin_engine___pyx_scope_struct__check_table[8];
-int __pyx_freecount_13casbin_engine___pyx_scope_struct__check_table;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *__pyx_freelist_13casbin_engine___pyx_scope_struct__load[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct__load;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *__pyx_freelist_13casbin_engine___pyx_scope_struct_1__check_table_exists[8];
-int __pyx_freecount_13casbin_engine___pyx_scope_struct_1__check_table_exists;
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *__pyx_freelist_13casbin_engine___pyx_scope_struct_1_rebuild[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_1_rebuild;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *__pyx_freelist_13casbin_engine___pyx_scope_struct_2_save[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_2_save;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *__pyx_freelist_13casbin_engine___pyx_scope_struct_3_check_table[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_3_check_table;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *__pyx_freelist_13casbin_engine___pyx_scope_struct_4__check_table_exists[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_4__check_table_exists;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *__pyx_freelist_13casbin_engine___pyx_scope_struct_5_set_role_policy[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_5_set_role_policy;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *__pyx_freelist_13casbin_engine___pyx_scope_struct_6__set_grouping_policy[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_6__set_grouping_policy;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *__pyx_freelist_13casbin_engine___pyx_scope_struct_7_set_inherit_role[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_7_set_inherit_role;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *__pyx_freelist_13casbin_engine___pyx_scope_struct_8_set_user_role[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_8_set_user_role;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *__pyx_freelist_13casbin_engine___pyx_scope_struct_9_has_role[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_9_has_role;
+#endif
+
+#if CYTHON_USE_FREELISTS
+struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *__pyx_freelist_13casbin_engine___pyx_scope_struct_10_close[8];
+int __pyx_freecount_13casbin_engine___pyx_scope_struct_10_close;
 #endif
 /* CodeObjectCache.module_state_decls */
 struct __Pyx_CodeObjectCache __pyx_code_cache;
@@ -2699,111 +3105,173 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_AsyncEnforcer __pyx_string_tab[3]
 #define __pyx_n_u_Auth __pyx_string_tab[4]
 #define __pyx_n_u_AuthRule __pyx_string_tab[5]
-#define __pyx_kp_u_Casbin_Casbin_AsyncEnforcer_SQLA __pyx_string_tab[6]
-#define __pyx_n_u_CoreUtil __pyx_string_tab[7]
-#define __pyx_n_u_DatabaseEngine __pyx_string_tab[8]
-#define __pyx_n_u_Lock __pyx_string_tab[9]
-#define __pyx_n_u_PermissionEngine __pyx_string_tab[10]
-#define __pyx_kp_u_PermissionEngine_2 __pyx_string_tab[11]
+#define __pyx_kp_u_Auth_2 __pyx_string_tab[6]
+#define __pyx_kp_u_Casbin __pyx_string_tab[7]
+#define __pyx_n_u_CoreUtil __pyx_string_tab[8]
+#define __pyx_n_u_DatabaseEngine __pyx_string_tab[9]
+#define __pyx_n_u_Lock __pyx_string_tab[10]
+#define __pyx_n_u_PermissionEngine __pyx_string_tab[11]
 #define __pyx_n_u_PermissionEngine___new __pyx_string_tab[12]
-#define __pyx_n_u_PermissionEngine__check_table_ex __pyx_string_tab[13]
-#define __pyx_n_u_PermissionEngine__check_table_ex_2 __pyx_string_tab[14]
-#define __pyx_n_u_PermissionEngine__load __pyx_string_tab[15]
-#define __pyx_n_u_PermissionEngine_check_table __pyx_string_tab[16]
-#define __pyx_n_u_PermissionEngine_get_async_enfor __pyx_string_tab[17]
-#define __pyx_n_u_RuntimeError __pyx_string_tab[18]
-#define __pyx_n_u_SQLAlchemyAdapter __pyx_string_tab[19]
-#define __pyx_kp_u__2 __pyx_string_tab[20]
-#define __pyx_kp_u__3 __pyx_string_tab[21]
-#define __pyx_kp_u__4 __pyx_string_tab[22]
-#define __pyx_kp_u__5 __pyx_string_tab[23]
-#define __pyx_kp_u__6 __pyx_string_tab[24]
-#define __pyx_n_u_adapter __pyx_string_tab[25]
-#define __pyx_n_u_aenter __pyx_string_tab[26]
-#define __pyx_n_u_aexit __pyx_string_tab[27]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[28]
-#define __pyx_n_u_auth __pyx_string_tab[29]
-#define __pyx_n_u_await __pyx_string_tab[30]
-#define __pyx_n_u_bool __pyx_string_tab[31]
-#define __pyx_kp_u_casbin __pyx_string_tab[32]
-#define __pyx_n_u_casbin_2 __pyx_string_tab[33]
-#define __pyx_n_u_casbin_async_sqlalchemy_adapter __pyx_string_tab[34]
-#define __pyx_n_u_casbin_engine __pyx_string_tab[35]
-#define __pyx_kp_u_casbin_engine_py __pyx_string_tab[36]
-#define __pyx_kp_u_casbin_model_conf __pyx_string_tab[37]
-#define __pyx_n_u_check_table __pyx_string_tab[38]
-#define __pyx_n_u_check_table_exists __pyx_string_tab[39]
-#define __pyx_n_u_clear_policy __pyx_string_tab[40]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[41]
-#define __pyx_n_u_close __pyx_string_tab[42]
-#define __pyx_n_u_cls __pyx_string_tab[43]
-#define __pyx_n_u_conn __pyx_string_tab[44]
-#define __pyx_n_u_connect __pyx_string_tab[45]
-#define __pyx_n_u_create_table __pyx_string_tab[46]
-#define __pyx_n_u_database_engine __pyx_string_tab[47]
-#define __pyx_n_u_db_class __pyx_string_tab[48]
-#define __pyx_n_u_debug __pyx_string_tab[49]
-#define __pyx_n_u_debug_line __pyx_string_tab[50]
-#define __pyx_kp_u_disable __pyx_string_tab[51]
-#define __pyx_n_u_doc __pyx_string_tab[52]
-#define __pyx_kp_u_enable __pyx_string_tab[53]
-#define __pyx_n_u_enable_auto_build_role_links __pyx_string_tab[54]
-#define __pyx_n_u_enable_auto_save __pyx_string_tab[55]
-#define __pyx_n_u_enforcer __pyx_string_tab[56]
-#define __pyx_n_u_engine __pyx_string_tab[57]
-#define __pyx_n_u_enter __pyx_string_tab[58]
-#define __pyx_n_u_entity_table_t_auth_rule __pyx_string_tab[59]
-#define __pyx_n_u_exit __pyx_string_tab[60]
-#define __pyx_n_u_func __pyx_string_tab[61]
-#define __pyx_kp_u_gc __pyx_string_tab[62]
-#define __pyx_n_u_get_async_enforcer __pyx_string_tab[63]
-#define __pyx_n_u_get_async_engine __pyx_string_tab[64]
-#define __pyx_n_u_get_config_path __pyx_string_tab[65]
-#define __pyx_n_u_has_table __pyx_string_tab[66]
-#define __pyx_n_u_initializing __pyx_string_tab[67]
-#define __pyx_n_u_inspect __pyx_string_tab[68]
-#define __pyx_n_u_instance __pyx_string_tab[69]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[70]
-#define __pyx_kp_u_isenabled __pyx_string_tab[71]
-#define __pyx_n_u_lambda __pyx_string_tab[72]
-#define __pyx_n_u_load __pyx_string_tab[73]
-#define __pyx_n_u_lock __pyx_string_tab[74]
-#define __pyx_n_u_logging __pyx_string_tab[75]
-#define __pyx_n_u_main __pyx_string_tab[76]
-#define __pyx_n_u_metaclass __pyx_string_tab[77]
-#define __pyx_n_u_model __pyx_string_tab[78]
-#define __pyx_n_u_model_path __pyx_string_tab[79]
-#define __pyx_n_u_module __pyx_string_tab[80]
-#define __pyx_n_u_name __pyx_string_tab[81]
-#define __pyx_kp_u_name_Auth __pyx_string_tab[82]
-#define __pyx_n_u_new __pyx_string_tab[83]
-#define __pyx_n_u_next __pyx_string_tab[84]
-#define __pyx_n_u_pop __pyx_string_tab[85]
-#define __pyx_n_u_prepare __pyx_string_tab[86]
-#define __pyx_n_u_qualname __pyx_string_tab[87]
-#define __pyx_n_u_rebuild_auth_rule __pyx_string_tab[88]
-#define __pyx_n_u_return __pyx_string_tab[89]
-#define __pyx_n_u_run_sync __pyx_string_tab[90]
-#define __pyx_n_u_save_policy __pyx_string_tab[91]
-#define __pyx_n_u_schema __pyx_string_tab[92]
-#define __pyx_n_u_self __pyx_string_tab[93]
-#define __pyx_n_u_send __pyx_string_tab[94]
-#define __pyx_n_u_set_name __pyx_string_tab[95]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[96]
-#define __pyx_n_u_spec __pyx_string_tab[97]
-#define __pyx_n_u_sqlalchemy __pyx_string_tab[98]
-#define __pyx_n_u_super __pyx_string_tab[99]
-#define __pyx_n_u_support_schema __pyx_string_tab[100]
-#define __pyx_n_u_sync_conn __pyx_string_tab[101]
-#define __pyx_n_u_table __pyx_string_tab[102]
-#define __pyx_n_u_table_name __pyx_string_tab[103]
-#define __pyx_n_u_tablename __pyx_string_tab[104]
-#define __pyx_n_u_test __pyx_string_tab[105]
-#define __pyx_n_u_threading __pyx_string_tab[106]
-#define __pyx_n_u_throw __pyx_string_tab[107]
-#define __pyx_n_u_url __pyx_string_tab[108]
-#define __pyx_n_u_value __pyx_string_tab[109]
-#define __pyx_kp_u_yaml_auth __pyx_string_tab[110]
+#define __pyx_n_u_PermissionEngine__check_count __pyx_string_tab[13]
+#define __pyx_n_u_PermissionEngine__check_table_ex __pyx_string_tab[14]
+#define __pyx_n_u_PermissionEngine__check_table_ex_2 __pyx_string_tab[15]
+#define __pyx_n_u_PermissionEngine__load __pyx_string_tab[16]
+#define __pyx_n_u_PermissionEngine__set_grouping_p __pyx_string_tab[17]
+#define __pyx_n_u_PermissionEngine_add_policy __pyx_string_tab[18]
+#define __pyx_n_u_PermissionEngine_check_table __pyx_string_tab[19]
+#define __pyx_n_u_PermissionEngine_close __pyx_string_tab[20]
+#define __pyx_n_u_PermissionEngine_has_permission __pyx_string_tab[21]
+#define __pyx_n_u_PermissionEngine_has_role __pyx_string_tab[22]
+#define __pyx_n_u_PermissionEngine_load __pyx_string_tab[23]
+#define __pyx_n_u_PermissionEngine_rebuild __pyx_string_tab[24]
+#define __pyx_n_u_PermissionEngine_save __pyx_string_tab[25]
+#define __pyx_n_u_PermissionEngine_set_inherit_rol __pyx_string_tab[26]
+#define __pyx_n_u_PermissionEngine_set_role_policy __pyx_string_tab[27]
+#define __pyx_n_u_PermissionEngine_set_user_role __pyx_string_tab[28]
+#define __pyx_n_u_SQLAlchemyAdapter __pyx_string_tab[29]
+#define __pyx_kp_u__2 __pyx_string_tab[30]
+#define __pyx_kp_u__3 __pyx_string_tab[31]
+#define __pyx_kp_u__4 __pyx_string_tab[32]
+#define __pyx_kp_u__5 __pyx_string_tab[33]
+#define __pyx_kp_u__6 __pyx_string_tab[34]
+#define __pyx_n_u__7 __pyx_string_tab[35]
+#define __pyx_kp_u__8 __pyx_string_tab[36]
+#define __pyx_kp_u__9 __pyx_string_tab[37]
+#define __pyx_n_u_act __pyx_string_tab[38]
+#define __pyx_n_u_acts __pyx_string_tab[39]
+#define __pyx_n_u_adapter __pyx_string_tab[40]
+#define __pyx_n_u_add_grouping_policy __pyx_string_tab[41]
+#define __pyx_n_u_add_policy __pyx_string_tab[42]
+#define __pyx_n_u_admin_role __pyx_string_tab[43]
+#define __pyx_kp_u_admin_role_role __pyx_string_tab[44]
+#define __pyx_n_u_admin_user __pyx_string_tab[45]
+#define __pyx_kp_u_admin_user_admin_role __pyx_string_tab[46]
+#define __pyx_n_u_aenter __pyx_string_tab[47]
+#define __pyx_n_u_aexit __pyx_string_tab[48]
+#define __pyx_n_u_append __pyx_string_tab[49]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[50]
+#define __pyx_n_u_auth __pyx_string_tab[51]
+#define __pyx_n_u_auto_save __pyx_string_tab[52]
+#define __pyx_n_u_await __pyx_string_tab[53]
+#define __pyx_n_u_bool __pyx_string_tab[54]
+#define __pyx_n_u_c_obj __pyx_string_tab[55]
+#define __pyx_n_u_c_role __pyx_string_tab[56]
+#define __pyx_kp_u_casbin __pyx_string_tab[57]
+#define __pyx_n_u_casbin_2 __pyx_string_tab[58]
+#define __pyx_n_u_casbin_async_sqlalchemy_adapter __pyx_string_tab[59]
+#define __pyx_n_u_casbin_engine __pyx_string_tab[60]
+#define __pyx_kp_u_casbin_engine_py __pyx_string_tab[61]
+#define __pyx_kp_u_casbin_model_conf __pyx_string_tab[62]
+#define __pyx_n_u_check_count __pyx_string_tab[63]
+#define __pyx_n_u_check_table __pyx_string_tab[64]
+#define __pyx_n_u_check_table_exists __pyx_string_tab[65]
+#define __pyx_n_u_class_getitem __pyx_string_tab[66]
+#define __pyx_n_u_clear __pyx_string_tab[67]
+#define __pyx_n_u_clear_policy __pyx_string_tab[68]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[69]
+#define __pyx_n_u_close __pyx_string_tab[70]
+#define __pyx_n_u_cls __pyx_string_tab[71]
+#define __pyx_kp_u_config_casbin_model_conf __pyx_string_tab[72]
+#define __pyx_n_u_conn __pyx_string_tab[73]
+#define __pyx_n_u_connect __pyx_string_tab[74]
+#define __pyx_n_u_count_grouping __pyx_string_tab[75]
+#define __pyx_n_u_count_policy __pyx_string_tab[76]
+#define __pyx_n_u_create_table __pyx_string_tab[77]
+#define __pyx_n_u_database_engine __pyx_string_tab[78]
+#define __pyx_n_u_db_class __pyx_string_tab[79]
+#define __pyx_n_u_debug __pyx_string_tab[80]
+#define __pyx_n_u_debug_line __pyx_string_tab[81]
+#define __pyx_n_u_default_admin_roles __pyx_string_tab[82]
+#define __pyx_n_u_default_admin_users __pyx_string_tab[83]
+#define __pyx_kp_u_disable __pyx_string_tab[84]
+#define __pyx_n_u_doc __pyx_string_tab[85]
+#define __pyx_n_u_drivername __pyx_string_tab[86]
+#define __pyx_kp_u_enable __pyx_string_tab[87]
+#define __pyx_n_u_enable_auto_build_role_links __pyx_string_tab[88]
+#define __pyx_n_u_enable_auto_save __pyx_string_tab[89]
+#define __pyx_n_u_enforce __pyx_string_tab[90]
+#define __pyx_n_u_enforcer __pyx_string_tab[91]
+#define __pyx_n_u_engine __pyx_string_tab[92]
+#define __pyx_n_u_enter __pyx_string_tab[93]
+#define __pyx_n_u_entity_table_t_auth_rule __pyx_string_tab[94]
+#define __pyx_n_u_exit __pyx_string_tab[95]
+#define __pyx_n_u_func __pyx_string_tab[96]
+#define __pyx_kp_u_gc __pyx_string_tab[97]
+#define __pyx_n_u_get_async_engine __pyx_string_tab[98]
+#define __pyx_n_u_get_config_path __pyx_string_tab[99]
+#define __pyx_n_u_get_grouping_policy __pyx_string_tab[100]
+#define __pyx_n_u_get_implicit_roles_for_user __pyx_string_tab[101]
+#define __pyx_n_u_get_policy __pyx_string_tab[102]
+#define __pyx_n_u_has_permission __pyx_string_tab[103]
+#define __pyx_n_u_has_role __pyx_string_tab[104]
+#define __pyx_n_u_has_table __pyx_string_tab[105]
+#define __pyx_n_u_initializing __pyx_string_tab[106]
+#define __pyx_n_u_inspect __pyx_string_tab[107]
+#define __pyx_n_u_instance __pyx_string_tab[108]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[109]
+#define __pyx_kp_u_isenabled __pyx_string_tab[110]
+#define __pyx_n_u_items __pyx_string_tab[111]
+#define __pyx_n_u_lambda __pyx_string_tab[112]
+#define __pyx_n_u_load __pyx_string_tab[113]
+#define __pyx_n_u_load_2 __pyx_string_tab[114]
+#define __pyx_n_u_load_policy __pyx_string_tab[115]
+#define __pyx_n_u_lock __pyx_string_tab[116]
+#define __pyx_n_u_logging __pyx_string_tab[117]
+#define __pyx_n_u_main __pyx_string_tab[118]
+#define __pyx_n_u_max_length __pyx_string_tab[119]
+#define __pyx_n_u_metaclass __pyx_string_tab[120]
+#define __pyx_n_u_model __pyx_string_tab[121]
+#define __pyx_n_u_model_path __pyx_string_tab[122]
+#define __pyx_n_u_module __pyx_string_tab[123]
+#define __pyx_n_u_name __pyx_string_tab[124]
+#define __pyx_n_u_new __pyx_string_tab[125]
+#define __pyx_n_u_next __pyx_string_tab[126]
+#define __pyx_n_u_obj __pyx_string_tab[127]
+#define __pyx_n_u_p_act __pyx_string_tab[128]
+#define __pyx_n_u_p_obj __pyx_string_tab[129]
+#define __pyx_n_u_p_role __pyx_string_tab[130]
+#define __pyx_n_u_p_sub __pyx_string_tab[131]
+#define __pyx_n_u_policies __pyx_string_tab[132]
+#define __pyx_n_u_pop __pyx_string_tab[133]
+#define __pyx_n_u_prepare __pyx_string_tab[134]
+#define __pyx_n_u_qualname __pyx_string_tab[135]
+#define __pyx_n_u_rebuild __pyx_string_tab[136]
+#define __pyx_n_u_rebuild_auth_rule __pyx_string_tab[137]
+#define __pyx_n_u_return __pyx_string_tab[138]
+#define __pyx_n_u_rjust __pyx_string_tab[139]
+#define __pyx_n_u_role __pyx_string_tab[140]
+#define __pyx_kp_u_role_2 __pyx_string_tab[141]
+#define __pyx_kp_u_role_obj_act __pyx_string_tab[142]
+#define __pyx_n_u_roles __pyx_string_tab[143]
+#define __pyx_n_u_run_sync __pyx_string_tab[144]
+#define __pyx_n_u_save __pyx_string_tab[145]
+#define __pyx_n_u_save_policy __pyx_string_tab[146]
+#define __pyx_n_u_schema __pyx_string_tab[147]
+#define __pyx_n_u_self __pyx_string_tab[148]
+#define __pyx_n_u_send __pyx_string_tab[149]
+#define __pyx_n_u_set_grouping_policy __pyx_string_tab[150]
+#define __pyx_n_u_set_inherit_role __pyx_string_tab[151]
+#define __pyx_n_u_set_name __pyx_string_tab[152]
+#define __pyx_n_u_set_role_policy __pyx_string_tab[153]
+#define __pyx_n_u_set_user_role __pyx_string_tab[154]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[155]
+#define __pyx_n_u_spec __pyx_string_tab[156]
+#define __pyx_n_u_sqlalchemy __pyx_string_tab[157]
+#define __pyx_n_u_str __pyx_string_tab[158]
+#define __pyx_n_u_super __pyx_string_tab[159]
+#define __pyx_n_u_support_schema __pyx_string_tab[160]
+#define __pyx_n_u_sync_conn __pyx_string_tab[161]
+#define __pyx_n_u_table __pyx_string_tab[162]
+#define __pyx_n_u_table_name __pyx_string_tab[163]
+#define __pyx_n_u_tablename __pyx_string_tab[164]
+#define __pyx_n_u_test __pyx_string_tab[165]
+#define __pyx_n_u_threading __pyx_string_tab[166]
+#define __pyx_n_u_throw __pyx_string_tab[167]
+#define __pyx_n_u_url __pyx_string_tab[168]
+#define __pyx_n_u_user __pyx_string_tab[169]
+#define __pyx_kp_u_user_2 __pyx_string_tab[170]
+#define __pyx_n_u_value __pyx_string_tab[171]
+#define __pyx_kp_u_yaml_auth __pyx_string_tab[172]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2824,13 +3292,31 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table);
-  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct__check_table);
-  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists);
-  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct__load);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct__load);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_2_save);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_3_check_table);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_9_has_role);
+  Py_CLEAR(clear_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close);
+  Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_10_close);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<7; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<111; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<18; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<173; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2851,24 +3337,42 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table);
-  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct__check_table);
-  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists);
-  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct__load);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct__load);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_2_save);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_3_check_table);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_9_has_role);
+  Py_VISIT(traverse_module_state->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close);
+  Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_10_close);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
-  for (int i=0; i<7; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<111; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<18; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
+  for (int i=0; i<173; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
 /* #### Code section: module_code ### */
 
-/* "casbin_engine.py":41
+/* "casbin_engine.py":25
  *     _lock = threading.Lock()
  * 
  *     def __new__(cls):             # <<<<<<<<<<<<<<
- *         """
- * 
+ *         if cls._instance is None:
+ *             with cls._lock:
 */
 
 /* Python wrapper */
@@ -2879,8 +3383,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine___new__, "\347\272\277\347\250\213\345\256\211\345\205\250\347\232\204\345\215\225\344\276\213\346\236\204\351\200\240\345\231\250\343\200\202\n\n        \344\275\277\347\224\250\345\217\214\351\207\215\346\243\200\346\237\245\351\224\201\347\241\256\344\277\235\345\244\232\347\272\277\347\250\213\347\216\257\345\242\203\344\270\213\344\273\205\345\210\233\345\273\272\344\270\200\344\270\252\345\256\236\344\276\213\343\200\202\n        \346\263\250\346\204\217\357\274\232`_load()` \346\230\257\345\220\214\346\255\245\346\226\271\346\263\225\357\274\214\351\246\226\346\254\241\350\260\203\347\224\250\344\274\232\351\230\273\345\241\236\345\275\223\345\211\215\347\272\277\347\250\213\343\200\202\n        ");
-static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_1__new__ = {"__new__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_1__new__, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine___new__};
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_1__new__ = {"__new__", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_1__new__, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_1__new__(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -2911,32 +3414,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_cls,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__new__", 0) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__new__", 0) < 0) __PYX_ERR(0, 25, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, i); __PYX_ERR(0, 41, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, i); __PYX_ERR(0, 25, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 25, __pyx_L3_error)
     }
     __pyx_v_cls = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 41, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__new__", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 25, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2979,33 +3482,33 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__new__", 0);
 
-  /* "casbin_engine.py":47
- *         `_load()`
- *         """
+  /* "casbin_engine.py":26
+ * 
+ *     def __new__(cls):
  *         if cls._instance is None:             # <<<<<<<<<<<<<<
  *             with cls._lock:
  *                 if cls._instance is None:
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = (__pyx_t_1 == Py_None);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "casbin_engine.py":48
- *         """
+    /* "casbin_engine.py":27
+ *     def __new__(cls):
  *         if cls._instance is None:
  *             with cls._lock:             # <<<<<<<<<<<<<<
  *                 if cls._instance is None:
  *                     cls._instance = super(PermissionEngine, cls).__new__(cls)
 */
     /*with:*/ {
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_lock); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_exit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_exit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_5 = NULL;
-      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_enter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L4_error)
+      __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_enter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 27, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_7 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -3024,7 +3527,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 48, __pyx_L4_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 27, __pyx_L4_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -3039,20 +3542,20 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
           __Pyx_XGOTREF(__pyx_t_10);
           /*try:*/ {
 
-            /* "casbin_engine.py":49
+            /* "casbin_engine.py":28
  *         if cls._instance is None:
  *             with cls._lock:
  *                 if cls._instance is None:             # <<<<<<<<<<<<<<
  *                     cls._instance = super(PermissionEngine, cls).__new__(cls)
  *                     cls._instance._load()
 */
-            __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L8_error)
+            __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L8_error)
             __Pyx_GOTREF(__pyx_t_1);
             __pyx_t_2 = (__pyx_t_1 == Py_None);
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             if (__pyx_t_2) {
 
-              /* "casbin_engine.py":50
+              /* "casbin_engine.py":29
  *             with cls._lock:
  *                 if cls._instance is None:
  *                     cls._instance = super(PermissionEngine, cls).__new__(cls)             # <<<<<<<<<<<<<<
@@ -3062,7 +3565,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
               __pyx_t_5 = NULL;
               __Pyx_INCREF(__pyx_builtin_super);
               __pyx_t_11 = __pyx_builtin_super; 
-              __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_PermissionEngine); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 50, __pyx_L8_error)
+              __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_PermissionEngine); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 29, __pyx_L8_error)
               __Pyx_GOTREF(__pyx_t_12);
               __pyx_t_7 = 1;
               {
@@ -3071,7 +3574,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
                 __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
                 __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
                 __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-                if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L8_error)
+                if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 29, __pyx_L8_error)
                 __Pyx_GOTREF(__pyx_t_6);
               }
               __pyx_t_4 = __pyx_t_6;
@@ -3082,20 +3585,20 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
                 __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_new, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
                 __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
                 __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L8_error)
+                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L8_error)
                 __Pyx_GOTREF(__pyx_t_1);
               }
-              if (__Pyx_PyObject_SetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance, __pyx_t_1) < 0) __PYX_ERR(0, 50, __pyx_L8_error)
+              if (__Pyx_PyObject_SetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance, __pyx_t_1) < 0) __PYX_ERR(0, 29, __pyx_L8_error)
               __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-              /* "casbin_engine.py":51
+              /* "casbin_engine.py":30
  *                 if cls._instance is None:
  *                     cls._instance = super(PermissionEngine, cls).__new__(cls)
  *                     cls._instance._load()             # <<<<<<<<<<<<<<
  *         return cls._instance
  * 
 */
-              __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L8_error)
+              __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L8_error)
               __Pyx_GOTREF(__pyx_t_4);
               __pyx_t_6 = __pyx_t_4;
               __Pyx_INCREF(__pyx_t_6);
@@ -3105,12 +3608,12 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
                 __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_load, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
                 __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
                 __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L8_error)
+                if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L8_error)
                 __Pyx_GOTREF(__pyx_t_1);
               }
               __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-              /* "casbin_engine.py":49
+              /* "casbin_engine.py":28
  *         if cls._instance is None:
  *             with cls._lock:
  *                 if cls._instance is None:             # <<<<<<<<<<<<<<
@@ -3119,8 +3622,8 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
 */
             }
 
-            /* "casbin_engine.py":48
- *         """
+            /* "casbin_engine.py":27
+ *     def __new__(cls):
  *         if cls._instance is None:
  *             with cls._lock:             # <<<<<<<<<<<<<<
  *                 if cls._instance is None:
@@ -3140,20 +3643,20 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           /*except:*/ {
             __Pyx_AddTraceback("casbin_engine.PermissionEngine.__new__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-            if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_4, &__pyx_t_6) < 0) __PYX_ERR(0, 48, __pyx_L10_except_error)
+            if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_4, &__pyx_t_6) < 0) __PYX_ERR(0, 27, __pyx_L10_except_error)
             __Pyx_XGOTREF(__pyx_t_1);
             __Pyx_XGOTREF(__pyx_t_4);
             __Pyx_XGOTREF(__pyx_t_6);
-            __pyx_t_11 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 48, __pyx_L10_except_error)
+            __pyx_t_11 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 27, __pyx_L10_except_error)
             __Pyx_GOTREF(__pyx_t_11);
             __pyx_t_13 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 48, __pyx_L10_except_error)
+            if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 27, __pyx_L10_except_error)
             __Pyx_GOTREF(__pyx_t_13);
             __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_13);
             __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-            if (__pyx_t_2 < 0) __PYX_ERR(0, 48, __pyx_L10_except_error)
+            if (__pyx_t_2 < 0) __PYX_ERR(0, 27, __pyx_L10_except_error)
             __pyx_t_14 = (!__pyx_t_2);
             if (unlikely(__pyx_t_14)) {
               __Pyx_GIVEREF(__pyx_t_1);
@@ -3161,7 +3664,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
               __Pyx_XGIVEREF(__pyx_t_6);
               __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_4, __pyx_t_6);
               __pyx_t_1 = 0;  __pyx_t_4 = 0;  __pyx_t_6 = 0; 
-              __PYX_ERR(0, 48, __pyx_L10_except_error)
+              __PYX_ERR(0, 27, __pyx_L10_except_error)
             }
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -3187,7 +3690,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
           if (__pyx_t_3) {
             __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_mstate_global->__pyx_tuple[0], NULL);
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 48, __pyx_L1_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 27, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_10);
             __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           }
@@ -3202,16 +3705,16 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
       __pyx_L18:;
     }
 
-    /* "casbin_engine.py":47
- *         `_load()`
- *         """
+    /* "casbin_engine.py":26
+ * 
+ *     def __new__(cls):
  *         if cls._instance is None:             # <<<<<<<<<<<<<<
  *             with cls._lock:
  *                 if cls._instance is None:
 */
   }
 
-  /* "casbin_engine.py":52
+  /* "casbin_engine.py":31
  *                     cls._instance = super(PermissionEngine, cls).__new__(cls)
  *                     cls._instance._load()
  *         return cls._instance             # <<<<<<<<<<<<<<
@@ -3219,18 +3722,18 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
  *     def _load(self):
 */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_cls, __pyx_mstate_global->__pyx_n_u_instance); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_r = __pyx_t_6;
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "casbin_engine.py":41
+  /* "casbin_engine.py":25
  *     _lock = threading.Lock()
  * 
  *     def __new__(cls):             # <<<<<<<<<<<<<<
- *         """
- * 
+ *         if cls._instance is None:
+ *             with cls._lock:
 */
 
   /* function exit code */
@@ -3249,12 +3752,12 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine___new__(CYTHON_UNUS
   return __pyx_r;
 }
 
-/* "casbin_engine.py":54
+/* "casbin_engine.py":33
  *         return cls._instance
  * 
  *     def _load(self):             # <<<<<<<<<<<<<<
- *         """ Casbin
- * 
+ *         """ Casbin """
+ *         self._enforcer = None
 */
 
 /* Python wrapper */
@@ -3265,7 +3768,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_2_load, "\345\220\214\346\255\245\345\212\240\350\275\275 Casbin \345\274\225\346\223\216\344\270\216\346\225\260\346\215\256\345\272\223\351\200\202\351\205\215\345\231\250\343\200\202\n\n        \346\255\245\351\252\244\357\274\232\n            1. \350\216\267\345\217\226\350\256\244\350\257\201\344\270\223\347\224\250\345\274\202\346\255\245\346\225\260\346\215\256\345\272\223\345\274\225\346\223\216\357\274\233\n            2. \351\222\210\345\257\271 SQLite \347\247\273\351\231\244 schema\357\274\210\345\233\240 SQLite \344\270\215\346\224\257\346\214\201 schema\357\274\211\357\274\233\n            3. \345\210\233\345\273\272 SQLAlchemy \351\200\202\351\205\215\345\231\250\357\274\214\347\273\221\345\256\232 `AuthRule` \346\250\241\345\236\213\357\274\233\n            4. \344\273\216 `casbin/model.conf` \345\212\240\350\275\275\346\250\241\345\236\213\357\274\233\n            5. \345\220\257\347\224\250\350\207\252\345\212\250\344\277\235\345\255\230\344\270\216\350\247\222\350\211\262\351\223\276\346\216\245\346\236\204\345\273\272\343\200\202\n        ");
+PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_2_load, "\345\220\214\346\255\245\345\212\240\350\275\275 Casbin \345\274\225\346\223\216\344\270\216\346\225\260\346\215\256\345\272\223\351\200\202\351\205\215\345\231\250");
 static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_3_load = {"_load", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_3_load, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine_2_load};
 static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_3_load(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
@@ -3297,32 +3800,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 54, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 33, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 54, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 33, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_load", 0) < 0) __PYX_ERR(0, 54, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_load", 0) < 0) __PYX_ERR(0, 33, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, i); __PYX_ERR(0, 54, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, i); __PYX_ERR(0, 33, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 54, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 33, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 54, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_load", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 33, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -3362,26 +3865,26 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_load", 0);
 
-  /* "casbin_engine.py":64
- *             5.
- *         """
+  /* "casbin_engine.py":35
+ *     def _load(self):
+ *         """ Casbin """
  *         self._enforcer = None             # <<<<<<<<<<<<<<
  *         logging.debug_line()
  *         logging.debug(": .yaml - auth ")
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, Py_None) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, Py_None) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
 
-  /* "casbin_engine.py":65
- *         """
+  /* "casbin_engine.py":36
+ *         """ Casbin """
  *         self._enforcer = None
  *         logging.debug_line()             # <<<<<<<<<<<<<<
  *         logging.debug(": .yaml - auth ")
  *         logging.debug_line()
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -3401,22 +3904,22 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "casbin_engine.py":66
+  /* "casbin_engine.py":37
  *         self._enforcer = None
  *         logging.debug_line()
  *         logging.debug(": .yaml - auth ")             # <<<<<<<<<<<<<<
  *         logging.debug_line()
- *         logging.debug(": casbin ")
+ *         logging.debug(" - casbin ")
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = 1;
@@ -3436,22 +3939,22 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "casbin_engine.py":67
+  /* "casbin_engine.py":38
  *         logging.debug_line()
  *         logging.debug(": .yaml - auth ")
  *         logging.debug_line()             # <<<<<<<<<<<<<<
- *         logging.debug(": casbin ")
+ *         logging.debug(" - casbin ")
  * 
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug_line); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
@@ -3471,22 +3974,22 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "casbin_engine.py":68
+  /* "casbin_engine.py":39
  *         logging.debug(": .yaml - auth ")
  *         logging.debug_line()
- *         logging.debug(": casbin ")             # <<<<<<<<<<<<<<
+ *         logging.debug(" - casbin ")             # <<<<<<<<<<<<<<
  * 
  *         database_engine = DatabaseEngine()
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = 1;
@@ -3506,20 +4009,20 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "casbin_engine.py":70
- *         logging.debug(": casbin ")
+  /* "casbin_engine.py":41
+ *         logging.debug(" - casbin ")
  * 
  *         database_engine = DatabaseEngine()             # <<<<<<<<<<<<<<
  *         self.engine = database_engine.get_async_engine("Auth")
  *         # SQLite  schema
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DatabaseEngine); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DatabaseEngine); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -3538,13 +4041,13 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_database_engine = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "casbin_engine.py":71
+  /* "casbin_engine.py":42
  * 
  *         database_engine = DatabaseEngine()
  *         self.engine = database_engine.get_async_engine("Auth")             # <<<<<<<<<<<<<<
@@ -3558,18 +4061,18 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Auth};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_async_engine, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "casbin_engine.py":73
+  /* "casbin_engine.py":44
  *         self.engine = database_engine.get_async_engine("Auth")
  *         # SQLite  schema
  *         if not database_engine.support_schema("Auth"):             # <<<<<<<<<<<<<<
  *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Auth - {self.engine.url}")
+ *         logging.debug(f" - Auth - {self.engine.url.drivername}")
 */
   __pyx_t_2 = __pyx_v_database_engine;
   __Pyx_INCREF(__pyx_t_2);
@@ -3578,62 +4081,65 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Auth};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_support_schema, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = (!__pyx_t_6);
   if (__pyx_t_7) {
 
-    /* "casbin_engine.py":74
+    /* "casbin_engine.py":45
  *         # SQLite  schema
  *         if not database_engine.support_schema("Auth"):
  *             AuthRule.__table__.schema = ""             # <<<<<<<<<<<<<<
- *         logging.debug(f": name: Auth - {self.engine.url}")
+ *         logging.debug(f" - Auth - {self.engine.url.drivername}")
  * 
 */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema, __pyx_mstate_global->__pyx_kp_u_) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema, __pyx_mstate_global->__pyx_kp_u_) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "casbin_engine.py":73
+    /* "casbin_engine.py":44
  *         self.engine = database_engine.get_async_engine("Auth")
  *         # SQLite  schema
  *         if not database_engine.support_schema("Auth"):             # <<<<<<<<<<<<<<
  *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Auth - {self.engine.url}")
+ *         logging.debug(f" - Auth - {self.engine.url.drivername}")
 */
   }
 
-  /* "casbin_engine.py":75
+  /* "casbin_engine.py":46
  *         if not database_engine.support_schema("Auth"):
  *             AuthRule.__table__.schema = ""
- *         logging.debug(f": name: Auth - {self.engine.url}")             # <<<<<<<<<<<<<<
+ *         logging.debug(f" - Auth - {self.engine.url.drivername}")             # <<<<<<<<<<<<<<
  * 
  *         #
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_url); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_url); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_8, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_drivername); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_name_Auth, __pyx_t_4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_Auth_2, __pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -3647,17 +4153,17 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_t_8};
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_t_4};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "casbin_engine.py":78
+  /* "casbin_engine.py":49
  * 
  *         #
  *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
@@ -3665,123 +4171,118 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
  *             db_class=AuthRule
 */
   __pyx_t_3 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_SQLAlchemyAdapter); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_SQLAlchemyAdapter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
 
-  /* "casbin_engine.py":79
+  /* "casbin_engine.py":50
  *         #
  *         self.adapter = SQLAlchemyAdapter(
  *             engine=self.engine,             # <<<<<<<<<<<<<<
  *             db_class=AuthRule
  *         )
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "casbin_engine.py":80
+  /* "casbin_engine.py":51
  *         self.adapter = SQLAlchemyAdapter(
  *             engine=self.engine,
  *             db_class=AuthRule             # <<<<<<<<<<<<<<
  *         )
  * 
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = 1;
-  #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_8))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_8);
-    assert(__pyx_t_3);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
-    __Pyx_INCREF(__pyx_t_3);
-    __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
-    __pyx_t_5 = 0;
-  }
-  #endif
-  {
-    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, NULL};
-    __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 78, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_9);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_class, __pyx_t_4, __pyx_t_9, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_8, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-  }
-
-  /* "casbin_engine.py":78
- * 
- *         #
- *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
- *             engine=self.engine,
- *             db_class=AuthRule
-*/
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_2) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "casbin_engine.py":83
- *         )
- * 
- *         model_path = CoreUtil.get_config_path() / "casbin/model.conf"             # <<<<<<<<<<<<<<
- *         logging.debug(f': {model_path}')
- *         #  Enforcer
-*/
-  __pyx_t_8 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 83, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_get_config_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_4);
-    assert(__pyx_t_8);
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_3);
     PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-    __Pyx_INCREF(__pyx_t_8);
+    __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx__function);
     __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
     __pyx_t_5 = 0;
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_8, NULL};
-    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, NULL};
+    __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_engine, __pyx_t_1, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_db_class, __pyx_t_8, __pyx_t_9, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_casbin_model_conf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_v_model_path = __pyx_t_4;
-  __pyx_t_4 = 0;
 
-  /* "casbin_engine.py":84
+  /* "casbin_engine.py":49
+ * 
+ *         #
+ *         self.adapter = SQLAlchemyAdapter(             # <<<<<<<<<<<<<<
+ *             engine=self.engine,
+ *             db_class=AuthRule
+*/
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_2) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":54
+ *         )
+ * 
+ *         model_path = CoreUtil.get_config_path() / "casbin/model.conf"             # <<<<<<<<<<<<<<
+ *         logging.debug(f" - config/casbin/model.conf")
+ *         #  Enforcer
+*/
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_9);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_mstate_global->__pyx_n_u_get_config_path); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_8))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_8);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
+    __Pyx_INCREF(__pyx_t_4);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
+    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+  }
+  __pyx_t_8 = __Pyx_PyNumber_Divide(__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_casbin_model_conf); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_model_path = __pyx_t_8;
+  __pyx_t_8 = 0;
+
+  /* "casbin_engine.py":55
  * 
  *         model_path = CoreUtil.get_config_path() / "casbin/model.conf"
- *         logging.debug(f': {model_path}')             # <<<<<<<<<<<<<<
+ *         logging.debug(f" - config/casbin/model.conf")             # <<<<<<<<<<<<<<
  *         #  Enforcer
  *         self._enforcer = AsyncEnforcer(
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_v_model_path, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u__2, __pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
   if (unlikely(PyMethod_Check(__pyx_t_9))) {
@@ -3795,134 +4296,145 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_1};
-    __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_config_casbin_model_conf};
+    __pyx_t_8 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
   }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "casbin_engine.py":86
- *         logging.debug(f': {model_path}')
+  /* "casbin_engine.py":57
+ *         logging.debug(f" - config/casbin/model.conf")
  *         #  Enforcer
  *         self._enforcer = AsyncEnforcer(             # <<<<<<<<<<<<<<
  *             model=str(model_path),
  *             adapter=self.adapter
 */
   __pyx_t_9 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
 
-  /* "casbin_engine.py":87
+  /* "casbin_engine.py":58
  *         #  Enforcer
  *         self._enforcer = AsyncEnforcer(
  *             model=str(model_path),             # <<<<<<<<<<<<<<
  *             adapter=self.adapter
  *         )
 */
-  __pyx_t_2 = __Pyx_PyObject_Unicode(__pyx_v_model_path); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_Unicode(__pyx_v_model_path); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
 
-  /* "casbin_engine.py":88
+  /* "casbin_engine.py":59
  *         self._enforcer = AsyncEnforcer(
  *             model=str(model_path),
  *             adapter=self.adapter             # <<<<<<<<<<<<<<
  *         )
- * 
+ *         # /
 */
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 88, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_5 = 1;
   #if CYTHON_UNPACK_METHODS
-  if (unlikely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_1);
+  if (unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_2);
     assert(__pyx_t_9);
-    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_1);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_9);
     __Pyx_INCREF(__pyx__function);
-    __Pyx_DECREF_SET(__pyx_t_1, __pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_2, __pyx__function);
     __pyx_t_5 = 0;
   }
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_9, NULL};
-    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model, __pyx_t_2, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_8, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_1, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_model, __pyx_t_4, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_adapter, __pyx_t_1, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_2, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 57, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
   }
 
-  /* "casbin_engine.py":86
- *         logging.debug(f': {model_path}')
+  /* "casbin_engine.py":57
+ *         logging.debug(f" - config/casbin/model.conf")
  *         #  Enforcer
  *         self._enforcer = AsyncEnforcer(             # <<<<<<<<<<<<<<
  *             model=str(model_path),
  *             adapter=self.adapter
 */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, __pyx_t_4) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, __pyx_t_8) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "casbin_engine.py":92
- * 
+  /* "casbin_engine.py":62
+ *         )
  *         # /
- *         self._enforcer.enable_auto_save(True)             # <<<<<<<<<<<<<<
+ *         self._enforcer.enable_auto_save(False)             # <<<<<<<<<<<<<<
  *         #
  *         self._enforcer.enable_auto_build_role_links(True)
 */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __pyx_t_3;
-  __Pyx_INCREF(__pyx_t_1);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
   __pyx_t_5 = 0;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_1, Py_True};
-    __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_enable_auto_save, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, Py_False};
+    __pyx_t_8 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_enable_auto_save, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 62, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
   }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "casbin_engine.py":94
- *         self._enforcer.enable_auto_save(True)
+  /* "casbin_engine.py":64
+ *         self._enforcer.enable_auto_save(False)
  *         #
  *         self._enforcer.enable_auto_build_role_links(True)             # <<<<<<<<<<<<<<
- * 
- *     def get_async_enforcer(self) -> AsyncEnforcer:
+ *         # dict
+ *         self.policies = {}
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __pyx_t_1;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __pyx_t_2;
   __Pyx_INCREF(__pyx_t_3);
   __pyx_t_5 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_3, Py_True};
-    __pyx_t_4 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_enable_auto_build_role_links, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __pyx_t_8 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_enable_auto_build_role_links, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
   }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "casbin_engine.py":54
+  /* "casbin_engine.py":66
+ *         self._enforcer.enable_auto_build_role_links(True)
+ *         # dict
+ *         self.policies = {}             # <<<<<<<<<<<<<<
+ * 
+ *     async def load(self):
+*/
+  __pyx_t_8 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_policies, __pyx_t_8) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+
+  /* "casbin_engine.py":33
  *         return cls._instance
  * 
  *     def _load(self):             # <<<<<<<<<<<<<<
- *         """ Casbin
- * 
+ *         """ Casbin """
+ *         self._enforcer = None
 */
 
   /* function exit code */
@@ -3944,26 +4456,26 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "casbin_engine.py":96
- *         self._enforcer.enable_auto_build_role_links(True)
+/* "casbin_engine.py":68
+ *         self.policies = {}
  * 
- *     def get_async_enforcer(self) -> AsyncEnforcer:             # <<<<<<<<<<<<<<
- *         """ Casbin Enforcer
- * 
+ *     async def load(self):             # <<<<<<<<<<<<<<
+ *         # logging.debug(f"...")
+ *         await self._enforcer.load_policy()
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_5get_async_enforcer(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_5load(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_4get_async_enforcer, "\350\216\267\345\217\226\345\267\262\345\210\235\345\247\213\345\214\226\347\232\204\345\274\202\346\255\245 Casbin Enforcer \345\256\236\344\276\213\343\200\202\n\n        Returns:\n            AsyncEnforcer: \345\217\257\347\224\250\344\272\216 `await enforcer.enforce(...)` \347\232\204\346\235\203\351\231\220\346\240\241\351\252\214\345\231\250\343\200\202\n        ");
-static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_5get_async_enforcer = {"get_async_enforcer", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_5get_async_enforcer, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine_4get_async_enforcer};
-static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_5get_async_enforcer(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_5load = {"load", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_5load, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_5load(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3981,7 +4493,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("get_async_enforcer (wrapper)", 0);
+  __Pyx_RefNannySetupContext("load (wrapper)", 0);
   #if !CYTHON_METH_FASTCALL
   #if CYTHON_ASSUME_SAFE_SIZE
   __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
@@ -3993,43 +4505,43 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 96, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 68, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 96, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 68, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "get_async_enforcer", 0) < 0) __PYX_ERR(0, 96, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "load", 0) < 0) __PYX_ERR(0, 68, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("get_async_enforcer", 1, 1, 1, i); __PYX_ERR(0, 96, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("load", 1, 1, 1, i); __PYX_ERR(0, 68, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 96, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 68, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_async_enforcer", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 96, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("load", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 68, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("casbin_engine.PermissionEngine.get_async_enforcer", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.load", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_4load(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -4039,102 +4551,1898 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4get_async_enforcer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_4load(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_t_2;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  size_t __pyx_t_5;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("get_async_enforcer", 0);
-
-  /* "casbin_engine.py":102
- *             AsyncEnforcer:  `await enforcer.enforce(...)`
- *         """
- *         if self._enforcer is None:             # <<<<<<<<<<<<<<
- *             raise RuntimeError("PermissionEngine ")
- *         return self._enforcer
-*/
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__pyx_t_1 == Py_None);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(__pyx_t_2)) {
-
-    /* "casbin_engine.py":103
- *         """
- *         if self._enforcer is None:
- *             raise RuntimeError("PermissionEngine ")             # <<<<<<<<<<<<<<
- *         return self._enforcer
- * 
-*/
-    __pyx_t_3 = NULL;
-    __Pyx_INCREF(__pyx_builtin_RuntimeError);
-    __pyx_t_4 = __pyx_builtin_RuntimeError; 
-    __pyx_t_5 = 1;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_PermissionEngine_2};
-      __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_Raise(__pyx_t_1, 0, 0, 0);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 103, __pyx_L1_error)
-
-    /* "casbin_engine.py":102
- *             AsyncEnforcer:  `await enforcer.enforce(...)`
- *         """
- *         if self._enforcer is None:             # <<<<<<<<<<<<<<
- *             raise RuntimeError("PermissionEngine ")
- *         return self._enforcer
-*/
+  __Pyx_RefNannySetupContext("load", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *)__pyx_tp_new_13casbin_engine___pyx_scope_struct__load(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct__load, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 68, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
-
-  /* "casbin_engine.py":104
- *         if self._enforcer is None:
- *             raise RuntimeError("PermissionEngine ")
- *         return self._enforcer             # <<<<<<<<<<<<<<
- * 
- *     async def check_table(self):
-*/
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "casbin_engine.py":96
- *         self._enforcer.enable_auto_build_role_links(True)
- * 
- *     def get_async_enforcer(self) -> AsyncEnforcer:             # <<<<<<<<<<<<<<
- *         """ Casbin Enforcer
- * 
-*/
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_6generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_load_2, __pyx_mstate_global->__pyx_n_u_PermissionEngine_load, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("casbin_engine.PermissionEngine.get_async_enforcer", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.load", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
-  __pyx_L0:;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "casbin_engine.py":106
- *         return self._enforcer
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  size_t __pyx_t_4;
+  __Pyx_PySendResult __pyx_t_5;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("load", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 68, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":70
+ *     async def load(self):
+ *         # logging.debug(f"...")
+ *         await self._enforcer.load_policy()             # <<<<<<<<<<<<<<
+ *         self._check_count()
+ * 
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_load_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 70, __pyx_L1_error)
+  } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 70, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":71
+ *         # logging.debug(f"...")
+ *         await self._enforcer.load_policy()
+ *         self._check_count()             # <<<<<<<<<<<<<<
+ * 
+ *     def _check_count(self):
+*/
+  __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_check_count, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":68
+ *         self.policies = {}
+ * 
+ *     async def load(self):             # <<<<<<<<<<<<<<
+ *         # logging.debug(f"...")
+ *         await self._enforcer.load_policy()
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("load", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "casbin_engine.py":73
+ *         self._check_count()
+ * 
+ *     def _check_count(self):             # <<<<<<<<<<<<<<
+ *         #
+ *         _count_policy = len(self._enforcer.get_policy()).__str__()
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_8_check_count(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_8_check_count = {"_check_count", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_8_check_count, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_8_check_count(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_check_count (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 73, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 73, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_check_count", 0) < 0) __PYX_ERR(0, 73, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_check_count", 1, 1, 1, i); __PYX_ERR(0, 73, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 73, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("_check_count", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 73, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine._check_count", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_7_check_count(__pyx_self, __pyx_v_self);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_7_check_count(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_v__count_policy = NULL;
+  PyObject *__pyx_v__count_grouping = NULL;
+  Py_ssize_t __pyx_v__max_length;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  Py_ssize_t __pyx_t_7;
+  Py_ssize_t __pyx_t_8;
+  Py_ssize_t __pyx_t_9;
+  int __pyx_t_10;
+  PyObject *__pyx_t_11 = NULL;
+  PyObject *__pyx_t_12[3];
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("_check_count", 0);
+
+  /* "casbin_engine.py":75
+ *     def _check_count(self):
+ *         #
+ *         _count_policy = len(self._enforcer.get_policy()).__str__()             # <<<<<<<<<<<<<<
+ *         _count_grouping = len(self._enforcer.get_grouping_policy()).__str__()
+ *         _max_length = max(len(_count_policy), len(_count_grouping))
+*/
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_4 = __pyx_t_5;
+  __Pyx_INCREF(__pyx_t_4);
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
+    __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_policy, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+  }
+  __pyx_t_7 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = PyLong_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_str, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_v__count_policy = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":76
+ *         #
+ *         _count_policy = len(self._enforcer.get_policy()).__str__()
+ *         _count_grouping = len(self._enforcer.get_grouping_policy()).__str__()             # <<<<<<<<<<<<<<
+ *         _max_length = max(len(_count_policy), len(_count_grouping))
+ *         logging.debug(f" - {_count_policy.rjust(_max_length)} ")
+*/
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __pyx_t_4;
+  __Pyx_INCREF(__pyx_t_5);
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
+    __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_grouping_policy, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+  }
+  __pyx_t_7 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyLong_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __pyx_t_2;
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_str, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_v__count_grouping = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":77
+ *         _count_policy = len(self._enforcer.get_policy()).__str__()
+ *         _count_grouping = len(self._enforcer.get_grouping_policy()).__str__()
+ *         _max_length = max(len(_count_policy), len(_count_grouping))             # <<<<<<<<<<<<<<
+ *         logging.debug(f" - {_count_policy.rjust(_max_length)} ")
+ *         logging.debug(f" - {_count_grouping.rjust(_max_length)} ")
+*/
+  __pyx_t_7 = PyObject_Length(__pyx_v__count_grouping); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_8 = PyObject_Length(__pyx_v__count_policy); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_10 = (__pyx_t_7 > __pyx_t_8);
+  if (__pyx_t_10) {
+    __pyx_t_9 = __pyx_t_7;
+  } else {
+    __pyx_t_9 = __pyx_t_8;
+  }
+  __pyx_v__max_length = __pyx_t_9;
+
+  /* "casbin_engine.py":78
+ *         _count_grouping = len(self._enforcer.get_grouping_policy()).__str__()
+ *         _max_length = max(len(_count_policy), len(_count_grouping))
+ *         logging.debug(f" - {_count_policy.rjust(_max_length)} ")             # <<<<<<<<<<<<<<
+ *         logging.debug(f" - {_count_grouping.rjust(_max_length)} ")
+ * 
+*/
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v__count_policy, __pyx_mstate_global->__pyx_n_u_rjust); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_5 = PyLong_FromSsize_t(__pyx_v__max_length); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_11 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_11);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_11, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  __pyx_t_12[0] = __pyx_mstate_global->__pyx_kp_u__2;
+  __pyx_t_12[1] = __pyx_t_5;
+  __pyx_t_12[2] = __pyx_mstate_global->__pyx_kp_u__3;
+  __pyx_t_11 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5));
+  if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_11);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_6 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_2);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_6 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_t_11};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":79
+ *         _max_length = max(len(_count_policy), len(_count_grouping))
+ *         logging.debug(f" - {_count_policy.rjust(_max_length)} ")
+ *         logging.debug(f" - {_count_grouping.rjust(_max_length)} ")             # <<<<<<<<<<<<<<
+ * 
+ *     async def rebuild(self):
+*/
+  __pyx_t_4 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_11);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v__count_grouping, __pyx_mstate_global->__pyx_n_u_rjust); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_11);
+  __pyx_t_5 = PyLong_FromSsize_t(__pyx_v__max_length); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_12[0] = __pyx_mstate_global->__pyx_kp_u__4;
+  __pyx_t_12[1] = __pyx_t_5;
+  __pyx_t_12[2] = __pyx_mstate_global->__pyx_kp_u__3;
+  __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5));
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_6 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+    assert(__pyx_t_4);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_2);
+    __Pyx_INCREF(__pyx_t_4);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_2, __pyx__function);
+    __pyx_t_6 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, __pyx_t_3};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":73
+ *         self._check_count()
+ * 
+ *     def _check_count(self):             # <<<<<<<<<<<<<<
+ *         #
+ *         _count_policy = len(self._enforcer.get_policy()).__str__()
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_11);
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine._check_count", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v__count_policy);
+  __Pyx_XDECREF(__pyx_v__count_grouping);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":81
+ *         logging.debug(f" - {_count_grouping.rjust(_max_length)} ")
+ * 
+ *     async def rebuild(self):             # <<<<<<<<<<<<<<
+ *         self._enforcer.clear_policy()
+ *         await self.save()
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_10rebuild(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_10rebuild = {"rebuild", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_10rebuild, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_10rebuild(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("rebuild (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 81, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 81, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "rebuild", 0) < 0) __PYX_ERR(0, 81, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("rebuild", 1, 1, 1, i); __PYX_ERR(0, 81, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 81, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("rebuild", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 81, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.rebuild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_9rebuild(__pyx_self, __pyx_v_self);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9rebuild(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("rebuild", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_1_rebuild(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 81, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_11generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_rebuild, __pyx_mstate_global->__pyx_n_u_PermissionEngine_rebuild, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.rebuild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  size_t __pyx_t_4;
+  __Pyx_PySendResult __pyx_t_5;
+  PyObject *__pyx_t_6 = NULL;
+  Py_ssize_t __pyx_t_7;
+  PyObject *(*__pyx_t_8)(PyObject *);
+  int __pyx_t_9;
+  int __pyx_t_10;
+  Py_ssize_t __pyx_t_11;
+  Py_ssize_t __pyx_t_12;
+  int __pyx_t_13;
+  int __pyx_t_14;
+  Py_ssize_t __pyx_t_15;
+  PyObject *(*__pyx_t_16)(PyObject *);
+  PyObject *__pyx_t_17 = NULL;
+  PyObject *__pyx_t_18 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("rebuild", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    case 2: goto __pyx_L12_resume_from_await;
+    case 3: goto __pyx_L19_resume_from_await;
+    case 4: goto __pyx_L26_resume_from_await;
+    case 5: goto __pyx_L29_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 81, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":82
+ * 
+ *     async def rebuild(self):
+ *         self._enforcer.clear_policy()             # <<<<<<<<<<<<<<
+ *         await self.save()
+ *         logging.debug(f"...")
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_clear_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":83
+ *     async def rebuild(self):
+ *         self._enforcer.clear_policy()
+ *         await self.save()             # <<<<<<<<<<<<<<
+ *         logging.debug(f"...")
+ *         logging.debug(f": role - obj - act  ")
+*/
+  __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 83, __pyx_L1_error)
+  } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 83, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":84
+ *         self._enforcer.clear_policy()
+ *         await self.save()
+ *         logging.debug(f"...")             # <<<<<<<<<<<<<<
+ *         logging.debug(f": role - obj - act  ")
+ *         #  role
+*/
+  __pyx_t_3 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_4 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_6);
+    assert(__pyx_t_3);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+    __Pyx_INCREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+    __pyx_t_4 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u__5};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":85
+ *         await self.save()
+ *         logging.debug(f"...")
+ *         logging.debug(f": role - obj - act  ")             # <<<<<<<<<<<<<<
+ *         #  role
+ *         roles = []
+*/
+  __pyx_t_6 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_4 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
+    assert(__pyx_t_6);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_2);
+    __Pyx_INCREF(__pyx_t_6);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_2, __pyx__function);
+    __pyx_t_4 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_role_obj_act};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":87
+ *         logging.debug(f": role - obj - act  ")
+ *         #  role
+ *         roles = []             # <<<<<<<<<<<<<<
+ *         for role in self.policies:
+ *             if role not in roles:
+*/
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_roles = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "casbin_engine.py":88
+ *         #  role
+ *         roles = []
+ *         for role in self.policies:             # <<<<<<<<<<<<<<
+ *             if role not in roles:
+ *                 roles.append(role)
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_policies); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
+    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
+    __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 88, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_2))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 88, __pyx_L1_error)
+          #endif
+          if (__pyx_t_7 >= __pyx_temp) break;
+        }
+        __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_7);
+        ++__pyx_t_7;
+      } else {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 88, __pyx_L1_error)
+          #endif
+          if (__pyx_t_7 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7));
+        #else
+        __pyx_t_1 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_7);
+        #endif
+        ++__pyx_t_7;
+      }
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+    } else {
+      __pyx_t_1 = __pyx_t_8(__pyx_t_2);
+      if (unlikely(!__pyx_t_1)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 88, __pyx_L1_error)
+          PyErr_Clear();
+        }
+        break;
+      }
+    }
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_role);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_role, __pyx_t_1);
+    __Pyx_GIVEREF(__pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "casbin_engine.py":89
+ *         roles = []
+ *         for role in self.policies:
+ *             if role not in roles:             # <<<<<<<<<<<<<<
+ *                 roles.append(role)
+ *             for obj, acts in self.policies[role].items():
+*/
+    __pyx_t_9 = (__Pyx_PySequence_ContainsTF(__pyx_cur_scope->__pyx_v_role, __pyx_cur_scope->__pyx_v_roles, Py_NE)); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 89, __pyx_L1_error)
+    if (__pyx_t_9) {
+
+      /* "casbin_engine.py":90
+ *         for role in self.policies:
+ *             if role not in roles:
+ *                 roles.append(role)             # <<<<<<<<<<<<<<
+ *             for obj, acts in self.policies[role].items():
+ *                 for act in acts:
+*/
+      __pyx_t_10 = __Pyx_PyList_Append(__pyx_cur_scope->__pyx_v_roles, __pyx_cur_scope->__pyx_v_role); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 90, __pyx_L1_error)
+
+      /* "casbin_engine.py":89
+ *         roles = []
+ *         for role in self.policies:
+ *             if role not in roles:             # <<<<<<<<<<<<<<
+ *                 roles.append(role)
+ *             for obj, acts in self.policies[role].items():
+*/
+    }
+
+    /* "casbin_engine.py":91
+ *             if role not in roles:
+ *                 roles.append(role)
+ *             for obj, acts in self.policies[role].items():             # <<<<<<<<<<<<<<
+ *                 for act in acts:
+ *                     await self.set_role_policy(role=role, obj=obj, act=act)
+*/
+    __pyx_t_11 = 0;
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_policies); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_6, __pyx_cur_scope->__pyx_v_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(__pyx_t_3 == Py_None)) {
+      PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
+      __PYX_ERR(0, 91, __pyx_L1_error)
+    }
+    __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_3, 0, __pyx_mstate_global->__pyx_n_u_items, (&__pyx_t_12), (&__pyx_t_13)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_XDECREF(__pyx_t_1);
+    __pyx_t_1 = __pyx_t_6;
+    __pyx_t_6 = 0;
+    while (1) {
+      __pyx_t_14 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_12, &__pyx_t_11, &__pyx_t_6, &__pyx_t_3, NULL, __pyx_t_13);
+      if (unlikely(__pyx_t_14 == 0)) break;
+      if (unlikely(__pyx_t_14 == -1)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_obj);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_obj, __pyx_t_6);
+      __Pyx_GIVEREF(__pyx_t_6);
+      __pyx_t_6 = 0;
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_acts);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_acts, __pyx_t_3);
+      __Pyx_GIVEREF(__pyx_t_3);
+      __pyx_t_3 = 0;
+
+      /* "casbin_engine.py":92
+ *                 roles.append(role)
+ *             for obj, acts in self.policies[role].items():
+ *                 for act in acts:             # <<<<<<<<<<<<<<
+ *                     await self.set_role_policy(role=role, obj=obj, act=act)
+ * 
+*/
+      if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_acts)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_acts)) {
+        __pyx_t_3 = __pyx_cur_scope->__pyx_v_acts; __Pyx_INCREF(__pyx_t_3);
+        __pyx_t_15 = 0;
+        __pyx_t_16 = NULL;
+      } else {
+        __pyx_t_15 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_acts); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_3); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 92, __pyx_L1_error)
+      }
+      for (;;) {
+        if (likely(!__pyx_t_16)) {
+          if (likely(PyList_CheckExact(__pyx_t_3))) {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_3);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 92, __pyx_L1_error)
+              #endif
+              if (__pyx_t_15 >= __pyx_temp) break;
+            }
+            __pyx_t_6 = __Pyx_PyList_GetItemRef(__pyx_t_3, __pyx_t_15);
+            ++__pyx_t_15;
+          } else {
+            {
+              Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_3);
+              #if !CYTHON_ASSUME_SAFE_SIZE
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 92, __pyx_L1_error)
+              #endif
+              if (__pyx_t_15 >= __pyx_temp) break;
+            }
+            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+            __pyx_t_6 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_15));
+            #else
+            __pyx_t_6 = __Pyx_PySequence_ITEM(__pyx_t_3, __pyx_t_15);
+            #endif
+            ++__pyx_t_15;
+          }
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 92, __pyx_L1_error)
+        } else {
+          __pyx_t_6 = __pyx_t_16(__pyx_t_3);
+          if (unlikely(!__pyx_t_6)) {
+            PyObject* exc_type = PyErr_Occurred();
+            if (exc_type) {
+              if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 92, __pyx_L1_error)
+              PyErr_Clear();
+            }
+            break;
+          }
+        }
+        __Pyx_GOTREF(__pyx_t_6);
+        __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_act);
+        __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_act, __pyx_t_6);
+        __Pyx_GIVEREF(__pyx_t_6);
+        __pyx_t_6 = 0;
+
+        /* "casbin_engine.py":93
+ *             for obj, acts in self.policies[role].items():
+ *                 for act in acts:
+ *                     await self.set_role_policy(role=role, obj=obj, act=act)             # <<<<<<<<<<<<<<
+ * 
+ *         logging.debug(f": admin_role  <- role  ")
+*/
+        __pyx_t_17 = __pyx_cur_scope->__pyx_v_self;
+        __Pyx_INCREF(__pyx_t_17);
+        __pyx_t_4 = 0;
+        {
+          PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_17, NULL};
+          __pyx_t_18 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_18);
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_role, __pyx_cur_scope->__pyx_v_role, __pyx_t_18, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_obj, __pyx_cur_scope->__pyx_v_obj, __pyx_t_18, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+          if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_act, __pyx_cur_scope->__pyx_v_act, __pyx_t_18, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 93, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_set_role_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_18);
+          __Pyx_XDECREF(__pyx_t_17); __pyx_t_17 = 0;
+          __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_6);
+        }
+        __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6, &__pyx_r);
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+          __Pyx_GOTREF(__pyx_r);
+          __Pyx_XGIVEREF(__pyx_t_1);
+          __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
+          __Pyx_XGIVEREF(__pyx_t_2);
+          __pyx_cur_scope->__pyx_t_1 = __pyx_t_2;
+          __Pyx_XGIVEREF(__pyx_t_3);
+          __pyx_cur_scope->__pyx_t_2 = __pyx_t_3;
+          __pyx_cur_scope->__pyx_t_3 = __pyx_t_7;
+          __pyx_cur_scope->__pyx_t_4 = __pyx_t_8;
+          __pyx_cur_scope->__pyx_t_5 = __pyx_t_11;
+          __pyx_cur_scope->__pyx_t_6 = __pyx_t_12;
+          __pyx_cur_scope->__pyx_t_7 = __pyx_t_13;
+          __pyx_cur_scope->__pyx_t_8 = __pyx_t_15;
+          __pyx_cur_scope->__pyx_t_9 = __pyx_t_16;
+          __Pyx_XGIVEREF(__pyx_r);
+          __Pyx_RefNannyFinishContext();
+          __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+          /* return from generator, awaiting value */
+          __pyx_generator->resume_label = 2;
+          return __pyx_r;
+          __pyx_L12_resume_from_await:;
+          __pyx_t_1 = __pyx_cur_scope->__pyx_t_0;
+          __pyx_cur_scope->__pyx_t_0 = 0;
+          __Pyx_XGOTREF(__pyx_t_1);
+          __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
+          __pyx_cur_scope->__pyx_t_1 = 0;
+          __Pyx_XGOTREF(__pyx_t_2);
+          __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
+          __pyx_cur_scope->__pyx_t_2 = 0;
+          __Pyx_XGOTREF(__pyx_t_3);
+          __pyx_t_7 = __pyx_cur_scope->__pyx_t_3;
+          __pyx_t_8 = __pyx_cur_scope->__pyx_t_4;
+          __pyx_t_11 = __pyx_cur_scope->__pyx_t_5;
+          __pyx_t_12 = __pyx_cur_scope->__pyx_t_6;
+          __pyx_t_13 = __pyx_cur_scope->__pyx_t_7;
+          __pyx_t_15 = __pyx_cur_scope->__pyx_t_8;
+          __pyx_t_16 = __pyx_cur_scope->__pyx_t_9;
+          if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 93, __pyx_L1_error)
+        } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+          __Pyx_GOTREF(__pyx_r);
+          __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+        } else {
+          __Pyx_XGOTREF(__pyx_r);
+          __PYX_ERR(0, 93, __pyx_L1_error)
+        }
+
+        /* "casbin_engine.py":92
+ *                 roles.append(role)
+ *             for obj, acts in self.policies[role].items():
+ *                 for act in acts:             # <<<<<<<<<<<<<<
+ *                     await self.set_role_policy(role=role, obj=obj, act=act)
+ * 
+*/
+      }
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "casbin_engine.py":88
+ *         #  role
+ *         roles = []
+ *         for role in self.policies:             # <<<<<<<<<<<<<<
+ *             if role not in roles:
+ *                 roles.append(role)
+*/
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":95
+ *                     await self.set_role_policy(role=role, obj=obj, act=act)
+ * 
+ *         logging.debug(f": admin_role  <- role  ")             # <<<<<<<<<<<<<<
+ *         #  admin_role  <- role
+ *         for admin_role in AppConfig.auth.default_admin_roles:
+*/
+  __pyx_t_1 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_4 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_6);
+    assert(__pyx_t_1);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_6);
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_6, __pyx__function);
+    __pyx_t_4 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_kp_u_admin_role_role};
+    __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":97
+ *         logging.debug(f": admin_role  <- role  ")
+ *         #  admin_role  <- role
+ *         for admin_role in AppConfig.auth.default_admin_roles:             # <<<<<<<<<<<<<<
+ *             for role in roles:
+ *                 await self.set_inherit_role(p_role=admin_role, c_role=role)
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_default_admin_roles); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+    __pyx_t_6 = __pyx_t_2; __Pyx_INCREF(__pyx_t_6);
+    __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 97, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_8 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 97, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_6))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 97, __pyx_L1_error)
+          #endif
+          if (__pyx_t_7 >= __pyx_temp) break;
+        }
+        __pyx_t_2 = __Pyx_PyList_GetItemRef(__pyx_t_6, __pyx_t_7);
+        ++__pyx_t_7;
+      } else {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 97, __pyx_L1_error)
+          #endif
+          if (__pyx_t_7 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_2 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_7));
+        #else
+        __pyx_t_2 = __Pyx_PySequence_ITEM(__pyx_t_6, __pyx_t_7);
+        #endif
+        ++__pyx_t_7;
+      }
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+    } else {
+      __pyx_t_2 = __pyx_t_8(__pyx_t_6);
+      if (unlikely(!__pyx_t_2)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 97, __pyx_L1_error)
+          PyErr_Clear();
+        }
+        break;
+      }
+    }
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_admin_role);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_admin_role, __pyx_t_2);
+    __Pyx_GIVEREF(__pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "casbin_engine.py":98
+ *         #  admin_role  <- role
+ *         for admin_role in AppConfig.auth.default_admin_roles:
+ *             for role in roles:             # <<<<<<<<<<<<<<
+ *                 await self.set_inherit_role(p_role=admin_role, c_role=role)
+ * 
+*/
+    __pyx_t_2 = __pyx_cur_scope->__pyx_v_roles; __Pyx_INCREF(__pyx_t_2);
+    __pyx_t_12 = 0;
+    for (;;) {
+      {
+        Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
+        #if !CYTHON_ASSUME_SAFE_SIZE
+        if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 98, __pyx_L1_error)
+        #endif
+        if (__pyx_t_12 >= __pyx_temp) break;
+      }
+      __pyx_t_1 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_12);
+      ++__pyx_t_12;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_role);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_role, __pyx_t_1);
+      __Pyx_GIVEREF(__pyx_t_1);
+      __pyx_t_1 = 0;
+
+      /* "casbin_engine.py":99
+ *         for admin_role in AppConfig.auth.default_admin_roles:
+ *             for role in roles:
+ *                 await self.set_inherit_role(p_role=admin_role, c_role=role)             # <<<<<<<<<<<<<<
+ * 
+ *         logging.debug(f": admin_user  <- admin_role  ")
+*/
+      __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
+      __Pyx_INCREF(__pyx_t_3);
+      __pyx_t_4 = 0;
+      {
+        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_3, NULL};
+        __pyx_t_18 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 99, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_18);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_p_role, __pyx_cur_scope->__pyx_v_admin_role, __pyx_t_18, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_c_role, __pyx_cur_scope->__pyx_v_role, __pyx_t_18, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_set_inherit_role, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_18);
+        __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+        __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+      }
+      __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_XGIVEREF(__pyx_t_2);
+        __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
+        __Pyx_XGIVEREF(__pyx_t_6);
+        __pyx_cur_scope->__pyx_t_1 = __pyx_t_6;
+        __pyx_cur_scope->__pyx_t_3 = __pyx_t_7;
+        __pyx_cur_scope->__pyx_t_4 = __pyx_t_8;
+        __pyx_cur_scope->__pyx_t_5 = __pyx_t_12;
+        __Pyx_XGIVEREF(__pyx_r);
+        __Pyx_RefNannyFinishContext();
+        __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+        /* return from generator, awaiting value */
+        __pyx_generator->resume_label = 3;
+        return __pyx_r;
+        __pyx_L19_resume_from_await:;
+        __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
+        __pyx_cur_scope->__pyx_t_0 = 0;
+        __Pyx_XGOTREF(__pyx_t_2);
+        __pyx_t_6 = __pyx_cur_scope->__pyx_t_1;
+        __pyx_cur_scope->__pyx_t_1 = 0;
+        __Pyx_XGOTREF(__pyx_t_6);
+        __pyx_t_7 = __pyx_cur_scope->__pyx_t_3;
+        __pyx_t_8 = __pyx_cur_scope->__pyx_t_4;
+        __pyx_t_12 = __pyx_cur_scope->__pyx_t_5;
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 99, __pyx_L1_error)
+      } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+      } else {
+        __Pyx_XGOTREF(__pyx_r);
+        __PYX_ERR(0, 99, __pyx_L1_error)
+      }
+
+      /* "casbin_engine.py":98
+ *         #  admin_role  <- role
+ *         for admin_role in AppConfig.auth.default_admin_roles:
+ *             for role in roles:             # <<<<<<<<<<<<<<
+ *                 await self.set_inherit_role(p_role=admin_role, c_role=role)
+ * 
+*/
+    }
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "casbin_engine.py":97
+ *         logging.debug(f": admin_role  <- role  ")
+ *         #  admin_role  <- role
+ *         for admin_role in AppConfig.auth.default_admin_roles:             # <<<<<<<<<<<<<<
+ *             for role in roles:
+ *                 await self.set_inherit_role(p_role=admin_role, c_role=role)
+*/
+  }
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":101
+ *                 await self.set_inherit_role(p_role=admin_role, c_role=role)
+ * 
+ *         logging.debug(f": admin_user  <- admin_role  ")             # <<<<<<<<<<<<<<
+ *         #  admin_user  <- admin_role
+ *         for admin_user in AppConfig.auth.default_admin_users:
+*/
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_18);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_18))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_18);
+    assert(__pyx_t_2);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_18);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_18, __pyx__function);
+    __pyx_t_4 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_admin_user_admin_role};
+    __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_18, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 101, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+  }
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":103
+ *         logging.debug(f": admin_user  <- admin_role  ")
+ *         #  admin_user  <- admin_role
+ *         for admin_user in AppConfig.auth.default_admin_users:             # <<<<<<<<<<<<<<
+ *             for admin_role in AppConfig.auth.default_admin_roles:
+ *                 await self.set_user_role(
+*/
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_18 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_18);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_18, __pyx_mstate_global->__pyx_n_u_default_admin_users); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_6)) || PyTuple_CheckExact(__pyx_t_6)) {
+    __pyx_t_18 = __pyx_t_6; __Pyx_INCREF(__pyx_t_18);
+    __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_18 = PyObject_GetIter(__pyx_t_6); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 103, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_18);
+    __pyx_t_8 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_18); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 103, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_18))) {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_18);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 103, __pyx_L1_error)
+          #endif
+          if (__pyx_t_7 >= __pyx_temp) break;
+        }
+        __pyx_t_6 = __Pyx_PyList_GetItemRef(__pyx_t_18, __pyx_t_7);
+        ++__pyx_t_7;
+      } else {
+        {
+          Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_18);
+          #if !CYTHON_ASSUME_SAFE_SIZE
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 103, __pyx_L1_error)
+          #endif
+          if (__pyx_t_7 >= __pyx_temp) break;
+        }
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_6 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_18, __pyx_t_7));
+        #else
+        __pyx_t_6 = __Pyx_PySequence_ITEM(__pyx_t_18, __pyx_t_7);
+        #endif
+        ++__pyx_t_7;
+      }
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 103, __pyx_L1_error)
+    } else {
+      __pyx_t_6 = __pyx_t_8(__pyx_t_18);
+      if (unlikely(!__pyx_t_6)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 103, __pyx_L1_error)
+          PyErr_Clear();
+        }
+        break;
+      }
+    }
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_admin_user);
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_admin_user, __pyx_t_6);
+    __Pyx_GIVEREF(__pyx_t_6);
+    __pyx_t_6 = 0;
+
+    /* "casbin_engine.py":104
+ *         #  admin_user  <- admin_role
+ *         for admin_user in AppConfig.auth.default_admin_users:
+ *             for admin_role in AppConfig.auth.default_admin_roles:             # <<<<<<<<<<<<<<
+ *                 await self.set_user_role(
+ *                     user=admin_user, role=admin_role
+*/
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_default_admin_roles); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (likely(PyList_CheckExact(__pyx_t_6)) || PyTuple_CheckExact(__pyx_t_6)) {
+      __pyx_t_2 = __pyx_t_6; __Pyx_INCREF(__pyx_t_2);
+      __pyx_t_12 = 0;
+      __pyx_t_16 = NULL;
+    } else {
+      __pyx_t_12 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 104, __pyx_L1_error)
+    }
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    for (;;) {
+      if (likely(!__pyx_t_16)) {
+        if (likely(PyList_CheckExact(__pyx_t_2))) {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 104, __pyx_L1_error)
+            #endif
+            if (__pyx_t_12 >= __pyx_temp) break;
+          }
+          __pyx_t_6 = __Pyx_PyList_GetItemRef(__pyx_t_2, __pyx_t_12);
+          ++__pyx_t_12;
+        } else {
+          {
+            Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
+            #if !CYTHON_ASSUME_SAFE_SIZE
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 104, __pyx_L1_error)
+            #endif
+            if (__pyx_t_12 >= __pyx_temp) break;
+          }
+          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+          __pyx_t_6 = __Pyx_NewRef(PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_12));
+          #else
+          __pyx_t_6 = __Pyx_PySequence_ITEM(__pyx_t_2, __pyx_t_12);
+          #endif
+          ++__pyx_t_12;
+        }
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 104, __pyx_L1_error)
+      } else {
+        __pyx_t_6 = __pyx_t_16(__pyx_t_2);
+        if (unlikely(!__pyx_t_6)) {
+          PyObject* exc_type = PyErr_Occurred();
+          if (exc_type) {
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 104, __pyx_L1_error)
+            PyErr_Clear();
+          }
+          break;
+        }
+      }
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_admin_role);
+      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_admin_role, __pyx_t_6);
+      __Pyx_GIVEREF(__pyx_t_6);
+      __pyx_t_6 = 0;
+
+      /* "casbin_engine.py":105
+ *         for admin_user in AppConfig.auth.default_admin_users:
+ *             for admin_role in AppConfig.auth.default_admin_roles:
+ *                 await self.set_user_role(             # <<<<<<<<<<<<<<
+ *                     user=admin_user, role=admin_role
+ *                 )
+*/
+      __pyx_t_1 = __pyx_cur_scope->__pyx_v_self;
+      __Pyx_INCREF(__pyx_t_1);
+
+      /* "casbin_engine.py":106
+ *             for admin_role in AppConfig.auth.default_admin_roles:
+ *                 await self.set_user_role(
+ *                     user=admin_user, role=admin_role             # <<<<<<<<<<<<<<
+ *                 )
+ *         #
+*/
+      __pyx_t_4 = 0;
+      {
+        PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_1, NULL};
+        __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_user, __pyx_cur_scope->__pyx_v_admin_user, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_role, __pyx_cur_scope->__pyx_v_admin_role, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 105, __pyx_L1_error)
+        __pyx_t_6 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_set_user_role, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 105, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+      }
+      __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6, &__pyx_r);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_XGIVEREF(__pyx_t_2);
+        __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
+        __pyx_cur_scope->__pyx_t_3 = __pyx_t_7;
+        __pyx_cur_scope->__pyx_t_4 = __pyx_t_8;
+        __pyx_cur_scope->__pyx_t_5 = __pyx_t_12;
+        __pyx_cur_scope->__pyx_t_9 = __pyx_t_16;
+        __Pyx_XGIVEREF(__pyx_t_18);
+        __pyx_cur_scope->__pyx_t_1 = __pyx_t_18;
+        __Pyx_XGIVEREF(__pyx_r);
+        __Pyx_RefNannyFinishContext();
+        __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+        /* return from generator, awaiting value */
+        __pyx_generator->resume_label = 4;
+        return __pyx_r;
+        __pyx_L26_resume_from_await:;
+        __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
+        __pyx_cur_scope->__pyx_t_0 = 0;
+        __Pyx_XGOTREF(__pyx_t_2);
+        __pyx_t_7 = __pyx_cur_scope->__pyx_t_3;
+        __pyx_t_8 = __pyx_cur_scope->__pyx_t_4;
+        __pyx_t_12 = __pyx_cur_scope->__pyx_t_5;
+        __pyx_t_16 = __pyx_cur_scope->__pyx_t_9;
+        __pyx_t_18 = __pyx_cur_scope->__pyx_t_1;
+        __pyx_cur_scope->__pyx_t_1 = 0;
+        __Pyx_XGOTREF(__pyx_t_18);
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 105, __pyx_L1_error)
+      } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+      } else {
+        __Pyx_XGOTREF(__pyx_r);
+        __PYX_ERR(0, 105, __pyx_L1_error)
+      }
+
+      /* "casbin_engine.py":104
+ *         #  admin_user  <- admin_role
+ *         for admin_user in AppConfig.auth.default_admin_users:
+ *             for admin_role in AppConfig.auth.default_admin_roles:             # <<<<<<<<<<<<<<
+ *                 await self.set_user_role(
+ *                     user=admin_user, role=admin_role
+*/
+    }
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "casbin_engine.py":103
+ *         logging.debug(f": admin_user  <- admin_role  ")
+ *         #  admin_user  <- admin_role
+ *         for admin_user in AppConfig.auth.default_admin_users:             # <<<<<<<<<<<<<<
+ *             for admin_role in AppConfig.auth.default_admin_roles:
+ *                 await self.set_user_role(
+*/
+  }
+  __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+
+  /* "casbin_engine.py":109
+ *                 )
+ *         #
+ *         await self.save()             # <<<<<<<<<<<<<<
+ *         #
+ *         self._check_count()
+*/
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_18 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_18);
+  }
+  __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_18, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+  if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 5;
+    return __pyx_r;
+    __pyx_L29_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 109, __pyx_L1_error)
+  } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 109, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":111
+ *         await self.save()
+ *         #
+ *         self._check_count()             # <<<<<<<<<<<<<<
+ * 
+ *     async def save(self):
+*/
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_18 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_check_count, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 111, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_18);
+  }
+  __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":81
+ *         logging.debug(f" - {_count_grouping.rjust(_max_length)} ")
+ * 
+ *     async def rebuild(self):             # <<<<<<<<<<<<<<
+ *         self._enforcer.clear_policy()
+ *         await self.save()
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_17);
+  __Pyx_XDECREF(__pyx_t_18);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("rebuild", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_14generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":113
+ *         self._check_count()
+ * 
+ *     async def save(self):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.save_policy()
+ * 
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_13save(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_13save = {"save", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_13save, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_13save(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("save (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 113, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 113, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "save", 0) < 0) __PYX_ERR(0, 113, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("save", 1, 1, 1, i); __PYX_ERR(0, 113, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 113, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("save", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 113, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.save", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_12save(__pyx_self, __pyx_v_self);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_12save(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("save", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_2_save(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 113, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_14generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_save, __pyx_mstate_global->__pyx_n_u_PermissionEngine_save, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 113, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.save", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_14generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  size_t __pyx_t_4;
+  __Pyx_PySendResult __pyx_t_5;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("save", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 113, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":114
+ * 
+ *     async def save(self):
+ *         await self._enforcer.save_policy()             # <<<<<<<<<<<<<<
+ * 
+ *     async def check_table(self):
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 114, __pyx_L1_error)
+  } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 114, __pyx_L1_error)
+  }
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":113
+ *         self._check_count()
+ * 
+ *     async def save(self):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.save_policy()
+ * 
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("save", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_17generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":116
+ *         await self._enforcer.save_policy()
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
  *         """
@@ -4142,16 +6450,16 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_7check_table(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_16check_table(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_6check_table, "\346\243\200\346\237\245\345\271\266\346\214\211\351\234\200\351\207\215\345\273\272\346\235\203\351\231\220\347\255\226\347\225\245\350\241\250\343\200\202\n\n        \350\213\245\351\205\215\347\275\256 `AppConfig.auth.rebuild_auth_rule` \344\270\272 True\357\274\232\n            - \350\241\250\344\270\215\345\255\230\345\234\250\357\274\232\345\210\233\345\273\272\350\241\250\357\274\233\n            - \350\241\250\345\255\230\345\234\250\357\274\232\346\270\205\347\251\272\347\216\260\346\234\211\347\255\226\347\225\245\357\274\210\350\260\203\347\224\250 `clear_policy()` \345\271\266\344\277\235\345\255\230\347\251\272\347\255\226\347\225\245\357\274\211\343\200\202\n\n        \351\200\202\347\224\250\344\272\216\345\274\200\345\217\221/\346\265\213\350\257\225\347\216\257\345\242\203\351\207\215\347\275\256\346\235\203\351\231\220\350\247\204\345\210\231\343\200\202\n        ");
-static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_7check_table = {"check_table", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_7check_table, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine_6check_table};
-static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_7check_table(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_15check_table, "\346\243\200\346\237\245\345\271\266\346\214\211\351\234\200\351\207\215\345\273\272\346\235\203\351\231\220\347\255\226\347\225\245\350\241\250\343\200\202\n\n        \350\213\245\351\205\215\347\275\256 `AppConfig.auth.rebuild_auth_rule` \344\270\272 True\357\274\232\n            - \350\241\250\344\270\215\345\255\230\345\234\250\357\274\232\345\210\233\345\273\272\350\241\250\357\274\233\n            - \350\241\250\345\255\230\345\234\250\357\274\232\346\270\205\347\251\272\347\216\260\346\234\211\347\255\226\347\225\245\357\274\210\350\260\203\347\224\250 `clear_policy()` \345\271\266\344\277\235\345\255\230\347\251\272\347\255\226\347\225\245\357\274\211\343\200\202\n\n        \351\200\202\347\224\250\344\272\216\345\274\200\345\217\221/\346\265\213\350\257\225\347\216\257\345\242\203\351\207\215\347\275\256\346\235\203\351\231\220\350\247\204\345\210\231\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_16check_table = {"check_table", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_16check_table, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine_15check_table};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_16check_table(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4181,32 +6489,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 106, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 116, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 106, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 116, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "check_table", 0) < 0) __PYX_ERR(0, 106, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "check_table", 0) < 0) __PYX_ERR(0, 116, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, i); __PYX_ERR(0, 106, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, i); __PYX_ERR(0, 116, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 106, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 116, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 106, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("check_table", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 116, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4217,7 +6525,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_6check_table(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_15check_table(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -4227,19 +6535,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_6check_table(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *__pyx_cur_scope;
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_15check_table(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("check_table", 0);
-  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *)__pyx_tp_new_13casbin_engine___pyx_scope_struct__check_table(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_3_check_table(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 106, __pyx_L1_error)
+    __PYX_ERR(0, 116, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -4247,7 +6555,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_6check_table(CYTHON
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_8generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_17generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 116, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4263,9 +6571,9 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_6check_table(CYTHON
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_17generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *)__pyx_generator->closure);
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -4284,7 +6592,6 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
     case 0: goto __pyx_L3_first_run;
     case 1: goto __pyx_L6_resume_from_await;
     case 2: goto __pyx_L7_resume_from_await;
-    case 3: goto __pyx_L8_resume_from_await;
     default: /* CPython raises the right error here */
     __Pyx_RefNannyFinishContext();
     return NULL;
@@ -4292,29 +6599,29 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 106, __pyx_L1_error)
+    __PYX_ERR(0, 116, __pyx_L1_error)
   }
 
-  /* "casbin_engine.py":115
+  /* "casbin_engine.py":125
  *         /
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:             # <<<<<<<<<<<<<<
  *             if not await self._check_table_exists():
  *                 logging.debug("...")
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_auth); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_rebuild_auth_rule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_rebuild_auth_rule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "casbin_engine.py":116
+    /* "casbin_engine.py":126
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():             # <<<<<<<<<<<<<<
@@ -4328,7 +6635,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
       __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 116, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4342,31 +6649,31 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       __pyx_generator->resume_label = 1;
       return __pyx_r;
       __pyx_L6_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 116, __pyx_L1_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 126, __pyx_L1_error)
       __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
     } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __pyx_t_1 = __pyx_r; __pyx_r = NULL;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 116, __pyx_L1_error)
+      __PYX_ERR(0, 126, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 116, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 126, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = (!__pyx_t_3);
     if (__pyx_t_6) {
 
-      /* "casbin_engine.py":117
+      /* "casbin_engine.py":127
  *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():
  *                 logging.debug("...")             # <<<<<<<<<<<<<<
  *                 await self.adapter.create_table()
- *             else:
+ * 
 */
       __pyx_t_2 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 117, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 127, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 117, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 127, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_4 = 1;
@@ -4382,23 +6689,23 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
       }
       #endif
       {
-        PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u__3};
+        PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u__6};
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 127, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "casbin_engine.py":118
+      /* "casbin_engine.py":128
  *             if not await self._check_table_exists():
  *                 logging.debug("...")
  *                 await self.adapter.create_table()             # <<<<<<<<<<<<<<
- *             else:
- *                 logging.debug("...")
+ * 
+ *     async def _check_table_exists(self) -> bool:
 */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_adapter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_8 = __pyx_t_2;
       __Pyx_INCREF(__pyx_t_8);
@@ -4408,7 +6715,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
         __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_create_table, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
@@ -4422,126 +6729,25 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
         __pyx_generator->resume_label = 2;
         return __pyx_r;
         __pyx_L7_resume_from_await:;
-        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 118, __pyx_L1_error)
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 128, __pyx_L1_error)
       } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
         __Pyx_GOTREF(__pyx_r);
         __Pyx_DECREF(__pyx_r); __pyx_r = 0;
       } else {
         __Pyx_XGOTREF(__pyx_r);
-        __PYX_ERR(0, 118, __pyx_L1_error)
+        __PYX_ERR(0, 128, __pyx_L1_error)
       }
 
-      /* "casbin_engine.py":116
+      /* "casbin_engine.py":126
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:
  *             if not await self._check_table_exists():             # <<<<<<<<<<<<<<
  *                 logging.debug("...")
  *                 await self.adapter.create_table()
 */
-      goto __pyx_L5;
     }
 
-    /* "casbin_engine.py":120
- *                 await self.adapter.create_table()
- *             else:
- *                 logging.debug("...")             # <<<<<<<<<<<<<<
- *             self._enforcer.clear_policy()
- *             await self._enforcer.save_policy()
-*/
-    /*else*/ {
-      __pyx_t_2 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 120, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 120, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_4 = 1;
-      #if CYTHON_UNPACK_METHODS
-      if (unlikely(PyMethod_Check(__pyx_t_7))) {
-        __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_7);
-        assert(__pyx_t_2);
-        PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_7);
-        __Pyx_INCREF(__pyx_t_2);
-        __Pyx_INCREF(__pyx__function);
-        __Pyx_DECREF_SET(__pyx_t_7, __pyx__function);
-        __pyx_t_4 = 0;
-      }
-      #endif
-      {
-        PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u__4};
-        __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-      }
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    }
-    __pyx_L5:;
-
-    /* "casbin_engine.py":121
- *             else:
- *                 logging.debug("...")
- *             self._enforcer.clear_policy()             # <<<<<<<<<<<<<<
- *             await self._enforcer.save_policy()
- * 
-*/
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __pyx_t_2;
-    __Pyx_INCREF(__pyx_t_7);
-    __pyx_t_4 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_clear_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "casbin_engine.py":122
- *                 logging.debug("...")
- *             self._enforcer.clear_policy()
- *             await self._enforcer.save_policy()             # <<<<<<<<<<<<<<
- * 
- *     async def _check_table_exists(self) -> bool:
-*/
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 122, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_2 = __pyx_t_7;
-    __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_4 = 0;
-    {
-      PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
-      __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (likely(__pyx_t_5 == PYGEN_NEXT)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_XGIVEREF(__pyx_r);
-      __Pyx_RefNannyFinishContext();
-      __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
-      /* return from generator, awaiting value */
-      __pyx_generator->resume_label = 3;
-      return __pyx_r;
-      __pyx_L8_resume_from_await:;
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 122, __pyx_L1_error)
-    } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
-      __Pyx_GOTREF(__pyx_r);
-      __Pyx_DECREF(__pyx_r); __pyx_r = 0;
-    } else {
-      __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 122, __pyx_L1_error)
-    }
-
-    /* "casbin_engine.py":115
+    /* "casbin_engine.py":125
  *         /
  *         """
  *         if AppConfig.auth.rebuild_auth_rule:             # <<<<<<<<<<<<<<
@@ -4551,8 +6757,8 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "casbin_engine.py":106
- *         return self._enforcer
+  /* "casbin_engine.py":116
+ *         await self._enforcer.save_policy()
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
  *         """
@@ -4581,10 +6787,10 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_8generator(__pyx_Co
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_20generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "casbin_engine.py":124
- *             await self._enforcer.save_policy()
+/* "casbin_engine.py":130
+ *                 await self.adapter.create_table()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
  *         """ `AuthRule`
@@ -4592,16 +6798,16 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_10_check_table_exists(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_19_check_table_exists(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_9_check_table_exists, "\345\274\202\346\255\245\346\243\200\346\237\245 `AuthRule` \350\241\250\346\230\257\345\220\246\345\255\230\345\234\250\343\200\202\n\n        \345\210\251\347\224\250 SQLAlchemy \347\232\204 `inspect` \345\234\250\345\220\214\346\255\245\344\270\212\344\270\213\346\226\207\344\270\255\346\243\200\346\237\245\350\241\250\345\255\230\345\234\250\346\200\247\357\274\214\n        \351\200\232\350\277\207 `run_sync` \345\234\250\345\274\202\346\255\245\350\277\236\346\216\245\344\270\255\346\211\247\350\241\214\343\200\202\n\n        Returns:\n            bool: \350\241\250\345\255\230\345\234\250\350\277\224\345\233\236 True\357\274\214\345\220\246\345\210\231 False\343\200\202\n        ");
-static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_10_check_table_exists = {"_check_table_exists", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_10_check_table_exists, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine_9_check_table_exists};
-static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_10_check_table_exists(PyObject *__pyx_self, 
+PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_18_check_table_exists, "\345\274\202\346\255\245\346\243\200\346\237\245 `AuthRule` \350\241\250\346\230\257\345\220\246\345\255\230\345\234\250\343\200\202\n\n        \345\210\251\347\224\250 SQLAlchemy \347\232\204 `inspect` \345\234\250\345\220\214\346\255\245\344\270\212\344\270\213\346\226\207\344\270\255\346\243\200\346\237\245\350\241\250\345\255\230\345\234\250\346\200\247\357\274\214\n        \351\200\232\350\277\207 `run_sync` \345\234\250\345\274\202\346\255\245\350\277\236\346\216\245\344\270\255\346\211\247\350\241\214\343\200\202\n\n        Returns:\n            bool: \350\241\250\345\255\230\345\234\250\350\277\224\345\233\236 True\357\274\214\345\220\246\345\210\231 False\343\200\202\n        ");
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists = {"_check_table_exists", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_19_check_table_exists, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine_18_check_table_exists};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_19_check_table_exists(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4631,32 +6837,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 130, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 130, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_check_table_exists", 0) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_check_table_exists", 0) < 0) __PYX_ERR(0, 130, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, i); __PYX_ERR(0, 124, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, i); __PYX_ERR(0, 130, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 130, __pyx_L3_error)
     }
     __pyx_v_self = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 124, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_check_table_exists", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 130, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4667,7 +6873,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_9_check_table_exists(__pyx_self, __pyx_v_self);
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_18_check_table_exists(__pyx_self, __pyx_v_self);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -4677,7 +6883,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-/* "casbin_engine.py":137
+/* "casbin_engine.py":143
  *             if AuthRule.__table__.schema:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name, AuthRule.__table__.schema)             # <<<<<<<<<<<<<<
@@ -4724,32 +6930,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_sync_conn,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 137, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 143, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 137, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 143, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda", 0) < 0) __PYX_ERR(0, 137, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda", 0) < 0) __PYX_ERR(0, 143, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, i); __PYX_ERR(0, 137, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, i); __PYX_ERR(0, 143, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 137, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 143, __pyx_L3_error)
     }
     __pyx_v_sync_conn = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 137, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 143, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4771,8 +6977,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__pyx_v_sync_conn) {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *__pyx_cur_scope;
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *__pyx_outer_scope;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *__pyx_cur_scope;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *__pyx_outer_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4785,11 +6991,11 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lambda", 0);
-  __pyx_outer_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4808,18 +7014,18 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 143, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_t_2 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 137, __pyx_L1_error) }
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 143, __pyx_L1_error) }
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_6 = 0;
@@ -4829,7 +7035,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 143, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -4851,11 +7057,12 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   return __pyx_r;
 }
 
-/* "casbin_engine.py":141
+/* "casbin_engine.py":147
  *             else:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name)             # <<<<<<<<<<<<<<
  *                 )
+ * 
 */
 
 /* Python wrapper */
@@ -4897,32 +7104,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_sync_conn,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 141, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 147, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 141, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 147, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda1", 0) < 0) __PYX_ERR(0, 141, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "lambda1", 0) < 0) __PYX_ERR(0, 147, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, i); __PYX_ERR(0, 141, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, i); __PYX_ERR(0, 147, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 141, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 147, __pyx_L3_error)
     }
     __pyx_v_sync_conn = values[0];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 141, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("lambda1", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 147, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -4944,8 +7151,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__pyx_v_sync_conn) {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *__pyx_cur_scope;
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *__pyx_outer_scope;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *__pyx_cur_scope;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *__pyx_outer_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4958,11 +7165,11 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lambda1", 0);
-  __pyx_outer_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = 1;
   #if CYTHON_UNPACK_METHODS
@@ -4981,19 +7188,19 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 147, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __pyx_t_2 = __pyx_t_3;
   __Pyx_INCREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 141, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_table_name)) { __Pyx_RaiseClosureNameError("table_name"); __PYX_ERR(0, 147, __pyx_L1_error) }
   __pyx_t_6 = 0;
   {
     PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_table_name};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_has_table, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_r = __pyx_t_1;
@@ -5015,27 +7222,27 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-/* "casbin_engine.py":124
- *             await self._enforcer.save_policy()
+/* "casbin_engine.py":130
+ *                 await self.adapter.create_table()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
  *         """ `AuthRule`
  * 
 */
 
-static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9_check_table_exists(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *__pyx_cur_scope;
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_18_check_table_exists(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_check_table_exists", 0);
-  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_1__check_table_exists(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_4__check_table_exists(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 124, __pyx_L1_error)
+    __PYX_ERR(0, 130, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -5043,7 +7250,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9_check_table_exist
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_11generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 124, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_20generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 130, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5059,9 +7266,9 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_9_check_table_exist
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_20generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *)__pyx_generator->closure);
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -5096,26 +7303,26 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 124, __pyx_L1_error)
+    __PYX_ERR(0, 130, __pyx_L1_error)
   }
 
-  /* "casbin_engine.py":133
+  /* "casbin_engine.py":139
  *             bool:  True False
  *         """
  *         table_name = AuthRule.__tablename__             # <<<<<<<<<<<<<<
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_tablename); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_tablename); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_cur_scope->__pyx_v_table_name = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "casbin_engine.py":134
+  /* "casbin_engine.py":140
  *         """
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:             # <<<<<<<<<<<<<<
@@ -5123,7 +7330,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
  *                 return await conn.run_sync(
 */
   /*with:*/ {
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 134, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_engine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __pyx_t_3;
     __Pyx_INCREF(__pyx_t_1);
@@ -5133,13 +7340,13 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
       __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_connect, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
     }
-    __pyx_t_5 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aexit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 134, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aexit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_1 = NULL;
-    __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aenter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 134, __pyx_L4_error)
+    __pyx_t_6 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_aenter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 140, __pyx_L4_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_4 = 1;
     #if CYTHON_UNPACK_METHODS
@@ -5158,7 +7365,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
       __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 134, __pyx_L4_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L4_error)
       __Pyx_GOTREF(__pyx_t_3);
     }
     __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
@@ -5182,14 +7389,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
       __pyx_t_5 = __pyx_cur_scope->__pyx_t_1;
       __pyx_cur_scope->__pyx_t_1 = 0;
       __Pyx_XGOTREF(__pyx_t_5);
-      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 134, __pyx_L4_error)
+      if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 140, __pyx_L4_error)
       __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
     } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
       __Pyx_GOTREF(__pyx_r);
       __pyx_t_3 = __pyx_r; __pyx_r = NULL;
     } else {
       __Pyx_XGOTREF(__pyx_r);
-      __PYX_ERR(0, 134, __pyx_L4_error)
+      __PYX_ERR(0, 140, __pyx_L4_error)
     }
     __pyx_t_6 = __pyx_t_3;
     __pyx_t_3 = 0;
@@ -5205,26 +7412,26 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
           __pyx_cur_scope->__pyx_v_conn = __pyx_t_6;
           __pyx_t_6 = 0;
 
-          /* "casbin_engine.py":135
+          /* "casbin_engine.py":141
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:             # <<<<<<<<<<<<<<
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name, AuthRule.__table__.schema)
 */
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 135, __pyx_L9_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L9_error)
           __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L9_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_table); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L9_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 135, __pyx_L9_error)
+          __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_schema); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L9_error)
           __Pyx_GOTREF(__pyx_t_6);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 135, __pyx_L9_error)
+          __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 141, __pyx_L9_error)
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
           if (__pyx_t_11) {
 
-            /* "casbin_engine.py":136
+            /* "casbin_engine.py":142
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:
  *                 return await conn.run_sync(             # <<<<<<<<<<<<<<
@@ -5235,14 +7442,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_2 = __pyx_cur_scope->__pyx_v_conn;
             __Pyx_INCREF(__pyx_t_2);
 
-            /* "casbin_engine.py":137
+            /* "casbin_engine.py":143
  *             if AuthRule.__table__.schema:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name, AuthRule.__table__.schema)             # <<<<<<<<<<<<<<
  *                 )
  *             else:
 */
-            __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_lambda, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L9_error)
+            __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_lambda, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 143, __pyx_L9_error)
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_t_4 = 0;
             {
@@ -5250,7 +7457,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_6 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_run_sync, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
               __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 136, __pyx_L9_error)
+              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L9_error)
               __Pyx_GOTREF(__pyx_t_6);
             }
             __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6, &__pyx_r);
@@ -5284,20 +7491,20 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_10 = __pyx_cur_scope->__pyx_t_3;
               __pyx_cur_scope->__pyx_t_3 = 0;
               __Pyx_XGOTREF(__pyx_t_10);
-              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 136, __pyx_L9_error)
+              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 142, __pyx_L9_error)
               __pyx_t_6 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_6);
             } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
               __Pyx_GOTREF(__pyx_r);
               __pyx_t_6 = __pyx_r; __pyx_r = NULL;
             } else {
               __Pyx_XGOTREF(__pyx_r);
-              __PYX_ERR(0, 136, __pyx_L9_error)
+              __PYX_ERR(0, 142, __pyx_L9_error)
             }
             __pyx_r = __pyx_t_6;
             __pyx_t_6 = 0;
             goto __pyx_L13_try_return;
 
-            /* "casbin_engine.py":135
+            /* "casbin_engine.py":141
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:
  *             if AuthRule.__table__.schema:             # <<<<<<<<<<<<<<
@@ -5306,7 +7513,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
 */
           }
 
-          /* "casbin_engine.py":140
+          /* "casbin_engine.py":146
  *                 )
  *             else:
  *                 return await conn.run_sync(             # <<<<<<<<<<<<<<
@@ -5318,13 +7525,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_3 = __pyx_cur_scope->__pyx_v_conn;
             __Pyx_INCREF(__pyx_t_3);
 
-            /* "casbin_engine.py":141
+            /* "casbin_engine.py":147
  *             else:
  *                 return await conn.run_sync(
  *                     lambda sync_conn: inspect(sync_conn).has_table(table_name)             # <<<<<<<<<<<<<<
  *                 )
+ * 
 */
-            __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_1lambda1, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L9_error)
+            __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists_1lambda1, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex_2, ((PyObject*)__pyx_cur_scope), __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 147, __pyx_L9_error)
             __Pyx_GOTREF(__pyx_t_2);
             __pyx_t_4 = 0;
             {
@@ -5332,7 +7540,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_6 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_run_sync, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
               __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
               __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 140, __pyx_L9_error)
+              if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 146, __pyx_L9_error)
               __Pyx_GOTREF(__pyx_t_6);
             }
             __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_6, &__pyx_r);
@@ -5366,21 +7574,21 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
               __pyx_t_10 = __pyx_cur_scope->__pyx_t_3;
               __pyx_cur_scope->__pyx_t_3 = 0;
               __Pyx_XGOTREF(__pyx_t_10);
-              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 140, __pyx_L9_error)
+              if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 146, __pyx_L9_error)
               __pyx_t_6 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_6);
             } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
               __Pyx_GOTREF(__pyx_r);
               __pyx_t_6 = __pyx_r; __pyx_r = NULL;
             } else {
               __Pyx_XGOTREF(__pyx_r);
-              __PYX_ERR(0, 140, __pyx_L9_error)
+              __PYX_ERR(0, 146, __pyx_L9_error)
             }
             __pyx_r = __pyx_t_6;
             __pyx_t_6 = 0;
             goto __pyx_L13_try_return;
           }
 
-          /* "casbin_engine.py":134
+          /* "casbin_engine.py":140
  *         """
  *         table_name = AuthRule.__tablename__
  *         async with self.engine.connect() as conn:             # <<<<<<<<<<<<<<
@@ -5395,16 +7603,16 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("casbin_engine.PermissionEngine._check_table_exists", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_2, &__pyx_t_3) < 0) __PYX_ERR(0, 134, __pyx_L11_except_error)
+          if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_2, &__pyx_t_3) < 0) __PYX_ERR(0, 140, __pyx_L11_except_error)
           __Pyx_XGOTREF(__pyx_t_6);
           __Pyx_XGOTREF(__pyx_t_2);
           __Pyx_XGOTREF(__pyx_t_3);
-          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_6, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L11_except_error)
+          __pyx_t_1 = PyTuple_Pack(3, __pyx_t_6, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L11_except_error)
           __Pyx_GOTREF(__pyx_t_1);
           __pyx_t_12 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 134, __pyx_L11_except_error)
+          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 140, __pyx_L11_except_error)
           __Pyx_GOTREF(__pyx_t_12);
           __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_12, &__pyx_r);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
@@ -5457,20 +7665,20 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_12 = __pyx_cur_scope->__pyx_t_7;
             __pyx_cur_scope->__pyx_t_7 = 0;
             __Pyx_XGOTREF(__pyx_t_12);
-            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 134, __pyx_L11_except_error)
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 140, __pyx_L11_except_error)
             __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
           } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
             __Pyx_GOTREF(__pyx_r);
             __pyx_t_1 = __pyx_r; __pyx_r = NULL;
           } else {
             __Pyx_XGOTREF(__pyx_r);
-            __PYX_ERR(0, 134, __pyx_L11_except_error)
+            __PYX_ERR(0, 140, __pyx_L11_except_error)
           }
           __pyx_t_12 = __pyx_t_1;
           __pyx_t_1 = 0;
           __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_12);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-          if (__pyx_t_11 < 0) __PYX_ERR(0, 134, __pyx_L11_except_error)
+          if (__pyx_t_11 < 0) __PYX_ERR(0, 140, __pyx_L11_except_error)
           __pyx_t_13 = (!__pyx_t_11);
           if (unlikely(__pyx_t_13)) {
             __Pyx_GIVEREF(__pyx_t_6);
@@ -5478,7 +7686,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __Pyx_XGIVEREF(__pyx_t_3);
             __Pyx_ErrRestoreWithState(__pyx_t_6, __pyx_t_2, __pyx_t_3);
             __pyx_t_6 = 0;  __pyx_t_2 = 0;  __pyx_t_3 = 0; 
-            __PYX_ERR(0, 134, __pyx_L11_except_error)
+            __PYX_ERR(0, 140, __pyx_L11_except_error)
           }
           __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
           __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5509,7 +7717,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
         if (__pyx_t_5) {
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[0], NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 134, __pyx_L1_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 140, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_10, &__pyx_r);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -5532,14 +7740,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_10 = __pyx_cur_scope->__pyx_t_1;
             __pyx_cur_scope->__pyx_t_1 = 0;
             __Pyx_XGOTREF(__pyx_t_10);
-            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 134, __pyx_L1_error)
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 140, __pyx_L1_error)
             __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
           } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
             __Pyx_GOTREF(__pyx_r);
             __pyx_t_3 = __pyx_r; __pyx_r = NULL;
           } else {
             __Pyx_XGOTREF(__pyx_r);
-            __PYX_ERR(0, 134, __pyx_L1_error)
+            __PYX_ERR(0, 140, __pyx_L1_error)
           }
           __pyx_t_10 = __pyx_t_3;
           __pyx_t_3 = 0;
@@ -5553,7 +7761,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
         if (__pyx_t_5) {
           __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_mstate_global->__pyx_tuple[0], NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 134, __pyx_L1_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 140, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_9, &__pyx_r);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -5581,14 +7789,14 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
             __pyx_t_10 = __pyx_cur_scope->__pyx_t_2;
             __pyx_cur_scope->__pyx_t_2 = 0;
             __Pyx_XGOTREF(__pyx_t_10);
-            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 134, __pyx_L1_error)
+            if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 140, __pyx_L1_error)
             __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
           } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
             __Pyx_GOTREF(__pyx_r);
             __pyx_t_3 = __pyx_r; __pyx_r = NULL;
           } else {
             __Pyx_XGOTREF(__pyx_r);
-            __PYX_ERR(0, 134, __pyx_L1_error)
+            __PYX_ERR(0, 140, __pyx_L1_error)
           }
           __pyx_t_9 = __pyx_t_3;
           __pyx_t_3 = 0;
@@ -5608,8 +7816,8 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "casbin_engine.py":124
- *             await self._enforcer.save_policy()
+  /* "casbin_engine.py":130
+ *                 await self.adapter.create_table()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
  *         """ `AuthRule`
@@ -5638,18 +7846,2162 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_23generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":150
+ *                 )
+ * 
+ *     async def set_role_policy(self, role, obj, act):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_22set_role_policy(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_22set_role_policy = {"set_role_policy", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_22set_role_policy, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_22set_role_policy(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_role = 0;
+  PyObject *__pyx_v_obj = 0;
+  PyObject *__pyx_v_act = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[4] = {0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("set_role_policy (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_role,&__pyx_mstate_global->__pyx_n_u_obj,&__pyx_mstate_global->__pyx_n_u_act,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 150, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 150, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 150, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 150, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 150, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "set_role_policy", 0) < 0) __PYX_ERR(0, 150, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("set_role_policy", 1, 4, 4, i); __PYX_ERR(0, 150, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 4)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 150, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 150, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 150, __pyx_L3_error)
+      values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 150, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_role = values[1];
+    __pyx_v_obj = values[2];
+    __pyx_v_act = values[3];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("set_role_policy", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 150, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.set_role_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_21set_role_policy(__pyx_self, __pyx_v_self, __pyx_v_role, __pyx_v_obj, __pyx_v_act);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_21set_role_policy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_role, PyObject *__pyx_v_obj, PyObject *__pyx_v_act) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("set_role_policy", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_5_set_role_policy(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 150, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  __pyx_cur_scope->__pyx_v_role = __pyx_v_role;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_role);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_role);
+  __pyx_cur_scope->__pyx_v_obj = __pyx_v_obj;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_obj);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_obj);
+  __pyx_cur_scope->__pyx_v_act = __pyx_v_act;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_act);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_act);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_23generator5, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_set_role_policy, __pyx_mstate_global->__pyx_n_u_PermissionEngine_set_role_policy, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 150, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.set_role_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_23generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  __Pyx_PySendResult __pyx_t_7;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("set_role_policy", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 150, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":151
+ * 
+ *     async def set_role_policy(self, role, obj, act):
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)             # <<<<<<<<<<<<<<
+ * 
+ *     async def _set_grouping_policy(self, *, p_obj, c_obj):
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_role, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_role_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[4] = {__pyx_t_2, __pyx_t_5, __pyx_cur_scope->__pyx_v_obj, __pyx_cur_scope->__pyx_v_act};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_add_policy, __pyx_callargs+__pyx_t_6, (4-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_7 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 151, __pyx_L1_error)
+  } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 151, __pyx_L1_error)
+  }
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":150
+ *                 )
+ * 
+ *     async def set_role_policy(self, role, obj, act):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("set_role_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_26generator6(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":153
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+ *     async def _set_grouping_policy(self, *, p_obj, c_obj):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_25_set_grouping_policy(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_25_set_grouping_policy = {"_set_grouping_policy", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_25_set_grouping_policy, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_25_set_grouping_policy(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_p_obj = 0;
+  PyObject *__pyx_v_c_obj = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[3] = {0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_set_grouping_policy (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_p_obj,&__pyx_mstate_global->__pyx_n_u_c_obj,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 153, __pyx_L3_error)
+    if (likely(__pyx_kwds_len > 0)) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 153, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_set_grouping_policy", 0) < 0) __PYX_ERR(0, 153, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_set_grouping_policy", 1, 1, 1, i); __PYX_ERR(0, 153, __pyx_L3_error) }
+      }
+      for (Py_ssize_t i = 1; i < 3; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("_set_grouping_policy", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 153, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      __Pyx_RaiseKeywordRequired("_set_grouping_policy", __pyx_mstate_global->__pyx_n_u_p_obj); __PYX_ERR(0, 153, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_p_obj = values[1];
+    __pyx_v_c_obj = values[2];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("_set_grouping_policy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 153, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine._set_grouping_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_24_set_grouping_policy(__pyx_self, __pyx_v_self, __pyx_v_p_obj, __pyx_v_c_obj);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_24_set_grouping_policy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_p_obj, PyObject *__pyx_v_c_obj) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("_set_grouping_policy", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_6__set_grouping_policy(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 153, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  __pyx_cur_scope->__pyx_v_p_obj = __pyx_v_p_obj;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_p_obj);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_p_obj);
+  __pyx_cur_scope->__pyx_v_c_obj = __pyx_v_c_obj;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_c_obj);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_c_obj);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_26generator6, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_set_grouping_policy, __pyx_mstate_global->__pyx_n_u_PermissionEngine__set_grouping_p, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 153, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine._set_grouping_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_26generator6(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  size_t __pyx_t_4;
+  __Pyx_PySendResult __pyx_t_5;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("_set_grouping_policy", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 153, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":154
+ * 
+ *     async def _set_grouping_policy(self, *, p_obj, c_obj):
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)             # <<<<<<<<<<<<<<
+ * 
+ *     async def set_inherit_role(self, *, p_role, c_role):
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = 0;
+  {
+    PyObject *__pyx_callargs[3] = {__pyx_t_2, __pyx_cur_scope->__pyx_v_p_obj, __pyx_cur_scope->__pyx_v_c_obj};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_add_grouping_policy, __pyx_callargs+__pyx_t_4, (3-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 154, __pyx_L1_error)
+  } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 154, __pyx_L1_error)
+  }
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":153
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+ *     async def _set_grouping_policy(self, *, p_obj, c_obj):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("_set_grouping_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_29generator7(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":156
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+ *     async def set_inherit_role(self, *, p_role, c_role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_28set_inherit_role(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_28set_inherit_role = {"set_inherit_role", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_28set_inherit_role, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_28set_inherit_role(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_p_role = 0;
+  PyObject *__pyx_v_c_role = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[3] = {0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("set_inherit_role (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_p_role,&__pyx_mstate_global->__pyx_n_u_c_role,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 156, __pyx_L3_error)
+    if (likely(__pyx_kwds_len > 0)) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 156, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "set_inherit_role", 0) < 0) __PYX_ERR(0, 156, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("set_inherit_role", 1, 1, 1, i); __PYX_ERR(0, 156, __pyx_L3_error) }
+      }
+      for (Py_ssize_t i = 1; i < 3; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("set_inherit_role", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 156, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      __Pyx_RaiseKeywordRequired("set_inherit_role", __pyx_mstate_global->__pyx_n_u_p_role); __PYX_ERR(0, 156, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_p_role = values[1];
+    __pyx_v_c_role = values[2];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("set_inherit_role", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 156, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.set_inherit_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_27set_inherit_role(__pyx_self, __pyx_v_self, __pyx_v_p_role, __pyx_v_c_role);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_27set_inherit_role(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_p_role, PyObject *__pyx_v_c_role) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("set_inherit_role", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_7_set_inherit_role(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 156, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  __pyx_cur_scope->__pyx_v_p_role = __pyx_v_p_role;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_p_role);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_p_role);
+  __pyx_cur_scope->__pyx_v_c_role = __pyx_v_c_role;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_c_role);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_c_role);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_29generator7, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_set_inherit_role, __pyx_mstate_global->__pyx_n_u_PermissionEngine_set_inherit_rol, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.set_inherit_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_29generator7(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  __Pyx_PySendResult __pyx_t_7;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("set_inherit_role", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 156, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":157
+ * 
+ *     async def set_inherit_role(self, *, p_role, c_role):
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")             # <<<<<<<<<<<<<<
+ * 
+ *     async def set_user_role(self, *, user, role):
+*/
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_p_role, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_role_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_c_role, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_role_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, NULL};
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_p_obj, __pyx_t_4, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 157, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_c_obj, __pyx_t_5, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 157, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_set_grouping_policy, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 157, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_7 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 157, __pyx_L1_error)
+  } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 157, __pyx_L1_error)
+  }
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":156
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+ *     async def set_inherit_role(self, *, p_role, c_role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("set_inherit_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_32generator8(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":159
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+ *     async def set_user_role(self, *, user, role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_31set_user_role(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_31set_user_role = {"set_user_role", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_31set_user_role, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_31set_user_role(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_user = 0;
+  PyObject *__pyx_v_role = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[3] = {0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("set_user_role (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_user,&__pyx_mstate_global->__pyx_n_u_role,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 159, __pyx_L3_error)
+    if (likely(__pyx_kwds_len > 0)) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 159, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "set_user_role", 0) < 0) __PYX_ERR(0, 159, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("set_user_role", 1, 1, 1, i); __PYX_ERR(0, 159, __pyx_L3_error) }
+      }
+      for (Py_ssize_t i = 1; i < 3; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseKeywordRequired("set_user_role", *(__pyx_pyargnames[i - 0])); __PYX_ERR(0, 159, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      __Pyx_RaiseKeywordRequired("set_user_role", __pyx_mstate_global->__pyx_n_u_user); __PYX_ERR(0, 159, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_user = values[1];
+    __pyx_v_role = values[2];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("set_user_role", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 159, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.set_user_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_30set_user_role(__pyx_self, __pyx_v_self, __pyx_v_user, __pyx_v_role);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_30set_user_role(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_user, PyObject *__pyx_v_role) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("set_user_role", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_8_set_user_role(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 159, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  __pyx_cur_scope->__pyx_v_user = __pyx_v_user;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_user);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_user);
+  __pyx_cur_scope->__pyx_v_role = __pyx_v_role;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_role);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_role);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_32generator8, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_set_user_role, __pyx_mstate_global->__pyx_n_u_PermissionEngine_set_user_role, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 159, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.set_user_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_32generator8(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  __Pyx_PySendResult __pyx_t_7;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("set_user_role", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L4_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 159, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":160
+ * 
+ *     async def set_user_role(self, *, user, role):
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")             # <<<<<<<<<<<<<<
+ * 
+ *     async def has_role(self, user, role):
+*/
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_user, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_user_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_role, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_role_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_2, NULL};
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_p_obj, __pyx_t_4, __pyx_t_3, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_c_obj, __pyx_t_5, __pyx_t_3, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_set_grouping_policy, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_7 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L4_resume_from_await:;
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 160, __pyx_L1_error)
+  } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 160, __pyx_L1_error)
+  }
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":159
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+ *     async def set_user_role(self, *, user, role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("set_user_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_35generator9(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":162
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+ *     async def has_role(self, user, role):             # <<<<<<<<<<<<<<
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):
+ *             return False
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_34has_role(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_34has_role = {"has_role", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_34has_role, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_34has_role(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_user = 0;
+  PyObject *__pyx_v_role = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[3] = {0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("has_role (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_user,&__pyx_mstate_global->__pyx_n_u_role,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 162, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 162, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 162, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 162, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "has_role", 0) < 0) __PYX_ERR(0, 162, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("has_role", 1, 3, 3, i); __PYX_ERR(0, 162, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 3)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 162, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 162, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 162, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_user = values[1];
+    __pyx_v_role = values[2];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("has_role", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 162, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.has_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_33has_role(__pyx_self, __pyx_v_self, __pyx_v_user, __pyx_v_role);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_33has_role(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_user, PyObject *__pyx_v_role) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("has_role", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_9_has_role(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 162, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  __pyx_cur_scope->__pyx_v_user = __pyx_v_user;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_user);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_user);
+  __pyx_cur_scope->__pyx_v_role = __pyx_v_role;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_role);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_role);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_35generator9, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[11]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_has_role, __pyx_mstate_global->__pyx_n_u_PermissionEngine_has_role, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.has_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_35generator9(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  size_t __pyx_t_7;
+  __Pyx_PySendResult __pyx_t_8;
+  int __pyx_t_9;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("has_role", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L5_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 162, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":163
+ * 
+ *     async def has_role(self, user, role):
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):             # <<<<<<<<<<<<<<
+ *             return False
+ *         return True
+*/
+  __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_role, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_role_2, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_3 = __pyx_t_4;
+  __Pyx_INCREF(__pyx_t_3);
+  __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_user, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_user_2, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_7 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_t_6};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_implicit_roles_for_user, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_t_8 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(__pyx_t_8 == PYGEN_NEXT)) {
+    __Pyx_GOTREF(__pyx_r);
+    __Pyx_XGIVEREF(__pyx_t_2);
+    __pyx_cur_scope->__pyx_t_0 = __pyx_t_2;
+    __Pyx_XGIVEREF(__pyx_r);
+    __Pyx_RefNannyFinishContext();
+    __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+    /* return from generator, awaiting value */
+    __pyx_generator->resume_label = 1;
+    return __pyx_r;
+    __pyx_L5_resume_from_await:;
+    __pyx_t_2 = __pyx_cur_scope->__pyx_t_0;
+    __pyx_cur_scope->__pyx_t_0 = 0;
+    __Pyx_XGOTREF(__pyx_t_2);
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_1 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_1);
+  } else if (likely(__pyx_t_8 == PYGEN_RETURN)) {
+    __Pyx_GOTREF(__pyx_r);
+    __pyx_t_1 = __pyx_r; __pyx_r = NULL;
+  } else {
+    __Pyx_XGOTREF(__pyx_r);
+    __PYX_ERR(0, 163, __pyx_L1_error)
+  }
+  __pyx_t_9 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_t_1, Py_NE)); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 163, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_9) {
+
+    /* "casbin_engine.py":164
+ *     async def has_role(self, user, role):
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):
+ *             return False             # <<<<<<<<<<<<<<
+ *         return True
+ * 
+*/
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(Py_False);
+    __pyx_r = Py_False;
+    goto __pyx_L0;
+
+    /* "casbin_engine.py":163
+ * 
+ *     async def has_role(self, user, role):
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):             # <<<<<<<<<<<<<<
+ *             return False
+ *         return True
+*/
+  }
+
+  /* "casbin_engine.py":165
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):
+ *             return False
+ *         return True             # <<<<<<<<<<<<<<
+ * 
+ *     def has_permission(self, user, obj, act):
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(Py_True);
+  __pyx_r = Py_True;
+  goto __pyx_L0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":162
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+ *     async def has_role(self, user, role):             # <<<<<<<<<<<<<<
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):
+ *             return False
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("has_role", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "casbin_engine.py":167
+ *         return True
+ * 
+ *     def has_permission(self, user, obj, act):             # <<<<<<<<<<<<<<
+ *         return self._enforcer.enforce(f"user::{user}", obj, act)
+ * 
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_37has_permission(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_37has_permission = {"has_permission", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_37has_permission, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_37has_permission(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_user = 0;
+  PyObject *__pyx_v_obj = 0;
+  PyObject *__pyx_v_act = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[4] = {0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("has_permission (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_user,&__pyx_mstate_global->__pyx_n_u_obj,&__pyx_mstate_global->__pyx_n_u_act,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 167, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 167, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 167, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 167, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 167, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "has_permission", 0) < 0) __PYX_ERR(0, 167, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("has_permission", 1, 4, 4, i); __PYX_ERR(0, 167, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 4)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 167, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 167, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 167, __pyx_L3_error)
+      values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 167, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_user = values[1];
+    __pyx_v_obj = values[2];
+    __pyx_v_act = values[3];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("has_permission", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 167, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.has_permission", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_36has_permission(__pyx_self, __pyx_v_self, __pyx_v_user, __pyx_v_obj, __pyx_v_act);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_36has_permission(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_user, PyObject *__pyx_v_obj, PyObject *__pyx_v_act) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("has_permission", 0);
+
+  /* "casbin_engine.py":168
+ * 
+ *     def has_permission(self, user, obj, act):
+ *         return self._enforcer.enforce(f"user::{user}", obj, act)             # <<<<<<<<<<<<<<
+ * 
+ *     def add_policy(self, p_sub, p_obj, p_act):
+*/
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_2 = __pyx_t_3;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_v_user, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_user_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[4] = {__pyx_t_2, __pyx_t_5, __pyx_v_obj, __pyx_v_act};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_enforce, __pyx_callargs+__pyx_t_6, (4-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "casbin_engine.py":167
+ *         return True
+ * 
+ *     def has_permission(self, user, obj, act):             # <<<<<<<<<<<<<<
+ *         return self._enforcer.enforce(f"user::{user}", obj, act)
+ * 
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.has_permission", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "casbin_engine.py":170
+ *         return self._enforcer.enforce(f"user::{user}", obj, act)
+ * 
+ *     def add_policy(self, p_sub, p_obj, p_act):             # <<<<<<<<<<<<<<
+ *         # role dict
+ *         if p_sub not in self.policies:
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_39add_policy(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_39add_policy = {"add_policy", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_39add_policy, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_39add_policy(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_p_sub = 0;
+  PyObject *__pyx_v_p_obj = 0;
+  PyObject *__pyx_v_p_act = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[4] = {0,0,0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("add_policy (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,&__pyx_mstate_global->__pyx_n_u_p_sub,&__pyx_mstate_global->__pyx_n_u_p_obj,&__pyx_mstate_global->__pyx_n_u_p_act,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 170, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  4:
+        values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 170, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  3:
+        values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 170, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 170, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 170, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "add_policy", 0) < 0) __PYX_ERR(0, 170, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 4; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("add_policy", 1, 4, 4, i); __PYX_ERR(0, 170, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 4)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 170, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 170, __pyx_L3_error)
+      values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 170, __pyx_L3_error)
+      values[3] = __Pyx_ArgRef_FASTCALL(__pyx_args, 3);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[3])) __PYX_ERR(0, 170, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_p_sub = values[1];
+    __pyx_v_p_obj = values[2];
+    __pyx_v_p_act = values[3];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("add_policy", 1, 4, 4, __pyx_nargs); __PYX_ERR(0, 170, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.add_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_38add_policy(__pyx_self, __pyx_v_self, __pyx_v_p_sub, __pyx_v_p_obj, __pyx_v_p_act);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_38add_policy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_p_sub, PyObject *__pyx_v_p_obj, PyObject *__pyx_v_p_act) {
+  PyObject *__pyx_v_obj = NULL;
+  PyObject *__pyx_v_act = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("add_policy", 0);
+
+  /* "casbin_engine.py":172
+ *     def add_policy(self, p_sub, p_obj, p_act):
+ *         # role dict
+ *         if p_sub not in self.policies:             # <<<<<<<<<<<<<<
+ *             self.policies[p_sub] = {}
+ *         obj = self.policies[p_sub]
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_policies); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_p_sub, __pyx_t_1, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 172, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_2) {
+
+    /* "casbin_engine.py":173
+ *         # role dict
+ *         if p_sub not in self.policies:
+ *             self.policies[p_sub] = {}             # <<<<<<<<<<<<<<
+ *         obj = self.policies[p_sub]
+ *         # obj dict
+*/
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_policies); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 173, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (unlikely((PyObject_SetItem(__pyx_t_3, __pyx_v_p_sub, __pyx_t_1) < 0))) __PYX_ERR(0, 173, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "casbin_engine.py":172
+ *     def add_policy(self, p_sub, p_obj, p_act):
+ *         # role dict
+ *         if p_sub not in self.policies:             # <<<<<<<<<<<<<<
+ *             self.policies[p_sub] = {}
+ *         obj = self.policies[p_sub]
+*/
+  }
+
+  /* "casbin_engine.py":174
+ *         if p_sub not in self.policies:
+ *             self.policies[p_sub] = {}
+ *         obj = self.policies[p_sub]             # <<<<<<<<<<<<<<
+ *         # obj dict
+ *         if p_obj not in obj:
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_policies); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_p_sub); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_obj = __pyx_t_3;
+  __pyx_t_3 = 0;
+
+  /* "casbin_engine.py":176
+ *         obj = self.policies[p_sub]
+ *         # obj dict
+ *         if p_obj not in obj:             # <<<<<<<<<<<<<<
+ *             obj[p_obj] = []
+ *         act = obj[p_obj]
+*/
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_p_obj, __pyx_v_obj, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (__pyx_t_2) {
+
+    /* "casbin_engine.py":177
+ *         # obj dict
+ *         if p_obj not in obj:
+ *             obj[p_obj] = []             # <<<<<<<<<<<<<<
+ *         act = obj[p_obj]
+ *         # act list
+*/
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (unlikely((PyObject_SetItem(__pyx_v_obj, __pyx_v_p_obj, __pyx_t_3) < 0))) __PYX_ERR(0, 177, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+    /* "casbin_engine.py":176
+ *         obj = self.policies[p_sub]
+ *         # obj dict
+ *         if p_obj not in obj:             # <<<<<<<<<<<<<<
+ *             obj[p_obj] = []
+ *         act = obj[p_obj]
+*/
+  }
+
+  /* "casbin_engine.py":178
+ *         if p_obj not in obj:
+ *             obj[p_obj] = []
+ *         act = obj[p_obj]             # <<<<<<<<<<<<<<
+ *         # act list
+ *         if p_act not in act:
+*/
+  __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_obj, __pyx_v_p_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_v_act = __pyx_t_3;
+  __pyx_t_3 = 0;
+
+  /* "casbin_engine.py":180
+ *         act = obj[p_obj]
+ *         # act list
+ *         if p_act not in act:             # <<<<<<<<<<<<<<
+ *             act.append(p_act)
+ * 
+*/
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_p_act, __pyx_v_act, Py_NE)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 180, __pyx_L1_error)
+  if (__pyx_t_2) {
+
+    /* "casbin_engine.py":181
+ *         # act list
+ *         if p_act not in act:
+ *             act.append(p_act)             # <<<<<<<<<<<<<<
+ * 
+ *     async def close(self):
+*/
+    __pyx_t_4 = __Pyx_PyObject_Append(__pyx_v_act, __pyx_v_p_act); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 181, __pyx_L1_error)
+
+    /* "casbin_engine.py":180
+ *         act = obj[p_obj]
+ *         # act list
+ *         if p_act not in act:             # <<<<<<<<<<<<<<
+ *             act.append(p_act)
+ * 
+*/
+  }
+
+  /* "casbin_engine.py":170
+ *         return self._enforcer.enforce(f"user::{user}", obj, act)
+ * 
+ *     def add_policy(self, p_sub, p_obj, p_act):             # <<<<<<<<<<<<<<
+ *         # role dict
+ *         if p_sub not in self.policies:
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.add_policy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_obj);
+  __Pyx_XDECREF(__pyx_v_act);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_42generator10(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+
+/* "casbin_engine.py":183
+ *             act.append(p_act)
+ * 
+ *     async def close(self):             # <<<<<<<<<<<<<<
+ *         """"""
+ *         if self._enforcer is not None:
+*/
+
+/* Python wrapper */
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_41close(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+PyDoc_STRVAR(__pyx_doc_13casbin_engine_16PermissionEngine_40close, "\351\207\212\346\224\276\346\235\203\351\231\220\345\274\225\346\223\216\345\215\240\347\224\250\347\232\204\350\265\204\346\272\220");
+static PyMethodDef __pyx_mdef_13casbin_engine_16PermissionEngine_41close = {"close", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_13casbin_engine_16PermissionEngine_41close, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_13casbin_engine_16PermissionEngine_40close};
+static PyObject *__pyx_pw_13casbin_engine_16PermissionEngine_41close(PyObject *__pyx_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  PyObject *__pyx_v_self = 0;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[1] = {0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("close (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_self,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 183, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 183, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "close", 0) < 0) __PYX_ERR(0, 183, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("close", 1, 1, 1, i); __PYX_ERR(0, 183, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 1)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 183, __pyx_L3_error)
+    }
+    __pyx_v_self = values[0];
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("close", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 183, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_13casbin_engine_16PermissionEngine_40close(__pyx_self, __pyx_v_self);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_40close(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *__pyx_cur_scope;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("close", 0);
+  __pyx_cur_scope = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_10_close(__pyx_mstate_global->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  if (unlikely(!__pyx_cur_scope)) {
+    __pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *)Py_None);
+    __Pyx_INCREF(Py_None);
+    __PYX_ERR(0, 183, __pyx_L1_error)
+  } else {
+    __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
+  }
+  __pyx_cur_scope->__pyx_v_self = __pyx_v_self;
+  __Pyx_INCREF(__pyx_cur_scope->__pyx_v_self);
+  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_self);
+  {
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13casbin_engine_16PermissionEngine_42generator10, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_close, __pyx_mstate_global->__pyx_n_u_PermissionEngine_close, __pyx_mstate_global->__pyx_n_u_casbin_engine); if (unlikely(!gen)) __PYX_ERR(0, 183, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_cur_scope);
+    __Pyx_RefNannyFinishContext();
+    return (PyObject *) gen;
+  }
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("casbin_engine.PermissionEngine.close", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __Pyx_DECREF((PyObject *)__pyx_cur_scope);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_42generator10(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+{
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *__pyx_cur_scope = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *)__pyx_generator->closure);
+  PyObject *__pyx_r = NULL;
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  size_t __pyx_t_6;
+  __Pyx_PySendResult __pyx_t_7;
+  PyObject *__pyx_t_8 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("close", 0);
+  switch (__pyx_generator->resume_label) {
+    case 0: goto __pyx_L3_first_run;
+    case 1: goto __pyx_L6_resume_from_await;
+    default: /* CPython raises the right error here */
+    __Pyx_RefNannyFinishContext();
+    return NULL;
+  }
+  __pyx_L3_first_run:;
+  if (unlikely(__pyx_sent_value != Py_None)) {
+    if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
+    __PYX_ERR(0, 183, __pyx_L1_error)
+  }
+
+  /* "casbin_engine.py":185
+ *     async def close(self):
+ *         """"""
+ *         if self._enforcer is not None:             # <<<<<<<<<<<<<<
+ *             #  auto_save
+ *             if not self._enforcer.auto_save:
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = (__pyx_t_1 != Py_None);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_2) {
+
+    /* "casbin_engine.py":187
+ *         if self._enforcer is not None:
+ *             #  auto_save
+ *             if not self._enforcer.auto_save:             # <<<<<<<<<<<<<<
+ *                 await self._enforcer.save_policy()
+ * 
+*/
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_auto_save); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 187, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 187, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_4 = (!__pyx_t_2);
+    if (__pyx_t_4) {
+
+      /* "casbin_engine.py":188
+ *             #  auto_save
+ *             if not self._enforcer.auto_save:
+ *                 await self._enforcer.save_policy()             # <<<<<<<<<<<<<<
+ * 
+ *             # noinspection PyAttributeOutsideInit
+*/
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 188, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_1 = __pyx_t_5;
+      __Pyx_INCREF(__pyx_t_1);
+      __pyx_t_6 = 0;
+      {
+        PyObject *__pyx_callargs[2] = {__pyx_t_1, NULL};
+        __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_save_policy, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+        __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+      }
+      __pyx_t_7 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (likely(__pyx_t_7 == PYGEN_NEXT)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_XGIVEREF(__pyx_r);
+        __Pyx_RefNannyFinishContext();
+        __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+        /* return from generator, awaiting value */
+        __pyx_generator->resume_label = 1;
+        return __pyx_r;
+        __pyx_L6_resume_from_await:;
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 188, __pyx_L1_error)
+      } else if (likely(__pyx_t_7 == PYGEN_RETURN)) {
+        __Pyx_GOTREF(__pyx_r);
+        __Pyx_DECREF(__pyx_r); __pyx_r = 0;
+      } else {
+        __Pyx_XGOTREF(__pyx_r);
+        __PYX_ERR(0, 188, __pyx_L1_error)
+      }
+
+      /* "casbin_engine.py":187
+ *         if self._enforcer is not None:
+ *             #  auto_save
+ *             if not self._enforcer.auto_save:             # <<<<<<<<<<<<<<
+ *                 await self._enforcer.save_policy()
+ * 
+*/
+    }
+
+    /* "casbin_engine.py":191
+ * 
+ *             # noinspection PyAttributeOutsideInit
+ *             self._enforcer = None             # <<<<<<<<<<<<<<
+ * 
+ *         #
+*/
+    if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer, Py_None) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
+
+    /* "casbin_engine.py":185
+ *     async def close(self):
+ *         """"""
+ *         if self._enforcer is not None:             # <<<<<<<<<<<<<<
+ *             #  auto_save
+ *             if not self._enforcer.auto_save:
+*/
+  }
+
+  /* "casbin_engine.py":194
+ * 
+ *         #
+ *         self.policies.clear()             # <<<<<<<<<<<<<<
+ * 
+ *         logging.debug("")
+*/
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_policies); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __pyx_t_1;
+  __Pyx_INCREF(__pyx_t_5);
+  __pyx_t_6 = 0;
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_5, NULL};
+    __pyx_t_3 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_clear, __pyx_callargs+__pyx_t_6, (1-__pyx_t_6) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "casbin_engine.py":196
+ *         self.policies.clear()
+ * 
+ *         logging.debug("")             # <<<<<<<<<<<<<<
+*/
+  __pyx_t_1 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_6 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_8))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_8);
+    assert(__pyx_t_1);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_8);
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_8, __pyx__function);
+    __pyx_t_6 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_n_u__7};
+    __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
+
+  /* "casbin_engine.py":183
+ *             act.append(p_act)
+ * 
+ *     async def close(self):             # <<<<<<<<<<<<<<
+ *         """"""
+ *         if self._enforcer is not None:
+*/
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_8);
+  if (__Pyx_PyErr_Occurred()) {
+    __Pyx_Generator_Replace_StopIteration(0);
+    __Pyx_AddTraceback("close", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  }
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  #if !CYTHON_USE_EXC_INFO_STACK
+  __Pyx_Coroutine_ResetAndClearException(__pyx_generator);
+  #endif
+  __pyx_generator->resume_label = -1;
+  __Pyx_Coroutine_clear((PyObject*)__pyx_generator);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
 /* #### Code section: module_exttypes ### */
 
-static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct__check_table(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct__load(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__check_table > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct__check_table[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__check_table];
-    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__load > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__load)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct__load[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__load];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__load));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -5662,11 +10014,11 @@ static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct__check_table(Py
   return o;
 }
 
-static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__check_table(PyObject *o) {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *)o;
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__load(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__check_table) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__load) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -5674,8 +10026,8 @@ static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__check_table(PyO
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_v_self);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__check_table < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table)))) {
-    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct__check_table[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__check_table++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__load < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__load)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct__load[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct__load++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *)o);
   } else
   #endif
   {
@@ -5690,9 +10042,9 @@ static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__check_table(PyO
   }
 }
 
-static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct__check_table(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct__load(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table *)o;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct__load *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -5703,27 +10055,27 @@ static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct__check_table(PyO
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct__check_table_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__check_table},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct__check_table},
-  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct__check_table},
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct__load_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__load},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct__load},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct__load},
   {0, 0},
 };
-static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct__check_table_spec = {
-  "casbin_engine.__pyx_scope_struct__check_table",
-  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table),
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct__load_spec = {
+  "casbin_engine.__pyx_scope_struct__load",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__load),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_13casbin_engine___pyx_scope_struct__check_table_slots,
+  __pyx_type_13casbin_engine___pyx_scope_struct__load_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct__check_table = {
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct__load = {
   PyVarObject_HEAD_INIT(0, 0)
-  "casbin_engine.""__pyx_scope_struct__check_table", /*tp_name*/
-  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__check_table), /*tp_basicsize*/
+  "casbin_engine.""__pyx_scope_struct__load", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct__load), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__check_table, /*tp_dealloc*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct__load, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -5745,7 +10097,7 @@ static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct__check_table =
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct__check_table, /*tp_traverse*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct__load, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -5763,7 +10115,7 @@ static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct__check_table =
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_13casbin_engine___pyx_scope_struct__check_table, /*tp_new*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct__load, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -5796,16 +10148,16 @@ static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct__check_table =
 };
 #endif
 
-static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_1__check_table_exists(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_1_rebuild(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1__check_table_exists > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists)))) {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_1__check_table_exists[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1__check_table_exists];
-    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists));
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1_rebuild > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_1_rebuild[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1_rebuild];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -5818,11 +10170,519 @@ static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_1__check_table_
   return o;
 }
 
-static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1__check_table_exists(PyObject *o) {
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *)o;
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1_rebuild(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1__check_table_exists) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1_rebuild) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_act);
+  Py_CLEAR(p->__pyx_v_acts);
+  Py_CLEAR(p->__pyx_v_admin_role);
+  Py_CLEAR(p->__pyx_v_admin_user);
+  Py_CLEAR(p->__pyx_v_obj);
+  Py_CLEAR(p->__pyx_v_role);
+  Py_CLEAR(p->__pyx_v_roles);
+  Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_t_0);
+  Py_CLEAR(p->__pyx_t_1);
+  Py_CLEAR(p->__pyx_t_2);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1_rebuild < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_1_rebuild[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1_rebuild++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_1_rebuild(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_act) {
+    e = (*v)(p->__pyx_v_act, a); if (e) return e;
+  }
+  if (p->__pyx_v_acts) {
+    e = (*v)(p->__pyx_v_acts, a); if (e) return e;
+  }
+  if (p->__pyx_v_admin_role) {
+    e = (*v)(p->__pyx_v_admin_role, a); if (e) return e;
+  }
+  if (p->__pyx_v_admin_user) {
+    e = (*v)(p->__pyx_v_admin_user, a); if (e) return e;
+  }
+  if (p->__pyx_v_obj) {
+    e = (*v)(p->__pyx_v_obj, a); if (e) return e;
+  }
+  if (p->__pyx_v_role) {
+    e = (*v)(p->__pyx_v_role, a); if (e) return e;
+  }
+  if (p->__pyx_v_roles) {
+    e = (*v)(p->__pyx_v_roles, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  if (p->__pyx_t_0) {
+    e = (*v)(p->__pyx_t_0, a); if (e) return e;
+  }
+  if (p->__pyx_t_1) {
+    e = (*v)(p->__pyx_t_1, a); if (e) return e;
+  }
+  if (p->__pyx_t_2) {
+    e = (*v)(p->__pyx_t_2, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1_rebuild},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_1_rebuild},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_1_rebuild},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild_spec = {
+  "casbin_engine.__pyx_scope_struct_1_rebuild",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_1_rebuild", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1_rebuild), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1_rebuild, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_1_rebuild, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_1_rebuild, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_2_save(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_2_save > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_2_save[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_2_save];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_2_save(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_2_save) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_self);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_2_save < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_2_save[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_2_save++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_2_save(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_2_save_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_2_save},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_2_save},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_2_save},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_2_save_spec = {
+  "casbin_engine.__pyx_scope_struct_2_save",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_2_save_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_2_save = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_2_save", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_2_save), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_2_save, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_2_save, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_2_save, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_3_check_table(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_3_check_table > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_3_check_table[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_3_check_table];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_3_check_table(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_3_check_table) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_self);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_3_check_table < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_3_check_table[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_3_check_table++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_3_check_table(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_3_check_table_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_3_check_table},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_3_check_table},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_3_check_table},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_3_check_table_spec = {
+  "casbin_engine.__pyx_scope_struct_3_check_table",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_3_check_table_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_3_check_table = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_3_check_table", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_3_check_table), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_3_check_table, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_3_check_table, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_3_check_table, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_4__check_table_exists(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_4__check_table_exists > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_4__check_table_exists[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_4__check_table_exists];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_4__check_table_exists(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_4__check_table_exists) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -5840,8 +10700,8 @@ static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1__check_table_e
   Py_CLEAR(p->__pyx_t_6);
   Py_CLEAR(p->__pyx_t_7);
   #if CYTHON_USE_FREELISTS
-  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1__check_table_exists < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists)))) {
-    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_1__check_table_exists[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_1__check_table_exists++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *)o);
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_4__check_table_exists < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_4__check_table_exists[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_4__check_table_exists++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *)o);
   } else
   #endif
   {
@@ -5856,9 +10716,9 @@ static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1__check_table_e
   }
 }
 
-static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_1__check_table_exists(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_4__check_table_exists(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists *)o;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -5899,27 +10759,27 @@ static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_1__check_table_e
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1__check_table_exists},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_1__check_table_exists},
-  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_1__check_table_exists},
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_4__check_table_exists},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_4__check_table_exists},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_4__check_table_exists},
   {0, 0},
 };
-static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_spec = {
-  "casbin_engine.__pyx_scope_struct_1__check_table_exists",
-  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists),
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists_spec = {
+  "casbin_engine.__pyx_scope_struct_4__check_table_exists",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_slots,
+  __pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists = {
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists = {
   PyVarObject_HEAD_INIT(0, 0)
-  "casbin_engine.""__pyx_scope_struct_1__check_table_exists", /*tp_name*/
-  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_1__check_table_exists), /*tp_basicsize*/
+  "casbin_engine.""__pyx_scope_struct_4__check_table_exists", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_4__check_table_exists), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_1__check_table_exists, /*tp_dealloc*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_4__check_table_exists, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -5941,7 +10801,7 @@ static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_1__check_table
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_1__check_table_exists, /*tp_traverse*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_4__check_table_exists, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -5959,7 +10819,991 @@ static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_1__check_table
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_13casbin_engine___pyx_scope_struct_1__check_table_exists, /*tp_new*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_4__check_table_exists, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_5_set_role_policy(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_5_set_role_policy > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_5_set_role_policy[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_5_set_role_policy];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_5_set_role_policy(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_5_set_role_policy) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_act);
+  Py_CLEAR(p->__pyx_v_obj);
+  Py_CLEAR(p->__pyx_v_role);
+  Py_CLEAR(p->__pyx_v_self);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_5_set_role_policy < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_5_set_role_policy[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_5_set_role_policy++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_5_set_role_policy(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_act) {
+    e = (*v)(p->__pyx_v_act, a); if (e) return e;
+  }
+  if (p->__pyx_v_obj) {
+    e = (*v)(p->__pyx_v_obj, a); if (e) return e;
+  }
+  if (p->__pyx_v_role) {
+    e = (*v)(p->__pyx_v_role, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_5_set_role_policy},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_5_set_role_policy},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_5_set_role_policy},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy_spec = {
+  "casbin_engine.__pyx_scope_struct_5_set_role_policy",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_5_set_role_policy", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_5_set_role_policy), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_5_set_role_policy, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_5_set_role_policy, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_5_set_role_policy, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_6__set_grouping_policy(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_6__set_grouping_policy > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_6__set_grouping_policy[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_6__set_grouping_policy];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_6__set_grouping_policy(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_6__set_grouping_policy) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_c_obj);
+  Py_CLEAR(p->__pyx_v_p_obj);
+  Py_CLEAR(p->__pyx_v_self);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_6__set_grouping_policy < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_6__set_grouping_policy[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_6__set_grouping_policy++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_6__set_grouping_policy(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_c_obj) {
+    e = (*v)(p->__pyx_v_c_obj, a); if (e) return e;
+  }
+  if (p->__pyx_v_p_obj) {
+    e = (*v)(p->__pyx_v_p_obj, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_6__set_grouping_policy},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_6__set_grouping_policy},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_6__set_grouping_policy},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy_spec = {
+  "casbin_engine.__pyx_scope_struct_6__set_grouping_policy",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_6__set_grouping_policy", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_6__set_grouping_policy), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_6__set_grouping_policy, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_6__set_grouping_policy, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_6__set_grouping_policy, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_7_set_inherit_role(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_7_set_inherit_role > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_7_set_inherit_role[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_7_set_inherit_role];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_7_set_inherit_role(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_7_set_inherit_role) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_c_role);
+  Py_CLEAR(p->__pyx_v_p_role);
+  Py_CLEAR(p->__pyx_v_self);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_7_set_inherit_role < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_7_set_inherit_role[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_7_set_inherit_role++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_7_set_inherit_role(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_c_role) {
+    e = (*v)(p->__pyx_v_c_role, a); if (e) return e;
+  }
+  if (p->__pyx_v_p_role) {
+    e = (*v)(p->__pyx_v_p_role, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_7_set_inherit_role},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_7_set_inherit_role},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_7_set_inherit_role},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role_spec = {
+  "casbin_engine.__pyx_scope_struct_7_set_inherit_role",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_7_set_inherit_role", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_7_set_inherit_role), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_7_set_inherit_role, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_7_set_inherit_role, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_7_set_inherit_role, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_8_set_user_role(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_8_set_user_role > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_8_set_user_role[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_8_set_user_role];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_8_set_user_role(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_8_set_user_role) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_role);
+  Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_user);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_8_set_user_role < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_8_set_user_role[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_8_set_user_role++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_8_set_user_role(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_role) {
+    e = (*v)(p->__pyx_v_role, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  if (p->__pyx_v_user) {
+    e = (*v)(p->__pyx_v_user, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_8_set_user_role},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_8_set_user_role},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_8_set_user_role},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role_spec = {
+  "casbin_engine.__pyx_scope_struct_8_set_user_role",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_8_set_user_role", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_8_set_user_role), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_8_set_user_role, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_8_set_user_role, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_8_set_user_role, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_9_has_role(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_9_has_role > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_9_has_role[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_9_has_role];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_9_has_role(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_9_has_role) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_role);
+  Py_CLEAR(p->__pyx_v_self);
+  Py_CLEAR(p->__pyx_v_user);
+  Py_CLEAR(p->__pyx_t_0);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_9_has_role < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_9_has_role[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_9_has_role++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_9_has_role(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_role) {
+    e = (*v)(p->__pyx_v_role, a); if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  if (p->__pyx_v_user) {
+    e = (*v)(p->__pyx_v_user, a); if (e) return e;
+  }
+  if (p->__pyx_t_0) {
+    e = (*v)(p->__pyx_t_0, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_9_has_role_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_9_has_role},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_9_has_role},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_9_has_role},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_9_has_role_spec = {
+  "casbin_engine.__pyx_scope_struct_9_has_role",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_9_has_role_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_9_has_role = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_9_has_role", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_9_has_role), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_9_has_role, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_9_has_role, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_9_has_role, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b1 && (!CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800)
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_13casbin_engine___pyx_scope_struct_10_close(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_COMPILING_IN_LIMITED_API
+  allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
+  o = alloc_func(t, 0);
+  #else
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_10_close > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close)))) {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_10_close[--__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_10_close];
+    memset(o, 0, sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close));
+    (void) PyObject_INIT(o, t);
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = (*t->tp_alloc)(t, 0);
+    if (unlikely(!o)) return 0;
+  }
+  #endif
+  return o;
+}
+
+static void __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_10_close(PyObject *o) {
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_10_close) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_self);
+  #if CYTHON_USE_FREELISTS
+  if (((int)(__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_10_close < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close)))) {
+    __pyx_mstate_global->__pyx_freelist_13casbin_engine___pyx_scope_struct_10_close[__pyx_mstate_global->__pyx_freecount_13casbin_engine___pyx_scope_struct_10_close++] = ((struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *)o);
+  } else
+  #endif
+  {
+    #if CYTHON_USE_TYPE_SLOTS
+    (*Py_TYPE(o)->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(Py_TYPE(o), Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_10_close(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *p = (struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_self) {
+    e = (*v)(p->__pyx_v_self, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_13casbin_engine___pyx_scope_struct_10_close_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_10_close},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_13casbin_engine___pyx_scope_struct_10_close},
+  {Py_tp_new, (void *)__pyx_tp_new_13casbin_engine___pyx_scope_struct_10_close},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_13casbin_engine___pyx_scope_struct_10_close_spec = {
+  "casbin_engine.__pyx_scope_struct_10_close",
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
+  __pyx_type_13casbin_engine___pyx_scope_struct_10_close_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_13casbin_engine___pyx_scope_struct_10_close = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "casbin_engine.""__pyx_scope_struct_10_close", /*tp_name*/
+  sizeof(struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_13casbin_engine___pyx_scope_struct_10_close, /*tp_dealloc*/
+  #if PY_VERSION_HEX < 0x030800b4
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030800b4
+  0, /*tp_vectorcall_offset*/
+  #endif
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_13casbin_engine___pyx_scope_struct_10_close, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_13casbin_engine___pyx_scope_struct_10_close, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -6046,35 +11890,179 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct__check_table_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table)) __PYX_ERR(0, 106, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct__check_table_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct__load_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load)) __PYX_ERR(0, 68, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct__load_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table = &__pyx_type_13casbin_engine___pyx_scope_struct__check_table;
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load = &__pyx_type_13casbin_engine___pyx_scope_struct__load;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__check_table->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct__load->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists)) __PYX_ERR(0, 124, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild)) __PYX_ERR(0, 81, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists = &__pyx_type_13casbin_engine___pyx_scope_struct_1__check_table_exists;
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild = &__pyx_type_13casbin_engine___pyx_scope_struct_1_rebuild;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1__check_table_exists->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_1_rebuild->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_2_save_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save)) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_2_save_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save = &__pyx_type_13casbin_engine___pyx_scope_struct_2_save;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_2_save->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_3_check_table_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table)) __PYX_ERR(0, 116, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_3_check_table_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table = &__pyx_type_13casbin_engine___pyx_scope_struct_3_check_table;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_3_check_table->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists)) __PYX_ERR(0, 130, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists = &__pyx_type_13casbin_engine___pyx_scope_struct_4__check_table_exists;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_4__check_table_exists->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy)) __PYX_ERR(0, 150, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy = &__pyx_type_13casbin_engine___pyx_scope_struct_5_set_role_policy;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_5_set_role_policy->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy)) __PYX_ERR(0, 153, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy = &__pyx_type_13casbin_engine___pyx_scope_struct_6__set_grouping_policy;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_6__set_grouping_policy->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role)) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role = &__pyx_type_13casbin_engine___pyx_scope_struct_7_set_inherit_role;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_7_set_inherit_role->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role)) __PYX_ERR(0, 159, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role = &__pyx_type_13casbin_engine___pyx_scope_struct_8_set_user_role;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_8_set_user_role->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_9_has_role_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role)) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_9_has_role_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role = &__pyx_type_13casbin_engine___pyx_scope_struct_9_has_role;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_9_has_role->tp_getattro = PyObject_GenericGetAttr;
+  }
+  #endif
+  #if CYTHON_USE_TYPE_SPECS
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13casbin_engine___pyx_scope_struct_10_close_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close)) __PYX_ERR(0, 183, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13casbin_engine___pyx_scope_struct_10_close_spec, __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close) < 0) __PYX_ERR(0, 183, __pyx_L1_error)
+  #else
+  __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close = &__pyx_type_13casbin_engine___pyx_scope_struct_10_close;
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  #endif
+  #if !CYTHON_USE_TYPE_SPECS
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close) < 0) __PYX_ERR(0, 183, __pyx_L1_error)
+  #endif
+  #if !CYTHON_COMPILING_IN_LIMITED_API
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close->tp_dictoffset && __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_13casbin_engine___pyx_scope_struct_10_close->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   __Pyx_RefNannyFinishContext();
@@ -6451,7 +12439,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
  * from casbin_async_sqlalchemy_adapter import Adapter as SQLAlchemyAdapter
  * from sqlalchemy import inspect             # <<<<<<<<<<<<<<
  * 
- * from ..entity_table.t_auth_rule import AuthRule
+ * from shudaodao_core import DatabaseEngine, AppConfig, logging, CoreUtil
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_inspect); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -6467,48 +12455,48 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
   /* "casbin_engine.py":16
  * from sqlalchemy import inspect
  * 
- * from ..entity_table.t_auth_rule import AuthRule             # <<<<<<<<<<<<<<
- * from shudaodao_core import DatabaseEngine, AppConfig, logging, CoreUtil
+ * from shudaodao_core import DatabaseEngine, AppConfig, logging, CoreUtil             # <<<<<<<<<<<<<<
+ * from ..entity_table.t_auth_rule import AuthRule
  * 
 */
-  __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_DatabaseEngine, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_mstate_global->__pyx_n_u_logging, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_table_t_auth_rule, __pyx_t_3, 2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_3, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_DatabaseEngine); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthRule, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DatabaseEngine, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_3) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "casbin_engine.py":17
  * 
- * from ..entity_table.t_auth_rule import AuthRule
- * from shudaodao_core import DatabaseEngine, AppConfig, logging, CoreUtil             # <<<<<<<<<<<<<<
+ * from shudaodao_core import DatabaseEngine, AppConfig, logging, CoreUtil
+ * from ..entity_table.t_auth_rule import AuthRule             # <<<<<<<<<<<<<<
  * 
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_DatabaseEngine, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_mstate_global->__pyx_n_u_logging, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_entity_table_t_auth_rule, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_DatabaseEngine); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AuthRule); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DatabaseEngine, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AppConfig, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_logging, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CoreUtil, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_AuthRule, __pyx_t_2) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -6516,32 +12504,32 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
  * 
  * 
  * class PermissionEngine:             # <<<<<<<<<<<<<<
- *     """Casbin
- * 
+ *     """Casbin """
+ *     _instance = None
 */
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_PermissionEngine, __pyx_mstate_global->__pyx_n_u_PermissionEngine, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_kp_u_Casbin_Casbin_AsyncEnforcer_SQLA); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_mstate_global->__pyx_empty_tuple, __pyx_mstate_global->__pyx_n_u_PermissionEngine, __pyx_mstate_global->__pyx_n_u_PermissionEngine, (PyObject *) NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_kp_u_Casbin); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "casbin_engine.py":38
- *     """
- * 
+  /* "casbin_engine.py":22
+ * class PermissionEngine:
+ *     """Casbin """
  *     _instance = None             # <<<<<<<<<<<<<<
  *     _lock = threading.Lock()
  * 
 */
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_instance, Py_None) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_instance, Py_None) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
 
-  /* "casbin_engine.py":39
- * 
+  /* "casbin_engine.py":23
+ *     """Casbin """
  *     _instance = None
  *     _lock = threading.Lock()             # <<<<<<<<<<<<<<
  * 
  *     def __new__(cls):
 */
   __pyx_t_4 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_threading); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_Lock); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 39, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_Lock); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_7 = 1;
@@ -6550,93 +12538,220 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_7, (1-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_lock, __pyx_t_2) < 0) __PYX_ERR(0, 39, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_lock, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "casbin_engine.py":41
+  /* "casbin_engine.py":25
  *     _lock = threading.Lock()
  * 
  *     def __new__(cls):             # <<<<<<<<<<<<<<
- *         """
- * 
+ *         if cls._instance is None:
+ *             with cls._lock:
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_1__new__, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_PermissionEngine___new, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_1__new__, __Pyx_CYFUNCTION_STATICMETHOD, __pyx_mstate_global->__pyx_n_u_PermissionEngine___new, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[13])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetNewInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_new, __pyx_t_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_SetNewInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_new, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "casbin_engine.py":54
+  /* "casbin_engine.py":33
  *         return cls._instance
  * 
  *     def _load(self):             # <<<<<<<<<<<<<<
- *         """ Casbin
- * 
+ *         """ Casbin """
+ *         self._enforcer = None
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_3_load, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__load, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_3_load, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__load, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[14])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_2) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_load, __pyx_t_2) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "casbin_engine.py":96
- *         self._enforcer.enable_auto_build_role_links(True)
+  /* "casbin_engine.py":68
+ *         self.policies = {}
  * 
- *     def get_async_enforcer(self) -> AsyncEnforcer:             # <<<<<<<<<<<<<<
- *         """ Casbin Enforcer
+ *     async def load(self):             # <<<<<<<<<<<<<<
+ *         # logging.debug(f"...")
+ *         await self._enforcer.load_policy()
+*/
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_5load, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_load, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_load_2, __pyx_t_2) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":73
+ *         self._check_count()
+ * 
+ *     def _check_count(self):             # <<<<<<<<<<<<<<
+ *         #
+ *         _count_policy = len(self._enforcer.get_policy()).__str__()
+*/
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_8_check_count, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_count, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[15])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_check_count, __pyx_t_2) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":81
+ *         logging.debug(f" - {_count_grouping.rjust(_max_length)} ")
+ * 
+ *     async def rebuild(self):             # <<<<<<<<<<<<<<
+ *         self._enforcer.clear_policy()
+ *         await self.save()
+*/
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_10rebuild, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_rebuild, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_rebuild, __pyx_t_2) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "casbin_engine.py":113
+ *         self._check_count()
+ * 
+ *     async def save(self):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.save_policy()
  * 
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_13save, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_save, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_5get_async_enforcer, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine_get_async_enfor, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 96, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_6, __pyx_t_2);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_save, __pyx_t_2) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_get_async_enforcer, __pyx_t_6) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "casbin_engine.py":106
- *         return self._enforcer
+  /* "casbin_engine.py":116
+ *         await self._enforcer.save_policy()
  * 
  *     async def check_table(self):             # <<<<<<<<<<<<<<
  *         """
  * 
 */
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_7check_table, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 106, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_t_6) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_16check_table, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_check_table, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_check_table, __pyx_t_2) < 0) __PYX_ERR(0, 116, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "casbin_engine.py":124
- *             await self._enforcer.save_policy()
+  /* "casbin_engine.py":130
+ *                 await self.adapter.create_table()
  * 
  *     async def _check_table_exists(self) -> bool:             # <<<<<<<<<<<<<<
  *         """ `AuthRule`
  * 
 */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 124, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_10_check_table_exists, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_6);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_t_2) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_bool) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_19_check_table_exists, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine__check_table_ex, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_6, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_check_table_exists, __pyx_t_6) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":150
+ *                 )
+ * 
+ *     async def set_role_policy(self, role, obj, act):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_22set_role_policy, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_set_role_policy, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_role_policy, __pyx_t_6) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":153
+ *         await self._enforcer.add_policy(f"role::{role}", obj, act)
+ * 
+ *     async def _set_grouping_policy(self, *, p_obj, c_obj):             # <<<<<<<<<<<<<<
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_25_set_grouping_policy, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine__set_grouping_p, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_grouping_policy, __pyx_t_6) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":156
+ *         await self._enforcer.add_grouping_policy(p_obj, c_obj)
+ * 
+ *     async def set_inherit_role(self, *, p_role, c_role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_28set_inherit_role, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_set_inherit_rol, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_inherit_role, __pyx_t_6) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":159
+ *         await self._set_grouping_policy(p_obj=f"role::{p_role}", c_obj=f"role::{c_role}")
+ * 
+ *     async def set_user_role(self, *, user, role):             # <<<<<<<<<<<<<<
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_31set_user_role, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_set_user_role, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_set_user_role, __pyx_t_6) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":162
+ *         await self._set_grouping_policy(p_obj=f"user::{user}", c_obj=f"role::{role}")
+ * 
+ *     async def has_role(self, user, role):             # <<<<<<<<<<<<<<
+ *         if f"role::{role}" not in await self._enforcer.get_implicit_roles_for_user(f"user::{user}"):
+ *             return False
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_34has_role, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_has_role, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[11])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_has_role, __pyx_t_6) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":167
+ *         return True
+ * 
+ *     def has_permission(self, user, obj, act):             # <<<<<<<<<<<<<<
+ *         return self._enforcer.enforce(f"user::{user}", obj, act)
+ * 
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_37has_permission, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine_has_permission, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[16])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_has_permission, __pyx_t_6) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":170
+ *         return self._enforcer.enforce(f"user::{user}", obj, act)
+ * 
+ *     def add_policy(self, p_sub, p_obj, p_act):             # <<<<<<<<<<<<<<
+ *         # role dict
+ *         if p_sub not in self.policies:
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_39add_policy, 0, __pyx_mstate_global->__pyx_n_u_PermissionEngine_add_policy, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[17])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_add_policy, __pyx_t_6) < 0) __PYX_ERR(0, 170, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "casbin_engine.py":183
+ *             act.append(p_act)
+ * 
+ *     async def close(self):             # <<<<<<<<<<<<<<
+ *         """"""
+ *         if self._enforcer is not None:
+*/
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_41close, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_close, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[12])); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_close, __pyx_t_6) < 0) __PYX_ERR(0, 183, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
   /* "casbin_engine.py":20
  * 
  * 
  * class PermissionEngine:             # <<<<<<<<<<<<<<
- *     """Casbin
- * 
+ *     """Casbin """
+ *     _instance = None
 */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_PermissionEngine, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PermissionEngine, __pyx_t_2) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_6 = __Pyx_Py3ClassCreate(((PyObject*)&PyType_Type), __pyx_mstate_global->__pyx_n_u_PermissionEngine, __pyx_mstate_global->__pyx_empty_tuple, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PermissionEngine, __pyx_t_6) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "casbin_engine.py":1
@@ -6688,11 +12803,11 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
 
 typedef struct {
     const char *s;
-#if 2048 <= 65535
+#if 199 <= 65535
     const unsigned short n;
-#elif 2048 / 2 < INT_MAX
+#elif 199 / 2 < INT_MAX
     const unsigned int n;
-#elif 2048 / 2 < LONG_MAX
+#elif 199 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;
@@ -6717,56 +12832,91 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_AsyncEnforcer, sizeof(__pyx_k_AsyncEnforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncEnforcer */
   {__pyx_k_Auth, sizeof(__pyx_k_Auth), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Auth */
   {__pyx_k_AuthRule, sizeof(__pyx_k_AuthRule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AuthRule */
-  {__pyx_k_Casbin_Casbin_AsyncEnforcer_SQLA, sizeof(__pyx_k_Casbin_Casbin_AsyncEnforcer_SQLA), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Casbin_Casbin_AsyncEnforcer_SQLA */
+  {__pyx_k_Auth_2, sizeof(__pyx_k_Auth_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Auth_2 */
+  {__pyx_k_Casbin, sizeof(__pyx_k_Casbin), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Casbin */
   {__pyx_k_CoreUtil, sizeof(__pyx_k_CoreUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_CoreUtil */
   {__pyx_k_DatabaseEngine, sizeof(__pyx_k_DatabaseEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DatabaseEngine */
   {__pyx_k_Lock, sizeof(__pyx_k_Lock), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Lock */
   {__pyx_k_PermissionEngine, sizeof(__pyx_k_PermissionEngine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine */
-  {__pyx_k_PermissionEngine_2, sizeof(__pyx_k_PermissionEngine_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_PermissionEngine_2 */
   {__pyx_k_PermissionEngine___new, sizeof(__pyx_k_PermissionEngine___new), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine___new */
+  {__pyx_k_PermissionEngine__check_count, sizeof(__pyx_k_PermissionEngine__check_count), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine__check_count */
   {__pyx_k_PermissionEngine__check_table_ex, sizeof(__pyx_k_PermissionEngine__check_table_ex), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine__check_table_ex */
   {__pyx_k_PermissionEngine__check_table_ex_2, sizeof(__pyx_k_PermissionEngine__check_table_ex_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine__check_table_ex_2 */
   {__pyx_k_PermissionEngine__load, sizeof(__pyx_k_PermissionEngine__load), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine__load */
+  {__pyx_k_PermissionEngine__set_grouping_p, sizeof(__pyx_k_PermissionEngine__set_grouping_p), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine__set_grouping_p */
+  {__pyx_k_PermissionEngine_add_policy, sizeof(__pyx_k_PermissionEngine_add_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_add_policy */
   {__pyx_k_PermissionEngine_check_table, sizeof(__pyx_k_PermissionEngine_check_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_check_table */
-  {__pyx_k_PermissionEngine_get_async_enfor, sizeof(__pyx_k_PermissionEngine_get_async_enfor), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_get_async_enfor */
-  {__pyx_k_RuntimeError, sizeof(__pyx_k_RuntimeError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RuntimeError */
+  {__pyx_k_PermissionEngine_close, sizeof(__pyx_k_PermissionEngine_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_close */
+  {__pyx_k_PermissionEngine_has_permission, sizeof(__pyx_k_PermissionEngine_has_permission), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_has_permission */
+  {__pyx_k_PermissionEngine_has_role, sizeof(__pyx_k_PermissionEngine_has_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_has_role */
+  {__pyx_k_PermissionEngine_load, sizeof(__pyx_k_PermissionEngine_load), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_load */
+  {__pyx_k_PermissionEngine_rebuild, sizeof(__pyx_k_PermissionEngine_rebuild), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_rebuild */
+  {__pyx_k_PermissionEngine_save, sizeof(__pyx_k_PermissionEngine_save), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_save */
+  {__pyx_k_PermissionEngine_set_inherit_rol, sizeof(__pyx_k_PermissionEngine_set_inherit_rol), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_set_inherit_rol */
+  {__pyx_k_PermissionEngine_set_role_policy, sizeof(__pyx_k_PermissionEngine_set_role_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_set_role_policy */
+  {__pyx_k_PermissionEngine_set_user_role, sizeof(__pyx_k_PermissionEngine_set_user_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PermissionEngine_set_user_role */
   {__pyx_k_SQLAlchemyAdapter, sizeof(__pyx_k_SQLAlchemyAdapter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_SQLAlchemyAdapter */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
+  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 1}, /* PyObject cname: __pyx_n_u__7 */
+  {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__8 */
+  {__pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__9 */
+  {__pyx_k_act, sizeof(__pyx_k_act), 0, 1, 1}, /* PyObject cname: __pyx_n_u_act */
+  {__pyx_k_acts, sizeof(__pyx_k_acts), 0, 1, 1}, /* PyObject cname: __pyx_n_u_acts */
   {__pyx_k_adapter, sizeof(__pyx_k_adapter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_adapter */
+  {__pyx_k_add_grouping_policy, sizeof(__pyx_k_add_grouping_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add_grouping_policy */
+  {__pyx_k_add_policy, sizeof(__pyx_k_add_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add_policy */
+  {__pyx_k_admin_role, sizeof(__pyx_k_admin_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_admin_role */
+  {__pyx_k_admin_role_role, sizeof(__pyx_k_admin_role_role), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_admin_role_role */
+  {__pyx_k_admin_user, sizeof(__pyx_k_admin_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_admin_user */
+  {__pyx_k_admin_user_admin_role, sizeof(__pyx_k_admin_user_admin_role), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_admin_user_admin_role */
   {__pyx_k_aenter, sizeof(__pyx_k_aenter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_aenter */
   {__pyx_k_aexit, sizeof(__pyx_k_aexit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_aexit */
+  {__pyx_k_append, sizeof(__pyx_k_append), 0, 1, 1}, /* PyObject cname: __pyx_n_u_append */
   {__pyx_k_asyncio_coroutines, sizeof(__pyx_k_asyncio_coroutines), 0, 1, 1}, /* PyObject cname: __pyx_n_u_asyncio_coroutines */
   {__pyx_k_auth, sizeof(__pyx_k_auth), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auth */
+  {__pyx_k_auto_save, sizeof(__pyx_k_auto_save), 0, 1, 1}, /* PyObject cname: __pyx_n_u_auto_save */
   {__pyx_k_await, sizeof(__pyx_k_await), 0, 1, 1}, /* PyObject cname: __pyx_n_u_await */
   {__pyx_k_bool, sizeof(__pyx_k_bool), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bool */
+  {__pyx_k_c_obj, sizeof(__pyx_k_c_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_c_obj */
+  {__pyx_k_c_role, sizeof(__pyx_k_c_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_c_role */
   {__pyx_k_casbin, sizeof(__pyx_k_casbin), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_casbin */
   {__pyx_k_casbin_2, sizeof(__pyx_k_casbin_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin_2 */
   {__pyx_k_casbin_async_sqlalchemy_adapter, sizeof(__pyx_k_casbin_async_sqlalchemy_adapter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin_async_sqlalchemy_adapter */
   {__pyx_k_casbin_engine, sizeof(__pyx_k_casbin_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin_engine */
   {__pyx_k_casbin_engine_py, sizeof(__pyx_k_casbin_engine_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_casbin_engine_py */
   {__pyx_k_casbin_model_conf, sizeof(__pyx_k_casbin_model_conf), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_casbin_model_conf */
+  {__pyx_k_check_count, sizeof(__pyx_k_check_count), 0, 1, 1}, /* PyObject cname: __pyx_n_u_check_count */
   {__pyx_k_check_table, sizeof(__pyx_k_check_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_check_table */
   {__pyx_k_check_table_exists, sizeof(__pyx_k_check_table_exists), 0, 1, 1}, /* PyObject cname: __pyx_n_u_check_table_exists */
+  {__pyx_k_class_getitem, sizeof(__pyx_k_class_getitem), 0, 1, 1}, /* PyObject cname: __pyx_n_u_class_getitem */
+  {__pyx_k_clear, sizeof(__pyx_k_clear), 0, 1, 1}, /* PyObject cname: __pyx_n_u_clear */
   {__pyx_k_clear_policy, sizeof(__pyx_k_clear_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_clear_policy */
   {__pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cline_in_traceback */
   {__pyx_k_close, sizeof(__pyx_k_close), 0, 1, 1}, /* PyObject cname: __pyx_n_u_close */
   {__pyx_k_cls, sizeof(__pyx_k_cls), 0, 1, 1}, /* PyObject cname: __pyx_n_u_cls */
+  {__pyx_k_config_casbin_model_conf, sizeof(__pyx_k_config_casbin_model_conf), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_config_casbin_model_conf */
   {__pyx_k_conn, sizeof(__pyx_k_conn), 0, 1, 1}, /* PyObject cname: __pyx_n_u_conn */
   {__pyx_k_connect, sizeof(__pyx_k_connect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_connect */
+  {__pyx_k_count_grouping, sizeof(__pyx_k_count_grouping), 0, 1, 1}, /* PyObject cname: __pyx_n_u_count_grouping */
+  {__pyx_k_count_policy, sizeof(__pyx_k_count_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_count_policy */
   {__pyx_k_create_table, sizeof(__pyx_k_create_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_create_table */
   {__pyx_k_database_engine, sizeof(__pyx_k_database_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_database_engine */
   {__pyx_k_db_class, sizeof(__pyx_k_db_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_db_class */
   {__pyx_k_debug, sizeof(__pyx_k_debug), 0, 1, 1}, /* PyObject cname: __pyx_n_u_debug */
   {__pyx_k_debug_line, sizeof(__pyx_k_debug_line), 0, 1, 1}, /* PyObject cname: __pyx_n_u_debug_line */
+  {__pyx_k_default_admin_roles, sizeof(__pyx_k_default_admin_roles), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_admin_roles */
+  {__pyx_k_default_admin_users, sizeof(__pyx_k_default_admin_users), 0, 1, 1}, /* PyObject cname: __pyx_n_u_default_admin_users */
   {__pyx_k_disable, sizeof(__pyx_k_disable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_disable */
   {__pyx_k_doc, sizeof(__pyx_k_doc), 0, 1, 1}, /* PyObject cname: __pyx_n_u_doc */
+  {__pyx_k_drivername, sizeof(__pyx_k_drivername), 0, 1, 1}, /* PyObject cname: __pyx_n_u_drivername */
   {__pyx_k_enable, sizeof(__pyx_k_enable), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_enable */
   {__pyx_k_enable_auto_build_role_links, sizeof(__pyx_k_enable_auto_build_role_links), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enable_auto_build_role_links */
   {__pyx_k_enable_auto_save, sizeof(__pyx_k_enable_auto_save), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enable_auto_save */
+  {__pyx_k_enforce, sizeof(__pyx_k_enforce), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enforce */
   {__pyx_k_enforcer, sizeof(__pyx_k_enforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enforcer */
   {__pyx_k_engine, sizeof(__pyx_k_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_engine */
   {__pyx_k_enter, sizeof(__pyx_k_enter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_enter */
@@ -6774,42 +12924,67 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_exit, sizeof(__pyx_k_exit), 0, 1, 1}, /* PyObject cname: __pyx_n_u_exit */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
-  {__pyx_k_get_async_enforcer, sizeof(__pyx_k_get_async_enforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_async_enforcer */
   {__pyx_k_get_async_engine, sizeof(__pyx_k_get_async_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_async_engine */
   {__pyx_k_get_config_path, sizeof(__pyx_k_get_config_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_config_path */
+  {__pyx_k_get_grouping_policy, sizeof(__pyx_k_get_grouping_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_grouping_policy */
+  {__pyx_k_get_implicit_roles_for_user, sizeof(__pyx_k_get_implicit_roles_for_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_implicit_roles_for_user */
+  {__pyx_k_get_policy, sizeof(__pyx_k_get_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_policy */
+  {__pyx_k_has_permission, sizeof(__pyx_k_has_permission), 0, 1, 1}, /* PyObject cname: __pyx_n_u_has_permission */
+  {__pyx_k_has_role, sizeof(__pyx_k_has_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_has_role */
   {__pyx_k_has_table, sizeof(__pyx_k_has_table), 0, 1, 1}, /* PyObject cname: __pyx_n_u_has_table */
   {__pyx_k_initializing, sizeof(__pyx_k_initializing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_initializing */
   {__pyx_k_inspect, sizeof(__pyx_k_inspect), 0, 1, 1}, /* PyObject cname: __pyx_n_u_inspect */
   {__pyx_k_instance, sizeof(__pyx_k_instance), 0, 1, 1}, /* PyObject cname: __pyx_n_u_instance */
   {__pyx_k_is_coroutine, sizeof(__pyx_k_is_coroutine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_is_coroutine */
   {__pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_isenabled */
+  {__pyx_k_items, sizeof(__pyx_k_items), 0, 1, 1}, /* PyObject cname: __pyx_n_u_items */
   {__pyx_k_lambda, sizeof(__pyx_k_lambda), 0, 1, 1}, /* PyObject cname: __pyx_n_u_lambda */
   {__pyx_k_load, sizeof(__pyx_k_load), 0, 1, 1}, /* PyObject cname: __pyx_n_u_load */
+  {__pyx_k_load_2, sizeof(__pyx_k_load_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_load_2 */
+  {__pyx_k_load_policy, sizeof(__pyx_k_load_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_load_policy */
   {__pyx_k_lock, sizeof(__pyx_k_lock), 0, 1, 1}, /* PyObject cname: __pyx_n_u_lock */
   {__pyx_k_logging, sizeof(__pyx_k_logging), 0, 1, 1}, /* PyObject cname: __pyx_n_u_logging */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
+  {__pyx_k_max_length, sizeof(__pyx_k_max_length), 0, 1, 1}, /* PyObject cname: __pyx_n_u_max_length */
   {__pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metaclass */
   {__pyx_k_model, sizeof(__pyx_k_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model */
   {__pyx_k_model_path, sizeof(__pyx_k_model_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_path */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
-  {__pyx_k_name_Auth, sizeof(__pyx_k_name_Auth), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_name_Auth */
   {__pyx_k_new, sizeof(__pyx_k_new), 0, 1, 1}, /* PyObject cname: __pyx_n_u_new */
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
+  {__pyx_k_obj, sizeof(__pyx_k_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_obj */
+  {__pyx_k_p_act, sizeof(__pyx_k_p_act), 0, 1, 1}, /* PyObject cname: __pyx_n_u_p_act */
+  {__pyx_k_p_obj, sizeof(__pyx_k_p_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_p_obj */
+  {__pyx_k_p_role, sizeof(__pyx_k_p_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_p_role */
+  {__pyx_k_p_sub, sizeof(__pyx_k_p_sub), 0, 1, 1}, /* PyObject cname: __pyx_n_u_p_sub */
+  {__pyx_k_policies, sizeof(__pyx_k_policies), 0, 1, 1}, /* PyObject cname: __pyx_n_u_policies */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prepare */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
+  {__pyx_k_rebuild, sizeof(__pyx_k_rebuild), 0, 1, 1}, /* PyObject cname: __pyx_n_u_rebuild */
   {__pyx_k_rebuild_auth_rule, sizeof(__pyx_k_rebuild_auth_rule), 0, 1, 1}, /* PyObject cname: __pyx_n_u_rebuild_auth_rule */
   {__pyx_k_return, sizeof(__pyx_k_return), 0, 1, 1}, /* PyObject cname: __pyx_n_u_return */
+  {__pyx_k_rjust, sizeof(__pyx_k_rjust), 0, 1, 1}, /* PyObject cname: __pyx_n_u_rjust */
+  {__pyx_k_role, sizeof(__pyx_k_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_role */
+  {__pyx_k_role_2, sizeof(__pyx_k_role_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_role_2 */
+  {__pyx_k_role_obj_act, sizeof(__pyx_k_role_obj_act), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_role_obj_act */
+  {__pyx_k_roles, sizeof(__pyx_k_roles), 0, 1, 1}, /* PyObject cname: __pyx_n_u_roles */
   {__pyx_k_run_sync, sizeof(__pyx_k_run_sync), 0, 1, 1}, /* PyObject cname: __pyx_n_u_run_sync */
+  {__pyx_k_save, sizeof(__pyx_k_save), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save */
   {__pyx_k_save_policy, sizeof(__pyx_k_save_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_policy */
   {__pyx_k_schema, sizeof(__pyx_k_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_schema */
   {__pyx_k_self, sizeof(__pyx_k_self), 0, 1, 1}, /* PyObject cname: __pyx_n_u_self */
   {__pyx_k_send, sizeof(__pyx_k_send), 0, 1, 1}, /* PyObject cname: __pyx_n_u_send */
+  {__pyx_k_set_grouping_policy, sizeof(__pyx_k_set_grouping_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_grouping_policy */
+  {__pyx_k_set_inherit_role, sizeof(__pyx_k_set_inherit_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_inherit_role */
   {__pyx_k_set_name, sizeof(__pyx_k_set_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_name */
+  {__pyx_k_set_role_policy, sizeof(__pyx_k_set_role_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_role_policy */
+  {__pyx_k_set_user_role, sizeof(__pyx_k_set_user_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_set_user_role */
   {__pyx_k_shudaodao_core, sizeof(__pyx_k_shudaodao_core), 0, 1, 1}, /* PyObject cname: __pyx_n_u_shudaodao_core */
   {__pyx_k_spec, sizeof(__pyx_k_spec), 0, 1, 1}, /* PyObject cname: __pyx_n_u_spec */
   {__pyx_k_sqlalchemy, sizeof(__pyx_k_sqlalchemy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sqlalchemy */
+  {__pyx_k_str, sizeof(__pyx_k_str), 0, 1, 1}, /* PyObject cname: __pyx_n_u_str */
   {__pyx_k_super, sizeof(__pyx_k_super), 0, 1, 1}, /* PyObject cname: __pyx_n_u_super */
   {__pyx_k_support_schema, sizeof(__pyx_k_support_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_support_schema */
   {__pyx_k_sync_conn, sizeof(__pyx_k_sync_conn), 0, 1, 1}, /* PyObject cname: __pyx_n_u_sync_conn */
@@ -6820,6 +12995,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_threading, sizeof(__pyx_k_threading), 0, 1, 1}, /* PyObject cname: __pyx_n_u_threading */
   {__pyx_k_throw, sizeof(__pyx_k_throw), 0, 1, 1}, /* PyObject cname: __pyx_n_u_throw */
   {__pyx_k_url, sizeof(__pyx_k_url), 0, 1, 1}, /* PyObject cname: __pyx_n_u_url */
+  {__pyx_k_user, sizeof(__pyx_k_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_user */
+  {__pyx_k_user_2, sizeof(__pyx_k_user_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_user_2 */
   {__pyx_k_value, sizeof(__pyx_k_value), 0, 1, 1}, /* PyObject cname: __pyx_n_u_value */
   {__pyx_k_yaml_auth, sizeof(__pyx_k_yaml_auth), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_yaml_auth */
   {0, 0, 0, 0, 0}
@@ -6831,8 +13008,7 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_super); if (!__pyx_builtin_super) __PYX_ERR(0, 50, __pyx_L1_error)
-  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_super); if (!__pyx_builtin_super) __PYX_ERR(0, 29, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -6844,14 +13020,14 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "casbin_engine.py":48
- *         """
+  /* "casbin_engine.py":27
+ *     def __new__(cls):
  *         if cls._instance is None:
  *             with cls._lock:             # <<<<<<<<<<<<<<
  *                 if cls._instance is None:
  *                     cls._instance = super(PermissionEngine, cls).__new__(cls)
 */
-  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_mstate_global->__pyx_tuple[0] = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_mstate_global->__pyx_tuple[0])) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_RefNannyFinishContext();
@@ -6874,13 +13050,13 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
 /* #### Code section: init_codeobjects ### */
 \
         typedef struct {
-            unsigned int argcount : 1;
+            unsigned int argcount : 3;
             unsigned int num_posonly_args : 1;
-            unsigned int num_kwonly_args : 1;
-            unsigned int nlocals : 2;
+            unsigned int num_kwonly_args : 2;
+            unsigned int nlocals : 4;
             unsigned int flags : 10;
             unsigned int first_line : 8;
-            unsigned int line_table_length : 12;
+            unsigned int line_table_length : 13;
         } __Pyx_PyCode_New_function_description;
 /* NewCodeObj.proto */
 static PyObject* __Pyx_PyCode_New(
@@ -6897,39 +13073,94 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 106, 2};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 68, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table, __pyx_k__7, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load_2, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 124, 5};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 81, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_roles, __pyx_mstate->__pyx_n_u_role, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_acts, __pyx_mstate->__pyx_n_u_act, __pyx_mstate->__pyx_n_u_admin_role, __pyx_mstate->__pyx_n_u_admin_user};
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_rebuild, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 113, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_save, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 116, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 130, 5};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_table_name, __pyx_mstate->__pyx_n_u_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table_exists, __pyx_k_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table_exists, __pyx_k_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 137, 23};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 143, 23};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_sync_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_gQj_xWaab, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_gQj_xWaab, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 141, 15};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 147, 15};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_sync_conn};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_gQj_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_lambda, __pyx_k_gQj_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 41, 67};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_new, __pyx_k_A_3k_A_A_3k_A_E_D_z_q_s, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 150, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_role, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_act};
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_role_policy, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 54, 208};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_database_engine, __pyx_mstate->__pyx_n_u_model_path};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_M_vQa_vQa_Jo_6aq_4_oQa_Jj_vQb, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 153, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_p_obj, __pyx_mstate->__pyx_n_u_c_obj};
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_grouping_policy, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 96, 34};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 156, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_p_role, __pyx_mstate->__pyx_n_u_c_role};
+    __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_inherit_role, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 159, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_role};
+    __pyx_mstate_global->__pyx_codeobj_tab[10] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_user_role, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[10])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 162, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_role};
+    __pyx_mstate_global->__pyx_codeobj_tab[11] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_has_role, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[11])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 183, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_get_async_enforcer, __pyx_k_A_4_Q_aq_t1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[12] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_close, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[12])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 25, 65};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls};
+    __pyx_mstate_global->__pyx_codeobj_tab[13] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_new, __pyx_k_A_3k_A_A_3k_A_E_D_z_q_s, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[13])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 33, 211};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_database_engine, __pyx_mstate->__pyx_n_u_model_path};
+    __pyx_mstate_global->__pyx_codeobj_tab[14] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load, __pyx_k_A_M_vQa_vQa_Jo_6aq_4_oQa_Jj_vQb, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[14])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 73, 97};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_count_policy, __pyx_mstate->__pyx_n_u_count_grouping, __pyx_mstate->__pyx_n_u_max_length};
+    __pyx_mstate_global->__pyx_codeobj_tab[15] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_count, __pyx_k_A_1D_S_Qd_81_Q_c_vQb_aq_vQb, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[15])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 167, 23};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_act};
+    __pyx_mstate_global->__pyx_codeobj_tab[16] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_has_permission, __pyx_k_A_t_XQb_uA, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[16])) goto bad;
+  }
+  {
+    const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 6, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 170, 80};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_p_sub, __pyx_mstate->__pyx_n_u_p_obj, __pyx_mstate->__pyx_n_u_p_act, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_act};
+    __pyx_mstate_global->__pyx_codeobj_tab[17] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_add_policy, __pyx_k_A_6_A_1_d_1A_6_q_c_6_waq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[17])) goto bad;
   }
   Py_DECREF(tuple_dedup_map);
   return 0;
@@ -8514,114 +14745,6 @@ CYTHON_UNUSED static int __Pyx_VectorcallBuilder_AddArg_Check(PyObject *key, PyO
 }
 #endif
 
-/* RaiseException */
-static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause) {
-    PyObject* owned_instance = NULL;
-    if (tb == Py_None) {
-        tb = 0;
-    } else if (tb && !PyTraceBack_Check(tb)) {
-        PyErr_SetString(PyExc_TypeError,
-            "raise: arg 3 must be a traceback or None");
-        goto bad;
-    }
-    if (value == Py_None)
-        value = 0;
-    if (PyExceptionInstance_Check(type)) {
-        if (value) {
-            PyErr_SetString(PyExc_TypeError,
-                "instance exception may not have a separate value");
-            goto bad;
-        }
-        value = type;
-        type = (PyObject*) Py_TYPE(value);
-    } else if (PyExceptionClass_Check(type)) {
-        PyObject *instance_class = NULL;
-        if (value && PyExceptionInstance_Check(value)) {
-            instance_class = (PyObject*) Py_TYPE(value);
-            if (instance_class != type) {
-                int is_subclass = PyObject_IsSubclass(instance_class, type);
-                if (!is_subclass) {
-                    instance_class = NULL;
-                } else if (unlikely(is_subclass == -1)) {
-                    goto bad;
-                } else {
-                    type = instance_class;
-                }
-            }
-        }
-        if (!instance_class) {
-            PyObject *args;
-            if (!value)
-                args = PyTuple_New(0);
-            else if (PyTuple_Check(value)) {
-                Py_INCREF(value);
-                args = value;
-            } else
-                args = PyTuple_Pack(1, value);
-            if (!args)
-                goto bad;
-            owned_instance = PyObject_Call(type, args, NULL);
-            Py_DECREF(args);
-            if (!owned_instance)
-                goto bad;
-            value = owned_instance;
-            if (!PyExceptionInstance_Check(value)) {
-                PyErr_Format(PyExc_TypeError,
-                             "calling %R should have returned an instance of "
-                             "BaseException, not %R",
-                             type, Py_TYPE(value));
-                goto bad;
-            }
-        }
-    } else {
-        PyErr_SetString(PyExc_TypeError,
-            "raise: exception class must be a subclass of BaseException");
-        goto bad;
-    }
-    if (cause) {
-        PyObject *fixed_cause;
-        if (cause == Py_None) {
-            fixed_cause = NULL;
-        } else if (PyExceptionClass_Check(cause)) {
-            fixed_cause = PyObject_CallObject(cause, NULL);
-            if (fixed_cause == NULL)
-                goto bad;
-        } else if (PyExceptionInstance_Check(cause)) {
-            fixed_cause = cause;
-            Py_INCREF(fixed_cause);
-        } else {
-            PyErr_SetString(PyExc_TypeError,
-                            "exception causes must derive from "
-                            "BaseException");
-            goto bad;
-        }
-        PyException_SetCause(value, fixed_cause);
-    }
-    PyErr_SetObject(type, value);
-    if (tb) {
-#if PY_VERSION_HEX >= 0x030C00A6
-        PyException_SetTraceback(value, tb);
-#elif CYTHON_FAST_THREAD_STATE
-        PyThreadState *tstate = __Pyx_PyThreadState_Current;
-        PyObject* tmp_tb = tstate->curexc_traceback;
-        if (tb != tmp_tb) {
-            Py_INCREF(tb);
-            tstate->curexc_traceback = tb;
-            Py_XDECREF(tmp_tb);
-        }
-#else
-        PyObject *tmp_type, *tmp_value, *tmp_tb;
-        PyErr_Fetch(&tmp_type, &tmp_value, &tmp_tb);
-        Py_INCREF(tb);
-        PyErr_Restore(tmp_type, tmp_value, tb);
-        Py_XDECREF(tmp_tb);
-#endif
-    }
-bad:
-    Py_XDECREF(owned_instance);
-    return;
-}
-
 /* LimitedApiGetTypeDict */
 #if CYTHON_COMPILING_IN_LIMITED_API
 static Py_ssize_t __Pyx_GetTypeDictOffset(void) {
@@ -8943,6 +15066,114 @@ static int __pyx_CommonTypesMetaclass_init(PyObject *module) {
         return -1;
     }
     return 0;
+}
+
+/* RaiseException */
+static void __Pyx_Raise(PyObject *type, PyObject *value, PyObject *tb, PyObject *cause) {
+    PyObject* owned_instance = NULL;
+    if (tb == Py_None) {
+        tb = 0;
+    } else if (tb && !PyTraceBack_Check(tb)) {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: arg 3 must be a traceback or None");
+        goto bad;
+    }
+    if (value == Py_None)
+        value = 0;
+    if (PyExceptionInstance_Check(type)) {
+        if (value) {
+            PyErr_SetString(PyExc_TypeError,
+                "instance exception may not have a separate value");
+            goto bad;
+        }
+        value = type;
+        type = (PyObject*) Py_TYPE(value);
+    } else if (PyExceptionClass_Check(type)) {
+        PyObject *instance_class = NULL;
+        if (value && PyExceptionInstance_Check(value)) {
+            instance_class = (PyObject*) Py_TYPE(value);
+            if (instance_class != type) {
+                int is_subclass = PyObject_IsSubclass(instance_class, type);
+                if (!is_subclass) {
+                    instance_class = NULL;
+                } else if (unlikely(is_subclass == -1)) {
+                    goto bad;
+                } else {
+                    type = instance_class;
+                }
+            }
+        }
+        if (!instance_class) {
+            PyObject *args;
+            if (!value)
+                args = PyTuple_New(0);
+            else if (PyTuple_Check(value)) {
+                Py_INCREF(value);
+                args = value;
+            } else
+                args = PyTuple_Pack(1, value);
+            if (!args)
+                goto bad;
+            owned_instance = PyObject_Call(type, args, NULL);
+            Py_DECREF(args);
+            if (!owned_instance)
+                goto bad;
+            value = owned_instance;
+            if (!PyExceptionInstance_Check(value)) {
+                PyErr_Format(PyExc_TypeError,
+                             "calling %R should have returned an instance of "
+                             "BaseException, not %R",
+                             type, Py_TYPE(value));
+                goto bad;
+            }
+        }
+    } else {
+        PyErr_SetString(PyExc_TypeError,
+            "raise: exception class must be a subclass of BaseException");
+        goto bad;
+    }
+    if (cause) {
+        PyObject *fixed_cause;
+        if (cause == Py_None) {
+            fixed_cause = NULL;
+        } else if (PyExceptionClass_Check(cause)) {
+            fixed_cause = PyObject_CallObject(cause, NULL);
+            if (fixed_cause == NULL)
+                goto bad;
+        } else if (PyExceptionInstance_Check(cause)) {
+            fixed_cause = cause;
+            Py_INCREF(fixed_cause);
+        } else {
+            PyErr_SetString(PyExc_TypeError,
+                            "exception causes must derive from "
+                            "BaseException");
+            goto bad;
+        }
+        PyException_SetCause(value, fixed_cause);
+    }
+    PyErr_SetObject(type, value);
+    if (tb) {
+#if PY_VERSION_HEX >= 0x030C00A6
+        PyException_SetTraceback(value, tb);
+#elif CYTHON_FAST_THREAD_STATE
+        PyThreadState *tstate = __Pyx_PyThreadState_Current;
+        PyObject* tmp_tb = tstate->curexc_traceback;
+        if (tb != tmp_tb) {
+            Py_INCREF(tb);
+            tstate->curexc_traceback = tb;
+            Py_XDECREF(tmp_tb);
+        }
+#else
+        PyObject *tmp_type, *tmp_value, *tmp_tb;
+        PyErr_Fetch(&tmp_type, &tmp_value, &tmp_tb);
+        Py_INCREF(tb);
+        PyErr_Restore(tmp_type, tmp_value, tb);
+        Py_XDECREF(tmp_tb);
+#endif
+    }
+bad:
+    Py_XDECREF(owned_instance);
+    return;
 }
 
 /* SwapException */
@@ -10598,6 +16829,560 @@ static CYTHON_INLINE __Pyx_PySendResult __Pyx_Coroutine_Yield_From(__pyx_Corouti
     PyErr_SetObject(PyExc_RuntimeError, new_exc);
 }
 
+/* JoinPyUnicode */
+  static PyObject* __Pyx_PyUnicode_Join(PyObject** values, Py_ssize_t value_count, Py_ssize_t result_ulength,
+                                      Py_UCS4 max_char) {
+#if CYTHON_USE_UNICODE_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    PyObject *result_uval;
+    int result_ukind, kind_shift;
+    Py_ssize_t i, char_pos;
+    void *result_udata;
+    if (max_char > 1114111) max_char = 1114111;
+    result_uval = PyUnicode_New(result_ulength, max_char);
+    if (unlikely(!result_uval)) return NULL;
+    result_ukind = (max_char <= 255) ? PyUnicode_1BYTE_KIND : (max_char <= 65535) ? PyUnicode_2BYTE_KIND : PyUnicode_4BYTE_KIND;
+    kind_shift = (result_ukind == PyUnicode_4BYTE_KIND) ? 2 : result_ukind - 1;
+    result_udata = PyUnicode_DATA(result_uval);
+    assert(kind_shift == 2 || kind_shift == 1 || kind_shift == 0);
+    if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - result_ulength < 0))
+        goto overflow;
+    char_pos = 0;
+    for (i=0; i < value_count; i++) {
+        int ukind;
+        Py_ssize_t ulength;
+        void *udata;
+        PyObject *uval = values[i];
+        #if !CYTHON_COMPILING_IN_LIMITED_API
+        if (__Pyx_PyUnicode_READY(uval) == (-1))
+            goto bad;
+        #endif
+        ulength = __Pyx_PyUnicode_GET_LENGTH(uval);
+        #if !CYTHON_ASSUME_SAFE_SIZE
+        if (unlikely(ulength < 0)) goto bad;
+        #endif
+        if (unlikely(!ulength))
+            continue;
+        if (unlikely((PY_SSIZE_T_MAX >> kind_shift) - ulength < char_pos))
+            goto overflow;
+        ukind = __Pyx_PyUnicode_KIND(uval);
+        udata = __Pyx_PyUnicode_DATA(uval);
+        if (ukind == result_ukind) {
+            memcpy((char *)result_udata + (char_pos << kind_shift), udata, (size_t) (ulength << kind_shift));
+        } else {
+            #if PY_VERSION_HEX >= 0x030d0000
+            if (unlikely(PyUnicode_CopyCharacters(result_uval, char_pos, uval, 0, ulength) < 0)) goto bad;
+            #elif CYTHON_COMPILING_IN_CPYTHON || defined(_PyUnicode_FastCopyCharacters)
+            _PyUnicode_FastCopyCharacters(result_uval, char_pos, uval, 0, ulength);
+            #else
+            Py_ssize_t j;
+            for (j=0; j < ulength; j++) {
+                Py_UCS4 uchar = __Pyx_PyUnicode_READ(ukind, udata, j);
+                __Pyx_PyUnicode_WRITE(result_ukind, result_udata, char_pos+j, uchar);
+            }
+            #endif
+        }
+        char_pos += ulength;
+    }
+    return result_uval;
+overflow:
+    PyErr_SetString(PyExc_OverflowError, "join() result is too long for a Python string");
+bad:
+    Py_DECREF(result_uval);
+    return NULL;
+#else
+    Py_ssize_t i;
+    PyObject *result = NULL;
+    PyObject *value_tuple = PyTuple_New(value_count);
+    if (unlikely(!value_tuple)) return NULL;
+    CYTHON_UNUSED_VAR(max_char);
+    CYTHON_UNUSED_VAR(result_ulength);
+    for (i=0; i<value_count; i++) {
+        if (__Pyx_PyTuple_SET_ITEM(value_tuple, i, values[i]) != (0)) goto bad;
+        Py_INCREF(values[i]);
+    }
+    result = PyUnicode_Join(__pyx_mstate_global->__pyx_empty_unicode, value_tuple);
+bad:
+    Py_DECREF(value_tuple);
+    return result;
+#endif
+}
+
+/* IterFinish */
+  static CYTHON_INLINE int __Pyx_IterFinish(void) {
+    PyObject* exc_type;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    exc_type = __Pyx_PyErr_CurrentExceptionType();
+    if (unlikely(exc_type)) {
+        if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)))
+            return -1;
+        __Pyx_PyErr_Clear();
+        return 0;
+    }
+    return 0;
+}
+
+/* PyObjectCallMethod0 */
+  static PyObject* __Pyx_PyObject_CallMethod0(PyObject* obj, PyObject* method_name) {
+#if CYTHON_VECTORCALL && (__PYX_LIMITED_VERSION_HEX >= 0x030C0000 || (!CYTHON_COMPILING_IN_LIMITED_API && PY_VERSION_HEX >= 0x03090000))
+    PyObject *args[1] = {obj};
+    (void) __Pyx_PyObject_GetMethod;
+    (void) __Pyx_PyObject_CallOneArg;
+    (void) __Pyx_PyObject_CallNoArg;
+    return PyObject_VectorcallMethod(method_name, args, 1 | PY_VECTORCALL_ARGUMENTS_OFFSET, NULL);
+#else
+    PyObject *method = NULL, *result = NULL;
+    int is_method = __Pyx_PyObject_GetMethod(obj, method_name, &method);
+    if (likely(is_method)) {
+        result = __Pyx_PyObject_CallOneArg(method, obj);
+        Py_DECREF(method);
+        return result;
+    }
+    if (unlikely(!method)) goto bad;
+    result = __Pyx_PyObject_CallNoArg(method);
+    Py_DECREF(method);
+bad:
+    return result;
+#endif
+}
+
+/* RaiseNeedMoreValuesToUnpack */
+  static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
+    PyErr_Format(PyExc_ValueError,
+                 "need more than %" CYTHON_FORMAT_SSIZE_T "d value%.1s to unpack",
+                 index, (index == 1) ? "" : "s");
+}
+
+/* RaiseTooManyValuesToUnpack */
+  static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected) {
+    PyErr_Format(PyExc_ValueError,
+                 "too many values to unpack (expected %" CYTHON_FORMAT_SSIZE_T "d)", expected);
+}
+
+/* UnpackItemEndCheck */
+  static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
+    if (unlikely(retval)) {
+        Py_DECREF(retval);
+        __Pyx_RaiseTooManyValuesError(expected);
+        return -1;
+    }
+    return __Pyx_IterFinish();
+}
+
+/* RaiseNoneIterError */
+  static CYTHON_INLINE void __Pyx_RaiseNoneNotIterableError(void) {
+    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
+}
+
+/* UnpackTupleError */
+  static void __Pyx_UnpackTupleError(PyObject *t, Py_ssize_t index) {
+    if (t == Py_None) {
+      __Pyx_RaiseNoneNotIterableError();
+    } else {
+      Py_ssize_t size = __Pyx_PyTuple_GET_SIZE(t);
+ #if !CYTHON_ASSUME_SAFE_SIZE
+      if (unlikely(size < 0)) return;
+ #endif
+      if (size < index) {
+        __Pyx_RaiseNeedMoreValuesError(size);
+      } else {
+        __Pyx_RaiseTooManyValuesError(index);
+      }
+    }
+}
+
+/* UnpackTuple2 */
+  static CYTHON_INLINE int __Pyx_unpack_tuple2(
+        PyObject* tuple, PyObject** value1, PyObject** value2, int is_tuple, int has_known_size, int decref_tuple) {
+    if (likely(is_tuple || PyTuple_Check(tuple))) {
+        Py_ssize_t size;
+        if (has_known_size) {
+            return __Pyx_unpack_tuple2_exact(tuple, value1, value2, decref_tuple);
+        }
+        size = __Pyx_PyTuple_GET_SIZE(tuple);
+        if (likely(size == 2)) {
+            return __Pyx_unpack_tuple2_exact(tuple, value1, value2, decref_tuple);
+        }
+        if (size >= 0) {
+            __Pyx_UnpackTupleError(tuple, 2);
+        }
+        return -1;
+    } else {
+        return __Pyx_unpack_tuple2_generic(tuple, value1, value2, has_known_size, decref_tuple);
+    }
+}
+static CYTHON_INLINE int __Pyx_unpack_tuple2_exact(
+        PyObject* tuple, PyObject** pvalue1, PyObject** pvalue2, int decref_tuple) {
+    PyObject *value1 = NULL, *value2 = NULL;
+#if CYTHON_AVOID_BORROWED_REFS || !CYTHON_ASSUME_SAFE_MACROS
+    value1 = __Pyx_PySequence_ITEM(tuple, 0);  if (unlikely(!value1)) goto bad;
+    value2 = __Pyx_PySequence_ITEM(tuple, 1);  if (unlikely(!value2)) goto bad;
+#else
+    value1 = PyTuple_GET_ITEM(tuple, 0);  Py_INCREF(value1);
+    value2 = PyTuple_GET_ITEM(tuple, 1);  Py_INCREF(value2);
+#endif
+    if (decref_tuple) {
+        Py_DECREF(tuple);
+    }
+    *pvalue1 = value1;
+    *pvalue2 = value2;
+    return 0;
+#if CYTHON_AVOID_BORROWED_REFS || !CYTHON_ASSUME_SAFE_MACROS
+bad:
+    Py_XDECREF(value1);
+    Py_XDECREF(value2);
+    if (decref_tuple) { Py_XDECREF(tuple); }
+    return -1;
+#endif
+}
+static int __Pyx_unpack_tuple2_generic(PyObject* tuple, PyObject** pvalue1, PyObject** pvalue2,
+                                       int has_known_size, int decref_tuple) {
+    Py_ssize_t index;
+    PyObject *value1 = NULL, *value2 = NULL, *iter = NULL;
+    iternextfunc iternext;
+    iter = PyObject_GetIter(tuple);
+    if (unlikely(!iter)) goto bad;
+    if (decref_tuple) { Py_DECREF(tuple); tuple = NULL; }
+    iternext = __Pyx_PyObject_GetIterNextFunc(iter);
+    value1 = iternext(iter); if (unlikely(!value1)) { index = 0; goto unpacking_failed; }
+    value2 = iternext(iter); if (unlikely(!value2)) { index = 1; goto unpacking_failed; }
+    if (!has_known_size && unlikely(__Pyx_IternextUnpackEndCheck(iternext(iter), 2))) goto bad;
+    Py_DECREF(iter);
+    *pvalue1 = value1;
+    *pvalue2 = value2;
+    return 0;
+unpacking_failed:
+    if (!has_known_size && __Pyx_IterFinish() == 0)
+        __Pyx_RaiseNeedMoreValuesError(index);
+bad:
+    Py_XDECREF(iter);
+    Py_XDECREF(value1);
+    Py_XDECREF(value2);
+    if (decref_tuple) { Py_XDECREF(tuple); }
+    return -1;
+}
+
+/* dict_iter */
+  #if CYTHON_COMPILING_IN_PYPY
+#include <string.h>
+#endif
+static CYTHON_INLINE PyObject* __Pyx_dict_iterator(PyObject* iterable, int is_dict, PyObject* method_name,
+                                                   Py_ssize_t* p_orig_length, int* p_source_is_dict) {
+    is_dict = is_dict || likely(PyDict_CheckExact(iterable));
+    *p_source_is_dict = is_dict;
+    if (is_dict) {
+#if !CYTHON_COMPILING_IN_PYPY
+        *p_orig_length = PyDict_Size(iterable);
+        Py_INCREF(iterable);
+        return iterable;
+#else
+        static PyObject *py_items = NULL, *py_keys = NULL, *py_values = NULL;
+        PyObject **pp = NULL;
+        if (method_name) {
+            const char *name = PyUnicode_AsUTF8(method_name);
+            if (strcmp(name, "iteritems") == 0) pp = &py_items;
+            else if (strcmp(name, "iterkeys") == 0) pp = &py_keys;
+            else if (strcmp(name, "itervalues") == 0) pp = &py_values;
+            if (pp) {
+                if (!*pp) {
+                    *pp = PyUnicode_FromString(name + 4);
+                    if (!*pp)
+                        return NULL;
+                }
+                method_name = *pp;
+            }
+        }
+#endif
+    }
+    *p_orig_length = 0;
+    if (method_name) {
+        PyObject* iter;
+        iterable = __Pyx_PyObject_CallMethod0(iterable, method_name);
+        if (!iterable)
+            return NULL;
+#if !CYTHON_COMPILING_IN_PYPY
+        if (PyTuple_CheckExact(iterable) || PyList_CheckExact(iterable))
+            return iterable;
+#endif
+        iter = PyObject_GetIter(iterable);
+        Py_DECREF(iterable);
+        return iter;
+    }
+    return PyObject_GetIter(iterable);
+}
+#if !CYTHON_COMPILING_IN_PYPY
+static CYTHON_INLINE int __Pyx_dict_iter_next_source_is_dict(
+        PyObject* iter_obj, CYTHON_NCP_UNUSED Py_ssize_t orig_length, CYTHON_NCP_UNUSED Py_ssize_t* ppos,
+        PyObject** pkey, PyObject** pvalue, PyObject** pitem) {
+    PyObject *key, *value;
+    if (unlikely(orig_length != PyDict_Size(iter_obj))) {
+        PyErr_SetString(PyExc_RuntimeError, "dictionary changed size during iteration");
+        return -1;
+    }
+    if (unlikely(!PyDict_Next(iter_obj, ppos, &key, &value))) {
+        return 0;
+    }
+    if (pitem) {
+        PyObject* tuple = PyTuple_New(2);
+        if (unlikely(!tuple)) {
+            return -1;
+        }
+        Py_INCREF(key);
+        Py_INCREF(value);
+        #if CYTHON_ASSUME_SAFE_MACROS
+        PyTuple_SET_ITEM(tuple, 0, key);
+        PyTuple_SET_ITEM(tuple, 1, value);
+        #else
+        if (unlikely(PyTuple_SetItem(tuple, 0, key) < 0)) {
+            Py_DECREF(value);
+            Py_DECREF(tuple);
+            return -1;
+        }
+        if (unlikely(PyTuple_SetItem(tuple, 1, value) < 0)) {
+            Py_DECREF(tuple);
+            return -1;
+        }
+        #endif
+        *pitem = tuple;
+    } else {
+        if (pkey) {
+            Py_INCREF(key);
+            *pkey = key;
+        }
+        if (pvalue) {
+            Py_INCREF(value);
+            *pvalue = value;
+        }
+    }
+    return 1;
+}
+#endif
+static CYTHON_INLINE int __Pyx_dict_iter_next(
+        PyObject* iter_obj, CYTHON_NCP_UNUSED Py_ssize_t orig_length, CYTHON_NCP_UNUSED Py_ssize_t* ppos,
+        PyObject** pkey, PyObject** pvalue, PyObject** pitem, int source_is_dict) {
+    PyObject* next_item;
+#if !CYTHON_COMPILING_IN_PYPY
+    if (source_is_dict) {
+        int result;
+#if PY_VERSION_HEX >= 0x030d0000 && !CYTHON_COMPILING_IN_LIMITED_API
+        Py_BEGIN_CRITICAL_SECTION(iter_obj);
+#endif
+        result = __Pyx_dict_iter_next_source_is_dict(iter_obj, orig_length, ppos, pkey, pvalue, pitem);
+#if PY_VERSION_HEX >= 0x030d0000 && !CYTHON_COMPILING_IN_LIMITED_API
+        Py_END_CRITICAL_SECTION();
+#endif
+        return result;
+    } else if (PyTuple_CheckExact(iter_obj)) {
+        Py_ssize_t pos = *ppos;
+        Py_ssize_t tuple_size = __Pyx_PyTuple_GET_SIZE(iter_obj);
+        #if !CYTHON_ASSUME_SAFE_SIZE
+        if (unlikely(tuple_size < 0)) return -1;
+        #endif
+        if (unlikely(pos >= tuple_size)) return 0;
+        *ppos = pos + 1;
+        #if CYTHON_ASSUME_SAFE_MACROS
+        next_item = PyTuple_GET_ITEM(iter_obj, pos);
+        #else
+        next_item = PyTuple_GetItem(iter_obj, pos);
+        if (unlikely(!next_item)) return -1;
+        #endif
+        Py_INCREF(next_item);
+    } else if (PyList_CheckExact(iter_obj)) {
+        Py_ssize_t pos = *ppos;
+        Py_ssize_t list_size = __Pyx_PyList_GET_SIZE(iter_obj);
+        #if !CYTHON_ASSUME_SAFE_SIZE
+        if (unlikely(list_size < 0)) return -1;
+        #endif
+        if (unlikely(pos >= list_size)) return 0;
+        *ppos = pos + 1;
+        #if CYTHON_AVOID_THREAD_UNSAFE_BORROWED_REFS
+        next_item = PyList_GetItemRef(iter_obj, pos);
+        if (unlikely(!next_item)) return -1;
+        #elif CYTHON_ASSUME_SAFE_MACROS
+        next_item = PyList_GET_ITEM(iter_obj, pos);
+        Py_INCREF(next_item);
+        #else
+        next_item = PyList_GetItem(iter_obj, pos);
+        if (unlikely(!next_item)) return -1;
+        Py_INCREF(next_item);
+        #endif
+    } else
+#endif
+    {
+        next_item = PyIter_Next(iter_obj);
+        if (unlikely(!next_item)) {
+            return __Pyx_IterFinish();
+        }
+    }
+    if (pitem) {
+        *pitem = next_item;
+    } else if (pkey && pvalue) {
+        if (__Pyx_unpack_tuple2(next_item, pkey, pvalue, source_is_dict, source_is_dict, 1))
+            return -1;
+    } else if (pkey) {
+        *pkey = next_item;
+    } else {
+        *pvalue = next_item;
+    }
+    return 1;
+}
+
+/* GetItemInt */
+  static PyObject *__Pyx_GetItemInt_Generic(PyObject *o, PyObject* j) {
+    PyObject *r;
+    if (unlikely(!j)) return NULL;
+    r = PyObject_GetItem(o, j);
+    Py_DECREF(j);
+    return r;
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_List_Fast(PyObject *o, Py_ssize_t i,
+                                                              CYTHON_NCP_UNUSED int wraparound,
+                                                              CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE && !CYTHON_AVOID_BORROWED_REFS && !CYTHON_AVOID_THREAD_UNSAFE_BORROWED_REFS
+    Py_ssize_t wrapped_i = i;
+    if (wraparound & unlikely(i < 0)) {
+        wrapped_i += PyList_GET_SIZE(o);
+    }
+    if ((!boundscheck) || likely(__Pyx_is_valid_index(wrapped_i, PyList_GET_SIZE(o)))) {
+        PyObject *r = PyList_GET_ITEM(o, wrapped_i);
+        Py_INCREF(r);
+        return r;
+    }
+    return __Pyx_GetItemInt_Generic(o, PyLong_FromSsize_t(i));
+#else
+    return PySequence_GetItem(o, i);
+#endif
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Tuple_Fast(PyObject *o, Py_ssize_t i,
+                                                              CYTHON_NCP_UNUSED int wraparound,
+                                                              CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE && !CYTHON_AVOID_BORROWED_REFS
+    Py_ssize_t wrapped_i = i;
+    if (wraparound & unlikely(i < 0)) {
+        wrapped_i += PyTuple_GET_SIZE(o);
+    }
+    if ((!boundscheck) || likely(__Pyx_is_valid_index(wrapped_i, PyTuple_GET_SIZE(o)))) {
+        PyObject *r = PyTuple_GET_ITEM(o, wrapped_i);
+        Py_INCREF(r);
+        return r;
+    }
+    return __Pyx_GetItemInt_Generic(o, PyLong_FromSsize_t(i));
+#else
+    return PySequence_GetItem(o, i);
+#endif
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i, int is_list,
+                                                     CYTHON_NCP_UNUSED int wraparound,
+                                                     CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && CYTHON_ASSUME_SAFE_SIZE && !CYTHON_AVOID_BORROWED_REFS && CYTHON_USE_TYPE_SLOTS
+    if (is_list || PyList_CheckExact(o)) {
+        Py_ssize_t n = ((!wraparound) | likely(i >= 0)) ? i : i + PyList_GET_SIZE(o);
+        if ((!boundscheck) || (likely(__Pyx_is_valid_index(n, PyList_GET_SIZE(o))))) {
+            return __Pyx_PyList_GetItemRef(o, n);
+        }
+    }
+    else if (PyTuple_CheckExact(o)) {
+        Py_ssize_t n = ((!wraparound) | likely(i >= 0)) ? i : i + PyTuple_GET_SIZE(o);
+        if ((!boundscheck) || likely(__Pyx_is_valid_index(n, PyTuple_GET_SIZE(o)))) {
+            PyObject *r = PyTuple_GET_ITEM(o, n);
+            Py_INCREF(r);
+            return r;
+        }
+    } else {
+        PyMappingMethods *mm = Py_TYPE(o)->tp_as_mapping;
+        PySequenceMethods *sm = Py_TYPE(o)->tp_as_sequence;
+        if (mm && mm->mp_subscript) {
+            PyObject *r, *key = PyLong_FromSsize_t(i);
+            if (unlikely(!key)) return NULL;
+            r = mm->mp_subscript(o, key);
+            Py_DECREF(key);
+            return r;
+        }
+        if (likely(sm && sm->sq_item)) {
+            if (wraparound && unlikely(i < 0) && likely(sm->sq_length)) {
+                Py_ssize_t l = sm->sq_length(o);
+                if (likely(l >= 0)) {
+                    i += l;
+                } else {
+                    if (!PyErr_ExceptionMatches(PyExc_OverflowError))
+                        return NULL;
+                    PyErr_Clear();
+                }
+            }
+            return sm->sq_item(o, i);
+        }
+    }
+#else
+    if (is_list || !PyMapping_Check(o)) {
+        return PySequence_GetItem(o, i);
+    }
+#endif
+    return __Pyx_GetItemInt_Generic(o, PyLong_FromSsize_t(i));
+}
+
+/* ObjectGetItem */
+  #if CYTHON_USE_TYPE_SLOTS
+static PyObject *__Pyx_PyObject_GetIndex(PyObject *obj, PyObject *index) {
+    PyObject *runerr = NULL;
+    Py_ssize_t key_value;
+    key_value = __Pyx_PyIndex_AsSsize_t(index);
+    if (likely(key_value != -1 || !(runerr = PyErr_Occurred()))) {
+        return __Pyx_GetItemInt_Fast(obj, key_value, 0, 1, 1);
+    }
+    if (PyErr_GivenExceptionMatches(runerr, PyExc_OverflowError)) {
+        __Pyx_TypeName index_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(index));
+        PyErr_Clear();
+        PyErr_Format(PyExc_IndexError,
+            "cannot fit '" __Pyx_FMT_TYPENAME "' into an index-sized integer", index_type_name);
+        __Pyx_DECREF_TypeName(index_type_name);
+    }
+    return NULL;
+}
+static PyObject *__Pyx_PyObject_GetItem_Slow(PyObject *obj, PyObject *key) {
+    __Pyx_TypeName obj_type_name;
+    if (likely(PyType_Check(obj))) {
+        PyObject *meth = __Pyx_PyObject_GetAttrStrNoError(obj, __pyx_mstate_global->__pyx_n_u_class_getitem);
+        if (!meth) {
+            PyErr_Clear();
+        } else {
+            PyObject *result = __Pyx_PyObject_CallOneArg(meth, key);
+            Py_DECREF(meth);
+            return result;
+        }
+    }
+    obj_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(obj));
+    PyErr_Format(PyExc_TypeError,
+        "'" __Pyx_FMT_TYPENAME "' object is not subscriptable", obj_type_name);
+    __Pyx_DECREF_TypeName(obj_type_name);
+    return NULL;
+}
+static PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *key) {
+    PyTypeObject *tp = Py_TYPE(obj);
+    PyMappingMethods *mm = tp->tp_as_mapping;
+    PySequenceMethods *sm = tp->tp_as_sequence;
+    if (likely(mm && mm->mp_subscript)) {
+        return mm->mp_subscript(obj, key);
+    }
+    if (likely(sm && sm->sq_item)) {
+        return __Pyx_PyObject_GetIndex(obj, key);
+    }
+    return __Pyx_PyObject_GetItem_Slow(obj, key);
+}
+#endif
+
+/* PyObjectVectorCallMethodKwBuilder */
+  #if !CYTHON_VECTORCALL || PY_VERSION_HEX < 0x03090000
+static PyObject *__Pyx_Object_VectorcallMethod_CallFromBuilder(PyObject *name, PyObject *const *args, size_t nargsf, PyObject *kwnames) {
+    PyObject *result;
+    PyObject *obj = PyObject_GetAttr(args[0], name);
+    if (unlikely(!obj))
+        return NULL;
+    result = __Pyx_Object_Vectorcall_CallFromBuilder(obj, args+1, nargsf-1, kwnames);
+    Py_DECREF(obj);
+    return result;
+}
+#endif
+
 /* RaiseClosureNameError */
   static void __Pyx_RaiseClosureNameError(const char *varname) {
     PyErr_Format(PyExc_NameError, "free variable '%s' referenced before assignment in enclosing scope", varname);
@@ -11743,28 +18528,23 @@ static CYTHON_INLINE void __Pyx_CyFunction_SetAnnotationsDict(PyObject *func, Py
     return op;
 }
 
-/* PyObjectCallMethod0 */
-  static PyObject* __Pyx_PyObject_CallMethod0(PyObject* obj, PyObject* method_name) {
-#if CYTHON_VECTORCALL && (__PYX_LIMITED_VERSION_HEX >= 0x030C0000 || (!CYTHON_COMPILING_IN_LIMITED_API && PY_VERSION_HEX >= 0x03090000))
-    PyObject *args[1] = {obj};
-    (void) __Pyx_PyObject_GetMethod;
-    (void) __Pyx_PyObject_CallOneArg;
-    (void) __Pyx_PyObject_CallNoArg;
-    return PyObject_VectorcallMethod(method_name, args, 1 | PY_VECTORCALL_ARGUMENTS_OFFSET, NULL);
-#else
-    PyObject *method = NULL, *result = NULL;
-    int is_method = __Pyx_PyObject_GetMethod(obj, method_name, &method);
-    if (likely(is_method)) {
-        result = __Pyx_PyObject_CallOneArg(method, obj);
-        Py_DECREF(method);
-        return result;
+/* RaiseKeywordRequired */
+  static void __Pyx_RaiseKeywordRequired(const char* func_name, PyObject* kw_name) {
+    PyErr_Format(PyExc_TypeError,
+        "%s() needs keyword-only argument %U", func_name, kw_name);
+}
+
+/* append */
+  static CYTHON_INLINE int __Pyx_PyObject_Append(PyObject* L, PyObject* x) {
+    if (likely(PyList_CheckExact(L))) {
+        if (unlikely(__Pyx_PyList_Append(L, x) < 0)) return -1;
+    } else {
+        PyObject* retval = __Pyx_PyObject_CallMethod1(L, __pyx_mstate_global->__pyx_n_u_append, x);
+        if (unlikely(!retval))
+            return -1;
+        Py_DECREF(retval);
     }
-    if (unlikely(!method)) goto bad;
-    result = __Pyx_PyObject_CallNoArg(method);
-    Py_DECREF(method);
-bad:
-    return result;
-#endif
+    return 0;
 }
 
 /* ValidateBasesTuple */
@@ -12114,7 +18894,7 @@ static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple)
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__5);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__8);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -12602,7 +19382,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__6);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__9);
     }
     goto done;
 }

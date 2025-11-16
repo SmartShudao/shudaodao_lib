@@ -16,7 +16,6 @@ from ...meta_config import MetaConfig
 if TYPE_CHECKING:
     from .meta_column import MetaColumn
     from .meta_schema import MetaSchema
-    from .meta_web_api import MetaWebApi
 
 
 class MetaView(MetaConfig.RegistryModel, table=True):
@@ -24,7 +23,9 @@ class MetaView(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "meta_view"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "视图元数据"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["meta_view_id"]
 
     meta_view_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
@@ -36,10 +37,11 @@ class MetaView(MetaConfig.RegistryModel, table=True):
         description="主键",
     )
     view_name: str = Field(max_length=255, description="视图名字")
-    router_name: str = Field(max_length=128, description="API路由名")
+    router_path: str = Field(max_length=128, description="API路由名")
     definition: Optional[str] = Field(default=None, sa_type=Text, nullable=True, description="SQL脚本")
     class_name: Optional[str] = Field(default=None, nullable=True, max_length=50, description="类名")
     default_column: Optional[str] = Field(default=None, nullable=True, max_length=50, description="默认列")
+    api_acts: Optional[str] = Field(default=None, nullable=True, max_length=128, description="接口操作集合")
     comment: Optional[str] = Field(default=None, sa_type=Text, nullable=True, description="备注")
     is_active: bool = Field(sa_type=Boolean, description="启用状态")
     sort_order: int = Field(description="排序权重")
@@ -52,10 +54,10 @@ class MetaView(MetaConfig.RegistryModel, table=True):
     MetaSchema: "MetaSchema" = Relationship(back_populates="MetaViews")
     # 正向关系 - 子对象
     MetaColumns: list["MetaColumn"] = Relationship(
-        back_populates="MetaView", sa_relationship_kwargs={"order_by": "MetaColumn.sort_order.asc()"}
+        back_populates="MetaView",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "MetaColumn.sort_order.asc()"},
     )
-    # 正向关系 - 子对象
-    MetaWebApis: list["MetaWebApi"] = Relationship(back_populates="MetaView")
 
 
 class MetaViewCreate(SQLModel):
@@ -63,10 +65,11 @@ class MetaViewCreate(SQLModel):
 
     meta_schema_id: int = Field(sa_type=BigInteger, description="主键")
     view_name: str = Field(max_length=255, description="视图名字")
-    router_name: str = Field(max_length=128, description="API路由名")
+    router_path: str = Field(max_length=128, description="API路由名")
     definition: Optional[str] = Field(default=None, description="SQL脚本")
     class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
     default_column: Optional[str] = Field(default=None, max_length=50, description="默认列")
+    api_acts: Optional[str] = Field(default=None, max_length=128, description="接口操作集合")
     comment: Optional[str] = Field(default=None, description="备注")
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")
@@ -79,10 +82,11 @@ class MetaViewUpdate(SQLModel):
     meta_view_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
     meta_schema_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="主键")
     view_name: Optional[str] = Field(default=None, max_length=255, description="视图名字")
-    router_name: Optional[str] = Field(default=None, max_length=128, description="API路由名")
+    router_path: Optional[str] = Field(default=None, max_length=128, description="API路由名")
     definition: Optional[str] = Field(default=None, description="SQL脚本")
     class_name: Optional[str] = Field(default=None, max_length=50, description="类名")
     default_column: Optional[str] = Field(default=None, max_length=50, description="默认列")
+    api_acts: Optional[str] = Field(default=None, max_length=128, description="接口操作集合")
     comment: Optional[str] = Field(default=None, description="备注")
     is_active: Optional[bool] = Field(default=None, description="启用状态")
     sort_order: Optional[int] = Field(default=None, description="排序权重")
@@ -96,10 +100,11 @@ class MetaViewResponse(BaseResponse):
     meta_view_id: int = Field(description="主键", sa_type=BigInteger)
     meta_schema_id: int = Field(description="主键", sa_type=BigInteger)
     view_name: str = Field(description="视图名字")
-    router_name: str = Field(description="API路由名")
+    router_path: str = Field(description="API路由名")
     definition: Optional[str] = Field(description="SQL脚本", default=None)
     class_name: Optional[str] = Field(description="类名", default=None)
     default_column: Optional[str] = Field(description="默认列", default=None)
+    api_acts: Optional[str] = Field(description="接口操作集合", default=None)
     comment: Optional[str] = Field(description="备注", default=None)
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")

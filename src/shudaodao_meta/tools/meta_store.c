@@ -3063,7 +3063,7 @@ static const char __pyx_k_index_key_2[] = "index_key";
 static const char __pyx_k_meta_schema[] = "- \344\277\235\345\255\230 meta_schema ...";
 static const char __pyx_k_model_class[] = "model_class";
 static const char __pyx_k_primary_key[] = "primary_key_";
-static const char __pyx_k_router_name[] = "router_name";
+static const char __pyx_k_router_path[] = "router_path";
 static const char __pyx_k_router_tags[] = "router_tags";
 static const char __pyx_k_schema_name[] = "schema_name";
 static const char __pyx_k_source_view[] = "source_view";
@@ -3684,7 +3684,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_relation __pyx_string_tab[219]
 #define __pyx_n_u_relationship_field __pyx_string_tab[220]
 #define __pyx_n_u_relationship_orderby __pyx_string_tab[221]
-#define __pyx_n_u_router_name __pyx_string_tab[222]
+#define __pyx_n_u_router_path __pyx_string_tab[222]
 #define __pyx_n_u_router_tags __pyx_string_tab[223]
 #define __pyx_kp_u_s __pyx_string_tab[224]
 #define __pyx_n_u_save_meta_constraint __pyx_string_tab[225]
@@ -4960,7 +4960,7 @@ static PyObject *__pyx_gb_10meta_store_9MetaStore_7generator1(__pyx_CoroutineObj
  *                 "output_backend": "backend/packages/90_shudaodao_generate/src",
  *                 "output_frontend": "frontend/src/views",
  *                 "engine_name": source_model.engine_name,             # <<<<<<<<<<<<<<
- *                 "router_name": self._schema_name,
+ *                 "router_path": self._schema_name,
  *                 "router_tags": "",
 */
     __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_source_model, __pyx_mstate_global->__pyx_n_u_engine_name); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 61, __pyx_L1_error)
@@ -4971,13 +4971,13 @@ static PyObject *__pyx_gb_10meta_store_9MetaStore_7generator1(__pyx_CoroutineObj
     /* "meta_store.py":62
  *                 "output_frontend": "frontend/src/views",
  *                 "engine_name": source_model.engine_name,
- *                 "router_name": self._schema_name,             # <<<<<<<<<<<<<<
+ *                 "router_path": self._schema_name,             # <<<<<<<<<<<<<<
  *                 "router_tags": "",
  *             }
 */
     __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_schema_name_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_router_name, __pyx_t_9) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_router_path, __pyx_t_9) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_router_tags, __pyx_mstate_global->__pyx_kp_u__2) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
     __Pyx_GIVEREF(__pyx_t_1);
@@ -13937,7 +13937,7 @@ static PyObject *__pyx_gb_10meta_store_9MetaStore_49generator15(__pyx_CoroutineO
  *             create_model = create_model_class(
  *                 **create_data,             # <<<<<<<<<<<<<<
  *                 meta_schema_id=curr_schema.meta_schema_id,
- *                 router_name=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
+ *                 router_path=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
 */
     if (unlikely(__pyx_cur_scope->__pyx_v_create_data == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "argument after ** must be a mapping, not NoneType");
@@ -13955,7 +13955,7 @@ static PyObject *__pyx_gb_10meta_store_9MetaStore_49generator15(__pyx_CoroutineO
  *             create_model = create_model_class(
  *                 **create_data,
  *                 meta_schema_id=curr_schema.meta_schema_id,             # <<<<<<<<<<<<<<
- *                 router_name=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
+ *                 router_path=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
  *                 sort_order=getattr(entity, "sort_order", 10),
 */
     __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_curr_schema, __pyx_mstate_global->__pyx_n_u_meta_schema_id); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 384, __pyx_L1_error)
@@ -13969,7 +13969,7 @@ static PyObject *__pyx_gb_10meta_store_9MetaStore_49generator15(__pyx_CoroutineO
     /* "meta_store.py":385
  *                 **create_data,
  *                 meta_schema_id=curr_schema.meta_schema_id,
- *                 router_name=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),             # <<<<<<<<<<<<<<
+ *                 router_path=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),             # <<<<<<<<<<<<<<
  *                 sort_order=getattr(entity, "sort_order", 10),
  *                 is_active=True,
 */
@@ -13990,15 +13990,15 @@ static PyObject *__pyx_gb_10meta_store_9MetaStore_49generator15(__pyx_CoroutineO
     __pyx_t_9 = __pyx_t_10;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_L9_bool_binop_done:;
-    if (unlikely(PyDict_Contains(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_router_name))) {
-      __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_router_name); __PYX_ERR(0, 382, __pyx_L1_error)
+    if (unlikely(PyDict_Contains(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_router_path))) {
+      __Pyx_RaiseDoubleKeywordsError("function", __pyx_mstate_global->__pyx_n_u_router_path); __PYX_ERR(0, 382, __pyx_L1_error)
     }
-    if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_router_name, __pyx_t_9) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_router_path, __pyx_t_9) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
     /* "meta_store.py":386
  *                 meta_schema_id=curr_schema.meta_schema_id,
- *                 router_name=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
+ *                 router_path=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
  *                 sort_order=getattr(entity, "sort_order", 10),             # <<<<<<<<<<<<<<
  *                 is_active=True,
  *             )
@@ -14012,7 +14012,7 @@ static PyObject *__pyx_gb_10meta_store_9MetaStore_49generator15(__pyx_CoroutineO
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
     /* "meta_store.py":387
- *                 router_name=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
+ *                 router_path=getattr(entity, "table_name", None) or getattr(entity, "view_name", None),
  *                 sort_order=getattr(entity, "sort_order", 10),
  *                 is_active=True,             # <<<<<<<<<<<<<<
  *             )
@@ -19495,7 +19495,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_relation, sizeof(__pyx_k_relation), 0, 1, 1}, /* PyObject cname: __pyx_n_u_relation */
   {__pyx_k_relationship_field, sizeof(__pyx_k_relationship_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_relationship_field */
   {__pyx_k_relationship_orderby, sizeof(__pyx_k_relationship_orderby), 0, 1, 1}, /* PyObject cname: __pyx_n_u_relationship_orderby */
-  {__pyx_k_router_name, sizeof(__pyx_k_router_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_router_name */
+  {__pyx_k_router_path, sizeof(__pyx_k_router_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_router_path */
   {__pyx_k_router_tags, sizeof(__pyx_k_router_tags), 0, 1, 1}, /* PyObject cname: __pyx_n_u_router_tags */
   {__pyx_k_s, sizeof(__pyx_k_s), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_s */
   {__pyx_k_save_meta_constraint, sizeof(__pyx_k_save_meta_constraint), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save_meta_constraint */

@@ -19,7 +19,9 @@
 # 
 #     __tablename__ = "t_auth_user"
 #     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "鉴权账户"}
-#     __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+#     # 仅用于内部处理
+#     __database_schema__ = MetaConfig.SchemaName
+#     __primary_key__ = ["user_id"]
 # 
 #     user_id: int = Field(
 #         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"

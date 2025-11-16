@@ -1,5 +1,3 @@
-from ..generate.entity_table.meta_table import MetaTable as MetaTable
-from ..generate.entity_table.meta_view import MetaView as MetaView
 from .meta_convert import MetaConverter as MetaConverter
 from .meta_query import MetaQuery as MetaQuery
 from .template_clazz import (

@@ -24,7 +24,9 @@ class SourceSchema(MetaConfig.RegistryModel, table=True):
 
     __tablename__ = "source_schema"
     __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "模式(schema)"}
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    # 仅用于内部处理
+    __database_schema__ = MetaConfig.SchemaName
+    __primary_key__ = ["source_schema_id"]
 
     source_schema_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
@@ -41,15 +43,20 @@ class SourceSchema(MetaConfig.RegistryModel, table=True):
     # 正向关系 - 子对象
     SourceReferencingForeignKeys: list["SourceReferencingForeignKey"] = Relationship(
         back_populates="SourceSchema",
+        cascade_delete=True,
         sa_relationship_kwargs={"order_by": "SourceReferencingForeignKey.sort_order.asc()"},
     )
     # 正向关系 - 子对象
     SourceTables: list["SourceTable"] = Relationship(
-        back_populates="SourceSchema", sa_relationship_kwargs={"order_by": "SourceTable.sort_order.asc()"}
+        back_populates="SourceSchema",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "SourceTable.sort_order.asc()"},
     )
     # 正向关系 - 子对象
     SourceViews: list["SourceView"] = Relationship(
-        back_populates="SourceSchema", sa_relationship_kwargs={"order_by": "SourceView.sort_order.asc()"}
+        back_populates="SourceSchema",
+        cascade_delete=True,
+        sa_relationship_kwargs={"order_by": "SourceView.sort_order.asc()"},
     )
 
 

@@ -20,6 +20,7 @@ class TemplateClazz:
     file_name: str
     class_name: str
     table_args: str
+    primary_key: str
     from_imports: list[str] = field(default_factory=list)
     database_columns: list[TemplateColumn] = field(default_factory=list)
     create_columns: list[TemplateColumn] = field(default_factory=list)

@@ -2,7 +2,6 @@ from ..entity_table.t_auth_user import (
     AuthUser as AuthUser,
     AuthUserResponse as AuthUserResponse,
 )
-from ..services.casbin_service import PermissionService as PermissionService
 from _typeshed import Incomplete
 from fastapi import Request as Request
 from fastapi.security import (
@@ -46,13 +45,6 @@ class AuthService:
 
         Raises:
             AuthError: 当令牌无效或已过期时
-        """
-    @classmethod
-    def get_permission(cls):
-        """获取权限服务实例。
-
-        Returns:
-            PermissionService: 权限服务实例
         """
     @classmethod
     async def get_current_user_request(
