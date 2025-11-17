@@ -48,7 +48,6 @@ class AuthUser(MetaConfig.RegistryModel, table=True):
     update_by: Optional[str] = Field(default=None, nullable=True, description="修改人")
     update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
     tenant_id: Optional[int] = Field(default=None, sa_type=BigInteger, nullable=True, description="默认租户")
-    staff_id: Optional[int] = Field(default=None, sa_type=BigInteger, nullable=True, description="默认用户")
 
 
 class AuthUserResponse(BaseResponse):
@@ -70,7 +69,6 @@ class AuthUserResponse(BaseResponse):
     create_at: Optional[datetime] = Field(description="创建日期", default=None)
     update_by: Optional[str] = Field(description="修改人", default=None)
     update_at: Optional[datetime] = Field(description="修改日期", default=None)
-    staff_id: Optional[int] = Field(description="默认用户", default=None, sa_type=BigInteger)
 
 
 class AuthUserRegister(SQLModel):
