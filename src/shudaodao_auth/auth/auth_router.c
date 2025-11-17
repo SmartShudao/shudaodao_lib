@@ -2636,11 +2636,12 @@ int __pyx_module_is_main_shudaodao_auth__auth__auth_router = 0;
 static PyObject *__pyx_builtin_staticmethod;
 static PyObject *__pyx_builtin_super;
 /* #### Code section: string_decls ### */
-static const char __pyx_k_[] = "\357\274\210\345\277\205\351\241\273\346\213\245\346\234\211 ";
-static const char __pyx_k__2[] = " \350\247\222\350\211\262\357\274\211";
-static const char __pyx_k__3[] = ".";
-static const char __pyx_k__4[] = "?";
-static const char __pyx_k__5[] = "\210!";
+static const char __pyx_k_[] = "";
+static const char __pyx_k__2[] = "\357\274\210\345\277\205\351\241\273\346\213\245\346\234\211 ";
+static const char __pyx_k__3[] = " \350\247\222\350\211\262\357\274\211";
+static const char __pyx_k__4[] = ".";
+static const char __pyx_k__5[] = "?";
+static const char __pyx_k__6[] = "\210!";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_GET[] = "GET";
 static const char __pyx_k_O_q[] = "\320\004$\240O\260?\300!\330\016\017\360\032\000\t\020\210q";
@@ -2753,7 +2754,7 @@ static const char __pyx_k_AuthAPIRouter_check_auth_locals[] = "AuthAPIRouter.che
 static const char __pyx_k_AuthAPIRouter_get_async_session[] = "AuthAPIRouter.get_async_session";
 static const char __pyx_k_AuthRouter_get_async_session_db[] = "\344\275\277\347\224\250AuthRouter.get_async_session,\346\236\204\351\200\240\345\207\275\346\225\260\345\277\205\351\241\273\350\256\276\347\275\256 db_engine_name";
 static const char __pyx_k_shudaodao_auth_auth_auth_router[] = "shudaodao_auth.auth.auth_router";
-static const char __pyx_k_A_a_q_a_a_Jc_Q_9Ct1_9Ct1_9Ct1_t1[] = "\200A\340\022\023\340\014\022\220!\330\014\026\220a\330\014\027\220q\330\014\026\220a\330\014\026\220a\360 \000\t\025\220J\230c\240\024\240Q\330\010\023\2209\230C\230t\2401\330\010\023\2209\230C\230t\2401\330\010\023\2209\230C\230t\2401\340\010\027\220t\2301\230F\240$\240a\320'7\260q\340\010\013\2101\330\014\030\230\007\230q\330\020\027\220q\230\004\230K\240q\250\013\260:\270Q\340\014\017\210q\330\020\032\230&\240\004\240A\240[\260\001\330\020\023\2204\220q\330\024\036\230a\330\020\027\220q\230\005\230R\230t\2407\250!\250:\260Q\330\020\026\220a\220}\240A\330\014\017\210y\230\004\230A\330\020\024\220L\240\001\240\032\250:\260Q\330\010\016\210a\320\017!\240\021\330\010\017\210u\220B\220j\240\001\240\030\250\021";
+static const char __pyx_k_A_a_q_a_a_Jc_1_9Ct_S_9Ct_S_9Ct_S[] = "\200A\340\022\023\340\014\022\220!\330\014\026\220a\330\014\027\220q\330\014\026\220a\330\014\026\220a\360 \000\t\025\220J\230c\240\024\240[\260\003\2601\330\010\023\2209\230C\230t\240:\250S\260\001\330\010\023\2209\230C\230t\240:\250S\260\001\330\010\023\2209\230C\230t\240:\250S\260\001\340\010\027\220t\2301\230F\240$\240a\320'7\260q\340\010\013\2101\330\014\030\230\007\230q\330\020\027\220q\230\004\230K\240q\250\013\260:\270Q\340\014\017\210q\330\020\032\230&\240\004\240A\240[\260\001\330\020\023\2204\220q\330\024\036\230a\330\020\027\220q\230\005\230R\230t\2407\250!\250:\260Q\330\020\026\220a\220}\240A\330\014\017\210y\230\004\230A\330\020\024\220L\240\001\240\032\250:\260Q\330\010\016\210a\320\017!\240\021\330\010\017\210u\220B\220j\240\001\240\030\250\021";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 static const char __pyx_k_shudaodao_auth_auth_auth_router_2[] = "shudaodao_auth/auth/auth_router.py";
 /* #### Code section: decls ### */
@@ -2823,7 +2824,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[2];
   PyObject *__pyx_codeobj_tab[11];
-  PyObject *__pyx_string_tab[113];
+  PyObject *__pyx_string_tab[114];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2931,86 +2932,87 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u__2 __pyx_string_tab[30]
 #define __pyx_kp_u__3 __pyx_string_tab[31]
 #define __pyx_kp_u__4 __pyx_string_tab[32]
-#define __pyx_kp_u_add_note __pyx_string_tab[33]
-#define __pyx_n_u_add_policy __pyx_string_tab[34]
-#define __pyx_n_u_add_policy_2 __pyx_string_tab[35]
-#define __pyx_n_u_aenter __pyx_string_tab[36]
-#define __pyx_n_u_aexit __pyx_string_tab[37]
-#define __pyx_n_u_api_route __pyx_string_tab[38]
-#define __pyx_n_u_args __pyx_string_tab[39]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[40]
-#define __pyx_n_u_auth __pyx_string_tab[41]
-#define __pyx_n_u_auth_act __pyx_string_tab[42]
-#define __pyx_n_u_auth_checker __pyx_string_tab[43]
-#define __pyx_n_u_auth_obj __pyx_string_tab[44]
-#define __pyx_kp_u_auth_objauth_act_auth_sub __pyx_string_tab[45]
-#define __pyx_n_u_auth_role __pyx_string_tab[46]
-#define __pyx_n_u_auth_sub __pyx_string_tab[47]
-#define __pyx_n_u_await __pyx_string_tab[48]
-#define __pyx_n_u_bool __pyx_string_tab[49]
-#define __pyx_n_u_check_auth __pyx_string_tab[50]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[51]
-#define __pyx_n_u_close __pyx_string_tab[52]
-#define __pyx_n_u_curr_user __pyx_string_tab[53]
-#define __pyx_n_u_db_engine_name __pyx_string_tab[54]
-#define __pyx_n_u_delete __pyx_string_tab[55]
-#define __pyx_n_u_dependencies __pyx_string_tab[56]
-#define __pyx_kp_u_disable __pyx_string_tab[57]
-#define __pyx_n_u_doc __pyx_string_tab[58]
-#define __pyx_kp_u_enable __pyx_string_tab[59]
-#define __pyx_n_u_fastapi __pyx_string_tab[60]
-#define __pyx_n_u_func __pyx_string_tab[61]
-#define __pyx_kp_u_gc __pyx_string_tab[62]
-#define __pyx_n_u_get __pyx_string_tab[63]
-#define __pyx_n_u_get_async_session __pyx_string_tab[64]
-#define __pyx_n_u_get_current_user __pyx_string_tab[65]
-#define __pyx_n_u_get_session __pyx_string_tab[66]
-#define __pyx_n_u_has_permission __pyx_string_tab[67]
-#define __pyx_n_u_has_role __pyx_string_tab[68]
-#define __pyx_n_u_init __pyx_string_tab[69]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[70]
-#define __pyx_kp_u_isenabled __pyx_string_tab[71]
-#define __pyx_n_u_items __pyx_string_tab[72]
-#define __pyx_n_u_kwargs __pyx_string_tab[73]
-#define __pyx_n_u_logging __pyx_string_tab[74]
-#define __pyx_n_u_main __pyx_string_tab[75]
-#define __pyx_n_u_message __pyx_string_tab[76]
-#define __pyx_n_u_metaclass __pyx_string_tab[77]
-#define __pyx_n_u_methods __pyx_string_tab[78]
-#define __pyx_n_u_module __pyx_string_tab[79]
-#define __pyx_n_u_mro_entries __pyx_string_tab[80]
-#define __pyx_n_u_name __pyx_string_tab[81]
-#define __pyx_n_u_name_2 __pyx_string_tab[82]
-#define __pyx_n_u_next __pyx_string_tab[83]
-#define __pyx_n_u_patch __pyx_string_tab[84]
-#define __pyx_n_u_path __pyx_string_tab[85]
-#define __pyx_n_u_pop __pyx_string_tab[86]
-#define __pyx_n_u_post __pyx_string_tab[87]
-#define __pyx_n_u_prepare __pyx_string_tab[88]
-#define __pyx_n_u_put __pyx_string_tab[89]
-#define __pyx_n_u_qualname __pyx_string_tab[90]
-#define __pyx_n_u_result __pyx_string_tab[91]
-#define __pyx_n_u_self __pyx_string_tab[92]
-#define __pyx_n_u_send __pyx_string_tab[93]
-#define __pyx_n_u_services_auth_service __pyx_string_tab[94]
-#define __pyx_n_u_services_casbin_service __pyx_string_tab[95]
-#define __pyx_n_u_session __pyx_string_tab[96]
-#define __pyx_n_u_set_name __pyx_string_tab[97]
-#define __pyx_n_u_shudaodao_auth_auth_auth_router __pyx_string_tab[98]
-#define __pyx_kp_u_shudaodao_auth_auth_auth_router_2 __pyx_string_tab[99]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[100]
-#define __pyx_n_u_shudaodao_core_logger_logging __pyx_string_tab[101]
-#define __pyx_n_u_staticmethod __pyx_string_tab[102]
-#define __pyx_n_u_str __pyx_string_tab[103]
-#define __pyx_n_u_summary __pyx_string_tab[104]
-#define __pyx_n_u_super __pyx_string_tab[105]
-#define __pyx_n_u_test __pyx_string_tab[106]
-#define __pyx_n_u_throw __pyx_string_tab[107]
-#define __pyx_n_u_typing __pyx_string_tab[108]
-#define __pyx_n_u_user __pyx_string_tab[109]
-#define __pyx_n_u_username __pyx_string_tab[110]
-#define __pyx_n_u_value __pyx_string_tab[111]
-#define __pyx_n_u_warning __pyx_string_tab[112]
+#define __pyx_kp_u__5 __pyx_string_tab[33]
+#define __pyx_kp_u_add_note __pyx_string_tab[34]
+#define __pyx_n_u_add_policy __pyx_string_tab[35]
+#define __pyx_n_u_add_policy_2 __pyx_string_tab[36]
+#define __pyx_n_u_aenter __pyx_string_tab[37]
+#define __pyx_n_u_aexit __pyx_string_tab[38]
+#define __pyx_n_u_api_route __pyx_string_tab[39]
+#define __pyx_n_u_args __pyx_string_tab[40]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[41]
+#define __pyx_n_u_auth __pyx_string_tab[42]
+#define __pyx_n_u_auth_act __pyx_string_tab[43]
+#define __pyx_n_u_auth_checker __pyx_string_tab[44]
+#define __pyx_n_u_auth_obj __pyx_string_tab[45]
+#define __pyx_kp_u_auth_objauth_act_auth_sub __pyx_string_tab[46]
+#define __pyx_n_u_auth_role __pyx_string_tab[47]
+#define __pyx_n_u_auth_sub __pyx_string_tab[48]
+#define __pyx_n_u_await __pyx_string_tab[49]
+#define __pyx_n_u_bool __pyx_string_tab[50]
+#define __pyx_n_u_check_auth __pyx_string_tab[51]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[52]
+#define __pyx_n_u_close __pyx_string_tab[53]
+#define __pyx_n_u_curr_user __pyx_string_tab[54]
+#define __pyx_n_u_db_engine_name __pyx_string_tab[55]
+#define __pyx_n_u_delete __pyx_string_tab[56]
+#define __pyx_n_u_dependencies __pyx_string_tab[57]
+#define __pyx_kp_u_disable __pyx_string_tab[58]
+#define __pyx_n_u_doc __pyx_string_tab[59]
+#define __pyx_kp_u_enable __pyx_string_tab[60]
+#define __pyx_n_u_fastapi __pyx_string_tab[61]
+#define __pyx_n_u_func __pyx_string_tab[62]
+#define __pyx_kp_u_gc __pyx_string_tab[63]
+#define __pyx_n_u_get __pyx_string_tab[64]
+#define __pyx_n_u_get_async_session __pyx_string_tab[65]
+#define __pyx_n_u_get_current_user __pyx_string_tab[66]
+#define __pyx_n_u_get_session __pyx_string_tab[67]
+#define __pyx_n_u_has_permission __pyx_string_tab[68]
+#define __pyx_n_u_has_role __pyx_string_tab[69]
+#define __pyx_n_u_init __pyx_string_tab[70]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[71]
+#define __pyx_kp_u_isenabled __pyx_string_tab[72]
+#define __pyx_n_u_items __pyx_string_tab[73]
+#define __pyx_n_u_kwargs __pyx_string_tab[74]
+#define __pyx_n_u_logging __pyx_string_tab[75]
+#define __pyx_n_u_main __pyx_string_tab[76]
+#define __pyx_n_u_message __pyx_string_tab[77]
+#define __pyx_n_u_metaclass __pyx_string_tab[78]
+#define __pyx_n_u_methods __pyx_string_tab[79]
+#define __pyx_n_u_module __pyx_string_tab[80]
+#define __pyx_n_u_mro_entries __pyx_string_tab[81]
+#define __pyx_n_u_name __pyx_string_tab[82]
+#define __pyx_n_u_name_2 __pyx_string_tab[83]
+#define __pyx_n_u_next __pyx_string_tab[84]
+#define __pyx_n_u_patch __pyx_string_tab[85]
+#define __pyx_n_u_path __pyx_string_tab[86]
+#define __pyx_n_u_pop __pyx_string_tab[87]
+#define __pyx_n_u_post __pyx_string_tab[88]
+#define __pyx_n_u_prepare __pyx_string_tab[89]
+#define __pyx_n_u_put __pyx_string_tab[90]
+#define __pyx_n_u_qualname __pyx_string_tab[91]
+#define __pyx_n_u_result __pyx_string_tab[92]
+#define __pyx_n_u_self __pyx_string_tab[93]
+#define __pyx_n_u_send __pyx_string_tab[94]
+#define __pyx_n_u_services_auth_service __pyx_string_tab[95]
+#define __pyx_n_u_services_casbin_service __pyx_string_tab[96]
+#define __pyx_n_u_session __pyx_string_tab[97]
+#define __pyx_n_u_set_name __pyx_string_tab[98]
+#define __pyx_n_u_shudaodao_auth_auth_auth_router __pyx_string_tab[99]
+#define __pyx_kp_u_shudaodao_auth_auth_auth_router_2 __pyx_string_tab[100]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[101]
+#define __pyx_n_u_shudaodao_core_logger_logging __pyx_string_tab[102]
+#define __pyx_n_u_staticmethod __pyx_string_tab[103]
+#define __pyx_n_u_str __pyx_string_tab[104]
+#define __pyx_n_u_summary __pyx_string_tab[105]
+#define __pyx_n_u_super __pyx_string_tab[106]
+#define __pyx_n_u_test __pyx_string_tab[107]
+#define __pyx_n_u_throw __pyx_string_tab[108]
+#define __pyx_n_u_typing __pyx_string_tab[109]
+#define __pyx_n_u_user __pyx_string_tab[110]
+#define __pyx_n_u_username __pyx_string_tab[111]
+#define __pyx_n_u_value __pyx_string_tab[112]
+#define __pyx_n_u_warning __pyx_string_tab[113]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3041,7 +3043,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_auth_4auth_11auth_router___pyx_scope_struct_2_auth_checker);
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<11; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<113; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<114; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3072,7 +3074,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_auth_4auth_11auth_router___pyx_scope_struct_2_auth_checker);
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<11; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<113; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<114; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -5051,9 +5053,9 @@ static PyObject *__pyx_pf_14shudaodao_auth_4auth_11auth_router_13AuthAPIRouter_7
   /* "shudaodao_auth/auth/auth_router.py":108
  *             Callable:
  *         """
- *         auth_role = auth_role or self.auth_role             # <<<<<<<<<<<<<<
- *         auth_sub = auth_sub or self.auth_sub
- *         auth_obj = auth_obj or self.auth_obj
+ *         auth_role = auth_role or self.auth_role or ""             # <<<<<<<<<<<<<<
+ *         auth_sub = auth_sub or self.auth_sub or ""
+ *         auth_obj = auth_obj or self.auth_obj or ""
 */
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_auth_role); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 108, __pyx_L1_error)
   if (!__pyx_t_2) {
@@ -5064,43 +5066,59 @@ static PyObject *__pyx_pf_14shudaodao_auth_4auth_11auth_router_13AuthAPIRouter_7
   }
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auth_role); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_1 = __pyx_t_3;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (!__pyx_t_2) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 108, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_1 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L3_bool_binop_done;
+  }
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_);
+  __pyx_t_1 = __pyx_mstate_global->__pyx_kp_u_;
   __pyx_L3_bool_binop_done:;
   __Pyx_DECREF_SET(__pyx_v_auth_role, ((PyObject*)__pyx_t_1));
   __pyx_t_1 = 0;
 
   /* "shudaodao_auth/auth/auth_router.py":109
  *         """
- *         auth_role = auth_role or self.auth_role
- *         auth_sub = auth_sub or self.auth_sub             # <<<<<<<<<<<<<<
- *         auth_obj = auth_obj or self.auth_obj
- *         auth_act = auth_act or self.auth_act
+ *         auth_role = auth_role or self.auth_role or ""
+ *         auth_sub = auth_sub or self.auth_sub or ""             # <<<<<<<<<<<<<<
+ *         auth_obj = auth_obj or self.auth_obj or ""
+ *         auth_act = auth_act or self.auth_act or ""
 */
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_auth_sub); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 109, __pyx_L1_error)
   if (!__pyx_t_2) {
   } else {
     __Pyx_INCREF(__pyx_v_auth_sub);
     __pyx_t_1 = __pyx_v_auth_sub;
-    goto __pyx_L5_bool_binop_done;
+    goto __pyx_L6_bool_binop_done;
   }
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auth_sub); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 109, __pyx_L1_error)
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_1 = __pyx_t_3;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L5_bool_binop_done:;
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (!__pyx_t_2) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 109, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_1 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L6_bool_binop_done;
+  }
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_);
+  __pyx_t_1 = __pyx_mstate_global->__pyx_kp_u_;
+  __pyx_L6_bool_binop_done:;
   __Pyx_DECREF_SET(__pyx_v_auth_sub, ((PyObject*)__pyx_t_1));
   __pyx_t_1 = 0;
 
   /* "shudaodao_auth/auth/auth_router.py":110
- *         auth_role = auth_role or self.auth_role
- *         auth_sub = auth_sub or self.auth_sub
- *         auth_obj = auth_obj or self.auth_obj             # <<<<<<<<<<<<<<
- *         auth_act = auth_act or self.auth_act
+ *         auth_role = auth_role or self.auth_role or ""
+ *         auth_sub = auth_sub or self.auth_sub or ""
+ *         auth_obj = auth_obj or self.auth_obj or ""             # <<<<<<<<<<<<<<
+ *         auth_act = auth_act or self.auth_act or ""
  * 
 */
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_auth_obj); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 110, __pyx_L1_error)
@@ -5108,22 +5126,30 @@ static PyObject *__pyx_pf_14shudaodao_auth_4auth_11auth_router_13AuthAPIRouter_7
   } else {
     __Pyx_INCREF(__pyx_v_auth_obj);
     __pyx_t_1 = __pyx_v_auth_obj;
-    goto __pyx_L7_bool_binop_done;
+    goto __pyx_L9_bool_binop_done;
   }
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auth_obj); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 110, __pyx_L1_error)
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_1 = __pyx_t_3;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L7_bool_binop_done:;
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (!__pyx_t_2) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 110, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_1 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L9_bool_binop_done;
+  }
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_);
+  __pyx_t_1 = __pyx_mstate_global->__pyx_kp_u_;
+  __pyx_L9_bool_binop_done:;
   __Pyx_DECREF_SET(__pyx_v_auth_obj, ((PyObject*)__pyx_t_1));
   __pyx_t_1 = 0;
 
   /* "shudaodao_auth/auth/auth_router.py":111
- *         auth_sub = auth_sub or self.auth_sub
- *         auth_obj = auth_obj or self.auth_obj
- *         auth_act = auth_act or self.auth_act             # <<<<<<<<<<<<<<
+ *         auth_sub = auth_sub or self.auth_sub or ""
+ *         auth_obj = auth_obj or self.auth_obj or ""
+ *         auth_act = auth_act or self.auth_act or ""             # <<<<<<<<<<<<<<
  * 
  *         dependencies = list(kwargs.get("dependencies", []))
 */
@@ -5132,20 +5158,28 @@ static PyObject *__pyx_pf_14shudaodao_auth_4auth_11auth_router_13AuthAPIRouter_7
   } else {
     __Pyx_INCREF(__pyx_v_auth_act);
     __pyx_t_1 = __pyx_v_auth_act;
-    goto __pyx_L9_bool_binop_done;
+    goto __pyx_L12_bool_binop_done;
   }
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_mstate_global->__pyx_n_u_auth_act); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 111, __pyx_L1_error)
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_1 = __pyx_t_3;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_L9_bool_binop_done:;
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 111, __pyx_L1_error)
+  if (!__pyx_t_2) {
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  } else {
+    if (!(likely(PyUnicode_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_3))) __PYX_ERR(0, 111, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_1 = __pyx_t_3;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L12_bool_binop_done;
+  }
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_kp_u_);
+  __pyx_t_1 = __pyx_mstate_global->__pyx_kp_u_;
+  __pyx_L12_bool_binop_done:;
   __Pyx_DECREF_SET(__pyx_v_auth_act, ((PyObject*)__pyx_t_1));
   __pyx_t_1 = 0;
 
   /* "shudaodao_auth/auth/auth_router.py":113
- *         auth_act = auth_act or self.auth_act
+ *         auth_act = auth_act or self.auth_act or ""
  * 
  *         dependencies = list(kwargs.get("dependencies", []))             # <<<<<<<<<<<<<<
  *         #
@@ -5300,9 +5334,9 @@ static PyObject *__pyx_pf_14shudaodao_auth_4auth_11auth_router_13AuthAPIRouter_7
       __pyx_t_1 = __Pyx_PyUnicode_Unicode(__pyx_v_auth_role); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_10[0] = __pyx_t_4;
-      __pyx_t_10[1] = __pyx_mstate_global->__pyx_kp_u_;
+      __pyx_t_10[1] = __pyx_mstate_global->__pyx_kp_u__2;
       __pyx_t_10[2] = __pyx_t_1;
-      __pyx_t_10[3] = __pyx_mstate_global->__pyx_kp_u__2;
+      __pyx_t_10[3] = __pyx_mstate_global->__pyx_kp_u__3;
       __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_10, 4, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4) + 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + 4, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1));
       if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
@@ -5347,7 +5381,7 @@ static PyObject *__pyx_pf_14shudaodao_auth_4auth_11auth_router_13AuthAPIRouter_7
     if (__pyx_t_2) {
     } else {
       __pyx_t_9 = __pyx_t_2;
-      goto __pyx_L15_bool_binop_done;
+      goto __pyx_L19_bool_binop_done;
     }
     if (__pyx_v_auth_act == Py_None) __pyx_t_2 = 0;
     else
@@ -5358,7 +5392,7 @@ static PyObject *__pyx_pf_14shudaodao_auth_4auth_11auth_router_13AuthAPIRouter_7
     }
 
     __pyx_t_9 = __pyx_t_2;
-    __pyx_L15_bool_binop_done:;
+    __pyx_L19_bool_binop_done:;
     if (__pyx_t_9) {
 
       /* "shudaodao_auth/auth/auth_router.py":126
@@ -9059,6 +9093,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
+  {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
   {__pyx_k_add_note, sizeof(__pyx_k_add_note), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_add_note */
   {__pyx_k_add_policy, sizeof(__pyx_k_add_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add_policy */
   {__pyx_k_add_policy_2, sizeof(__pyx_k_add_policy_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add_policy_2 */
@@ -9229,7 +9264,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR), 60, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_session};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_auth_auth_auth_router_2, __pyx_mstate->__pyx_n_u_get_async_session, __pyx_k__5, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_auth_auth_auth_router_2, __pyx_mstate->__pyx_n_u_get_async_session, __pyx_k__6, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 69, 11};
@@ -9247,9 +9282,9 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_auth_auth_auth_router_2, __pyx_mstate->__pyx_n_u_check_auth, __pyx_k_O_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 5, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS), 84, 228};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 5, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_VARKEYWORDS), 84, 244};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_path, __pyx_mstate->__pyx_n_u_auth, __pyx_mstate->__pyx_n_u_auth_sub, __pyx_mstate->__pyx_n_u_auth_role, __pyx_mstate->__pyx_n_u_auth_obj, __pyx_mstate->__pyx_n_u_auth_act, __pyx_mstate->__pyx_n_u_kwargs, __pyx_mstate->__pyx_n_u_dependencies, __pyx_mstate->__pyx_n_u_summary};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_auth_auth_auth_router_2, __pyx_mstate->__pyx_n_u_api_route, __pyx_k_A_a_q_a_a_Jc_Q_9Ct1_9Ct1_9Ct1_t1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_auth_auth_auth_router_2, __pyx_mstate->__pyx_n_u_api_route, __pyx_k_A_a_q_a_a_Jc_1_9Ct_S_9Ct_S_9Ct_S, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 130, 41};
@@ -15128,7 +15163,7 @@ bad:
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__3);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__4);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -15784,7 +15819,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__4);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__5);
     }
     goto done;
 }
