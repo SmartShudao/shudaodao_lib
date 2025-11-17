@@ -26,10 +26,7 @@ Auth_Controller = AuthAPIRouter(
 async def auth_me(
         current_user: AuthUserResponse = Depends(AuthService.get_current_user)
 ):
-    # return ResponseUtil.success(
-    #     message="获取用户信息成功",
-    #     data=current_user
-    # )
+    # return ResponseUtil.success(message="获取用户信息成功", data=current_user)
     result_data = current_user.__dict__
     result_data.update({
         "desc": "-------------------以下非数据库字段，满足Art Design Pro临时登录用-------------------",
