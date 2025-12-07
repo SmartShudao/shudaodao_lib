@@ -11,14 +11,14 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 
 from shudaodao_auth import AuthAPIRouter
 from shudaodao_core import Depends, ResponseUtil
-from ..meta_config import MetaConfig
+from ..package_config import PackageConfig
 from ..schema.enum import EnumQueryRequest
 from ..tools.enum_query import EnumQuery
 
 Meta_Enum_Router = AuthAPIRouter(
-    prefix=f"/{MetaConfig.RouterPath}/enums",
-    tags=[f"{MetaConfig.RouterTags} - 字典枚举"],
-    db_engine_name=MetaConfig.EngineName,  # 配置文件中的数据库连接名称
+    prefix=f"/{PackageConfig.RouterPath}/enums",
+    tags=[f"{PackageConfig.RouterTags} - 字典枚举"],
+    db_engine_name=PackageConfig.EngineName,  # 配置文件中的数据库连接名称
 )
 
 

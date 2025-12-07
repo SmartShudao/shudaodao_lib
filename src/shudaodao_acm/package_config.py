@@ -5,9 +5,9 @@
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_acm
 
-from shudaodao_core import MetaConfigSetting
+from shudaodao_core import PackageConfigSetting
 
-MetaConfig = MetaConfigSetting(
+PackageConfig = PackageConfigSetting(
     engine_name="Acm",
     schema_name="shudaodao_acm",
     router_path="acm",

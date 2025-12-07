@@ -5,9 +5,9 @@
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_auth
 
-from shudaodao_core import MetaConfigSetting
+from shudaodao_core import PackageConfigSetting
 
-MetaConfig = MetaConfigSetting(
+PackageConfig = PackageConfigSetting(
     engine_name="Auth",
     schema_name="shudaodao_auth",
     router_path="auth",

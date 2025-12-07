@@ -1601,7 +1601,7 @@ struct __pyx_obj_14shudaodao_auth_6webapi_4auth___pyx_scope_struct_4_auth_logout
 /* "shudaodao_auth/webapi/auth.py":116
  * 
  * #
- * @Auth_Controller.put("/password", summary="")             # <<<<<<<<<<<<<<
+ * @Auth_Controller.post("/password", summary="")             # <<<<<<<<<<<<<<
  * async def auth_me_password(
  *         password_model: AuthPassword,
 */
@@ -2536,7 +2536,6 @@ static const char __pyx_k__15[] = "?";
 static const char __pyx_k__16[] = "\200\001";
 static const char __pyx_k_a_7[] = "\200a\330\030\031\330\014\033\2307\240!\240?\260!";
 static const char __pyx_k_pop[] = "pop";
-static const char __pyx_k_put[] = "put";
 static const char __pyx_k_set[] = "set";
 static const char __pyx_k_auth[] = "auth";
 static const char __pyx_k_data[] = "data";
@@ -2588,7 +2587,6 @@ static const char __pyx_k_isenabled[] = "isenabled";
 static const char __pyx_k_refresh_2[] = "/refresh";
 static const char __pyx_k_tenant_id[] = "tenant_id";
 static const char __pyx_k_EngineName[] = "EngineName";
-static const char __pyx_k_MetaConfig[] = "MetaConfig";
 static const char __pyx_k_RouterPath[] = "RouterPath";
 static const char __pyx_k_RouterTags[] = "RouterTags";
 static const char __pyx_k_auth_login[] = "auth_login";
@@ -2598,7 +2596,6 @@ static const char __pyx_k_AuthService[] = "AuthService";
 static const char __pyx_k_DataService[] = "DataService";
 static const char __pyx_k_auth_logout[] = "auth_logout";
 static const char __pyx_k_login_model[] = "login_model";
-static const char __pyx_k_meta_config[] = "meta_config";
 static const char __pyx_k_model_class[] = "model_class";
 static const char __pyx_k_AsyncSession[] = "AsyncSession";
 static const char __pyx_k_AuthPassword[] = "AuthPassword";
@@ -2609,12 +2606,14 @@ static const char __pyx_k_create_model[] = "create_model";
 static const char __pyx_k_current_user[] = "current_user";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_AuthAPIRouter[] = "AuthAPIRouter";
+static const char __pyx_k_PackageConfig[] = "PackageConfig";
 static const char __pyx_k_TenantManager[] = "TenantManager";
 static const char __pyx_k_auth_register[] = "auth_register";
 static const char __pyx_k_hash_password[] = "hash_password";
 static const char __pyx_k_refresh_model[] = "refresh_model";
 static const char __pyx_k_refresh_token[] = "refresh_token";
 static const char __pyx_k_db_engine_name[] = "db_engine_name";
+static const char __pyx_k_package_config[] = "package_config";
 static const char __pyx_k_password_model[] = "password_model";
 static const char __pyx_k_register_model[] = "register_model";
 static const char __pyx_k_response_class[] = "response_class";
@@ -2718,7 +2717,7 @@ typedef struct {
   PyTypeObject *__pyx_ptype_14shudaodao_auth_6webapi_4auth___pyx_scope_struct_5_auth_me_password;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_codeobj_tab[6];
-  PyObject *__pyx_string_tab[123];
+  PyObject *__pyx_string_tab[122];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2811,9 +2810,9 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_DataService __pyx_string_tab[12]
 #define __pyx_n_u_Depends __pyx_string_tab[13]
 #define __pyx_n_u_EngineName __pyx_string_tab[14]
-#define __pyx_n_u_MetaConfig __pyx_string_tab[15]
-#define __pyx_n_u_OAuth2PasswordRequestForm __pyx_string_tab[16]
-#define __pyx_kp_u_OAuth2PasswordRequestForm_2 __pyx_string_tab[17]
+#define __pyx_n_u_OAuth2PasswordRequestForm __pyx_string_tab[15]
+#define __pyx_kp_u_OAuth2PasswordRequestForm_2 __pyx_string_tab[16]
+#define __pyx_n_u_PackageConfig __pyx_string_tab[17]
 #define __pyx_n_u_QueryService __pyx_string_tab[18]
 #define __pyx_n_u_ResponseUtil __pyx_string_tab[19]
 #define __pyx_n_u_RouterPath __pyx_string_tab[20]
@@ -2878,47 +2877,46 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_kp_u_logout_2 __pyx_string_tab[79]
 #define __pyx_n_u_main __pyx_string_tab[80]
 #define __pyx_n_u_message __pyx_string_tab[81]
-#define __pyx_n_u_meta_config __pyx_string_tab[82]
-#define __pyx_n_u_model_class __pyx_string_tab[83]
-#define __pyx_n_u_modify_password __pyx_string_tab[84]
-#define __pyx_n_u_module __pyx_string_tab[85]
-#define __pyx_n_u_name __pyx_string_tab[86]
-#define __pyx_n_u_next __pyx_string_tab[87]
+#define __pyx_n_u_model_class __pyx_string_tab[82]
+#define __pyx_n_u_modify_password __pyx_string_tab[83]
+#define __pyx_n_u_module __pyx_string_tab[84]
+#define __pyx_n_u_name __pyx_string_tab[85]
+#define __pyx_n_u_next __pyx_string_tab[86]
+#define __pyx_n_u_package_config __pyx_string_tab[87]
 #define __pyx_n_u_password __pyx_string_tab[88]
 #define __pyx_kp_u_password_2 __pyx_string_tab[89]
 #define __pyx_n_u_password_model __pyx_string_tab[90]
 #define __pyx_n_u_pop __pyx_string_tab[91]
 #define __pyx_n_u_post __pyx_string_tab[92]
 #define __pyx_n_u_prefix __pyx_string_tab[93]
-#define __pyx_n_u_put __pyx_string_tab[94]
-#define __pyx_n_u_qualname __pyx_string_tab[95]
-#define __pyx_n_u_query_columns_first __pyx_string_tab[96]
-#define __pyx_n_u_refresh __pyx_string_tab[97]
-#define __pyx_kp_u_refresh_2 __pyx_string_tab[98]
-#define __pyx_n_u_refresh_model __pyx_string_tab[99]
-#define __pyx_n_u_refresh_token __pyx_string_tab[100]
-#define __pyx_n_u_register_model __pyx_string_tab[101]
-#define __pyx_n_u_response_class __pyx_string_tab[102]
-#define __pyx_n_u_send __pyx_string_tab[103]
-#define __pyx_n_u_services_auth_service __pyx_string_tab[104]
-#define __pyx_n_u_set __pyx_string_tab[105]
-#define __pyx_n_u_set_name __pyx_string_tab[106]
-#define __pyx_n_u_shudaodao_auth_webapi_auth __pyx_string_tab[107]
-#define __pyx_kp_u_shudaodao_auth_webapi_auth_py __pyx_string_tab[108]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[109]
-#define __pyx_n_u_shudaodao_core_schemas_response __pyx_string_tab[110]
-#define __pyx_n_u_shudaodao_core_tools __pyx_string_tab[111]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[112]
-#define __pyx_n_u_success __pyx_string_tab[113]
-#define __pyx_n_u_summary __pyx_string_tab[114]
-#define __pyx_n_u_tags __pyx_string_tab[115]
-#define __pyx_n_u_tenant_id __pyx_string_tab[116]
-#define __pyx_n_u_test __pyx_string_tab[117]
-#define __pyx_n_u_throw __pyx_string_tab[118]
-#define __pyx_kp_u_token __pyx_string_tab[119]
-#define __pyx_n_u_token_2 __pyx_string_tab[120]
-#define __pyx_n_u_username __pyx_string_tab[121]
-#define __pyx_n_u_value __pyx_string_tab[122]
+#define __pyx_n_u_qualname __pyx_string_tab[94]
+#define __pyx_n_u_query_columns_first __pyx_string_tab[95]
+#define __pyx_n_u_refresh __pyx_string_tab[96]
+#define __pyx_kp_u_refresh_2 __pyx_string_tab[97]
+#define __pyx_n_u_refresh_model __pyx_string_tab[98]
+#define __pyx_n_u_refresh_token __pyx_string_tab[99]
+#define __pyx_n_u_register_model __pyx_string_tab[100]
+#define __pyx_n_u_response_class __pyx_string_tab[101]
+#define __pyx_n_u_send __pyx_string_tab[102]
+#define __pyx_n_u_services_auth_service __pyx_string_tab[103]
+#define __pyx_n_u_set __pyx_string_tab[104]
+#define __pyx_n_u_set_name __pyx_string_tab[105]
+#define __pyx_n_u_shudaodao_auth_webapi_auth __pyx_string_tab[106]
+#define __pyx_kp_u_shudaodao_auth_webapi_auth_py __pyx_string_tab[107]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[108]
+#define __pyx_n_u_shudaodao_core_schemas_response __pyx_string_tab[109]
+#define __pyx_n_u_shudaodao_core_tools __pyx_string_tab[110]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[111]
+#define __pyx_n_u_success __pyx_string_tab[112]
+#define __pyx_n_u_summary __pyx_string_tab[113]
+#define __pyx_n_u_tags __pyx_string_tab[114]
+#define __pyx_n_u_tenant_id __pyx_string_tab[115]
+#define __pyx_n_u_test __pyx_string_tab[116]
+#define __pyx_n_u_throw __pyx_string_tab[117]
+#define __pyx_kp_u_token __pyx_string_tab[118]
+#define __pyx_n_u_token_2 __pyx_string_tab[119]
+#define __pyx_n_u_username __pyx_string_tab[120]
+#define __pyx_n_u_value __pyx_string_tab[121]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2956,7 +2954,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_ptype_14shudaodao_auth_6webapi_4auth___pyx_scope_struct_5_auth_me_password);
   Py_CLEAR(clear_module_state->__pyx_type_14shudaodao_auth_6webapi_4auth___pyx_scope_struct_5_auth_me_password);
   for (int i=0; i<6; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<123; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<122; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -2994,7 +2992,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_ptype_14shudaodao_auth_6webapi_4auth___pyx_scope_struct_5_auth_me_password);
   Py_VISIT(traverse_module_state->__pyx_type_14shudaodao_auth_6webapi_4auth___pyx_scope_struct_5_auth_me_password);
   for (int i=0; i<6; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<123; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<122; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -4965,7 +4963,7 @@ static PyObject *__pyx_gb_14shudaodao_auth_6webapi_4auth_17generator5(__pyx_Coro
 /* "shudaodao_auth/webapi/auth.py":116
  * 
  * #
- * @Auth_Controller.put("/password", summary="")             # <<<<<<<<<<<<<<
+ * @Auth_Controller.post("/password", summary="")             # <<<<<<<<<<<<<<
  * async def auth_me_password(
  *         password_model: AuthPassword,
 */
@@ -5296,7 +5294,7 @@ static PyObject *__pyx_gb_14shudaodao_auth_6webapi_4auth_17generator5(__pyx_Coro
   /* "shudaodao_auth/webapi/auth.py":116
  * 
  * #
- * @Auth_Controller.put("/password", summary="")             # <<<<<<<<<<<<<<
+ * @Auth_Controller.post("/password", summary="")             # <<<<<<<<<<<<<<
  * async def auth_me_password(
  *         password_model: AuthPassword,
 */
@@ -7280,24 +7278,24 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   /* "shudaodao_auth/webapi/auth.py":25
  *     AuthUserResponse
  * )
- * from ..meta_config import MetaConfig             # <<<<<<<<<<<<<<
+ * from ..package_config import PackageConfig             # <<<<<<<<<<<<<<
  * from ..services.auth_service import AuthService
  * 
 */
-  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_PackageConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_meta_config, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_package_config, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_MetaConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_PackageConfig); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_MetaConfig, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_PackageConfig, __pyx_t_2) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_auth/webapi/auth.py":26
  * )
- * from ..meta_config import MetaConfig
+ * from ..package_config import PackageConfig
  * from ..services.auth_service import AuthService             # <<<<<<<<<<<<<<
  * 
  * Auth_Controller = AuthAPIRouter(
@@ -7317,8 +7315,8 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
  * from ..services.auth_service import AuthService
  * 
  * Auth_Controller = AuthAPIRouter(             # <<<<<<<<<<<<<<
- *     prefix=f"/{MetaConfig.RouterPath}",
- *     tags=[f"{MetaConfig.RouterTags} - "],
+ *     prefix=f"/{PackageConfig.RouterPath}",
+ *     tags=[f"{PackageConfig.RouterTags} - "],
 */
   __pyx_t_3 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_AuthAPIRouter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
@@ -7327,11 +7325,11 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   /* "shudaodao_auth/webapi/auth.py":29
  * 
  * Auth_Controller = AuthAPIRouter(
- *     prefix=f"/{MetaConfig.RouterPath}",             # <<<<<<<<<<<<<<
- *     tags=[f"{MetaConfig.RouterTags} - "],
- *     db_engine_name=MetaConfig.EngineName,
+ *     prefix=f"/{PackageConfig.RouterPath}",             # <<<<<<<<<<<<<<
+ *     tags=[f"{PackageConfig.RouterTags} - "],
+ *     db_engine_name=PackageConfig.EngineName,
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaConfig); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_PackageConfig); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_RouterPath); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
@@ -7345,12 +7343,12 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
 
   /* "shudaodao_auth/webapi/auth.py":30
  * Auth_Controller = AuthAPIRouter(
- *     prefix=f"/{MetaConfig.RouterPath}",
- *     tags=[f"{MetaConfig.RouterTags} - "],             # <<<<<<<<<<<<<<
- *     db_engine_name=MetaConfig.EngineName,
+ *     prefix=f"/{PackageConfig.RouterPath}",
+ *     tags=[f"{PackageConfig.RouterTags} - "],             # <<<<<<<<<<<<<<
+ *     db_engine_name=PackageConfig.EngineName,
  * )
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_MetaConfig); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_PackageConfig); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_RouterTags); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 30, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
@@ -7366,13 +7364,13 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
   /* "shudaodao_auth/webapi/auth.py":31
- *     prefix=f"/{MetaConfig.RouterPath}",
- *     tags=[f"{MetaConfig.RouterTags} - "],
- *     db_engine_name=MetaConfig.EngineName,             # <<<<<<<<<<<<<<
+ *     prefix=f"/{PackageConfig.RouterPath}",
+ *     tags=[f"{PackageConfig.RouterTags} - "],
+ *     db_engine_name=PackageConfig.EngineName,             # <<<<<<<<<<<<<<
  * )
  * 
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_MetaConfig); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_PackageConfig); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_EngineName); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 31, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
@@ -7755,7 +7753,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   /* "shudaodao_auth/webapi/auth.py":116
  * 
  * #
- * @Auth_Controller.put("/password", summary="")             # <<<<<<<<<<<<<<
+ * @Auth_Controller.post("/password", summary="")             # <<<<<<<<<<<<<<
  * async def auth_me_password(
  *         password_model: AuthPassword,
 */
@@ -7763,7 +7761,7 @@ __Pyx_RefNannySetupContext("PyInit_auth", 0);
   __pyx_t_8 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_Auth_Controller); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_put); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_post); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_9 = 1;
@@ -7953,9 +7951,9 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_DataService, sizeof(__pyx_k_DataService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_DataService */
   {__pyx_k_Depends, sizeof(__pyx_k_Depends), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Depends */
   {__pyx_k_EngineName, sizeof(__pyx_k_EngineName), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EngineName */
-  {__pyx_k_MetaConfig, sizeof(__pyx_k_MetaConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaConfig */
   {__pyx_k_OAuth2PasswordRequestForm, sizeof(__pyx_k_OAuth2PasswordRequestForm), 0, 1, 1}, /* PyObject cname: __pyx_n_u_OAuth2PasswordRequestForm */
   {__pyx_k_OAuth2PasswordRequestForm_2, sizeof(__pyx_k_OAuth2PasswordRequestForm_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_OAuth2PasswordRequestForm_2 */
+  {__pyx_k_PackageConfig, sizeof(__pyx_k_PackageConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PackageConfig */
   {__pyx_k_QueryService, sizeof(__pyx_k_QueryService), 0, 1, 1}, /* PyObject cname: __pyx_n_u_QueryService */
   {__pyx_k_ResponseUtil, sizeof(__pyx_k_ResponseUtil), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ResponseUtil */
   {__pyx_k_RouterPath, sizeof(__pyx_k_RouterPath), 0, 1, 1}, /* PyObject cname: __pyx_n_u_RouterPath */
@@ -8020,19 +8018,18 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_logout_2, sizeof(__pyx_k_logout_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_logout_2 */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
   {__pyx_k_message, sizeof(__pyx_k_message), 0, 1, 1}, /* PyObject cname: __pyx_n_u_message */
-  {__pyx_k_meta_config, sizeof(__pyx_k_meta_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_config */
   {__pyx_k_model_class, sizeof(__pyx_k_model_class), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model_class */
   {__pyx_k_modify_password, sizeof(__pyx_k_modify_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_modify_password */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
+  {__pyx_k_package_config, sizeof(__pyx_k_package_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package_config */
   {__pyx_k_password, sizeof(__pyx_k_password), 0, 1, 1}, /* PyObject cname: __pyx_n_u_password */
   {__pyx_k_password_2, sizeof(__pyx_k_password_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_password_2 */
   {__pyx_k_password_model, sizeof(__pyx_k_password_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_password_model */
   {__pyx_k_pop, sizeof(__pyx_k_pop), 0, 1, 1}, /* PyObject cname: __pyx_n_u_pop */
   {__pyx_k_post, sizeof(__pyx_k_post), 0, 1, 1}, /* PyObject cname: __pyx_n_u_post */
   {__pyx_k_prefix, sizeof(__pyx_k_prefix), 0, 1, 1}, /* PyObject cname: __pyx_n_u_prefix */
-  {__pyx_k_put, sizeof(__pyx_k_put), 0, 1, 1}, /* PyObject cname: __pyx_n_u_put */
   {__pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_qualname */
   {__pyx_k_query_columns_first, sizeof(__pyx_k_query_columns_first), 0, 1, 1}, /* PyObject cname: __pyx_n_u_query_columns_first */
   {__pyx_k_refresh, sizeof(__pyx_k_refresh), 0, 1, 1}, /* PyObject cname: __pyx_n_u_refresh */

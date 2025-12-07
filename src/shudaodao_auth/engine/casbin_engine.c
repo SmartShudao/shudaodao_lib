@@ -1508,7 +1508,7 @@ struct __pyx_obj_13casbin_engine___pyx_scope_struct_10_close;
  *         self.policies = {}
  * 
  *     async def load(self):             # <<<<<<<<<<<<<<
- *         # logging.debug(f"...")
+ *         logging.debug(f" API ...")
  *         await self._enforcer.load_policy()
 */
 struct __pyx_obj_13casbin_engine___pyx_scope_struct__load {
@@ -2726,13 +2726,13 @@ static const char __pyx_k_1[] = "\320\n+\2501";
 static const char __pyx_k__2[] = "\350\247\204\345\210\231\347\255\226\347\225\245 - ";
 static const char __pyx_k__3[] = " \346\235\241";
 static const char __pyx_k__4[] = "\345\210\206\347\273\204\347\255\226\347\225\245 - ";
-static const char __pyx_k__5[] = "\346\255\243\345\234\250\345\210\235\345\247\213\345\214\226...";
-static const char __pyx_k__6[] = "\346\255\243\345\234\250\345\210\233\345\273\272\346\225\260\346\215\256\350\241\250...";
-static const char __pyx_k__7[] = "\346\235\203\351\231\220\345\274\225\346\223\216\350\265\204\346\272\220\345\267\262\351\207\212\346\224\276";
-static const char __pyx_k__8[] = ".";
-static const char __pyx_k__9[] = "?";
+static const char __pyx_k__5[] = "\346\255\243\345\234\250\345\210\233\345\273\272\346\225\260\346\215\256\350\241\250...";
+static const char __pyx_k__6[] = "\346\235\203\351\231\220\345\274\225\346\223\216\350\265\204\346\272\220\345\267\262\351\207\212\346\224\276";
+static const char __pyx_k__7[] = ".";
+static const char __pyx_k__8[] = "?";
+static const char __pyx_k__9[] = "\210!";
 static const char __pyx_k_gc[] = "gc";
-static const char __pyx_k__10[] = "\210!";
+static const char __pyx_k_API[] = "\345\212\240\350\275\275 API\350\256\277\351\227\256\346\216\247\345\210\266\346\241\206\346\236\266 ...";
 static const char __pyx_k_act[] = "act";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_doc[] = "__doc__";
@@ -2761,6 +2761,7 @@ static const char __pyx_k_send[] = "send";
 static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_user[] = "user";
+static const char __pyx_k_API_2[] = "API\350\256\277\351\227\256\346\216\247\345\210\266\346\241\206\346\236\266 \345\210\235\345\247\213\345\214\226...";
 static const char __pyx_k_aexit[] = "__aexit__";
 static const char __pyx_k_await[] = "__await__";
 static const char __pyx_k_c_obj[] = "c_obj";
@@ -2785,7 +2786,7 @@ static const char __pyx_k_Casbin[] = "Casbin \345\274\202\346\255\245\346\235\20
 static const char __pyx_k_aenter[] = "__aenter__";
 static const char __pyx_k_append[] = "append";
 static const char __pyx_k_c_role[] = "c_role";
-static const char __pyx_k_casbin[] = "\351\252\214\350\257\201\346\250\241\345\236\213 - casbin \343\200\214\350\256\277\351\227\256\346\216\247\345\210\266\346\241\206\346\236\266\343\200\215";
+static const char __pyx_k_casbin[] = "casbin";
 static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_engine[] = "engine";
 static const char __pyx_k_lambda[] = "<lambda>";
@@ -2807,7 +2808,6 @@ static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_rebuild[] = "rebuild";
 static const char __pyx_k_AuthRule[] = "AuthRule";
 static const char __pyx_k_CoreUtil[] = "CoreUtil";
-static const char __pyx_k_casbin_2[] = "casbin";
 static const char __pyx_k_db_class[] = "db_class";
 static const char __pyx_k_enforcer[] = "_enforcer";
 static const char __pyx_k_has_role[] = "has_role";
@@ -2830,6 +2830,7 @@ static const char __pyx_k_A_t_XQb_uA[] = "\200A\330\010\017\210t\220:\230X\240Q\
 static const char __pyx_k_add_policy[] = "add_policy";
 static const char __pyx_k_admin_role[] = "admin_role";
 static const char __pyx_k_admin_user[] = "admin_user";
+static const char __pyx_k_casbin_API[] = "\351\252\214\350\257\201\346\250\241\345\236\213 - casbin \343\200\214API\350\256\277\351\227\256\346\216\247\345\210\266\346\241\206\346\236\266\343\200\215";
 static const char __pyx_k_debug_line[] = "debug_line";
 static const char __pyx_k_drivername[] = "drivername";
 static const char __pyx_k_get_policy[] = "get_policy";
@@ -2846,7 +2847,6 @@ static const char __pyx_k_count_policy[] = "_count_policy";
 static const char __pyx_k_create_table[] = "create_table";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
-static const char __pyx_k_role_obj_act[] = "\350\247\222\350\211\262\346\235\203\351\231\220: role - obj - act  ";
 static const char __pyx_k_AsyncEnforcer[] = "AsyncEnforcer";
 static const char __pyx_k_casbin_engine[] = "casbin_engine";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
@@ -2856,7 +2856,6 @@ static const char __pyx_k_count_grouping[] = "_count_grouping";
 static const char __pyx_k_has_permission[] = "has_permission";
 static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
 static const char __pyx_k_support_schema[] = "support_schema";
-static const char __pyx_k_admin_role_role[] = "\350\247\222\350\211\262\347\273\247\346\211\277: admin_role  <- role  ";
 static const char __pyx_k_database_engine[] = "database_engine";
 static const char __pyx_k_get_config_path[] = "get_config_path";
 static const char __pyx_k_set_role_policy[] = "set_role_policy";
@@ -2864,6 +2863,7 @@ static const char __pyx_k_PermissionEngine[] = "PermissionEngine";
 static const char __pyx_k_casbin_engine_py[] = "casbin_engine.py";
 static const char __pyx_k_enable_auto_save[] = "enable_auto_save";
 static const char __pyx_k_get_async_engine[] = "get_async_engine";
+static const char __pyx_k_role_sub_obj_act[] = "\350\247\204\345\210\231\347\255\226\347\225\245 - \350\247\222\350\211\262\345\212\250\344\275\234 - role/sub - obj - act";
 static const char __pyx_k_set_inherit_role[] = "set_inherit_role";
 static const char __pyx_k_SQLAlchemyAdapter[] = "SQLAlchemyAdapter";
 static const char __pyx_k_casbin_model_conf[] = "casbin/model.conf";
@@ -2872,13 +2872,14 @@ static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_check_table_exists[] = "_check_table_exists";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_add_grouping_policy[] = "add_grouping_policy";
+static const char __pyx_k_admin_role_role_sub[] = "\345\210\206\347\273\204\347\255\226\347\225\245 - \350\247\222\350\211\262\347\273\247\346\211\277 - admin_role  <- role/sub";
 static const char __pyx_k_default_admin_roles[] = "default_admin_roles";
 static const char __pyx_k_default_admin_users[] = "default_admin_users";
 static const char __pyx_k_get_grouping_policy[] = "get_grouping_policy";
 static const char __pyx_k_set_grouping_policy[] = "_set_grouping_policy";
 static const char __pyx_k_PermissionEngine_load[] = "PermissionEngine.load";
 static const char __pyx_k_PermissionEngine_save[] = "PermissionEngine.save";
-static const char __pyx_k_admin_user_admin_role[] = "\347\224\250\346\210\267\346\216\210\346\235\203: admin_user  <- admin_role  ";
+static const char __pyx_k_admin_user_admin_role[] = "\345\210\206\347\273\204\347\255\226\347\225\245 - \350\247\222\350\211\262\346\216\210\346\235\203 - admin_user  <- admin_role";
 static const char __pyx_k_PermissionEngine___new[] = "PermissionEngine.__new__";
 static const char __pyx_k_PermissionEngine__load[] = "PermissionEngine._load";
 static const char __pyx_k_PermissionEngine_close[] = "PermissionEngine.close";
@@ -2996,7 +2997,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[18];
-  PyObject *__pyx_string_tab[173];
+  PyObject *__pyx_string_tab[174];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -3100,178 +3101,179 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #endif
 /* #### Code section: constant_name_defines ### */
 #define __pyx_kp_u_ __pyx_string_tab[0]
-#define __pyx_n_u_Adapter __pyx_string_tab[1]
-#define __pyx_n_u_AppConfig __pyx_string_tab[2]
-#define __pyx_n_u_AsyncEnforcer __pyx_string_tab[3]
-#define __pyx_n_u_Auth __pyx_string_tab[4]
-#define __pyx_n_u_AuthRule __pyx_string_tab[5]
-#define __pyx_kp_u_Auth_2 __pyx_string_tab[6]
-#define __pyx_kp_u_Casbin __pyx_string_tab[7]
-#define __pyx_n_u_CoreUtil __pyx_string_tab[8]
-#define __pyx_n_u_DatabaseEngine __pyx_string_tab[9]
-#define __pyx_n_u_Lock __pyx_string_tab[10]
-#define __pyx_n_u_PermissionEngine __pyx_string_tab[11]
-#define __pyx_n_u_PermissionEngine___new __pyx_string_tab[12]
-#define __pyx_n_u_PermissionEngine__check_count __pyx_string_tab[13]
-#define __pyx_n_u_PermissionEngine__check_table_ex __pyx_string_tab[14]
-#define __pyx_n_u_PermissionEngine__check_table_ex_2 __pyx_string_tab[15]
-#define __pyx_n_u_PermissionEngine__load __pyx_string_tab[16]
-#define __pyx_n_u_PermissionEngine__set_grouping_p __pyx_string_tab[17]
-#define __pyx_n_u_PermissionEngine_add_policy __pyx_string_tab[18]
-#define __pyx_n_u_PermissionEngine_check_table __pyx_string_tab[19]
-#define __pyx_n_u_PermissionEngine_close __pyx_string_tab[20]
-#define __pyx_n_u_PermissionEngine_has_permission __pyx_string_tab[21]
-#define __pyx_n_u_PermissionEngine_has_role __pyx_string_tab[22]
-#define __pyx_n_u_PermissionEngine_load __pyx_string_tab[23]
-#define __pyx_n_u_PermissionEngine_rebuild __pyx_string_tab[24]
-#define __pyx_n_u_PermissionEngine_save __pyx_string_tab[25]
-#define __pyx_n_u_PermissionEngine_set_inherit_rol __pyx_string_tab[26]
-#define __pyx_n_u_PermissionEngine_set_role_policy __pyx_string_tab[27]
-#define __pyx_n_u_PermissionEngine_set_user_role __pyx_string_tab[28]
-#define __pyx_n_u_SQLAlchemyAdapter __pyx_string_tab[29]
-#define __pyx_kp_u__2 __pyx_string_tab[30]
-#define __pyx_kp_u__3 __pyx_string_tab[31]
-#define __pyx_kp_u__4 __pyx_string_tab[32]
-#define __pyx_kp_u__5 __pyx_string_tab[33]
-#define __pyx_kp_u__6 __pyx_string_tab[34]
-#define __pyx_n_u__7 __pyx_string_tab[35]
-#define __pyx_kp_u__8 __pyx_string_tab[36]
-#define __pyx_kp_u__9 __pyx_string_tab[37]
-#define __pyx_n_u_act __pyx_string_tab[38]
-#define __pyx_n_u_acts __pyx_string_tab[39]
-#define __pyx_n_u_adapter __pyx_string_tab[40]
-#define __pyx_n_u_add_grouping_policy __pyx_string_tab[41]
-#define __pyx_n_u_add_policy __pyx_string_tab[42]
-#define __pyx_n_u_admin_role __pyx_string_tab[43]
-#define __pyx_kp_u_admin_role_role __pyx_string_tab[44]
-#define __pyx_n_u_admin_user __pyx_string_tab[45]
-#define __pyx_kp_u_admin_user_admin_role __pyx_string_tab[46]
-#define __pyx_n_u_aenter __pyx_string_tab[47]
-#define __pyx_n_u_aexit __pyx_string_tab[48]
-#define __pyx_n_u_append __pyx_string_tab[49]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[50]
-#define __pyx_n_u_auth __pyx_string_tab[51]
-#define __pyx_n_u_auto_save __pyx_string_tab[52]
-#define __pyx_n_u_await __pyx_string_tab[53]
-#define __pyx_n_u_bool __pyx_string_tab[54]
-#define __pyx_n_u_c_obj __pyx_string_tab[55]
-#define __pyx_n_u_c_role __pyx_string_tab[56]
-#define __pyx_kp_u_casbin __pyx_string_tab[57]
-#define __pyx_n_u_casbin_2 __pyx_string_tab[58]
-#define __pyx_n_u_casbin_async_sqlalchemy_adapter __pyx_string_tab[59]
-#define __pyx_n_u_casbin_engine __pyx_string_tab[60]
-#define __pyx_kp_u_casbin_engine_py __pyx_string_tab[61]
-#define __pyx_kp_u_casbin_model_conf __pyx_string_tab[62]
-#define __pyx_n_u_check_count __pyx_string_tab[63]
-#define __pyx_n_u_check_table __pyx_string_tab[64]
-#define __pyx_n_u_check_table_exists __pyx_string_tab[65]
-#define __pyx_n_u_class_getitem __pyx_string_tab[66]
-#define __pyx_n_u_clear __pyx_string_tab[67]
-#define __pyx_n_u_clear_policy __pyx_string_tab[68]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[69]
-#define __pyx_n_u_close __pyx_string_tab[70]
-#define __pyx_n_u_cls __pyx_string_tab[71]
-#define __pyx_kp_u_config_casbin_model_conf __pyx_string_tab[72]
-#define __pyx_n_u_conn __pyx_string_tab[73]
-#define __pyx_n_u_connect __pyx_string_tab[74]
-#define __pyx_n_u_count_grouping __pyx_string_tab[75]
-#define __pyx_n_u_count_policy __pyx_string_tab[76]
-#define __pyx_n_u_create_table __pyx_string_tab[77]
-#define __pyx_n_u_database_engine __pyx_string_tab[78]
-#define __pyx_n_u_db_class __pyx_string_tab[79]
-#define __pyx_n_u_debug __pyx_string_tab[80]
-#define __pyx_n_u_debug_line __pyx_string_tab[81]
-#define __pyx_n_u_default_admin_roles __pyx_string_tab[82]
-#define __pyx_n_u_default_admin_users __pyx_string_tab[83]
-#define __pyx_kp_u_disable __pyx_string_tab[84]
-#define __pyx_n_u_doc __pyx_string_tab[85]
-#define __pyx_n_u_drivername __pyx_string_tab[86]
-#define __pyx_kp_u_enable __pyx_string_tab[87]
-#define __pyx_n_u_enable_auto_build_role_links __pyx_string_tab[88]
-#define __pyx_n_u_enable_auto_save __pyx_string_tab[89]
-#define __pyx_n_u_enforce __pyx_string_tab[90]
-#define __pyx_n_u_enforcer __pyx_string_tab[91]
-#define __pyx_n_u_engine __pyx_string_tab[92]
-#define __pyx_n_u_enter __pyx_string_tab[93]
-#define __pyx_n_u_entity_table_t_auth_rule __pyx_string_tab[94]
-#define __pyx_n_u_exit __pyx_string_tab[95]
-#define __pyx_n_u_func __pyx_string_tab[96]
-#define __pyx_kp_u_gc __pyx_string_tab[97]
-#define __pyx_n_u_get_async_engine __pyx_string_tab[98]
-#define __pyx_n_u_get_config_path __pyx_string_tab[99]
-#define __pyx_n_u_get_grouping_policy __pyx_string_tab[100]
-#define __pyx_n_u_get_implicit_roles_for_user __pyx_string_tab[101]
-#define __pyx_n_u_get_policy __pyx_string_tab[102]
-#define __pyx_n_u_has_permission __pyx_string_tab[103]
-#define __pyx_n_u_has_role __pyx_string_tab[104]
-#define __pyx_n_u_has_table __pyx_string_tab[105]
-#define __pyx_n_u_initializing __pyx_string_tab[106]
-#define __pyx_n_u_inspect __pyx_string_tab[107]
-#define __pyx_n_u_instance __pyx_string_tab[108]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[109]
-#define __pyx_kp_u_isenabled __pyx_string_tab[110]
-#define __pyx_n_u_items __pyx_string_tab[111]
-#define __pyx_n_u_lambda __pyx_string_tab[112]
-#define __pyx_n_u_load __pyx_string_tab[113]
-#define __pyx_n_u_load_2 __pyx_string_tab[114]
-#define __pyx_n_u_load_policy __pyx_string_tab[115]
-#define __pyx_n_u_lock __pyx_string_tab[116]
-#define __pyx_n_u_logging __pyx_string_tab[117]
-#define __pyx_n_u_main __pyx_string_tab[118]
-#define __pyx_n_u_max_length __pyx_string_tab[119]
-#define __pyx_n_u_metaclass __pyx_string_tab[120]
-#define __pyx_n_u_model __pyx_string_tab[121]
-#define __pyx_n_u_model_path __pyx_string_tab[122]
-#define __pyx_n_u_module __pyx_string_tab[123]
-#define __pyx_n_u_name __pyx_string_tab[124]
-#define __pyx_n_u_new __pyx_string_tab[125]
-#define __pyx_n_u_next __pyx_string_tab[126]
-#define __pyx_n_u_obj __pyx_string_tab[127]
-#define __pyx_n_u_p_act __pyx_string_tab[128]
-#define __pyx_n_u_p_obj __pyx_string_tab[129]
-#define __pyx_n_u_p_role __pyx_string_tab[130]
-#define __pyx_n_u_p_sub __pyx_string_tab[131]
-#define __pyx_n_u_policies __pyx_string_tab[132]
-#define __pyx_n_u_pop __pyx_string_tab[133]
-#define __pyx_n_u_prepare __pyx_string_tab[134]
-#define __pyx_n_u_qualname __pyx_string_tab[135]
-#define __pyx_n_u_rebuild __pyx_string_tab[136]
-#define __pyx_n_u_rebuild_auth_rule __pyx_string_tab[137]
-#define __pyx_n_u_return __pyx_string_tab[138]
-#define __pyx_n_u_rjust __pyx_string_tab[139]
-#define __pyx_n_u_role __pyx_string_tab[140]
-#define __pyx_kp_u_role_2 __pyx_string_tab[141]
-#define __pyx_kp_u_role_obj_act __pyx_string_tab[142]
-#define __pyx_n_u_roles __pyx_string_tab[143]
-#define __pyx_n_u_run_sync __pyx_string_tab[144]
-#define __pyx_n_u_save __pyx_string_tab[145]
-#define __pyx_n_u_save_policy __pyx_string_tab[146]
-#define __pyx_n_u_schema __pyx_string_tab[147]
-#define __pyx_n_u_self __pyx_string_tab[148]
-#define __pyx_n_u_send __pyx_string_tab[149]
-#define __pyx_n_u_set_grouping_policy __pyx_string_tab[150]
-#define __pyx_n_u_set_inherit_role __pyx_string_tab[151]
-#define __pyx_n_u_set_name __pyx_string_tab[152]
-#define __pyx_n_u_set_role_policy __pyx_string_tab[153]
-#define __pyx_n_u_set_user_role __pyx_string_tab[154]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[155]
-#define __pyx_n_u_spec __pyx_string_tab[156]
-#define __pyx_n_u_sqlalchemy __pyx_string_tab[157]
-#define __pyx_n_u_str __pyx_string_tab[158]
-#define __pyx_n_u_super __pyx_string_tab[159]
-#define __pyx_n_u_support_schema __pyx_string_tab[160]
-#define __pyx_n_u_sync_conn __pyx_string_tab[161]
-#define __pyx_n_u_table __pyx_string_tab[162]
-#define __pyx_n_u_table_name __pyx_string_tab[163]
-#define __pyx_n_u_tablename __pyx_string_tab[164]
-#define __pyx_n_u_test __pyx_string_tab[165]
-#define __pyx_n_u_threading __pyx_string_tab[166]
-#define __pyx_n_u_throw __pyx_string_tab[167]
-#define __pyx_n_u_url __pyx_string_tab[168]
-#define __pyx_n_u_user __pyx_string_tab[169]
-#define __pyx_kp_u_user_2 __pyx_string_tab[170]
-#define __pyx_n_u_value __pyx_string_tab[171]
-#define __pyx_kp_u_yaml_auth __pyx_string_tab[172]
+#define __pyx_kp_u_API __pyx_string_tab[1]
+#define __pyx_kp_u_API_2 __pyx_string_tab[2]
+#define __pyx_n_u_Adapter __pyx_string_tab[3]
+#define __pyx_n_u_AppConfig __pyx_string_tab[4]
+#define __pyx_n_u_AsyncEnforcer __pyx_string_tab[5]
+#define __pyx_n_u_Auth __pyx_string_tab[6]
+#define __pyx_n_u_AuthRule __pyx_string_tab[7]
+#define __pyx_kp_u_Auth_2 __pyx_string_tab[8]
+#define __pyx_kp_u_Casbin __pyx_string_tab[9]
+#define __pyx_n_u_CoreUtil __pyx_string_tab[10]
+#define __pyx_n_u_DatabaseEngine __pyx_string_tab[11]
+#define __pyx_n_u_Lock __pyx_string_tab[12]
+#define __pyx_n_u_PermissionEngine __pyx_string_tab[13]
+#define __pyx_n_u_PermissionEngine___new __pyx_string_tab[14]
+#define __pyx_n_u_PermissionEngine__check_count __pyx_string_tab[15]
+#define __pyx_n_u_PermissionEngine__check_table_ex __pyx_string_tab[16]
+#define __pyx_n_u_PermissionEngine__check_table_ex_2 __pyx_string_tab[17]
+#define __pyx_n_u_PermissionEngine__load __pyx_string_tab[18]
+#define __pyx_n_u_PermissionEngine__set_grouping_p __pyx_string_tab[19]
+#define __pyx_n_u_PermissionEngine_add_policy __pyx_string_tab[20]
+#define __pyx_n_u_PermissionEngine_check_table __pyx_string_tab[21]
+#define __pyx_n_u_PermissionEngine_close __pyx_string_tab[22]
+#define __pyx_n_u_PermissionEngine_has_permission __pyx_string_tab[23]
+#define __pyx_n_u_PermissionEngine_has_role __pyx_string_tab[24]
+#define __pyx_n_u_PermissionEngine_load __pyx_string_tab[25]
+#define __pyx_n_u_PermissionEngine_rebuild __pyx_string_tab[26]
+#define __pyx_n_u_PermissionEngine_save __pyx_string_tab[27]
+#define __pyx_n_u_PermissionEngine_set_inherit_rol __pyx_string_tab[28]
+#define __pyx_n_u_PermissionEngine_set_role_policy __pyx_string_tab[29]
+#define __pyx_n_u_PermissionEngine_set_user_role __pyx_string_tab[30]
+#define __pyx_n_u_SQLAlchemyAdapter __pyx_string_tab[31]
+#define __pyx_kp_u__2 __pyx_string_tab[32]
+#define __pyx_kp_u__3 __pyx_string_tab[33]
+#define __pyx_kp_u__4 __pyx_string_tab[34]
+#define __pyx_kp_u__5 __pyx_string_tab[35]
+#define __pyx_n_u__6 __pyx_string_tab[36]
+#define __pyx_kp_u__7 __pyx_string_tab[37]
+#define __pyx_kp_u__8 __pyx_string_tab[38]
+#define __pyx_n_u_act __pyx_string_tab[39]
+#define __pyx_n_u_acts __pyx_string_tab[40]
+#define __pyx_n_u_adapter __pyx_string_tab[41]
+#define __pyx_n_u_add_grouping_policy __pyx_string_tab[42]
+#define __pyx_n_u_add_policy __pyx_string_tab[43]
+#define __pyx_n_u_admin_role __pyx_string_tab[44]
+#define __pyx_kp_u_admin_role_role_sub __pyx_string_tab[45]
+#define __pyx_n_u_admin_user __pyx_string_tab[46]
+#define __pyx_kp_u_admin_user_admin_role __pyx_string_tab[47]
+#define __pyx_n_u_aenter __pyx_string_tab[48]
+#define __pyx_n_u_aexit __pyx_string_tab[49]
+#define __pyx_n_u_append __pyx_string_tab[50]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[51]
+#define __pyx_n_u_auth __pyx_string_tab[52]
+#define __pyx_n_u_auto_save __pyx_string_tab[53]
+#define __pyx_n_u_await __pyx_string_tab[54]
+#define __pyx_n_u_bool __pyx_string_tab[55]
+#define __pyx_n_u_c_obj __pyx_string_tab[56]
+#define __pyx_n_u_c_role __pyx_string_tab[57]
+#define __pyx_n_u_casbin __pyx_string_tab[58]
+#define __pyx_kp_u_casbin_API __pyx_string_tab[59]
+#define __pyx_n_u_casbin_async_sqlalchemy_adapter __pyx_string_tab[60]
+#define __pyx_n_u_casbin_engine __pyx_string_tab[61]
+#define __pyx_kp_u_casbin_engine_py __pyx_string_tab[62]
+#define __pyx_kp_u_casbin_model_conf __pyx_string_tab[63]
+#define __pyx_n_u_check_count __pyx_string_tab[64]
+#define __pyx_n_u_check_table __pyx_string_tab[65]
+#define __pyx_n_u_check_table_exists __pyx_string_tab[66]
+#define __pyx_n_u_class_getitem __pyx_string_tab[67]
+#define __pyx_n_u_clear __pyx_string_tab[68]
+#define __pyx_n_u_clear_policy __pyx_string_tab[69]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[70]
+#define __pyx_n_u_close __pyx_string_tab[71]
+#define __pyx_n_u_cls __pyx_string_tab[72]
+#define __pyx_kp_u_config_casbin_model_conf __pyx_string_tab[73]
+#define __pyx_n_u_conn __pyx_string_tab[74]
+#define __pyx_n_u_connect __pyx_string_tab[75]
+#define __pyx_n_u_count_grouping __pyx_string_tab[76]
+#define __pyx_n_u_count_policy __pyx_string_tab[77]
+#define __pyx_n_u_create_table __pyx_string_tab[78]
+#define __pyx_n_u_database_engine __pyx_string_tab[79]
+#define __pyx_n_u_db_class __pyx_string_tab[80]
+#define __pyx_n_u_debug __pyx_string_tab[81]
+#define __pyx_n_u_debug_line __pyx_string_tab[82]
+#define __pyx_n_u_default_admin_roles __pyx_string_tab[83]
+#define __pyx_n_u_default_admin_users __pyx_string_tab[84]
+#define __pyx_kp_u_disable __pyx_string_tab[85]
+#define __pyx_n_u_doc __pyx_string_tab[86]
+#define __pyx_n_u_drivername __pyx_string_tab[87]
+#define __pyx_kp_u_enable __pyx_string_tab[88]
+#define __pyx_n_u_enable_auto_build_role_links __pyx_string_tab[89]
+#define __pyx_n_u_enable_auto_save __pyx_string_tab[90]
+#define __pyx_n_u_enforce __pyx_string_tab[91]
+#define __pyx_n_u_enforcer __pyx_string_tab[92]
+#define __pyx_n_u_engine __pyx_string_tab[93]
+#define __pyx_n_u_enter __pyx_string_tab[94]
+#define __pyx_n_u_entity_table_t_auth_rule __pyx_string_tab[95]
+#define __pyx_n_u_exit __pyx_string_tab[96]
+#define __pyx_n_u_func __pyx_string_tab[97]
+#define __pyx_kp_u_gc __pyx_string_tab[98]
+#define __pyx_n_u_get_async_engine __pyx_string_tab[99]
+#define __pyx_n_u_get_config_path __pyx_string_tab[100]
+#define __pyx_n_u_get_grouping_policy __pyx_string_tab[101]
+#define __pyx_n_u_get_implicit_roles_for_user __pyx_string_tab[102]
+#define __pyx_n_u_get_policy __pyx_string_tab[103]
+#define __pyx_n_u_has_permission __pyx_string_tab[104]
+#define __pyx_n_u_has_role __pyx_string_tab[105]
+#define __pyx_n_u_has_table __pyx_string_tab[106]
+#define __pyx_n_u_initializing __pyx_string_tab[107]
+#define __pyx_n_u_inspect __pyx_string_tab[108]
+#define __pyx_n_u_instance __pyx_string_tab[109]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[110]
+#define __pyx_kp_u_isenabled __pyx_string_tab[111]
+#define __pyx_n_u_items __pyx_string_tab[112]
+#define __pyx_n_u_lambda __pyx_string_tab[113]
+#define __pyx_n_u_load __pyx_string_tab[114]
+#define __pyx_n_u_load_2 __pyx_string_tab[115]
+#define __pyx_n_u_load_policy __pyx_string_tab[116]
+#define __pyx_n_u_lock __pyx_string_tab[117]
+#define __pyx_n_u_logging __pyx_string_tab[118]
+#define __pyx_n_u_main __pyx_string_tab[119]
+#define __pyx_n_u_max_length __pyx_string_tab[120]
+#define __pyx_n_u_metaclass __pyx_string_tab[121]
+#define __pyx_n_u_model __pyx_string_tab[122]
+#define __pyx_n_u_model_path __pyx_string_tab[123]
+#define __pyx_n_u_module __pyx_string_tab[124]
+#define __pyx_n_u_name __pyx_string_tab[125]
+#define __pyx_n_u_new __pyx_string_tab[126]
+#define __pyx_n_u_next __pyx_string_tab[127]
+#define __pyx_n_u_obj __pyx_string_tab[128]
+#define __pyx_n_u_p_act __pyx_string_tab[129]
+#define __pyx_n_u_p_obj __pyx_string_tab[130]
+#define __pyx_n_u_p_role __pyx_string_tab[131]
+#define __pyx_n_u_p_sub __pyx_string_tab[132]
+#define __pyx_n_u_policies __pyx_string_tab[133]
+#define __pyx_n_u_pop __pyx_string_tab[134]
+#define __pyx_n_u_prepare __pyx_string_tab[135]
+#define __pyx_n_u_qualname __pyx_string_tab[136]
+#define __pyx_n_u_rebuild __pyx_string_tab[137]
+#define __pyx_n_u_rebuild_auth_rule __pyx_string_tab[138]
+#define __pyx_n_u_return __pyx_string_tab[139]
+#define __pyx_n_u_rjust __pyx_string_tab[140]
+#define __pyx_n_u_role __pyx_string_tab[141]
+#define __pyx_kp_u_role_2 __pyx_string_tab[142]
+#define __pyx_kp_u_role_sub_obj_act __pyx_string_tab[143]
+#define __pyx_n_u_roles __pyx_string_tab[144]
+#define __pyx_n_u_run_sync __pyx_string_tab[145]
+#define __pyx_n_u_save __pyx_string_tab[146]
+#define __pyx_n_u_save_policy __pyx_string_tab[147]
+#define __pyx_n_u_schema __pyx_string_tab[148]
+#define __pyx_n_u_self __pyx_string_tab[149]
+#define __pyx_n_u_send __pyx_string_tab[150]
+#define __pyx_n_u_set_grouping_policy __pyx_string_tab[151]
+#define __pyx_n_u_set_inherit_role __pyx_string_tab[152]
+#define __pyx_n_u_set_name __pyx_string_tab[153]
+#define __pyx_n_u_set_role_policy __pyx_string_tab[154]
+#define __pyx_n_u_set_user_role __pyx_string_tab[155]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[156]
+#define __pyx_n_u_spec __pyx_string_tab[157]
+#define __pyx_n_u_sqlalchemy __pyx_string_tab[158]
+#define __pyx_n_u_str __pyx_string_tab[159]
+#define __pyx_n_u_super __pyx_string_tab[160]
+#define __pyx_n_u_support_schema __pyx_string_tab[161]
+#define __pyx_n_u_sync_conn __pyx_string_tab[162]
+#define __pyx_n_u_table __pyx_string_tab[163]
+#define __pyx_n_u_table_name __pyx_string_tab[164]
+#define __pyx_n_u_tablename __pyx_string_tab[165]
+#define __pyx_n_u_test __pyx_string_tab[166]
+#define __pyx_n_u_threading __pyx_string_tab[167]
+#define __pyx_n_u_throw __pyx_string_tab[168]
+#define __pyx_n_u_url __pyx_string_tab[169]
+#define __pyx_n_u_user __pyx_string_tab[170]
+#define __pyx_kp_u_user_2 __pyx_string_tab[171]
+#define __pyx_n_u_value __pyx_string_tab[172]
+#define __pyx_kp_u_yaml_auth __pyx_string_tab[173]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3316,7 +3318,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_10_close);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<18; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<173; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<174; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3361,7 +3363,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_13casbin_engine___pyx_scope_struct_10_close);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<18; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<173; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<174; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   return 0;
 }
 #endif
@@ -3914,7 +3916,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
  *         logging.debug_line()
  *         logging.debug(": .yaml - auth ")             # <<<<<<<<<<<<<<
  *         logging.debug_line()
- *         logging.debug(" - casbin ")
+ *         logging.debug(" - casbin API")
 */
   __pyx_t_4 = NULL;
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
@@ -3948,7 +3950,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
  *         logging.debug_line()
  *         logging.debug(": .yaml - auth ")
  *         logging.debug_line()             # <<<<<<<<<<<<<<
- *         logging.debug(" - casbin ")
+ *         logging.debug(" - casbin API")
  * 
 */
   __pyx_t_3 = NULL;
@@ -3982,7 +3984,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   /* "casbin_engine.py":39
  *         logging.debug(": .yaml - auth ")
  *         logging.debug_line()
- *         logging.debug(" - casbin ")             # <<<<<<<<<<<<<<
+ *         logging.debug(" - casbin API")             # <<<<<<<<<<<<<<
  * 
  *         database_engine = DatabaseEngine()
 */
@@ -4005,7 +4007,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_casbin};
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_casbin_API};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -4015,7 +4017,7 @@ static PyObject *__pyx_pf_13casbin_engine_16PermissionEngine_2_load(CYTHON_UNUSE
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "casbin_engine.py":41
- *         logging.debug(" - casbin ")
+ *         logging.debug(" - casbin API")
  * 
  *         database_engine = DatabaseEngine()             # <<<<<<<<<<<<<<
  *         self.engine = database_engine.get_async_engine("Auth")
@@ -4462,7 +4464,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_Co
  *         self.policies = {}
  * 
  *     async def load(self):             # <<<<<<<<<<<<<<
- *         # logging.debug(f"...")
+ *         logging.debug(f" API ...")
  *         await self._enforcer.load_policy()
 */
 
@@ -4594,8 +4596,9 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_Co
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  size_t __pyx_t_4;
-  __Pyx_PySendResult __pyx_t_5;
+  PyObject *__pyx_t_4 = NULL;
+  size_t __pyx_t_5;
+  __Pyx_PySendResult __pyx_t_6;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -4614,29 +4617,64 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_Co
     __PYX_ERR(0, 68, __pyx_L1_error)
   }
 
+  /* "casbin_engine.py":69
+ * 
+ *     async def load(self):
+ *         logging.debug(f" API ...")             # <<<<<<<<<<<<<<
+ *         await self._enforcer.load_policy()
+ *         self._check_count()
+*/
+  __pyx_t_2 = NULL;
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = 1;
+  #if CYTHON_UNPACK_METHODS
+  if (unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    assert(__pyx_t_2);
+    PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+    __Pyx_INCREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx__function);
+    __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+    __pyx_t_5 = 0;
+  }
+  #endif
+  {
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_API};
+    __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
   /* "casbin_engine.py":70
  *     async def load(self):
- *         # logging.debug(f"...")
+ *         logging.debug(f" API ...")
  *         await self._enforcer.load_policy()             # <<<<<<<<<<<<<<
  *         self._check_count()
  * 
 */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __pyx_t_3;
-  __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = __pyx_t_2;
+  __Pyx_INCREF(__pyx_t_4);
+  __pyx_t_5 = 0;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_load_policy, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_4, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_load_policy, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_5 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
+  __pyx_t_6 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_1, &__pyx_r);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (likely(__pyx_t_5 == PYGEN_NEXT)) {
+  if (likely(__pyx_t_6 == PYGEN_NEXT)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_XGIVEREF(__pyx_r);
     __Pyx_RefNannyFinishContext();
@@ -4646,7 +4684,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_Co
     return __pyx_r;
     __pyx_L4_resume_from_await:;
     if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 70, __pyx_L1_error)
-  } else if (likely(__pyx_t_5 == PYGEN_RETURN)) {
+  } else if (likely(__pyx_t_6 == PYGEN_RETURN)) {
     __Pyx_GOTREF(__pyx_r);
     __Pyx_DECREF(__pyx_r); __pyx_r = 0;
   } else {
@@ -4655,19 +4693,19 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_Co
   }
 
   /* "casbin_engine.py":71
- *         # logging.debug(f"...")
+ *         logging.debug(f" API ...")
  *         await self._enforcer.load_policy()
  *         self._check_count()             # <<<<<<<<<<<<<<
  * 
  *     def _check_count(self):
 */
-  __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
-  __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_4 = 0;
+  __pyx_t_2 = __pyx_cur_scope->__pyx_v_self;
+  __Pyx_INCREF(__pyx_t_2);
+  __pyx_t_5 = 0;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_3, NULL};
-    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_check_count, __pyx_callargs+__pyx_t_4, (1-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, NULL};
+    __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_check_count, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+    __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
@@ -4678,7 +4716,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_Co
  *         self.policies = {}
  * 
  *     async def load(self):             # <<<<<<<<<<<<<<
- *         # logging.debug(f"...")
+ *         logging.debug(f" API ...")
  *         await self._enforcer.load_policy()
 */
 
@@ -4689,6 +4727,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_6generator(__pyx_Co
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
   if (__Pyx_PyErr_Occurred()) {
     __Pyx_Generator_Replace_StopIteration(0);
     __Pyx_AddTraceback("load", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -5228,7 +5267,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
  *     async def rebuild(self):
  *         self._enforcer.clear_policy()             # <<<<<<<<<<<<<<
  *         await self.save()
- *         logging.debug(f"...")
+ *         logging.debug(f"API ...")
 */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_mstate_global->__pyx_n_u_enforcer); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -5249,8 +5288,8 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
  *     async def rebuild(self):
  *         self._enforcer.clear_policy()
  *         await self.save()             # <<<<<<<<<<<<<<
- *         logging.debug(f"...")
- *         logging.debug(f": role - obj - act  ")
+ *         logging.debug(f"API ...")
+ *         logging.debug(f" -  - role/sub - obj - act")
 */
   __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
   __Pyx_INCREF(__pyx_t_3);
@@ -5285,8 +5324,8 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   /* "casbin_engine.py":84
  *         self._enforcer.clear_policy()
  *         await self.save()
- *         logging.debug(f"...")             # <<<<<<<<<<<<<<
- *         logging.debug(f": role - obj - act  ")
+ *         logging.debug(f"API ...")             # <<<<<<<<<<<<<<
+ *         logging.debug(f" -  - role/sub - obj - act")
  *         #  role
 */
   __pyx_t_3 = NULL;
@@ -5308,7 +5347,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u__5};
+    PyObject *__pyx_callargs[2] = {__pyx_t_3, __pyx_mstate_global->__pyx_kp_u_API_2};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5319,8 +5358,8 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
 
   /* "casbin_engine.py":85
  *         await self.save()
- *         logging.debug(f"...")
- *         logging.debug(f": role - obj - act  ")             # <<<<<<<<<<<<<<
+ *         logging.debug(f"API ...")
+ *         logging.debug(f" -  - role/sub - obj - act")             # <<<<<<<<<<<<<<
  *         #  role
  *         roles = []
 */
@@ -5343,7 +5382,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_role_obj_act};
+    PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_mstate_global->__pyx_kp_u_role_sub_obj_act};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_2, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5353,7 +5392,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "casbin_engine.py":87
- *         logging.debug(f": role - obj - act  ")
+ *         logging.debug(f" -  - role/sub - obj - act")
  *         #  role
  *         roles = []             # <<<<<<<<<<<<<<
  *         for role in self.policies:
@@ -5561,7 +5600,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
  *                 for act in acts:
  *                     await self.set_role_policy(role=role, obj=obj, act=act)             # <<<<<<<<<<<<<<
  * 
- *         logging.debug(f": admin_role  <- role  ")
+ *         logging.debug(f" -  - admin_role  <- role/sub")
 */
         __pyx_t_17 = __pyx_cur_scope->__pyx_v_self;
         __Pyx_INCREF(__pyx_t_17);
@@ -5653,7 +5692,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   /* "casbin_engine.py":95
  *                     await self.set_role_policy(role=role, obj=obj, act=act)
  * 
- *         logging.debug(f": admin_role  <- role  ")             # <<<<<<<<<<<<<<
+ *         logging.debug(f" -  - admin_role  <- role/sub")             # <<<<<<<<<<<<<<
  *         #  admin_role  <- role
  *         for admin_role in AppConfig.auth.default_admin_roles:
 */
@@ -5676,7 +5715,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_kp_u_admin_role_role};
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_kp_u_admin_role_role_sub};
     __pyx_t_2 = __Pyx_PyObject_FastCall(__pyx_t_6, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5686,7 +5725,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "casbin_engine.py":97
- *         logging.debug(f": admin_role  <- role  ")
+ *         logging.debug(f" -  - admin_role  <- role/sub")
  *         #  admin_role  <- role
  *         for admin_role in AppConfig.auth.default_admin_roles:             # <<<<<<<<<<<<<<
  *             for role in roles:
@@ -5786,7 +5825,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
  *             for role in roles:
  *                 await self.set_inherit_role(p_role=admin_role, c_role=role)             # <<<<<<<<<<<<<<
  * 
- *         logging.debug(f": admin_user  <- admin_role  ")
+ *         logging.debug(f" -  - admin_user  <- admin_role")
 */
       __pyx_t_3 = __pyx_cur_scope->__pyx_v_self;
       __Pyx_INCREF(__pyx_t_3);
@@ -5850,7 +5889,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
     /* "casbin_engine.py":97
- *         logging.debug(f": admin_role  <- role  ")
+ *         logging.debug(f" -  - admin_role  <- role/sub")
  *         #  admin_role  <- role
  *         for admin_role in AppConfig.auth.default_admin_roles:             # <<<<<<<<<<<<<<
  *             for role in roles:
@@ -5862,7 +5901,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   /* "casbin_engine.py":101
  *                 await self.set_inherit_role(p_role=admin_role, c_role=role)
  * 
- *         logging.debug(f": admin_user  <- admin_role  ")             # <<<<<<<<<<<<<<
+ *         logging.debug(f" -  - admin_user  <- admin_role")             # <<<<<<<<<<<<<<
  *         #  admin_user  <- admin_role
  *         for admin_user in AppConfig.auth.default_admin_users:
 */
@@ -5895,7 +5934,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
   /* "casbin_engine.py":103
- *         logging.debug(f": admin_user  <- admin_role  ")
+ *         logging.debug(f" -  - admin_user  <- admin_role")
  *         #  admin_user  <- admin_role
  *         for admin_user in AppConfig.auth.default_admin_users:             # <<<<<<<<<<<<<<
  *             for admin_role in AppConfig.auth.default_admin_roles:
@@ -6113,7 +6152,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_11generator1(__pyx_
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
     /* "casbin_engine.py":103
- *         logging.debug(f": admin_user  <- admin_role  ")
+ *         logging.debug(f" -  - admin_user  <- admin_role")
  *         #  admin_user  <- admin_role
  *         for admin_user in AppConfig.auth.default_admin_users:             # <<<<<<<<<<<<<<
  *             for admin_role in AppConfig.auth.default_admin_roles:
@@ -6689,7 +6728,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_17generator3(__pyx_
       }
       #endif
       {
-        PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u__6};
+        PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u__5};
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -9950,7 +9989,7 @@ static PyObject *__pyx_gb_13casbin_engine_16PermissionEngine_42generator10(__pyx
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_n_u__7};
+    PyObject *__pyx_callargs[2] = {__pyx_t_1, __pyx_mstate_global->__pyx_n_u__6};
     __pyx_t_3 = __Pyx_PyObject_FastCall(__pyx_t_8, __pyx_callargs+__pyx_t_6, (2-__pyx_t_6) | (__pyx_t_6*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -12407,7 +12446,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
 */
   __pyx_t_2 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_casbin_2, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_casbin, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AsyncEnforcer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
@@ -12572,7 +12611,7 @@ __Pyx_RefNannySetupContext("PyInit_casbin_engine", 0);
  *         self.policies = {}
  * 
  *     async def load(self):             # <<<<<<<<<<<<<<
- *         # logging.debug(f"...")
+ *         logging.debug(f" API ...")
  *         await self._enforcer.load_policy()
 */
   __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13casbin_engine_16PermissionEngine_5load, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_PermissionEngine_load, NULL, __pyx_mstate_global->__pyx_n_u_casbin_engine, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
@@ -12827,6 +12866,8 @@ typedef struct {
 static const char * const __pyx_string_tab_encodings[] = { 0 };
 static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_, sizeof(__pyx_k_), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_ */
+  {__pyx_k_API, sizeof(__pyx_k_API), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_API */
+  {__pyx_k_API_2, sizeof(__pyx_k_API_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_API_2 */
   {__pyx_k_Adapter, sizeof(__pyx_k_Adapter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Adapter */
   {__pyx_k_AppConfig, sizeof(__pyx_k_AppConfig), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AppConfig */
   {__pyx_k_AsyncEnforcer, sizeof(__pyx_k_AsyncEnforcer), 0, 1, 1}, /* PyObject cname: __pyx_n_u_AsyncEnforcer */
@@ -12860,17 +12901,16 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
   {__pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__5 */
-  {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__6 */
-  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 1}, /* PyObject cname: __pyx_n_u__7 */
+  {__pyx_k__6, sizeof(__pyx_k__6), 0, 1, 1}, /* PyObject cname: __pyx_n_u__6 */
+  {__pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__7 */
   {__pyx_k__8, sizeof(__pyx_k__8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__8 */
-  {__pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__9 */
   {__pyx_k_act, sizeof(__pyx_k_act), 0, 1, 1}, /* PyObject cname: __pyx_n_u_act */
   {__pyx_k_acts, sizeof(__pyx_k_acts), 0, 1, 1}, /* PyObject cname: __pyx_n_u_acts */
   {__pyx_k_adapter, sizeof(__pyx_k_adapter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_adapter */
   {__pyx_k_add_grouping_policy, sizeof(__pyx_k_add_grouping_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add_grouping_policy */
   {__pyx_k_add_policy, sizeof(__pyx_k_add_policy), 0, 1, 1}, /* PyObject cname: __pyx_n_u_add_policy */
   {__pyx_k_admin_role, sizeof(__pyx_k_admin_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_admin_role */
-  {__pyx_k_admin_role_role, sizeof(__pyx_k_admin_role_role), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_admin_role_role */
+  {__pyx_k_admin_role_role_sub, sizeof(__pyx_k_admin_role_role_sub), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_admin_role_role_sub */
   {__pyx_k_admin_user, sizeof(__pyx_k_admin_user), 0, 1, 1}, /* PyObject cname: __pyx_n_u_admin_user */
   {__pyx_k_admin_user_admin_role, sizeof(__pyx_k_admin_user_admin_role), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_admin_user_admin_role */
   {__pyx_k_aenter, sizeof(__pyx_k_aenter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_aenter */
@@ -12883,8 +12923,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_bool, sizeof(__pyx_k_bool), 0, 1, 1}, /* PyObject cname: __pyx_n_u_bool */
   {__pyx_k_c_obj, sizeof(__pyx_k_c_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_c_obj */
   {__pyx_k_c_role, sizeof(__pyx_k_c_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_c_role */
-  {__pyx_k_casbin, sizeof(__pyx_k_casbin), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_casbin */
-  {__pyx_k_casbin_2, sizeof(__pyx_k_casbin_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin_2 */
+  {__pyx_k_casbin, sizeof(__pyx_k_casbin), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin */
+  {__pyx_k_casbin_API, sizeof(__pyx_k_casbin_API), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_casbin_API */
   {__pyx_k_casbin_async_sqlalchemy_adapter, sizeof(__pyx_k_casbin_async_sqlalchemy_adapter), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin_async_sqlalchemy_adapter */
   {__pyx_k_casbin_engine, sizeof(__pyx_k_casbin_engine), 0, 1, 1}, /* PyObject cname: __pyx_n_u_casbin_engine */
   {__pyx_k_casbin_engine_py, sizeof(__pyx_k_casbin_engine_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_casbin_engine_py */
@@ -12968,7 +13008,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_rjust, sizeof(__pyx_k_rjust), 0, 1, 1}, /* PyObject cname: __pyx_n_u_rjust */
   {__pyx_k_role, sizeof(__pyx_k_role), 0, 1, 1}, /* PyObject cname: __pyx_n_u_role */
   {__pyx_k_role_2, sizeof(__pyx_k_role_2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_role_2 */
-  {__pyx_k_role_obj_act, sizeof(__pyx_k_role_obj_act), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_role_obj_act */
+  {__pyx_k_role_sub_obj_act, sizeof(__pyx_k_role_sub_obj_act), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_role_sub_obj_act */
   {__pyx_k_roles, sizeof(__pyx_k_roles), 0, 1, 1}, /* PyObject cname: __pyx_n_u_roles */
   {__pyx_k_run_sync, sizeof(__pyx_k_run_sync), 0, 1, 1}, /* PyObject cname: __pyx_n_u_run_sync */
   {__pyx_k_save, sizeof(__pyx_k_save), 0, 1, 1}, /* PyObject cname: __pyx_n_u_save */
@@ -13075,22 +13115,22 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 68, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load_2, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_load_2, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 8, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 81, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_roles, __pyx_mstate->__pyx_n_u_role, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_acts, __pyx_mstate->__pyx_n_u_act, __pyx_mstate->__pyx_n_u_admin_role, __pyx_mstate->__pyx_n_u_admin_user};
-    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_rebuild, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_rebuild, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 113, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_save, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_save, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 116, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_check_table, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 130, 5};
@@ -13110,32 +13150,32 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {4, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 150, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_role, __pyx_mstate->__pyx_n_u_obj, __pyx_mstate->__pyx_n_u_act};
-    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_role_policy, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_role_policy, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 153, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_p_obj, __pyx_mstate->__pyx_n_u_c_obj};
-    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_grouping_policy, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[8] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_grouping_policy, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[8])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 156, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_p_role, __pyx_mstate->__pyx_n_u_c_role};
-    __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_inherit_role, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_inherit_role, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 2, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 159, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_role};
-    __pyx_mstate_global->__pyx_codeobj_tab[10] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_user_role, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[10])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[10] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_set_user_role, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[10])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 162, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_user, __pyx_mstate->__pyx_n_u_role};
-    __pyx_mstate_global->__pyx_codeobj_tab[11] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_has_role, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[11])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[11] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_has_role, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[11])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 183, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
-    __pyx_mstate_global->__pyx_codeobj_tab[12] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_close, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[12])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[12] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_casbin_engine_py, __pyx_mstate->__pyx_n_u_close, __pyx_k__9, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[12])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 25, 65};
@@ -18894,7 +18934,7 @@ static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple)
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__8);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__7);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -19382,7 +19422,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__9);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__8);
     }
     goto done;
 }

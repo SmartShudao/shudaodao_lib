@@ -7,23 +7,24 @@
 
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
+from pydantic import ConfigDict
 
 from sqlalchemy import BigInteger
 
 from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
-from ...meta_config import MetaConfig
+from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
     from .sys_staff import Staff
 
 
-class StaffRole(MetaConfig.RegistryModel, table=True):
+class StaffRole(PackageConfig.RegistryModel, table=True):
     """数据库对象模型"""
 
     __tablename__ = "sys_staff_role"
-    __table_args__ = {"schema": MetaConfig.SchemaTable}
+    __table_args__ = {"schema": PackageConfig.SchemaTable}
     # 仅用于内部处理
-    __database_schema__ = MetaConfig.SchemaName
+    __database_schema__ = PackageConfig.SchemaName
     __primary_key__ = ["staff_role_id"]
 
     staff_role_id: int = Field(
@@ -31,7 +32,7 @@ class StaffRole(MetaConfig.RegistryModel, table=True):
     )
     role_id: int = Field(sa_type=BigInteger, description="角色内码")
     staff_id: int = Field(
-        foreign_key=f"{MetaConfig.SchemaForeignKey}sys_staff.staff_id",
+        foreign_key=f"{PackageConfig.SchemaForeignKey}sys_staff.staff_id",
         sa_type=BigInteger,
         description="人员内码",
     )
@@ -52,6 +53,8 @@ class StaffRoleCreate(SQLModel):
     staff_id: int = Field(sa_type=BigInteger, description="人员内码")
     expiry_at: Optional[datetime] = Field(default=None, description="过期时间")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class StaffRoleUpdate(SQLModel):
     """前端更新模型 - 用于接口请求"""
@@ -61,11 +64,13 @@ class StaffRoleUpdate(SQLModel):
     staff_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="人员内码")
     expiry_at: Optional[datetime] = Field(default=None, description="过期时间")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class StaffRoleResponse(BaseResponse):
     """前端响应模型 - 用于接口响应"""
 
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    __database_schema__ = PackageConfig.SchemaName  # 仅用于内部处理
     staff_role_id: int = Field(description="人员角色关系内码", sa_type=BigInteger)
     role_id: int = Field(description="角色内码", sa_type=BigInteger)
     staff_id: int = Field(description="人员内码", sa_type=BigInteger)
@@ -74,3 +79,5 @@ class StaffRoleResponse(BaseResponse):
     create_at: Optional[datetime] = Field(description="创建日期", default=None)
     update_by: Optional[str] = Field(description="修改人", default=None)
     update_at: Optional[datetime] = Field(description="修改日期", default=None)
+
+    model_config = ConfigDict(populate_by_name=True)

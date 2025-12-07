@@ -10,14 +10,14 @@ from fastapi import Depends
 
 from shudaodao_auth import AuthAPIRouter, AuthService
 from shudaodao_auth.entity_table.t_auth_user import AuthUserResponse
-from shudaodao_auth.meta_config import MetaConfig as AuthMetaConfig
+from shudaodao_auth.package_config import PackageConfig as AuthMetaConfig
 from shudaodao_core import ResponseUtil
-from ..meta_config import MetaConfig
+from ..package_config import PackageConfig
 
 Auth_Controller = AuthAPIRouter(
     prefix=f"/{AuthMetaConfig.RouterPath}",
     tags=[f"{AuthMetaConfig.RouterTags} - 登录、鉴权"],
-    db_engine_name=MetaConfig.EngineName,
+    db_engine_name=PackageConfig.EngineName,
 )
 
 

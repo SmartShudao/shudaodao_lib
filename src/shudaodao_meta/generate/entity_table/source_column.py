@@ -7,24 +7,25 @@
 
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
+from pydantic import ConfigDict
 
 from sqlalchemy import BigInteger, Boolean
 
 from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
-from ...meta_config import MetaConfig
+from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
     from .source_table import SourceTable
     from .source_view import SourceView
 
 
-class SourceColumn(MetaConfig.RegistryModel, table=True):
+class SourceColumn(PackageConfig.RegistryModel, table=True):
     """数据库对象模型"""
 
     __tablename__ = "source_column"
-    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "字段元数据"}
+    __table_args__ = {"schema": PackageConfig.SchemaTable, "comment": "字段元数据"}
     # 仅用于内部处理
-    __database_schema__ = MetaConfig.SchemaName
+    __database_schema__ = PackageConfig.SchemaName
     __primary_key__ = ["source_column_id"]
 
     source_column_id: int = Field(
@@ -32,7 +33,7 @@ class SourceColumn(MetaConfig.RegistryModel, table=True):
     )
     source_table_id: Optional[int] = Field(
         default=None,
-        foreign_key=f"{MetaConfig.SchemaForeignKey}source_table.source_table_id",
+        foreign_key=f"{PackageConfig.SchemaForeignKey}source_table.source_table_id",
         ondelete="CASCADE",
         sa_type=BigInteger,
         nullable=True,
@@ -40,7 +41,7 @@ class SourceColumn(MetaConfig.RegistryModel, table=True):
     )
     source_view_id: Optional[int] = Field(
         default=None,
-        foreign_key=f"{MetaConfig.SchemaForeignKey}source_view.source_view_id",
+        foreign_key=f"{PackageConfig.SchemaForeignKey}source_view.source_view_id",
         ondelete="CASCADE",
         sa_type=BigInteger,
         nullable=True,
@@ -92,6 +93,8 @@ class SourceColumnCreate(SQLModel):
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class SourceColumnUpdate(SQLModel):
     """前端更新模型 - 用于接口请求"""
@@ -114,11 +117,13 @@ class SourceColumnUpdate(SQLModel):
     sort_order: Optional[int] = Field(default=None, description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class SourceColumnResponse(BaseResponse):
     """前端响应模型 - 用于接口响应"""
 
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    __database_schema__ = PackageConfig.SchemaName  # 仅用于内部处理
     source_column_id: int = Field(description="主键", sa_type=BigInteger)
     source_table_id: Optional[int] = Field(description="主键", default=None, sa_type=BigInteger)
     source_view_id: Optional[int] = Field(description="主键", default=None, sa_type=BigInteger)
@@ -140,3 +145,5 @@ class SourceColumnResponse(BaseResponse):
     create_at: Optional[datetime] = Field(description="创建日期", default=None)
     update_by: Optional[str] = Field(description="修改人", default=None)
     update_at: Optional[datetime] = Field(description="修改日期", default=None)
+
+    model_config = ConfigDict(populate_by_name=True)

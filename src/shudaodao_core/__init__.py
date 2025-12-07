@@ -27,7 +27,7 @@ from .exception.service_exception import (
     DataNotFoundException,
 )
 from .logger.logging_ import logging
-from .meta.config_setting import MetaConfigSetting
+from .package.config_setting import PackageConfigSetting
 from .schemas.query_request import QueryRequest
 from .schemas.response import BaseResponse
 from .services.data_service import DataService
@@ -52,7 +52,7 @@ __all__ = [
     # 核心应用与配置
     "RunningConfig",
     "AppConfig",
-    "MetaConfigSetting",
+    "PackageConfigSetting",
 
     # 引擎
     "DatabaseEngine",

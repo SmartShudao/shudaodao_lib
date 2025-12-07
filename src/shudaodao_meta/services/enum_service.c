@@ -2496,8 +2496,8 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_EnumService_initialize[] = "EnumService.initialize";
 static const char __pyx_k_get_condition_from_columns[] = "get_condition_from_columns";
 static const char __pyx_k_shudaodao_meta_generate_entity_t[] = "shudaodao_meta.generate.entity_table.meta_schema";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_2[] = "shudaodao_meta.generate.entity_table.sys_enum_field";
-static const char __pyx_k_shudaodao_meta_generate_entity_t_3[] = "shudaodao_meta.generate.entity_table.sys_enum_value";
+static const char __pyx_k_shudaodao_meta_generate_entity_t_2[] = "shudaodao_meta.generate.entity_table.enum_field";
+static const char __pyx_k_shudaodao_meta_generate_entity_t_3[] = "shudaodao_meta.generate.entity_table.enum_value";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_12enum_service_11EnumService_initialize(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls, PyObject *__pyx_v_db); /* proto */
 static PyObject *__pyx_pf_12enum_service_11EnumService_3clear(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_cls); /* proto */
@@ -2916,8 +2916,8 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_2generator(__pyx_Coroutin
  *     @classmethod
  *     async def initialize(cls, db: AsyncSession):
  *         from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema             # <<<<<<<<<<<<<<
- *         from shudaodao_meta.generate.entity_table.sys_enum_field import EnumField
- *         from shudaodao_meta.generate.entity_table.sys_enum_value import EnumValue
+ *         from shudaodao_meta.generate.entity_table.enum_field import EnumField
+ *         from shudaodao_meta.generate.entity_table.enum_value import EnumValue
 */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -2938,8 +2938,8 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_2generator(__pyx_Coroutin
   /* "enum_service.py":19
  *     async def initialize(cls, db: AsyncSession):
  *         from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
- *         from shudaodao_meta.generate.entity_table.sys_enum_field import EnumField             # <<<<<<<<<<<<<<
- *         from shudaodao_meta.generate.entity_table.sys_enum_value import EnumValue
+ *         from shudaodao_meta.generate.entity_table.enum_field import EnumField             # <<<<<<<<<<<<<<
+ *         from shudaodao_meta.generate.entity_table.enum_value import EnumValue
  *         #
 */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
@@ -2960,8 +2960,8 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_2generator(__pyx_Coroutin
 
   /* "enum_service.py":20
  *         from shudaodao_meta.generate.entity_table.meta_schema import MetaSchema
- *         from shudaodao_meta.generate.entity_table.sys_enum_field import EnumField
- *         from shudaodao_meta.generate.entity_table.sys_enum_value import EnumValue             # <<<<<<<<<<<<<<
+ *         from shudaodao_meta.generate.entity_table.enum_field import EnumField
+ *         from shudaodao_meta.generate.entity_table.enum_value import EnumValue             # <<<<<<<<<<<<<<
  *         #
  *         statement = select(MetaSchema)
 */
@@ -2982,7 +2982,7 @@ static PyObject *__pyx_gb_12enum_service_11EnumService_2generator(__pyx_Coroutin
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "enum_service.py":22
- *         from shudaodao_meta.generate.entity_table.sys_enum_value import EnumValue
+ *         from shudaodao_meta.generate.entity_table.enum_value import EnumValue
  *         #
  *         statement = select(MetaSchema)             # <<<<<<<<<<<<<<
  *         rows_schemas = (await db.exec(statement)).all()
@@ -4986,11 +4986,11 @@ __Pyx_RefNannySetupContext("PyInit_enum_service", 0);
 
 typedef struct {
     const char *s;
-#if 51 <= 65535
+#if 48 <= 65535
     const unsigned short n;
-#elif 51 / 2 < INT_MAX
+#elif 48 / 2 < INT_MAX
     const unsigned int n;
-#elif 51 / 2 < LONG_MAX
+#elif 48 / 2 < LONG_MAX
     const unsigned long n;
 #else
     const Py_ssize_t n;

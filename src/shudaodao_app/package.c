@@ -1495,7 +1495,7 @@ static const char* const __pyx_f[] = {
 struct __pyx_obj_13shudaodao_app_7package___pyx_scope_struct__genexpr;
 struct __pyx_obj_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config;
 
-/* "shudaodao_app/package.py":42
+/* "shudaodao_app/package.py":40
  *     # 4.
  *     from shudaodao_auth import AuthAPIRouter
  *     max_length = max(len(s) for s in enabled_routers.keys())             # <<<<<<<<<<<<<<
@@ -1513,16 +1513,16 @@ struct __pyx_obj_13shudaodao_app_7package___pyx_scope_struct__genexpr {
 };
 
 
-/* "shudaodao_app/package.py":71
+/* "shudaodao_app/package.py":69
  * 
  * 
  * async def load_meta_config():             # <<<<<<<<<<<<<<
- *     from shudaodao_core import MetaConfigSetting
+ *     from shudaodao_core import PackageConfigSetting
  *     packages = AppConfig.packages.copy()
 */
 struct __pyx_obj_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config {
   PyObject_HEAD
-  PyObject *__pyx_v_MetaConfigSetting;
+  PyObject *__pyx_v_PackageConfigSetting;
   PyObject *__pyx_v_classes_instances;
   PyObject *__pyx_v_max_length;
   PyObject *__pyx_v_message;
@@ -2678,7 +2678,7 @@ static const char __pyx_k_new_tags[] = "new_tags";
 static const char __pyx_k_packages[] = "packages";
 static const char __pyx_k_prefix_2[] = " - prefix: ";
 static const char __pyx_k_qualname[] = "__qualname__";
-static const char __pyx_k_router_2[] = " \344\270\252 router ";
+static const char __pyx_k_router_2[] = " \344\270\252 router";
 static const char __pyx_k_set_name[] = "__set_name__";
 static const char __pyx_k_AppConfig[] = "AppConfig";
 static const char __pyx_k_importlib[] = "importlib";
@@ -2690,7 +2690,6 @@ static const char __pyx_k_max_length[] = "max_length";
 static const char __pyx_k_rpartition[] = "rpartition";
 static const char __pyx_k_startswith[] = "startswith";
 static const char __pyx_k_load_router[] = "load_router";
-static const char __pyx_k_meta_config[] = "meta_config.";
 static const char __pyx_k_ClassScanner[] = "ClassScanner";
 static const char __pyx_k_default_tags[] = "default_tags";
 static const char __pyx_k_enabled_true[] = " \345\246\202\351\234\200\345\220\257\347\224\250\357\274\214\350\257\267\350\256\276\347\275\256 enabled: true ";
@@ -2705,6 +2704,7 @@ static const char __pyx_k_q_7_7_fJaz_AQ[] = "\200\001\360\016\000\005\t\210\t\22
 static const char __pyx_k_walk_packages[] = "walk_packages";
 static const char __pyx_k_check_database[] = "check_database";
 static const char __pyx_k_include_router[] = "include_router";
+static const char __pyx_k_package_config[] = "package_config";
 static const char __pyx_k_package_module[] = "package_module";
 static const char __pyx_k_package_name_2[] = "package_name";
 static const char __pyx_k_shudaodao_auth[] = "shudaodao_auth";
@@ -2715,12 +2715,12 @@ static const char __pyx_k_set_router_tags[] = "_set_router_tags";
 static const char __pyx_k_find_meta_config[] = "_find_meta_config";
 static const char __pyx_k_load_meta_config[] = "load_meta_config";
 static const char __pyx_k_result_instances[] = "result_instances";
-static const char __pyx_k_MetaConfigSetting[] = "MetaConfigSetting";
 static const char __pyx_k_classes_instances[] = "classes_instances";
 static const char __pyx_k_shudaodao_generic[] = "shudaodao_generic";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_ModuleNotFoundError[] = "ModuleNotFoundError";
+static const char __pyx_k_PackageConfigSetting[] = "PackageConfigSetting";
 static const char __pyx_k_shudaodao_core_tools[] = "shudaodao_core.tools";
 static const char __pyx_k_shudaodao_app_package[] = "shudaodao_app.package";
 static const char __pyx_k_find_classes_instances[] = "find_classes_instances";
@@ -2730,7 +2730,7 @@ static const char __pyx_k_t1O7_Qe_9KqPTTUUWWbbc_G1A[] = "\200\001\330\004\010\21
 static const char __pyx_k_check_metadata_to_database[] = "check_metadata_to_database";
 static const char __pyx_k_load_router_locals_genexpr[] = "load_router.<locals>.genexpr";
 static const char __pyx_k_Q_q_A_Jiz_a_1_Zr_YnAQ_Q_0_vQb_2[] = "\320\000*\320*=\270Q\330\004\027\220q\340\004\005\330\010\031\230\031\240.\260\001\260\021\330\010\031\230\021\320\032,\320,<\270A\330\010\014\210J\220i\230z\250\027\260\016\270a\330\020\025\220^\2401\330\020\027\220~\240Z\250r\260\021\340\014\025\220Y\230n\250A\250Q\330\014\035\230Q\320\0360\260\010\270\001\330\004\013\320\013\"\240!\330\010\017\210v\220Q\220b\230\n\320\"2\260!\330\010\017\210q\330\004\013\210=\230\001\330\010\017\210v\220Q\220b\230\n\320\"2\260!\330\010\017\210q\330\004\013\2101";
-static const char __pyx_k_a_y_a_G6_A_q_q_1_7_A_4wa_81B_37[] = "\200\001\340\004\026\220a\330\004\017\210y\230\t\240\025\240a\340\004\030\230\001\230\030\240\024\240[\260\t\270\023\270G\3006\310\023\310A\330\004\007\200q\330\010\020\220\007\220q\320\030)\250\021\250!\340\004\010\210\013\2201\330\010\013\2107\220&\230\004\230A\330\014\r\360\006\000\t\014\2104\210w\220a\330\014\023\2208\2301\230B\320\0363\2607\270!\330\014\r\330\010\013\2107\220&\230\007\230q\330\014\033\2301\230G\2409\250A\340\004\007\200q\330\010\027\220q\320\030/\320/@\300\001\300\021\340\004\t\320\t\037\230q\330\004\021\220\023\220D\230\001\340\004\010\210\013\220?\240'\250\021\330\010\034\230L\320(?\270q\330\014\031\230\027\240\001\330\014\027\220q\330\014\026\220a\340\010\027\220q\330\010\014\210G\320\023$\240G\2501\330\014\033\2301\330\014\017\210s\220&\230\004\230C\230q\240\003\2407\250\"\250A\330\020\037\230s\240!\330\014\017\210w\220f\230D\240\003\2401\240G\2507\260\"\260A\330\020\037\230w\240a\330\014\034\230A\230U\240!\340\014\023\220?\240!\330\020\027\220q\330\020\027\220w\230h\240c\250\021\330\020\025\220S\230\001\340\014\034\230A\340\010\021\220\022\220?\240'\250\032\2607\270-\300q\330\010\017\210r\220\035\230g\240X\250W\260K\270q\330\010\017\210v\220Q\220b\230\004\230G\2405\250\006\250a\320/?\320?W\320W_\320_`";
+static const char __pyx_k_a_y_a_G6_A_q_q_1_7_A_4wa_81B_37[] = "\200\001\340\004\026\220a\330\004\017\210y\230\t\240\025\240a\340\004\030\230\001\230\030\240\024\240[\260\t\270\023\270G\3006\310\023\310A\330\004\007\200q\330\010\020\220\007\220q\320\030)\250\021\250!\340\004\010\210\013\2201\330\010\013\2107\220&\230\004\230A\330\014\r\330\010\013\2104\210w\220a\330\014\023\2208\2301\230B\320\0363\2607\270!\330\014\r\330\010\013\2107\220&\230\007\230q\330\014\033\2301\230G\2409\250A\340\004\007\200q\330\010\027\220q\320\030/\320/@\300\001\300\021\340\004\t\320\t\037\230q\330\004\021\220\023\220D\230\001\340\004\010\210\013\220?\240'\250\021\330\010\034\230L\320(?\270q\330\014\031\230\027\240\001\330\014\027\220q\330\014\026\220a\340\010\027\220q\330\010\014\210G\320\023$\240G\2501\330\014\033\2301\330\014\017\210s\220&\230\004\230C\230q\240\003\2407\250\"\250A\330\020\037\230s\240!\330\014\017\210w\220f\230D\240\003\2401\240G\2507\260\"\260A\330\020\037\230w\240a\330\014\034\230A\230U\240!\340\014\023\220?\240!\330\020\027\220q\330\020\027\220w\230h\240c\250\021\330\020\025\220S\230\001\340\014\034\230A\340\010\021\220\022\220?\240'\250\032\2607\270-\300q\330\010\017\210r\220\035\230g\240X\250W\260K\270q\330\010\017\210v\220Q\220b\230\004\230G\2405\250\006\250a\320/?\320?V\320V^\320^_";
 static const char __pyx_k_Note_that_Cython_is_deliberately[] = "Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_13shudaodao_app_7package_11load_router_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0); /* proto */
@@ -2852,10 +2852,10 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_ClassScanner __pyx_string_tab[3]
 #define __pyx_n_u_EngineName __pyx_string_tab[4]
 #define __pyx_n_u_List __pyx_string_tab[5]
-#define __pyx_n_u_MetaConfigSetting __pyx_string_tab[6]
-#define __pyx_n_u_ModuleNotFoundError __pyx_string_tab[7]
-#define __pyx_kp_u_None __pyx_string_tab[8]
-#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[9]
+#define __pyx_n_u_ModuleNotFoundError __pyx_string_tab[6]
+#define __pyx_kp_u_None __pyx_string_tab[7]
+#define __pyx_kp_u_Note_that_Cython_is_deliberately __pyx_string_tab[8]
+#define __pyx_n_u_PackageConfigSetting __pyx_string_tab[9]
 #define __pyx_n_u_Registry __pyx_string_tab[10]
 #define __pyx_kp_u__2 __pyx_string_tab[11]
 #define __pyx_kp_u__3 __pyx_string_tab[12]
@@ -2911,17 +2911,17 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_max __pyx_string_tab[62]
 #define __pyx_n_u_max_length __pyx_string_tab[63]
 #define __pyx_n_u_message __pyx_string_tab[64]
-#define __pyx_kp_u_meta_config __pyx_string_tab[65]
-#define __pyx_n_u_metadata __pyx_string_tab[66]
-#define __pyx_n_u_modname __pyx_string_tab[67]
-#define __pyx_n_u_module __pyx_string_tab[68]
-#define __pyx_n_u_module_2 __pyx_string_tab[69]
-#define __pyx_n_u_name __pyx_string_tab[70]
-#define __pyx_n_u_name_2 __pyx_string_tab[71]
-#define __pyx_n_u_new_tags __pyx_string_tab[72]
-#define __pyx_n_u_next __pyx_string_tab[73]
-#define __pyx_n_u_obj __pyx_string_tab[74]
-#define __pyx_n_u_package __pyx_string_tab[75]
+#define __pyx_n_u_metadata __pyx_string_tab[65]
+#define __pyx_n_u_modname __pyx_string_tab[66]
+#define __pyx_n_u_module __pyx_string_tab[67]
+#define __pyx_n_u_module_2 __pyx_string_tab[68]
+#define __pyx_n_u_name __pyx_string_tab[69]
+#define __pyx_n_u_name_2 __pyx_string_tab[70]
+#define __pyx_n_u_new_tags __pyx_string_tab[71]
+#define __pyx_n_u_next __pyx_string_tab[72]
+#define __pyx_n_u_obj __pyx_string_tab[73]
+#define __pyx_n_u_package __pyx_string_tab[74]
+#define __pyx_n_u_package_config __pyx_string_tab[75]
 #define __pyx_n_u_package_lengths __pyx_string_tab[76]
 #define __pyx_n_u_package_module __pyx_string_tab[77]
 #define __pyx_kp_u_package_name __pyx_string_tab[78]
@@ -3128,7 +3128,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 static PyObject *__pyx_gb_13shudaodao_app_7package_11load_router_2generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_app/package.py":42
+/* "shudaodao_app/package.py":40
  *     # 4.
  *     from shudaodao_auth import AuthAPIRouter
  *     max_length = max(len(s) for s in enabled_routers.keys())             # <<<<<<<<<<<<<<
@@ -3148,7 +3148,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_11load_router_genexpr(CYTHON_
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_13shudaodao_app_7package___pyx_scope_struct__genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 42, __pyx_L1_error)
+    __PYX_ERR(0, 40, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
@@ -3156,7 +3156,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_11load_router_genexpr(CYTHON_
   __Pyx_INCREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_7package_11load_router_2generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_load_router_locals_genexpr, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package); if (unlikely(!gen)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_7package_11load_router_2generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_load_router_locals_genexpr, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package); if (unlikely(!gen)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3198,11 +3198,11 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_11load_router_2generator1(__p
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started generator");
-    __PYX_ERR(0, 42, __pyx_L1_error)
+    __PYX_ERR(0, 40, __pyx_L1_error)
   }
   __pyx_t_2 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_genexpr_arg_0)) { __Pyx_RaiseUnboundLocalError(".0"); __PYX_ERR(0, 42, __pyx_L1_error) }
-  __pyx_t_5 = __Pyx_dict_iterator(__pyx_cur_scope->__pyx_genexpr_arg_0, 1, __pyx_mstate_global->__pyx_n_u_keys, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_genexpr_arg_0)) { __Pyx_RaiseUnboundLocalError(".0"); __PYX_ERR(0, 40, __pyx_L1_error) }
+  __pyx_t_5 = __Pyx_dict_iterator(__pyx_cur_scope->__pyx_genexpr_arg_0, 1, __pyx_mstate_global->__pyx_n_u_keys, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -3210,14 +3210,14 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_11load_router_2generator1(__p
   while (1) {
     __pyx_t_6 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, NULL, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_6 == 0)) break;
-    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_s);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_s, __pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_7 = PyObject_Length(__pyx_cur_scope->__pyx_v_s); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 42, __pyx_L1_error)
-    __pyx_t_5 = PyLong_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __pyx_t_7 = PyObject_Length(__pyx_cur_scope->__pyx_v_s); if (unlikely(__pyx_t_7 == ((Py_ssize_t)-1))) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_5 = PyLong_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
@@ -3239,7 +3239,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_11load_router_2generator1(__p
     __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
     __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
     __pyx_t_4 = __pyx_cur_scope->__pyx_t_3;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 40, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
@@ -3486,7 +3486,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
  *         packages.remove(shudaodao_generic[0])
  *     # 2.
  *     for package in packages:             # <<<<<<<<<<<<<<
- *         if package.name in ["shudaodao_core"]:  # , "shudaodao_common"]:
+ *         if package.name in ["shudaodao_core"]:
  *             continue
 */
   if (likely(PyList_CheckExact(__pyx_v_packages)) || PyTuple_CheckExact(__pyx_v_packages)) {
@@ -3544,9 +3544,9 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     /* "shudaodao_app/package.py":28
  *     # 2.
  *     for package in packages:
- *         if package.name in ["shudaodao_core"]:  # , "shudaodao_common"]:             # <<<<<<<<<<<<<<
+ *         if package.name in ["shudaodao_core"]:             # <<<<<<<<<<<<<<
  *             continue
- *         # if package.name in ["shudaodao_auth", "shudaodao_common"]:
+ *         if not package.enabled:
 */
     __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -3557,59 +3557,59 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
 
       /* "shudaodao_app/package.py":29
  *     for package in packages:
- *         if package.name in ["shudaodao_core"]:  # , "shudaodao_common"]:
+ *         if package.name in ["shudaodao_core"]:
  *             continue             # <<<<<<<<<<<<<<
- *         # if package.name in ["shudaodao_auth", "shudaodao_common"]:
- *         #     package.prefix = ""
+ *         if not package.enabled:
+ *             logging.warning(f'package  name: {package.name}  enabled: true ')
 */
       goto __pyx_L12_continue;
 
       /* "shudaodao_app/package.py":28
  *     # 2.
  *     for package in packages:
- *         if package.name in ["shudaodao_core"]:  # , "shudaodao_common"]:             # <<<<<<<<<<<<<<
+ *         if package.name in ["shudaodao_core"]:             # <<<<<<<<<<<<<<
  *             continue
- *         # if package.name in ["shudaodao_auth", "shudaodao_common"]:
+ *         if not package.enabled:
 */
     }
 
-    /* "shudaodao_app/package.py":32
- *         # if package.name in ["shudaodao_auth", "shudaodao_common"]:
- *         #     package.prefix = ""
+    /* "shudaodao_app/package.py":30
+ *         if package.name in ["shudaodao_core"]:
+ *             continue
  *         if not package.enabled:             # <<<<<<<<<<<<<<
  *             logging.warning(f'package  name: {package.name}  enabled: true ')
  *             continue
 */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 32, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_8 = (!__pyx_t_9);
     if (__pyx_t_8) {
 
-      /* "shudaodao_app/package.py":33
- *         #     package.prefix = ""
+      /* "shudaodao_app/package.py":31
+ *             continue
  *         if not package.enabled:
  *             logging.warning(f'package  name: {package.name}  enabled: true ')             # <<<<<<<<<<<<<<
  *             continue
  *         if package.name not in enabled_routers:
 */
       __pyx_t_4 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 33, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 33, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_3, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __pyx_t_12[0] = __pyx_mstate_global->__pyx_kp_u_package_name;
       __pyx_t_12[1] = __pyx_t_11;
       __pyx_t_12[2] = __pyx_mstate_global->__pyx_kp_u_enabled_true;
       __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_12, 3, 17 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 24, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11));
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 33, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 31, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_t_5 = 1;
@@ -3630,12 +3630,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 31, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
       }
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "shudaodao_app/package.py":34
+      /* "shudaodao_app/package.py":32
  *         if not package.enabled:
  *             logging.warning(f'package  name: {package.name}  enabled: true ')
  *             continue             # <<<<<<<<<<<<<<
@@ -3644,46 +3644,46 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
 */
       goto __pyx_L12_continue;
 
-      /* "shudaodao_app/package.py":32
- *         # if package.name in ["shudaodao_auth", "shudaodao_common"]:
- *         #     package.prefix = ""
+      /* "shudaodao_app/package.py":30
+ *         if package.name in ["shudaodao_core"]:
+ *             continue
  *         if not package.enabled:             # <<<<<<<<<<<<<<
  *             logging.warning(f'package  name: {package.name}  enabled: true ')
  *             continue
 */
     }
 
-    /* "shudaodao_app/package.py":35
+    /* "shudaodao_app/package.py":33
  *             logging.warning(f'package  name: {package.name}  enabled: true ')
  *             continue
  *         if package.name not in enabled_routers:             # <<<<<<<<<<<<<<
  *             enabled_routers[package.name] = package
- *     # 3. shudaodao_generic
+ *     # 3.  shudaodao_generic
 */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 33, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = (__Pyx_PyDict_ContainsTF(__pyx_t_2, __pyx_v_enabled_routers, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyDict_ContainsTF(__pyx_t_2, __pyx_v_enabled_routers, Py_NE)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_8) {
 
-      /* "shudaodao_app/package.py":36
+      /* "shudaodao_app/package.py":34
  *             continue
  *         if package.name not in enabled_routers:
  *             enabled_routers[package.name] = package             # <<<<<<<<<<<<<<
- *     # 3. shudaodao_generic
+ *     # 3.  shudaodao_generic
  *     if shudaodao_generic:
 */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 36, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      if (unlikely((PyDict_SetItem(__pyx_v_enabled_routers, __pyx_t_2, __pyx_v_package) < 0))) __PYX_ERR(0, 36, __pyx_L1_error)
+      if (unlikely((PyDict_SetItem(__pyx_v_enabled_routers, __pyx_t_2, __pyx_v_package) < 0))) __PYX_ERR(0, 34, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "shudaodao_app/package.py":35
+      /* "shudaodao_app/package.py":33
  *             logging.warning(f'package  name: {package.name}  enabled: true ')
  *             continue
  *         if package.name not in enabled_routers:             # <<<<<<<<<<<<<<
  *             enabled_routers[package.name] = package
- *     # 3. shudaodao_generic
+ *     # 3.  shudaodao_generic
 */
     }
 
@@ -3691,72 +3691,72 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
  *         packages.remove(shudaodao_generic[0])
  *     # 2.
  *     for package in packages:             # <<<<<<<<<<<<<<
- *         if package.name in ["shudaodao_core"]:  # , "shudaodao_common"]:
+ *         if package.name in ["shudaodao_core"]:
  *             continue
 */
     __pyx_L12_continue:;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "shudaodao_app/package.py":38
+  /* "shudaodao_app/package.py":36
  *             enabled_routers[package.name] = package
- *     # 3. shudaodao_generic
+ *     # 3.  shudaodao_generic
  *     if shudaodao_generic:             # <<<<<<<<<<<<<<
  *         enabled_routers["shudaodao_generic"] = shudaodao_generic[0]
  *     # 4.
 */
   {
     Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_v_shudaodao_generic);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 38, __pyx_L1_error)
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 36, __pyx_L1_error)
     __pyx_t_8 = (__pyx_temp != 0);
   }
 
   if (__pyx_t_8) {
 
-    /* "shudaodao_app/package.py":39
- *     # 3. shudaodao_generic
+    /* "shudaodao_app/package.py":37
+ *     # 3.  shudaodao_generic
  *     if shudaodao_generic:
  *         enabled_routers["shudaodao_generic"] = shudaodao_generic[0]             # <<<<<<<<<<<<<<
  *     # 4.
  *     from shudaodao_auth import AuthAPIRouter
 */
-    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_shudaodao_generic, 0, long, 1, __Pyx_PyLong_From_long, 1, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_shudaodao_generic, 0, long, 1, __Pyx_PyLong_From_long, 1, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely((PyDict_SetItem(__pyx_v_enabled_routers, __pyx_mstate_global->__pyx_n_u_shudaodao_generic, __pyx_t_1) < 0))) __PYX_ERR(0, 39, __pyx_L1_error)
+    if (unlikely((PyDict_SetItem(__pyx_v_enabled_routers, __pyx_mstate_global->__pyx_n_u_shudaodao_generic, __pyx_t_1) < 0))) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "shudaodao_app/package.py":38
+    /* "shudaodao_app/package.py":36
  *             enabled_routers[package.name] = package
- *     # 3. shudaodao_generic
+ *     # 3.  shudaodao_generic
  *     if shudaodao_generic:             # <<<<<<<<<<<<<<
  *         enabled_routers["shudaodao_generic"] = shudaodao_generic[0]
  *     # 4.
 */
   }
 
-  /* "shudaodao_app/package.py":41
+  /* "shudaodao_app/package.py":39
  *         enabled_routers["shudaodao_generic"] = shudaodao_generic[0]
  *     # 4.
  *     from shudaodao_auth import AuthAPIRouter             # <<<<<<<<<<<<<<
  *     max_length = max(len(s) for s in enabled_routers.keys())
  *     #
 */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u_AuthAPIRouter);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_n_u_AuthAPIRouter);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_n_u_AuthAPIRouter) != (0)) __PYX_ERR(0, 41, __pyx_L1_error);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_auth, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_n_u_AuthAPIRouter) != (0)) __PYX_ERR(0, 39, __pyx_L1_error);
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_auth, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthAPIRouter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_AuthAPIRouter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_t_1);
   __pyx_v_AuthAPIRouter = __pyx_t_1;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":42
+  /* "shudaodao_app/package.py":40
  *     # 4.
  *     from shudaodao_auth import AuthAPIRouter
  *     max_length = max(len(s) for s in enabled_routers.keys())             # <<<<<<<<<<<<<<
@@ -3766,7 +3766,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
   __pyx_t_1 = NULL;
   __Pyx_INCREF(__pyx_builtin_max);
   __pyx_t_10 = __pyx_builtin_max; 
-  __pyx_t_3 = __pyx_pf_13shudaodao_app_7package_11load_router_genexpr(NULL, __pyx_v_enabled_routers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_t_3 = __pyx_pf_13shudaodao_app_7package_11load_router_genexpr(NULL, __pyx_v_enabled_routers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = 1;
   {
@@ -3775,13 +3775,13 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __pyx_v_max_length = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":44
+  /* "shudaodao_app/package.py":42
  *     max_length = max(len(s) for s in enabled_routers.keys())
  *     #
  *     for package in enabled_routers.values():             # <<<<<<<<<<<<<<
@@ -3789,7 +3789,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
  *             package_name=package.name,
 */
   __pyx_t_6 = 0;
-  __pyx_t_10 = __Pyx_dict_iterator(__pyx_v_enabled_routers, 1, __pyx_mstate_global->__pyx_n_u_values, (&__pyx_t_13), (&__pyx_t_14)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_dict_iterator(__pyx_v_enabled_routers, 1, __pyx_mstate_global->__pyx_n_u_values, (&__pyx_t_13), (&__pyx_t_14)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_2);
   __pyx_t_2 = __pyx_t_10;
@@ -3797,12 +3797,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
   while (1) {
     __pyx_t_15 = __Pyx_dict_iter_next(__pyx_t_2, __pyx_t_13, &__pyx_t_6, NULL, &__pyx_t_10, NULL, __pyx_t_14);
     if (unlikely(__pyx_t_15 == 0)) break;
-    if (unlikely(__pyx_t_15 == -1)) __PYX_ERR(0, 44, __pyx_L1_error)
+    if (unlikely(__pyx_t_15 == -1)) __PYX_ERR(0, 42, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_XDECREF_SET(__pyx_v_package, __pyx_t_10);
     __pyx_t_10 = 0;
 
-    /* "shudaodao_app/package.py":45
+    /* "shudaodao_app/package.py":43
  *     #
  *     for package in enabled_routers.values():
  *         classes_instances = ClassScanner.find_classes_instances(             # <<<<<<<<<<<<<<
@@ -3810,23 +3810,23 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
  *             base_class=AuthAPIRouter,
 */
     __pyx_t_3 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ClassScanner); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ClassScanner); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_find_classes_instances); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_find_classes_instances); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 43, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "shudaodao_app/package.py":46
+    /* "shudaodao_app/package.py":44
  *     for package in enabled_routers.values():
  *         classes_instances = ClassScanner.find_classes_instances(
  *             package_name=package.name,             # <<<<<<<<<<<<<<
  *             base_class=AuthAPIRouter,
  *             predicate=None
 */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
 
-    /* "shudaodao_app/package.py":48
+    /* "shudaodao_app/package.py":46
  *             package_name=package.name,
  *             base_class=AuthAPIRouter,
  *             predicate=None             # <<<<<<<<<<<<<<
@@ -3847,23 +3847,23 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_3, NULL};
-      __pyx_t_11 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 45, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_package_name_2, __pyx_t_1, __pyx_t_11, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_base_class, __pyx_v_AuthAPIRouter, __pyx_t_11, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_predicate, Py_None, __pyx_t_11, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_package_name_2, __pyx_t_1, __pyx_t_11, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_base_class, __pyx_v_AuthAPIRouter, __pyx_t_11, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_predicate, Py_None, __pyx_t_11, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
       __pyx_t_10 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_11);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 45, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
     }
     __Pyx_XDECREF_SET(__pyx_v_classes_instances, __pyx_t_10);
     __pyx_t_10 = 0;
 
-    /* "shudaodao_app/package.py":50
+    /* "shudaodao_app/package.py":48
  *             predicate=None
  *         )
  *         router_count = 0             # <<<<<<<<<<<<<<
@@ -3873,7 +3873,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     __Pyx_INCREF(__pyx_mstate_global->__pyx_int_0);
     __Pyx_XDECREF_SET(__pyx_v_router_count, __pyx_mstate_global->__pyx_int_0);
 
-    /* "shudaodao_app/package.py":51
+    /* "shudaodao_app/package.py":49
  *         )
  *         router_count = 0
  *         for val in classes_instances.values():             # <<<<<<<<<<<<<<
@@ -3883,9 +3883,9 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     __pyx_t_16 = 0;
     if (unlikely(__pyx_v_classes_instances == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-      __PYX_ERR(0, 51, __pyx_L1_error)
+      __PYX_ERR(0, 49, __pyx_L1_error)
     }
-    __pyx_t_4 = __Pyx_dict_iterator(__pyx_v_classes_instances, 0, __pyx_mstate_global->__pyx_n_u_values, (&__pyx_t_17), (&__pyx_t_15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_dict_iterator(__pyx_v_classes_instances, 0, __pyx_mstate_global->__pyx_n_u_values, (&__pyx_t_17), (&__pyx_t_15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_10);
     __pyx_t_10 = __pyx_t_4;
@@ -3893,61 +3893,61 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     while (1) {
       __pyx_t_18 = __Pyx_dict_iter_next(__pyx_t_10, __pyx_t_17, &__pyx_t_16, NULL, &__pyx_t_4, NULL, __pyx_t_15);
       if (unlikely(__pyx_t_18 == 0)) break;
-      if (unlikely(__pyx_t_18 == -1)) __PYX_ERR(0, 51, __pyx_L1_error)
+      if (unlikely(__pyx_t_18 == -1)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_XDECREF_SET(__pyx_v_val, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "shudaodao_app/package.py":52
+      /* "shudaodao_app/package.py":50
  *         router_count = 0
  *         for val in classes_instances.values():
  *             default_tags = []             # <<<<<<<<<<<<<<
  *             if val.tags and len(val.tags) > 0:
  *                 default_tags = val.tags
 */
-      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_XDECREF_SET(__pyx_v_default_tags, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "shudaodao_app/package.py":53
+      /* "shudaodao_app/package.py":51
  *         for val in classes_instances.values():
  *             default_tags = []
  *             if val.tags and len(val.tags) > 0:             # <<<<<<<<<<<<<<
  *                 default_tags = val.tags
  *             if package.tags and len(package.tags) > 0:
 */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_9) {
       } else {
         __pyx_t_8 = __pyx_t_9;
         goto __pyx_L24_bool_binop_done;
       }
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_19 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 53, __pyx_L1_error)
+      __pyx_t_19 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 51, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_9 = (__pyx_t_19 > 0);
       __pyx_t_8 = __pyx_t_9;
       __pyx_L24_bool_binop_done:;
       if (__pyx_t_8) {
 
-        /* "shudaodao_app/package.py":54
+        /* "shudaodao_app/package.py":52
  *             default_tags = []
  *             if val.tags and len(val.tags) > 0:
  *                 default_tags = val.tags             # <<<<<<<<<<<<<<
  *             if package.tags and len(package.tags) > 0:
  *                 default_tags = package.tags
 */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_default_tags, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "shudaodao_app/package.py":53
+        /* "shudaodao_app/package.py":51
  *         for val in classes_instances.values():
  *             default_tags = []
  *             if val.tags and len(val.tags) > 0:             # <<<<<<<<<<<<<<
@@ -3956,44 +3956,44 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
 */
       }
 
-      /* "shudaodao_app/package.py":55
+      /* "shudaodao_app/package.py":53
  *             if val.tags and len(val.tags) > 0:
  *                 default_tags = val.tags
  *             if package.tags and len(package.tags) > 0:             # <<<<<<<<<<<<<<
  *                 default_tags = package.tags
  *             _set_router_tags(val, default_tags)
 */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 55, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_9 < 0))) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_9) {
       } else {
         __pyx_t_8 = __pyx_t_9;
         goto __pyx_L27_bool_binop_done;
       }
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_19 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 55, __pyx_L1_error)
+      __pyx_t_19 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_19 == ((Py_ssize_t)-1))) __PYX_ERR(0, 53, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_9 = (__pyx_t_19 > 0);
       __pyx_t_8 = __pyx_t_9;
       __pyx_L27_bool_binop_done:;
       if (__pyx_t_8) {
 
-        /* "shudaodao_app/package.py":56
+        /* "shudaodao_app/package.py":54
  *                 default_tags = val.tags
  *             if package.tags and len(package.tags) > 0:
  *                 default_tags = package.tags             # <<<<<<<<<<<<<<
  *             _set_router_tags(val, default_tags)
  * 
 */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF_SET(__pyx_v_default_tags, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "shudaodao_app/package.py":55
+        /* "shudaodao_app/package.py":53
  *             if val.tags and len(val.tags) > 0:
  *                 default_tags = val.tags
  *             if package.tags and len(package.tags) > 0:             # <<<<<<<<<<<<<<
@@ -4002,7 +4002,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
 */
       }
 
-      /* "shudaodao_app/package.py":57
+      /* "shudaodao_app/package.py":55
  *             if package.tags and len(package.tags) > 0:
  *                 default_tags = package.tags
  *             _set_router_tags(val, default_tags)             # <<<<<<<<<<<<<<
@@ -4010,7 +4010,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
  *             fastapi.include_router(
 */
       __pyx_t_11 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_set_router_tags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_set_router_tags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_5 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -4029,12 +4029,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
         __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_1, __pyx_callargs+__pyx_t_5, (3-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "shudaodao_app/package.py":59
+      /* "shudaodao_app/package.py":57
  *             _set_router_tags(val, default_tags)
  * 
  *             fastapi.include_router(             # <<<<<<<<<<<<<<
@@ -4044,16 +4044,16 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
       __pyx_t_1 = __pyx_v_fastapi;
       __Pyx_INCREF(__pyx_t_1);
 
-      /* "shudaodao_app/package.py":61
+      /* "shudaodao_app/package.py":59
  *             fastapi.include_router(
  *                 router=val,
  *                 prefix=package.prefix or "",             # <<<<<<<<<<<<<<
  *                 tags=val.tags
  *             )
 */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_prefix); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_prefix); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 61, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 59, __pyx_L1_error)
       if (!__pyx_t_8) {
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       } else {
@@ -4066,65 +4066,65 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
       __pyx_t_11 = __pyx_mstate_global->__pyx_kp_u__2;
       __pyx_L29_bool_binop_done:;
 
-      /* "shudaodao_app/package.py":62
+      /* "shudaodao_app/package.py":60
  *                 router=val,
  *                 prefix=package.prefix or "",
  *                 tags=val.tags             # <<<<<<<<<<<<<<
  *             )
  *             router_count += 1
 */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_5 = 0;
       {
         PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 3 : 0)] = {__pyx_t_1, NULL};
-        __pyx_t_20 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 59, __pyx_L1_error)
+        __pyx_t_20 = __Pyx_MakeVectorcallBuilderKwds(3); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 57, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_20);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_router, __pyx_v_val, __pyx_t_20, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_11, __pyx_t_20, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tags, __pyx_t_3, __pyx_t_20, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 59, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_router, __pyx_v_val, __pyx_t_20, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_11, __pyx_t_20, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_tags, __pyx_t_3, __pyx_t_20, __pyx_callargs+1, 2) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
         __pyx_t_4 = __Pyx_Object_VectorcallMethod_CallFromBuilder(__pyx_mstate_global->__pyx_n_u_include_router, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_20);
         __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 59, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 57, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "shudaodao_app/package.py":64
+      /* "shudaodao_app/package.py":62
  *                 tags=val.tags
  *             )
  *             router_count += 1             # <<<<<<<<<<<<<<
  * 
  *         prefix = f" - prefix: {package.prefix}" if package.prefix else ""
 */
-      __pyx_t_4 = __Pyx_PyLong_AddObjC(__pyx_v_router_count, __pyx_mstate_global->__pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyLong_AddObjC(__pyx_v_router_count, __pyx_mstate_global->__pyx_int_1, 1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 62, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF_SET(__pyx_v_router_count, __pyx_t_4);
       __pyx_t_4 = 0;
     }
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-    /* "shudaodao_app/package.py":66
+    /* "shudaodao_app/package.py":64
  *             router_count += 1
  * 
  *         prefix = f" - prefix: {package.prefix}" if package.prefix else ""             # <<<<<<<<<<<<<<
  *         tags = f" - tags: {package.tags}" if package.tags else ""
- *         logging.debug(f"{package.name.ljust(max_length)} - {router_count}  router {prefix}{tags}")
+ *         logging.debug(f"{package.name.ljust(max_length)} - {router_count}  router{prefix}{tags}")
 */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_prefix); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_prefix); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_prefix); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_prefix); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_20 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 66, __pyx_L1_error)
+      __pyx_t_20 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 64, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_prefix_2, __pyx_t_20); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 66, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_prefix_2, __pyx_t_20); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 64, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
       __pyx_t_10 = __pyx_t_4;
@@ -4136,24 +4136,24 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     __Pyx_XDECREF_SET(__pyx_v_prefix, ((PyObject*)__pyx_t_10));
     __pyx_t_10 = 0;
 
-    /* "shudaodao_app/package.py":67
+    /* "shudaodao_app/package.py":65
  * 
  *         prefix = f" - prefix: {package.prefix}" if package.prefix else ""
  *         tags = f" - tags: {package.tags}" if package.tags else ""             # <<<<<<<<<<<<<<
- *         logging.debug(f"{package.name.ljust(max_length)} - {router_count}  router {prefix}{tags}")
+ *         logging.debug(f"{package.name.ljust(max_length)} - {router_count}  router{prefix}{tags}")
  * 
 */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 67, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 65, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_20 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 67, __pyx_L1_error)
+      __pyx_t_20 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_20);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_tags_2, __pyx_t_20); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyUnicode_Concat(__pyx_mstate_global->__pyx_kp_u_tags_2, __pyx_t_20); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 65, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
       __pyx_t_10 = __pyx_t_4;
@@ -4165,35 +4165,35 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     __Pyx_XDECREF_SET(__pyx_v_tags, ((PyObject*)__pyx_t_10));
     __pyx_t_10 = 0;
 
-    /* "shudaodao_app/package.py":68
+    /* "shudaodao_app/package.py":66
  *         prefix = f" - prefix: {package.prefix}" if package.prefix else ""
  *         tags = f" - tags: {package.tags}" if package.tags else ""
- *         logging.debug(f"{package.name.ljust(max_length)} - {router_count}  router {prefix}{tags}")             # <<<<<<<<<<<<<<
+ *         logging.debug(f"{package.name.ljust(max_length)} - {router_count}  router{prefix}{tags}")             # <<<<<<<<<<<<<<
  * 
  * 
 */
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_20);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-    __pyx_t_20 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_20 = __Pyx_PyObject_GetAttrStr(__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_20);
-    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_ljust); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_20, __pyx_mstate_global->__pyx_n_u_ljust); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-    __pyx_t_20 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_v_max_length); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_20 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_v_max_length); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_20);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_20, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_20, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
-    __pyx_t_20 = __Pyx_PyObject_FormatSimple(__pyx_v_router_count, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_20 = __Pyx_PyObject_FormatSimple(__pyx_v_router_count, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_20)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_20);
-    __pyx_t_1 = __Pyx_PyUnicode_Unicode(__pyx_v_prefix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_Unicode(__pyx_v_prefix); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_21 = __Pyx_PyUnicode_Unicode(__pyx_v_tags); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_21 = __Pyx_PyUnicode_Unicode(__pyx_v_tags); if (unlikely(!__pyx_t_21)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_21);
     __pyx_t_22[0] = __pyx_t_11;
     __pyx_t_22[1] = __pyx_mstate_global->__pyx_kp_u__3;
@@ -4201,8 +4201,8 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
     __pyx_t_22[3] = __pyx_mstate_global->__pyx_kp_u_router_2;
     __pyx_t_22[4] = __pyx_t_1;
     __pyx_t_22[5] = __pyx_t_21;
-    __pyx_t_23 = __Pyx_PyUnicode_Join(__pyx_t_22, 6, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_20) + 10 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_21), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_20) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_21));
-    if (unlikely(!__pyx_t_23)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_23 = __Pyx_PyUnicode_Join(__pyx_t_22, 6, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_20) + 9 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_21), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_20) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_21));
+    if (unlikely(!__pyx_t_23)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_23);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_20); __pyx_t_20 = 0;
@@ -4226,7 +4226,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_23); __pyx_t_23 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 68, __pyx_L1_error)
+      if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 66, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
     }
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -4277,11 +4277,11 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_load_router(CYTHON_UNUSED PyO
 }
 static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "shudaodao_app/package.py":71
+/* "shudaodao_app/package.py":69
  * 
  * 
  * async def load_meta_config():             # <<<<<<<<<<<<<<
- *     from shudaodao_core import MetaConfigSetting
+ *     from shudaodao_core import PackageConfigSetting
  *     packages = AppConfig.packages.copy()
 */
 
@@ -4313,12 +4313,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_2load_meta_config(CYTHON_UNUS
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 71, __pyx_L1_error)
+    __PYX_ERR(0, 69, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_7package_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_load_meta_config, __pyx_mstate_global->__pyx_n_u_load_meta_config, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package); if (unlikely(!gen)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_13shudaodao_app_7package_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_load_meta_config, __pyx_mstate_global->__pyx_n_u_load_meta_config, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package); if (unlikely(!gen)) __PYX_ERR(0, 69, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -4372,42 +4372,42 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
   __pyx_L3_first_run:;
   if (unlikely(__pyx_sent_value != Py_None)) {
     if (unlikely(__pyx_sent_value)) PyErr_SetString(PyExc_TypeError, "can't send non-None value to a just-started coroutine");
-    __PYX_ERR(0, 71, __pyx_L1_error)
+    __PYX_ERR(0, 69, __pyx_L1_error)
   }
 
-  /* "shudaodao_app/package.py":72
+  /* "shudaodao_app/package.py":70
  * 
  * async def load_meta_config():
- *     from shudaodao_core import MetaConfigSetting             # <<<<<<<<<<<<<<
+ *     from shudaodao_core import PackageConfigSetting             # <<<<<<<<<<<<<<
  *     packages = AppConfig.packages.copy()
  *     package_lengths = [len(s.name) for s in packages if s.enabled]
 */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u_MetaConfigSetting);
-  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_n_u_MetaConfigSetting);
-  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_n_u_MetaConfigSetting) != (0)) __PYX_ERR(0, 72, __pyx_L1_error);
-  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_mstate_global->__pyx_n_u_PackageConfigSetting);
+  __Pyx_GIVEREF(__pyx_mstate_global->__pyx_n_u_PackageConfigSetting);
+  if (__Pyx_PyList_SET_ITEM(__pyx_t_1, 0, __pyx_mstate_global->__pyx_n_u_PackageConfigSetting) != (0)) __PYX_ERR(0, 70, __pyx_L1_error);
+  __pyx_t_2 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_MetaConfigSetting); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_PackageConfigSetting); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_MetaConfigSetting = __pyx_t_1;
+  __pyx_cur_scope->__pyx_v_PackageConfigSetting = __pyx_t_1;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":73
+  /* "shudaodao_app/package.py":71
  * async def load_meta_config():
- *     from shudaodao_core import MetaConfigSetting
+ *     from shudaodao_core import PackageConfigSetting
  *     packages = AppConfig.packages.copy()             # <<<<<<<<<<<<<<
  *     package_lengths = [len(s.name) for s in packages if s.enabled]
  *     max_length = max(package_lengths) if package_lengths else 10
 */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_AppConfig); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_packages); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_packages); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_1 = __pyx_t_4;
@@ -4418,31 +4418,31 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
     __pyx_t_2 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_copy, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_cur_scope->__pyx_v_packages = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":74
- *     from shudaodao_core import MetaConfigSetting
+  /* "shudaodao_app/package.py":72
+ *     from shudaodao_core import PackageConfigSetting
  *     packages = AppConfig.packages.copy()
  *     package_lengths = [len(s.name) for s in packages if s.enabled]             # <<<<<<<<<<<<<<
  *     max_length = max(package_lengths) if package_lengths else 10
  *     for package in packages:
 */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_packages)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_packages)) {
       __pyx_t_4 = __pyx_cur_scope->__pyx_v_packages; __Pyx_INCREF(__pyx_t_4);
       __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_packages); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_packages); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 74, __pyx_L1_error)
+      __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 72, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_7)) {
@@ -4450,7 +4450,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_4);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 72, __pyx_L1_error)
             #endif
             if (__pyx_t_6 >= __pyx_temp) break;
           }
@@ -4460,7 +4460,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_4);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 72, __pyx_L1_error)
             #endif
             if (__pyx_t_6 >= __pyx_temp) break;
           }
@@ -4471,13 +4471,13 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
           #endif
           ++__pyx_t_6;
         }
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
       } else {
         __pyx_t_1 = __pyx_t_7(__pyx_t_4);
         if (unlikely(!__pyx_t_1)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 74, __pyx_L1_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 72, __pyx_L1_error)
             PyErr_Clear();
           }
           break;
@@ -4488,18 +4488,18 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_s, __pyx_t_1);
       __Pyx_GIVEREF(__pyx_t_1);
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_s, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_s, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 72, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_8) {
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_s, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_8genexpr2__pyx_v_s, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_9 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 74, __pyx_L1_error)
+        __pyx_t_9 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_9 == ((Py_ssize_t)-1))) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = PyLong_FromSsize_t(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+        __pyx_t_1 = PyLong_FromSsize_t(__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_1))) __PYX_ERR(0, 74, __pyx_L1_error)
+        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_1))) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       }
     }
@@ -4509,7 +4509,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
   __pyx_cur_scope->__pyx_v_package_lengths = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":75
+  /* "shudaodao_app/package.py":73
  *     packages = AppConfig.packages.copy()
  *     package_lengths = [len(s.name) for s in packages if s.enabled]
  *     max_length = max(package_lengths) if package_lengths else 10             # <<<<<<<<<<<<<<
@@ -4518,7 +4518,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
   {
     Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_cur_scope->__pyx_v_package_lengths);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
+    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 73, __pyx_L1_error)
     __pyx_t_8 = (__pyx_temp != 0);
   }
 
@@ -4532,7 +4532,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __pyx_t_4 = __Pyx_PyObject_FastCall(__pyx_t_3, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __pyx_t_2 = __pyx_t_4;
@@ -4545,7 +4545,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
   __pyx_cur_scope->__pyx_v_max_length = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":76
+  /* "shudaodao_app/package.py":74
  *     package_lengths = [len(s.name) for s in packages if s.enabled]
  *     max_length = max(package_lengths) if package_lengths else 10
  *     for package in packages:             # <<<<<<<<<<<<<<
@@ -4557,9 +4557,9 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
     __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_packages); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_packages); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_7 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 74, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_7)) {
@@ -4567,7 +4567,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 76, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
@@ -4577,7 +4577,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 76, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 74, __pyx_L1_error)
           #endif
           if (__pyx_t_6 >= __pyx_temp) break;
         }
@@ -4588,13 +4588,13 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         #endif
         ++__pyx_t_6;
       }
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L1_error)
     } else {
       __pyx_t_4 = __pyx_t_7(__pyx_t_2);
       if (unlikely(!__pyx_t_4)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 76, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 74, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -4606,20 +4606,20 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "shudaodao_app/package.py":77
+    /* "shudaodao_app/package.py":75
  *     max_length = max(package_lengths) if package_lengths else 10
  *     for package in packages:
  *         if package.name == "shudaodao_core":             # <<<<<<<<<<<<<<
  *             continue
  *         if not package.enabled:
 */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_shudaodao_core, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_shudaodao_core, Py_EQ)); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 75, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_8) {
 
-      /* "shudaodao_app/package.py":78
+      /* "shudaodao_app/package.py":76
  *     for package in packages:
  *         if package.name == "shudaodao_core":
  *             continue             # <<<<<<<<<<<<<<
@@ -4628,7 +4628,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
       goto __pyx_L8_continue;
 
-      /* "shudaodao_app/package.py":77
+      /* "shudaodao_app/package.py":75
  *     max_length = max(package_lengths) if package_lengths else 10
  *     for package in packages:
  *         if package.name == "shudaodao_core":             # <<<<<<<<<<<<<<
@@ -4637,21 +4637,21 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
     }
 
-    /* "shudaodao_app/package.py":79
+    /* "shudaodao_app/package.py":77
  *         if package.name == "shudaodao_core":
  *             continue
  *         if not package.enabled:             # <<<<<<<<<<<<<<
  *             continue
  *         if not package.check_database:
 */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_enabled); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 77, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_10 = (!__pyx_t_8);
     if (__pyx_t_10) {
 
-      /* "shudaodao_app/package.py":80
+      /* "shudaodao_app/package.py":78
  *             continue
  *         if not package.enabled:
  *             continue             # <<<<<<<<<<<<<<
@@ -4660,7 +4660,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
       goto __pyx_L8_continue;
 
-      /* "shudaodao_app/package.py":79
+      /* "shudaodao_app/package.py":77
  *         if package.name == "shudaodao_core":
  *             continue
  *         if not package.enabled:             # <<<<<<<<<<<<<<
@@ -4669,21 +4669,21 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
     }
 
-    /* "shudaodao_app/package.py":81
+    /* "shudaodao_app/package.py":79
  *         if not package.enabled:
  *             continue
  *         if not package.check_database:             # <<<<<<<<<<<<<<
  *             message = f" - "
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")
 */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_check_database); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_check_database); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely((__pyx_t_10 < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_8 = (!__pyx_t_10);
     if (__pyx_t_8) {
 
-      /* "shudaodao_app/package.py":82
+      /* "shudaodao_app/package.py":80
  *             continue
  *         if not package.check_database:
  *             message = f" - "             # <<<<<<<<<<<<<<
@@ -4695,7 +4695,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_kp_u__4);
       __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__4);
 
-      /* "shudaodao_app/package.py":83
+      /* "shudaodao_app/package.py":81
  *         if not package.check_database:
  *             message = f" - "
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")             # <<<<<<<<<<<<<<
@@ -4703,12 +4703,12 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
  *         classes_instances = _scan_package_instances(
 */
       __pyx_t_3 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 83, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 83, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __pyx_t_12 = __pyx_t_13;
       __Pyx_INCREF(__pyx_t_12);
@@ -4718,15 +4718,15 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_ljust, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
-      __pyx_t_13 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 83, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_12 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_13, __pyx_t_1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 83, __pyx_L1_error)
+      __pyx_t_12 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_13, __pyx_t_1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 81, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4748,12 +4748,12 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 81, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "shudaodao_app/package.py":84
+      /* "shudaodao_app/package.py":82
  *             message = f" - "
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")
  *             continue             # <<<<<<<<<<<<<<
@@ -4762,7 +4762,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
       goto __pyx_L8_continue;
 
-      /* "shudaodao_app/package.py":81
+      /* "shudaodao_app/package.py":79
  *         if not package.enabled:
  *             continue
  *         if not package.check_database:             # <<<<<<<<<<<<<<
@@ -4771,31 +4771,31 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
     }
 
-    /* "shudaodao_app/package.py":85
+    /* "shudaodao_app/package.py":83
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")
  *             continue
  *         classes_instances = _scan_package_instances(             # <<<<<<<<<<<<<<
  *             package_name=package.name,
- *             target_class=MetaConfigSetting,
+ *             target_class=PackageConfigSetting,
 */
     __pyx_t_11 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_scan_package_instances); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 85, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_scan_package_instances); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
 
-    /* "shudaodao_app/package.py":86
+    /* "shudaodao_app/package.py":84
  *             continue
  *         classes_instances = _scan_package_instances(
  *             package_name=package.name,             # <<<<<<<<<<<<<<
- *             target_class=MetaConfigSetting,
+ *             target_class=PackageConfigSetting,
  *         )
 */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
 
-    /* "shudaodao_app/package.py":87
+    /* "shudaodao_app/package.py":85
  *         classes_instances = _scan_package_instances(
  *             package_name=package.name,
- *             target_class=MetaConfigSetting,             # <<<<<<<<<<<<<<
+ *             target_class=PackageConfigSetting,             # <<<<<<<<<<<<<<
  *         )
  *         if not classes_instances:
 */
@@ -4813,16 +4813,16 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_11, NULL};
-      __pyx_t_1 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_package_name_2, __pyx_t_3, __pyx_t_1, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_target_class, __pyx_cur_scope->__pyx_v_MetaConfigSetting, __pyx_t_1, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_package_name_2, __pyx_t_3, __pyx_t_1, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_target_class, __pyx_cur_scope->__pyx_v_PackageConfigSetting, __pyx_t_1, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 83, __pyx_L1_error)
       __pyx_t_4 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_12, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_1);
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_classes_instances);
@@ -4830,18 +4830,18 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "shudaodao_app/package.py":89
- *             target_class=MetaConfigSetting,
+    /* "shudaodao_app/package.py":87
+ *             target_class=PackageConfigSetting,
  *         )
  *         if not classes_instances:             # <<<<<<<<<<<<<<
  *             message = f" - "
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")
 */
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_classes_instances); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_classes_instances); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 87, __pyx_L1_error)
     __pyx_t_10 = (!__pyx_t_8);
     if (__pyx_t_10) {
 
-      /* "shudaodao_app/package.py":90
+      /* "shudaodao_app/package.py":88
  *         )
  *         if not classes_instances:
  *             message = f" - "             # <<<<<<<<<<<<<<
@@ -4853,7 +4853,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_kp_u__5);
       __Pyx_GIVEREF(__pyx_mstate_global->__pyx_kp_u__5);
 
-      /* "shudaodao_app/package.py":91
+      /* "shudaodao_app/package.py":89
  *         if not classes_instances:
  *             message = f" - "
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")             # <<<<<<<<<<<<<<
@@ -4861,12 +4861,12 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
  *         for val in classes_instances:
 */
       __pyx_t_12 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __pyx_t_11 = __pyx_t_13;
       __Pyx_INCREF(__pyx_t_11);
@@ -4876,15 +4876,15 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_ljust, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
-      __pyx_t_13 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_11 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_13, __pyx_t_1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_13, __pyx_t_1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 89, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4906,22 +4906,22 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+        if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "shudaodao_app/package.py":92
+      /* "shudaodao_app/package.py":90
  *             message = f" - "
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")
  *             continue             # <<<<<<<<<<<<<<
  *         for val in classes_instances:
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry
 */
       goto __pyx_L8_continue;
 
-      /* "shudaodao_app/package.py":89
- *             target_class=MetaConfigSetting,
+      /* "shudaodao_app/package.py":87
+ *             target_class=PackageConfigSetting,
  *         )
  *         if not classes_instances:             # <<<<<<<<<<<<<<
  *             message = f" - "
@@ -4929,11 +4929,11 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
 */
     }
 
-    /* "shudaodao_app/package.py":93
+    /* "shudaodao_app/package.py":91
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")
  *             continue
  *         for val in classes_instances:             # <<<<<<<<<<<<<<
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry
  *                 continue
 */
     if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_v_classes_instances)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_v_classes_instances)) {
@@ -4941,9 +4941,9 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __pyx_t_9 = 0;
       __pyx_t_14 = NULL;
     } else {
-      __pyx_t_9 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_classes_instances); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __pyx_t_9 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_cur_scope->__pyx_v_classes_instances); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_14 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __pyx_t_14 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_4); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 91, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_14)) {
@@ -4951,7 +4951,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
           {
             Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_4);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
             #endif
             if (__pyx_t_9 >= __pyx_temp) break;
           }
@@ -4961,7 +4961,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
           {
             Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_4);
             #if !CYTHON_ASSUME_SAFE_SIZE
-            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+            if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 91, __pyx_L1_error)
             #endif
             if (__pyx_t_9 >= __pyx_temp) break;
           }
@@ -4972,13 +4972,13 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
           #endif
           ++__pyx_t_9;
         }
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
       } else {
         __pyx_t_3 = __pyx_t_14(__pyx_t_4);
         if (unlikely(!__pyx_t_3)) {
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
-            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 93, __pyx_L1_error)
+            if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 91, __pyx_L1_error)
             PyErr_Clear();
           }
           break;
@@ -4990,59 +4990,59 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "shudaodao_app/package.py":94
+      /* "shudaodao_app/package.py":92
  *             continue
  *         for val in classes_instances:
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry             # <<<<<<<<<<<<<<
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry             # <<<<<<<<<<<<<<
  *                 continue
  *             val.Registry.metadata, message = await check_metadata_to_database(
 */
-      __pyx_t_10 = PyObject_IsInstance(__pyx_cur_scope->__pyx_v_val, __pyx_cur_scope->__pyx_v_MetaConfigSetting); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 94, __pyx_L1_error)
+      __pyx_t_10 = PyObject_IsInstance(__pyx_cur_scope->__pyx_v_val, __pyx_cur_scope->__pyx_v_PackageConfigSetting); if (unlikely(__pyx_t_10 == ((int)-1))) __PYX_ERR(0, 92, __pyx_L1_error)
       __pyx_t_8 = (!__pyx_t_10);
       if (__pyx_t_8) {
 
-        /* "shudaodao_app/package.py":95
+        /* "shudaodao_app/package.py":93
  *         for val in classes_instances:
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry
  *                 continue             # <<<<<<<<<<<<<<
  *             val.Registry.metadata, message = await check_metadata_to_database(
  *                 val.Registry.metadata, val.EngineName
 */
         goto __pyx_L14_continue;
 
-        /* "shudaodao_app/package.py":94
+        /* "shudaodao_app/package.py":92
  *             continue
  *         for val in classes_instances:
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry             # <<<<<<<<<<<<<<
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry             # <<<<<<<<<<<<<<
  *                 continue
  *             val.Registry.metadata, message = await check_metadata_to_database(
 */
       }
 
-      /* "shudaodao_app/package.py":96
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry
+      /* "shudaodao_app/package.py":94
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry
  *                 continue
  *             val.Registry.metadata, message = await check_metadata_to_database(             # <<<<<<<<<<<<<<
  *                 val.Registry.metadata, val.EngineName
  *             )
 */
       __pyx_t_11 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_check_metadata_to_database); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 96, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_mstate_global->__pyx_n_u_check_metadata_to_database); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 94, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
 
-      /* "shudaodao_app/package.py":97
+      /* "shudaodao_app/package.py":95
  *                 continue
  *             val.Registry.metadata, message = await check_metadata_to_database(
  *                 val.Registry.metadata, val.EngineName             # <<<<<<<<<<<<<<
  *             )
  *             message = f"{message} - " if message else ""
 */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_Registry); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_Registry); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_metadata); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 97, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_metadata); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 95, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_EngineName); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_EngineName); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_5 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -5063,7 +5063,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
       }
       __pyx_t_15 = __Pyx_Coroutine_Yield_From(__pyx_generator, __pyx_t_3, &__pyx_r);
@@ -5095,14 +5095,14 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __pyx_t_7 = __pyx_cur_scope->__pyx_t_3;
         __pyx_t_9 = __pyx_cur_scope->__pyx_t_4;
         __pyx_t_14 = __pyx_cur_scope->__pyx_t_5;
-        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 96, __pyx_L1_error)
+        if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 94, __pyx_L1_error)
         __pyx_t_3 = __pyx_sent_value; __Pyx_INCREF(__pyx_t_3);
       } else if (likely(__pyx_t_15 == PYGEN_RETURN)) {
         __Pyx_GOTREF(__pyx_r);
         __pyx_t_3 = __pyx_r; __pyx_r = NULL;
       } else {
         __Pyx_XGOTREF(__pyx_r);
-        __PYX_ERR(0, 96, __pyx_L1_error)
+        __PYX_ERR(0, 94, __pyx_L1_error)
       }
       if ((likely(PyTuple_CheckExact(__pyx_t_3))) || (PyList_CheckExact(__pyx_t_3))) {
         PyObject* sequence = __pyx_t_3;
@@ -5110,7 +5110,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 96, __pyx_L1_error)
+          __PYX_ERR(0, 94, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -5120,22 +5120,22 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
           __Pyx_INCREF(__pyx_t_1);
         } else {
           __pyx_t_12 = __Pyx_PyList_GetItemRef(sequence, 0);
-          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 96, __pyx_L1_error)
+          if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 94, __pyx_L1_error)
           __Pyx_XGOTREF(__pyx_t_12);
           __pyx_t_1 = __Pyx_PyList_GetItemRef(sequence, 1);
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
           __Pyx_XGOTREF(__pyx_t_1);
         }
         #else
-        __pyx_t_12 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 96, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 94, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_1 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_13 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 96, __pyx_L1_error)
+        __pyx_t_13 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 94, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_13);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_t_16 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_13);
@@ -5143,7 +5143,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __Pyx_GOTREF(__pyx_t_12);
         index = 1; __pyx_t_1 = __pyx_t_16(__pyx_t_13); if (unlikely(!__pyx_t_1)) goto __pyx_L18_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_1);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_16(__pyx_t_13), 2) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_16(__pyx_t_13), 2) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
         __pyx_t_16 = NULL;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
         goto __pyx_L19_unpacking_done;
@@ -5151,20 +5151,20 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
         __pyx_t_16 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 96, __pyx_L1_error)
+        __PYX_ERR(0, 94, __pyx_L1_error)
         __pyx_L19_unpacking_done:;
       }
 
-      /* "shudaodao_app/package.py":96
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry
+      /* "shudaodao_app/package.py":94
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry
  *                 continue
  *             val.Registry.metadata, message = await check_metadata_to_database(             # <<<<<<<<<<<<<<
  *                 val.Registry.metadata, val.EngineName
  *             )
 */
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_Registry); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 96, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_Registry); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 94, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
-      if (__Pyx_PyObject_SetAttrStr(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_metadata, __pyx_t_12) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_t_13, __pyx_mstate_global->__pyx_n_u_metadata, __pyx_t_12) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_message);
@@ -5172,18 +5172,18 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __Pyx_GIVEREF(__pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "shudaodao_app/package.py":99
+      /* "shudaodao_app/package.py":97
  *                 val.Registry.metadata, val.EngineName
  *             )
  *             message = f"{message} - " if message else ""             # <<<<<<<<<<<<<<
  *             logging.debug(f"{package.name.ljust(max_length)} - {message}{val.EngineName}")
  * 
 */
-      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_message); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 99, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_message); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(0, 97, __pyx_L1_error)
       if (__pyx_t_8) {
-        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_12 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_1, __pyx_mstate_global->__pyx_kp_u__3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 99, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyUnicode_ConcatInPlace(__pyx_t_1, __pyx_mstate_global->__pyx_kp_u__3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 97, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_t_3 = __pyx_t_12;
@@ -5197,7 +5197,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __Pyx_GIVEREF(__pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "shudaodao_app/package.py":100
+      /* "shudaodao_app/package.py":98
  *             )
  *             message = f"{message} - " if message else ""
  *             logging.debug(f"{package.name.ljust(max_length)} - {message}{val.EngineName}")             # <<<<<<<<<<<<<<
@@ -5205,27 +5205,27 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
  * 
 */
       __pyx_t_12 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_package, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ljust); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_ljust); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_cur_scope->__pyx_v_max_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_cur_scope->__pyx_v_max_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-      __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_message, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_EngineName); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_17 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_val, __pyx_mstate_global->__pyx_n_u_EngineName); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
-      __pyx_t_18 = __Pyx_PyObject_FormatSimple(__pyx_t_17, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 100, __pyx_L1_error)
+      __pyx_t_18 = __Pyx_PyObject_FormatSimple(__pyx_t_17, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_18);
       __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
       __pyx_t_19[0] = __pyx_t_11;
@@ -5233,7 +5233,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
       __pyx_t_19[2] = __pyx_t_1;
       __pyx_t_19[3] = __pyx_t_18;
       __pyx_t_17 = __Pyx_PyUnicode_Join(__pyx_t_19, 4, __Pyx_PyUnicode_GET_LENGTH(__pyx_t_11) + 3 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1) + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_18), 127 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_11) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_18));
-      if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 100, __pyx_L1_error)
+      if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 98, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_17);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5256,23 +5256,23 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
         __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
         __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
+        if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "shudaodao_app/package.py":93
+      /* "shudaodao_app/package.py":91
  *             logging.debug(f"{package.name.ljust(max_length)}{message}")
  *             continue
  *         for val in classes_instances:             # <<<<<<<<<<<<<<
- *             if not isinstance(val, MetaConfigSetting):  # val.Registry
+ *             if not isinstance(val, PackageConfigSetting):  # val.Registry
  *                 continue
 */
       __pyx_L14_continue:;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "shudaodao_app/package.py":76
+    /* "shudaodao_app/package.py":74
  *     package_lengths = [len(s.name) for s in packages if s.enabled]
  *     max_length = max(package_lengths) if package_lengths else 10
  *     for package in packages:             # <<<<<<<<<<<<<<
@@ -5284,11 +5284,11 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "shudaodao_app/package.py":71
+  /* "shudaodao_app/package.py":69
  * 
  * 
  * async def load_meta_config():             # <<<<<<<<<<<<<<
- *     from shudaodao_core import MetaConfigSetting
+ *     from shudaodao_core import PackageConfigSetting
  *     packages = AppConfig.packages.copy()
 */
 
@@ -5320,7 +5320,7 @@ static PyObject *__pyx_gb_13shudaodao_app_7package_4generator(__pyx_CoroutineObj
   return __pyx_r;
 }
 
-/* "shudaodao_app/package.py":103
+/* "shudaodao_app/package.py":101
  * 
  * 
  * def _scan_package_instances(package_name: str, target_class: type):             # <<<<<<<<<<<<<<
@@ -5368,39 +5368,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_package_name_2,&__pyx_mstate_global->__pyx_n_u_target_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 103, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 101, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 103, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 101, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 103, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 101, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_scan_package_instances", 0) < 0) __PYX_ERR(0, 103, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_scan_package_instances", 0) < 0) __PYX_ERR(0, 101, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_scan_package_instances", 1, 2, 2, i); __PYX_ERR(0, 103, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_scan_package_instances", 1, 2, 2, i); __PYX_ERR(0, 101, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 103, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 101, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 103, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 101, __pyx_L3_error)
     }
     __pyx_v_package_name = ((PyObject*)values[0]);
     __pyx_v_target_class = ((PyTypeObject*)values[1]);
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_scan_package_instances", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 103, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_scan_package_instances", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 101, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -5411,8 +5411,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_package_name), (&PyUnicode_Type), 0, "package_name", 2))) __PYX_ERR(0, 103, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_target_class), (&PyType_Type), 0, "target_class", 2))) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_package_name), (&PyUnicode_Type), 0, "package_name", 2))) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_target_class), (&PyType_Type), 0, "target_class", 2))) __PYX_ERR(0, 101, __pyx_L1_error)
   __pyx_r = __pyx_pf_13shudaodao_app_7package_5_scan_package_instances(__pyx_self, __pyx_v_package_name, __pyx_v_target_class);
 
   /* function exit code */
@@ -5473,19 +5473,19 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_scan_package_instances", 0);
 
-  /* "shudaodao_app/package.py":104
+  /* "shudaodao_app/package.py":102
  * 
  * def _scan_package_instances(package_name: str, target_class: type):
  *     result_instances = []             # <<<<<<<<<<<<<<
  *     #  mypackage/__init__.py
  *     try:
 */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_result_instances = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "shudaodao_app/package.py":106
+  /* "shudaodao_app/package.py":104
  *     result_instances = []
  *     #  mypackage/__init__.py
  *     try:             # <<<<<<<<<<<<<<
@@ -5501,7 +5501,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
     __Pyx_XGOTREF(__pyx_t_4);
     /*try:*/ {
 
-      /* "shudaodao_app/package.py":107
+      /* "shudaodao_app/package.py":105
  *     #  mypackage/__init__.py
  *     try:
  *         package_module = importlib.import_module(package_name)             # <<<<<<<<<<<<<<
@@ -5509,9 +5509,9 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
  *         for importer, modname, is_pkg in pkgutil.walk_packages(
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 107, __pyx_L3_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 105, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 107, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 105, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_8 = 1;
@@ -5531,13 +5531,13 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L3_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __pyx_v_package_module = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "shudaodao_app/package.py":108
+      /* "shudaodao_app/package.py":106
  *     try:
  *         package_module = importlib.import_module(package_name)
  *         _find_meta_config(result_instances, package_module, target_class)             # <<<<<<<<<<<<<<
@@ -5545,7 +5545,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
  *                 path=package_module.__path__,
 */
       __pyx_t_7 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_find_meta_config); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 108, __pyx_L3_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_find_meta_config); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 106, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_8 = 1;
       #if CYTHON_UNPACK_METHODS
@@ -5564,12 +5564,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+__pyx_t_8, (4-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L3_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "shudaodao_app/package.py":109
+      /* "shudaodao_app/package.py":107
  *         package_module = importlib.import_module(package_name)
  *         _find_meta_config(result_instances, package_module, target_class)
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -5577,32 +5577,32 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
  *                 prefix=package_module.__name__ + ".",
 */
       __pyx_t_5 = NULL;
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_pkgutil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L3_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_pkgutil); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 107, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_walk_packages); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L3_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_walk_packages); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 107, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "shudaodao_app/package.py":110
+      /* "shudaodao_app/package.py":108
  *         _find_meta_config(result_instances, package_module, target_class)
  *         for importer, modname, is_pkg in pkgutil.walk_packages(
  *                 path=package_module.__path__,             # <<<<<<<<<<<<<<
  *                 prefix=package_module.__name__ + ".",
  *         ):
 */
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_package_module, __pyx_mstate_global->__pyx_n_u_path_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_package_module, __pyx_mstate_global->__pyx_n_u_path_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 108, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "shudaodao_app/package.py":111
+      /* "shudaodao_app/package.py":109
  *         for importer, modname, is_pkg in pkgutil.walk_packages(
  *                 path=package_module.__path__,
  *                 prefix=package_module.__name__ + ".",             # <<<<<<<<<<<<<<
  *         ):
  *             module = importlib.import_module(modname)
 */
-      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_package_module, __pyx_mstate_global->__pyx_n_u_name_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 111, __pyx_L3_error)
+      __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_package_module, __pyx_mstate_global->__pyx_n_u_name_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_10 = PyNumber_Add(__pyx_t_9, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 111, __pyx_L3_error)
+      __pyx_t_10 = PyNumber_Add(__pyx_t_9, __pyx_mstate_global->__pyx_kp_u_); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 109, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __pyx_t_8 = 1;
@@ -5619,21 +5619,21 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
       #endif
       {
         PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 2 : 0)] = {__pyx_t_5, NULL};
-        __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L3_error)
+        __pyx_t_9 = __Pyx_MakeVectorcallBuilderKwds(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 107, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_9);
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path, __pyx_t_7, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 109, __pyx_L3_error)
-        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_10, __pyx_t_9, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 109, __pyx_L3_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_path, __pyx_t_7, __pyx_t_9, __pyx_callargs+1, 0) < 0) __PYX_ERR(0, 107, __pyx_L3_error)
+        if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_prefix, __pyx_t_10, __pyx_t_9, __pyx_callargs+1, 1) < 0) __PYX_ERR(0, 107, __pyx_L3_error)
         __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder(__pyx_t_6, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_9);
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L3_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_1);
       }
 
-      /* "shudaodao_app/package.py":109
+      /* "shudaodao_app/package.py":107
  *         package_module = importlib.import_module(package_name)
  *         _find_meta_config(result_instances, package_module, target_class)
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -5645,9 +5645,9 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
         __pyx_t_11 = 0;
         __pyx_t_12 = NULL;
       } else {
-        __pyx_t_11 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L3_error)
+        __pyx_t_11 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 107, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 109, __pyx_L3_error)
+        __pyx_t_12 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_6); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 107, __pyx_L3_error)
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       for (;;) {
@@ -5656,7 +5656,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
             {
               Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_6);
               #if !CYTHON_ASSUME_SAFE_SIZE
-              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 109, __pyx_L3_error)
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 107, __pyx_L3_error)
               #endif
               if (__pyx_t_11 >= __pyx_temp) break;
             }
@@ -5666,7 +5666,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
             {
               Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_6);
               #if !CYTHON_ASSUME_SAFE_SIZE
-              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 109, __pyx_L3_error)
+              if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 107, __pyx_L3_error)
               #endif
               if (__pyx_t_11 >= __pyx_temp) break;
             }
@@ -5677,13 +5677,13 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
             #endif
             ++__pyx_t_11;
           }
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L3_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L3_error)
         } else {
           __pyx_t_1 = __pyx_t_12(__pyx_t_6);
           if (unlikely(!__pyx_t_1)) {
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
-              if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 109, __pyx_L3_error)
+              if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 107, __pyx_L3_error)
               PyErr_Clear();
             }
             break;
@@ -5696,7 +5696,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
           if (unlikely(size != 3)) {
             if (size > 3) __Pyx_RaiseTooManyValuesError(3);
             else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-            __PYX_ERR(0, 109, __pyx_L3_error)
+            __PYX_ERR(0, 107, __pyx_L3_error)
           }
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
           if (likely(PyTuple_CheckExact(sequence))) {
@@ -5708,27 +5708,27 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
             __Pyx_INCREF(__pyx_t_7);
           } else {
             __pyx_t_9 = __Pyx_PyList_GetItemRef(sequence, 0);
-            if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L3_error)
+            if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 107, __pyx_L3_error)
             __Pyx_XGOTREF(__pyx_t_9);
             __pyx_t_10 = __Pyx_PyList_GetItemRef(sequence, 1);
-            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 109, __pyx_L3_error)
+            if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 107, __pyx_L3_error)
             __Pyx_XGOTREF(__pyx_t_10);
             __pyx_t_7 = __Pyx_PyList_GetItemRef(sequence, 2);
-            if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L3_error)
+            if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 107, __pyx_L3_error)
             __Pyx_XGOTREF(__pyx_t_7);
           }
           #else
-          __pyx_t_9 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 109, __pyx_L3_error)
+          __pyx_t_9 = __Pyx_PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 107, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_10 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 109, __pyx_L3_error)
+          __pyx_t_10 = __Pyx_PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 107, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_10);
-          __pyx_t_7 = __Pyx_PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L3_error)
+          __pyx_t_7 = __Pyx_PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 107, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_7);
           #endif
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         } else {
           Py_ssize_t index = -1;
-          __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 109, __pyx_L3_error)
+          __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 107, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __pyx_t_13 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_5);
@@ -5738,7 +5738,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
           __Pyx_GOTREF(__pyx_t_10);
           index = 2; __pyx_t_7 = __pyx_t_13(__pyx_t_5); if (unlikely(!__pyx_t_7)) goto __pyx_L11_unpacking_failed;
           __Pyx_GOTREF(__pyx_t_7);
-          if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_5), 3) < 0) __PYX_ERR(0, 109, __pyx_L3_error)
+          if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_5), 3) < 0) __PYX_ERR(0, 107, __pyx_L3_error)
           __pyx_t_13 = NULL;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           goto __pyx_L12_unpacking_done;
@@ -5746,7 +5746,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __pyx_t_13 = NULL;
           if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-          __PYX_ERR(0, 109, __pyx_L3_error)
+          __PYX_ERR(0, 107, __pyx_L3_error)
           __pyx_L12_unpacking_done:;
         }
         __Pyx_XDECREF_SET(__pyx_v_importer, __pyx_t_9);
@@ -5756,7 +5756,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
         __Pyx_XDECREF_SET(__pyx_v_is_pkg, __pyx_t_7);
         __pyx_t_7 = 0;
 
-        /* "shudaodao_app/package.py":113
+        /* "shudaodao_app/package.py":111
  *                 prefix=package_module.__name__ + ".",
  *         ):
  *             module = importlib.import_module(modname)             # <<<<<<<<<<<<<<
@@ -5764,9 +5764,9 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
  *     except ModuleNotFoundError as e:
 */
         __pyx_t_7 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 113, __pyx_L3_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_importlib); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 111, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 113, __pyx_L3_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_mstate_global->__pyx_n_u_import_module); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 111, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __pyx_t_8 = 1;
@@ -5786,13 +5786,13 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
           __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_9, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L3_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_1);
         }
         __Pyx_XDECREF_SET(__pyx_v_module, __pyx_t_1);
         __pyx_t_1 = 0;
 
-        /* "shudaodao_app/package.py":114
+        /* "shudaodao_app/package.py":112
  *         ):
  *             module = importlib.import_module(modname)
  *             _find_meta_config(result_instances, module, target_class)             # <<<<<<<<<<<<<<
@@ -5800,7 +5800,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
  *         logging.error(f" {package_name}: {e}")
 */
         __pyx_t_9 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_find_meta_config); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L3_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_find_meta_config); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 112, __pyx_L3_error)
         __Pyx_GOTREF(__pyx_t_7);
         __pyx_t_8 = 1;
         #if CYTHON_UNPACK_METHODS
@@ -5819,12 +5819,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
           __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (4-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L3_error)
+          if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L3_error)
           __Pyx_GOTREF(__pyx_t_1);
         }
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "shudaodao_app/package.py":109
+        /* "shudaodao_app/package.py":107
  *         package_module = importlib.import_module(package_name)
  *         _find_meta_config(result_instances, package_module, target_class)
  *         for importer, modname, is_pkg in pkgutil.walk_packages(             # <<<<<<<<<<<<<<
@@ -5834,7 +5834,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
       }
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "shudaodao_app/package.py":106
+      /* "shudaodao_app/package.py":104
  *     result_instances = []
  *     #  mypackage/__init__.py
  *     try:             # <<<<<<<<<<<<<<
@@ -5854,7 +5854,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-    /* "shudaodao_app/package.py":115
+    /* "shudaodao_app/package.py":113
  *             module = importlib.import_module(modname)
  *             _find_meta_config(result_instances, module, target_class)
  *     except ModuleNotFoundError as e:             # <<<<<<<<<<<<<<
@@ -5864,7 +5864,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
     __pyx_t_14 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ModuleNotFoundError);
     if (__pyx_t_14) {
       __Pyx_AddTraceback("shudaodao_app.package._scan_package_instances", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_1, &__pyx_t_7) < 0) __PYX_ERR(0, 115, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_1, &__pyx_t_7) < 0) __PYX_ERR(0, 113, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_1);
       __Pyx_XGOTREF(__pyx_t_7);
@@ -5872,7 +5872,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
       __pyx_v_e = __pyx_t_1;
       /*try:*/ {
 
-        /* "shudaodao_app/package.py":116
+        /* "shudaodao_app/package.py":114
  *             _find_meta_config(result_instances, module, target_class)
  *     except ModuleNotFoundError as e:
  *         logging.error(f" {package_name}: {e}")             # <<<<<<<<<<<<<<
@@ -5880,19 +5880,19 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
  *     except Exception as e:
 */
         __pyx_t_10 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L19_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L19_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 116, __pyx_L19_error)
+        __pyx_t_15 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 114, __pyx_L19_error)
         __Pyx_GOTREF(__pyx_t_15);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 116, __pyx_L19_error)
+        __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L19_error)
         __Pyx_GOTREF(__pyx_t_5);
         __pyx_t_16[0] = __pyx_mstate_global->__pyx_kp_u__6;
         __pyx_t_16[1] = __pyx_v_package_name;
         __pyx_t_16[2] = __pyx_mstate_global->__pyx_kp_u__7;
         __pyx_t_16[3] = __pyx_t_5;
         __pyx_t_17 = __Pyx_PyUnicode_Join(__pyx_t_16, 4, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_v_package_name) + 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_package_name) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5));
-        if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 116, __pyx_L19_error)
+        if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 114, __pyx_L19_error)
         __Pyx_GOTREF(__pyx_t_17);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_8 = 1;
@@ -5913,12 +5913,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
           __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
           __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 116, __pyx_L19_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 114, __pyx_L19_error)
           __Pyx_GOTREF(__pyx_t_9);
         }
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "shudaodao_app/package.py":117
+        /* "shudaodao_app/package.py":115
  *     except ModuleNotFoundError as e:
  *         logging.error(f" {package_name}: {e}")
  *         return result_instances             # <<<<<<<<<<<<<<
@@ -5934,7 +5934,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
         goto __pyx_L18_return;
       }
 
-      /* "shudaodao_app/package.py":115
+      /* "shudaodao_app/package.py":113
  *             module = importlib.import_module(modname)
  *             _find_meta_config(result_instances, module, target_class)
  *     except ModuleNotFoundError as e:             # <<<<<<<<<<<<<<
@@ -5987,7 +5987,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
       }
     }
 
-    /* "shudaodao_app/package.py":118
+    /* "shudaodao_app/package.py":116
  *         logging.error(f" {package_name}: {e}")
  *         return result_instances
  *     except Exception as e:             # <<<<<<<<<<<<<<
@@ -5997,7 +5997,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
     __pyx_t_18 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_18) {
       __Pyx_AddTraceback("shudaodao_app.package._scan_package_instances", __pyx_clineno, __pyx_lineno, __pyx_filename);
-      if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_6) < 0) __PYX_ERR(0, 118, __pyx_L5_except_error)
+      if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_6) < 0) __PYX_ERR(0, 116, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_1);
       __Pyx_XGOTREF(__pyx_t_6);
@@ -6005,7 +6005,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
       __pyx_v_e = __pyx_t_1;
       /*try:*/ {
 
-        /* "shudaodao_app/package.py":119
+        /* "shudaodao_app/package.py":117
  *         return result_instances
  *     except Exception as e:
  *         logging.error(f" {package_name}: {e}")             # <<<<<<<<<<<<<<
@@ -6013,19 +6013,19 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
  *     return result_instances
 */
         __pyx_t_15 = NULL;
-        __Pyx_GetModuleGlobalName(__pyx_t_17, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 119, __pyx_L30_error)
+        __Pyx_GetModuleGlobalName(__pyx_t_17, __pyx_mstate_global->__pyx_n_u_logging); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 117, __pyx_L30_error)
         __Pyx_GOTREF(__pyx_t_17);
-        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_17, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 119, __pyx_L30_error)
+        __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_17, __pyx_mstate_global->__pyx_n_u_error); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 117, __pyx_L30_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
-        __pyx_t_17 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 119, __pyx_L30_error)
+        __pyx_t_17 = __Pyx_PyObject_FormatSimple(__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 117, __pyx_L30_error)
         __Pyx_GOTREF(__pyx_t_17);
         __pyx_t_16[0] = __pyx_mstate_global->__pyx_kp_u__6;
         __pyx_t_16[1] = __pyx_v_package_name;
         __pyx_t_16[2] = __pyx_mstate_global->__pyx_kp_u__7;
         __pyx_t_16[3] = __pyx_t_17;
         __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_16, 4, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_v_package_name) + 2 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17), 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_v_package_name) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_17));
-        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L30_error)
+        if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L30_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
         __pyx_t_8 = 1;
@@ -6046,12 +6046,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
           __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 119, __pyx_L30_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 117, __pyx_L30_error)
           __Pyx_GOTREF(__pyx_t_9);
         }
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-        /* "shudaodao_app/package.py":120
+        /* "shudaodao_app/package.py":118
  *     except Exception as e:
  *         logging.error(f" {package_name}: {e}")
  *         return result_instances             # <<<<<<<<<<<<<<
@@ -6067,7 +6067,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
         goto __pyx_L29_return;
       }
 
-      /* "shudaodao_app/package.py":118
+      /* "shudaodao_app/package.py":116
  *         logging.error(f" {package_name}: {e}")
  *         return result_instances
  *     except Exception as e:             # <<<<<<<<<<<<<<
@@ -6121,7 +6121,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
     }
     goto __pyx_L5_except_error;
 
-    /* "shudaodao_app/package.py":106
+    /* "shudaodao_app/package.py":104
  *     result_instances = []
  *     #  mypackage/__init__.py
  *     try:             # <<<<<<<<<<<<<<
@@ -6143,7 +6143,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
     __pyx_L8_try_end:;
   }
 
-  /* "shudaodao_app/package.py":121
+  /* "shudaodao_app/package.py":119
  *         logging.error(f" {package_name}: {e}")
  *         return result_instances
  *     return result_instances             # <<<<<<<<<<<<<<
@@ -6155,7 +6155,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
   __pyx_r = __pyx_v_result_instances;
   goto __pyx_L0;
 
-  /* "shudaodao_app/package.py":103
+  /* "shudaodao_app/package.py":101
  * 
  * 
  * def _scan_package_instances(package_name: str, target_class: type):             # <<<<<<<<<<<<<<
@@ -6188,12 +6188,12 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_5_scan_package_instances(CYTH
   return __pyx_r;
 }
 
-/* "shudaodao_app/package.py":124
+/* "shudaodao_app/package.py":122
  * 
  * 
  * def _find_meta_config(result_instances, package_module, target_class):             # <<<<<<<<<<<<<<
  *     for obj in vars(package_module).values():
- *         # MetaConfig Model  file , cython  meta_config.py
+ *         # PackageConfig Model  file , cython  package_config.py
 */
 
 /* Python wrapper */
@@ -6237,38 +6237,38 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_result_instances,&__pyx_mstate_global->__pyx_n_u_package_module,&__pyx_mstate_global->__pyx_n_u_target_class,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 122, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 124, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 122, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 124, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 122, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 122, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_find_meta_config", 0) < 0) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_find_meta_config", 0) < 0) __PYX_ERR(0, 122, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_find_meta_config", 1, 3, 3, i); __PYX_ERR(0, 124, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_find_meta_config", 1, 3, 3, i); __PYX_ERR(0, 122, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 122, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 122, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_FASTCALL(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 124, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 122, __pyx_L3_error)
     }
     __pyx_v_result_instances = values[0];
     __pyx_v_package_module = values[1];
@@ -6276,7 +6276,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_find_meta_config", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 124, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_find_meta_config", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 122, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6320,11 +6320,11 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_7_find_meta_config(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_find_meta_config", 0);
 
-  /* "shudaodao_app/package.py":125
+  /* "shudaodao_app/package.py":123
  * 
  * def _find_meta_config(result_instances, package_module, target_class):
  *     for obj in vars(package_module).values():             # <<<<<<<<<<<<<<
- *         # MetaConfig Model  file , cython  meta_config.py
+ *         # PackageConfig Model  file , cython  package_config.py
  *         if isinstance(obj, target_class) and package_module.__file__.rpartition("/")[2].startswith(
 */
   __pyx_t_2 = 0;
@@ -6337,14 +6337,14 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_7_find_meta_config(CYTHON_UNU
     __pyx_t_5 = __Pyx_PyObject_FastCall(__pyx_t_7, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (__pyx_t_8*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   }
   if (unlikely(__pyx_t_5 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 125, __pyx_L1_error)
+    __PYX_ERR(0, 123, __pyx_L1_error)
   }
-  __pyx_t_7 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_mstate_global->__pyx_n_u_values, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_mstate_global->__pyx_n_u_values, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -6353,25 +6353,25 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_7_find_meta_config(CYTHON_UNU
   while (1) {
     __pyx_t_9 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, NULL, &__pyx_t_7, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_9 == 0)) break;
-    if (unlikely(__pyx_t_9 == -1)) __PYX_ERR(0, 125, __pyx_L1_error)
+    if (unlikely(__pyx_t_9 == -1)) __PYX_ERR(0, 123, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_XDECREF_SET(__pyx_v_obj, __pyx_t_7);
     __pyx_t_7 = 0;
 
-    /* "shudaodao_app/package.py":127
+    /* "shudaodao_app/package.py":125
  *     for obj in vars(package_module).values():
- *         # MetaConfig Model  file , cython  meta_config.py
+ *         # PackageConfig Model  file , cython  package_config.py
  *         if isinstance(obj, target_class) and package_module.__file__.rpartition("/")[2].startswith(             # <<<<<<<<<<<<<<
- *                 "meta_config."):
+ *                 "package_config"):
  *             result_instances.append(obj)
 */
-    __pyx_t_11 = PyObject_IsInstance(__pyx_v_obj, __pyx_v_target_class); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_11 = PyObject_IsInstance(__pyx_v_obj, __pyx_v_target_class); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 125, __pyx_L1_error)
     if (__pyx_t_11) {
     } else {
       __pyx_t_10 = __pyx_t_11;
       goto __pyx_L6_bool_binop_done;
     }
-    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_v_package_module, __pyx_mstate_global->__pyx_n_u_file); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_v_package_module, __pyx_mstate_global->__pyx_n_u_file); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 125, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __pyx_t_12 = __pyx_t_13;
     __Pyx_INCREF(__pyx_t_12);
@@ -6381,55 +6381,55 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_7_find_meta_config(CYTHON_UNU
       __pyx_t_6 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_rpartition, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 127, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 125, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
     }
-    __pyx_t_13 = __Pyx_GetItemInt(__pyx_t_6, 2, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_GetItemInt(__pyx_t_6, 2, long, 1, __Pyx_PyLong_From_long, 0, 0, 1, 1); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 125, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_5 = __pyx_t_13;
     __Pyx_INCREF(__pyx_t_5);
     __pyx_t_8 = 0;
     {
-      PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_mstate_global->__pyx_kp_u_meta_config};
+      PyObject *__pyx_callargs[2] = {__pyx_t_5, __pyx_mstate_global->__pyx_n_u_package_config};
       __pyx_t_7 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_startswith, __pyx_callargs+__pyx_t_8, (2-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 127, __pyx_L1_error)
+      if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
     }
-    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 127, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely((__pyx_t_11 < 0))) __PYX_ERR(0, 125, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_10 = __pyx_t_11;
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_10) {
 
-      /* "shudaodao_app/package.py":129
+      /* "shudaodao_app/package.py":127
  *         if isinstance(obj, target_class) and package_module.__file__.rpartition("/")[2].startswith(
- *                 "meta_config."):
+ *                 "package_config"):
  *             result_instances.append(obj)             # <<<<<<<<<<<<<<
  * 
  * 
 */
-      __pyx_t_14 = __Pyx_PyObject_Append(__pyx_v_result_instances, __pyx_v_obj); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 129, __pyx_L1_error)
+      __pyx_t_14 = __Pyx_PyObject_Append(__pyx_v_result_instances, __pyx_v_obj); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 127, __pyx_L1_error)
 
-      /* "shudaodao_app/package.py":127
+      /* "shudaodao_app/package.py":125
  *     for obj in vars(package_module).values():
- *         # MetaConfig Model  file , cython  meta_config.py
+ *         # PackageConfig Model  file , cython  package_config.py
  *         if isinstance(obj, target_class) and package_module.__file__.rpartition("/")[2].startswith(             # <<<<<<<<<<<<<<
- *                 "meta_config."):
+ *                 "package_config"):
  *             result_instances.append(obj)
 */
     }
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "shudaodao_app/package.py":124
+  /* "shudaodao_app/package.py":122
  * 
  * 
  * def _find_meta_config(result_instances, package_module, target_class):             # <<<<<<<<<<<<<<
  *     for obj in vars(package_module).values():
- *         # MetaConfig Model  file , cython  meta_config.py
+ *         # PackageConfig Model  file , cython  package_config.py
 */
 
   /* function exit code */
@@ -6451,7 +6451,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_7_find_meta_config(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "shudaodao_app/package.py":132
+/* "shudaodao_app/package.py":130
  * 
  * 
  * def _set_router_tags(router, new_tags):             # <<<<<<<<<<<<<<
@@ -6500,39 +6500,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_router,&__pyx_mstate_global->__pyx_n_u_new_tags,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 132, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 130, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 132, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 130, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 132, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 130, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_set_router_tags", 0) < 0) __PYX_ERR(0, 132, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "_set_router_tags", 0) < 0) __PYX_ERR(0, 130, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_set_router_tags", 1, 2, 2, i); __PYX_ERR(0, 132, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("_set_router_tags", 1, 2, 2, i); __PYX_ERR(0, 130, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 132, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 130, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 132, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 130, __pyx_L3_error)
     }
     __pyx_v_router = values[0];
     __pyx_v_new_tags = values[1];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_set_router_tags", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 132, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("_set_router_tags", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 130, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -6570,23 +6570,23 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_set_router_tags", 0);
 
-  /* "shudaodao_app/package.py":139
+  /* "shudaodao_app/package.py":137
  *         new_tags (List[str]):
  *     """
  *     for route in router.routes:             # <<<<<<<<<<<<<<
  *         if hasattr(route, "tags"):
  *             route.tags = new_tags.copy() if isinstance(new_tags, list) else [new_tags]
 */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_routes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_router, __pyx_mstate_global->__pyx_n_u_routes); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2);
     __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 139, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
+    __pyx_t_4 = (CYTHON_COMPILING_IN_LIMITED_API) ? PyIter_Next : __Pyx_PyObject_GetIterNextFunc(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -6595,7 +6595,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
         {
           Py_ssize_t __pyx_temp = __Pyx_PyList_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 139, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 137, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
@@ -6605,7 +6605,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
         {
           Py_ssize_t __pyx_temp = __Pyx_PyTuple_GET_SIZE(__pyx_t_2);
           #if !CYTHON_ASSUME_SAFE_SIZE
-          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 139, __pyx_L1_error)
+          if (unlikely((__pyx_temp < 0))) __PYX_ERR(0, 137, __pyx_L1_error)
           #endif
           if (__pyx_t_3 >= __pyx_temp) break;
         }
@@ -6616,13 +6616,13 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
         #endif
         ++__pyx_t_3;
       }
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
     } else {
       __pyx_t_1 = __pyx_t_4(__pyx_t_2);
       if (unlikely(!__pyx_t_1)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
-          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 139, __pyx_L1_error)
+          if (unlikely(!__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) __PYX_ERR(0, 137, __pyx_L1_error)
           PyErr_Clear();
         }
         break;
@@ -6632,16 +6632,16 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
     __Pyx_XDECREF_SET(__pyx_v_route, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "shudaodao_app/package.py":140
+    /* "shudaodao_app/package.py":138
  *     """
  *     for route in router.routes:
  *         if hasattr(route, "tags"):             # <<<<<<<<<<<<<<
  *             route.tags = new_tags.copy() if isinstance(new_tags, list) else [new_tags]
 */
-    __pyx_t_5 = __Pyx_HasAttr(__pyx_v_route, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 140, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_HasAttr(__pyx_v_route, __pyx_mstate_global->__pyx_n_u_tags); if (unlikely(__pyx_t_5 == ((int)-1))) __PYX_ERR(0, 138, __pyx_L1_error)
     if (__pyx_t_5) {
 
-      /* "shudaodao_app/package.py":141
+      /* "shudaodao_app/package.py":139
  *     for route in router.routes:
  *         if hasattr(route, "tags"):
  *             route.tags = new_tags.copy() if isinstance(new_tags, list) else [new_tags]             # <<<<<<<<<<<<<<
@@ -6655,24 +6655,24 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
           PyObject *__pyx_callargs[2] = {__pyx_t_7, NULL};
           __pyx_t_6 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_copy, __pyx_callargs+__pyx_t_8, (1-__pyx_t_8) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
+          if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 139, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_6);
         }
         __pyx_t_1 = __pyx_t_6;
         __pyx_t_6 = 0;
       } else {
-        __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 141, __pyx_L1_error)
+        __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 139, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_INCREF(__pyx_v_new_tags);
         __Pyx_GIVEREF(__pyx_v_new_tags);
-        if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, __pyx_v_new_tags) != (0)) __PYX_ERR(0, 141, __pyx_L1_error);
+        if (__Pyx_PyList_SET_ITEM(__pyx_t_6, 0, __pyx_v_new_tags) != (0)) __PYX_ERR(0, 139, __pyx_L1_error);
         __pyx_t_1 = __pyx_t_6;
         __pyx_t_6 = 0;
       }
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_route, __pyx_mstate_global->__pyx_n_u_tags, __pyx_t_1) < 0) __PYX_ERR(0, 141, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_route, __pyx_mstate_global->__pyx_n_u_tags, __pyx_t_1) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "shudaodao_app/package.py":140
+      /* "shudaodao_app/package.py":138
  *     """
  *     for route in router.routes:
  *         if hasattr(route, "tags"):             # <<<<<<<<<<<<<<
@@ -6680,7 +6680,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
 */
     }
 
-    /* "shudaodao_app/package.py":139
+    /* "shudaodao_app/package.py":137
  *         new_tags (List[str]):
  *     """
  *     for route in router.routes:             # <<<<<<<<<<<<<<
@@ -6690,7 +6690,7 @@ static PyObject *__pyx_pf_13shudaodao_app_7package_9_set_router_tags(CYTHON_UNUS
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":132
+  /* "shudaodao_app/package.py":130
  * 
  * 
  * def _set_router_tags(router, new_tags):             # <<<<<<<<<<<<<<
@@ -6912,7 +6912,7 @@ static void __pyx_tp_dealloc_13shudaodao_app_7package___pyx_scope_struct_1_load_
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_MetaConfigSetting);
+  Py_CLEAR(p->__pyx_v_PackageConfigSetting);
   Py_CLEAR(p->__pyx_v_classes_instances);
   Py_CLEAR(p->__pyx_v_max_length);
   Py_CLEAR(p->__pyx_v_message);
@@ -6947,8 +6947,8 @@ static int __pyx_tp_traverse_13shudaodao_app_7package___pyx_scope_struct_1_load_
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
   }
-  if (p->__pyx_v_MetaConfigSetting) {
-    e = (*v)(p->__pyx_v_MetaConfigSetting, a); if (e) return e;
+  if (p->__pyx_v_PackageConfigSetting) {
+    e = (*v)(p->__pyx_v_PackageConfigSetting, a); if (e) return e;
   }
   if (p->__pyx_v_classes_instances) {
     e = (*v)(p->__pyx_v_classes_instances, a); if (e) return e;
@@ -7130,15 +7130,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_7package___pyx_scope_struct__genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr)) __PYX_ERR(0, 42, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_7package___pyx_scope_struct__genexpr_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_7package___pyx_scope_struct__genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr)) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_7package___pyx_scope_struct__genexpr_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr = &__pyx_type_13shudaodao_app_7package___pyx_scope_struct__genexpr;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr->tp_dictoffset && __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct__genexpr->tp_getattro == PyObject_GenericGetAttr)) {
@@ -7146,15 +7146,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config)) __PYX_ERR(0, 71, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config)) __PYX_ERR(0, 69, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config_spec, __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config = &__pyx_type_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config->tp_dictoffset && __pyx_mstate->__pyx_ptype_13shudaodao_app_7package___pyx_scope_struct_1_load_meta_config->tp_getattro == PyObject_GenericGetAttr)) {
@@ -7590,58 +7590,58 @@ __Pyx_RefNannySetupContext("PyInit_package", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_load_router, __pyx_t_2) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":71
+  /* "shudaodao_app/package.py":69
  * 
  * 
  * async def load_meta_config():             # <<<<<<<<<<<<<<
- *     from shudaodao_core import MetaConfigSetting
+ *     from shudaodao_core import PackageConfigSetting
  *     packages = AppConfig.packages.copy()
 */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_3load_meta_config, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_load_meta_config, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_3load_meta_config, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_load_meta_config, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_load_meta_config, __pyx_t_2) < 0) __PYX_ERR(0, 71, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_load_meta_config, __pyx_t_2) < 0) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "shudaodao_app/package.py":103
+  /* "shudaodao_app/package.py":101
  * 
  * 
  * def _scan_package_instances(package_name: str, target_class: type):             # <<<<<<<<<<<<<<
  *     result_instances = []
  *     #  mypackage/__init__.py
 */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_package_name_2, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_target_class, __pyx_mstate_global->__pyx_n_u_type) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_6_scan_package_instances, 0, __pyx_mstate_global->__pyx_n_u_scan_package_instances, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_package_name_2, __pyx_mstate_global->__pyx_n_u_str) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_target_class, __pyx_mstate_global->__pyx_n_u_type) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_6_scan_package_instances, 0, __pyx_mstate_global->__pyx_n_u_scan_package_instances, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_scan_package_instances, __pyx_t_3) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_scan_package_instances, __pyx_t_3) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "shudaodao_app/package.py":124
+  /* "shudaodao_app/package.py":122
  * 
  * 
  * def _find_meta_config(result_instances, package_module, target_class):             # <<<<<<<<<<<<<<
  *     for obj in vars(package_module).values():
- *         # MetaConfig Model  file , cython  meta_config.py
+ *         # PackageConfig Model  file , cython  package_config.py
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_8_find_meta_config, 0, __pyx_mstate_global->__pyx_n_u_find_meta_config, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_8_find_meta_config, 0, __pyx_mstate_global->__pyx_n_u_find_meta_config, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_find_meta_config, __pyx_t_3) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_find_meta_config, __pyx_t_3) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "shudaodao_app/package.py":132
+  /* "shudaodao_app/package.py":130
  * 
  * 
  * def _set_router_tags(router, new_tags):             # <<<<<<<<<<<<<<
  *     """ AuthAPIRouter  tags
  * 
 */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_10_set_router_tags, 0, __pyx_mstate_global->__pyx_n_u_set_router_tags, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_13shudaodao_app_7package_10_set_router_tags, 0, __pyx_mstate_global->__pyx_n_u_set_router_tags, NULL, __pyx_mstate_global->__pyx_n_u_shudaodao_app_package, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_set_router_tags, __pyx_t_3) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_set_router_tags, __pyx_t_3) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "shudaodao_app/package.py":1
@@ -7719,10 +7719,10 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_ClassScanner, sizeof(__pyx_k_ClassScanner), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ClassScanner */
   {__pyx_k_EngineName, sizeof(__pyx_k_EngineName), 0, 1, 1}, /* PyObject cname: __pyx_n_u_EngineName */
   {__pyx_k_List, sizeof(__pyx_k_List), 0, 1, 1}, /* PyObject cname: __pyx_n_u_List */
-  {__pyx_k_MetaConfigSetting, sizeof(__pyx_k_MetaConfigSetting), 0, 1, 1}, /* PyObject cname: __pyx_n_u_MetaConfigSetting */
   {__pyx_k_ModuleNotFoundError, sizeof(__pyx_k_ModuleNotFoundError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ModuleNotFoundError */
   {__pyx_k_None, sizeof(__pyx_k_None), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_None */
   {__pyx_k_Note_that_Cython_is_deliberately, sizeof(__pyx_k_Note_that_Cython_is_deliberately), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_Note_that_Cython_is_deliberately */
+  {__pyx_k_PackageConfigSetting, sizeof(__pyx_k_PackageConfigSetting), 0, 1, 1}, /* PyObject cname: __pyx_n_u_PackageConfigSetting */
   {__pyx_k_Registry, sizeof(__pyx_k_Registry), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Registry */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
@@ -7778,7 +7778,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_max, sizeof(__pyx_k_max), 0, 1, 1}, /* PyObject cname: __pyx_n_u_max */
   {__pyx_k_max_length, sizeof(__pyx_k_max_length), 0, 1, 1}, /* PyObject cname: __pyx_n_u_max_length */
   {__pyx_k_message, sizeof(__pyx_k_message), 0, 1, 1}, /* PyObject cname: __pyx_n_u_message */
-  {__pyx_k_meta_config, sizeof(__pyx_k_meta_config), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_meta_config */
   {__pyx_k_metadata, sizeof(__pyx_k_metadata), 0, 1, 1}, /* PyObject cname: __pyx_n_u_metadata */
   {__pyx_k_modname, sizeof(__pyx_k_modname), 0, 1, 1}, /* PyObject cname: __pyx_n_u_modname */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
@@ -7789,6 +7788,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_next, sizeof(__pyx_k_next), 0, 1, 1}, /* PyObject cname: __pyx_n_u_next */
   {__pyx_k_obj, sizeof(__pyx_k_obj), 0, 1, 1}, /* PyObject cname: __pyx_n_u_obj */
   {__pyx_k_package, sizeof(__pyx_k_package), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package */
+  {__pyx_k_package_config, sizeof(__pyx_k_package_config), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package_config */
   {__pyx_k_package_lengths, sizeof(__pyx_k_package_lengths), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package_lengths */
   {__pyx_k_package_module, sizeof(__pyx_k_package_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_package_module */
   {__pyx_k_package_name, sizeof(__pyx_k_package_name), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_package_name */
@@ -7846,9 +7846,9 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry const *t, PyObject **target, c
 
 static int __Pyx_InitCachedBuiltins(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
-  __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_max); if (!__pyx_builtin_max) __PYX_ERR(0, 42, __pyx_L1_error)
-  __pyx_builtin_ModuleNotFoundError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ModuleNotFoundError); if (!__pyx_builtin_ModuleNotFoundError) __PYX_ERR(0, 115, __pyx_L1_error)
-  __pyx_builtin_vars = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_vars); if (!__pyx_builtin_vars) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_max); if (!__pyx_builtin_max) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_builtin_ModuleNotFoundError = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_ModuleNotFoundError); if (!__pyx_builtin_ModuleNotFoundError) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_builtin_vars = __Pyx_GetBuiltinName(__pyx_mstate->__pyx_n_u_vars); if (!__pyx_builtin_vars) __PYX_ERR(0, 123, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -7902,32 +7902,32 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   PyObject* tuple_dedup_map = PyDict_New();
   if (unlikely(!tuple_dedup_map)) return -1;
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR), 42, 2};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_GENERATOR), 40, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_s};
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_package_py, __pyx_mstate->__pyx_n_u_genexpr, __pyx_k__10, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 71, 2};
-    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_MetaConfigSetting, __pyx_mstate->__pyx_n_u_packages, __pyx_mstate->__pyx_n_u_package_lengths, __pyx_mstate->__pyx_n_u_max_length, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_classes_instances, __pyx_mstate->__pyx_n_u_val, __pyx_mstate->__pyx_n_u_s};
+    const __Pyx_PyCode_New_function_description descr = {0, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 69, 2};
+    PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_PackageConfigSetting, __pyx_mstate->__pyx_n_u_packages, __pyx_mstate->__pyx_n_u_package_lengths, __pyx_mstate->__pyx_n_u_max_length, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_message, __pyx_mstate->__pyx_n_u_classes_instances, __pyx_mstate->__pyx_n_u_val, __pyx_mstate->__pyx_n_u_s};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_package_py, __pyx_mstate->__pyx_n_u_load_meta_config, __pyx_k_a, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 16, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 18, 395};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 16, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 18, 393};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_fastapi, __pyx_mstate->__pyx_n_u_enabled_routers, __pyx_mstate->__pyx_n_u_packages, __pyx_mstate->__pyx_n_u_shudaodao_generic, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_AuthAPIRouter, __pyx_mstate->__pyx_n_u_max_length, __pyx_mstate->__pyx_n_u_classes_instances, __pyx_mstate->__pyx_n_u_router_count, __pyx_mstate->__pyx_n_u_val, __pyx_mstate->__pyx_n_u_default_tags, __pyx_mstate->__pyx_n_u_prefix, __pyx_mstate->__pyx_n_u_tags, __pyx_mstate->__pyx_n_u_package, __pyx_mstate->__pyx_n_u_genexpr, __pyx_mstate->__pyx_n_u_genexpr};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_package_py, __pyx_mstate->__pyx_n_u_load_router, __pyx_k_a_y_a_G6_A_q_q_1_7_A_4wa_81B_37, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 103, 158};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 9, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 101, 158};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_package_name_2, __pyx_mstate->__pyx_n_u_target_class, __pyx_mstate->__pyx_n_u_result_instances, __pyx_mstate->__pyx_n_u_package_module, __pyx_mstate->__pyx_n_u_importer, __pyx_mstate->__pyx_n_u_modname, __pyx_mstate->__pyx_n_u_is_pkg, __pyx_mstate->__pyx_n_u_module_2, __pyx_mstate->__pyx_n_u_e};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_package_py, __pyx_mstate->__pyx_n_u_scan_package_instances, __pyx_k_Q_q_A_Jiz_a_1_Zr_YnAQ_Q_0_vQb_2, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 124, 65};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 4, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 122, 65};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_result_instances, __pyx_mstate->__pyx_n_u_package_module, __pyx_mstate->__pyx_n_u_target_class, __pyx_mstate->__pyx_n_u_obj};
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_package_py, __pyx_mstate->__pyx_n_u_find_meta_config, __pyx_k_t1O7_Qe_9KqPTTUUWWbbc_G1A, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 132, 47};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 130, 47};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_router, __pyx_mstate->__pyx_n_u_new_tags, __pyx_mstate->__pyx_n_u_route};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_shudaodao_app_package_py, __pyx_mstate->__pyx_n_u_set_router_tags, __pyx_k_q_7_7_fJaz_AQ, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }

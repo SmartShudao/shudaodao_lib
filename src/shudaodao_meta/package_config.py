@@ -5,9 +5,9 @@
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_meta
 
-from shudaodao_core import MetaConfigSetting
+from shudaodao_core import PackageConfigSetting
 
-MetaConfig = MetaConfigSetting(
+PackageConfig = PackageConfigSetting(
     engine_name="Meta",
     schema_name="shudaodao_meta",
     router_path="metadata",

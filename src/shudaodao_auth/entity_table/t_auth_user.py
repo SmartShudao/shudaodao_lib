@@ -10,20 +10,20 @@
 from datetime import datetime
 from typing import Optional
 
-from pydantic import EmailStr
+from pydantic import EmailStr, ConfigDict, BaseModel
 from sqlalchemy import BigInteger, Boolean
 
 from shudaodao_core import SQLModel, BaseResponse, Field, get_primary_id
-from ..meta_config import MetaConfig
+from ..package_config import PackageConfig
 
 
-class AuthUser(MetaConfig.RegistryModel, table=True):
+class AuthUser(PackageConfig.RegistryModel, table=True):
     """数据库对象模型"""
 
     __tablename__ = "t_auth_user"
-    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "鉴权账户"}
+    __table_args__ = {"schema": PackageConfig.SchemaTable, "comment": "鉴权账户"}
     # 仅用于内部处理
-    __database_schema__ = MetaConfig.SchemaName
+    __database_schema__ = PackageConfig.SchemaName
     __primary_key__ = ["user_id"]
 
     user_id: int = Field(
@@ -53,7 +53,7 @@ class AuthUser(MetaConfig.RegistryModel, table=True):
 class AuthUserResponse(BaseResponse):
     """前端响应模型 - 用于接口响应"""
 
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    __database_schema__ = PackageConfig.SchemaName  # 仅用于内部处理
     user_id: int = Field(description="主键", sa_type=BigInteger)
     username: str = Field(description="账户名")
     name: Optional[str] = Field(description="姓名", default=None)
@@ -88,10 +88,14 @@ class AuthUserRegister(SQLModel):
     tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="默认租户")
 
 
-class AuthLogin(SQLModel):
+class AuthLogin(BaseModel):
     """ 登录模型 """
     username: str = Field(min_length=3, max_length=50)
     password: str = Field(min_length=5)
+
+    model_config = ConfigDict(
+        populate_by_name=True
+    )
 
 
 class AuthPassword(SQLModel):

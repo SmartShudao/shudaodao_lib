@@ -2707,8 +2707,8 @@ static const char __pyx_k_EnumQuery__get_query_request_sch[] = "EnumQuery._get_q
 static const char __pyx_k_EnumValues_enum_disabled_as_disa[] = "EnumValues.enum_disabled as disabled";
 static const char __pyx_k_EnumValues_enum_label_as_label_E[] = "EnumValues.enum_label as label,EnumValues.enum_value as value";
 static const char __pyx_k_field_name_as_name_field_label_a[] = "field_name as name, field_label as label";
+static const char __pyx_k_generate_entity_table_enum_field[] = "generate.entity_table.enum_field";
 static const char __pyx_k_generate_entity_table_meta_schem[] = "generate.entity_table.meta_schema";
-static const char __pyx_k_generate_entity_table_sys_enum_f[] = "generate.entity_table.sys_enum_field";
 /* #### Code section: decls ### */
 static PyObject *__pyx_pf_10enum_query_9EnumQuery_query_schema(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_db); /* proto */
 static PyObject *__pyx_pf_10enum_query_9EnumQuery_3query_field(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_cls, PyObject *__pyx_v_db, PyObject *__pyx_v_schema_name, PyObject *__pyx_v_quest_request); /* proto */
@@ -2904,8 +2904,8 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_format __pyx_string_tab[53]
 #define __pyx_n_u_func __pyx_string_tab[54]
 #define __pyx_kp_u_gc __pyx_string_tab[55]
-#define __pyx_n_u_generate_entity_table_meta_schem __pyx_string_tab[56]
-#define __pyx_n_u_generate_entity_table_sys_enum_f __pyx_string_tab[57]
+#define __pyx_n_u_generate_entity_table_enum_field __pyx_string_tab[56]
+#define __pyx_n_u_generate_entity_table_meta_schem __pyx_string_tab[57]
 #define __pyx_n_u_get __pyx_string_tab[58]
 #define __pyx_n_u_get_query_request_flied __pyx_string_tab[59]
 #define __pyx_n_u_get_query_request_schema __pyx_string_tab[60]
@@ -7852,7 +7852,7 @@ __Pyx_RefNannySetupContext("PyInit_enum_query", 0);
  * 
  * from shudaodao_core import AsyncSession, QueryRequest, QueryService, CoreUtil             # <<<<<<<<<<<<<<
  * from ..generate.entity_table.meta_schema import MetaSchema
- * from ..generate.entity_table.sys_enum_field import EnumField, EnumFieldResponse
+ * from ..generate.entity_table.enum_field import EnumField, EnumFieldResponse
 */
   __pyx_t_2 = __Pyx_PyList_Pack(4, __pyx_mstate_global->__pyx_n_u_AsyncSession, __pyx_mstate_global->__pyx_n_u_QueryRequest, __pyx_mstate_global->__pyx_n_u_QueryService, __pyx_mstate_global->__pyx_n_u_CoreUtil); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -7881,7 +7881,7 @@ __Pyx_RefNannySetupContext("PyInit_enum_query", 0);
  * 
  * from shudaodao_core import AsyncSession, QueryRequest, QueryService, CoreUtil
  * from ..generate.entity_table.meta_schema import MetaSchema             # <<<<<<<<<<<<<<
- * from ..generate.entity_table.sys_enum_field import EnumField, EnumFieldResponse
+ * from ..generate.entity_table.enum_field import EnumField, EnumFieldResponse
  * from ..schema.enum import EnumQueryRequest
 */
   __pyx_t_3 = __Pyx_PyList_Pack(1, __pyx_mstate_global->__pyx_n_u_MetaSchema); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 10, __pyx_L1_error)
@@ -7898,13 +7898,13 @@ __Pyx_RefNannySetupContext("PyInit_enum_query", 0);
   /* "enum_query.py":11
  * from shudaodao_core import AsyncSession, QueryRequest, QueryService, CoreUtil
  * from ..generate.entity_table.meta_schema import MetaSchema
- * from ..generate.entity_table.sys_enum_field import EnumField, EnumFieldResponse             # <<<<<<<<<<<<<<
+ * from ..generate.entity_table.enum_field import EnumField, EnumFieldResponse             # <<<<<<<<<<<<<<
  * from ..schema.enum import EnumQueryRequest
  * 
 */
   __pyx_t_2 = __Pyx_PyList_Pack(2, __pyx_mstate_global->__pyx_n_u_EnumField, __pyx_mstate_global->__pyx_n_u_EnumFieldResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_generate_entity_table_sys_enum_f, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_generate_entity_table_enum_field, __pyx_t_2, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_EnumField); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
@@ -7919,7 +7919,7 @@ __Pyx_RefNannySetupContext("PyInit_enum_query", 0);
 
   /* "enum_query.py":12
  * from ..generate.entity_table.meta_schema import MetaSchema
- * from ..generate.entity_table.sys_enum_field import EnumField, EnumFieldResponse
+ * from ..generate.entity_table.enum_field import EnumField, EnumFieldResponse
  * from ..schema.enum import EnumQueryRequest             # <<<<<<<<<<<<<<
  * 
  * 
@@ -8200,8 +8200,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_format, sizeof(__pyx_k_format), 0, 1, 1}, /* PyObject cname: __pyx_n_u_format */
   {__pyx_k_func, sizeof(__pyx_k_func), 0, 1, 1}, /* PyObject cname: __pyx_n_u_func */
   {__pyx_k_gc, sizeof(__pyx_k_gc), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_gc */
+  {__pyx_k_generate_entity_table_enum_field, sizeof(__pyx_k_generate_entity_table_enum_field), 0, 1, 1}, /* PyObject cname: __pyx_n_u_generate_entity_table_enum_field */
   {__pyx_k_generate_entity_table_meta_schem, sizeof(__pyx_k_generate_entity_table_meta_schem), 0, 1, 1}, /* PyObject cname: __pyx_n_u_generate_entity_table_meta_schem */
-  {__pyx_k_generate_entity_table_sys_enum_f, sizeof(__pyx_k_generate_entity_table_sys_enum_f), 0, 1, 1}, /* PyObject cname: __pyx_n_u_generate_entity_table_sys_enum_f */
   {__pyx_k_get, sizeof(__pyx_k_get), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get */
   {__pyx_k_get_query_request_flied, sizeof(__pyx_k_get_query_request_flied), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_query_request_flied */
   {__pyx_k_get_query_request_schema, sizeof(__pyx_k_get_query_request_schema), 0, 1, 1}, /* PyObject cname: __pyx_n_u_get_query_request_schema */

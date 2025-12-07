@@ -1501,7 +1501,7 @@ struct __pyx_obj_13meta_template___pyx_scope_struct_5__save_package_init_file;
 struct __pyx_obj_13meta_template___pyx_scope_struct_6__render_template;
 
 /* "meta_template.py":39
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"
  * 
  *     async def render_schema(self, schema_name: str):             # <<<<<<<<<<<<<<
  *         meta_tables, meta_views = await MetaQuery.get_tables_views_by_schema_name(self._db, schema_name, is_active=True)
@@ -2730,7 +2730,6 @@ static const char __pyx_k_self[] = "self";
 static const char __pyx_k_send[] = "send";
 static const char __pyx_k_spec[] = "__spec__";
 static const char __pyx_k_test[] = "__test__";
-static const char __pyx_k_type[] = "type";
 static const char __pyx_k_view[] = "view_";
 static const char __pyx_k_await[] = "__await__";
 static const char __pyx_k_black[] = "black";
@@ -2747,6 +2746,7 @@ static const char __pyx_k_strip[] = "strip";
 static const char __pyx_k_style[] = "<style";
 static const char __pyx_k_table[] = "table_";
 static const char __pyx_k_throw[] = "throw";
+static const char __pyx_k_type2[] = "type2";
 static const char __pyx_k_utf_8[] = "utf-8";
 static const char __pyx_k_value[] = "value";
 static const char __pyx_k_write[] = "write";
@@ -2876,7 +2876,6 @@ static const char __pyx_k_database_model[] = "database_model";
 static const char __pyx_k_foreign_fields[] = "foreign_fields";
 static const char __pyx_k_get_camel_name[] = "get_camel_name";
 static const char __pyx_k_get_table_args[] = "get_table_args";
-static const char __pyx_k_meta_config_py[] = "meta_config.py";
 static const char __pyx_k_output_backend[] = "output_backend";
 static const char __pyx_k_query_metaview[] = "query_metaview";
 static const char __pyx_k_shudaodao_core[] = "shudaodao_core";
@@ -2893,11 +2892,11 @@ static const char __pyx_k_FileSystemLoader[] = "FileSystemLoader";
 static const char __pyx_k_comment_vue_file[] = "comment_vue_file";
 static const char __pyx_k_database_columns[] = "database_columns";
 static const char __pyx_k_meta_template_py[] = "meta_template.py";
-static const char __pyx_k_model_config_txt[] = "model_config.txt";
 static const char __pyx_k_package_init_txt[] = "package_init.txt";
 static const char __pyx_k_relation_columns[] = "relation_columns";
 static const char __pyx_k_response_columns[] = "response_columns";
 static const char __pyx_k_t1_q_Q_Q_1_1_1_1[] = "\320\010(\250\001\330\014\017\210t\2201\330\020\027\220q\330\014\025\220Q\330\014\020\220\r\230Q\330\020\031\230\027\240\001\240\027\250\013\2601\330\020\023\2201\330\024\033\2301\330\014\023\2201";
+static const char __pyx_k_package_config_py[] = "package_config.py";
 static const char __pyx_k_Literal_table_view[] = "Literal['table', 'view']";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
@@ -2905,8 +2904,9 @@ static const char __pyx_k_get_create_columns[] = "get_create_columns";
 static const char __pyx_k_get_template_clazz[] = "_get_template_clazz";
 static const char __pyx_k_get_update_columns[] = "get_update_columns";
 static const char __pyx_k_is_template_commet[] = "is_template_commet";
+static const char __pyx_k_package_config_txt[] = "package_config.txt";
 static const char __pyx_k_save_template_file[] = "_save_template_file";
-static const char __pyx_k_A_6a_r_V9F_F_4uAVST[] = "\200A\330#6\260a\330\010\017\210r\220\024\220V\2309\240F\250*\260F\270)\3004\300u\310A\310V\320ST";
+static const char __pyx_k_A_6a_r_V9F_V9D_QfTU[] = "\200A\330#6\260a\330\010\017\210r\220\024\220V\2309\240F\250+\260V\2709\300D\310\005\310Q\310f\320TU";
 static const char __pyx_k_MetaTemplate___init[] = "MetaTemplate.__init__";
 static const char __pyx_k_get_database_columns[] = "get_database_columns";
 static const char __pyx_k_get_relation_columns[] = "get_relation_columns";
@@ -3242,27 +3242,27 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_lstrip __pyx_string_tab[143]
 #define __pyx_n_u_lstrip_blocks __pyx_string_tab[144]
 #define __pyx_n_u_main __pyx_string_tab[145]
-#define __pyx_kp_u_meta_config_py __pyx_string_tab[146]
-#define __pyx_n_u_meta_convert __pyx_string_tab[147]
-#define __pyx_n_u_meta_query __pyx_string_tab[148]
-#define __pyx_n_u_meta_tables __pyx_string_tab[149]
-#define __pyx_n_u_meta_template __pyx_string_tab[150]
-#define __pyx_kp_u_meta_template_py __pyx_string_tab[151]
-#define __pyx_n_u_meta_type __pyx_string_tab[152]
-#define __pyx_n_u_meta_views __pyx_string_tab[153]
-#define __pyx_n_u_metaclass __pyx_string_tab[154]
-#define __pyx_n_u_mkdir __pyx_string_tab[155]
-#define __pyx_n_u_mode __pyx_string_tab[156]
-#define __pyx_n_u_model __pyx_string_tab[157]
-#define __pyx_kp_u_model_config_txt __pyx_string_tab[158]
-#define __pyx_n_u_module __pyx_string_tab[159]
-#define __pyx_n_u_name __pyx_string_tab[160]
-#define __pyx_n_u_name_2 __pyx_string_tab[161]
-#define __pyx_n_u_next __pyx_string_tab[162]
-#define __pyx_n_u_open __pyx_string_tab[163]
-#define __pyx_n_u_output_backend __pyx_string_tab[164]
-#define __pyx_n_u_output_frontend __pyx_string_tab[165]
-#define __pyx_n_u_output_path __pyx_string_tab[166]
+#define __pyx_n_u_meta_convert __pyx_string_tab[146]
+#define __pyx_n_u_meta_query __pyx_string_tab[147]
+#define __pyx_n_u_meta_tables __pyx_string_tab[148]
+#define __pyx_n_u_meta_template __pyx_string_tab[149]
+#define __pyx_kp_u_meta_template_py __pyx_string_tab[150]
+#define __pyx_n_u_meta_type __pyx_string_tab[151]
+#define __pyx_n_u_meta_views __pyx_string_tab[152]
+#define __pyx_n_u_metaclass __pyx_string_tab[153]
+#define __pyx_n_u_mkdir __pyx_string_tab[154]
+#define __pyx_n_u_mode __pyx_string_tab[155]
+#define __pyx_n_u_model __pyx_string_tab[156]
+#define __pyx_n_u_module __pyx_string_tab[157]
+#define __pyx_n_u_name __pyx_string_tab[158]
+#define __pyx_n_u_name_2 __pyx_string_tab[159]
+#define __pyx_n_u_next __pyx_string_tab[160]
+#define __pyx_n_u_open __pyx_string_tab[161]
+#define __pyx_n_u_output_backend __pyx_string_tab[162]
+#define __pyx_n_u_output_frontend __pyx_string_tab[163]
+#define __pyx_n_u_output_path __pyx_string_tab[164]
+#define __pyx_kp_u_package_config_py __pyx_string_tab[165]
+#define __pyx_kp_u_package_config_txt __pyx_string_tab[166]
 #define __pyx_kp_u_package_init_txt __pyx_string_tab[167]
 #define __pyx_n_u_params __pyx_string_tab[168]
 #define __pyx_n_u_parent __pyx_string_tab[169]
@@ -3330,7 +3330,7 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_tmpl_content __pyx_string_tab[231]
 #define __pyx_n_u_trim_blocks __pyx_string_tab[232]
 #define __pyx_kp_u_txt __pyx_string_tab[233]
-#define __pyx_n_u_type __pyx_string_tab[234]
+#define __pyx_n_u_type2 __pyx_string_tab[234]
 #define __pyx_n_u_typing __pyx_string_tab[235]
 #define __pyx_n_u_update_columns __pyx_string_tab[236]
 #define __pyx_kp_u_utf_8 __pyx_string_tab[237]
@@ -3739,7 +3739,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate___init__(CYTHON_UNUSED 
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def format_column(cls, column: TemplateColumn) -> str:
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"
 */
 
 /* Python wrapper */
@@ -3852,7 +3852,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_2format_column(CYTHON_U
   /* "meta_template.py":37
  *     @classmethod
  *     def format_column(cls, column: TemplateColumn) -> str:
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"             # <<<<<<<<<<<<<<
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"             # <<<<<<<<<<<<<<
  * 
  *     async def render_schema(self, schema_name: str):
 */
@@ -3862,7 +3862,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_2format_column(CYTHON_U
   __pyx_t_2 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_column, __pyx_mstate_global->__pyx_n_u_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_column, __pyx_mstate_global->__pyx_n_u_type2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -3901,7 +3901,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_2format_column(CYTHON_U
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def format_column(cls, column: TemplateColumn) -> str:
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"
 */
 
   /* function exit code */
@@ -3921,7 +3921,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_2format_column(CYTHON_U
 static PyObject *__pyx_gb_13meta_template_12MetaTemplate_6generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
 /* "meta_template.py":39
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"
  * 
  *     async def render_schema(self, schema_name: str):             # <<<<<<<<<<<<<<
  *         meta_tables, meta_views = await MetaQuery.get_tables_views_by_schema_name(self._db, schema_name, is_active=True)
@@ -4492,7 +4492,7 @@ static PyObject *__pyx_gb_13meta_template_12MetaTemplate_6generator(__pyx_Corout
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
   /* "meta_template.py":39
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"
  * 
  *     async def render_schema(self, schema_name: str):             # <<<<<<<<<<<<<<
  *         meta_tables, meta_views = await MetaQuery.get_tables_views_by_schema_name(self._db, schema_name, is_active=True)
@@ -5110,7 +5110,7 @@ static PyObject *__pyx_gb_13meta_template_12MetaTemplate_9generator1(__pyx_Corou
  *         return result
  * 
  *     def _save_template_config(self, model):             # <<<<<<<<<<<<<<
- *         template = self._env.get_template("model_config.txt")
+ *         template = self._env.get_template("package_config.txt")
  *         router_path = model.MetaSchema.router_path
 */
 
@@ -5238,7 +5238,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
   /* "meta_template.py":70
  * 
  *     def _save_template_config(self, model):
- *         template = self._env.get_template("model_config.txt")             # <<<<<<<<<<<<<<
+ *         template = self._env.get_template("package_config.txt")             # <<<<<<<<<<<<<<
  *         router_path = model.MetaSchema.router_path
  *         if not router_path:
 */
@@ -5248,7 +5248,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_4 = 0;
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_model_config_txt};
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_kp_u_package_config_txt};
     __pyx_t_1 = __Pyx_PyObject_FastCallMethod(__pyx_mstate_global->__pyx_n_u_get_template, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (1*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5260,7 +5260,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
 
   /* "meta_template.py":71
  *     def _save_template_config(self, model):
- *         template = self._env.get_template("model_config.txt")
+ *         template = self._env.get_template("package_config.txt")
  *         router_path = model.MetaSchema.router_path             # <<<<<<<<<<<<<<
  *         if not router_path:
  *             router_path = model.MetaSchema.schema_name
@@ -5274,7 +5274,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
   __pyx_t_3 = 0;
 
   /* "meta_template.py":72
- *         template = self._env.get_template("model_config.txt")
+ *         template = self._env.get_template("package_config.txt")
  *         router_path = model.MetaSchema.router_path
  *         if not router_path:             # <<<<<<<<<<<<<<
  *             router_path = model.MetaSchema.schema_name
@@ -5300,7 +5300,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
     __pyx_t_1 = 0;
 
     /* "meta_template.py":72
- *         template = self._env.get_template("model_config.txt")
+ *         template = self._env.get_template("package_config.txt")
  *         router_path = model.MetaSchema.router_path
  *         if not router_path:             # <<<<<<<<<<<<<<
  *             router_path = model.MetaSchema.schema_name
@@ -5392,7 +5392,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
  *         }
  *         content = template.render(context)             # <<<<<<<<<<<<<<
  *         save_path = CoreUtil.get_root_path().parent / model.MetaSchema.output_backend
- *         save_file = save_path / model.MetaSchema.schema_name / "meta_config.py"
+ *         save_file = save_path / model.MetaSchema.schema_name / "package_config.py"
 */
   __pyx_t_2 = __pyx_v_template;
   __Pyx_INCREF(__pyx_t_2);
@@ -5411,7 +5411,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
  *         }
  *         content = template.render(context)
  *         save_path = CoreUtil.get_root_path().parent / model.MetaSchema.output_backend             # <<<<<<<<<<<<<<
- *         save_file = save_path / model.MetaSchema.schema_name / "meta_config.py"
+ *         save_file = save_path / model.MetaSchema.schema_name / "package_config.py"
  *         with open(save_file, 'w', encoding='utf-8') as f:
 */
   __pyx_t_2 = NULL;
@@ -5458,7 +5458,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
   /* "meta_template.py":83
  *         content = template.render(context)
  *         save_path = CoreUtil.get_root_path().parent / model.MetaSchema.output_backend
- *         save_file = save_path / model.MetaSchema.schema_name / "meta_config.py"             # <<<<<<<<<<<<<<
+ *         save_file = save_path / model.MetaSchema.schema_name / "package_config.py"             # <<<<<<<<<<<<<<
  *         with open(save_file, 'w', encoding='utf-8') as f:
  *             f.write(content)
 */
@@ -5470,7 +5470,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
   __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_v_save_path, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_mstate_global->__pyx_kp_u_meta_config_py); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_mstate_global->__pyx_kp_u_package_config_py); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_save_file = __pyx_t_2;
@@ -5478,7 +5478,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
 
   /* "meta_template.py":84
  *         save_path = CoreUtil.get_root_path().parent / model.MetaSchema.output_backend
- *         save_file = save_path / model.MetaSchema.schema_name / "meta_config.py"
+ *         save_file = save_path / model.MetaSchema.schema_name / "package_config.py"
  *         with open(save_file, 'w', encoding='utf-8') as f:             # <<<<<<<<<<<<<<
  *             f.write(content)
  * 
@@ -5541,7 +5541,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
           __pyx_t_1 = 0;
 
           /* "meta_template.py":85
- *         save_file = save_path / model.MetaSchema.schema_name / "meta_config.py"
+ *         save_file = save_path / model.MetaSchema.schema_name / "package_config.py"
  *         with open(save_file, 'w', encoding='utf-8') as f:
  *             f.write(content)             # <<<<<<<<<<<<<<
  * 
@@ -5561,7 +5561,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
 
           /* "meta_template.py":84
  *         save_path = CoreUtil.get_root_path().parent / model.MetaSchema.output_backend
- *         save_file = save_path / model.MetaSchema.schema_name / "meta_config.py"
+ *         save_file = save_path / model.MetaSchema.schema_name / "package_config.py"
  *         with open(save_file, 'w', encoding='utf-8') as f:             # <<<<<<<<<<<<<<
  *             f.write(content)
  * 
@@ -5644,7 +5644,7 @@ static PyObject *__pyx_pf_13meta_template_12MetaTemplate_10_save_template_config
  *         return result
  * 
  *     def _save_template_config(self, model):             # <<<<<<<<<<<<<<
- *         template = self._env.get_template("model_config.txt")
+ *         template = self._env.get_template("package_config.txt")
  *         router_path = model.MetaSchema.router_path
 */
 
@@ -13501,7 +13501,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_template", 0);
  * 
  *     @classmethod             # <<<<<<<<<<<<<<
  *     def format_column(cls, column: TemplateColumn) -> str:
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"
 */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -13518,7 +13518,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_template", 0);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "meta_template.py":39
- *         return f"{column.name}: {column.type} = {column.clazz}({', '.join(column.params)})"
+ *         return f"{column.name}: {column.type2} = {column.clazz}({', '.join(column.params)})"
  * 
  *     async def render_schema(self, schema_name: str):             # <<<<<<<<<<<<<<
  *         meta_tables, meta_views = await MetaQuery.get_tables_views_by_schema_name(self._db, schema_name, is_active=True)
@@ -13557,7 +13557,7 @@ __Pyx_RefNannySetupContext("PyInit_meta_template", 0);
  *         return result
  * 
  *     def _save_template_config(self, model):             # <<<<<<<<<<<<<<
- *         template = self._env.get_template("model_config.txt")
+ *         template = self._env.get_template("package_config.txt")
  *         router_path = model.MetaSchema.router_path
 */
   __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_13meta_template_12MetaTemplate_11_save_template_config, 0, __pyx_mstate_global->__pyx_n_u_MetaTemplate__save_template_conf, NULL, __pyx_mstate_global->__pyx_n_u_meta_template, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[10])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 69, __pyx_L1_error)
@@ -13919,7 +13919,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_lstrip, sizeof(__pyx_k_lstrip), 0, 1, 1}, /* PyObject cname: __pyx_n_u_lstrip */
   {__pyx_k_lstrip_blocks, sizeof(__pyx_k_lstrip_blocks), 0, 1, 1}, /* PyObject cname: __pyx_n_u_lstrip_blocks */
   {__pyx_k_main, sizeof(__pyx_k_main), 0, 1, 1}, /* PyObject cname: __pyx_n_u_main */
-  {__pyx_k_meta_config_py, sizeof(__pyx_k_meta_config_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_meta_config_py */
   {__pyx_k_meta_convert, sizeof(__pyx_k_meta_convert), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_convert */
   {__pyx_k_meta_query, sizeof(__pyx_k_meta_query), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_query */
   {__pyx_k_meta_tables, sizeof(__pyx_k_meta_tables), 0, 1, 1}, /* PyObject cname: __pyx_n_u_meta_tables */
@@ -13931,7 +13930,6 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_mkdir, sizeof(__pyx_k_mkdir), 0, 1, 1}, /* PyObject cname: __pyx_n_u_mkdir */
   {__pyx_k_mode, sizeof(__pyx_k_mode), 0, 1, 1}, /* PyObject cname: __pyx_n_u_mode */
   {__pyx_k_model, sizeof(__pyx_k_model), 0, 1, 1}, /* PyObject cname: __pyx_n_u_model */
-  {__pyx_k_model_config_txt, sizeof(__pyx_k_model_config_txt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_model_config_txt */
   {__pyx_k_module, sizeof(__pyx_k_module), 0, 1, 1}, /* PyObject cname: __pyx_n_u_module */
   {__pyx_k_name, sizeof(__pyx_k_name), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name */
   {__pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_name_2 */
@@ -13940,6 +13938,8 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_output_backend, sizeof(__pyx_k_output_backend), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_backend */
   {__pyx_k_output_frontend, sizeof(__pyx_k_output_frontend), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_frontend */
   {__pyx_k_output_path, sizeof(__pyx_k_output_path), 0, 1, 1}, /* PyObject cname: __pyx_n_u_output_path */
+  {__pyx_k_package_config_py, sizeof(__pyx_k_package_config_py), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_package_config_py */
+  {__pyx_k_package_config_txt, sizeof(__pyx_k_package_config_txt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_package_config_txt */
   {__pyx_k_package_init_txt, sizeof(__pyx_k_package_init_txt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_package_init_txt */
   {__pyx_k_params, sizeof(__pyx_k_params), 0, 1, 1}, /* PyObject cname: __pyx_n_u_params */
   {__pyx_k_parent, sizeof(__pyx_k_parent), 0, 1, 1}, /* PyObject cname: __pyx_n_u_parent */
@@ -14007,7 +14007,7 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_tmpl_content, sizeof(__pyx_k_tmpl_content), 0, 1, 1}, /* PyObject cname: __pyx_n_u_tmpl_content */
   {__pyx_k_trim_blocks, sizeof(__pyx_k_trim_blocks), 0, 1, 1}, /* PyObject cname: __pyx_n_u_trim_blocks */
   {__pyx_k_txt, sizeof(__pyx_k_txt), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_txt */
-  {__pyx_k_type, sizeof(__pyx_k_type), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type */
+  {__pyx_k_type2, sizeof(__pyx_k_type2), 0, 1, 1}, /* PyObject cname: __pyx_n_u_type2 */
   {__pyx_k_typing, sizeof(__pyx_k_typing), 0, 1, 1}, /* PyObject cname: __pyx_n_u_typing */
   {__pyx_k_update_columns, sizeof(__pyx_k_update_columns), 0, 1, 1}, /* PyObject cname: __pyx_n_u_update_columns */
   {__pyx_k_utf_8, sizeof(__pyx_k_utf_8), 0, 1, 0}, /* PyObject cname: __pyx_kp_u_utf_8 */
@@ -14043,7 +14043,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 
   /* "meta_template.py":84
  *         save_path = CoreUtil.get_root_path().parent / model.MetaSchema.output_backend
- *         save_file = save_path / model.MetaSchema.schema_name / "meta_config.py"
+ *         save_file = save_path / model.MetaSchema.schema_name / "package_config.py"
  *         with open(save_file, 'w', encoding='utf-8') as f:             # <<<<<<<<<<<<<<
  *             f.write(content)
  * 
@@ -14181,7 +14181,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 35, 37};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_cls, __pyx_mstate->__pyx_n_u_column};
-    __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_template_py, __pyx_mstate->__pyx_n_u_format_column, __pyx_k_A_6a_r_V9F_F_4uAVST, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[9] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_meta_template_py, __pyx_mstate->__pyx_n_u_format_column, __pyx_k_A_6a_r_V9F_V9D_QfTU, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[9])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 10, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 69, 155};

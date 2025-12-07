@@ -3,27 +3,28 @@
 # @License  ：(C)Copyright 2025, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
-# @Desc     ：SQLModel classes for shudaodao_meta.sys_enum_field
+# @Desc     ：SQLModel classes for shudaodao_meta.enum_field
 
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
+from pydantic import ConfigDict
 
 from sqlalchemy import BigInteger, Boolean
 
 from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
-from ...meta_config import MetaConfig
+from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
-    from .sys_enum_value import EnumValue
+    from .enum_value import EnumValue
 
 
-class EnumField(MetaConfig.RegistryModel, table=True):
+class EnumField(PackageConfig.RegistryModel, table=True):
     """数据库对象模型"""
 
-    __tablename__ = "sys_enum_field"
-    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "枚举字段表"}
+    __tablename__ = "enum_field"
+    __table_args__ = {"schema": PackageConfig.SchemaTable, "comment": "枚举字段表"}
     # 仅用于内部处理
-    __database_schema__ = MetaConfig.SchemaName
+    __database_schema__ = PackageConfig.SchemaName
     __primary_key__ = ["field_id"]
 
     field_id: int = Field(
@@ -58,6 +59,8 @@ class EnumFieldCreate(SQLModel):
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class EnumFieldUpdate(SQLModel):
     """前端更新模型 - 用于接口请求"""
@@ -70,11 +73,13 @@ class EnumFieldUpdate(SQLModel):
     is_active: Optional[bool] = Field(default=None, description="启用状态")
     sort_order: Optional[int] = Field(default=None, description="排序权重")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class EnumFieldResponse(BaseResponse):
     """前端响应模型 - 用于接口响应"""
 
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    __database_schema__ = PackageConfig.SchemaName  # 仅用于内部处理
     field_id: int = Field(description="主键", sa_type=BigInteger)
     meta_schema_id: int = Field(description="主键", sa_type=BigInteger)
     field_label: str = Field(description="字段标签")
@@ -86,3 +91,5 @@ class EnumFieldResponse(BaseResponse):
     create_at: Optional[datetime] = Field(description="创建日期", default=None)
     update_by: Optional[str] = Field(description="修改人", default=None)
     update_at: Optional[datetime] = Field(description="修改日期", default=None)
+
+    model_config = ConfigDict(populate_by_name=True)

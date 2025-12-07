@@ -6,7 +6,7 @@ from ..entity_table.t_auth_user import (
     AuthUserRegister as AuthUserRegister,
     AuthUserResponse as AuthUserResponse,
 )
-from ..meta_config import MetaConfig as MetaConfig
+from ..package_config import PackageConfig as PackageConfig
 from ..services.auth_service import AuthService as AuthService
 from _typeshed import Incomplete
 from fastapi.security import OAuth2PasswordRequestForm as OAuth2PasswordRequestForm

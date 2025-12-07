@@ -12,18 +12,18 @@ from fastapi import Path
 
 from shudaodao_auth import AuthAPIRouter
 from shudaodao_core import QueryRequest
-from shudaodao_meta.meta_config import MetaConfig
+from shudaodao_meta.package_config import PackageConfig
 from ..services.generic_service_v2 import GenericServiceV2
 
 generic_router = AuthAPIRouter(
     prefix=f"/v2",
-    db_engine_name=MetaConfig.EngineName,
+    db_engine_name=PackageConfig.EngineName,
     tags=["通用接口 - 增删改查 v2 - 支持批量操作以及更高级的查询"],
 )
 
 
 @generic_router.post(
-    path="/{schema_path}/{entity_path}", summary="创建 schema - table/view 的数据，支持同时添加多条记录")
+    path="/{schema_path}/{entity_path}/create", summary="创建 schema - table/view 的数据，支持同时添加多条记录")
 async def create_route(
         create_models: Union[dict, List[dict]],
         schema_path: str = Path(description="数据库模式名称/别名"),
@@ -35,23 +35,8 @@ async def create_route(
     )
 
 
-@generic_router.put(
-    path="/{schema_path}/{entity_path}", summary="更新 schema - table/view 的数据，支持同时更新多条记录")
-# @generic_router.patch(
-#     path="/{schema_path}/{entity_path}", summary="更新 schema - table/view 的数据，支持同时更新多条记录")
-async def update_route(
-        create_models: Union[dict, List[dict]],
-        schema_path: str = Path(description="数据库模式名称/别名"),
-        entity_path: str = Path(description="数据库实体名称/别名"),
-):
-    return await GenericServiceV2.update(
-        schema_path=schema_path, entity_path=entity_path,
-        update_models=create_models,
-    )
-
-
-@generic_router.get(
-    path="/{schema_path}/{entity_path}", summary="获取 schema - table/view 的数据，支持同时获取多条记录")
+@generic_router.post(
+    path="/{schema_path}/{entity_path}/read", summary="获取 schema - table/view 的数据，支持同时获取多条记录")
 async def read_route(
         read_models: Union[dict, List[dict]],
         schema_path: str = Path(description="数据库模式名称/别名"),
@@ -63,8 +48,21 @@ async def read_route(
     )
 
 
-@generic_router.delete(
-    path="/{schema_path}/{entity_path}", summary="删除 schema - table/view 的数据，支持同时删除多条记录")
+@generic_router.post(
+    path="/{schema_path}/{entity_path}/update", summary="更新 schema - table/view 的数据，支持同时更新多条记录")
+async def update_route(
+        create_models: Union[dict, List[dict]],
+        schema_path: str = Path(description="数据库模式名称/别名"),
+        entity_path: str = Path(description="数据库实体名称/别名"),
+):
+    return await GenericServiceV2.update(
+        schema_path=schema_path, entity_path=entity_path,
+        update_models=create_models,
+    )
+
+
+@generic_router.post(
+    path="/{schema_path}/{entity_path}/delete", summary="删除 schema - table/view 的数据，支持同时删除多条记录")
 async def delete_route(
         delete_models: Union[dict, List[dict]],
         schema_path: str = Path(description="数据库模式名称/别名"),

@@ -7,36 +7,37 @@
 
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
+from pydantic import ConfigDict
 
 from sqlalchemy import BigInteger, Boolean
 
 from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
-from ...meta_config import MetaConfig
+from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
     from .sys_module import Module
     from .sys_system import System
 
 
-class Permission(MetaConfig.RegistryModel, table=True):
+class Permission(PackageConfig.RegistryModel, table=True):
     """数据库对象模型"""
 
     __tablename__ = "sys_permission"
-    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "功能模块"}
+    __table_args__ = {"schema": PackageConfig.SchemaTable, "comment": "功能模块"}
     # 仅用于内部处理
-    __database_schema__ = MetaConfig.SchemaName
+    __database_schema__ = PackageConfig.SchemaName
     __primary_key__ = ["permission_id"]
 
     permission_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="模块内码"
     )
     system_id: int = Field(
-        foreign_key=f"{MetaConfig.SchemaForeignKey}sys_system.system_id",
+        foreign_key=f"{PackageConfig.SchemaForeignKey}sys_system.system_id",
         sa_type=BigInteger,
         description="模块内码",
     )
     module_id: int = Field(
-        foreign_key=f"{MetaConfig.SchemaForeignKey}sys_module.module_id",
+        foreign_key=f"{PackageConfig.SchemaForeignKey}sys_module.module_id",
         sa_type=BigInteger,
         description="模块内码",
     )
@@ -87,6 +88,8 @@ class PermissionCreate(SQLModel):
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class PermissionUpdate(SQLModel):
     """前端更新模型 - 用于接口请求"""
@@ -108,11 +111,13 @@ class PermissionUpdate(SQLModel):
     sort_order: Optional[int] = Field(default=None, description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class PermissionResponse(BaseResponse):
     """前端响应模型 - 用于接口响应"""
 
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    __database_schema__ = PackageConfig.SchemaName  # 仅用于内部处理
     permission_id: int = Field(description="模块内码", sa_type=BigInteger)
     system_id: int = Field(description="模块内码", sa_type=BigInteger)
     module_id: int = Field(description="模块内码", sa_type=BigInteger)
@@ -133,3 +138,5 @@ class PermissionResponse(BaseResponse):
     create_at: Optional[datetime] = Field(description="创建日期", default=None)
     update_by: Optional[str] = Field(description="修改账户", default=None)
     update_at: Optional[datetime] = Field(description="修改日期", default=None)
+
+    model_config = ConfigDict(populate_by_name=True)

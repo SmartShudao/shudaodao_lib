@@ -12,16 +12,16 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 
 from shudaodao_auth import AuthAPIRouter
 from shudaodao_core import Depends, ResponseUtil
-from ..meta_config import MetaConfig
+from ..package_config import PackageConfig
 from ..tools.meta_store import MetaStore
 from ..tools.source_store import SourceStore
 
 Meta_Source_Router = AuthAPIRouter(
-    prefix=f"/{MetaConfig.RouterPath}",
-    tags=[f"{MetaConfig.RouterTags} - 数据来源"],
-    db_engine_name=MetaConfig.EngineName,  # 配置文件中的数据库连接名称
+    prefix=f"/{PackageConfig.RouterPath}",
+    tags=[f"{PackageConfig.RouterTags} - 数据来源"],
+    db_engine_name=PackageConfig.EngineName,  # 配置文件中的数据库连接名称
     auth_role="admin",
-    auth_sub=MetaConfig.SchemaName
+    auth_sub=PackageConfig.SchemaName
 )
 
 

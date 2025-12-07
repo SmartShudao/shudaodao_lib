@@ -11,17 +11,17 @@ from typing import Optional
 from fastapi import Path
 
 from shudaodao_auth import AuthAPIRouter
-from shudaodao_meta.meta_config import MetaConfig
+from shudaodao_meta.package_config import PackageConfig
 from ..services.generic_service_v1 import GenericServiceV1
 
 generic_router = AuthAPIRouter(
     prefix=f"/v1",
-    db_engine_name=MetaConfig.EngineName,
+    db_engine_name=PackageConfig.EngineName,
     tags=["通用接口 - 增删改查 v1 - 标准功能，更倾向去兼容java版接口"],
 )
 
 
-@generic_router.post(path="/{schema_path}/{entity_path}", summary="创建 schema - table/view 的数据")
+@generic_router.post(path="/{schema_path}/{entity_path}/create", summary="创建 schema - table/view 的数据")
 async def create_route(
         create_model: dict,
         schema_path: str = Path(description="数据库模式名称/别名"),
@@ -33,23 +33,21 @@ async def create_route(
     )
 
 
-@generic_router.delete(
-    path="/{schema_path}/{entity_path}/{primary_id}", summary="获取 schema - table/view 的数据")
-async def delete_route(
+@generic_router.get(
+    path="/{schema_path}/{entity_path}/{primary_id}/read", summary="获取 schema - table/view 的数据")
+async def read_route(
         primary_id: Optional[int] = Path(description="主键ID值]"),
         schema_path: str = Path(description="数据库模式名称/别名"),
         entity_path: str = Path(description="数据库实体名称/别名"),
 ):
-    return await GenericServiceV1.delete(
+    return await GenericServiceV1.read(
         schema_path=schema_path, entity_path=entity_path,
-        primary_id=primary_id,
+        primary_id=primary_id
     )
 
 
-@generic_router.put(
-    path="/{schema_path}/{entity_path}/{primary_id}", summary="更新 schema - table/view 的数据")
-# @generic_router.patch(
-#     path="/{schema_path}/{entity_path}/{primary_id}", summary="更新 schema - table/view 的数据")
+@generic_router.post(
+    path="/{schema_path}/{entity_path}/{primary_id}/update", summary="更新 schema - table/view 的数据")
 async def update_route(
         update_models: dict,
         primary_id: Optional[int] = Path(description="主键ID值,int或List[int]"),
@@ -62,14 +60,14 @@ async def update_route(
     )
 
 
-@generic_router.get(
-    path="/{schema_path}/{entity_path}/{primary_id}", summary="获取 schema - table/view 的数据")
-async def read_route(
+@generic_router.post(
+    path="/{schema_path}/{entity_path}/{primary_id}/delete", summary="获取 schema - table/view 的数据")
+async def delete_route(
         primary_id: Optional[int] = Path(description="主键ID值]"),
         schema_path: str = Path(description="数据库模式名称/别名"),
         entity_path: str = Path(description="数据库实体名称/别名"),
 ):
-    return await GenericServiceV1.read(
+    return await GenericServiceV1.delete(
         schema_path=schema_path, entity_path=entity_path,
-        primary_id=primary_id
+        primary_id=primary_id,
     )

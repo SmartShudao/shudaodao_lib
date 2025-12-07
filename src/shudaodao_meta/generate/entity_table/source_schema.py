@@ -7,11 +7,12 @@
 
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
+from pydantic import ConfigDict
 
 from sqlalchemy import BigInteger
 
 from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
-from ...meta_config import MetaConfig
+from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
     from .source_referencing_foreign_key import SourceReferencingForeignKey
@@ -19,13 +20,13 @@ if TYPE_CHECKING:
     from .source_view import SourceView
 
 
-class SourceSchema(MetaConfig.RegistryModel, table=True):
+class SourceSchema(PackageConfig.RegistryModel, table=True):
     """数据库对象模型"""
 
     __tablename__ = "source_schema"
-    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "模式(schema)"}
+    __table_args__ = {"schema": PackageConfig.SchemaTable, "comment": "模式(schema)"}
     # 仅用于内部处理
-    __database_schema__ = MetaConfig.SchemaName
+    __database_schema__ = PackageConfig.SchemaName
     __primary_key__ = ["source_schema_id"]
 
     source_schema_id: int = Field(
@@ -69,6 +70,8 @@ class SourceSchemaCreate(SQLModel):
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class SourceSchemaUpdate(SQLModel):
     """前端更新模型 - 用于接口请求"""
@@ -80,11 +83,13 @@ class SourceSchemaUpdate(SQLModel):
     sort_order: Optional[int] = Field(default=None, description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
 
+    model_config = ConfigDict(populate_by_name=True)
+
 
 class SourceSchemaResponse(BaseResponse):
     """前端响应模型 - 用于接口响应"""
 
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    __database_schema__ = PackageConfig.SchemaName  # 仅用于内部处理
     source_schema_id: int = Field(description="主键", sa_type=BigInteger)
     schema_label: Optional[str] = Field(description="架构中文", default=None)
     schema_name: str = Field(description="数据库模式")
@@ -95,3 +100,5 @@ class SourceSchemaResponse(BaseResponse):
     create_at: Optional[datetime] = Field(description="创建日期", default=None)
     update_by: Optional[str] = Field(description="修改人", default=None)
     update_at: Optional[datetime] = Field(description="修改日期", default=None)
+
+    model_config = ConfigDict(populate_by_name=True)

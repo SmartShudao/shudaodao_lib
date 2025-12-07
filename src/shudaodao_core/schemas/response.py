@@ -99,16 +99,17 @@ class ErrorResponse(BaseModel):
 
 class TokenResponse(BaseModel):
     token_type: str = "Bearer"
+    # 成功
     access_token: str
     expires_in: int
-
+    # 刷新
     refresh_token: Optional[str] = None
     refresh_expires_in: int
     # scope: Optional[str] = None # 暂时用不上
 
-    # user: Dict[str, Any]  # 暂时用不上
+    user: str  # Dict[str, Any]  # 暂时用不上
     # Art Design Pro
-    token: str
+    # token: str
     # id_token: Optional[str] = None  # 暂时用不上
 
 

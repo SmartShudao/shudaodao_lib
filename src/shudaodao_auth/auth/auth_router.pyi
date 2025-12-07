@@ -1,5 +1,4 @@
 from ..services.auth_service import AuthService as AuthService
-from ..services.casbin_service import PermissionService as PermissionService
 from _typeshed import Incomplete
 from collections.abc import Generator
 from fastapi import APIRouter

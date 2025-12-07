@@ -7,24 +7,25 @@
 
 from datetime import datetime
 from typing import Optional, TYPE_CHECKING
+from pydantic import ConfigDict
 
-from sqlalchemy import BigInteger
+from sqlalchemy import BigInteger, Boolean
 
 from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
-from ...meta_config import MetaConfig
+from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
     from .meta_table import MetaTable
     from .meta_view import MetaView
 
 
-class MetaSchema(MetaConfig.RegistryModel, table=True):
+class MetaSchema(PackageConfig.RegistryModel, table=True):
     """数据库对象模型"""
 
     __tablename__ = "meta_schema"
-    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "代码元数据"}
+    __table_args__ = {"schema": PackageConfig.SchemaTable, "comment": "代码元数据"}
     # 仅用于内部处理
-    __database_schema__ = MetaConfig.SchemaName
+    __database_schema__ = PackageConfig.SchemaName
     __primary_key__ = ["meta_schema_id"]
 
     meta_schema_id: int = Field(
@@ -48,6 +49,7 @@ class MetaSchema(MetaConfig.RegistryModel, table=True):
     )
     output_backend: Optional[str] = Field(default=None, nullable=True, max_length=256, description="后端路径")
     sort_order: int = Field(description="排序权重")
+    is_active: Optional[bool] = Field(default=None, sa_type=Boolean, nullable=True, description="是否启用")
     description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
     create_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="创建人")
     create_at: Optional[datetime] = Field(default=None, nullable=True, description="创建日期")
@@ -78,7 +80,10 @@ class MetaSchemaCreate(SQLModel):
     output_frontend: Optional[str] = Field(default=None, max_length=256, description="前端路径")
     output_backend: Optional[str] = Field(default=None, max_length=256, description="后端路径")
     sort_order: int = Field(description="排序权重")
+    is_active: Optional[bool] = Field(default=None, description="是否启用")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
+
+    model_config = ConfigDict(populate_by_name=True)
 
 
 class MetaSchemaUpdate(SQLModel):
@@ -93,13 +98,16 @@ class MetaSchemaUpdate(SQLModel):
     output_frontend: Optional[str] = Field(default=None, max_length=256, description="前端路径")
     output_backend: Optional[str] = Field(default=None, max_length=256, description="后端路径")
     sort_order: Optional[int] = Field(default=None, description="排序权重")
+    is_active: Optional[bool] = Field(default=None, description="是否启用")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
+
+    model_config = ConfigDict(populate_by_name=True)
 
 
 class MetaSchemaResponse(BaseResponse):
     """前端响应模型 - 用于接口响应"""
 
-    __database_schema__ = MetaConfig.SchemaName  # 仅用于内部处理
+    __database_schema__ = PackageConfig.SchemaName  # 仅用于内部处理
     meta_schema_id: int = Field(description="主键", sa_type=BigInteger)
     schema_label: Optional[str] = Field(description="数据库-模式标签", default=None)
     schema_name: str = Field(description="数据库-模式(schema)")
@@ -109,8 +117,11 @@ class MetaSchemaResponse(BaseResponse):
     output_frontend: Optional[str] = Field(description="前端路径", default=None)
     output_backend: Optional[str] = Field(description="后端路径", default=None)
     sort_order: int = Field(description="排序权重")
+    is_active: Optional[bool] = Field(description="是否启用", default=None)
     description: Optional[str] = Field(description="描述", default=None)
     create_by: Optional[str] = Field(description="创建人", default=None)
     create_at: Optional[datetime] = Field(description="创建日期", default=None)
     update_by: Optional[str] = Field(description="修改人", default=None)
     update_at: Optional[datetime] = Field(description="修改日期", default=None)
+
+    model_config = ConfigDict(populate_by_name=True)

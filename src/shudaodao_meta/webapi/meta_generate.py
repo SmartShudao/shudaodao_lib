@@ -12,13 +12,13 @@ from sqlmodel.ext.asyncio.session import AsyncSession
 
 from shudaodao_auth import AuthAPIRouter
 from shudaodao_core import Depends, ResponseUtil
-from ..meta_config import MetaConfig
+from ..package_config import PackageConfig
 from ..tools.meta_template import MetaTemplate
 
 Meta_Generate_Router = AuthAPIRouter(
-    prefix=f"/{MetaConfig.RouterPath}",
-    tags=[f"{MetaConfig.RouterTags} - 生成代码"],
-    db_engine_name=MetaConfig.EngineName,
+    prefix=f"/{PackageConfig.RouterPath}",
+    tags=[f"{PackageConfig.RouterTags} - 生成代码"],
+    db_engine_name=PackageConfig.EngineName,
     auth_role="admin",
 )
 

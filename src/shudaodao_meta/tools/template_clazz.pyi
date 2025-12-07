@@ -6,6 +6,7 @@ class TemplateColumn:
     comment: str
     is_primary_key: bool
     is_foreign_key: bool
+    type2: str
     type: str
     clazz: str
     model_type: int

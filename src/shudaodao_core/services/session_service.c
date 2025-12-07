@@ -1528,7 +1528,7 @@ struct __pyx_obj_15session_service___pyx_scope_struct__get_session {
 
 
 /* "session_service.py":113
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  * 
  *     async def get_raw_session(self, name) -> AsyncSession:             # <<<<<<<<<<<<<<
  *         """"""
@@ -2699,24 +2699,23 @@ static const char __pyx_k_s[] = "s";
 static const char __pyx_k__2[] = " \346\210\220\345\212\237";
 static const char __pyx_k__3[] = "\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235 ";
 static const char __pyx_k__4[] = " \343\200\215";
-static const char __pyx_k__5[] = "\346\225\260\346\215\256\345\272\223\344\274\232\350\257\235: ";
-static const char __pyx_k__6[] = "\345\216\237\345\247\213\344\274\232\350\257\235: ";
-static const char __pyx_k__7[] = "\345\201\245\345\272\267\346\243\200\346\237\245: ";
-static const char __pyx_k__8[] = "\344\274\232\350\257\235\345\267\245\345\216\202 \345\212\250\346\200\201\345\205\263\351\227\255 ";
-static const char __pyx_k__9[] = "\344\274\232\350\257\235\345\267\245\345\216\202 ";
+static const char __pyx_k__5[] = "\345\216\237\345\247\213\344\274\232\350\257\235: ";
+static const char __pyx_k__6[] = "\345\201\245\345\272\267\346\243\200\346\237\245: ";
+static const char __pyx_k__7[] = "\344\274\232\350\257\235\345\267\245\345\216\202 \345\212\250\346\200\201\345\205\263\351\227\255 ";
+static const char __pyx_k__8[] = "\344\274\232\350\257\235\345\267\245\345\216\202 ";
+static const char __pyx_k__9[] = " \344\270\215\345\255\230\345\234\250";
 static const char __pyx_k_gc[] = "gc";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_y0[] = "\320\n'\240y\3200@\300\001";
 static const char __pyx_k_A_2[] = "\200A\330+,";
 static const char __pyx_k_A_3[] = "\200A";
 static const char __pyx_k_Set[] = "Set";
-static const char __pyx_k__10[] = " \344\270\215\345\255\230\345\234\250";
-static const char __pyx_k__11[] = "\345\274\200\345\247\213\345\205\263\351\227\255\346\211\200\346\234\211\346\225\260\346\215\256\345\272\223\350\265\204\346\272\220";
-static const char __pyx_k__12[] = "\346\211\200\346\234\211\346\225\260\346\215\256\345\272\223\350\265\204\346\272\220\345\205\263\351\227\255\345\256\214\346\210\220\357\274\214\345\205\261\346\270\205\347\220\206 ";
-static const char __pyx_k__13[] = " \344\270\252\344\274\232\350\257\235\345\267\245\345\216\202";
-static const char __pyx_k__14[] = ".";
-static const char __pyx_k__15[] = "?";
-static const char __pyx_k__16[] = "\210!";
+static const char __pyx_k__10[] = "\345\274\200\345\247\213\345\205\263\351\227\255\346\211\200\346\234\211\346\225\260\346\215\256\345\272\223\350\265\204\346\272\220";
+static const char __pyx_k__11[] = "\346\211\200\346\234\211\346\225\260\346\215\256\345\272\223\350\265\204\346\272\220\345\205\263\351\227\255\345\256\214\346\210\220\357\274\214\345\205\261\346\270\205\347\220\206 ";
+static const char __pyx_k__12[] = " \344\270\252\344\274\232\350\257\235\345\267\245\345\216\202";
+static const char __pyx_k__13[] = ".";
+static const char __pyx_k__14[] = "?";
+static const char __pyx_k__15[] = "\210!";
 static const char __pyx_k_add[] = "add";
 static const char __pyx_k_cls[] = "cls";
 static const char __pyx_k_del[] = "__del__";
@@ -2941,7 +2940,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyUnicode_Type__lower;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[12];
-  PyObject *__pyx_string_tab[163];
+  PyObject *__pyx_string_tab[162];
   PyObject *__pyx_int_1;
   PyObject *__pyx_int_2;
 /* #### Code section: module_state_contents ### */
@@ -3068,139 +3067,138 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_Set __pyx_string_tab[27]
 #define __pyx_n_u_ShudaodaoException __pyx_string_tab[28]
 #define __pyx_n_u_TimeoutError __pyx_string_tab[29]
-#define __pyx_kp_u__10 __pyx_string_tab[30]
-#define __pyx_n_u__11 __pyx_string_tab[31]
+#define __pyx_n_u__10 __pyx_string_tab[30]
+#define __pyx_kp_u__11 __pyx_string_tab[31]
 #define __pyx_kp_u__12 __pyx_string_tab[32]
 #define __pyx_kp_u__13 __pyx_string_tab[33]
 #define __pyx_kp_u__14 __pyx_string_tab[34]
-#define __pyx_kp_u__15 __pyx_string_tab[35]
-#define __pyx_kp_u__2 __pyx_string_tab[36]
-#define __pyx_kp_u__3 __pyx_string_tab[37]
-#define __pyx_kp_u__4 __pyx_string_tab[38]
-#define __pyx_kp_u__5 __pyx_string_tab[39]
-#define __pyx_kp_u__6 __pyx_string_tab[40]
-#define __pyx_kp_u__7 __pyx_string_tab[41]
-#define __pyx_kp_u__8 __pyx_string_tab[42]
-#define __pyx_kp_u__9 __pyx_string_tab[43]
-#define __pyx_n_u_add __pyx_string_tab[44]
-#define __pyx_kp_u_add_note __pyx_string_tab[45]
-#define __pyx_n_u_aenter __pyx_string_tab[46]
-#define __pyx_n_u_aexit __pyx_string_tab[47]
-#define __pyx_n_u_args __pyx_string_tab[48]
-#define __pyx_n_u_async_close __pyx_string_tab[49]
-#define __pyx_n_u_async_engine __pyx_string_tab[50]
-#define __pyx_n_u_async_sessionmaker __pyx_string_tab[51]
-#define __pyx_n_u_asynccontextmanager __pyx_string_tab[52]
-#define __pyx_n_u_asyncio __pyx_string_tab[53]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[54]
-#define __pyx_n_u_autocommit __pyx_string_tab[55]
-#define __pyx_n_u_autoflush __pyx_string_tab[56]
-#define __pyx_n_u_await __pyx_string_tab[57]
-#define __pyx_n_u_bind __pyx_string_tab[58]
-#define __pyx_n_u_bool __pyx_string_tab[59]
-#define __pyx_n_u_class __pyx_string_tab[60]
-#define __pyx_n_u_class_getitem __pyx_string_tab[61]
-#define __pyx_n_u_clear __pyx_string_tab[62]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[63]
-#define __pyx_n_u_close __pyx_string_tab[64]
-#define __pyx_n_u_close_all __pyx_string_tab[65]
-#define __pyx_n_u_close_session_factory __pyx_string_tab[66]
-#define __pyx_n_u_cls __pyx_string_tab[67]
-#define __pyx_n_u_commit __pyx_string_tab[68]
-#define __pyx_n_u_contextlib __pyx_string_tab[69]
-#define __pyx_n_u_database_engine __pyx_string_tab[70]
-#define __pyx_n_u_debug __pyx_string_tab[71]
-#define __pyx_n_u_debug_line __pyx_string_tab[72]
-#define __pyx_n_u_del __pyx_string_tab[73]
-#define __pyx_kp_u_disable __pyx_string_tab[74]
-#define __pyx_n_u_discard __pyx_string_tab[75]
-#define __pyx_n_u_doc __pyx_string_tab[76]
-#define __pyx_n_u_dumps __pyx_string_tab[77]
-#define __pyx_n_u_e __pyx_string_tab[78]
-#define __pyx_kp_u_enable __pyx_string_tab[79]
-#define __pyx_n_u_engine_database_engine __pyx_string_tab[80]
-#define __pyx_n_u_ensure_ascii __pyx_string_tab[81]
-#define __pyx_n_u_enter __pyx_string_tab[82]
-#define __pyx_n_u_error __pyx_string_tab[83]
-#define __pyx_kp_u_error_2 __pyx_string_tab[84]
-#define __pyx_n_u_errors __pyx_string_tab[85]
-#define __pyx_n_u_exception_service_exception __pyx_string_tab[86]
-#define __pyx_n_u_execute __pyx_string_tab[87]
-#define __pyx_n_u_exit __pyx_string_tab[88]
-#define __pyx_n_u_expire_on_commit __pyx_string_tab[89]
-#define __pyx_n_u_float __pyx_string_tab[90]
-#define __pyx_n_u_func __pyx_string_tab[91]
-#define __pyx_kp_u_gc __pyx_string_tab[92]
-#define __pyx_n_u_get_async_engine __pyx_string_tab[93]
-#define __pyx_n_u_get_async_session __pyx_string_tab[94]
-#define __pyx_n_u_get_auth_async_session __pyx_string_tab[95]
-#define __pyx_n_u_get_raw_session __pyx_string_tab[96]
-#define __pyx_n_u_get_session __pyx_string_tab[97]
-#define __pyx_n_u_get_session_factory __pyx_string_tab[98]
-#define __pyx_n_u_health_check __pyx_string_tab[99]
-#define __pyx_n_u_id __pyx_string_tab[100]
-#define __pyx_n_u_indent __pyx_string_tab[101]
-#define __pyx_n_u_init __pyx_string_tab[102]
-#define __pyx_n_u_initializing __pyx_string_tab[103]
-#define __pyx_n_u_instance __pyx_string_tab[104]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[105]
-#define __pyx_kp_u_isenabled __pyx_string_tab[106]
-#define __pyx_n_u_json __pyx_string_tab[107]
-#define __pyx_n_u_loaded_count __pyx_string_tab[108]
-#define __pyx_n_u_loaded_sources __pyx_string_tab[109]
-#define __pyx_n_u_lock __pyx_string_tab[110]
-#define __pyx_n_u_logger_logging __pyx_string_tab[111]
-#define __pyx_n_u_logging __pyx_string_tab[112]
-#define __pyx_n_u_lower __pyx_string_tab[113]
-#define __pyx_n_u_main __pyx_string_tab[114]
-#define __pyx_n_u_message __pyx_string_tab[115]
-#define __pyx_n_u_metaclass __pyx_string_tab[116]
-#define __pyx_n_u_module __pyx_string_tab[117]
-#define __pyx_n_u_msg __pyx_string_tab[118]
-#define __pyx_n_u_name __pyx_string_tab[119]
-#define __pyx_n_u_name_2 __pyx_string_tab[120]
-#define __pyx_n_u_name_3 __pyx_string_tab[121]
-#define __pyx_n_u_new __pyx_string_tab[122]
-#define __pyx_n_u_next __pyx_string_tab[123]
-#define __pyx_n_u_pop __pyx_string_tab[124]
-#define __pyx_n_u_prepare __pyx_string_tab[125]
-#define __pyx_n_u_qualname __pyx_string_tab[126]
-#define __pyx_kp_u_result __pyx_string_tab[127]
-#define __pyx_n_u_result_2 __pyx_string_tab[128]
-#define __pyx_n_u_return __pyx_string_tab[129]
-#define __pyx_n_u_rollback __pyx_string_tab[130]
-#define __pyx_n_u_s __pyx_string_tab[131]
-#define __pyx_n_u_scalar __pyx_string_tab[132]
-#define __pyx_n_u_self __pyx_string_tab[133]
-#define __pyx_n_u_send __pyx_string_tab[134]
-#define __pyx_n_u_session __pyx_string_tab[135]
-#define __pyx_n_u_session_factories __pyx_string_tab[136]
-#define __pyx_n_u_session_factory __pyx_string_tab[137]
-#define __pyx_kp_u_session_id __pyx_string_tab[138]
-#define __pyx_kp_u_session_id_2 __pyx_string_tab[139]
-#define __pyx_kp_u_session_id_3 __pyx_string_tab[140]
-#define __pyx_kp_u_session_id_4 __pyx_string_tab[141]
-#define __pyx_kp_u_session_id_5 __pyx_string_tab[142]
-#define __pyx_n_u_session_service __pyx_string_tab[143]
-#define __pyx_kp_u_session_service_py __pyx_string_tab[144]
-#define __pyx_n_u_set_name __pyx_string_tab[145]
-#define __pyx_n_u_sort_keys __pyx_string_tab[146]
-#define __pyx_n_u_spec __pyx_string_tab[147]
-#define __pyx_n_u_sqlalchemy_exc __pyx_string_tab[148]
-#define __pyx_n_u_sqlalchemy_ext_asyncio __pyx_string_tab[149]
-#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[150]
-#define __pyx_n_u_str __pyx_string_tab[151]
-#define __pyx_n_u_super __pyx_string_tab[152]
-#define __pyx_n_u_support_schema __pyx_string_tab[153]
-#define __pyx_n_u_test __pyx_string_tab[154]
-#define __pyx_n_u_test_result __pyx_string_tab[155]
-#define __pyx_n_u_threading __pyx_string_tab[156]
-#define __pyx_n_u_throw __pyx_string_tab[157]
-#define __pyx_n_u_timeout __pyx_string_tab[158]
-#define __pyx_kp_u_timeout_2 __pyx_string_tab[159]
-#define __pyx_n_u_typing __pyx_string_tab[160]
-#define __pyx_n_u_value __pyx_string_tab[161]
-#define __pyx_n_u_warning __pyx_string_tab[162]
+#define __pyx_kp_u__2 __pyx_string_tab[35]
+#define __pyx_kp_u__3 __pyx_string_tab[36]
+#define __pyx_kp_u__4 __pyx_string_tab[37]
+#define __pyx_kp_u__5 __pyx_string_tab[38]
+#define __pyx_kp_u__6 __pyx_string_tab[39]
+#define __pyx_kp_u__7 __pyx_string_tab[40]
+#define __pyx_kp_u__8 __pyx_string_tab[41]
+#define __pyx_kp_u__9 __pyx_string_tab[42]
+#define __pyx_n_u_add __pyx_string_tab[43]
+#define __pyx_kp_u_add_note __pyx_string_tab[44]
+#define __pyx_n_u_aenter __pyx_string_tab[45]
+#define __pyx_n_u_aexit __pyx_string_tab[46]
+#define __pyx_n_u_args __pyx_string_tab[47]
+#define __pyx_n_u_async_close __pyx_string_tab[48]
+#define __pyx_n_u_async_engine __pyx_string_tab[49]
+#define __pyx_n_u_async_sessionmaker __pyx_string_tab[50]
+#define __pyx_n_u_asynccontextmanager __pyx_string_tab[51]
+#define __pyx_n_u_asyncio __pyx_string_tab[52]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[53]
+#define __pyx_n_u_autocommit __pyx_string_tab[54]
+#define __pyx_n_u_autoflush __pyx_string_tab[55]
+#define __pyx_n_u_await __pyx_string_tab[56]
+#define __pyx_n_u_bind __pyx_string_tab[57]
+#define __pyx_n_u_bool __pyx_string_tab[58]
+#define __pyx_n_u_class __pyx_string_tab[59]
+#define __pyx_n_u_class_getitem __pyx_string_tab[60]
+#define __pyx_n_u_clear __pyx_string_tab[61]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[62]
+#define __pyx_n_u_close __pyx_string_tab[63]
+#define __pyx_n_u_close_all __pyx_string_tab[64]
+#define __pyx_n_u_close_session_factory __pyx_string_tab[65]
+#define __pyx_n_u_cls __pyx_string_tab[66]
+#define __pyx_n_u_commit __pyx_string_tab[67]
+#define __pyx_n_u_contextlib __pyx_string_tab[68]
+#define __pyx_n_u_database_engine __pyx_string_tab[69]
+#define __pyx_n_u_debug __pyx_string_tab[70]
+#define __pyx_n_u_debug_line __pyx_string_tab[71]
+#define __pyx_n_u_del __pyx_string_tab[72]
+#define __pyx_kp_u_disable __pyx_string_tab[73]
+#define __pyx_n_u_discard __pyx_string_tab[74]
+#define __pyx_n_u_doc __pyx_string_tab[75]
+#define __pyx_n_u_dumps __pyx_string_tab[76]
+#define __pyx_n_u_e __pyx_string_tab[77]
+#define __pyx_kp_u_enable __pyx_string_tab[78]
+#define __pyx_n_u_engine_database_engine __pyx_string_tab[79]
+#define __pyx_n_u_ensure_ascii __pyx_string_tab[80]
+#define __pyx_n_u_enter __pyx_string_tab[81]
+#define __pyx_n_u_error __pyx_string_tab[82]
+#define __pyx_kp_u_error_2 __pyx_string_tab[83]
+#define __pyx_n_u_errors __pyx_string_tab[84]
+#define __pyx_n_u_exception_service_exception __pyx_string_tab[85]
+#define __pyx_n_u_execute __pyx_string_tab[86]
+#define __pyx_n_u_exit __pyx_string_tab[87]
+#define __pyx_n_u_expire_on_commit __pyx_string_tab[88]
+#define __pyx_n_u_float __pyx_string_tab[89]
+#define __pyx_n_u_func __pyx_string_tab[90]
+#define __pyx_kp_u_gc __pyx_string_tab[91]
+#define __pyx_n_u_get_async_engine __pyx_string_tab[92]
+#define __pyx_n_u_get_async_session __pyx_string_tab[93]
+#define __pyx_n_u_get_auth_async_session __pyx_string_tab[94]
+#define __pyx_n_u_get_raw_session __pyx_string_tab[95]
+#define __pyx_n_u_get_session __pyx_string_tab[96]
+#define __pyx_n_u_get_session_factory __pyx_string_tab[97]
+#define __pyx_n_u_health_check __pyx_string_tab[98]
+#define __pyx_n_u_id __pyx_string_tab[99]
+#define __pyx_n_u_indent __pyx_string_tab[100]
+#define __pyx_n_u_init __pyx_string_tab[101]
+#define __pyx_n_u_initializing __pyx_string_tab[102]
+#define __pyx_n_u_instance __pyx_string_tab[103]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[104]
+#define __pyx_kp_u_isenabled __pyx_string_tab[105]
+#define __pyx_n_u_json __pyx_string_tab[106]
+#define __pyx_n_u_loaded_count __pyx_string_tab[107]
+#define __pyx_n_u_loaded_sources __pyx_string_tab[108]
+#define __pyx_n_u_lock __pyx_string_tab[109]
+#define __pyx_n_u_logger_logging __pyx_string_tab[110]
+#define __pyx_n_u_logging __pyx_string_tab[111]
+#define __pyx_n_u_lower __pyx_string_tab[112]
+#define __pyx_n_u_main __pyx_string_tab[113]
+#define __pyx_n_u_message __pyx_string_tab[114]
+#define __pyx_n_u_metaclass __pyx_string_tab[115]
+#define __pyx_n_u_module __pyx_string_tab[116]
+#define __pyx_n_u_msg __pyx_string_tab[117]
+#define __pyx_n_u_name __pyx_string_tab[118]
+#define __pyx_n_u_name_2 __pyx_string_tab[119]
+#define __pyx_n_u_name_3 __pyx_string_tab[120]
+#define __pyx_n_u_new __pyx_string_tab[121]
+#define __pyx_n_u_next __pyx_string_tab[122]
+#define __pyx_n_u_pop __pyx_string_tab[123]
+#define __pyx_n_u_prepare __pyx_string_tab[124]
+#define __pyx_n_u_qualname __pyx_string_tab[125]
+#define __pyx_kp_u_result __pyx_string_tab[126]
+#define __pyx_n_u_result_2 __pyx_string_tab[127]
+#define __pyx_n_u_return __pyx_string_tab[128]
+#define __pyx_n_u_rollback __pyx_string_tab[129]
+#define __pyx_n_u_s __pyx_string_tab[130]
+#define __pyx_n_u_scalar __pyx_string_tab[131]
+#define __pyx_n_u_self __pyx_string_tab[132]
+#define __pyx_n_u_send __pyx_string_tab[133]
+#define __pyx_n_u_session __pyx_string_tab[134]
+#define __pyx_n_u_session_factories __pyx_string_tab[135]
+#define __pyx_n_u_session_factory __pyx_string_tab[136]
+#define __pyx_kp_u_session_id __pyx_string_tab[137]
+#define __pyx_kp_u_session_id_2 __pyx_string_tab[138]
+#define __pyx_kp_u_session_id_3 __pyx_string_tab[139]
+#define __pyx_kp_u_session_id_4 __pyx_string_tab[140]
+#define __pyx_kp_u_session_id_5 __pyx_string_tab[141]
+#define __pyx_n_u_session_service __pyx_string_tab[142]
+#define __pyx_kp_u_session_service_py __pyx_string_tab[143]
+#define __pyx_n_u_set_name __pyx_string_tab[144]
+#define __pyx_n_u_sort_keys __pyx_string_tab[145]
+#define __pyx_n_u_spec __pyx_string_tab[146]
+#define __pyx_n_u_sqlalchemy_exc __pyx_string_tab[147]
+#define __pyx_n_u_sqlalchemy_ext_asyncio __pyx_string_tab[148]
+#define __pyx_n_u_sqlmodel_ext_asyncio_session __pyx_string_tab[149]
+#define __pyx_n_u_str __pyx_string_tab[150]
+#define __pyx_n_u_super __pyx_string_tab[151]
+#define __pyx_n_u_support_schema __pyx_string_tab[152]
+#define __pyx_n_u_test __pyx_string_tab[153]
+#define __pyx_n_u_test_result __pyx_string_tab[154]
+#define __pyx_n_u_threading __pyx_string_tab[155]
+#define __pyx_n_u_throw __pyx_string_tab[156]
+#define __pyx_n_u_timeout __pyx_string_tab[157]
+#define __pyx_kp_u_timeout_2 __pyx_string_tab[158]
+#define __pyx_n_u_typing __pyx_string_tab[159]
+#define __pyx_n_u_value __pyx_string_tab[160]
+#define __pyx_n_u_warning __pyx_string_tab[161]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -3237,7 +3235,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_15session_service___pyx_scope_struct_6_get_auth_async_session);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<12; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<163; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<162; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   Py_CLEAR(clear_module_state->__pyx_int_1);
   Py_CLEAR(clear_module_state->__pyx_int_2);
   return 0;
@@ -3276,7 +3274,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_15session_service___pyx_scope_struct_6_get_auth_async_session);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<12; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<163; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<162; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_1);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_int_2);
   return 0;
@@ -5174,7 +5172,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             logging.debug(f"{json.dumps(e.errors, indent=2, ensure_ascii=False, sort_keys=True)}")
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
           __pyx_t_19 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_session); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 85, __pyx_L20_error)
           if (__pyx_t_19) {
@@ -5183,7 +5181,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             logging.debug(f"{json.dumps(e.errors, indent=2, ensure_ascii=False, sort_keys=True)}")
  *             if session:
  *                 await session.rollback()             # <<<<<<<<<<<<<<
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise
 */
             __pyx_t_5 = __pyx_cur_scope->__pyx_v_session;
@@ -5249,7 +5247,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
             /* "session_service.py":87
  *             if session:
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
  *             raise
  *         except SQLAlchemyError as e:
 */
@@ -5266,12 +5264,12 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
             __pyx_t_18 = __Pyx_PyObject_FormatSimple(__pyx_t_15, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 87, __pyx_L20_error)
             __Pyx_GOTREF(__pyx_t_18);
             __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
-            __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__5;
+            __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__3;
             __pyx_t_11[1] = __pyx_t_17;
             __pyx_t_11[2] = __pyx_mstate_global->__pyx_kp_u_session_id_3;
             __pyx_t_11[3] = __pyx_t_18;
             __pyx_t_11[4] = __pyx_mstate_global->__pyx_kp_u__4;
-            __pyx_t_15 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_18) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_17) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_18));
+            __pyx_t_15 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_18) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_17) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_18));
             if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 87, __pyx_L20_error)
             __Pyx_GOTREF(__pyx_t_15);
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
@@ -5304,13 +5302,13 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             logging.debug(f"{json.dumps(e.errors, indent=2, ensure_ascii=False, sort_keys=True)}")
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
           }
 
           /* "session_service.py":88
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise             # <<<<<<<<<<<<<<
  *         except SQLAlchemyError as e:
  *             # logging.error(f": {name}  -  session_id: {id(session)} ")
@@ -5372,7 +5370,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
       }
 
       /* "session_service.py":89
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise
  *         except SQLAlchemyError as e:             # <<<<<<<<<<<<<<
  *             # logging.error(f": {name}  -  session_id: {id(session)} ")
@@ -5510,7 +5508,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             # logging.error(f": {e}")
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
           __pyx_t_19 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_session); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 94, __pyx_L33_error)
           if (__pyx_t_19) {
@@ -5519,7 +5517,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             # logging.error(f": {e}")
  *             if session:
  *                 await session.rollback()             # <<<<<<<<<<<<<<
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise
 */
             __pyx_t_8 = __pyx_cur_scope->__pyx_v_session;
@@ -5585,7 +5583,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
             /* "session_service.py":96
  *             if session:
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
  *             raise
  *         except Exception as e:
 */
@@ -5602,12 +5600,12 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
             __pyx_t_17 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 96, __pyx_L33_error)
             __Pyx_GOTREF(__pyx_t_17);
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-            __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__5;
+            __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__3;
             __pyx_t_11[1] = __pyx_t_18;
             __pyx_t_11[2] = __pyx_mstate_global->__pyx_kp_u_session_id_3;
             __pyx_t_11[3] = __pyx_t_17;
             __pyx_t_11[4] = __pyx_mstate_global->__pyx_kp_u__4;
-            __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_18) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_18) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_17));
+            __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_18) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_18) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_17));
             if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 96, __pyx_L33_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
@@ -5640,13 +5638,13 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             # logging.error(f": {e}")
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
           }
 
           /* "session_service.py":97
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise             # <<<<<<<<<<<<<<
  *         except Exception as e:
  *             # SQLAlchemy
@@ -5660,7 +5658,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
         }
 
         /* "session_service.py":89
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise
  *         except SQLAlchemyError as e:             # <<<<<<<<<<<<<<
  *             # logging.error(f": {name}  -  session_id: {id(session)} ")
@@ -5708,7 +5706,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
       }
 
       /* "session_service.py":98
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise
  *         except Exception as e:             # <<<<<<<<<<<<<<
  *             # SQLAlchemy
@@ -5840,7 +5838,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             # logging.error(f": {e}")
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
           __pyx_t_19 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_session); if (unlikely((__pyx_t_19 < 0))) __PYX_ERR(0, 104, __pyx_L49_error)
           if (__pyx_t_19) {
@@ -5849,7 +5847,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             # logging.error(f": {e}")
  *             if session:
  *                 await session.rollback()             # <<<<<<<<<<<<<<
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise
 */
             __pyx_t_14 = __pyx_cur_scope->__pyx_v_session;
@@ -5915,7 +5913,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
             /* "session_service.py":106
  *             if session:
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
  *             raise
  *         finally:
 */
@@ -5932,12 +5930,12 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
             __pyx_t_18 = __Pyx_PyObject_FormatSimple(__pyx_t_8, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 106, __pyx_L49_error)
             __Pyx_GOTREF(__pyx_t_18);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__5;
+            __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__3;
             __pyx_t_11[1] = __pyx_t_17;
             __pyx_t_11[2] = __pyx_mstate_global->__pyx_kp_u_session_id_4;
             __pyx_t_11[3] = __pyx_t_18;
             __pyx_t_11[4] = __pyx_mstate_global->__pyx_kp_u__4;
-            __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17) + 25 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_18) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_17) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_18));
+            __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_17) + 25 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_18) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_17) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_18));
             if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L49_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
@@ -5970,13 +5968,13 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *             # logging.error(f": {e}")
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
           }
 
           /* "session_service.py":107
  *                 await session.rollback()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise             # <<<<<<<<<<<<<<
  *         finally:
  *             if session:
@@ -5990,7 +5988,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
         }
 
         /* "session_service.py":98
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  *             raise
  *         except Exception as e:             # <<<<<<<<<<<<<<
  *             # SQLAlchemy
@@ -6060,7 +6058,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *         finally:
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.close()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
   /*finally:*/ {
     /*normal exit:*/{
@@ -6071,7 +6069,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *         finally:
  *             if session:
  *                 await session.close()             # <<<<<<<<<<<<<<
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  * 
 */
         __pyx_t_7 = __pyx_cur_scope->__pyx_v_session;
@@ -6107,7 +6105,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
         /* "session_service.py":111
  *             if session:
  *                 await session.close()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
  * 
  *     async def get_raw_session(self, name) -> AsyncSession:
 */
@@ -6124,12 +6122,12 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
         __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 111, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__5;
+        __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__3;
         __pyx_t_11[1] = __pyx_t_4;
         __pyx_t_11[2] = __pyx_mstate_global->__pyx_kp_u_session_id_5;
         __pyx_t_11[3] = __pyx_t_8;
         __pyx_t_11[4] = __pyx_mstate_global->__pyx_kp_u__4;
-        __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8));
+        __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8));
         if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 111, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -6162,7 +6160,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *         finally:
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.close()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
       }
       goto __pyx_L6;
@@ -6199,7 +6197,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *         finally:
  *             if session:
  *                 await session.close()             # <<<<<<<<<<<<<<
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  * 
 */
           __pyx_t_15 = __pyx_cur_scope->__pyx_v_session;
@@ -6271,7 +6269,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
           /* "session_service.py":111
  *             if session:
  *                 await session.close()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")             # <<<<<<<<<<<<<<
  * 
  *     async def get_raw_session(self, name) -> AsyncSession:
 */
@@ -6288,12 +6286,12 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
           __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_8, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L63_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__5;
+          __pyx_t_11[0] = __pyx_mstate_global->__pyx_kp_u__3;
           __pyx_t_11[1] = __pyx_t_5;
           __pyx_t_11[2] = __pyx_mstate_global->__pyx_kp_u_session_id_5;
           __pyx_t_11[3] = __pyx_t_4;
           __pyx_t_11[4] = __pyx_mstate_global->__pyx_kp_u__4;
-          __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 7 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4));
+          __pyx_t_8 = __Pyx_PyUnicode_Join(__pyx_t_11, 5, 6 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5) + 22 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4) + 2, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4));
           if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 111, __pyx_L63_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -6326,7 +6324,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
  *         finally:
  *             if session:             # <<<<<<<<<<<<<<
  *                 await session.close()
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
 */
         }
       }
@@ -6396,7 +6394,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_8generator(__p
 static PyObject *__pyx_gb_15session_service_19AsyncSessionService_11generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
 /* "session_service.py":113
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  * 
  *     async def get_raw_session(self, name) -> AsyncSession:             # <<<<<<<<<<<<<<
  *         """"""
@@ -6640,7 +6638,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_11generator1(_
   __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_8[0] = __pyx_mstate_global->__pyx_kp_u__6;
+  __pyx_t_8[0] = __pyx_mstate_global->__pyx_kp_u__5;
   __pyx_t_8[1] = __pyx_t_2;
   __pyx_t_8[2] = __pyx_mstate_global->__pyx_kp_u_session_id;
   __pyx_t_8[3] = __pyx_t_7;
@@ -6687,7 +6685,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_11generator1(_
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
   /* "session_service.py":113
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  * 
  *     async def get_raw_session(self, name) -> AsyncSession:             # <<<<<<<<<<<<<<
  *         """"""
@@ -7324,7 +7322,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_14generator2(_
                       __Pyx_GOTREF(__pyx_t_7);
                       __pyx_t_18 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_test_result, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 149, __pyx_L26_error)
                       __Pyx_GOTREF(__pyx_t_18);
-                      __pyx_t_19[0] = __pyx_mstate_global->__pyx_kp_u__7;
+                      __pyx_t_19[0] = __pyx_mstate_global->__pyx_kp_u__6;
                       __pyx_t_19[1] = __pyx_t_7;
                       __pyx_t_19[2] = __pyx_mstate_global->__pyx_kp_u_result;
                       __pyx_t_19[3] = __pyx_t_18;
@@ -8047,7 +8045,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_14generator2(_
       __pyx_t_27 = __Pyx_PyObject_FormatSimple(__pyx_t_26, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 153, __pyx_L6_except_error)
       __Pyx_GOTREF(__pyx_t_27);
       __Pyx_DECREF(__pyx_t_26); __pyx_t_26 = 0;
-      __pyx_t_28[0] = __pyx_mstate_global->__pyx_kp_u__7;
+      __pyx_t_28[0] = __pyx_mstate_global->__pyx_kp_u__6;
       __pyx_t_28[1] = __pyx_t_7;
       __pyx_t_28[2] = __pyx_mstate_global->__pyx_kp_u_timeout_2;
       __pyx_t_28[3] = __pyx_t_27;
@@ -8132,7 +8130,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_14generator2(_
         __Pyx_GOTREF(__pyx_t_26);
         __pyx_t_27 = __Pyx_PyObject_FormatSimple(__pyx_cur_scope->__pyx_v_e, __pyx_mstate_global->__pyx_empty_unicode); if (unlikely(!__pyx_t_27)) __PYX_ERR(0, 156, __pyx_L54_error)
         __Pyx_GOTREF(__pyx_t_27);
-        __pyx_t_19[0] = __pyx_mstate_global->__pyx_kp_u__7;
+        __pyx_t_19[0] = __pyx_mstate_global->__pyx_kp_u__6;
         __pyx_t_19[1] = __pyx_t_26;
         __pyx_t_19[2] = __pyx_mstate_global->__pyx_kp_u_error_2;
         __pyx_t_19[3] = __pyx_t_27;
@@ -8724,7 +8722,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_19generator3(_
     __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_debug); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_7[0] = __pyx_mstate_global->__pyx_kp_u__8;
+    __pyx_t_7[0] = __pyx_mstate_global->__pyx_kp_u__7;
     __pyx_t_7[1] = __pyx_cur_scope->__pyx_v_name;
     __pyx_t_7[2] = __pyx_mstate_global->__pyx_kp_u__2;
     __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_7, 3, 10 + __Pyx_PyUnicode_GET_LENGTH(__pyx_cur_scope->__pyx_v_name) + 3, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_cur_scope->__pyx_v_name));
@@ -8777,9 +8775,9 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_19generator3(_
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_warning); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_7[0] = __pyx_mstate_global->__pyx_kp_u__9;
+    __pyx_t_7[0] = __pyx_mstate_global->__pyx_kp_u__8;
     __pyx_t_7[1] = __pyx_cur_scope->__pyx_v_name;
-    __pyx_t_7[2] = __pyx_mstate_global->__pyx_kp_u__10;
+    __pyx_t_7[2] = __pyx_mstate_global->__pyx_kp_u__9;
     __pyx_t_3 = __Pyx_PyUnicode_Join(__pyx_t_7, 3, 5 + __Pyx_PyUnicode_GET_LENGTH(__pyx_cur_scope->__pyx_v_name) + 4, 65535 | __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_cur_scope->__pyx_v_name));
     if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -9029,7 +9027,7 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_22generator4(_
   }
   #endif
   {
-    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_n_u__11};
+    PyObject *__pyx_callargs[2] = {__pyx_t_2, __pyx_mstate_global->__pyx_n_u__10};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_4, __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -9169,9 +9167,9 @@ static PyObject *__pyx_gb_15session_service_19AsyncSessionService_22generator4(_
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = __Pyx_PyUnicode_From_Py_ssize_t(__pyx_cur_scope->__pyx_v_loaded_count, 0, ' ', 'd'); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_9[0] = __pyx_mstate_global->__pyx_kp_u__12;
+  __pyx_t_9[0] = __pyx_mstate_global->__pyx_kp_u__11;
   __pyx_t_9[1] = __pyx_t_4;
-  __pyx_t_9[2] = __pyx_mstate_global->__pyx_kp_u__13;
+  __pyx_t_9[2] = __pyx_mstate_global->__pyx_kp_u__12;
   __pyx_t_10 = __Pyx_PyUnicode_Join(__pyx_t_9, 3, 16 + __Pyx_PyUnicode_GET_LENGTH(__pyx_t_4) + 6, 65535);
   if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
@@ -12768,7 +12766,7 @@ __Pyx_RefNannySetupContext("PyInit_session_service", 0);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
   /* "session_service.py":113
- *                 logging.debug(f": {name}  -  session_id: {id(session)} ")
+ *                 logging.debug(f" {name}  -  session_id: {id(session)} ")
  * 
  *     async def get_raw_session(self, name) -> AsyncSession:             # <<<<<<<<<<<<<<
  *         """"""
@@ -13019,12 +13017,11 @@ static const __Pyx_StringTabEntry __pyx_string_tab[] = {
   {__pyx_k_Set, sizeof(__pyx_k_Set), 0, 1, 1}, /* PyObject cname: __pyx_n_u_Set */
   {__pyx_k_ShudaodaoException, sizeof(__pyx_k_ShudaodaoException), 0, 1, 1}, /* PyObject cname: __pyx_n_u_ShudaodaoException */
   {__pyx_k_TimeoutError, sizeof(__pyx_k_TimeoutError), 0, 1, 1}, /* PyObject cname: __pyx_n_u_TimeoutError */
-  {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__10 */
-  {__pyx_k__11, sizeof(__pyx_k__11), 0, 1, 1}, /* PyObject cname: __pyx_n_u__11 */
+  {__pyx_k__10, sizeof(__pyx_k__10), 0, 1, 1}, /* PyObject cname: __pyx_n_u__10 */
+  {__pyx_k__11, sizeof(__pyx_k__11), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__11 */
   {__pyx_k__12, sizeof(__pyx_k__12), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__12 */
   {__pyx_k__13, sizeof(__pyx_k__13), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__13 */
   {__pyx_k__14, sizeof(__pyx_k__14), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__14 */
-  {__pyx_k__15, sizeof(__pyx_k__15), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__15 */
   {__pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__2 */
   {__pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__3 */
   {__pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0}, /* PyObject cname: __pyx_kp_u__4 */
@@ -13253,7 +13250,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 185, 2};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_loaded_count};
-    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_session_service_py, __pyx_mstate->__pyx_n_u_close_all, __pyx_k__16, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_session_service_py, __pyx_mstate->__pyx_n_u_close_all, __pyx_k__15, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_ASYNC_GENERATOR), 215, 5};
@@ -18039,7 +18036,7 @@ static PyObject *__Pyx_ImportDottedModule(PyObject *name, PyObject *parts_tuple)
         if (unlikely(!module_name_str)) { goto modbad; }
         module_name = PyUnicode_FromString(module_name_str);
         if (unlikely(!module_name)) { goto modbad; }
-        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__14);
+        module_dot = PyUnicode_Concat(module_name, __pyx_mstate_global->__pyx_kp_u__13);
         if (unlikely(!module_dot)) { goto modbad; }
         full_name = PyUnicode_Concat(module_dot, name);
         if (unlikely(!full_name)) { goto modbad; }
@@ -19731,7 +19728,7 @@ __Pyx_PyType_GetFullyQualifiedName(PyTypeObject* tp)
         result = name;
         name = NULL;
     } else {
-        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__15);
+        result = __Pyx_NewRef(__pyx_mstate_global->__pyx_kp_u__14);
     }
     goto done;
 }

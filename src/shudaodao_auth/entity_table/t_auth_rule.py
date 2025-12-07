@@ -8,14 +8,14 @@
 
 from sqlalchemy import Column, Integer, String
 
-from ..meta_config import MetaConfig
+from ..package_config import PackageConfig
 
-Base = MetaConfig.Registry.generate_base()
+Base = PackageConfig.Registry.generate_base()
 
 
 class AuthRule(Base):
     __tablename__ = "t_auth_rule"
-    __table_args__ = {"schema": MetaConfig.SchemaTable, "comment": "访问控制规则表"}
+    __table_args__ = {"schema": PackageConfig.SchemaTable, "comment": "访问控制规则表"}
 
     id = Column(Integer, primary_key=True, comment="主键")
     ptype = Column(String(255), comment="类型")
