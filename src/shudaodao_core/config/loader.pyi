@@ -1,3 +1,4 @@
+from ..config_remote.manager import RemoteConfigManager as RemoteConfigManager
 from ..utils.core_utils import CoreUtil as CoreUtil
 
 class ConfigLoader:
@@ -6,7 +7,7 @@ class ConfigLoader:
 
     加载顺序：
     1. 加载 `base.yaml` 作为基础配置；
-    2. 根据 `SmartShudao.environment.model` 的值（如 `dev` 或 `prod`），
+    2. 根据 `ShuDaodao.environment.model` 的值（如 `dev` 或 `prod`），
        加载对应环境配置（如 `dev.yaml`）和密钥文件（如 `secrets/dev.yaml`）；
     3. 合并所有配置，并可选地将最终结果写入 `environment.yaml` 用于调试。
 
@@ -18,16 +19,4 @@ class ConfigLoader:
 
     """
     @classmethod
-    def open(cls):
-        """加载并合并应用配置，返回完整的配置字典。
-
-        首先加载 `base.yaml`，从中读取环境模式（`environment.model`），
-        然后加载对应环境的 YAML 文件进行合并。
-
-        Returns:
-            dict: 合并后的完整配置字典，包含 'SmartShudao' 根节点。
-
-        Raises:
-            ValueError: 若 base.yaml 不是字典，或 environment.model 为未知值。
-            FileNotFoundError / yaml.YAMLError: 若配置文件缺失或格式错误。
-        """
+    def load(cls) -> dict: ...

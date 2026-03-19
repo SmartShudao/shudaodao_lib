@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shudaodao"
-version = "0.1.88"
-description = "SmartShudao"
+version = "0.1.101"
+description = "数道智融科技"
 readme = "README.md"
 authors = [
-    { name = "SmartShudao", email = "lf_shao@163.com" },
+    { name = "SmartShudao" },
 ]
 # 或者使用 SPDX 标识符
 license = "MIT"
@@ -20,21 +20,27 @@ requires-python = ">=3.10"
 dependencies = [
     "aiosqlite>=0.21.0",
     "asyncpg>=0.30.0",
-    "bcrypt>=5.0.0",
+    "bcrypt>=4.3.0",
     "black>=25.9.0",
+    "boto3>=1.42.44",
     "casbin>=1.43.0",
     "casbin-async-sqlalchemy-adapter>=1.10.0",
+    "cython>=3.1.4",
     "fastapi>=0.117.1",
     "greenlet>=3.2.4",
-    "jinja2>=3.1.6",
+    "Jinja2>=3.1.6",
     "psycopg2-binary>=2.9.10",
+    "python-docx>=1.2.0",
     "pydantic[email]>=2.11.7",
+    "pydantic-settings>=2.12.0",
     "pyjwt[crypto]>=2.10.1",
+    "pytest>=8.4.1",
     "python-multipart>=0.0.20",
     "pyyaml>=6.0.2",
     "redis>=6.4.0",
     "sqlmodel>=0.0.25",
-    "black>=25.9.0",
+    "starlette>=0.48.0",
+    "setuptools>=80.9.0",
 ]
 
 

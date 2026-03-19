@@ -57,48 +57,58 @@ class AuthUserResponse(BaseResponse):
     user_id: int = Field(description="主键", sa_type=BigInteger)
     username: str = Field(description="账户名")
     name: Optional[str] = Field(description="姓名", default=None)
-    password: str = Field(description="密码")
-    is_active: bool = Field(description="启用状态")
-    last_login_at: Optional[datetime] = Field(description="最后登录时间", default=None)
+    # password: str = Field(description="密码")
+    # is_active: bool = Field(description="启用状态")
+    # last_login_at: Optional[datetime] = Field(description="最后登录时间", default=None)
     nickname: Optional[str] = Field(description="昵称", default=None)
     picture: Optional[str] = Field(description="头像URL地址", default=None)
     email: Optional[str] = Field(description="邮件", default=None)
     email_verified: Optional[bool] = Field(description="邮箱是否已验证", default=None)
     totp_verified: Optional[bool] = Field(description="启用身份验证器", default=None)
-    create_by: Optional[str] = Field(description="创建人", default=None)
-    create_at: Optional[datetime] = Field(description="创建日期", default=None)
-    update_by: Optional[str] = Field(description="修改人", default=None)
-    update_at: Optional[datetime] = Field(description="修改日期", default=None)
+    # create_by: Optional[str] = Field(description="创建人", default=None)
+    # create_at: Optional[datetime] = Field(description="创建日期", default=None)
+    # update_by: Optional[str] = Field(description="修改人", default=None)
+    # update_at: Optional[datetime] = Field(description="修改日期", default=None)
 
 
-class AuthUserRegister(SQLModel):
+class AuthUserCreate(SQLModel):
     """ 注册模型 """
     username: str = Field(min_length=5, max_length=50)
     password: str = Field(min_length=5)
     # --- 核心字段 ---
     name: str = Field(default=None, nullable=True, description="姓名")
+    is_active: bool = Field(sa_type=Boolean, description="启用状态")
     last_login_at: Optional[datetime] = Field(default_factory=lambda: datetime.now(), description="最后登录时间")
     # --- 可修改字段 ---
-    nickname: str = Field(default=None, nullable=True, description="昵称")
+    nickname: Optional[str] = Field(default=None, nullable=True, description="昵称")
     picture: Optional[str] = Field(default=None, nullable=True, description="头像URL地址")
     email: Optional[EmailStr] = Field(default=None, nullable=True, description="邮件")
     # --- 用户验证增强 ---
-    # email_verified: Optional[bool] = Field(default=None, nullable=True, description="邮箱是否已验证")
+    email_verified: Optional[bool] = Field(default=None, nullable=True, description="邮箱是否已验证")
     # --- 内部管理字段 ---
     tenant_id: Optional[int] = Field(default=None, nullable=True, sa_type=BigInteger, description="默认租户")
+    model_config = ConfigDict(populate_by_name=True)
+
+
+class AuthUserUpdate(SQLModel):
+    """前端更新模型 - 用于接口请求"""
+    user_id: Optional[int] = Field(default=None, sa_type=BigInteger, description="内码")
+    nickname: Optional[str] = Field(default=None, nullable=True, description="昵称")
+    picture: Optional[str] = Field(default=None, nullable=True, description="头像URL地址")
+    email: Optional[EmailStr] = Field(default=None, nullable=True, description="邮件")
+    totp_verified: Optional[bool] = Field(description="启用身份验证器", default=None)
+    model_config = ConfigDict(populate_by_name=True)
 
 
 class AuthLogin(BaseModel):
     """ 登录模型 """
     username: str = Field(min_length=3, max_length=50)
     password: str = Field(min_length=5)
-
-    model_config = ConfigDict(
-        populate_by_name=True
-    )
+    model_config = ConfigDict(populate_by_name=True)
 
 
 class AuthPassword(SQLModel):
     """ 修改密码模型 """
     old_password: str
     new_password: str = Field(min_length=6, max_length=50)
+    model_config = ConfigDict(populate_by_name=True)

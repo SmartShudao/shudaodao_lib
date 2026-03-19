@@ -52,7 +52,10 @@ class AuthService:
     ): ...
     @classmethod
     async def get_current_user(
-        cls, auth_bearer: HTTPAuthorizationCredentials = ..., db: AsyncSession = ...
+        cls,
+        request: Request = None,
+        auth_bearer: HTTPAuthorizationCredentials = ...,
+        db: AsyncSession = ...,
     ): ...
     @classmethod
     async def logout(cls) -> None:

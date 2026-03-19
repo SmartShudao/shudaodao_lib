@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# @License  ：(C)Copyright 2025, 数道智融科技
+# @License  ：(C)Copyright 2026, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_acm.sys_module
@@ -11,7 +11,7 @@ from pydantic import ConfigDict
 
 from sqlalchemy import BigInteger, Boolean
 
-from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, EnumStr, get_primary_id
+from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
 from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
@@ -41,7 +41,7 @@ class Module(PackageConfig.RegistryModel, table=True):
     module_name: str = Field(max_length=100, description="模块名称")
     module_code: str = Field(max_length=100, description="模块编码")
     module_icon: Optional[str] = Field(default=None, nullable=True, max_length=100, description="模块图标")
-    module_type: EnumStr = Field(max_length=50, description="模块类型")
+    module_type: str = Field(max_length=50, description="模块类型")
     path_router: Optional[str] = Field(
         default=None, nullable=True, max_length=200, description="前端路由路径"
     )
@@ -74,7 +74,7 @@ class ModuleCreate(SQLModel):
     module_name: str = Field(max_length=100, description="模块名称")
     module_code: str = Field(max_length=100, description="模块编码")
     module_icon: Optional[str] = Field(default=None, max_length=100, description="模块图标")
-    module_type: EnumStr = Field(max_length=50, description="模块类型")
+    module_type: str = Field(max_length=50, description="模块类型")
     path_router: Optional[str] = Field(default=None, max_length=200, description="前端路由路径")
     path_component: Optional[str] = Field(default=None, max_length=200, description="前端组件路径")
     is_active: bool = Field(description="启用状态")
@@ -93,7 +93,7 @@ class ModuleUpdate(SQLModel):
     module_name: Optional[str] = Field(default=None, max_length=100, description="模块名称")
     module_code: Optional[str] = Field(default=None, max_length=100, description="模块编码")
     module_icon: Optional[str] = Field(default=None, max_length=100, description="模块图标")
-    module_type: Optional[EnumStr] = Field(default=None, max_length=50, description="模块类型")
+    module_type: Optional[str] = Field(default=None, max_length=50, description="模块类型")
     path_router: Optional[str] = Field(default=None, max_length=200, description="前端路由路径")
     path_component: Optional[str] = Field(default=None, max_length=200, description="前端组件路径")
     is_active: Optional[bool] = Field(default=None, description="启用状态")
@@ -113,7 +113,7 @@ class ModuleResponse(BaseResponse):
     module_name: str = Field(description="模块名称")
     module_code: str = Field(description="模块编码")
     module_icon: Optional[str] = Field(description="模块图标", default=None)
-    module_type: EnumStr = Field(description="模块类型")
+    module_type: str = Field(description="模块类型")
     path_router: Optional[str] = Field(description="前端路由路径", default=None)
     path_component: Optional[str] = Field(description="前端组件路径", default=None)
     is_active: bool = Field(description="启用状态")

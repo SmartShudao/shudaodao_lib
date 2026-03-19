@@ -24,4 +24,5 @@ class PackageConfigSetting(BaseModel):
     check_database: bool = Field(False, description="检查数据库")
     prefix: str = Field("/api", description="url前缀")
     tags: List[str] = Field(None, description="文档分类标签")
-    redis: Optional[str] = Field(None, description="Redis配置的name值")
+    object_storage: Optional[str] = Field(None, description="分布式对象存储配置的name值（RustFS）")
+    redis_storage: Optional[str] = Field(None, description="键值型数据库配置的name值（Redis）")

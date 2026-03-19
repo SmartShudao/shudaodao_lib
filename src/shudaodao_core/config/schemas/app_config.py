@@ -23,6 +23,7 @@ class EnvironmentConfigSetting(BaseModel):
     model: Literal["dev", "prod"] = Field(..., description="环境配置")
     logging_level: str = Field("debug", description="日志级别")
     show_merge_yaml: bool = Field(True, description="显示合并yaml")
+    root_path: str = Field("", description="项目根目录")
 
     @property
     def is_prod(self) -> bool:

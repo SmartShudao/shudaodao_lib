@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# @License  ：(C)Copyright 2025, 数道智融科技
+# @License  ：(C)Copyright 2026, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_acm.sys_role
@@ -11,7 +11,7 @@ from pydantic import ConfigDict
 
 from sqlalchemy import BigInteger, Boolean
 
-from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, EnumStr, get_primary_id
+from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_primary_id
 from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
@@ -38,7 +38,7 @@ class Role(PackageConfig.RegistryModel, table=True):
     role_pid: int = Field(sa_type=BigInteger, description="上级角色")
     role_name: Optional[str] = Field(default=None, nullable=True, max_length=100, description="角色名称")
     role_code: Optional[str] = Field(default=None, nullable=True, max_length=100, description="角色编码")
-    role_type: EnumStr = Field(max_length=50, description="角色类型")
+    role_type: str = Field(max_length=50, description="角色类型")
     is_active: bool = Field(sa_type=Boolean, description="启用状态")
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
@@ -58,7 +58,7 @@ class RoleCreate(SQLModel):
     role_pid: int = Field(sa_type=BigInteger, description="上级角色")
     role_name: Optional[str] = Field(default=None, max_length=100, description="角色名称")
     role_code: Optional[str] = Field(default=None, max_length=100, description="角色编码")
-    role_type: EnumStr = Field(max_length=50, description="角色类型")
+    role_type: str = Field(max_length=50, description="角色类型")
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
@@ -74,7 +74,7 @@ class RoleUpdate(SQLModel):
     role_pid: Optional[int] = Field(default=None, sa_type=BigInteger, description="上级角色")
     role_name: Optional[str] = Field(default=None, max_length=100, description="角色名称")
     role_code: Optional[str] = Field(default=None, max_length=100, description="角色编码")
-    role_type: Optional[EnumStr] = Field(default=None, max_length=50, description="角色类型")
+    role_type: Optional[str] = Field(default=None, max_length=50, description="角色类型")
     is_active: Optional[bool] = Field(default=None, description="启用状态")
     sort_order: Optional[int] = Field(default=None, description="排序权重")
     description: Optional[str] = Field(default=None, max_length=500, description="描述")
@@ -91,7 +91,7 @@ class RoleResponse(BaseResponse):
     role_pid: int = Field(description="上级角色", sa_type=BigInteger)
     role_name: Optional[str] = Field(description="角色名称", default=None)
     role_code: Optional[str] = Field(description="角色编码", default=None)
-    role_type: EnumStr = Field(description="角色类型")
+    role_type: str = Field(description="角色类型")
     is_active: bool = Field(description="启用状态")
     sort_order: int = Field(description="排序权重")
     description: Optional[str] = Field(description="描述", default=None)

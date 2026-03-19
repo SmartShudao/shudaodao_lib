@@ -17,7 +17,7 @@ from ..tools.meta_template import MetaTemplate
 
 Meta_Generate_Router = AuthAPIRouter(
     prefix=f"/{PackageConfig.RouterPath}",
-    tags=[f"{PackageConfig.RouterTags} - 生成代码"],
+    tags=[f"{PackageConfig.RouterTags} - 代码生成"],
     db_engine_name=PackageConfig.EngineName,
     auth_role="admin",
 )

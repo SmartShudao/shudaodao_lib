@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# @License  ：(C)Copyright 2025, 数道智融科技
+# @License  ：(C)Copyright 2026, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_acm.sys_system
@@ -55,7 +55,7 @@ class System(PackageConfig.RegistryModel, table=True):
         back_populates="System", sa_relationship_kwargs={"order_by": "Role.sort_order.asc()"}
     )
     # 正向关系 - 子对象
-    Route: "Route" = Relationship(back_populates="System", cascade_delete=True)
+    Routes: list["Route"] = Relationship(back_populates="System", cascade_delete=True)
 
 
 class SystemCreate(SQLModel):

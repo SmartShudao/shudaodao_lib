@@ -1,7 +1,7 @@
 from .checker import check_admin_user as check_admin_user
 from .engine import load_engine as load_engine, unload_engine as unload_engine
 from .fast_api import create_init_fastapi as create_init_fastapi
-from .package import load_meta_config as load_meta_config
+from .package import check_database_with_package as check_database_with_package
 from _typeshed import Incomplete
 from fastapi import FastAPI as FastAPI
 from typing import Callable
@@ -9,6 +9,7 @@ from typing import Callable
 class Application:
     """应用核心类，负责初始化和管理FastAPI应用"""
 
+    license: Incomplete
     fastapi: Incomplete
     def __init__(self) -> None:
         """初始化应用核心组件"""

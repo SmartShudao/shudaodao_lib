@@ -3,7 +3,7 @@ from ..entity_table.t_auth_user import (
     AuthLogin as AuthLogin,
     AuthPassword as AuthPassword,
     AuthUser as AuthUser,
-    AuthUserRegister as AuthUserRegister,
+    AuthUserCreate as AuthUserCreate,
     AuthUserResponse as AuthUserResponse,
 )
 from ..package_config import PackageConfig as PackageConfig
@@ -15,7 +15,7 @@ from sqlmodel.ext.asyncio.session import AsyncSession as AsyncSession
 
 Auth_Controller: Incomplete
 
-async def auth_register(register_model: AuthUserRegister, db: AsyncSession = ...): ...
+async def auth_register(register_model: AuthUserCreate, db: AsyncSession = ...): ...
 async def auth_login(login_model: AuthLogin, db: AsyncSession = ...): ...
 async def auth_token(
     form_data: OAuth2PasswordRequestForm = ..., db: AsyncSession = ...

@@ -7,5 +7,6 @@
 # @Desc     ：
 
 from .class_scaner import ClassScanner
-from .tenant_manager import TenantManager
 from .database_checker import DatabaseChecker
+from .rustfs_checker import RustfsChecker
+from .tenant_manager import TenantManager

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# @License  ：(C)Copyright 2025, 数道智融科技
+# @License  ：(C)Copyright 2026, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_meta.enum_field
@@ -16,6 +16,7 @@ from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
     from .enum_value import EnumValue
+    from .meta_schema import MetaSchema
 
 
 class EnumField(PackageConfig.RegistryModel, table=True):
@@ -30,7 +31,11 @@ class EnumField(PackageConfig.RegistryModel, table=True):
     field_id: int = Field(
         default_factory=get_primary_id, primary_key=True, sa_type=BigInteger, description="主键"
     )
-    meta_schema_id: int = Field(sa_type=BigInteger, description="主键")
+    meta_schema_id: int = Field(
+        foreign_key=f"{PackageConfig.SchemaForeignKey}meta_schema.meta_schema_id",
+        sa_type=BigInteger,
+        description="主键",
+    )
     field_label: str = Field(max_length=50, description="字段标签")
     field_name: str = Field(max_length=50, description="字段列名")
     description: Optional[str] = Field(default=None, nullable=True, max_length=500, description="描述")
@@ -41,6 +46,8 @@ class EnumField(PackageConfig.RegistryModel, table=True):
     update_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="修改人")
     update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
     tenant_id: Optional[int] = Field(default=None, sa_type=BigInteger, nullable=True, description="主键")
+    # 反向关系 - 父对象
+    MetaSchema: "MetaSchema" = Relationship(back_populates="EnumFields")
     # 正向关系 - 子对象
     EnumValues: list["EnumValue"] = Relationship(
         back_populates="EnumField",

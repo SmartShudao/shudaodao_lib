@@ -18,7 +18,7 @@ from ..tools.source_store import SourceStore
 
 Meta_Source_Router = AuthAPIRouter(
     prefix=f"/{PackageConfig.RouterPath}",
-    tags=[f"{PackageConfig.RouterTags} - 数据来源"],
+    tags=[f"{PackageConfig.RouterTags} - 数据源"],
     db_engine_name=PackageConfig.EngineName,  # 配置文件中的数据库连接名称
     auth_role="admin",
     auth_sub=PackageConfig.SchemaName
@@ -27,7 +27,7 @@ Meta_Source_Router = AuthAPIRouter(
 
 @Meta_Source_Router.get(
     path="/sources/{sources_engine}/schemas/{schema_name}/discover",
-    summary=["获取(不保存)数据库元数据"], auth_obj="source", auth_act="query",
+    summary=["获取/发现数据库元数据(不保存)"], auth_obj="source", auth_act="query",
 )
 async def sources_discover(
         sources_engine: str = Path(description="数据库配置名称"),

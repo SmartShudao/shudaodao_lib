@@ -1,5 +1,5 @@
-from .clazz_int import EnumInt as EnumInt
-from .clazz_str import EnumStr as EnumStr
+from .enum_int import EnumInt as EnumInt
+from .enum_str import EnumStr as EnumStr
 from typing import Any
 
 class EnumManager:

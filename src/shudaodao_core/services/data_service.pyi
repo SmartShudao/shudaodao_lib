@@ -2,6 +2,7 @@ from ..exception.service_exception import (
     DataNotFoundException as DataNotFoundException,
     ValidError as ValidError,
 )
+from ..logger.logging_ import logging as logging
 from ..tools.tenant_manager import TenantManager as TenantManager
 from ..type.var import (
     SQLModelCreate as SQLModelCreate,
@@ -19,7 +20,7 @@ class DataService:
     并可灵活指定响应模型（response_class）以实现数据脱敏或转换。
     """
     @classmethod
-    def db_insert(
+    async def db_insert(
         cls,
         db: AsyncSession,
         *,

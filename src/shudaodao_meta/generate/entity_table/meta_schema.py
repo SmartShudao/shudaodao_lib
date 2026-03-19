@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-# @License  ：(C)Copyright 2025, 数道智融科技
+# @License  ：(C)Copyright 2026, 数道智融科技
 # @Author   ：Shudaodao Auto Generator
 # @Software ：PyCharm
 # @Desc     ：SQLModel classes for shudaodao_meta.meta_schema
@@ -15,6 +15,7 @@ from shudaodao_core import SQLModel, BaseResponse, Field, Relationship, get_prim
 from ...package_config import PackageConfig
 
 if TYPE_CHECKING:
+    from .enum_field import EnumField
     from .meta_table import MetaTable
     from .meta_view import MetaView
 
@@ -34,7 +35,7 @@ class MetaSchema(PackageConfig.RegistryModel, table=True):
     schema_label: Optional[str] = Field(
         default=None, nullable=True, max_length=128, description="数据库-模式标签"
     )
-    schema_name: str = Field(max_length=128, description="数据库-模式(schema)")
+    schema_name: str = Field(max_length=128, unique=True, index=True, description="数据库-模式(schema)")
     engine_name: Optional[str] = Field(
         default=None, nullable=True, max_length=128, description="数据库-配置名称"
     )
@@ -55,6 +56,10 @@ class MetaSchema(PackageConfig.RegistryModel, table=True):
     create_at: Optional[datetime] = Field(default=None, nullable=True, description="创建日期")
     update_by: Optional[str] = Field(default=None, nullable=True, max_length=50, description="修改人")
     update_at: Optional[datetime] = Field(default=None, nullable=True, description="修改日期")
+    # 正向关系 - 子对象
+    EnumFields: list["EnumField"] = Relationship(
+        back_populates="MetaSchema", sa_relationship_kwargs={"order_by": "EnumField.sort_order.asc()"}
+    )
     # 正向关系 - 子对象
     MetaTables: list["MetaTable"] = Relationship(
         back_populates="MetaSchema",

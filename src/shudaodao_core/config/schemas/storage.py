@@ -6,7 +6,7 @@
 # @Date     ：2025/6/29 下午9:08
 # @Desc     ：
 
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 from pydantic import BaseModel, Field
 
@@ -28,6 +28,19 @@ class DiskConfigSetting(BaseModel):
     name: str = Field("Default", description="唯一标识")
     enabled: bool = Field(True, description="是否启用")
     path: str = Field("storage/default", description="目录")
+
+
+class ObjectConfigSetting(BaseModel):
+    name: str = Field(..., description="唯一标识")
+    enabled: bool = Field(True, description="是否启用")
+    # service_name: str = Field("s3", description="指定服务名称")
+    endpoint_url: str = Field(..., description="终端点地址")
+    region_name: str = Field("us-east-1", description="服务所在的区域")
+    access_key_id: Optional[str] = Field(None, description="访问密钥ID")
+    secret_access_key: Optional[str] = Field(None, description="访问密钥Key")
+    session_token: Optional[str] = Field(None, description="会话令牌")
+    use_ssl: bool = Field(False, description="是否使用SSL")
+    verify: bool = Field(False, description="证书验证")
 
 
 class DataBaseConfigSetting(BaseModel):
@@ -78,5 +91,6 @@ class DataBaseConfigSetting(BaseModel):
 
 class StorageConfigSetting(BaseModel):
     redis: List[RedisConfigSetting] = Field(None, description="Redis连接")
-    disk: List[DiskConfigSetting] = Field(None, description="文件系统存储")
     database: List[DataBaseConfigSetting] = Field(None, description="数据库连接")
+    disk: List[DiskConfigSetting] = Field(None, description="本地文件存储")
+    object: List[ObjectConfigSetting] = Field(None, description="分布式文件存储")

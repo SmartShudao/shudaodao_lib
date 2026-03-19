@@ -12,7 +12,7 @@ from fastapi import Path
 
 from shudaodao_auth import AuthAPIRouter
 from shudaodao_core import QueryRequest
-from shudaodao_meta.package_config import PackageConfig
+from shudaodao_meta import PackageConfig
 from ..services.generic_service_v2 import GenericServiceV2
 
 generic_router = AuthAPIRouter(
@@ -23,7 +23,7 @@ generic_router = AuthAPIRouter(
 
 
 @generic_router.post(
-    path="/{schema_path}/{entity_path}/create", summary="创建 schema - table/view 的数据，支持同时添加多条记录")
+    path="/{schema_path}/{entity_path}/create", summary="创建 schema - table 的数据，支持同时添加多条记录")
 async def create_route(
         create_models: Union[dict, List[dict]],
         schema_path: str = Path(description="数据库模式名称/别名"),
@@ -49,7 +49,7 @@ async def read_route(
 
 
 @generic_router.post(
-    path="/{schema_path}/{entity_path}/update", summary="更新 schema - table/view 的数据，支持同时更新多条记录")
+    path="/{schema_path}/{entity_path}/update", summary="更新 schema - table 的数据，支持同时更新多条记录")
 async def update_route(
         create_models: Union[dict, List[dict]],
         schema_path: str = Path(description="数据库模式名称/别名"),
@@ -62,7 +62,7 @@ async def update_route(
 
 
 @generic_router.post(
-    path="/{schema_path}/{entity_path}/delete", summary="删除 schema - table/view 的数据，支持同时删除多条记录")
+    path="/{schema_path}/{entity_path}/delete", summary="删除 schema - table 的数据，支持同时删除多条记录")
 async def delete_route(
         delete_models: Union[dict, List[dict]],
         schema_path: str = Path(description="数据库模式名称/别名"),

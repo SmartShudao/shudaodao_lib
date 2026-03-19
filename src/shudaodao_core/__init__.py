@@ -16,9 +16,13 @@ from .config.app_config import AppConfig
 from .config.running_config import RunningConfig
 from .engine.database_engine import DatabaseEngine
 from .engine.disk_engine import DiskEngine
+from .engine.object_engine import ObjectEngine
 from .engine.redis_engine import RedisEngine
-from .enums.clazz_int import EnumInt
-from .enums.clazz_str import EnumStr
+from .enums.enum_int import EnumInt
+from .enums.enum_str import EnumStr
+from .enums.manager import EnumManager
+from .enums.portal_core import DataBaseEnum
+from .enums.portal_core import StorageTypeEnum
 from .exception.service_exception import (
     AuthError,
     ValidError,
@@ -33,11 +37,11 @@ from .schemas.response import BaseResponse
 from .services.data_service import DataService
 from .services.query_service import QueryService
 from .services.session_service import AsyncSessionService
+from .services.storage_service import AsyncStorageService
 from .sqlmodel_ext.field import Field
 from .utils.core_utils import CoreUtil
 from .utils.generate_unique_id import get_primary_str, get_primary_id
 from .utils.response_utils import ResponseUtil
-from .enums.manager import EnumManager
 
 __all__ = [
     # FastAPI & SQLModel 快捷导出
@@ -58,11 +62,14 @@ __all__ = [
     "DatabaseEngine",
     "DiskEngine",
     "RedisEngine",
+    "ObjectEngine",
 
     # 枚举
+    "DataBaseEnum",
     "EnumStr",
     "EnumInt",
     "EnumManager",
+    "StorageTypeEnum",
 
     # 异常
     "AuthError",
@@ -82,6 +89,7 @@ __all__ = [
     "DataService",
     "QueryService",
     "AsyncSessionService",
+    "AsyncStorageService",
 
     # 工具类与函数
     "CoreUtil",

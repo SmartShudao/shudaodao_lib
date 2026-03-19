@@ -18,8 +18,8 @@ class TenantConfigSetting(BaseModel):
 
 class AuthConfigSetting(BaseModel):
     token_secret_key: str = Field(..., description="token 私钥")
-    token_expire_minutes: int = Field(30, description="token 登录过期")
-    token_refresh_expire_days: int = Field(7, description="token 刷新过期")
+    token_expire_minutes: float = Field(30, description="token 登录过期")
+    token_refresh_expire_days: float = Field(7, description="token 刷新过期")
     rebuild_auth_rule: bool = Field(False, description="重置")
     default_admin_roles: list[str] = ["admin"]
     default_admin_users: list[str] = ["admin"]

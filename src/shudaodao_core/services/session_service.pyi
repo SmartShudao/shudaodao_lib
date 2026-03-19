@@ -1,4 +1,5 @@
 from ..engine.database_engine import DatabaseEngine as DatabaseEngine
+from ..enums.portal_core import DataBaseEnum as DataBaseEnum
 from ..exception.service_exception import ShudaodaoException as ShudaodaoException
 from ..logger.logging_ import logging as logging
 from _typeshed import Incomplete
@@ -11,6 +12,7 @@ from typing import AsyncGenerator
 class AsyncSessionService:
     def __new__(cls):
         """线程安全单例构造器"""
+    def load_default_factory(self) -> None: ...
     def get_session_factory(self, name) -> async_sessionmaker:
         """获取指定数据源的会话工厂（动态创建如果不存在）"""
     @asynccontextmanager

@@ -10,6 +10,7 @@ class TemplateColumn:
     type: str
     clazz: str
     model_type: int
+    nullable: bool
     params: list[str] = field(default_factory=list)
 
 @dataclass

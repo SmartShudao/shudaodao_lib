@@ -26,18 +26,19 @@ Auth_Controller = AuthAPIRouter(
 async def auth_me(
         current_user: AuthUserResponse = Depends(AuthService.get_current_user)
 ):
-    # return ResponseUtil.success(message="获取用户信息成功", data=current_user)
-    result_data = current_user.__dict__
-    result_data.update({
-        "desc": "-------------------以下非数据库字段，满足Art Design Pro临时登录用-------------------",
-        "userId": current_user.user_id,
-        "userName": current_user.name,
-        "roles": ['R_SUPER', 'R_ADMIN', 'R_USER'],
-        "buttons": [],
-        "email": current_user.email,
-        "avatar": ""
-    })
-    return ResponseUtil.success(
-        message="获取用户信息成功",
-        data=result_data
-    )
+    return ResponseUtil.success(message="获取用户信息成功", data=current_user)
+    # todo 还要获取 sys_staff 表的数据纳入返回接口
+    # result_data = current_user.__dict__
+    # result_data.update({
+    #     "desc": "-------------------以下非数据库字段，满足Art Design Pro临时登录用-------------------",
+    #     "userId": current_user.user_id,
+    #     "userName": current_user.name,
+    #     "roles": ['R_SUPER', 'R_ADMIN', 'R_USER'],
+    #     "buttons": [],
+    #     "email": current_user.email,
+    #     "avatar": ""
+    # })
+    # return ResponseUtil.success(
+    #     message="获取用户信息成功",
+    #     data=result_data
+    # )
