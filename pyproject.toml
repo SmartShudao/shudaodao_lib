@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "shudaodao"
-version = "0.1.101"
+version = "0.1.108"
 description = "数道智融科技"
 readme = "README.md"
 authors = [
@@ -15,32 +15,33 @@ license = "MIT"
 # 同时可以指定许可证文件
 license-files = ["LICENSE"]
 
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 
 dependencies = [
-    "aiosqlite>=0.21.0",
-    "asyncpg>=0.30.0",
-    "bcrypt>=4.3.0",
-    "black>=25.9.0",
-    "boto3>=1.42.44",
+    "aiosqlite>=0.22.1",
+    "asyncpg>=0.31.0",
+    "bcrypt>=5.0.0",
+    "black>=26.3.1",
+    "boto3>=1.42.71",
     "casbin>=1.43.0",
-    "casbin-async-sqlalchemy-adapter>=1.10.0",
-    "cython>=3.1.4",
-    "fastapi>=0.117.1",
-    "greenlet>=3.2.4",
-    "Jinja2>=3.1.6",
-    "psycopg2-binary>=2.9.10",
+    "casbin-async-sqlalchemy-adapter>=1.17.0",
+    "cython>=3.2.4",
+    "fastapi>=0.135.1",
+    "greenlet>=3.3.2",
+    "jinja2>=3.1.6",
+    "psycopg2-binary>=2.9.11",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.13.1",
+    "pyjwt>=2.12.1",
+    "pytest>=9.0.2",
     "python-docx>=1.2.0",
-    "pydantic[email]>=2.11.7",
-    "pydantic-settings>=2.12.0",
-    "pyjwt[crypto]>=2.10.1",
-    "pytest>=8.4.1",
-    "python-multipart>=0.0.20",
-    "pyyaml>=6.0.2",
-    "redis>=6.4.0",
-    "sqlmodel>=0.0.25",
-    "starlette>=0.48.0",
-    "setuptools>=80.9.0",
+    "python-multipart>=0.0.22",
+    "pyyaml>=6.0.3",
+    "redis>=7.3.0",
+    "setuptools>=82.0.1",
+    "sqlmodel>=0.0.37",
+    "starlette>=0.52.1",
+    "tomli>=2.4.0",
 ]
 
 

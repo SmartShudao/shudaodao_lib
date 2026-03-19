@@ -1,7 +1,6 @@
 from ..meta.entity_class import EntityClass as EntityClass
 from ..meta.service import GenericMetaService as GenericMetaService
 from .generic_service import GenericService as GenericService
-from shudaodao_core import QueryService as QueryService
 
 class GenericServiceV2(GenericService):
     @classmethod

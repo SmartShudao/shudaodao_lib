@@ -2767,7 +2767,7 @@ typedef struct {
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_values;
   PyObject *__pyx_tuple[1];
   PyObject *__pyx_codeobj_tab[4];
-  PyObject *__pyx_string_tab[108];
+  PyObject *__pyx_string_tab[107];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
 PyTypeObject *__pyx_CommonTypesMetaclassType;
@@ -2869,87 +2869,86 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_GenericServiceV2_read __pyx_string_tab[24]
 #define __pyx_n_u_GenericServiceV2_update __pyx_string_tab[25]
 #define __pyx_n_u_Pyx_PyDict_NextRef __pyx_string_tab[26]
-#define __pyx_n_u_QueryService __pyx_string_tab[27]
-#define __pyx_n_u_ResponseUtil __pyx_string_tab[28]
-#define __pyx_n_u__3 __pyx_string_tab[29]
-#define __pyx_n_u__4 __pyx_string_tab[30]
-#define __pyx_n_u__6 __pyx_string_tab[31]
-#define __pyx_n_u__9 __pyx_string_tab[32]
-#define __pyx_n_u_aenter __pyx_string_tab[33]
-#define __pyx_n_u_aexit __pyx_string_tab[34]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[35]
-#define __pyx_n_u_await __pyx_string_tab[36]
-#define __pyx_n_u_cline_in_traceback __pyx_string_tab[37]
-#define __pyx_n_u_close __pyx_string_tab[38]
-#define __pyx_n_u_cls __pyx_string_tab[39]
-#define __pyx_n_u_create __pyx_string_tab[40]
-#define __pyx_n_u_create_class __pyx_string_tab[41]
-#define __pyx_n_u_create_model __pyx_string_tab[42]
-#define __pyx_n_u_create_model_list __pyx_string_tab[43]
-#define __pyx_n_u_create_models __pyx_string_tab[44]
-#define __pyx_n_u_create_result __pyx_string_tab[45]
-#define __pyx_n_u_data __pyx_string_tab[46]
-#define __pyx_n_u_data_model __pyx_string_tab[47]
-#define __pyx_n_u_db __pyx_string_tab[48]
-#define __pyx_n_u_delete __pyx_string_tab[49]
-#define __pyx_n_u_delete_model __pyx_string_tab[50]
-#define __pyx_n_u_delete_model_list __pyx_string_tab[51]
-#define __pyx_n_u_delete_models __pyx_string_tab[52]
-#define __pyx_n_u_delete_result __pyx_string_tab[53]
-#define __pyx_n_u_doc __pyx_string_tab[54]
-#define __pyx_n_u_engine_name __pyx_string_tab[55]
-#define __pyx_n_u_entity_class __pyx_string_tab[56]
-#define __pyx_n_u_entity_path __pyx_string_tab[57]
-#define __pyx_n_u_func __pyx_string_tab[58]
-#define __pyx_n_u_generic_service __pyx_string_tab[59]
-#define __pyx_n_u_generic_service_v2 __pyx_string_tab[60]
-#define __pyx_n_u_get_metadata __pyx_string_tab[61]
-#define __pyx_n_u_get_model_list __pyx_string_tab[62]
-#define __pyx_n_u_get_primary_id __pyx_string_tab[63]
-#define __pyx_n_u_get_session __pyx_string_tab[64]
-#define __pyx_n_u_is_coroutine __pyx_string_tab[65]
-#define __pyx_n_u_items __pyx_string_tab[66]
-#define __pyx_n_u_main __pyx_string_tab[67]
-#define __pyx_n_u_message __pyx_string_tab[68]
-#define __pyx_n_u_meta_entity_class __pyx_string_tab[69]
-#define __pyx_n_u_meta_service __pyx_string_tab[70]
-#define __pyx_n_u_metaclass __pyx_string_tab[71]
-#define __pyx_n_u_model_class __pyx_string_tab[72]
-#define __pyx_n_u_module __pyx_string_tab[73]
-#define __pyx_n_u_mro_entries __pyx_string_tab[74]
-#define __pyx_n_u_name __pyx_string_tab[75]
-#define __pyx_n_u_next __pyx_string_tab[76]
-#define __pyx_n_u_p __pyx_string_tab[77]
-#define __pyx_n_u_pop __pyx_string_tab[78]
-#define __pyx_n_u_prepare __pyx_string_tab[79]
-#define __pyx_n_u_primary_id __pyx_string_tab[80]
-#define __pyx_n_u_primary_key __pyx_string_tab[81]
-#define __pyx_n_u_qualname __pyx_string_tab[82]
-#define __pyx_n_u_read __pyx_string_tab[83]
-#define __pyx_n_u_read_model __pyx_string_tab[84]
-#define __pyx_n_u_read_model_list __pyx_string_tab[85]
-#define __pyx_n_u_read_models __pyx_string_tab[86]
-#define __pyx_n_u_read_result __pyx_string_tab[87]
-#define __pyx_n_u_request_models __pyx_string_tab[88]
-#define __pyx_n_u_response_class __pyx_string_tab[89]
-#define __pyx_n_u_result_len __pyx_string_tab[90]
-#define __pyx_n_u_schema_path __pyx_string_tab[91]
-#define __pyx_n_u_send __pyx_string_tab[92]
-#define __pyx_n_u_set_name __pyx_string_tab[93]
-#define __pyx_n_u_setdefault __pyx_string_tab[94]
-#define __pyx_n_u_shudaodao_core __pyx_string_tab[95]
-#define __pyx_n_u_success __pyx_string_tab[96]
-#define __pyx_n_u_test __pyx_string_tab[97]
-#define __pyx_n_u_throw __pyx_string_tab[98]
-#define __pyx_n_u_update __pyx_string_tab[99]
-#define __pyx_n_u_update_class __pyx_string_tab[100]
-#define __pyx_n_u_update_model __pyx_string_tab[101]
-#define __pyx_n_u_update_model_list __pyx_string_tab[102]
-#define __pyx_n_u_update_models __pyx_string_tab[103]
-#define __pyx_n_u_update_result __pyx_string_tab[104]
-#define __pyx_n_u_value __pyx_string_tab[105]
-#define __pyx_n_u_values __pyx_string_tab[106]
-#define __pyx_kp_b_iso88591_A __pyx_string_tab[107]
+#define __pyx_n_u_ResponseUtil __pyx_string_tab[27]
+#define __pyx_n_u__3 __pyx_string_tab[28]
+#define __pyx_n_u__4 __pyx_string_tab[29]
+#define __pyx_n_u__6 __pyx_string_tab[30]
+#define __pyx_n_u__9 __pyx_string_tab[31]
+#define __pyx_n_u_aenter __pyx_string_tab[32]
+#define __pyx_n_u_aexit __pyx_string_tab[33]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[34]
+#define __pyx_n_u_await __pyx_string_tab[35]
+#define __pyx_n_u_cline_in_traceback __pyx_string_tab[36]
+#define __pyx_n_u_close __pyx_string_tab[37]
+#define __pyx_n_u_cls __pyx_string_tab[38]
+#define __pyx_n_u_create __pyx_string_tab[39]
+#define __pyx_n_u_create_class __pyx_string_tab[40]
+#define __pyx_n_u_create_model __pyx_string_tab[41]
+#define __pyx_n_u_create_model_list __pyx_string_tab[42]
+#define __pyx_n_u_create_models __pyx_string_tab[43]
+#define __pyx_n_u_create_result __pyx_string_tab[44]
+#define __pyx_n_u_data __pyx_string_tab[45]
+#define __pyx_n_u_data_model __pyx_string_tab[46]
+#define __pyx_n_u_db __pyx_string_tab[47]
+#define __pyx_n_u_delete __pyx_string_tab[48]
+#define __pyx_n_u_delete_model __pyx_string_tab[49]
+#define __pyx_n_u_delete_model_list __pyx_string_tab[50]
+#define __pyx_n_u_delete_models __pyx_string_tab[51]
+#define __pyx_n_u_delete_result __pyx_string_tab[52]
+#define __pyx_n_u_doc __pyx_string_tab[53]
+#define __pyx_n_u_engine_name __pyx_string_tab[54]
+#define __pyx_n_u_entity_class __pyx_string_tab[55]
+#define __pyx_n_u_entity_path __pyx_string_tab[56]
+#define __pyx_n_u_func __pyx_string_tab[57]
+#define __pyx_n_u_generic_service __pyx_string_tab[58]
+#define __pyx_n_u_generic_service_v2 __pyx_string_tab[59]
+#define __pyx_n_u_get_metadata __pyx_string_tab[60]
+#define __pyx_n_u_get_model_list __pyx_string_tab[61]
+#define __pyx_n_u_get_primary_id __pyx_string_tab[62]
+#define __pyx_n_u_get_session __pyx_string_tab[63]
+#define __pyx_n_u_is_coroutine __pyx_string_tab[64]
+#define __pyx_n_u_items __pyx_string_tab[65]
+#define __pyx_n_u_main __pyx_string_tab[66]
+#define __pyx_n_u_message __pyx_string_tab[67]
+#define __pyx_n_u_meta_entity_class __pyx_string_tab[68]
+#define __pyx_n_u_meta_service __pyx_string_tab[69]
+#define __pyx_n_u_metaclass __pyx_string_tab[70]
+#define __pyx_n_u_model_class __pyx_string_tab[71]
+#define __pyx_n_u_module __pyx_string_tab[72]
+#define __pyx_n_u_mro_entries __pyx_string_tab[73]
+#define __pyx_n_u_name __pyx_string_tab[74]
+#define __pyx_n_u_next __pyx_string_tab[75]
+#define __pyx_n_u_p __pyx_string_tab[76]
+#define __pyx_n_u_pop __pyx_string_tab[77]
+#define __pyx_n_u_prepare __pyx_string_tab[78]
+#define __pyx_n_u_primary_id __pyx_string_tab[79]
+#define __pyx_n_u_primary_key __pyx_string_tab[80]
+#define __pyx_n_u_qualname __pyx_string_tab[81]
+#define __pyx_n_u_read __pyx_string_tab[82]
+#define __pyx_n_u_read_model __pyx_string_tab[83]
+#define __pyx_n_u_read_model_list __pyx_string_tab[84]
+#define __pyx_n_u_read_models __pyx_string_tab[85]
+#define __pyx_n_u_read_result __pyx_string_tab[86]
+#define __pyx_n_u_request_models __pyx_string_tab[87]
+#define __pyx_n_u_response_class __pyx_string_tab[88]
+#define __pyx_n_u_result_len __pyx_string_tab[89]
+#define __pyx_n_u_schema_path __pyx_string_tab[90]
+#define __pyx_n_u_send __pyx_string_tab[91]
+#define __pyx_n_u_set_name __pyx_string_tab[92]
+#define __pyx_n_u_setdefault __pyx_string_tab[93]
+#define __pyx_n_u_shudaodao_core __pyx_string_tab[94]
+#define __pyx_n_u_success __pyx_string_tab[95]
+#define __pyx_n_u_test __pyx_string_tab[96]
+#define __pyx_n_u_throw __pyx_string_tab[97]
+#define __pyx_n_u_update __pyx_string_tab[98]
+#define __pyx_n_u_update_class __pyx_string_tab[99]
+#define __pyx_n_u_update_model __pyx_string_tab[100]
+#define __pyx_n_u_update_model_list __pyx_string_tab[101]
+#define __pyx_n_u_update_models __pyx_string_tab[102]
+#define __pyx_n_u_update_result __pyx_string_tab[103]
+#define __pyx_n_u_value __pyx_string_tab[104]
+#define __pyx_n_u_values __pyx_string_tab[105]
+#define __pyx_kp_b_iso88591_A __pyx_string_tab[106]
 /* #### Code section: module_state_clear ### */
 #if CYTHON_USE_MODULE_STATE
 static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
@@ -2974,7 +2973,7 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_type_18generic_service_v2___pyx_scope_struct_3_delete);
   for (int i=0; i<1; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<4; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<108; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<107; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
 /* #### Code section: module_state_clear_contents ### */
 /* CommonTypesMetaclass.module_state_clear */
 Py_CLEAR(clear_module_state->__pyx_CommonTypesMetaclassType);
@@ -3011,7 +3010,7 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   Py_VISIT(traverse_module_state->__pyx_type_18generic_service_v2___pyx_scope_struct_3_delete);
   for (int i=0; i<1; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<4; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<108; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<107; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
 /* #### Code section: module_state_traverse_contents ### */
 /* CommonTypesMetaclass.module_state_traverse */
 Py_VISIT(traverse_module_state->__pyx_CommonTypesMetaclassType);
@@ -8473,19 +8472,19 @@ __Pyx_RefNannySetupContext("PyInit_generic_service_v2", 0);
   /* "generic_service_v2.py":10
  * 
  * 
- * from shudaodao_core import AsyncSessionService, DataService, QueryService, ResponseUtil             # <<<<<<<<<<<<<<
+ * from shudaodao_core import AsyncSessionService, DataService, ResponseUtil             # <<<<<<<<<<<<<<
  * from .generic_service import GenericService
  * from ..meta.entity_class import EntityClass
 */
   {
-    PyObject* const __pyx_imported_names[] = {__pyx_mstate_global->__pyx_n_u_AsyncSessionService,__pyx_mstate_global->__pyx_n_u_DataService,__pyx_mstate_global->__pyx_n_u_QueryService,__pyx_mstate_global->__pyx_n_u_ResponseUtil};
-    __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_imported_names, 4, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+    PyObject* const __pyx_imported_names[] = {__pyx_mstate_global->__pyx_n_u_AsyncSessionService,__pyx_mstate_global->__pyx_n_u_DataService,__pyx_mstate_global->__pyx_n_u_ResponseUtil};
+    __pyx_t_1 = __Pyx_Import(__pyx_mstate_global->__pyx_n_u_shudaodao_core, __pyx_imported_names, 3, NULL, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   }
   __pyx_t_2 = __pyx_t_1;
   __Pyx_GOTREF(__pyx_t_2);
   {
-    PyObject* const __pyx_imported_names[] = {__pyx_mstate_global->__pyx_n_u_AsyncSessionService,__pyx_mstate_global->__pyx_n_u_DataService,__pyx_mstate_global->__pyx_n_u_QueryService,__pyx_mstate_global->__pyx_n_u_ResponseUtil};
-    for (__pyx_t_3=0; __pyx_t_3 < 4; __pyx_t_3++) {
+    PyObject* const __pyx_imported_names[] = {__pyx_mstate_global->__pyx_n_u_AsyncSessionService,__pyx_mstate_global->__pyx_n_u_DataService,__pyx_mstate_global->__pyx_n_u_ResponseUtil};
+    for (__pyx_t_3=0; __pyx_t_3 < 3; __pyx_t_3++) {
       __pyx_t_4 = __Pyx_ImportFrom(__pyx_t_2, __pyx_imported_names[__pyx_t_3]); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 10, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_imported_names[__pyx_t_3], __pyx_t_4) < (0)) __PYX_ERR(0, 10, __pyx_L1_error)
@@ -8496,7 +8495,7 @@ __Pyx_RefNannySetupContext("PyInit_generic_service_v2", 0);
 
   /* "generic_service_v2.py":11
  * 
- * from shudaodao_core import AsyncSessionService, DataService, QueryService, ResponseUtil
+ * from shudaodao_core import AsyncSessionService, DataService, ResponseUtil
  * from .generic_service import GenericService             # <<<<<<<<<<<<<<
  * from ..meta.entity_class import EntityClass
  * from ..meta.service import GenericMetaService
@@ -8519,7 +8518,7 @@ __Pyx_RefNannySetupContext("PyInit_generic_service_v2", 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "generic_service_v2.py":12
- * from shudaodao_core import AsyncSessionService, DataService, QueryService, ResponseUtil
+ * from shudaodao_core import AsyncSessionService, DataService, ResponseUtil
  * from .generic_service import GenericService
  * from ..meta.entity_class import EntityClass             # <<<<<<<<<<<<<<
  * from ..meta.service import GenericMetaService
@@ -8786,31 +8785,31 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 5; } index[] = {{17},{1},{1},{17},{17},{17},{1},{7},{6},{2},{16},{21},{9},{18},{13},{12},{19},{11},{11},{18},{14},{16},{23},{23},{21},{23},{20},{12},{12},{3},{12},{12},{12},{10},{9},{18},{9},{18},{5},{3},{6},{12},{12},{17},{13},{13},{4},{10},{2},{6},{12},{17},{13},{13},{7},{11},{12},{11},{8},{15},{18},{12},{14},{14},{11},{13},{5},{8},{7},{17},{12},{13},{11},{10},{15},{8},{4},{1},{3},{11},{10},{15},{12},{4},{10},{15},{11},{11},{14},{14},{10},{11},{4},{12},{10},{14},{7},{8},{5},{6},{12},{12},{17},{13},{13},{5},{6},{2}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (620 bytes) */
-const char* const cstring = "BZh91AY&SYg,*+\000\002Q_\371@\000@\005\020\000\256\203{\000\277\357\377\340BQ\301*\344\000d\230\003`@\002|\032\211Jc\000\t\204\300\230\214\230\000CM\030\000\231\017A\222\001\2452\237\240D\006\203A\246\206@\000\000\016i\211\200\2150#\010\300\000\000\004\3020\022$\t22\223\t\231CL\200\323\311=@4i\345\006\2318\202A\367\r\347\246\343\224\323\253\3332c\324ki\343~\335\276v\363;\231{\303%\321\262}Y\025\275\212b\260Wl\"L:\343=\261\264\231w\261\313\013@\366<[r\266\n\375t\201\222\344\254\020\311\223\315\026\262(\241\320\213\240\311\303\034\240\234DV\220M\223(\360\t\314.\231$\266K\007\227U*\206;j\264\356\333\267I\200h8j\274H0\351\242\320\333m\214m\272\234\264\234\370V\316\264\260\361\270\014Z\025\031\215.{\246\210N\234L\031C,\216\010\025\322b\260\n\252dR\302U\257 M\252\351\344\252Xth\302y+\206\\\321\027\307\0373'G\300\3206\250Q\t\316Un\2730l\004\232\t\033x\344\266\246r\\\005'K\342\221}\002\324H\350\004<\034\230:\330\333t\244\253\000R\201\310 \006\204\r\260\030\302\316j\366k\270Z\220Ass:y\025\222A]\244\214\240\001\226a\257B\255\262\367\205P\374[\361#2\330\244,\232\0134!,8s\252HS\204Z$6\024\024\210\324\351\nA\034s\306$\220z'\317f\340\22642\275\322\251\2449\301a\353h\236\034\\1\251\0013\245p-\026W\346\300\320\215\202W\270\013m\210v\263\261Q\313*\311\233\235S\330\206d\207<\322\003}\344\001Q\221\005!p\017K\320\240\272wS\034\340\332\317%y\230\214\002C\030\323.C\024\247\256\223\345\312\305l\350CJ\255\266\334JQ(`\330\333ci\316\271\271\350\304\323xy\023|\025\310\304\221\032\233MMx\301\340T\234\227R\027<g\300PB\234\300\027\323U\0256\326RP\236\233\312>\340\377\000\301w\214\372\001#\260\360 \220\373\000\203~\343q\332\033\315\307\201\234\334\033\371:\273\177@w\227\231\373\274;\334J@\013\360\"\024\320\005\270\273\222)\302\204\2039aQX";
-    PyObject *data = __Pyx_DecompressString(cstring, 620, 2);
+    const struct { const unsigned int length: 5; } index[] = {{17},{1},{1},{17},{17},{17},{1},{7},{6},{2},{16},{21},{9},{18},{13},{12},{19},{11},{11},{18},{14},{16},{23},{23},{21},{23},{20},{12},{3},{12},{12},{12},{10},{9},{18},{9},{18},{5},{3},{6},{12},{12},{17},{13},{13},{4},{10},{2},{6},{12},{17},{13},{13},{7},{11},{12},{11},{8},{15},{18},{12},{14},{14},{11},{13},{5},{8},{7},{17},{12},{13},{11},{10},{15},{8},{4},{1},{3},{11},{10},{15},{12},{4},{10},{15},{11},{11},{14},{14},{10},{11},{4},{12},{10},{14},{7},{8},{5},{6},{12},{12},{17},{13},{13},{5},{6},{2}};
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (611 bytes) */
+const char* const cstring = "BZh91AY&SYLjD>\000\002K_\371@\000@\005\020\000\256\203[\000\277\357\377\340BQ\301*\344\000d\230\003`@\002N\352\200)\204\252z\2044\304\000\032\000\006\201\240\003M\250\r\250s\000\004\311\200\004\302`\230C\000F\000\032zQ\244\241\246\2324i\240h\000\000\000\000\000\221 \0214\3052\247\251\262\217I\352z\2154\366\243\325\000\304\000\n\240\320v\005\031\034,\226\340\320\330\330\220\032\221\204\242\354Q`D\236\216 \352=I\215x\241\324\242U\025B\275a\022a\354\214\370q\264\231\177S\226v\201\364|[r\266k/9hT\305f\230\252\253\226\356\272\024\303%<\246\260\014E\032\253n\322\325Y2\2170\234\302\363$\227If\365\365\322\250c\267}\247~\275{\214\303C\262\253xJ\366\344\305\360\000B\000\262\3075\256\030\345\346\210\275\2464\263\204\242E\210\303I\344\332^\334\340\360#ksf'x\304\007\016\021g\262X\225\020e,O.\332\245\237\216\231\317Uq\335\2422\216~\206N\217f\201\265B\210Nr\253u\351\316U/!#\344\370\257\215\337\255)\206\271k\312\316\324\324\307\004\217b\n\013\224\266\256\333\332\327\355\250\236\244\331P\363d\266\025\253\267M;\264\3547ugd\274\247\227n\"\354\323t\217\004\227\206D\250\326%\267*\030\301L\374l\217,m\204b\362\024y\264\241s\364\252HS\204Z$6\024\024\210\357t\205 \216s\343\022H<\247\351\263pK\215\rrt\252i\016pX}\032'\237.\310\357@L\371\326\313K,\261\231\242[\027\3450\337{\023\343<\365\236/\242YN|)\rd\221:-jx\321%\301\\\202\220\266\037s\321Ay\336\234x\003k\204\226F\010\314$1\2152\350b\224\372R\270\360\\\255q)\221\026\000\007J:1 @\010 \255\374\312\310\317o\"\210\312\225\304\334;\243\254\265\211\234\246\031\277V\374k\275\017\253\221\304\255>4\226T\356\242\247X\205T\375\031\024\177\330\177\2000_\350\317\300\t\036\343\376 \220\375\300@\251\t\010\301D\202\307\311\001V!\217\310\022\216\217\375\\\250\313M,\374\274\354\274\263\370\273\222)\302\204\202cR!\360";
+    PyObject *data = __Pyx_DecompressString(cstring, 611, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (537 bytes) */
-const char* const cstring = "x\332\205S\315j\024A\020~\025\037 \314!/ \301\210'E\023\364Z\324\366\324\3566\351\351\236t\365$;7/\302\342A=\005$\210\n>\200\202 \230\347\231E\337\302\352\237\3546\331\200\260\335\373\325\327\325\365\363u\315\264\376\362\367\343\267\315\372\303\364\366\363\301\203\351\315\217\346\341\264\276\236n~W\324\346\372\347\346\352{E\374y\367kz\177U\021\007\255f\234\031\"\033\367\205j\026d\311k\005L\376B+\272c\302\305a\323\217\232\263{\333t\024\260!\033t\030A\031d\316L\361\256\3539\342\321\252Sb\326\316\236\346\343c\014X\340\343\024\342Q\214\360$g|J\333\303\302\334k\275:\274k7\312\023\206=\267\246%C\367\320\342\334\356\221C\337J\010\200\347\343J\326\261V\001\236\321*\234\320\374\305@~,\216'\304\275\263L/\2036\233O_k\261k\235\247\352\241\000P\324\"\017\020\321J\007\371\213\302h\327(\347\335\020\264%\026\356\022\343\2212b\202\266\020<*\232\241:S\3061)\303\271\307\274g\341\013\356\234\364Yc0\232CM\334zz\342\301\004\351\023\343\312g\355,\253\224\367\302U8\005\253\t.F\016\006\320:\005@v\021\353\266\330Q=\032\005\367\030\226\000\363\301\212\347\177\207mA\001\342D\305\022\023\336V\021\255\336\353\016\375\010\272\215\026\347\341\002\315\260\325R\007\352D\317\016ED\t\304,Q\366f\266\036YH\351\022\r%\333\316\030\014\305\207\353\274\223\036\203\327\361\251 \365)\273\314G\337\273\036\244*\352\321\023T\345\355\360\031\215\361\316\371\200&\337\213\363\027WN\266C\251\311\235\311\tf\231=\235\017\304a{\220\2470\327Y\036\302\220e\265\244\016\223\334\"\275\224\300\242Q\316)\250\2459\212#/\207\026\235\374\242drU)\212\275\206\030\036\302\322\273\313\374)\224\017\"\245(8e\257q\252\270&n=sM\027h\006J\033\277>\372\007\235\n\t\021";
-    PyObject *data = __Pyx_DecompressString(cstring, 537, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (531 bytes) */
+const char* const cstring = "x\332\205S\315\212\0241\020~\025\037`\351\303\276\200,\256xRd\027\275\0265\351\232\231\260\351\2447\225\236\235\276y\021\006\017\352iA\026Q\301\007P\020\004}\236\036\364-\254\374\354L\330Y\020&\231\257\276T\352\347K\365\264\371\374\367\303\327\355\346\375\364\346\323\321\203\351\365\367\346\341\264\271\231~\377\252\250\355\315\217\355\365\267\212\370\363\366\347\364\356\272\"\216Z\31583D6\356\013\325,\310\222\327\n\230\374J+\272c\302\352\270\351G\315\331\275m:\n\330\220\r:\214\240\0142g\246x\327\365\234\360h\32591kg\317\363\361)\006,\360q\n\361(Fx\2223>\245\335aa\356\265^\036\337\265\033\345\t\303\201[\323\222\241{hqn\017\310\241o%\004\300\363q-\353T\253\000\317h\035\316h~F\334;\313\364\"h\263\375\370\245\026\270\326v\252\036\007\000E!\362\000\021\255u\220\277(\206v\215r\336\rA[b\341\2560\036)#&h\013\301\243\242\031\252\013e\034\2232\234\373\312{\026\273\340\316Io5\006\2439\324\304\255\247'\036L\220\3360\256|\326\316\2622y/\\\205S\260\232\340b\344`\000\255S\000d\027\261n\213\035\325\343Pp\217a\t0\037\254x\376w\300\026\024 NQ,1\341]\025\321\352\275\356\320\217\240\333hq\036(\320\014;-u\240N\364\354PD\224@\314\022\345`N\3531\205\224.\321P\262\355\215\301P|\270\316;\3511x\035\237\nR\237\262\313L\364\275\353A\252\242\036=AU\336\036_\320\030\357\\\016h\362\2758sq\345d{\224\232\334\233\234`\226\331\323\345@\034v\007y\ns\235\345!\014YVK\3520\311-\322K\t,\032\345\234\202Z\232\2438\362rh\321\311/J&W\225\242\330k\210\341!,\275\273\312\343_>\202\224\242\340\224\275\306\251\342\232\270\365\3145\255\320\014\2246~u\362\017\345#\004*";
+    PyObject *data = __Pyx_DecompressString(cstring, 531, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (1213 bytes) */
-const char* const bytes = "\345\210\240\351\231\244\346\210\220\345\212\237, \345\205\261.?\345\210\233\345\273\272\346\210\220\345\212\237, \345\205\261\346\233\264\346\226\260\346\210\220\345\212\237, \345\205\261\350\216\267\345\217\226\346\210\220\345\212\237, \345\205\261,disableenablegc.generic_servicegeneric_service_v2.pyisenabled.meta.entity_class.meta.service\345\210\233\345\273\272\346\210\220\345\212\237AsyncSessionServiceDataServiceEntityClassGenericMetaServiceGenericServiceGenericServiceV2GenericServiceV2.createGenericServiceV2.deleteGenericServiceV2.readGenericServiceV2.update__Pyx_PyDict_NextRefQueryServiceResponseUtil\346\235\241\346\233\264\346\226\260\346\210\220\345\212\237\350\216\267\345\217\226\346\210\220\345\212\237\345\210\240\351\231\244\346\210\220\345\212\237__aenter____aexit__asyncio.coroutines__await__cline_in_tracebackcloseclscreatecreate_classcreate_modelcreate_model_listcreate_modelscreate_resultdatadata_modeldbdeletedelete_modeldelete_model_listdelete_modelsdelete_result__doc__engine_nameentity_classentity_path__func__generic_servicegeneric_service_v2get_metadataget_model_listget_primary_idget_session_is_coroutineitems__main__messagemeta.entity_classmeta.service__metaclass__model_class__module____mro_entries____name__nextppop__prepare__primary_id__primary_key____qualname__readread_modelread_model_listread_modelsread_resultrequest_modelsresponse_classresult_lenschema_pathsend__set_name__setdefaultshudaodao_coresuccess__test__throwupdateupdate_classupdate_modelupdate_model_listupdate_modelsupdate_resultvaluevalues\200A";
+    #else /* compression: none (1201 bytes) */
+const char* const bytes = "\345\210\240\351\231\244\346\210\220\345\212\237, \345\205\261.?\345\210\233\345\273\272\346\210\220\345\212\237, \345\205\261\346\233\264\346\226\260\346\210\220\345\212\237, \345\205\261\350\216\267\345\217\226\346\210\220\345\212\237, \345\205\261,disableenablegc.generic_servicegeneric_service_v2.pyisenabled.meta.entity_class.meta.service\345\210\233\345\273\272\346\210\220\345\212\237AsyncSessionServiceDataServiceEntityClassGenericMetaServiceGenericServiceGenericServiceV2GenericServiceV2.createGenericServiceV2.deleteGenericServiceV2.readGenericServiceV2.update__Pyx_PyDict_NextRefResponseUtil\346\235\241\346\233\264\346\226\260\346\210\220\345\212\237\350\216\267\345\217\226\346\210\220\345\212\237\345\210\240\351\231\244\346\210\220\345\212\237__aenter____aexit__asyncio.coroutines__await__cline_in_tracebackcloseclscreatecreate_classcreate_modelcreate_model_listcreate_modelscreate_resultdatadata_modeldbdeletedelete_modeldelete_model_listdelete_modelsdelete_result__doc__engine_nameentity_classentity_path__func__generic_servicegeneric_service_v2get_metadataget_model_listget_primary_idget_session_is_coroutineitems__main__messagemeta.entity_classmeta.service__metaclass__model_class__module____mro_entries____name__nextppop__prepare__primary_id__primary_key____qualname__readread_modelread_model_listread_modelsread_resultrequest_modelsresponse_classresult_lenschema_pathsend__set_name__setdefaultshudaodao_coresuccess__test__throwupdateupdate_classupdate_modelupdate_model_listupdate_modelsupdate_resultvaluevalues\200A";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
     PyObject **stringtab = __pyx_mstate->__pyx_string_tab;
     Py_ssize_t pos = 0;
-    for (int i = 0; i < 107; i++) {
+    for (int i = 0; i < 106; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyUnicode_DecodeUTF8(bytes + pos, bytes_length, NULL);
       if (likely(string) && i >= 15) PyUnicode_InternInPlace(&string);
@@ -8821,7 +8820,7 @@ const char* const bytes = "\345\210\240\351\231\244\346\210\220\345\212\237, \34
       stringtab[i] = string;
       pos += bytes_length;
     }
-    for (int i = 107; i < 108; i++) {
+    for (int i = 106; i < 107; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyBytes_FromStringAndSize(bytes + pos, bytes_length);
       stringtab[i] = string;
@@ -8832,14 +8831,14 @@ const char* const bytes = "\345\210\240\351\231\244\346\210\220\345\212\237, \34
       }
     }
     Py_XDECREF(data);
-    for (Py_ssize_t i = 0; i < 108; i++) {
+    for (Py_ssize_t i = 0; i < 107; i++) {
       if (unlikely(PyObject_Hash(stringtab[i]) == -1)) {
         __PYX_ERR(0, 1, __pyx_L1_error)
       }
     }
     #if CYTHON_IMMORTAL_CONSTANTS
     {
-      PyObject **table = stringtab + 107;
+      PyObject **table = stringtab + 106;
       for (Py_ssize_t i=0; i<1; ++i) {
         #if CYTHON_COMPILING_IN_CPYTHON_FREETHREADING
         #if PY_VERSION_HEX < 0x030E0000
